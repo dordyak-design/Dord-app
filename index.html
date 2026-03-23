@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Dord Software | Neural Systems</title>
+    <title>Dord Software | AI Neural Systems</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -13,21 +13,18 @@
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         .neural-bg { background-image: radial-gradient(#1e293b 0.8px, transparent 0.8px); background-size: 15px 15px; }
         .glass-card { background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(30, 64, 175, 0.4); backdrop-filter: blur(8px); }
-        .logo-container { width: 42px; height: 42px; flex-shrink: 0; background: #1e40af; border-radius: 8px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
-        .logo-img { width: 100%; height: 100%; object-fit: cover; }
+        /* Увеличенный логотип без лишних букв */
+        .logo-img { height: 55px !important; width: auto !important; display: block; object-fit: contain; }
     </style>
 </head>
 <body class="neural-bg pb-24">
 
     <header class="p-4 flex justify-between items-center border-b border-blue-900/30 sticky top-0 bg-[#050810]/80 backdrop-blur-md z-50">
-        <div class="flex items-center gap-3">
-            <div class="logo-container">
-                <img src="logo.png" alt="D" class="logo-img" onerror="this.style.display='none'">
-                <span class="text-white font-bold text-xl">D</span>
-            </div>
+        <div class="flex items-center gap-4">
+            <img src="logo.png" alt="Dord Logo" class="logo-img">
             <div>
-                <h1 class="text-lg font-bold tracking-tighter leading-none">DORD <span class="text-blue-500">SOFTWARE</span></h1>
-                <p class="text-[9px] text-gray-500 uppercase tracking-widest mt-1">Neural Intelligence • Tel Aviv</p>
+                <h1 class="text-lg font-bold tracking-tighter leading-none text-white">DORD <span class="text-blue-500">SOFTWARE</span></h1>
+                <p class="text-[9px] text-gray-500 uppercase tracking-widest mt-1 font-bold">Neural Intelligence • Tel Aviv</p>
             </div>
         </div>
         <div class="text-[10px] font-bold text-emerald-500 bg-emerald-500/10 px-2 py-1 rounded">ONLINE</div>
@@ -42,7 +39,7 @@
                   "colorTheme": "dark", "dateRange": "12M", "showChart": false, "locale": "en", "isTransparent": true,
                   "showSymbolLogo": true, "width": "100%", "height": "100%",
                   "tabs": [{
-                    "title": "AI Watchlist",
+                    "title": "Crypto AI",
                     "symbols": [
                       {"s": "BINANCE:BTCUSDT"}, {"s": "BINANCE:ETHUSDT"},
                       {"s": "BINANCE:SOLUSDT"}, {"s": "BINANCE:XRPUSDT"}, {"s": "BINANCE:BNBUSDT"}
@@ -54,8 +51,8 @@
         </div>
 
         <div class="flex justify-between items-center mb-4">
-            <h2 class="text-xs font-bold text-blue-400 uppercase tracking-widest">Live Signals</h2>
-            <span class="text-[10px] text-gray-500">Total ROI: +142%</span>
+            <h2 class="text-xs font-bold text-blue-400 uppercase tracking-widest">Neural Signals</h2>
+            <span class="text-[10px] text-gray-500 font-bold">ROI: +142%</span>
         </div>
         
         <div class="glass-card p-4 rounded-xl mb-6 relative overflow-hidden">
@@ -66,8 +63,8 @@
                     <p class="text-[10px] text-emerald-500 font-bold uppercase">Strong Buy</p>
                 </div>
                 <div class="text-right">
-                    <p class="text-[10px] text-gray-500">Confidence</p>
-                    <p class="text-xs font-bold text-blue-300">89% AI Match</p>
+                    <p class="text-[10px] text-gray-500">AI Confidence</p>
+                    <p class="text-xs font-bold text-blue-300">89% Match</p>
                 </div>
             </div>
             <div class="grid grid-cols-2 gap-4">
@@ -76,7 +73,7 @@
                     <p class="font-bold text-sm">142.50</p>
                 </div>
                 <div class="bg-emerald-500/5 p-2 rounded border border-emerald-500/20">
-                    <p class="text-[9px] text-emerald-500 uppercase">Target (TP)</p>
+                    <p class="text-[9px] text-emerald-500 uppercase font-bold">Target</p>
                     <p class="font-bold text-sm text-emerald-400">158.00</p>
                 </div>
             </div>
@@ -84,13 +81,21 @@
 
         <h2 class="text-xs font-bold text-gray-500 mb-4 uppercase tracking-widest text-center">Community Feedback</h2>
         <div class="space-y-3">
-            <div class="glass-card p-3 rounded-lg text-[11px] border-none bg-blue-900/10">
-                <p class="text-gray-300">"Сигналы по SOL зашли идеально. Профит +12% за ночь. Конёк-Горбунок тащит!"</p>
-                <p class="text-blue-500 mt-2 font-bold">— Alex_M</p>
+            <div class="glass-card p-4 rounded-lg text-[11px] border-none bg-blue-900/10">
+                <p class="text-gray-300 leading-relaxed">"Сигналы по SOL отработали ювелирно. Профит +15% за одну сессию. Dord Software — это новый уровень анализа."</p>
+                <p class="text-blue-500 mt-2 font-bold">— Mikhail_Crypto</p>
             </div>
-            <div class="glass-card p-3 rounded-lg text-[11px] border-none bg-blue-900/10">
-                <p class="text-gray-300">"Лучший бот для израильского комьюнити. Личный кабинет очень удобный."</p>
-                <p class="text-blue-500 mt-2 font-bold">— Igal_Crypto</p>
+            <div class="glass-card p-4 rounded-lg text-[11px] border-none bg-blue-900/10">
+                <p class="text-gray-300 leading-relaxed">"Использую пакет Pro, уведомления приходят мгновенно. Точность нейросети поражает, особенно на волатильном рынке."</p>
+                <p class="text-blue-500 mt-2 font-bold">— Dima_Trade</p>
+            </div>
+            <div class="glass-card p-4 rounded-lg text-[11px] border-none bg-blue-900/10">
+                <p class="text-gray-300 leading-relaxed">"Лучшее решение для тех, кто торгует на MEXC. Алгоритмы Dord отлично фильтруют рыночный шум."</p>
+                <p class="text-blue-500 mt-2 font-bold">— Igal_Analyst</p>
+            </div>
+            <div class="glass-card p-4 rounded-lg text-[11px] border-none bg-blue-900/10">
+                <p class="text-gray-300 leading-relaxed">"Подписался на сигналы неделю назад. Закрыл 4 сделки в плюс. Сервис стоит каждого шекеля."</p>
+                <p class="text-blue-500 mt-2 font-bold">— Sarah_FX</p>
             </div>
         </div>
     </main>
@@ -98,33 +103,33 @@
     <main id="news" class="page p-4 text-center">
         <div class="mt-20 glass-card p-10 rounded-2xl">
             <p class="text-4xl mb-4">📰</p>
-            <p class="text-sm font-bold uppercase">Neural News Feed</p>
-            <p class="text-[10px] text-gray-500 mt-2 text-center leading-relaxed">Модуль анализа новостей от Агента #1 находится на стадии калибровки.</p>
+            <p class="text-sm font-bold uppercase text-white">Neural News Feed</p>
+            <p class="text-[10px] text-gray-500 mt-2 leading-relaxed">Агент №1 мониторит новости и Telegram в реальном времени. Модуль аналитики будет доступен в следующем обновлении.</p>
         </div>
     </main>
 
     <main id="cabinet" class="page p-4">
         <div class="glass-card p-6 rounded-2xl">
             <div class="flex items-center gap-4 mb-6">
-                <div class="w-12 h-12 bg-blue-600/20 rounded-full flex items-center justify-center border border-blue-500/50 text-xl">👤</div>
+                <div class="w-12 h-12 bg-blue-600/20 border border-blue-500 rounded-full flex items-center justify-center text-xl shadow-[0_0_10px_rgba(37,99,235,0.3)]">👤</div>
                 <div>
-                    <p class="font-bold">ID: 7284</p>
-                    <p class="text-[10px] text-blue-400 font-bold uppercase tracking-widest">Pro Member Access</p>
+                    <p class="font-bold text-white">Member ID: 7284</p>
+                    <p class="text-[10px] text-blue-400 font-bold uppercase tracking-widest">Status: Pro Access</p>
                 </div>
             </div>
-            <button class="w-full py-3 bg-blue-600 text-white rounded-lg text-[11px] font-bold uppercase shadow-[0_4px_15px_rgba(37,99,235,0.3)]">Open Telegram Bot</button>
+            <button class="w-full py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-xl text-xs font-bold uppercase transition-all shadow-[0_4px_20px_rgba(37,99,235,0.4)]">Open Telegram Bot</button>
         </div>
     </main>
 
     <nav class="fixed bottom-0 left-0 right-0 bg-[#050810]/95 border-t border-blue-900/30 p-3 flex justify-around items-center backdrop-blur-xl z-50">
-        <div onclick="showPage('signals')" class="nav-item flex flex-col items-center cursor-pointer text-blue-500">
-            <span class="text-xl">📊</span><span class="text-[9px] mt-1 font-bold">SIGNALS</span>
+        <div onclick="showPage('signals')" class="nav-item flex flex-col items-center cursor-pointer text-blue-500 transition-all">
+            <span class="text-2xl">📊</span><span class="text-[9px] mt-1 font-bold">SIGNALS</span>
         </div>
-        <div onclick="showPage('news')" class="nav-item flex flex-col items-center cursor-pointer text-gray-500">
-            <span class="text-xl">📰</span><span class="text-[9px] mt-1 font-bold">NEWS</span>
+        <div onclick="showPage('news')" class="nav-item flex flex-col items-center cursor-pointer text-gray-500 transition-all">
+            <span class="text-2xl">📰</span><span class="text-[9px] mt-1 font-bold">NEWS</span>
         </div>
-        <div onclick="showPage('cabinet')" class="nav-item flex flex-col items-center cursor-pointer text-gray-500">
-            <span class="text-xl">👤</span><span class="text-[9px] mt-1 font-bold">CABINET</span>
+        <div onclick="showPage('cabinet')" class="nav-item flex flex-col items-center cursor-pointer text-gray-500 transition-all">
+            <span class="text-2xl">👤</span><span class="text-[9px] mt-1 font-bold">CABINET</span>
         </div>
     </nav>
 
@@ -133,13 +138,11 @@
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             document.getElementById(id).classList.add('active');
             document.querySelectorAll('.nav-item').forEach(item => {
-                item.classList.remove('text-blue-500');
-                item.classList.add('text-gray-500');
+                item.classList.replace('text-blue-500', 'text-gray-500');
             });
             const activeItem = document.querySelector(`[onclick="showPage('${id}')"]`);
             if (activeItem) {
-                activeItem.classList.remove('text-gray-500');
-                activeItem.classList.add('text-blue-500');
+                activeItem.classList.replace('text-gray-500', 'text-blue-500');
             }
         }
     </script>
