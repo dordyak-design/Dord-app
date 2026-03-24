@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Dord Software | AI Terminal v.15.0 Bilingual</title>
+    <title>Dord Software | Terminal v.17.0 Master</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Orbitron:wght@900&display=swap" rel="stylesheet">
     <style>
         :root { --neon-blue: #3b82f6; --neon-green: #10b981; --bg-dark: #010409; }
         body { font-family: 'JetBrains Mono', monospace; background-color: var(--bg-dark); color: #f1f5f9; margin: 0; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
         
-        /* Холст для живых обоев */
         #plexus-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
         
         .logo-font { font-family: 'Orbitron', sans-serif; font-style: italic; font-weight: 900; text-transform: uppercase; }
@@ -31,7 +30,7 @@
         <header class="flex flex-col items-center mb-40 text-center">
             <img src="logo.png" alt="Dord Hawk" class="h-[240px] w-auto mb-12 drop-shadow-[0_0_60px_rgba(59, 130, 246, 0.6)]">
             <h1 class="logo-font text-5xl lg:text-8xl text-white italic tracking-tighter uppercase">DORD <span class="text-blue-500">SOFTWARE</span></h1>
-            <p class="text-blue-400 font-bold uppercase tracking-[0.6em] text-[12px] mt-8 opacity-70 italic">
+            <p class="text-blue-400 font-bold uppercase tracking-[0.6em] text-[10px] lg:text-[12px] mt-8 opacity-70 italic">
                 Neural Intelligence Terminal • Israel • 2026<br>
                 <span class="text-white tracking-[0.2em] mt-2 block uppercase">Терминал Нейронного Интеллекта</span>
             </p>
@@ -106,20 +105,14 @@
                     </div>
                 </div>
                 <div class="glass-card p-10 border-l-8 border-l-blue-500 opacity-60">
-                    <div class="flex justify-between items-start mb-12">
-                        <span class="text-2xl font-black italic uppercase">BTC/USDT</span>
-                        <span class="text-[10px] text-emerald-500 font-black uppercase tracking-widest">Profit Hit | Закрыт</span>
-                    </div>
+                    <div class="flex justify-between items-start mb-12"><span class="text-2xl font-black italic uppercase">BTC/USDT</span><span class="text-[10px] text-emerald-500 font-black uppercase tracking-widest">Profit Hit | Закрыт</span></div>
                     <div class="grid grid-cols-2 gap-8 text-[12px] mb-8">
                         <div><p class="text-gray-500 uppercase font-bold mb-2">Entry</p><p class="text-2xl font-bold">68,200</p></div>
                         <div><p class="text-emerald-500 uppercase font-bold mb-2">Exit</p><p class="text-2xl font-bold text-emerald-400">70,592</p></div>
                     </div>
                 </div>
                 <div class="glass-card p-10 border-l-8 border-l-blue-500 opacity-60">
-                    <div class="flex justify-between items-start mb-12">
-                        <span class="text-2xl font-black italic uppercase tracking-tighter">ETH/USDT</span>
-                        <span class="text-[10px] text-emerald-500 font-black uppercase tracking-widest">Profit Hit | Закрыт</span>
-                    </div>
+                    <div class="flex justify-between items-start mb-12"><span class="text-2xl font-black italic uppercase tracking-tighter">ETH/USDT</span><span class="text-[10px] text-emerald-500 font-black uppercase tracking-widest">Profit Hit | Закрыт</span></div>
                     <div class="grid grid-cols-2 gap-8 text-[12px] mb-8">
                         <div><p class="text-gray-500 uppercase font-bold mb-2">Entry</p><p class="text-2xl font-bold">1,980</p></div>
                         <div><p class="text-emerald-500 uppercase font-bold mb-2">Exit</p><p class="text-2xl font-bold text-emerald-400">2,141</p></div>
@@ -128,8 +121,10 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-40 border-t border-blue-900/10">
-                <div class="glass-card p-12 bg-blue-900/5 border-none text-lg italic text-gray-300">"Сигналы по SOL в 2026-м — это пушка. Профит за сессию покрыл подписку на год." — <span class="text-blue-500 font-black uppercase text-xs">Mikhail_Crypto</span></div>
-                <div class="glass-card p-12 bg-blue-900/5 border-none text-lg italic text-gray-300">"Using Pro package, neural accuracy is insane. Everything is spot on." — <span class="text-blue-500 font-black uppercase text-xs">Dima_Trade</span></div>
+                <div class="glass-card p-12 bg-blue-900/5 border-none text-lg italic text-gray-300">"Сигналы по SOL зашли идеально. Профит +15% за сессию." — <span class="text-blue-500 font-black uppercase text-xs">Mikhail_Crypto</span></div>
+                <div class="glass-card p-12 bg-blue-900/5 border-none text-lg italic text-gray-300">"Using Pro package, accuracy is spot on. Paid off instantly." — <span class="text-blue-500 font-black uppercase text-xs">Dima_Trade</span></div>
+                <div class="glass-card p-12 bg-blue-900/5 border-none text-lg italic text-gray-300">"Лучшее решение для Израиля. Алгоритмы отлично фильтруют шум." — <span class="text-blue-500 font-black uppercase text-xs">Igal_Analyst</span></div>
+                <div class="glass-card p-12 bg-blue-900/5 border-none text-lg italic text-gray-300">"Closed 4 profitable trades this week. Truly reliable system." — <span class="text-blue-500 font-black uppercase text-xs">Sarah_FX</span></div>
             </div>
         </main>
 
@@ -155,42 +150,73 @@
         const canvas = document.getElementById('plexus-canvas');
         const ctx = canvas.getContext('2d');
         let particles = [];
-        function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
-        window.onresize = resize; resize();
+
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        window.addEventListener('resize', resize);
+        resize();
+
         class Particle {
             constructor() {
-                this.x = Math.random() * canvas.width; this.y = Math.random() * canvas.height;
-                this.vx = (Math.random() - 0.5) * 0.5; this.vy = (Math.random() - 0.5) * 0.5;
-                this.size = Math.random() * 2 + 1; this.pulse = Math.random() * Math.PI;
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.4;
+                this.vy = (Math.random() - 0.5) * 0.4;
+                this.size = Math.random() * 2 + 1;
             }
+
             update() {
-                this.x += this.vx; this.y += this.vy;
-                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-                this.pulse += 0.04;
+                this.x += this.vx;
+                this.y += this.vy;
+                if (this.x < 0) this.x = canvas.width;
+                if (this.x > canvas.width) this.x = 0;
+                if (this.y < 0) this.y = canvas.height;
+                if (this.y > canvas.height) this.y = 0;
             }
+
             draw() {
-                const s = this.size + Math.sin(this.pulse) * 1.5;
-                ctx.fillStyle = `rgba(59, 130, 246, ${0.4 + Math.sin(this.pulse) * 0.2})`;
-                ctx.beginPath(); ctx.arc(this.x, this.y, s, 0, Math.PI * 2); ctx.fill();
+                ctx.fillStyle = 'rgba(59, 130, 246, 0.4)';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
             }
         }
-        for (let i = 0; i < 110; i++) particles.push(new Particle());
+
+        function init() {
+            particles = [];
+            for (let i = 0; i < 110; i++) {
+                particles.push(new Particle());
+            }
+        }
+
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             for (let i = 0; i < particles.length; i++) {
-                particles[i].update(); particles[i].draw();
+                const p1 = particles[i];
+                p1.update();
+                p1.draw();
                 for (let j = i + 1; j < particles.length; j++) {
-                    const dist = Math.sqrt((particles[i].x-particles[j].x)**2 + (particles[i].y-particles[j].y)**2);
+                    const p2 = particles[j];
+                    const dx = p1.x - p2.x;
+                    const dy = p1.y - p2.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
                     if (dist < 180) {
                         ctx.strokeStyle = `rgba(59, 130, 246, ${0.3 * (1 - dist / 180)})`;
-                        ctx.lineWidth = 0.8; ctx.beginPath();
-                        ctx.moveTo(particles[i].x, particles[i].y); ctx.lineTo(particles[j].x, particles[j].y); ctx.stroke();
+                        ctx.lineWidth = 0.8;
+                        ctx.beginPath();
+                        ctx.moveTo(p1.x, p1.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.stroke();
                     }
                 }
             }
             requestAnimationFrame(animate);
         }
+
+        init();
         animate();
     </script>
 </body>
