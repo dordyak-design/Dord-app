@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Dord Software | Terminal v.14.0</title>
+    <title>Dord Software | AI Terminal v.14.3</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Orbitron:wght@900&display=swap" rel="stylesheet">
     <style>
@@ -13,7 +13,7 @@
         .logo-font { font-family: 'Orbitron', sans-serif; font-style: italic; font-weight: 900; text-transform: uppercase; }
         .main-container { max-width: 1400px; margin: 0 auto; position: relative; }
         .glass-card { background: rgba(13, 17, 23, 0.95); border: 1px solid rgba(59, 130, 246, 0.2); backdrop-filter: blur(40px); border-radius: 30px; transition: 0.4s; }
-        .sidebar-btn { color: #4b5563; font-weight: 800; transition: 0.3s; padding: 18px 30px; border-radius: 18px; text-align: left; width: 100%; border: 1px solid transparent; }
+        .sidebar-btn { color: #4b5563; font-weight: 800; transition: 0.3s; padding: 18px 30px; border-radius: 18px; text-align: left; width: 100%; border: 1px solid transparent; display: block; }
         .sidebar-btn.active { color: white; background: rgba(59, 130, 246, 0.15); border-color: var(--neon-blue); box-shadow: 0 0 25px rgba(59, 130, 246, 0.2); }
         .neon-glow { color: var(--neon-green); text-shadow: 0 0 20px rgba(16, 185, 129, 0.5); }
     </style>
@@ -31,15 +31,18 @@
         </header>
 
         <div class="flex flex-col lg:flex-row gap-16 mb-60">
-            <aside class="w-full lg:w-80 flex flex-col shrink-0">
-                <nav class="space-y-12">
-                    <a href="index.html" class="sidebar-btn active flex flex-col"><span class="text-xs uppercase tracking-widest">Signals | Сигналы</span></a>
-                    <a href="plans.html" class="sidebar-btn flex flex-col"><span class="text-xs uppercase tracking-widest">Plans | Тарифы</span></a>
-                    <a href="cabinet.html" class="sidebar-btn flex flex-col"><span class="text-xs uppercase tracking-widest">Cabinet | Кабинет</span></a>
-                </nav>
-                <div class="mt-80 p-6 glass-card text-center hidden lg:block border-blue-900/20">
+            <aside class="w-full lg:w-80 flex flex-col gap-6 shrink-0">
+                <div class="glass-card p-6">
+                    <nav class="space-y-4">
+                        <a href="index.html" class="sidebar-btn active flex flex-col"><span class="text-xs uppercase tracking-widest">Signals | Сигналы</span></a>
+                        <a href="plans.html" class="sidebar-btn flex flex-col"><span class="text-xs uppercase tracking-widest">Plans | Тарифы</span></a>
+                        <a href="cabinet.html" class="sidebar-btn flex flex-col"><span class="text-xs uppercase tracking-widest">Cabinet | Кабинет</span></a>
+                    </nav>
+                </div>
+                
+                <div class="lg:mt-52 p-6 glass-card text-center hidden lg:block border-blue-900/20">
                     <div class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse mx-auto mb-3"></div>
-                    <p class="text-[9px] font-black text-emerald-400 uppercase tracking-widest italic">Neural Link: Active</p>
+                    <p class="text-[9px] font-black text-emerald-400 uppercase tracking-widest italic">System Core Online<br>Neural Link Active</p>
                 </div>
             </aside>
 
@@ -66,20 +69,20 @@
 
         <main class="space-y-60">
             <div class="flex flex-wrap items-baseline justify-between border-b border-blue-900/30 pb-16 px-6">
-                <div class="flex items-baseline gap-4"><h2 class="text-sm font-black text-blue-500 uppercase tracking-widest">ROI =</h2><p class="text-3xl font-black neon-glow italic tracking-tighter">149%</p></div>
+                <div class="flex items-baseline gap-4"><h2 class="text-sm font-black text-blue-500 uppercase tracking-widest">ROI =</h2><p class="text-4xl font-black neon-glow italic tracking-tighter">149%</p></div>
                 <div class="flex items-baseline gap-4"><h2 class="text-sm font-black text-blue-500 uppercase tracking-widest">Accuracy =</h2><p class="text-5xl font-black text-white italic tracking-tighter">84.5%</p></div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12">
                 <div class="glass-card p-10 border-l-8 border-l-emerald-500">
-                    <div class="flex justify-between items-start mb-12"><span class="text-3xl font-black italic uppercase">SOL/USDT</span><span class="text-[10px] text-emerald-400 font-black uppercase tracking-widest ml-4">Active</span></div>
+                    <div class="flex justify-between items-start mb-12"><span class="text-3xl font-black italic uppercase">SOL/USDT</span><span class="text-[10px] text-emerald-400 font-black uppercase ml-4">Active</span></div>
                     <div class="grid grid-cols-2 gap-8 text-[12px]">
                         <div><p class="text-gray-500 uppercase font-bold mb-2">Entry</p><p class="text-3xl font-bold">90.99</p></div>
                         <div><p class="text-emerald-500 uppercase font-bold mb-2">Target</p><p class="text-3xl font-bold text-emerald-400">98.50</p></div>
                     </div>
                 </div>
                 <div class="glass-card p-10 border-l-8 border-l-blue-500 opacity-60">
-                    <div class="flex justify-between items-start mb-12"><span class="text-2xl font-black italic uppercase">BTC/USDT</span><span class="text-[10px] text-emerald-500 font-black uppercase tracking-widest ml-4">Profit Hit</span></div>
+                    <div class="flex justify-between items-start mb-12"><span class="text-2xl font-black italic uppercase">BTC/USDT</span><span class="text-[10px] text-emerald-500 font-black uppercase ml-4">Profit Hit</span></div>
                     <div class="grid grid-cols-2 gap-8 text-[12px] mb-8">
                         <div><p class="text-gray-500 uppercase font-bold mb-2">Entry</p><p class="text-2xl font-bold">68,200</p></div>
                         <div><p class="text-emerald-500 uppercase font-bold mb-2">Exit</p><p class="text-2xl font-bold text-emerald-400">70,592</p></div>
@@ -95,18 +98,27 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-40 border-t border-blue-900/10">
-                <div class="glass-card p-12 bg-blue-900/5 border-none text-lg italic text-gray-300">"Сигналы по SOL в 2026-м — это пушка. Профит за сессию покрыл подписку на год." — <span class="text-blue-500 font-black uppercase text-xs tracking-widest">Mikhail_Crypto</span></div>
-                <div class="glass-card p-12 bg-blue-900/5 border-none text-lg italic text-gray-300">"Использую Pro, точность нейросети поражает. Всё четко." — <span class="text-blue-500 font-black uppercase text-xs tracking-widest">Dima_Trade</span></div>
-                <div class="glass-card p-12 bg-blue-900/5 border-none text-lg italic text-gray-300">"Лучшее решение для Израиля. Алгоритмы отлично фильтруют шум." — <span class="text-blue-500 font-black uppercase text-xs tracking-widest">Igal_Analyst</span></div>
-                <div class="glass-card p-12 bg-blue-900/5 border-none text-lg italic text-gray-300">"4 сделки в плюс за неделю. Окупается мгновенно." — <span class="text-blue-500 font-black uppercase text-xs tracking-widest">Sarah_FX</span></div>
+                <div class="glass-card p-12 bg-blue-900/5 border-none text-lg italic text-gray-300">"Сигналы по SOL в 2026-м — это пушка. Профит за сессию покрыл подписку на год." — <span class="text-blue-500 font-black uppercase text-xs ml-2">Mikhail_Crypto</span></div>
+                <div class="glass-card p-12 bg-blue-900/5 border-none text-lg italic text-gray-300">"Использую пакет Pro, точность нейросети поражает. Всё четко." — <span class="text-blue-500 font-black uppercase text-xs ml-2">Dima_Trade</span></div>
+                <div class="glass-card p-12 bg-blue-900/5 border-none text-lg italic text-gray-300">"Лучшее решение для Израиля. Алгоритмы отлично фильтруют шум." — <span class="text-blue-500 font-black uppercase text-xs ml-2">Igal_Analyst</span></div>
+                <div class="glass-card p-12 bg-blue-900/5 border-none text-lg italic text-gray-300">"4 сделки в плюс за неделю. Окупается мгновенно." — <span class="text-blue-500 font-black uppercase text-xs ml-2">Sarah_FX</span></div>
             </div>
         </main>
 
         <footer class="mt-80 pt-40 border-t border-blue-900/20 pb-40 text-center">
             <h4 class="logo-font text-3xl text-white italic opacity-40 mb-16 uppercase tracking-widest">DORD SOFTWARE</h4>
             <div class="max-w-5xl mx-auto border border-red-900/40 rounded-[40px] p-16 space-y-10 text-center">
-                <p class="text-xs text-gray-500 font-bold uppercase tracking-widest leading-relaxed">© 2026 DORD SOFTWARE NEURAL NETWORK. ALL RIGHTS RESERVED.</p>
-                <p class="text-[11px] text-red-800 font-black uppercase tracking-[0.4em]">RISK WARNING: FUTURES TRADING INVOLVES SIGNIFICANT RISK OF LOSS.</p>
+                <p class="text-xs text-gray-500 font-bold uppercase tracking-widest leading-relaxed">
+                    © 2026 DORD SOFTWARE NEURAL NETWORK. ALL RIGHTS RESERVED. <br><br>
+                    ТОРГОВЛЯ НА ФЬЮЧЕРСАХ НЕСЕТ ВЫСОКИЕ РИСКИ ПОТЕРИ КАПИТАЛА. СТРОГО СОБЛЮДАЙТЕ РИСК-МЕНЕДЖМЕНТ: <br>
+                    <span class="text-gray-400">
+                    • НЕ ЗАВЫШАЙТЕ ПЛЕЧИ. <br>
+                    • НЕ ЗАХОДИТЕ В СДЕЛКУ НА БОЛЬШОЙ ПРОЦЕНТ ОТ ДЕПОЗИТА. <br>
+                    • СТРОГО СЛЕДУЙТЕ ВСЕМ ПАРАМЕТРАМ И УКАЗАНИЯМ В ВЫДАННОМ СИГНАЛЕ.
+                    </span>
+                </p>
+                <div class="h-px bg-red-900/20 w-1/3 mx-auto"></div>
+                <p class="text-[11px] text-red-800 font-black uppercase tracking-[0.4em] leading-relaxed">RISK WARNING: FUTURES TRADING INVOLVES SIGNIFICANT RISK OF LOSS. DO NOT OVER-LEVERAGE.</p>
             </div>
         </footer>
     </div>
