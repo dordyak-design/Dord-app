@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Dord Software | Terminal v.17.0 Master</title>
+    <title>Dord Software | AI Terminal v.17.1 Master</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Orbitron:wght@900&display=swap" rel="stylesheet">
     <style>
@@ -11,8 +11,7 @@
         body { font-family: 'JetBrains Mono', monospace; background-color: var(--bg-dark); color: #f1f5f9; margin: 0; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
         
         #plexus-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
-        /* Ужимаем все гигантские отступы разом */
-.mb-40, .mb-60, .mt-80, .space-y-60 { margin-bottom: 3rem !important; margin-top: 3rem !important; margin-block-start: 3rem !important; }
+        
         .logo-font { font-family: 'Orbitron', sans-serif; font-style: italic; font-weight: 900; text-transform: uppercase; }
         .main-container { max-width: 1400px; margin: 0 auto; position: relative; }
         .glass-card { background: rgba(13, 17, 23, 0.95); border: 1px solid rgba(59, 130, 246, 0.2); backdrop-filter: blur(40px); border-radius: 30px; transition: 0.4s; }
@@ -31,7 +30,7 @@
         <header class="flex flex-col items-center mb-40 text-center">
             <img src="logo.png" alt="Dord Hawk" class="h-[240px] w-auto mb-12 drop-shadow-[0_0_60px_rgba(59, 130, 246, 0.6)]">
             <h1 class="logo-font text-5xl lg:text-8xl text-white italic tracking-tighter uppercase">DORD <span class="text-blue-500">SOFTWARE</span></h1>
-            <p class="text-blue-400 font-bold uppercase tracking-[0.6em] text-[10px] lg:text-[12px] mt-8 opacity-70 italic">
+            <p class="text-blue-400 font-bold uppercase tracking-[0.6em] text-[12px] mt-8 opacity-70 italic">
                 Neural Intelligence Terminal • Israel • 2026<br>
                 <span class="text-white tracking-[0.2em] mt-2 block uppercase">Терминал Нейронного Интеллекта</span>
             </p>
@@ -111,6 +110,7 @@
                         <div><p class="text-gray-500 uppercase font-bold mb-2">Entry</p><p class="text-2xl font-bold">68,200</p></div>
                         <div><p class="text-emerald-500 uppercase font-bold mb-2">Exit</p><p class="text-2xl font-bold text-emerald-400">70,592</p></div>
                     </div>
+                    <p class="text-right text-xs text-emerald-500 font-black tracking-widestuppercase">+3.7% Net</p>
                 </div>
                 <div class="glass-card p-10 border-l-8 border-l-blue-500 opacity-60">
                     <div class="flex justify-between items-start mb-12"><span class="text-2xl font-black italic uppercase tracking-tighter">ETH/USDT</span><span class="text-[10px] text-emerald-500 font-black uppercase tracking-widest">Profit Hit | Закрыт</span></div>
@@ -118,14 +118,15 @@
                         <div><p class="text-gray-500 uppercase font-bold mb-2">Entry</p><p class="text-2xl font-bold">1,980</p></div>
                         <div><p class="text-emerald-500 uppercase font-bold mb-2">Exit</p><p class="text-2xl font-bold text-emerald-400">2,141</p></div>
                     </div>
+                    <p class="text-right text-xs text-emerald-500 font-black tracking-widestuppercase">+8.2% Net</p>
                 </div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-40 border-t border-blue-900/10">
-                <div class="glass-card p-12 bg-blue-900/5 border-none text-lg italic text-gray-300">"Сигналы по SOL зашли идеально. Профит +15% за сессию." — <span class="text-blue-500 font-black uppercase text-xs">Mikhail_Crypto</span></div>
-                <div class="glass-card p-12 bg-blue-900/5 border-none text-lg italic text-gray-300">"Using Pro package, accuracy is spot on. Paid off instantly." — <span class="text-blue-500 font-black uppercase text-xs">Dima_Trade</span></div>
-                <div class="glass-card p-12 bg-blue-900/5 border-none text-lg italic text-gray-300">"Лучшее решение для Израиля. Алгоритмы отлично фильтруют шум." — <span class="text-blue-500 font-black uppercase text-xs">Igal_Analyst</span></div>
-                <div class="glass-card p-12 bg-blue-900/5 border-none text-lg italic text-gray-300">"Closed 4 profitable trades this week. Truly reliable system." — <span class="text-blue-500 font-black uppercase text-xs">Sarah_FX</span></div>
+                <div class="glass-card p-12 bg-blue-900/5 border-none text-lg italic text-gray-300">"Сигналы по SOL зашли идеально. Профит +15% за сессию. Dord Software — это уровень." — <span class="text-blue-500 font-black uppercase text-xs ml-2">Mikhail_Crypto</span></div>
+                <div class="glass-card p-12 bg-blue-900/5 border-none text-lg italic text-gray-300">"Using Pro package, notifications are instant. The neural accuracy is spot on." — <span class="text-blue-500 font-black uppercase text-xs ml-2">Dima_Trade</span></div>
+                <div class="glass-card p-12 bg-blue-900/5 border-none text-lg italic text-gray-300">"Лучшее решение для Израиля. Алгоритмы отлично фильтруют рыночный шум." — <span class="text-blue-500 font-black uppercase text-xs ml-2">Igal_Analyst</span></div>
+                <div class="glass-card p-12 bg-blue-900/5 border-none text-lg italic text-gray-300">"Closed 4 profitable trades this week. Truly reliable system." — <span class="text-blue-500 font-black uppercase text-xs ml-2">Sarah_FX</span></div>
             </div>
         </main>
 
