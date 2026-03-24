@@ -11,7 +11,8 @@
         body { font-family: 'JetBrains Mono', monospace; background-color: var(--bg-dark); color: #f1f5f9; margin: 0; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
         
         #plexus-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
-        
+        /* Ужимаем все гигантские отступы разом */
+.mb-40, .mb-60, .mt-80, .space-y-60 { margin-bottom: 3rem !important; margin-top: 3rem !important; margin-block-start: 3rem !important; }
         .logo-font { font-family: 'Orbitron', sans-serif; font-style: italic; font-weight: 900; text-transform: uppercase; }
         .main-container { max-width: 1400px; margin: 0 auto; position: relative; }
         .glass-card { background: rgba(13, 17, 23, 0.95); border: 1px solid rgba(59, 130, 246, 0.2); backdrop-filter: blur(40px); border-radius: 30px; transition: 0.4s; }
