@@ -84,169 +84,192 @@
             </div>
         </div>
 
-        <main class="space-y-24">
-            <div class="flex flex-wrap items-baseline justify-between border-b border-blue-900/30 pb-12 px-6">
-                <div class="flex items-baseline gap-4"><h2 class="text-sm font-black text-blue-500 uppercase tracking-widest">ROI =</h2><p class="text-3xl font-black neon-glow italic tracking-tighter">149%</p></div>
-                <div class="flex items-baseline gap-4"><h2 class="text-sm font-black text-blue-500 uppercase tracking-widest">Accuracy | Точность =</h2><p class="text-5xl font-black text-white italic tracking-tighter">84.5%</p></div>
+       <main class="space-y-24">
+            
+            <div class="flex flex-wrap items-center justify-center gap-12 lg:gap-32 border-b border-blue-900/30 pb-12 px-6">
+                <div class="flex items-center gap-4">
+                    <h2 class="text-3xl lg:text-4xl font-black text-blue-500 uppercase tracking-widest">ROI =</h2>
+                    <p class="text-3xl lg:text-4xl font-black neon-glow italic tracking-tighter">149%</p>
+                </div>
+                <div class="flex items-center gap-4">
+                    <h2 class="text-3xl lg:text-4xl font-black text-blue-500 uppercase tracking-widest">Accuracy =</h2>
+                    <p class="text-3xl lg:text-4xl font-black text-white italic tracking-tighter">84.5%</p>
+                </div>
             </div>
 
             <div class="flex gap-8 overflow-x-auto stream-scroll pb-8 snap-x">
                 
-                <div class="glass-card p-8 border-l-[6px] border-[#00ffcc] min-w-[340px] flex-shrink-0 snap-start">
-                    <div class="flex justify-between items-start mb-8">
-                        <div>
-                            <span class="text-3xl font-black italic uppercase block mb-2 text-white">SOL/USDT</span>
-                            <span class="text-ru text-xs uppercase font-bold tracking-[0.1em]">Лонг</span> <span class="text-en uppercase font-bold tracking-[0.1em]">| LONG</span>
+                <div class="glass-card p-8 border-l-[6px] border-[#00ffcc] w-[360px] h-[340px] shrink-0 snap-start flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <span class="text-3xl font-black italic uppercase block mb-1 text-white">SOL/USDT</span>
+                                <span class="text-ru text-xs uppercase font-bold tracking-[0.1em]">Лонг</span> <span class="text-en uppercase font-bold tracking-[0.1em]">| LONG</span>
+                            </div>
+                            <span class="bg-[#00ffcc]/10 text-[#00ffcc] px-3 py-1 rounded-full font-black uppercase tracking-widest animate-pulse"><span class="text-ru text-[10px]">В работе</span> <span class="badge-en">| ACTIVE</span></span>
                         </div>
-                        <span class="bg-[#00ffcc]/10 text-[#00ffcc] px-3 py-1 rounded-full font-black uppercase tracking-widest animate-pulse"><span class="text-ru text-[10px]">В работе</span> <span class="badge-en">| ACTIVE</span></span>
+                        <div class="grid grid-cols-2 gap-y-4 gap-x-4">
+                            <div><p class="mb-1"><span class="text-ru text-[10px] uppercase font-bold text-gray-400">Вход</span> <span class="badge-en uppercase font-bold">| Entry</span></p><p class="text-2xl font-bold text-white">90.99</p></div>
+                            <div><p class="mb-1"><span class="text-ru text-[10px] uppercase font-bold text-gray-400">Тейк</span> <span class="badge-en uppercase font-bold">| TP</span></p><p class="text-2xl font-bold text-[#00ffcc]">98.50</p></div>
+                            <div><p class="mb-1"><span class="text-ru text-[10px] uppercase font-bold text-gray-400">Стоп</span> <span class="badge-en uppercase font-bold">| SL</span></p><p class="text-xl font-bold opacity-60 text-white">86.20</p></div>
+                            <div><p class="mb-1"><span class="text-ru text-[10px] uppercase font-bold text-gray-400">Плечо</span> <span class="badge-en uppercase font-bold">| Lev</span></p><p class="text-xl font-bold text-white">20x</p></div>
+                        </div>
                     </div>
-                    <div class="grid grid-cols-2 gap-y-6 gap-x-4 mb-8">
-                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Вход</span> <span class="text-en uppercase font-bold">| Entry</span></p><p class="text-2xl font-bold text-white">90.99</p></div>
-                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Тейк</span> <span class="text-en uppercase font-bold">| TP</span></p><p class="text-2xl font-bold text-[#00ffcc]">98.50</p></div>
-                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Стоп</span> <span class="text-en uppercase font-bold">| SL</span></p><p class="text-xl font-bold opacity-60 text-white">86.20</p></div>
-                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Плечо</span> <span class="text-en uppercase font-bold">| Lev</span></p><p class="text-xl font-bold text-white">20x</p></div>
-                    </div>
-                    <div class="pt-4 border-t border-blue-900/30 flex justify-between items-center">
+                    <div class="pt-4 border-t border-blue-900/30 flex justify-between items-center mt-auto">
                         <div><span class="text-ru text-xs uppercase font-bold">Профит</span> <span class="text-en uppercase font-bold">| Net ROI</span></div>
                         <span class="text-[#00ffcc] font-orbitron text-2xl font-black italic tracking-tighter">+14.2%</span>
                     </div>
                 </div>
 
-                <div class="glass-card p-8 border-l-[6px] border-[#00ffcc] opacity-80 min-w-[340px] flex-shrink-0 snap-start">
-                    <div class="flex justify-between items-start mb-8">
-                        <div>
-                            <span class="text-3xl font-black italic uppercase block mb-2 text-white">BTC/USDT</span>
-                            <span class="text-ru text-xs uppercase font-bold tracking-[0.1em]">Лонг</span> <span class="text-en uppercase font-bold tracking-[0.1em]">| LONG</span>
+                <div class="glass-card p-8 border-l-[6px] border-[#00ffcc] opacity-80 w-[360px] h-[340px] shrink-0 snap-start flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <span class="text-3xl font-black italic uppercase block mb-1 text-white">BTC/USDT</span>
+                                <span class="text-ru text-xs uppercase font-bold tracking-[0.1em]">Лонг</span> <span class="text-en uppercase font-bold tracking-[0.1em]">| LONG</span>
+                            </div>
+                            <span class="text-[#00ffcc] px-3 py-1 font-black uppercase tracking-widest"><span class="text-ru text-[10px]">Тейк</span> <span class="badge-en text-[#00ffcc]">| TP HIT</span></span>
                         </div>
-                        <span class="text-[#00ffcc] px-3 py-1 font-black uppercase tracking-widest"><span class="text-ru text-[10px]">Тейк</span> <span class="badge-en text-[#00ffcc]">| TP HIT</span></span>
+                        <div class="grid grid-cols-2 gap-y-4 gap-x-4">
+                            <div><p class="mb-1"><span class="text-ru text-[10px] uppercase font-bold text-gray-400">Вход</span> <span class="badge-en uppercase font-bold">| Entry</span></p><p class="text-2xl font-bold text-white">68,200</p></div>
+                            <div><p class="mb-1"><span class="text-ru text-[10px] uppercase font-bold text-gray-400">Выход</span> <span class="badge-en uppercase font-bold">| Exit</span></p><p class="text-2xl font-bold text-[#00ffcc]">70,592</p></div>
+                            <div><p class="mb-1"><span class="text-ru text-[10px] uppercase font-bold text-gray-400">Стоп</span> <span class="badge-en uppercase font-bold">| SL</span></p><p class="text-xl font-bold opacity-60 text-white">66,500</p></div>
+                            <div><p class="mb-1"><span class="text-ru text-[10px] uppercase font-bold text-gray-400">Плечо</span> <span class="badge-en uppercase font-bold">| Lev</span></p><p class="text-xl font-bold text-white">50x</p></div>
+                        </div>
                     </div>
-                    <div class="grid grid-cols-2 gap-y-6 gap-x-4 mb-8">
-                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Вход</span> <span class="text-en uppercase font-bold">| Entry</span></p><p class="text-2xl font-bold text-white">68,200</p></div>
-                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Выход</span> <span class="text-en uppercase font-bold">| Exit</span></p><p class="text-2xl font-bold text-[#00ffcc]">70,592</p></div>
-                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Стоп</span> <span class="text-en uppercase font-bold">| SL</span></p><p class="text-xl font-bold opacity-60 text-white">66,500</p></div>
-                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Плечо</span> <span class="text-en uppercase font-bold">| Lev</span></p><p class="text-xl font-bold text-white">50x</p></div>
-                    </div>
-                    <div class="pt-4 border-t border-blue-900/30 flex justify-between items-center">
+                    <div class="pt-4 border-t border-blue-900/30 flex justify-between items-center mt-auto">
                         <div><span class="text-ru text-xs uppercase font-bold">Профит</span> <span class="text-en uppercase font-bold">| Net ROI</span></div>
                         <span class="text-[#00ffcc] font-orbitron text-2xl font-black italic tracking-tighter">+3.7%</span>
                     </div>
                 </div>
 
-                <div class="glass-card p-8 border-l-[6px] border-[#00ffcc] opacity-80 min-w-[340px] flex-shrink-0 snap-start">
-                    <div class="flex justify-between items-start mb-8">
-                        <div>
-                            <span class="text-3xl font-black italic uppercase block mb-2 text-white">ETH/USDT</span>
-                            <span class="text-ru text-xs uppercase font-bold tracking-[0.1em]">Лонг</span> <span class="text-en uppercase font-bold tracking-[0.1em]">| LONG</span>
+                <div class="glass-card p-8 border-l-[6px] border-[#00ffcc] opacity-80 w-[360px] h-[340px] shrink-0 snap-start flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <span class="text-3xl font-black italic uppercase block mb-1 text-white">ETH/USDT</span>
+                                <span class="text-ru text-xs uppercase font-bold tracking-[0.1em]">Лонг</span> <span class="text-en uppercase font-bold tracking-[0.1em]">| LONG</span>
+                            </div>
+                            <span class="text-[#00ffcc] px-3 py-1 font-black uppercase tracking-widest"><span class="text-ru text-[10px]">Тейк</span> <span class="badge-en text-[#00ffcc]">| TP HIT</span></span>
                         </div>
-                        <span class="text-[#00ffcc] px-3 py-1 font-black uppercase tracking-widest"><span class="text-ru text-[10px]">Тейк</span> <span class="badge-en text-[#00ffcc]">| TP HIT</span></span>
+                        <div class="grid grid-cols-2 gap-y-4 gap-x-4">
+                            <div><p class="mb-1"><span class="text-ru text-[10px] uppercase font-bold text-gray-400">Вход</span> <span class="badge-en uppercase font-bold">| Entry</span></p><p class="text-2xl font-bold text-white">1,980</p></div>
+                            <div><p class="mb-1"><span class="text-ru text-[10px] uppercase font-bold text-gray-400">Выход</span> <span class="badge-en uppercase font-bold">| Exit</span></p><p class="text-2xl font-bold text-[#00ffcc]">2,141</p></div>
+                            <div><p class="mb-1"><span class="text-ru text-[10px] uppercase font-bold text-gray-400">Стоп</span> <span class="badge-en uppercase font-bold">| SL</span></p><p class="text-xl font-bold opacity-60 text-white">1,890</p></div>
+                            <div><p class="mb-1"><span class="text-ru text-[10px] uppercase font-bold text-gray-400">Плечо</span> <span class="badge-en uppercase font-bold">| Lev</span></p><p class="text-xl font-bold text-white">25x</p></div>
+                        </div>
                     </div>
-                    <div class="grid grid-cols-2 gap-y-6 gap-x-4 mb-8">
-                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Вход</span> <span class="text-en uppercase font-bold">| Entry</span></p><p class="text-2xl font-bold text-white">1,980</p></div>
-                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Выход</span> <span class="text-en uppercase font-bold">| Exit</span></p><p class="text-2xl font-bold text-[#00ffcc]">2,141</p></div>
-                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Стоп</span> <span class="text-en uppercase font-bold">| SL</span></p><p class="text-xl font-bold opacity-60 text-white">1,890</p></div>
-                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Плечо</span> <span class="text-en uppercase font-bold">| Lev</span></p><p class="text-xl font-bold text-white">25x</p></div>
-                    </div>
-                    <div class="pt-4 border-t border-blue-900/30 flex justify-between items-center">
+                    <div class="pt-4 border-t border-blue-900/30 flex justify-between items-center mt-auto">
                         <div><span class="text-ru text-xs uppercase font-bold">Профит</span> <span class="text-en uppercase font-bold">| Net ROI</span></div>
                         <span class="text-[#00ffcc] font-orbitron text-2xl font-black italic tracking-tighter">+8.2%</span>
                     </div>
                 </div>
 
-                <div class="glass-card p-8 border-l-[6px] border-[#ef4444] opacity-80 min-w-[340px] flex-shrink-0 snap-start">
-                    <div class="flex justify-between items-start mb-8">
-                        <div>
-                            <span class="text-3xl font-black italic uppercase block mb-2 text-white">ARB/USDT</span>
-                            <span class="text-ru text-xs uppercase font-bold tracking-[0.1em]">Лонг</span> <span class="text-en uppercase font-bold tracking-[0.1em]">| LONG</span>
+                <div class="glass-card p-8 border-l-[6px] border-[#ef4444] opacity-80 w-[360px] h-[340px] shrink-0 snap-start flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <span class="text-3xl font-black italic uppercase block mb-1 text-white">ARB/USDT</span>
+                                <span class="text-ru text-xs uppercase font-bold tracking-[0.1em]">Лонг</span> <span class="text-en uppercase font-bold tracking-[0.1em]">| LONG</span>
+                            </div>
+                            <span class="text-[#ef4444] px-3 py-1 font-black uppercase tracking-widest"><span class="text-ru text-[10px]">Удар СЛ</span> <span class="badge-en !text-[#ef4444]">| SL HIT</span></span>
                         </div>
-                        <span class="text-[#ef4444] px-3 py-1 font-black uppercase tracking-widest"><span class="text-ru text-[10px]">Удар СЛ</span> <span class="badge-en !text-[#ef4444]">| SL HIT</span></span>
+                        <div class="grid grid-cols-2 gap-y-4 gap-x-4">
+                            <div><p class="mb-1"><span class="text-ru text-[10px] uppercase font-bold text-gray-400">Вход</span> <span class="badge-en uppercase font-bold">| Entry</span></p><p class="text-2xl font-bold text-white">1.150</p></div>
+                            <div><p class="mb-1"><span class="text-ru text-[10px] uppercase font-bold text-gray-400">Тейк</span> <span class="badge-en uppercase font-bold">| TP</span></p><p class="text-2xl font-bold text-gray-500">1.280</p></div>
+                            <div><p class="mb-1"><span class="text-ru text-[10px] uppercase font-bold text-gray-400">Выход</span> <span class="badge-en uppercase font-bold">| Exit</span></p><p class="text-xl font-bold text-[#ef4444]">1.090</p></div>
+                            <div><p class="mb-1"><span class="text-ru text-[10px] uppercase font-bold text-gray-400">Плечо</span> <span class="badge-en uppercase font-bold">| Lev</span></p><p class="text-xl font-bold text-white">10x</p></div>
+                        </div>
                     </div>
-                    <div class="grid grid-cols-2 gap-y-6 gap-x-4 mb-8">
-                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Вход</span> <span class="text-en uppercase font-bold">| Entry</span></p><p class="text-2xl font-bold text-white">1.150</p></div>
-                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Тейк</span> <span class="text-en uppercase font-bold">| TP</span></p><p class="text-2xl font-bold text-gray-500">1.280</p></div>
-                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Выход</span> <span class="text-en uppercase font-bold">| Exit</span></p><p class="text-xl font-bold text-[#ef4444]">1.090</p></div>
-                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Плечо</span> <span class="text-en uppercase font-bold">| Lev</span></p><p class="text-xl font-bold text-white">10x</p></div>
-                    </div>
-                    <div class="pt-4 border-t border-blue-900/30 flex justify-between items-center">
+                    <div class="pt-4 border-t border-blue-900/30 flex justify-between items-center mt-auto">
                         <div><span class="text-ru text-xs uppercase font-bold">Убыток</span> <span class="text-en uppercase font-bold">| Net Loss</span></div>
                         <span class="text-[#ef4444] font-orbitron text-2xl font-black italic tracking-tighter">-5.2%</span>
                     </div>
                 </div>
 
-                <div class="glass-card p-8 border-l-[6px] border-[#00ffcc] opacity-80 min-w-[340px] flex-shrink-0 snap-start">
-                    <div class="flex justify-between items-start mb-8">
-                        <div>
-                            <span class="text-3xl font-black italic uppercase block mb-2 text-white">ZANO/USDT</span>
-                            <span class="text-ru text-xs uppercase font-bold tracking-[0.1em]">Лонг</span> <span class="text-en uppercase font-bold tracking-[0.1em]">| LONG</span>
+                <div class="glass-card p-8 border-l-[6px] border-[#00ffcc] opacity-80 w-[360px] h-[340px] shrink-0 snap-start flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <span class="text-3xl font-black italic uppercase block mb-1 text-white">ZANO/USDT</span>
+                                <span class="text-ru text-xs uppercase font-bold tracking-[0.1em]">Лонг</span> <span class="text-en uppercase font-bold tracking-[0.1em]">| LONG</span>
+                            </div>
+                            <span class="text-[#00ffcc] px-3 py-1 font-black uppercase tracking-widest"><span class="text-ru text-[10px]">Тейк</span> <span class="badge-en text-[#00ffcc]">| TP HIT</span></span>
                         </div>
-                        <span class="text-[#00ffcc] px-3 py-1 font-black uppercase tracking-widest"><span class="text-ru text-[10px]">Тейк</span> <span class="badge-en text-[#00ffcc]">| TP HIT</span></span>
+                        <div class="grid grid-cols-2 gap-y-4 gap-x-4">
+                            <div><p class="mb-1"><span class="text-ru text-[10px] uppercase font-bold text-gray-400">Вход</span> <span class="badge-en uppercase font-bold">| Entry</span></p><p class="text-2xl font-bold text-white">2.10</p></div>
+                            <div><p class="mb-1"><span class="text-ru text-[10px] uppercase font-bold text-gray-400">Выход</span> <span class="badge-en uppercase font-bold">| Exit</span></p><p class="text-2xl font-bold text-[#00ffcc]">2.45</p></div>
+                            <div><p class="mb-1"><span class="text-ru text-[10px] uppercase font-bold text-gray-400">Стоп</span> <span class="badge-en uppercase font-bold">| SL</span></p><p class="text-xl font-bold opacity-60 text-white">1.95</p></div>
+                            <div><p class="mb-1"><span class="text-ru text-[10px] uppercase font-bold text-gray-400">Плечо</span> <span class="badge-en uppercase font-bold">| Lev</span></p><p class="text-xl font-bold text-white">5x</p></div>
+                        </div>
                     </div>
-                    <div class="grid grid-cols-2 gap-y-6 gap-x-4 mb-8">
-                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Вход</span> <span class="text-en uppercase font-bold">| Entry</span></p><p class="text-2xl font-bold text-white">2.10</p></div>
-                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Выход</span> <span class="text-en uppercase font-bold">| Exit</span></p><p class="text-2xl font-bold text-[#00ffcc]">2.45</p></div>
-                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Стоп</span> <span class="text-en uppercase font-bold">| SL</span></p><p class="text-xl font-bold opacity-60 text-white">1.95</p></div>
-                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Плечо</span> <span class="text-en uppercase font-bold">| Lev</span></p><p class="text-xl font-bold text-white">5x</p></div>
-                    </div>
-                    <div class="pt-4 border-t border-blue-900/30 flex justify-between items-center">
+                    <div class="pt-4 border-t border-blue-900/30 flex justify-between items-center mt-auto">
                         <div><span class="text-ru text-xs uppercase font-bold">Профит</span> <span class="text-en uppercase font-bold">| Net ROI</span></div>
                         <span class="text-[#00ffcc] font-orbitron text-2xl font-black italic tracking-tighter">+16.6%</span>
                     </div>
                 </div>
 
-                <div class="glass-card p-8 border-l-[6px] border-[#ef4444] opacity-80 min-w-[340px] flex-shrink-0 snap-start">
-                    <div class="flex justify-between items-start mb-8">
-                        <div>
-                            <span class="text-3xl font-black italic uppercase block mb-2 text-white">DOGE/USDT</span>
-                            <span class="text-ru text-xs uppercase font-bold tracking-[0.1em]">Шорт</span> <span class="text-en uppercase font-bold tracking-[0.1em]">| SHORT</span>
+                <div class="glass-card p-8 border-l-[6px] border-[#ef4444] opacity-80 w-[360px] h-[340px] shrink-0 snap-start flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <span class="text-3xl font-black italic uppercase block mb-1 text-white">DOGE/USDT</span>
+                                <span class="text-ru text-xs uppercase font-bold tracking-[0.1em]">Шорт</span> <span class="text-en uppercase font-bold tracking-[0.1em]">| SHORT</span>
+                            </div>
+                            <span class="text-[#ef4444] px-3 py-1 font-black uppercase tracking-widest"><span class="text-ru text-[10px]">Удар СЛ</span> <span class="badge-en !text-[#ef4444]">| SL HIT</span></span>
                         </div>
-                        <span class="text-[#ef4444] px-3 py-1 font-black uppercase tracking-widest"><span class="text-ru text-[10px]">Удар СЛ</span> <span class="badge-en !text-[#ef4444]">| SL HIT</span></span>
+                        <div class="grid grid-cols-2 gap-y-4 gap-x-4">
+                            <div><p class="mb-1"><span class="text-ru text-[10px] uppercase font-bold text-gray-400">Вход</span> <span class="badge-en uppercase font-bold">| Entry</span></p><p class="text-2xl font-bold text-white">0.145</p></div>
+                            <div><p class="mb-1"><span class="text-ru text-[10px] uppercase font-bold text-gray-400">Тейк</span> <span class="badge-en uppercase font-bold">| TP</span></p><p class="text-2xl font-bold text-gray-500">0.120</p></div>
+                            <div><p class="mb-1"><span class="text-ru text-[10px] uppercase font-bold text-gray-400">Выход</span> <span class="badge-en uppercase font-bold">| Exit</span></p><p class="text-xl font-bold text-[#ef4444]">0.152</p></div>
+                            <div><p class="mb-1"><span class="text-ru text-[10px] uppercase font-bold text-gray-400">Плечо</span> <span class="badge-en uppercase font-bold">| Lev</span></p><p class="text-xl font-bold text-white">20x</p></div>
+                        </div>
                     </div>
-                    <div class="grid grid-cols-2 gap-y-6 gap-x-4 mb-8">
-                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Вход</span> <span class="text-en uppercase font-bold">| Entry</span></p><p class="text-2xl font-bold text-white">0.145</p></div>
-                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Тейк</span> <span class="text-en uppercase font-bold">| TP</span></p><p class="text-2xl font-bold text-gray-500">0.120</p></div>
-                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Выход</span> <span class="text-en uppercase font-bold">| Exit</span></p><p class="text-xl font-bold text-[#ef4444]">0.152</p></div>
-                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Плечо</span> <span class="text-en uppercase font-bold">| Lev</span></p><p class="text-xl font-bold text-white">20x</p></div>
-                    </div>
-                    <div class="pt-4 border-t border-blue-900/30 flex justify-between items-center">
+                    <div class="pt-4 border-t border-blue-900/30 flex justify-between items-center mt-auto">
                         <div><span class="text-ru text-xs uppercase font-bold">Убыток</span> <span class="text-en uppercase font-bold">| Net Loss</span></div>
                         <span class="text-[#ef4444] font-orbitron text-2xl font-black italic tracking-tighter">-4.8%</span>
                     </div>
                 </div>
 
-                <div class="glass-card p-8 border-l-[6px] border-[#00ffcc] opacity-80 min-w-[340px] flex-shrink-0 snap-start">
-                    <div class="flex justify-between items-start mb-8">
-                        <div>
-                            <span class="text-3xl font-black italic uppercase block mb-2 text-white">LINK/USDT</span>
-                            <span class="text-ru text-xs uppercase font-bold tracking-[0.1em]">Шорт</span> <span class="text-en uppercase font-bold tracking-[0.1em]">| SHORT</span>
+                <div class="glass-card p-8 border-l-[6px] border-[#00ffcc] opacity-80 w-[360px] h-[340px] shrink-0 snap-start flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <span class="text-3xl font-black italic uppercase block mb-1 text-white">LINK/USDT</span>
+                                <span class="text-ru text-xs uppercase font-bold tracking-[0.1em]">Шорт</span> <span class="text-en uppercase font-bold tracking-[0.1em]">| SHORT</span>
+                            </div>
+                            <span class="text-[#00ffcc] px-3 py-1 font-black uppercase tracking-widest"><span class="text-ru text-[10px]">Тейк</span> <span class="badge-en text-[#00ffcc]">| TP HIT</span></span>
                         </div>
-                        <span class="text-[#00ffcc] px-3 py-1 font-black uppercase tracking-widest"><span class="text-ru text-[10px]">Тейк</span> <span class="badge-en text-[#00ffcc]">| TP HIT</span></span>
+                        <div class="grid grid-cols-2 gap-y-4 gap-x-4">
+                            <div><p class="mb-1"><span class="text-ru text-[10px] uppercase font-bold text-gray-400">Вход</span> <span class="badge-en uppercase font-bold">| Entry</span></p><p class="text-2xl font-bold text-white">18.50</p></div>
+                            <div><p class="mb-1"><span class="text-ru text-[10px] uppercase font-bold text-gray-400">Выход</span> <span class="badge-en uppercase font-bold">| Exit</span></p><p class="text-2xl font-bold text-[#00ffcc]">17.20</p></div>
+                            <div><p class="mb-1"><span class="text-ru text-[10px] uppercase font-bold text-gray-400">Стоп</span> <span class="badge-en uppercase font-bold">| SL</span></p><p class="text-xl font-bold opacity-60 text-white">19.10</p></div>
+                            <div><p class="mb-1"><span class="text-ru text-[10px] uppercase font-bold text-gray-400">Плечо</span> <span class="badge-en uppercase font-bold">| Lev</span></p><p class="text-xl font-bold text-white">15x</p></div>
+                        </div>
                     </div>
-                    <div class="grid grid-cols-2 gap-y-6 gap-x-4 mb-8">
-                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Вход</span> <span class="text-en uppercase font-bold">| Entry</span></p><p class="text-2xl font-bold text-white">18.50</p></div>
-                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Выход</span> <span class="text-en uppercase font-bold">| Exit</span></p><p class="text-2xl font-bold text-[#00ffcc]">17.20</p></div>
-                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Стоп</span> <span class="text-en uppercase font-bold">| SL</span></p><p class="text-xl font-bold opacity-60 text-white">19.10</p></div>
-                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Плечо</span> <span class="text-en uppercase font-bold">| Lev</span></p><p class="text-xl font-bold text-white">15x</p></div>
-                    </div>
-                    <div class="pt-4 border-t border-blue-900/30 flex justify-between items-center">
+                    <div class="pt-4 border-t border-blue-900/30 flex justify-between items-center mt-auto">
                         <div><span class="text-ru text-xs uppercase font-bold">Профит</span> <span class="text-en uppercase font-bold">| Net ROI</span></div>
                         <span class="text-[#00ffcc] font-orbitron text-2xl font-black italic tracking-tighter">+7.0%</span>
                     </div>
                 </div>
 
-                <div class="glass-card p-8 border-l-[6px] border-[#00ffcc] opacity-80 min-w-[340px] flex-shrink-0 snap-start">
-                    <div class="flex justify-between items-start mb-8">
-                        <div>
-                            <span class="text-3xl font-black italic uppercase block mb-2 text-white">BNB/USDT</span>
-                            <span class="text-ru text-xs uppercase font-bold tracking-[0.1em]">Лонг</span> <span class="text-en uppercase font-bold tracking-[0.1em]">| LONG</span>
+                <div class="glass-card p-8 border-l-[6px] border-[#00ffcc] opacity-80 w-[360px] h-[340px] shrink-0 snap-start flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <span class="text-3xl font-black italic uppercase block mb-1 text-white">BNB/USDT</span>
+                                <span class="text-ru text-xs uppercase font-bold tracking-[0.1em]">Лонг</span> <span class="text-en uppercase font-bold tracking-[0.1em]">| LONG</span>
+                            </div>
+                            <span class="text-[#00ffcc] px-3 py-1 font-black uppercase tracking-widest"><span class="text-ru text-[10px]">Тейк</span> <span class="badge-en text-[#00ffcc]">| TP HIT</span></span>
                         </div>
-                        <span class="text-[#00ffcc] px-3 py-1 font-black uppercase tracking-widest"><span class="text-ru text-[10px]">Тейк</span> <span class="badge-en text-[#00ffcc]">| TP HIT</span></span>
+                        <div class="grid grid-cols-2 gap-y-4 gap-x-4">
+                            <div><p class="mb-1"><span class="text-ru text-[10px] uppercase font-bold text-gray-400">Вход</span> <span class="badge-en uppercase font-bold">| Entry</span></p><p class="text-2xl font-bold text-white">580.0</p></div>
+                            <div><p class="mb-1"><span class="text-ru text-[10px] uppercase font-bold text-gray-400">Выход</span> <span class="badge-en uppercase font-bold">| Exit</span></p><p class="text-2xl font-bold text-[#00ffcc]">610.5</p></div>
+                            <div><p class="mb-1"><span class="text-ru text-[10px] uppercase font-bold text-gray-400">Стоп</span> <span class="badge-en uppercase font-bold">| SL</span></p><p class="text-xl font-bold opacity-60 text-white">565.0</p></div>
+                            <div><p class="mb-1"><span class="text-ru text-[10px] uppercase font-bold text-gray-400">Плечо</span> <span class="badge-en uppercase font-bold">| Lev</span></p><p class="text-xl font-bold text-white">10x</p></div>
+                        </div>
                     </div>
-                    <div class="grid grid-cols-2 gap-y-6 gap-x-4 mb-8">
-                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Вход</span> <span class="text-en uppercase font-bold">| Entry</span></p><p class="text-2xl font-bold text-white">580.0</p></div>
-                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Выход</span> <span class="text-en uppercase font-bold">| Exit</span></p><p class="text-2xl font-bold text-[#00ffcc]">610.5</p></div>
-                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Стоп</span> <span class="text-en uppercase font-bold">| SL</span></p><p class="text-xl font-bold opacity-60 text-white">565.0</p></div>
-                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Плечо</span> <span class="text-en uppercase font-bold">| Lev</span></p><p class="text-xl font-bold text-white">10x</p></div>
-                    </div>
-                    <div class="pt-4 border-t border-blue-900/30 flex justify-between items-center">
+                    <div class="pt-4 border-t border-blue-900/30 flex justify-between items-center mt-auto">
                         <div><span class="text-ru text-xs uppercase font-bold">Профит</span> <span class="text-en uppercase font-bold">| Net ROI</span></div>
                         <span class="text-[#00ffcc] font-orbitron text-2xl font-black italic tracking-tighter">+5.2%</span>
                     </div>
