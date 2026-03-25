@@ -3,208 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Dord Software | Личный Кабинет | Cabinet Terminal</title>
+    <title>Dord Software | AI Terminal v.18.0 Final</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Orbitron:wght@900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <style>
+        :root { --neon-blue: #3b82f6; --neon-green: #10b981; --neon-red: #ef4444; --bg-dark: #010409; }
+        body { font-family: 'JetBrains Mono', monospace; background-color: var(--bg-dark); color: #f1f5f9; margin: 0; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+        #plexus-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
+        .logo-font { font-family: 'Orbitron', sans-serif; font-style: italic; font-weight: 900; text-transform: uppercase; }
+        .main-container { max-width: 1400px; margin: 0 auto; position: relative; }
+        .glass-card { background: rgba(13, 17, 23, 0.95); border: 1px solid rgba(59, 130, 246, 0.2); backdrop-filter: blur(40px); border-radius: 30px; transition: 0.4s; }
+        .sidebar-btn { color: #4b5563; font-weight: 800; transition: 0.3s; padding: 18px 30px; border-radius: 18px; text-align: left; width: 100%; border: 1px solid transparent; display: block; }
+        .sidebar-btn.active { color: white; background: rgba(59, 130, 246, 0.15); border-color: var(--neon-blue); box-shadow: 0 0 25px rgba(59, 130, 246, 0.2); }
+        .neon-glow { color: var(--neon-green); text-shadow: 0 0 20px rgba(16, 185, 129, 0.5); }
+    </style>
 </head>
-<body class="fade-in">
+<body>
 
     <canvas id="plexus-canvas"></canvas>
 
     <div class="main-container min-h-screen flex flex-col p-6 lg:p-16">
 
         <header class="flex flex-col items-center mb-24 text-center">
-            <img src="logo.png" alt="Dord Hawk" class="h-[180px] w-auto mb-10 drop-shadow-[0_0_50px_rgba(16,185,129,0.3)]">
-            <h1 class="logo-font text-4xl lg:text-6xl text-white italic tracking-tighter uppercase">DORD <span class="text-blue-500">TERMINAL</span></h1>
-            <p class="text-white font-black text-[12px] lg:text-[14px] mt-6 tracking-widest uppercase italic">
-                ЛИЧНАЯ ЗОНА • ВХОД ЗАЩИЩЁН
-                <span class="text-blue-400 font-bold block text-[11px] lg:text-[12px] mt-1 opacity-80 tracking-[0.4em]">USER SECURE ZONE • SECURE AUTH • 2026</span>
+            <img src="logo.png" alt="Dord Hawk" class="h-[240px] w-auto mb-12 drop-shadow-[0_0_60px_rgba(59, 130, 246, 0.6)]">
+            <h1 class="logo-font text-5xl lg:text-8xl text-white italic tracking-tighter uppercase">DORD <span class="text-blue-500">SOFTWARE</span></h1>
+            <p class="text-blue-400 font-bold uppercase tracking-[0.6em] text-[10px] lg:text-[12px] mt-8 opacity-70 italic">
+                Neural Intelligence Terminal • 2026<br>
+                <span class="text-white tracking-[0.2em] mt-2 block uppercase">Торговые Сигналы Нового Поколения</span>
             </p>
         </header>
 
-        <div class="flex flex-col lg:flex-row gap-16 items-stretch mb-24">
+        <div class="flex flex-col lg:flex-row gap-16 mb-24 items-stretch">
             <aside class="w-full lg:w-80 flex flex-col justify-between shrink-0 gap-6">
                 <div class="glass-card p-6">
                     <nav class="space-y-4">
-                        <a href="index.html" class="sidebar-btn flex flex-col"><span class="text-xs uppercase tracking-widest leading-tight">Сигналы <span class="text-blue-600">| Signals</span></span></a>
-                        <a href="plans.html" class="sidebar-btn flex flex-col"><span class="text-xs uppercase tracking-widest">Тарифы <span class="text-blue-600">| Plans</span></span></a>
-                        <a href="cabinet.html" class="sidebar-btn active flex flex-col"><span class="text-xs uppercase tracking-widest">Кабинет <span class="text-blue-600">| Cabinet</span></span></a>
+                        <a href="index.html" class="sidebar-btn active flex flex-col"><span class="text-xs uppercase tracking-widest leading-tight">Signals | Сигналы</span></a>
+                        <a href="plans.html" class="sidebar-btn flex flex-col"><span class="text-xs uppercase tracking-widest">Plans | Тарифы</span></a>
+                        <a href="cabinet.html" class="sidebar-btn flex flex-col"><span class="text-xs uppercase tracking-widest">Cabinet | Кабинет</span></a>
                     </nav>
                 </div>
-                
-                <div class="p-8 glass-card border-blue-900/20 text-center shadow-[0_0_30px_rgba(16,185,129,0.05)]">
-                    <p class="text-[11px] text-white uppercase font-black tracking-widest mb-4">Статус Авторизации <span class="text-blue-500">| Auth Status</span></p>
-                    <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-emerald-500/10 border border-emerald-500/30 rounded-full">
-                        <div class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></div>
-                        <span class="text-[11px] text-emerald-400 font-black uppercase">Подтверждён ID <span class="text-blue-400">| ID: 023</span></span>
-                    </div>
+                <div class="p-6 glass-card text-center hidden lg:block border-blue-900/20">
+                    <div class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse mx-auto mb-3"></div>
+                    <p class="text-[9px] font-black text-emerald-400 uppercase tracking-widest italic leading-relaxed">Neural Link Active<br>Нейросвязь Активна</p>
                 </div>
             </aside>
 
-            <div class="flex-1 space-y-10">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                    <div class="glass-card p-10 border-l-8 border-l-blue-500">
-                        <p class="text-xs text-white font-black uppercase tracking-widest mb-4">Баланс кошелька <span class="text-blue-500">| Wallet Balance</span></p>
-                        <div class="flex items-baseline gap-4">
-                            <span class="text-6xl font-black italic text-emerald-400 Orbitron logo-font tracking-tight">87.50</span>
-                            <span class="text-xl text-blue-500 font-bold uppercase">USDT</span>
-                        </div>
-                    </div>
-                    <div class="glass-card p-10 border-l-8 border-l-emerald-500">
-                        <p class="text-xs text-white font-black uppercase tracking-widest mb-4">Текущий Доступ <span class="text-blue-500">| Current Access</span></p>
-                        <p class="text-3xl font-black italic text-white uppercase mb-2 Orbitron logo-font">3 Months Package</p>
-                        <p class="text-[13px] text-blue-400 font-bold uppercase tracking-[0.2em] mb-3 leading-tight">Пакет на 3 Месяца <span class="text-gray-500">| Standard Neural Stream</span></p>
-                        <p class="text-xs text-emerald-400 font-bold uppercase tracking-[0.3em] border-t border-emerald-900/40 pt-2 inline-block">Активен до | Active until: 21.06.2026</p>
-                    </div>
-                </div>
-
-                <div class="glass-card p-10">
-                    <h2 class="text-xl font-black italic uppercase tracking-widest mb-10 border-b border-blue-900/20 pb-4 text-white">
-                        Состояние Агентов <span class="text-blue-500">| Neural Agents Status</span>
-                    </h2>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <div class="p-6 bg-blue-900/5 rounded-2xl border border-blue-900/10">
-                            <p class="text-[11px] font-black text-white uppercase mb-1">Агент 01: Сборщик Data Stream</p>
-                            <p class="text-[11px] font-bold text-blue-500 uppercase tracking-wider mb-3 opacity-80">Agent 01: Collector</p>
-                            <p class="text-xs font-bold text-gray-300">Мониторинг Новостей, TG, Бирж...</p>
-                            <p class="text-[11px] text-blue-500/80 font-bold mb-4 opacity-70">Monitoring News, TG, Exchanges...</p>
-                            <p class="text-[9px] text-emerald-500 font-black tracking-widest uppercase bg-emerald-950/20 px-3 py-1 rounded-full inline-block">STABLE [142ms]</p>
-                        </div>
-                        <div class="p-6 bg-blue-900/5 rounded-2xl border border-blue-900/10">
-                            <p class="text-[11px] font-black text-white uppercase mb-1">Агент 02: Аналитик AI Alpha</p>
-                            <p class="text-[11px] font-bold text-blue-500 uppercase tracking-wider mb-3 opacity-80">Agent 02: Analyst</p>
-                            <p class="text-xs font-bold text-gray-300">Расчёт точности сигналов...</p>
-                            <p class="text-[11px] text-blue-500/80 font-bold mb-4 opacity-70">Processing Signal Precision...</p>
-                            <p class="text-[9px] text-emerald-500 font-black tracking-widest uppercase bg-emerald-950/20 px-3 py-1 rounded-full inline-block">STABLE [84.5% Acc]</p>
-                        </div>
-                        <div class="p-6 bg-blue-900/5 rounded-2xl border border-blue-900/10">
-                            <p class="text-[11px] font-black text-white uppercase mb-1">Агент 03: Диспетчер Output Link</p>
-                            <p class="text-[11px] font-bold text-blue-500 uppercase tracking-wider mb-3 opacity-80">Agent 03: Dispatcher</p>
-                            <p class="text-xs font-bold text-gray-300">Передача глубокого нейропотока...</p>
-                            <p class="text-[11px] text-blue-500/80 font-bold mb-4 opacity-70">Deep Neural Stream transmission...</p>
-                            <p class="text-[9px] text-emerald-500 font-black tracking-widest uppercase bg-emerald-950/20 px-3 py-1 rounded-full inline-block">ONLINE [48GB RAM]</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="glass-card p-10 bg-black/40 border border-blue-900/30">
-                    <h2 class="text-xl font-black italic uppercase tracking-widest mb-10 border-b border-blue-900/20 pb-4 text-white">
-                        История Ваших Сигналов <span class="text-blue-500">| Your Signal Feed</span>
-                    </h2>
-                    
-                    <div class="flex flex-col md:flex-row md:overflow-x-auto gap-8 pb-8 md:pb-6 signal-scroll-container">
-                        
-                        <div class="glass-card p-6 border-emerald-900/40 w-full md:w-[310px] shrink-0 shadow-[0_0_30px_rgba(16,185,129,0.05)] bg-blue-900/5">
-                            <div class="flex justify-between items-center mb-4">
-                                <span class="text-xl font-black italic text-white Orbitron logo-font tracking-widest">SOL/USDT</span>
-                                <span class="text-[10px] text-gray-500 font-bold tracking-wider">14:02 | 25.03</span>
-                            </div>
-                            
-                            <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-emerald-500/10 border border-emerald-500/30 rounded-full mb-6">
-                                <div class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></div>
-                                <span class="text-[10px] text-emerald-400 font-black uppercase">LONG | <span class="opacity-70">ПОКУПКА</span></span>
-                            </div>
-                            
-                            <div class="space-y-1.5 text-xs text-gray-400 font-mono mb-6 border-t border-blue-900/20 pt-4">
-                                <p class="flex justify-between items-baseline"><span>Вход | <span class="text-blue-500 text-[13px] font-bold opacity-80">Entry:</span></span> <span class="text-white font-bold text-sm">184.50</span></p>
-                                <p class="flex justify-between items-baseline"><span>ТП | <span class="text-blue-500 text-[13px] font-bold opacity-80">TP (Target):</span></span> <span class="text-emerald-400 font-bold text-sm">191.00</span></p>
-                                <p class="flex justify-between items-baseline"><span>СЛ | <span class="text-blue-500 text-[13px] font-bold opacity-80">SL (Stop Loss):</span></span> <span class="text-red-400 font-bold text-sm">181.20</span></p>
-                            </div>
-                            
-                            <div class="border-t border-blue-900/20 pt-4 flex justify-between items-baseline bg-emerald-950/20 p-4 rounded-xl">
-                                <span class="text-[10px] text-gray-500 font-black uppercase tracking-widest">ROI <span class="text-emerald-400 text-xs ml-1">(Win 5x)</span></span>
-                                <span class="text-4xl font-black italic text-emerald-400 Orbitron logo-font tracking-tight">+21.4%</span>
-                            </div>
-                        </div>
-
-                        <div class="glass-card p-6 border-red-900/40 w-full md:w-[310px] shrink-0 shadow-[0_0_30px_rgba(239,68,68,0.05)] bg-red-950/5">
-                            <div class="flex justify-between items-center mb-4">
-                                <span class="text-xl font-black italic text-white Orbitron logo-font tracking-widest opacity-60">BTC/USDT</span>
-                                <span class="text-[10px] text-gray-500 font-bold tracking-wider">11:15 | 25.03</span>
-                            </div>
-                            
-                            <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-red-500/10 border border-red-500/30 rounded-full mb-6 shadow-[0_0_15px_rgba(239,68,68,0.1)]">
-                                <div class="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse"></div>
-                                <span class="text-[10px] text-red-400 font-black uppercase tracking-wider">SHORT | <span class="opacity-70">ПРОДАЖА</span></span>
-                            </div>
-                            
-                            <div class="space-y-1.5 text-xs text-gray-400 font-mono mb-6 border-t border-red-900/20 pt-4 opacity-70">
-                                <p class="flex justify-between items-baseline"><span>Вход | <span class="text-blue-500 text-[13px] font-bold opacity-80">Entry:</span></span> <span class="text-white font-bold text-sm Orbitron logo-font tracking-tighter">68450</span></p>
-                                <p class="flex justify-between items-baseline"><span>ТП | <span class="text-blue-500 text-[13px] font-bold opacity-80">TP:</span></span> <span class="text-emerald-400 font-bold text-sm">67100</span></p>
-                                <p class="flex justify-between items-baseline"><span>СЛ | <span class="text-blue-500 text-[13px] font-bold opacity-80">SL:</span></span> <span class="text-red-400 font-bold text-sm">68900 <span class="text-gray-500 text-[10px]">(Hit)</span></span></p>
-                            </div>
-                            
-                            <div class="border-t border-red-900/20 pt-4 flex justify-between items-baseline bg-red-950/20 p-4 rounded-xl">
-                                <span class="text-[10px] text-gray-500 font-black uppercase tracking-widest">ROI <span class="text-red-400 text-xs ml-1">(SL 3x)</span></span>
-                                <span class="text-4xl font-black italic text-red-400 Orbitron logo-font tracking-tight">-3.1%</span>
-                            </div>
-                        </div>
-
-                        <div class="glass-card p-6 border-emerald-900/40 w-full md:w-[310px] shrink-0 shadow-[0_0_30px_rgba(16,185,129,0.05)] bg-blue-900/5">
-                            <div class="flex justify-between items-center mb-4">
-                                <span class="text-xl font-black italic text-white Orbitron logo-font tracking-widest">ETH/USDT</span>
-                                <span class="text-[10px] text-gray-500 font-bold tracking-wider">09:48 | 25.03</span>
-                            </div>
-                            
-                            <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-emerald-500/10 border border-emerald-500/30 rounded-full mb-6">
-                                <div class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></div>
-                                <span class="text-[10px] text-emerald-400 font-black uppercase">LONG | <span class="opacity-70">ПОКУПКА</span></span>
-                            </div>
-                            
-                            <div class="space-y-1.5 text-xs text-gray-400 font-mono mb-6 border-t border-blue-900/20 pt-4">
-                                <p class="flex justify-between items-baseline"><span>Вход | <span class="text-blue-500 text-[13px] font-bold opacity-80">Entry:</span></span> <span class="text-white font-bold text-sm">3655</span></p>
-                                <p class="flex justify-between items-baseline"><span>ТП | <span class="text-blue-500 text-[13px] font-bold opacity-80">TP:</span></span> <span class="text-emerald-400 font-bold text-sm">3720</span></p>
-                                <p class="flex justify-between items-baseline"><span>СЛ | <span class="text-blue-500 text-[13px] font-bold opacity-80">SL:</span></span> <span class="text-red-400 font-bold text-sm">3610</span></p>
-                            </div>
-                            
-                            <div class="border-t border-blue-900/20 pt-4 flex justify-between items-baseline bg-emerald-950/20 p-4 rounded-xl">
-                                <span class="text-[10px] text-gray-500 font-black uppercase tracking-widest">ROI <span class="text-emerald-400 text-xs ml-1">(Win 3x)</span></span>
-                                <span class="text-4xl font-black italic text-emerald-400 Orbitron logo-font tracking-tight">+8.7%</span>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="glass-card p-10 bg-emerald-500/5 border-emerald-500/20 shadow-[0_0_30px_rgba(16,185,129,0.05)]">
-                    <h3 class="text-xl font-black italic uppercase tracking-widest mb-6 text-emerald-400">
-                        Партнёрская Программа <span class="text-blue-500">| Partnership Program</span>
-                    </h3>
-                    <div class="space-y-4 mb-8">
-                        <p class="text-sm text-white font-bold leading-relaxed">
-                            Приглашайте трейдеров и получайте вознаграждение в размере <span class="text-emerald-400 font-black">10%</span> от каждой их подписки.
-                        </p>
-                        <p class="text-[13px] text-blue-400 font-bold tracking-wide border-l border-blue-900/40 pl-4 opacity-80 leading-relaxed">
-                            Invite traders and get a reward of <span class="text-emerald-400 font-black">10%</span> from every subscription they make.
-                        </p>
-                    </div>
-                    <div class="flex flex-col md:flex-row gap-4">
-                        <div class="flex-1 bg-black/40 p-4 rounded-xl border border-blue-900/20 text-blue-400 font-mono text-sm overflow-hidden truncate shadow-inner">
-                            https://dord-app.vercel.app/ref/id023
-                        </div>
-                        <button class="bg-blue-600 hover:bg-blue-500 text-white font-black px-10 py-4 rounded-xl uppercase text-xs transition-all shadow-lg hover:scale-105 active:scale-95">
-                            Скопировать Ссылку | <span class="opacity-70">Copy Link</span>
-                        </button>
+            <div class="flex-1">
+                <div class="glass-card overflow-hidden h-[500px]">
+                    <div class="tradingview-widget-container h-full">
+                        <div class="tradingview-widget-container__widget h-full"></div>
+                        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+                        {
+                          "colorTheme": "dark", "isTransparent": true, "width": "100%", "height": "100%",
+                          "tabs": [{
+                            "title": "Neural Stream 2026",
+                            "symbols": [
+                              {"s": "BINANCE:BTCUSDT"}, {"s": "BINANCE:ETHUSDT"}, {"s": "BINANCE:SOLUSDT"},
+                              {"s": "BINANCE:BNBUSDT"}, {"s": "BINANCE:XRPUSDT"}, {"s": "BINANCE:ADAUSDT"}
+                            ]
+                          }]
+                        }
+                        </script>
                     </div>
                 </div>
             </div>
         </div>
 
+        <main class="space-y-24">
+            <div class="flex flex-wrap items-baseline justify-between border-b border-blue-900/30 pb-12 px-6">
+                <div class="flex items-baseline gap-4"><h2 class="text-sm font-black text-blue-500 uppercase tracking-widest">ROI =</h2><p class="text-3xl font-black neon-glow italic tracking-tighter">149%</p></div>
+                <div class="flex items-baseline gap-4"><h2 class="text-sm font-black text-blue-500 uppercase tracking-widest">Accuracy | Точность =</h2><p class="text-5xl font-black text-white italic tracking-tighter">84.5%</p></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10">
+                
+                <div class="glass-card p-8 border-l-8 border-l-emerald-500">
+                    <div class="flex justify-between items-start mb-8">
+                        <div>
+                            <span class="text-3xl font-black italic uppercase block">SOL/USDT</span>
+                            <span class="text-[10px] text-emerald-400 font-black uppercase tracking-[0.2em]">Long | Лонг</span>
+                        </div>
+                        <span class="bg-emerald-500/10 text-emerald-400 text-[9px] px-3 py-1 rounded-full font-black uppercase tracking-widest">Active</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-y-6 gap-x-4 text-[11px] mb-8">
+                        <div><p class="text-gray-500 uppercase font-bold mb-1">Entry | Вход</p><p class="text-2xl font-bold">90.99</p></div>
+                        <div><p class="text-emerald-500 uppercase font-bold mb-1">Take Profit</p><p class="text-2xl font-bold text-emerald-400">98.50</p></div>
+                        <div><p class="text-red-500 uppercase font-bold mb-1">Stop Loss</p><p class="text-xl font-bold">86.20</p></div>
+                        <div><p class="text-blue-400 uppercase font-bold mb-1">Margin %</p><p class="text-xl font-bold">3-5%</p></div>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 border-l-8 border-l-blue-500 opacity-60">
+                    <div class="flex justify-between items-start mb-8">
+                        <div>
+                            <span class="text-2xl font-black italic uppercase block">BTC/USDT</span>
+                            <span class="text-[9px] text-emerald-400 font-black uppercase tracking-[0.2em]">Long | Лонг</span>
+                        </div>
+                        <span class="text-emerald-500 text-[9px] font-black uppercase tracking-widest">Profit Hit</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-y-6 text-[10px] mb-6">
+                        <div><p class="text-gray-500 font-bold mb-1 uppercase">Entry</p><p class="text-xl font-bold">68,200</p></div>
+                        <div><p class="text-emerald-500 font-bold mb-1 uppercase">Exit (TP)</p><p class="text-xl font-bold text-emerald-400">70,592</p></div>
+                        <div><p class="text-red-900 font-bold mb-1 uppercase">Stop Loss</p><p class="text-lg font-bold opacity-50">66,500</p></div>
+                        <div class="text-right pt-4"><p class="text-emerald-500 font-black text-sm uppercase tracking-widest">+3.7% Net</p></div>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 border-l-8 border-l-blue-500 opacity-60">
+                    <div class="flex justify-between items-start mb-8">
+                        <div>
+                            <span class="text-2xl font-black italic uppercase block">ETH/USDT</span>
+                            <span class="text-[9px] text-emerald-400 font-black uppercase tracking-[0.2em]">Long | Лонг</span>
+                        </div>
+                        <span class="text-emerald-500 text-[9px] font-black uppercase tracking-widest">Profit Hit</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-y-6 text-[10px] mb-6">
+                        <div><p class="text-gray-500 font-bold mb-1 uppercase">Entry</p><p class="text-xl font-bold">1,980</p></div>
+                        <div><p class="text-emerald-500 font-bold mb-1 uppercase">Exit (TP)</p><p class="text-xl font-bold text-emerald-400">2,141</p></div>
+                        <div><p class="text-red-900 font-bold mb-1 uppercase">Stop Loss</p><p class="text-lg font-bold opacity-50">1,890</p></div>
+                        <div class="text-right pt-4"><p class="text-emerald-500 font-black text-sm uppercase tracking-widest">+8.2% Net</p></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 pt-24 border-t border-blue-900/10">
+                <div class="glass-card p-10 bg-blue-900/5 border-none text-lg italic text-gray-400">"Сигналы по SOL зашли идеально. Профит за сессию покрыл подписку на год." — <span class="text-blue-500 font-black uppercase text-xs ml-2">Mikhail_Crypto</span></div>
+                <div class="glass-card p-10 bg-blue-900/5 border-none text-lg italic text-gray-400">"Using Pro package, accuracy is spot on. Truly reliable neural stream." — <span class="text-blue-500 font-black uppercase text-xs ml-2">Dima_Trade</span></div>
+                <div class="glass-card p-10 bg-blue-900/5 border-none text-lg italic text-gray-400">"Лучшее решение для Израиля. Алгоритмы отлично фильтруют рыночный шум." — <span class="text-blue-500 font-black uppercase text-xs ml-2">Igal_Analyst</span></div>
+                <div class="glass-card p-10 bg-blue-900/5 border-none text-lg italic text-gray-400">"Closed 4 trades this week. Paid off the subscription instantly. Best AI bot." — <span class="text-blue-500 font-black uppercase text-xs ml-2">Sarah_FX</span></div>
+            </div>
+        </main>
+
         <footer class="mt-40 pt-24 border-t border-blue-900/20 pb-40 text-center">
             <h4 class="logo-font text-3xl text-white italic opacity-40 mb-12 uppercase tracking-widest">DORD SOFTWARE</h4>
-            <div class="max-w-5xl mx-auto border border-red-900/40 rounded-[40px] p-16 space-y-10 text-center">
-                <p class="text-xs text-white font-black uppercase tracking-widest leading-relaxed">
-                    © 2026 DORD SOFTWARE NEURAL NETWORK. ВСЕ ПРАВА ЗАЩИЩЕНЫ. <br>
-                    <span class="text-blue-500 font-bold text-[10px] tracking-wider mb-6 block">ALL RIGHTS RESERVED.</span>
-                    ТОРГОВЛЯ НА ФЬЮЧЕРСАХ НЕСЕТ ВЫСОКИЕ РИСКИ ПОТЕРИ КАПИТАЛА. СТРОГО СОБЛЮДАЙТЕ РИСК-МЕНЕДЖМЕНТ:
+            <div class="max-w-5xl mx-auto border border-red-900/40 rounded-[40px] p-16 space-y-10">
+                <p class="text-xs text-gray-500 font-bold uppercase tracking-widest leading-relaxed">
+                    © 2026 DORD SOFTWARE NEURAL NETWORK. ALL RIGHTS RESERVED. <br><br>
+                    ТОРГОВЛЯ НА ФЬЮЧЕРСАХ НЕСЕТ ВЫСОКИЕ РИСКИ ПОТЕРИ КАПИТАЛА. СТРОГО СОБЛЮДАЙТЕ РИСК-МЕНЕДЖМЕНТ: <br>
+                    <span class="text-gray-400">
+                    • НЕ ЗАВЫШАЙТЕ ПЛЕЧИ. (DO NOT OVER-LEVERAGE) <br>
+                    • НЕ ЗАХОДИТЕ В СДЕЛКУ НА БОЛЬШОЙ ПРОЦЕНТ ОТ ДЕПОЗИТА. (LOW MARGIN %) <br>
+                    • СТРОГО СЛЕДУЙТЕ ВСЕМ УКАЗАНИЯМ В ВЫДАННОМ СИГНАЛЕ. (FOLLOW SIGNALS)
+                    </span>
                 </p>
-                <div class="space-y-3 border-t border-red-900/20 pt-6">
-                    <p class="text-gray-400 text-[11px] font-bold uppercase tracking-wide leading-relaxed">• НЕ ЗАВЫШАЙТЕ ПЛЕЧИ. (DO NOT OVER-LEVERAGE)</p>
-                    <p class="text-gray-400 text-[11px] font-bold uppercase tracking-wide leading-relaxed">• НЕ ЗАХОДИТЕ В СДЕЛКУ НА БОЛЬШОЙ ПРОЦЕНТ ОТ ДЕПОЗИТА. (LOW MARGIN %)</p>
-                    <p class="text-gray-400 text-[11px] font-bold uppercase tracking-wide leading-relaxed">• СТРОГО СЛЕДУЙТЕ ВСЕМ УКАЗАНИЯМ В ВЫДАННОМ СИГНАЛЕ. (FOLLOW SIGNALS)</p>
-                </div>
                 <div class="h-px bg-red-900/20 w-1/3 mx-auto"></div>
-                <p class="text-[11px] text-red-800 font-black uppercase tracking-[0.4em] leading-relaxed">RISK WARNING: FUTURES TRADING INVOLVES SIGNIFICANT RISK OF LOSS.</p>
+                <p class="text-[11px] text-red-800 font-black uppercase tracking-[0.4em]">RISK WARNING: FUTURES TRADING INVOLVES SIGNIFICANT RISK OF LOSS.</p>
             </div>
         </footer>
     </div>
@@ -216,9 +160,20 @@
         function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
         window.addEventListener('resize', resize); resize();
         class Particle {
-            constructor() { this.x = Math.random() * canvas.width; this.y = Math.random() * canvas.height; this.vx = (Math.random() - 0.5) * 0.4; this.vy = (Math.random() - 0.5) * 0.4; this.size = Math.random() * 2 + 1; }
-            update() { this.x += this.vx; this.y += this.vy; if (this.x < 0) this.x = canvas.width; if (this.x > canvas.width) this.x = 0; if (this.y < 0) this.y = canvas.height; if (this.y > canvas.height) this.y = 0; }
-            draw() { ctx.fillStyle = 'rgba(59, 130, 246, 0.4)'; ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill(); }
+            constructor() {
+                this.x = Math.random() * canvas.width; this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.4; this.vy = (Math.random() - 0.5) * 0.4;
+                this.size = Math.random() * 2 + 1;
+            }
+            update() {
+                this.x += this.vx; this.y += this.vy;
+                if (this.x < 0) this.x = canvas.width; if (this.x > canvas.width) this.x = 0;
+                if (this.y < 0) this.y = canvas.height; if (this.y > canvas.height) this.y = 0;
+            }
+            draw() {
+                ctx.fillStyle = 'rgba(59, 130, 246, 0.4)';
+                ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill();
+            }
         }
         function init() { particles = []; for (let i = 0; i < 110; i++) particles.push(new Particle()); }
         function animate() {
@@ -226,8 +181,13 @@
             for (let i = 0; i < particles.length; i++) {
                 const p1 = particles[i]; p1.update(); p1.draw();
                 for (let j = i + 1; j < particles.length; j++) {
-                    const p2 = particles[j]; const dist = Math.sqrt((p1.x-p2.x)**2 + (p1.y-p2.y)**2);
-                    if (dist < 180) { ctx.strokeStyle = `rgba(59, 130, 246, ${0.3 * (1 - dist / 180)})`; ctx.lineWidth = 0.8; ctx.beginPath(); ctx.moveTo(p1.x, p1.y); ctx.lineTo(p2.x, p2.y); ctx.stroke(); }
+                    const p2 = particles[j];
+                    const dist = Math.sqrt((p1.x-p2.x)**2 + (p1.y-p2.y)**2);
+                    if (dist < 180) {
+                        ctx.strokeStyle = `rgba(59, 130, 246, ${0.3 * (1 - dist / 180)})`;
+                        ctx.lineWidth = 0.8; ctx.beginPath();
+                        ctx.moveTo(p1.x, p1.y); ctx.lineTo(p2.x, p2.y); ctx.stroke();
+                    }
                 }
             }
             requestAnimationFrame(animate);
