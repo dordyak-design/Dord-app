@@ -6,17 +6,43 @@
     <title>Dord Software | Личный Кабинет | Cabinet Terminal</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Orbitron:wght@900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        :root { --neon-blue: #3b82f6; --neon-green: #10b981; --neon-red: #ef4444; --bg-dark: #010409; }
+        body { font-family: 'JetBrains Mono', monospace; background-color: var(--bg-dark); color: #f1f5f9; margin: 0; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+        
+        /* Исправленный Канвас */
+        #plexus-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+        .main-container { max-width: 1400px; margin: 0 auto; position: relative; z-index: 10; }
+        
+        .logo-font { font-family: 'Orbitron', sans-serif; font-style: italic; font-weight: 900; text-transform: uppercase; }
+        .glass-card { background: rgba(13, 17, 23, 0.95); border: 1px solid rgba(59, 130, 246, 0.2); backdrop-filter: blur(40px); border-radius: 30px; transition: 0.4s; }
+        .sidebar-btn { color: #4b5563; font-weight: 800; transition: 0.3s; padding: 18px 30px; border-radius: 18px; text-align: left; width: 100%; border: 1px solid transparent; display: block; }
+        .sidebar-btn.active { color: white; background: rgba(59, 130, 246, 0.15); border-color: var(--neon-blue); box-shadow: 0 0 25px rgba(59, 130, 246, 0.2); }
+        .neon-glow { color: var(--neon-green); text-shadow: 0 0 20px rgba(16, 185, 129, 0.5); }
+        
+        /* v26.0 Master Style Additions */
+        .text-ru { color: #ffffff; }
+        .text-en { color: #60a5fa; font-size: 13px; }
+        .badge-en { color: #60a5fa; font-size: 10px; }
+        .font-orbitron { font-family: 'Orbitron', sans-serif; }
+
+        /* Скроллбар для ленты сигналов */
+        .stream-scroll::-webkit-scrollbar { height: 8px; }
+        .stream-scroll::-webkit-scrollbar-track { background: rgba(13, 17, 23, 0.5); border-radius: 4px; }
+        .stream-scroll::-webkit-scrollbar-thumb { background: rgba(59, 130, 246, 0.4); border-radius: 4px; }
+        .stream-scroll::-webkit-scrollbar-thumb:hover { background: rgba(59, 130, 246, 0.8); }
+    </style>
 </head>
-<body class="fade-in">
+<body>
 
     <canvas id="plexus-canvas"></canvas>
 
     <div class="main-container min-h-screen flex flex-col p-6 lg:p-16">
 
         <header class="flex flex-col items-center mb-24 text-center">
-            <img src="logo.png" alt="Dord Hawk" class="h-[180px] w-auto mb-10 drop-shadow-[0_0_50px_rgba(16,185,129,0.3)]">
-            <h1 class="logo-font text-4xl lg:text-6xl text-white italic tracking-tighter uppercase">DORD <span class="text-blue-500">TERMINAL</span></h1>
+            <img src="logo.png" alt="Dord Hawk" class="h-[240px] w-auto mb-10 drop-shadow-[0_0_50px_rgba(16,185,129,0.3)]">
+            <h1 class="logo-font text-5xl lg:text-8xl text-white italic tracking-tighter uppercase">DORD <span class="text-blue-500">TERMINAL</span></h1>
             <p class="text-white font-black text-[12px] lg:text-[14px] mt-6 tracking-widest uppercase italic">
                 ЛИЧНАЯ ЗОНА • ВХОД ЗАЩИЩЁН
                 <span class="text-blue-400 font-bold block text-[11px] lg:text-[12px] mt-1 opacity-80 tracking-[0.4em]">USER SECURE ZONE • SECURE AUTH • 2026</span>
@@ -24,158 +50,158 @@
         </header>
 
         <div class="flex flex-col lg:flex-row gap-16 items-stretch mb-24">
+            
             <aside class="w-full lg:w-80 flex flex-col justify-between shrink-0 gap-6">
                 <div class="glass-card p-6">
                     <nav class="space-y-4">
-                        <a href="index.html" class="sidebar-btn flex flex-col"><span class="text-xs uppercase tracking-widest leading-tight">Сигналы <span class="text-blue-600">| Signals</span></span></a>
-                        <a href="plans.html" class="sidebar-btn flex flex-col"><span class="text-xs uppercase tracking-widest">Тарифы <span class="text-blue-600">| Plans</span></span></a>
-                        <a href="cabinet.html" class="sidebar-btn active flex flex-col"><span class="text-xs uppercase tracking-widest">Кабинет <span class="text-blue-600">| Cabinet</span></span></a>
+                        <a href="index.html" class="sidebar-btn flex flex-col"><span class="text-ru text-xs uppercase tracking-widest leading-tight">Сигналы</span> <span class="text-en uppercase font-bold">| Signals</span></a>
+                        <a href="plans.html" class="sidebar-btn flex flex-col"><span class="text-ru text-xs uppercase tracking-widest">Тарифы</span> <span class="text-en uppercase font-bold">| Plans</span></a>
+                        <a href="cabinet.html" class="sidebar-btn active flex flex-col"><span class="text-ru text-xs uppercase tracking-widest">Кабинет</span> <span class="text-en uppercase font-bold">| Cabinet</span></a>
                     </nav>
                 </div>
                 
                 <div class="p-8 glass-card border-blue-900/20 text-center shadow-[0_0_30px_rgba(16,185,129,0.05)]">
-                    <p class="text-[11px] text-white uppercase font-black tracking-widest mb-4">Статус Авторизации <span class="text-blue-500">| Auth Status</span></p>
+                    <p class="text-[11px] uppercase font-black tracking-widest mb-4"><span class="text-ru">Статус Авторизации</span> <span class="text-en">| Auth Status</span></p>
                     <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-emerald-500/10 border border-emerald-500/30 rounded-full">
                         <div class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></div>
-                        <span class="text-[11px] text-emerald-400 font-black uppercase">Подтверждён ID <span class="text-blue-400">| ID: 023</span></span>
+                        <span class="text-[11px] font-black uppercase"><span class="text-emerald-400">Подтверждён ID</span> <span class="badge-en">| ID: 023</span></span>
                     </div>
                 </div>
             </aside>
 
             <div class="flex-1 space-y-10">
+                
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                    <div class="glass-card p-10 border-l-8 border-l-blue-500">
-                        <p class="text-xs text-white font-black uppercase tracking-widest mb-4">Баланс кошелька <span class="text-blue-500">| Wallet Balance</span></p>
+                    <div class="glass-card p-10 border-l-[6px] border-[#00ffcc]">
+                        <p class="text-xs font-black uppercase tracking-widest mb-4"><span class="text-ru">Баланс кошелька</span> <span class="text-en font-bold">| Wallet Balance</span></p>
                         <div class="flex items-baseline gap-4">
-                            <span class="text-6xl font-black italic text-emerald-400 Orbitron logo-font tracking-tight">87.50</span>
+                            <span class="text-6xl font-black italic text-[#00ffcc] font-orbitron tracking-tight">580.30</span>
                             <span class="text-xl text-blue-500 font-bold uppercase">USDT</span>
                         </div>
                     </div>
-                    <div class="glass-card p-10 border-l-8 border-l-emerald-500">
-                        <p class="text-xs text-white font-black uppercase tracking-widest mb-4">Текущий Доступ <span class="text-blue-500">| Current Access</span></p>
-                        <p class="text-3xl font-black italic text-white uppercase mb-2 Orbitron logo-font">3 Months Package</p>
-                        <p class="text-[13px] text-blue-400 font-bold uppercase tracking-[0.2em] mb-3 leading-tight">Пакет на 3 Месяца <span class="text-gray-500">| Standard Neural Stream</span></p>
-                        <p class="text-xs text-emerald-400 font-bold uppercase tracking-[0.3em] border-t border-emerald-900/40 pt-2 inline-block">Активен до | Active until: 21.06.2026</p>
+                    <div class="glass-card p-10 border-l-[6px] border-[#00ffcc]">
+                        <p class="text-xs font-black uppercase tracking-widest mb-4"><span class="text-ru">Текущий Доступ</span> <span class="text-en font-bold">| Current Access</span></p>
+                        <p class="text-3xl font-black italic text-white uppercase mb-2 font-orbitron">3 Months Package</p>
+                        <p class="text-[13px] font-bold uppercase tracking-[0.2em] mb-3 leading-tight"><span class="text-ru">Пакет на 3 Месяца</span> <span class="text-en">| Standard Neural Stream</span></p>
+                        <p class="text-xs text-emerald-400 font-bold uppercase tracking-[0.2em] border-t border-emerald-900/40 pt-2 inline-block">Активен до | Active until: 21.06.2026</p>
                     </div>
                 </div>
 
-                <div class="glass-card p-10">
-                    <h2 class="text-xl font-black italic uppercase tracking-widest mb-10 border-b border-blue-900/20 pb-4 text-white">
-                        Состояние Агентов <span class="text-blue-500">| Neural Agents Status</span>
+                <div class="glass-card p-10 border-l-[6px] border-[#00ffcc]">
+                    <h2 class="text-xl font-orbitron font-black italic uppercase tracking-widest mb-10 border-b border-blue-900/20 pb-4">
+                        <span class="text-white">Состояние Агентов</span> <span class="text-en">| Neural Agents Status</span>
                     </h2>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <div class="p-6 bg-blue-900/5 rounded-2xl border border-blue-900/10">
-                            <p class="text-[11px] font-black text-white uppercase mb-1">Агент 01: Сборщик Data Stream</p>
-                            <p class="text-[11px] font-bold text-blue-500 uppercase tracking-wider mb-3 opacity-80">Agent 01: Collector</p>
+                            <p class="text-[11px] font-black uppercase mb-1"><span class="text-ru">Агент 01: Сборщик Данных</span></p>
+                            <p class="text-[11px] font-bold uppercase tracking-wider mb-3"><span class="text-en">Agent 01: Collector</span></p>
                             <p class="text-xs font-bold text-gray-300">Мониторинг Новостей, TG, Бирж...</p>
-                            <p class="text-[11px] text-blue-500/80 font-bold mb-4 opacity-70">Monitoring News, TG, Exchanges...</p>
-                            <p class="text-[9px] text-emerald-500 font-black tracking-widest uppercase bg-emerald-950/20 px-3 py-1 rounded-full inline-block">STABLE [142ms]</p>
+                            <p class="text-[11px] font-bold mb-4 opacity-70"><span class="text-en">Monitoring News, TG, Exchanges...</span></p>
+                            <p class="text-[9px] text-[#00ffcc] font-black tracking-widest uppercase bg-emerald-950/20 px-3 py-1 rounded-full inline-block">STABLE [142ms]</p>
                         </div>
                         <div class="p-6 bg-blue-900/5 rounded-2xl border border-blue-900/10">
-                            <p class="text-[11px] font-black text-white uppercase mb-1">Агент 02: Аналитик AI Alpha</p>
-                            <p class="text-[11px] font-bold text-blue-500 uppercase tracking-wider mb-3 opacity-80">Agent 02: Analyst</p>
+                            <p class="text-[11px] font-black uppercase mb-1"><span class="text-ru">Агент 02: Аналитик AI Alpha</span></p>
+                            <p class="text-[11px] font-bold uppercase tracking-wider mb-3"><span class="text-en">Agent 02: Analyst</span></p>
                             <p class="text-xs font-bold text-gray-300">Расчёт точности сигналов...</p>
-                            <p class="text-[11px] text-blue-500/80 font-bold mb-4 opacity-70">Processing Signal Precision...</p>
-                            <p class="text-[9px] text-emerald-500 font-black tracking-widest uppercase bg-emerald-950/20 px-3 py-1 rounded-full inline-block">STABLE [84.5% Acc]</p>
+                            <p class="text-[11px] font-bold mb-4 opacity-70"><span class="text-en">Processing Signal Precision...</span></p>
+                            <p class="text-[9px] text-[#00ffcc] font-black tracking-widest uppercase bg-emerald-950/20 px-3 py-1 rounded-full inline-block">STABLE [84.5% Acc]</p>
                         </div>
                         <div class="p-6 bg-blue-900/5 rounded-2xl border border-blue-900/10">
-                            <p class="text-[11px] font-black text-white uppercase mb-1">Агент 03: Диспетчер Output Link</p>
-                            <p class="text-[11px] font-bold text-blue-500 uppercase tracking-wider mb-3 opacity-80">Agent 03: Dispatcher</p>
+                            <p class="text-[11px] font-black uppercase mb-1"><span class="text-ru">Агент 03: Диспетчер Output</span></p>
+                            <p class="text-[11px] font-bold uppercase tracking-wider mb-3"><span class="text-en">Agent 03: Dispatcher</span></p>
                             <p class="text-xs font-bold text-gray-300">Передача глубокого нейропотока...</p>
-                            <p class="text-[11px] text-blue-500/80 font-bold mb-4 opacity-70">Deep Neural Stream transmission...</p>
-                            <p class="text-[9px] text-emerald-500 font-black tracking-widest uppercase bg-emerald-950/20 px-3 py-1 rounded-full inline-block">ONLINE [48GB RAM]</p>
+                            <p class="text-[11px] font-bold mb-4 opacity-70"><span class="text-en">Deep Neural Stream transmission...</span></p>
+                            <p class="text-[9px] text-[#00ffcc] font-black tracking-widest uppercase bg-emerald-950/20 px-3 py-1 rounded-full inline-block">ONLINE [48GB RAM]</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="glass-card p-10 bg-black/40 border border-blue-900/30">
-                    <h2 class="text-xl font-black italic uppercase tracking-widest mb-10 border-b border-blue-900/20 pb-4 text-white">
-                        История Ваших Сигналов <span class="text-blue-500">| Your Signal Feed</span>
+                <div class="glass-card p-10 bg-black/40 border-l-[6px] border-[#00ffcc]">
+                    <h2 class="text-xl font-orbitron font-black italic uppercase tracking-widest mb-10 border-b border-blue-900/20 pb-4">
+                        <span class="text-white">История Ваших Сигналов</span> <span class="text-en">| Your Signal Feed</span>
                     </h2>
                     
-                    <div class="flex flex-col md:flex-row md:overflow-x-auto gap-8 pb-8 md:pb-6 signal-scroll-container">
+                    <div class="flex gap-8 overflow-x-auto stream-scroll pb-8 snap-x">
                         
-                        <div class="glass-card p-6 border-emerald-900/40 w-full md:w-[310px] shrink-0 shadow-[0_0_30px_rgba(16,185,129,0.05)] bg-blue-900/5">
-                            <div class="flex justify-between items-center mb-4">
-                                <span class="text-xl font-black italic text-white Orbitron logo-font tracking-widest">SOL/USDT</span>
-                                <span class="text-[10px] text-gray-500 font-bold tracking-wider">14:02 | 25.03</span>
+                        <div class="glass-card p-8 border-l-[6px] border-[#00ffcc] w-[360px] h-[340px] shrink-0 snap-start flex flex-col justify-between bg-blue-900/5">
+                            <div>
+                                <div class="flex justify-between items-start mb-6">
+                                    <div>
+                                        <span class="text-3xl font-black italic uppercase block mb-1 text-white">SOL/USDT</span>
+                                        <span class="text-ru text-xs uppercase font-bold tracking-[0.1em]">Лонг</span> <span class="text-en uppercase font-bold tracking-[0.1em]">| LONG</span>
+                                    </div>
+                                    <span class="text-[10px] text-gray-500 font-bold tracking-wider">14:02 | 25.03</span>
+                                </div>
+                                <div class="grid grid-cols-2 gap-y-4 gap-x-4">
+                                    <div><p class="mb-1"><span class="text-ru text-[10px] uppercase font-bold text-gray-400">Вход</span> <span class="badge-en uppercase font-bold">| Entry</span></p><p class="text-2xl font-bold text-white">184.50</p></div>
+                                    <div><p class="mb-1"><span class="text-ru text-[10px] uppercase font-bold text-gray-400">Тейк</span> <span class="badge-en uppercase font-bold">| TP</span></p><p class="text-2xl font-bold text-[#00ffcc]">191.00</p></div>
+                                    <div><p class="mb-1"><span class="text-ru text-[10px] uppercase font-bold text-gray-400">Стоп</span> <span class="badge-en uppercase font-bold">| SL</span></p><p class="text-xl font-bold opacity-60 text-white">181.20</p></div>
+                                    <div><p class="mb-1"><span class="text-ru text-[10px] uppercase font-bold text-gray-400">Плечо</span> <span class="badge-en uppercase font-bold">| Lev</span></p><p class="text-xl font-bold text-white">20x</p></div>
+                                </div>
                             </div>
-                            
-                            <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-emerald-500/10 border border-emerald-500/30 rounded-full mb-6">
-                                <div class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></div>
-                                <span class="text-[10px] text-emerald-400 font-black uppercase">LONG | <span class="opacity-70">ПОКУПКА</span></span>
-                            </div>
-                            
-                            <div class="space-y-1.5 text-xs text-gray-400 font-mono mb-6 border-t border-blue-900/20 pt-4">
-                                <p class="flex justify-between items-baseline"><span>Вход | <span class="text-blue-500 text-[13px] font-bold opacity-80">Entry:</span></span> <span class="text-white font-bold text-sm">184.50</span></p>
-                                <p class="flex justify-between items-baseline"><span>ТП | <span class="text-blue-500 text-[13px] font-bold opacity-80">TP (Target):</span></span> <span class="text-emerald-400 font-bold text-sm">191.00</span></p>
-                                <p class="flex justify-between items-baseline"><span>СЛ | <span class="text-blue-500 text-[13px] font-bold opacity-80">SL (Stop Loss):</span></span> <span class="text-red-400 font-bold text-sm">181.20</span></p>
-                            </div>
-                            
-                            <div class="border-t border-blue-900/20 pt-4 flex justify-between items-baseline bg-emerald-950/20 p-4 rounded-xl">
-                                <span class="text-[10px] text-gray-500 font-black uppercase tracking-widest">ROI <span class="text-emerald-400 text-xs ml-1">(Win 5x)</span></span>
-                                <span class="text-4xl font-black italic text-emerald-400 Orbitron logo-font tracking-tight">+21.4%</span>
-                            </div>
-                        </div>
-
-                        <div class="glass-card p-6 border-red-900/40 w-full md:w-[310px] shrink-0 shadow-[0_0_30px_rgba(239,68,68,0.05)] bg-red-950/5">
-                            <div class="flex justify-between items-center mb-4">
-                                <span class="text-xl font-black italic text-white Orbitron logo-font tracking-widest opacity-60">BTC/USDT</span>
-                                <span class="text-[10px] text-gray-500 font-bold tracking-wider">11:15 | 25.03</span>
-                            </div>
-                            
-                            <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-red-500/10 border border-red-500/30 rounded-full mb-6 shadow-[0_0_15px_rgba(239,68,68,0.1)]">
-                                <div class="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse"></div>
-                                <span class="text-[10px] text-red-400 font-black uppercase tracking-wider">SHORT | <span class="opacity-70">ПРОДАЖА</span></span>
-                            </div>
-                            
-                            <div class="space-y-1.5 text-xs text-gray-400 font-mono mb-6 border-t border-red-900/20 pt-4 opacity-70">
-                                <p class="flex justify-between items-baseline"><span>Вход | <span class="text-blue-500 text-[13px] font-bold opacity-80">Entry:</span></span> <span class="text-white font-bold text-sm Orbitron logo-font tracking-tighter">68450</span></p>
-                                <p class="flex justify-between items-baseline"><span>ТП | <span class="text-blue-500 text-[13px] font-bold opacity-80">TP:</span></span> <span class="text-emerald-400 font-bold text-sm">67100</span></p>
-                                <p class="flex justify-between items-baseline"><span>СЛ | <span class="text-blue-500 text-[13px] font-bold opacity-80">SL:</span></span> <span class="text-red-400 font-bold text-sm">68900 <span class="text-gray-500 text-[10px]">(Hit)</span></span></p>
-                            </div>
-                            
-                            <div class="border-t border-red-900/20 pt-4 flex justify-between items-baseline bg-red-950/20 p-4 rounded-xl">
-                                <span class="text-[10px] text-gray-500 font-black uppercase tracking-widest">ROI <span class="text-red-400 text-xs ml-1">(SL 3x)</span></span>
-                                <span class="text-4xl font-black italic text-red-400 Orbitron logo-font tracking-tight">-3.1%</span>
+                            <div class="pt-4 border-t border-blue-900/30 flex justify-between items-center mt-auto">
+                                <div><span class="text-ru text-xs uppercase font-bold">Профит</span> <span class="text-en uppercase font-bold">| Net ROI</span></div>
+                                <span class="text-[#00ffcc] font-orbitron text-2xl font-black italic tracking-tighter">+21.4%</span>
                             </div>
                         </div>
 
-                        <div class="glass-card p-6 border-emerald-900/40 w-full md:w-[310px] shrink-0 shadow-[0_0_30px_rgba(16,185,129,0.05)] bg-blue-900/5">
-                            <div class="flex justify-between items-center mb-4">
-                                <span class="text-xl font-black italic text-white Orbitron logo-font tracking-widest">ETH/USDT</span>
-                                <span class="text-[10px] text-gray-500 font-bold tracking-wider">09:48 | 25.03</span>
+                        <div class="glass-card p-8 border-l-[6px] border-[#ef4444] w-[360px] h-[340px] shrink-0 snap-start flex flex-col justify-between bg-red-950/5">
+                            <div>
+                                <div class="flex justify-between items-start mb-6">
+                                    <div>
+                                        <span class="text-3xl font-black italic uppercase block mb-1 text-white opacity-60">BTC/USDT</span>
+                                        <span class="text-ru text-xs uppercase font-bold tracking-[0.1em]">Шорт</span> <span class="text-en uppercase font-bold tracking-[0.1em]">| SHORT</span>
+                                    </div>
+                                    <span class="text-[10px] text-gray-500 font-bold tracking-wider">11:15 | 25.03</span>
+                                </div>
+                                <div class="grid grid-cols-2 gap-y-4 gap-x-4 opacity-80">
+                                    <div><p class="mb-1"><span class="text-ru text-[10px] uppercase font-bold text-gray-400">Вход</span> <span class="badge-en uppercase font-bold">| Entry</span></p><p class="text-2xl font-bold text-white">68,450</p></div>
+                                    <div><p class="mb-1"><span class="text-ru text-[10px] uppercase font-bold text-gray-400">Тейк</span> <span class="badge-en uppercase font-bold">| TP</span></p><p class="text-2xl font-bold text-gray-500">67,100</p></div>
+                                    <div><p class="mb-1"><span class="text-ru text-[10px] uppercase font-bold text-gray-400">Удар СЛ</span> <span class="badge-en uppercase font-bold">| SL Hit</span></p><p class="text-xl font-bold text-[#ef4444]">68,900</p></div>
+                                    <div><p class="mb-1"><span class="text-ru text-[10px] uppercase font-bold text-gray-400">Плечо</span> <span class="badge-en uppercase font-bold">| Lev</span></p><p class="text-xl font-bold text-white">50x</p></div>
+                                </div>
                             </div>
-                            
-                            <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-emerald-500/10 border border-emerald-500/30 rounded-full mb-6">
-                                <div class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></div>
-                                <span class="text-[10px] text-emerald-400 font-black uppercase">LONG | <span class="opacity-70">ПОКУПКА</span></span>
+                            <div class="pt-4 border-t border-red-900/30 flex justify-between items-center mt-auto">
+                                <div><span class="text-ru text-xs uppercase font-bold">Убыток</span> <span class="text-en uppercase font-bold">| Net Loss</span></div>
+                                <span class="text-[#ef4444] font-orbitron text-2xl font-black italic tracking-tighter">-3.1%</span>
                             </div>
-                            
-                            <div class="space-y-1.5 text-xs text-gray-400 font-mono mb-6 border-t border-blue-900/20 pt-4">
-                                <p class="flex justify-between items-baseline"><span>Вход | <span class="text-blue-500 text-[13px] font-bold opacity-80">Entry:</span></span> <span class="text-white font-bold text-sm">3655</span></p>
-                                <p class="flex justify-between items-baseline"><span>ТП | <span class="text-blue-500 text-[13px] font-bold opacity-80">TP:</span></span> <span class="text-emerald-400 font-bold text-sm">3720</span></p>
-                                <p class="flex justify-between items-baseline"><span>СЛ | <span class="text-blue-500 text-[13px] font-bold opacity-80">SL:</span></span> <span class="text-red-400 font-bold text-sm">3610</span></p>
+                        </div>
+
+                        <div class="glass-card p-8 border-l-[6px] border-[#00ffcc] w-[360px] h-[340px] shrink-0 snap-start flex flex-col justify-between bg-blue-900/5">
+                            <div>
+                                <div class="flex justify-between items-start mb-6">
+                                    <div>
+                                        <span class="text-3xl font-black italic uppercase block mb-1 text-white">ETH/USDT</span>
+                                        <span class="text-ru text-xs uppercase font-bold tracking-[0.1em]">Лонг</span> <span class="text-en uppercase font-bold tracking-[0.1em]">| LONG</span>
+                                    </div>
+                                    <span class="text-[10px] text-gray-500 font-bold tracking-wider">09:48 | 25.03</span>
+                                </div>
+                                <div class="grid grid-cols-2 gap-y-4 gap-x-4">
+                                    <div><p class="mb-1"><span class="text-ru text-[10px] uppercase font-bold text-gray-400">Вход</span> <span class="badge-en uppercase font-bold">| Entry</span></p><p class="text-2xl font-bold text-white">3,655</p></div>
+                                    <div><p class="mb-1"><span class="text-ru text-[10px] uppercase font-bold text-gray-400">Тейк</span> <span class="badge-en uppercase font-bold">| TP</span></p><p class="text-2xl font-bold text-[#00ffcc]">3,720</p></div>
+                                    <div><p class="mb-1"><span class="text-ru text-[10px] uppercase font-bold text-gray-400">Стоп</span> <span class="badge-en uppercase font-bold">| SL</span></p><p class="text-xl font-bold opacity-60 text-white">3,610</p></div>
+                                    <div><p class="mb-1"><span class="text-ru text-[10px] uppercase font-bold text-gray-400">Плечо</span> <span class="badge-en uppercase font-bold">| Lev</span></p><p class="text-xl font-bold text-white">25x</p></div>
+                                </div>
                             </div>
-                            
-                            <div class="border-t border-blue-900/20 pt-4 flex justify-between items-baseline bg-emerald-950/20 p-4 rounded-xl">
-                                <span class="text-[10px] text-gray-500 font-black uppercase tracking-widest">ROI <span class="text-emerald-400 text-xs ml-1">(Win 3x)</span></span>
-                                <span class="text-4xl font-black italic text-emerald-400 Orbitron logo-font tracking-tight">+8.7%</span>
+                            <div class="pt-4 border-t border-blue-900/30 flex justify-between items-center mt-auto">
+                                <div><span class="text-ru text-xs uppercase font-bold">Профит</span> <span class="text-en uppercase font-bold">| Net ROI</span></div>
+                                <span class="text-[#00ffcc] font-orbitron text-2xl font-black italic tracking-tighter">+8.7%</span>
                             </div>
                         </div>
 
                     </div>
                 </div>
-                <div class="glass-card p-10 bg-emerald-500/5 border-emerald-500/20 shadow-[0_0_30px_rgba(16,185,129,0.05)]">
-                    <h3 class="text-xl font-black italic uppercase tracking-widest mb-6 text-emerald-400">
-                        Партнёрская Программа <span class="text-blue-500">| Partnership Program</span>
+
+                <div class="glass-card p-10 bg-emerald-500/5 border-l-[6px] border-[#00ffcc] shadow-[0_0_30px_rgba(16,185,129,0.05)]">
+                    <h3 class="text-xl font-orbitron font-black italic uppercase tracking-widest mb-6 border-b border-blue-900/20 pb-4">
+                        <span class="text-white">Партнёрская Программа</span> <span class="text-en">| Partnership Program</span>
                     </h3>
                     <div class="space-y-4 mb-8">
-                        <p class="text-sm text-white font-bold leading-relaxed">
-                            Приглашайте трейдеров и получайте вознаграждение в размере <span class="text-emerald-400 font-black">10%</span> от каждой их подписки.
+                        <p class="text-sm font-bold leading-relaxed">
+                            <span class="text-ru">Приглашайте трейдеров и получайте вознаграждение в размере <span class="text-[#00ffcc] font-black">10%</span> от каждой их подписки.</span>
                         </p>
-                        <p class="text-[13px] text-blue-400 font-bold tracking-wide border-l border-blue-900/40 pl-4 opacity-80 leading-relaxed">
-                            Invite traders and get a reward of <span class="text-emerald-400 font-black">10%</span> from every subscription they make.
+                        <p class="text-[13px] font-bold tracking-wide border-l border-blue-900/40 pl-4 opacity-80 leading-relaxed">
+                            <span class="text-en">Invite traders and get a reward of <span class="text-[#00ffcc] font-black">10%</span> from every subscription they make.</span>
                         </p>
                     </div>
                     <div class="flex flex-col md:flex-row gap-4">
@@ -183,10 +209,11 @@
                             https://dord-app.vercel.app/ref/id023
                         </div>
                         <button class="bg-blue-600 hover:bg-blue-500 text-white font-black px-10 py-4 rounded-xl uppercase text-xs transition-all shadow-lg hover:scale-105 active:scale-95">
-                            Скопировать Ссылку | <span class="opacity-70">Copy Link</span>
+                            <span class="text-ru">Скопировать Ссылку</span> <span class="text-en font-bold">| Copy Link</span>
                         </button>
                     </div>
                 </div>
+
             </div>
         </div>
 
@@ -194,7 +221,7 @@
             <h4 class="logo-font text-3xl text-white italic opacity-40 mb-12 uppercase tracking-widest">DORD SOFTWARE</h4>
             <div class="max-w-5xl mx-auto border border-red-900/40 rounded-[40px] p-16 space-y-10 text-center">
                 <p class="text-xs text-white font-black uppercase tracking-widest leading-relaxed">
-                    © 2026 DORD SOFTWARE NEURAL NETWORK. ВСЕ ПРАВА ЗАЩИЩЕНЫ. <br>
+                    © 2026 DORD SOFTWARE NEURAL NETWORK. ВСЕ ПРАВА ЗАЩИЩЕНЫ. | HQ: TEL AVIV, ISRAEL <br>
                     <span class="text-blue-500 font-bold text-[10px] tracking-wider mb-6 block">ALL RIGHTS RESERVED.</span>
                     ТОРГОВЛЯ НА ФЬЮЧЕРСАХ НЕСЕТ ВЫСОКИЕ РИСКИ ПОТЕРИ КАПИТАЛА. СТРОГО СОБЛЮДАЙТЕ РИСК-МЕНЕДЖМЕНТ:
                 </p>
