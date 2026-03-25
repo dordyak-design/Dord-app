@@ -2,215 +2,258 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dord Software | AI Terminal v26.0</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Dord Software | AI Terminal v.18.0 Final</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="style.css">
-
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Orbitron:wght@900&display=swap" rel="stylesheet">
     <style>
-        /* Принудительно JetBrains Mono для всех описаний */
-        .card-desc { font-family: 'JetBrains Mono', monospace !important; }
-        /* Русский текст белый */
-        .text-ru { color: #ffffff; }
-        /* Английский текст синий и крупный */
-        .text-en { color: #60a5fa; font-size: 13px !important; }
+        :root { --neon-blue: #3b82f6; --neon-green: #10b981; --neon-red: #ef4444; --bg-dark: #010409; }
+        body { font-family: 'JetBrains Mono', monospace; background-color: var(--bg-dark); color: #f1f5f9; margin: 0; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+        #plexus-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
+        .logo-font { font-family: 'Orbitron', sans-serif; font-style: italic; font-weight: 900; text-transform: uppercase; }
+        .main-container { max-width: 1400px; margin: 0 auto; position: relative; }
+        .glass-card { background: rgba(13, 17, 23, 0.95); border: 1px solid rgba(59, 130, 246, 0.2); backdrop-filter: blur(40px); border-radius: 30px; transition: 0.4s; }
+        .sidebar-btn { color: #4b5563; font-weight: 800; transition: 0.3s; padding: 18px 30px; border-radius: 18px; text-align: left; width: 100%; border: 1px solid transparent; display: block; }
+        .sidebar-btn.active { color: white; background: rgba(59, 130, 246, 0.15); border-color: var(--neon-blue); box-shadow: 0 0 25px rgba(59, 130, 246, 0.2); }
+        .neon-glow { color: var(--neon-green); text-shadow: 0 0 20px rgba(16, 185, 129, 0.5); }
         
-        /* Стили карточек сигналов */
-        .dord-card, .dord-card-red {
-            background-color: #0d1117;
-            border: 1px solid rgba(59, 130, 246, 0.2);
-            border-radius: 12px;
-            transition: all 0.2s ease-in-out;
-        }
-        .dord-card:hover, .dord-card-red:hover {
-            border-color: rgba(0, 255, 204, 0.5);
-            box-shadow: 0 0 15px rgba(0, 255, 204, 0.1);
-        }
-        .dord-card { border-left: 4px solid #00ffcc; }
-        .dord-card-red { border-left: 4px solid #ef4444; }
-
-        /* Скроллбар для ленты */
-        .stream-scroll::-webkit-scrollbar { height: 4px; }
-        .stream-scroll::-webkit-scrollbar-track { background: transparent; }
-        .stream-scroll::-webkit-scrollbar-thumb { background: rgba(59, 130, 246, 0.3); border-radius: 2px; }
+        /* v26.0 Master Style Additions */
+        .text-ru { color: #ffffff; }
+        .text-en { color: #60a5fa; font-size: 13px; }
+        .badge-en { color: #60a5fa; font-size: 10px; }
+        .font-orbitron { font-family: 'Orbitron', sans-serif; }
     </style>
 </head>
 <body>
 
     <canvas id="plexus-canvas"></canvas>
 
-    <div class="main-container space-y-60">
+    <div class="main-container min-h-screen flex flex-col p-6 lg:p-16">
 
-        <nav class="flex justify-between items-center glass-card p-6 mb-10">
-            <div class="logo-font text-2xl text-white">DORD</div>
-            <div class="flex gap-6 text-sm">
-                <a href="index.html" class="text-[#00ffcc]"><span class="text-white">Сигналы</span> <span class="text-blue-400 text-[13px]">| Signals</span></a>
-                <a href="plans.html" class="text-gray-400 hover:text-white transition-colors"><span class="text-white">Тарифы</span> <span class="text-blue-400 text-[13px]">| Plans</span></a>
-                <a href="cabinet.html" class="text-gray-400 hover:text-white transition-colors"><span class="text-white">Кабинет</span> <span class="text-blue-400 text-[13px]">| Cabinet</span></a>
-            </div>
-            <a href="cabinet.html" class="px-5 py-2.5 bg-blue-600 text-white font-bold rounded-xl text-sm hover:bg-white hover:text-blue-600 transition-all">TERMINAL</a>
-        </nav>
-
-        <header class="text-center mb-16 mt-80">
-            <img src="logo.png" alt="Dord Software" class="h-[180px] mx-auto block mb-6">
-            <h1 class="logo-font text-5xl tracking-widest text-white mb-2">DORD SOFTWARE</h1>
-            <p class="text-gray-400 mb-2 card-desc">Neural Intelligence Terminal • 2026</p>
-            <div class="inline-block border border-gray-800 px-4 py-1.5 rounded-full text-xs bg-[#0d1117] card-desc">
-                <span class="text-white">Нейросвязь Активна</span> <span class="text-en">| Neural Link Active</span> • <span class="text-[#00ffcc]">ID: 023</span>
-            </div>
+        <header class="flex flex-col items-center mb-24 text-center">
+            <img src="logo.png" alt="Dord Hawk" class="h-[240px] w-auto mb-12 drop-shadow-[0_0_60px_rgba(59, 130, 246, 0.6)]">
+            <h1 class="logo-font text-5xl lg:text-8xl text-white italic tracking-tighter uppercase">DORD <span class="text-blue-500">SOFTWARE</span></h1>
+            <p class="text-blue-400 font-bold uppercase tracking-[0.6em] text-[10px] lg:text-[12px] mt-8 opacity-70 italic">
+                Neural Intelligence Terminal • 2026<br>
+                <span class="text-white tracking-[0.2em] mt-2 block uppercase">Торговые Сигналы Нового Поколения</span>
+            </p>
         </header>
 
-        <div class="grid grid-cols-2 gap-8 max-w-2xl mx-auto mb-20 text-center glass-card p-10">
-            <div>
-                <div class="text-gray-500 text-xs mb-1 uppercase tracking-widest card-desc">Global ROI</div>
-                <div class="font-orbitron text-5xl font-bold text-[#00ffcc]">149%</div>
-            </div>
-            <div>
-                <div class="text-gray-500 text-xs mb-1 uppercase tracking-widest card-desc">Accuracy</div>
-                <div class="font-orbitron text-5xl font-bold text-white">84.5%</div>
-            </div>
-        </div>
+        <div class="flex flex-col lg:flex-row gap-16 mb-24 items-stretch">
+            <aside class="w-full lg:w-80 flex flex-col justify-between shrink-0 gap-6">
+                <div class="glass-card p-6">
+                    <nav class="space-y-4">
+                        <a href="index.html" class="sidebar-btn active flex flex-col"><span class="text-xs uppercase tracking-widest leading-tight">Signals | Сигналы</span></a>
+                        <a href="plans.html" class="sidebar-btn flex flex-col"><span class="text-xs uppercase tracking-widest">Plans | Тарифы</span></a>
+                        <a href="cabinet.html" class="sidebar-btn flex flex-col"><span class="text-xs uppercase tracking-widest">Cabinet | Кабинет</span></a>
+                    </nav>
+                </div>
+                <div class="p-6 glass-card text-center hidden lg:block border-blue-900/20">
+                    <div class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse mx-auto mb-3"></div>
+                    <p class="text-[9px] font-black text-emerald-400 uppercase tracking-widest italic leading-relaxed">Neural Link Active<br>Нейросвязь Активна</p>
+                </div>
+            </aside>
 
-        <div class="glass-card p-8">
-            <h2 class="font-orbitron text-2xl mb-8 text-center text-white tracking-wider">
-                <span class="text-white">Лента Сигналов</span> <span class="text-en">| The Stream</span>
-            </h2>
-
-            <div class="flex gap-5 overflow-x-auto stream-scroll pb-6">
-                
-                <div class="dord-card p-5 min-w-[300px] flex-shrink-0 card-desc">
-                    <div class="flex justify-between items-center mb-4">
-                        <div class="font-bold text-lg text-white">SOL/USDT</div>
-                        <div class="text-green-400 text-xs"><span class="text-white">Лонг</span> <span class="text-en">| LONG</span></div>
-                    </div>
-                    <div class="grid grid-cols-2 gap-3 text-sm mb-4 text-gray-300">
-                        <div>Вход <span class="text-en">| Entry</span><br><span class="text-white font-bold">90.99</span></div>
-                        <div>ТП <span class="text-en">| TP HIT</span><br><span class="text-white font-bold">98.50</span></div>
-                    </div>
-                    <div class="pt-3 border-t border-gray-800 flex justify-between items-center">
-                        <span class="text-white text-xs">Профит <span class="text-en">| Net Profit</span></span>
-                        <span class="text-[#00ffcc] font-orbitron text-lg font-bold">+14.2%</span>
+            <div class="flex-1">
+                <div class="glass-card overflow-hidden h-[500px]">
+                    <div class="tradingview-widget-container h-full">
+                        <div class="tradingview-widget-container__widget h-full"></div>
+                        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+                        {
+                          "colorTheme": "dark", "isTransparent": true, "width": "100%", "height": "100%",
+                          "tabs": [{
+                            "title": "Neural Stream 2026",
+                            "symbols": [
+                              {"s": "BINANCE:BTCUSDT"}, {"s": "BINANCE:ETHUSDT"}, {"s": "BINANCE:SOLUSDT"},
+                              {"s": "BINANCE:BNBUSDT"}, {"s": "BINANCE:XRPUSDT"}, {"s": "BINANCE:ADAUSDT"}
+                            ]
+                          }]
+                        }
+                        </script>
                     </div>
                 </div>
-
-                <div class="dord-card-red p-5 min-w-[300px] flex-shrink-0 card-desc">
-                    <div class="flex justify-between items-center mb-4">
-                        <div class="font-bold text-lg text-white">ETH/USDT</div>
-                        <div class="text-red-400 text-xs"><span class="text-white">Шорт</span> <span class="text-en">| SHORT</span></div>
-                    </div>
-                    <div class="grid grid-cols-2 gap-3 text-sm mb-4 text-gray-300">
-                        <div>Вход <span class="text-en">| Entry</span><br><span class="text-white font-bold">3120.0</span></div>
-                        <div>СЛ <span class="text-en">| SL</span><br><span class="text-white font-bold">3180.5</span></div>
-                    </div>
-                    <div class="pt-3 border-t border-gray-800 flex justify-between items-center">
-                        <span class="text-red-500 text-xs font-bold">Удар СЛ <span class="text-en">| HIT SL</span></span>
-                        <span class="text-red-500 font-orbitron text-lg font-bold">-4.1%</span>
-                    </div>
-                </div>
-
-                <div class="dord-card p-5 min-w-[300px] flex-shrink-0 card-desc">
-                    <div class="flex justify-between items-center mb-4">
-                        <div class="font-bold text-lg text-white">BTC/USDT</div>
-                        <div class="text-green-400 text-xs"><span class="text-white">Лонг</span> <span class="text-en">| LONG</span></div>
-                    </div>
-                    <div class="grid grid-cols-2 gap-3 text-sm mb-4 text-gray-300">
-                        <div>Вход <span class="text-en">| Entry</span><br><span class="text-white font-bold">68200</span></div>
-                        <div>ТП <span class="text-en">| TP HIT</span><br><span class="text-white font-bold">70592</span></div>
-                    </div>
-                    <div class="pt-3 border-t border-gray-800 flex justify-between items-center">
-                        <span class="text-white text-xs">Профит <span class="text-en">| Net Profit</span></span>
-                        <span class="text-[#00ffcc] font-orbitron text-lg font-bold">+3.7%</span>
-                    </div>
-                </div>
-
-                <div class="dord-card p-5 min-w-[300px] flex-shrink-0 card-desc border-dashed opacity-80">
-                    <div class="flex justify-between items-center mb-4">
-                        <div class="font-bold text-lg text-white">XRP/USDT</div>
-                        <div class="text-green-400 text-xs"><span class="text-white">Лонг</span> <span class="text-en">| LONG</span></div>
-                    </div>
-                    <div class="grid grid-cols-2 gap-3 text-sm mb-4 text-gray-300">
-                        <div>Вход <span class="text-en">| Entry</span><br><span class="text-white font-bold">0.581</span></div>
-                        <div>ТП <span class="text-en">| TP Target</span><br><span class="text-white font-bold">0.620</span></div>
-                    </div>
-                    <div class="pt-3 border-t border-gray-800 flex justify-between items-center">
-                        <span class="text-gray-400 text-xs font-bold animate-pulse">В работе <span class="text-en">| ACTIVE</span></span>
-                        <span class="text-white font-orbitron text-lg font-bold">Wait</span>
-                    </div>
-                </div>
-
-                <div class="dord-card p-5 min-w-[300px] flex-shrink-0 card-desc">
-                    <div class="flex justify-between items-center mb-4">
-                        <div class="font-bold text-lg text-white">ZANO/USDT</div>
-                        <div class="text-green-400 text-xs"><span class="text-white">Лонг</span> <span class="text-en">| LONG</span></div>
-                    </div>
-                    <div class="grid grid-cols-2 gap-3 text-sm mb-4 text-gray-300">
-                        <div>Вход <span class="text-en">| Entry</span><br><span class="text-white font-bold">2.10</span></div>
-                        <div>ТП <span class="text-en">| TP HIT</span><br><span class="text-white font-bold">2.45</span></div>
-                    </div>
-                    <div class="pt-3 border-t border-gray-800 flex justify-between items-center">
-                        <span class="text-white text-xs">Профит <span class="text-en">| Net Profit</span></span>
-                        <span class="text-[#00ffcc] font-orbitron text-lg font-bold">+16.6%</span>
-                    </div>
-                </div>
-                
-                <div class="dord-card-red p-5 min-w-[300px] flex-shrink-0 card-desc">
-                    <div class="flex justify-between items-center mb-4">
-                        <div class="font-bold text-lg text-white">DOGE/USDT</div>
-                        <div class="text-red-400 text-xs"><span class="text-white">Шорт</span> <span class="text-en">| SHORT</span></div>
-                    </div>
-                    <div class="grid grid-cols-2 gap-3 text-sm mb-4 text-gray-300">
-                        <div>Вход <span class="text-en">| Entry</span><br><span class="text-white font-bold">0.145</span></div>
-                        <div>СЛ <span class="text-en">| SL</span><br><span class="text-white font-bold">0.138</span></div>
-                    </div>
-                    <div class="pt-3 border-t border-gray-800 flex justify-between items-center">
-                        <span class="text-red-500 text-xs font-bold">Удар СЛ <span class="text-en">| HIT SL</span></span>
-                        <span class="text-red-500 font-orbitron text-lg font-bold">-4.8%</span>
-                    </div>
-                </div>
-
-                <div class="dord-card p-5 min-w-[300px] flex-shrink-0 card-desc">
-                    <div class="flex justify-between items-center mb-4">
-                        <div class="font-bold text-lg text-white">LINK/USDT</div>
-                        <div class="text-red-400 text-xs"><span class="text-white">Шорт</span> <span class="text-en">| SHORT</span></div>
-                    </div>
-                    <div class="grid grid-cols-2 gap-3 text-sm mb-4 text-gray-300">
-                        <div>Вход <span class="text-en">| Entry</span><br><span class="text-white font-bold">18.50</span></div>
-                        <div>ТП <span class="text-en">| TP HIT</span><br><span class="text-white font-bold">17.20</span></div>
-                    </div>
-                    <div class="pt-3 border-t border-gray-800 flex justify-between items-center">
-                        <span class="text-white text-xs">Профит <span class="text-en">| Net Profit</span></span>
-                        <span class="text-[#00ffcc] font-orbitron text-lg font-bold">+7.0%</span>
-                    </div>
-                </div>
-
-                <div class="dord-card p-5 min-w-[300px] flex-shrink-0 card-desc">
-                    <div class="flex justify-between items-center mb-4">
-                        <div class="font-bold text-lg text-white">BNB/USDT</div>
-                        <div class="text-green-400 text-xs"><span class="text-white">Лонг</span> <span class="text-en">| LONG</span></div>
-                    </div>
-                    <div class="grid grid-cols-2 gap-3 text-sm mb-4 text-gray-300">
-                        <div>Вход <span class="text-en">| Entry</span><br><span class="text-white font-bold">580.0</span></div>
-                        <div>ТП <span class="text-en">| TP HIT</span><br><span class="text-white font-bold">610.5</span></div>
-                    </div>
-                    <div class="pt-3 border-t border-gray-800 flex justify-between items-center">
-                        <span class="text-white text-xs">Профит <span class="text-en">| Net Profit</span></span>
-                        <span class="text-[#00ffcc] font-orbitron text-lg font-bold">+5.2%</span>
-                    </div>
-                </div>
-
             </div>
         </div>
 
-        <footer class="mt-20 border-t border-gray-800 pt-10 text-center text-gray-600 text-xs pb-12 glass-card">
-            <p class="mb-2 card-desc">© 2026 DORD SOFTWARE NEURAL NETWORK. ALL RIGHTS RESERVED.</p>
-            <p class="mb-5 card-desc">HQ: Tel Aviv, Israel.</p>
-            <div class="max-w-3xl mx-auto text-[11px] leading-relaxed px-6 py-4 border border-red-950 rounded-xl bg-red-950/20 card-desc">
-                <span class="text-white">ТОРГОВЛЯ НА ФЬЮЧЕРСАХ НЕСЕТ ВЫСОКИЕ РИСКИ ПОТЕРИ КАПИТАЛА. СТРОГО СОБЛЮДАЙТЕ РИСК-МЕНЕДЖМЕНТ: НЕ ЗАВЫШАЙТЕ ПЛЕЧИ, НЕ ЗАХОДИТЕ НА БОЛЬШОЙ ПРОЦЕНТ ОТ ДЕПОЗИТА.</span><br>
-                <span class="text-en">RISK WARNING: FUTURES TRADING INVOLVES SIGNIFICANT RISK OF LOSS. STRICTLY FOLLOW RISK MANAGEMENT: DO NOT OVER-LEVERAGE, DO NOT USE HIGH MARGIN %.</span>
+        <main class="space-y-24">
+            <div class="flex flex-wrap items-baseline justify-between border-b border-blue-900/30 pb-12 px-6">
+                <div class="flex items-baseline gap-4"><h2 class="text-sm font-black text-blue-500 uppercase tracking-widest">ROI =</h2><p class="text-3xl font-black neon-glow italic tracking-tighter">149%</p></div>
+                <div class="flex items-baseline gap-4"><h2 class="text-sm font-black text-blue-500 uppercase tracking-widest">Accuracy | Точность =</h2><p class="text-5xl font-black text-white italic tracking-tighter">84.5%</p></div>
             </div>
-        </footer>
 
-    </div> </body>
-</html>
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10">
+                
+                <div class="glass-card p-8 border-l-[6px] border-[#00ffcc]">
+                    <div class="flex justify-between items-start mb-8">
+                        <div>
+                            <span class="text-3xl font-black italic uppercase block mb-2 text-white">SOL/USDT</span>
+                            <span class="text-ru text-xs uppercase font-bold tracking-[0.1em]">Лонг</span> <span class="text-en uppercase font-bold tracking-[0.1em]">| LONG</span>
+                        </div>
+                        <span class="bg-[#00ffcc]/10 text-[#00ffcc] px-3 py-1 rounded-full font-black uppercase tracking-widest animate-pulse"><span class="text-ru text-[10px]">В работе</span> <span class="badge-en">| ACTIVE</span></span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-y-6 gap-x-4 mb-8">
+                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Вход</span> <span class="text-en uppercase font-bold">| Entry</span></p><p class="text-2xl font-bold text-white">90.99</p></div>
+                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Тейк</span> <span class="text-en uppercase font-bold">| TP</span></p><p class="text-2xl font-bold text-[#00ffcc]">98.50</p></div>
+                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Стоп</span> <span class="text-en uppercase font-bold">| SL</span></p><p class="text-xl font-bold opacity-60 text-white">86.20</p></div>
+                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Плечо</span> <span class="text-en uppercase font-bold">| Lev</span></p><p class="text-xl font-bold text-white">20x</p></div>
+                    </div>
+                    <div class="pt-4 border-t border-blue-900/30 flex justify-between items-center">
+                        <div><span class="text-ru text-xs uppercase font-bold">Профит</span> <span class="text-en uppercase font-bold">| Net ROI</span></div>
+                        <span class="text-[#00ffcc] font-orbitron text-2xl font-black italic tracking-tighter">+14.2%</span>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 border-l-[6px] border-[#00ffcc] opacity-80">
+                    <div class="flex justify-between items-start mb-8">
+                        <div>
+                            <span class="text-3xl font-black italic uppercase block mb-2 text-white">BTC/USDT</span>
+                            <span class="text-ru text-xs uppercase font-bold tracking-[0.1em]">Лонг</span> <span class="text-en uppercase font-bold tracking-[0.1em]">| LONG</span>
+                        </div>
+                        <span class="text-[#00ffcc] px-3 py-1 font-black uppercase tracking-widest"><span class="text-ru text-[10px]">Тейк</span> <span class="badge-en text-[#00ffcc]">| TP HIT</span></span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-y-6 gap-x-4 mb-8">
+                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Вход</span> <span class="text-en uppercase font-bold">| Entry</span></p><p class="text-2xl font-bold text-white">68,200</p></div>
+                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Выход</span> <span class="text-en uppercase font-bold">| Exit</span></p><p class="text-2xl font-bold text-[#00ffcc]">70,592</p></div>
+                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Стоп</span> <span class="text-en uppercase font-bold">| SL</span></p><p class="text-xl font-bold opacity-60 text-white">66,500</p></div>
+                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Плечо</span> <span class="text-en uppercase font-bold">| Lev</span></p><p class="text-xl font-bold text-white">50x</p></div>
+                    </div>
+                    <div class="pt-4 border-t border-blue-900/30 flex justify-between items-center">
+                        <div><span class="text-ru text-xs uppercase font-bold">Профит</span> <span class="text-en uppercase font-bold">| Net ROI</span></div>
+                        <span class="text-[#00ffcc] font-orbitron text-2xl font-black italic tracking-tighter">+3.7%</span>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 border-l-[6px] border-[#00ffcc] opacity-80">
+                    <div class="flex justify-between items-start mb-8">
+                        <div>
+                            <span class="text-3xl font-black italic uppercase block mb-2 text-white">ETH/USDT</span>
+                            <span class="text-ru text-xs uppercase font-bold tracking-[0.1em]">Лонг</span> <span class="text-en uppercase font-bold tracking-[0.1em]">| LONG</span>
+                        </div>
+                        <span class="text-[#00ffcc] px-3 py-1 font-black uppercase tracking-widest"><span class="text-ru text-[10px]">Тейк</span> <span class="badge-en text-[#00ffcc]">| TP HIT</span></span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-y-6 gap-x-4 mb-8">
+                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Вход</span> <span class="text-en uppercase font-bold">| Entry</span></p><p class="text-2xl font-bold text-white">1,980</p></div>
+                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Выход</span> <span class="text-en uppercase font-bold">| Exit</span></p><p class="text-2xl font-bold text-[#00ffcc]">2,141</p></div>
+                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Стоп</span> <span class="text-en uppercase font-bold">| SL</span></p><p class="text-xl font-bold opacity-60 text-white">1,890</p></div>
+                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Плечо</span> <span class="text-en uppercase font-bold">| Lev</span></p><p class="text-xl font-bold text-white">25x</p></div>
+                    </div>
+                    <div class="pt-4 border-t border-blue-900/30 flex justify-between items-center">
+                        <div><span class="text-ru text-xs uppercase font-bold">Профит</span> <span class="text-en uppercase font-bold">| Net ROI</span></div>
+                        <span class="text-[#00ffcc] font-orbitron text-2xl font-black italic tracking-tighter">+8.2%</span>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 border-l-[6px] border-[#ef4444] opacity-80">
+                    <div class="flex justify-between items-start mb-8">
+                        <div>
+                            <span class="text-3xl font-black italic uppercase block mb-2 text-white">ARB/USDT</span>
+                            <span class="text-ru text-xs uppercase font-bold tracking-[0.1em]">Лонг</span> <span class="text-en uppercase font-bold tracking-[0.1em]">| LONG</span>
+                        </div>
+                        <span class="text-[#ef4444] px-3 py-1 font-black uppercase tracking-widest"><span class="text-ru text-[10px]">Удар СЛ</span> <span class="badge-en !text-[#ef4444]">| SL HIT</span></span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-y-6 gap-x-4 mb-8">
+                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Вход</span> <span class="text-en uppercase font-bold">| Entry</span></p><p class="text-2xl font-bold text-white">1.150</p></div>
+                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Тейк</span> <span class="text-en uppercase font-bold">| TP</span></p><p class="text-2xl font-bold text-gray-500">1.280</p></div>
+                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Выход</span> <span class="text-en uppercase font-bold">| Exit</span></p><p class="text-xl font-bold text-[#ef4444]">1.090</p></div>
+                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Плечо</span> <span class="text-en uppercase font-bold">| Lev</span></p><p class="text-xl font-bold text-white">10x</p></div>
+                    </div>
+                    <div class="pt-4 border-t border-blue-900/30 flex justify-between items-center">
+                        <div><span class="text-ru text-xs uppercase font-bold">Убыток</span> <span class="text-en uppercase font-bold">| Net Loss</span></div>
+                        <span class="text-[#ef4444] font-orbitron text-2xl font-black italic tracking-tighter">-5.2%</span>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 border-l-[6px] border-[#00ffcc] opacity-80">
+                    <div class="flex justify-between items-start mb-8">
+                        <div>
+                            <span class="text-3xl font-black italic uppercase block mb-2 text-white">ZANO/USDT</span>
+                            <span class="text-ru text-xs uppercase font-bold tracking-[0.1em]">Лонг</span> <span class="text-en uppercase font-bold tracking-[0.1em]">| LONG</span>
+                        </div>
+                        <span class="text-[#00ffcc] px-3 py-1 font-black uppercase tracking-widest"><span class="text-ru text-[10px]">Тейк</span> <span class="badge-en text-[#00ffcc]">| TP HIT</span></span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-y-6 gap-x-4 mb-8">
+                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Вход</span> <span class="text-en uppercase font-bold">| Entry</span></p><p class="text-2xl font-bold text-white">2.10</p></div>
+                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Выход</span> <span class="text-en uppercase font-bold">| Exit</span></p><p class="text-2xl font-bold text-[#00ffcc]">2.45</p></div>
+                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Стоп</span> <span class="text-en uppercase font-bold">| SL</span></p><p class="text-xl font-bold opacity-60 text-white">1.95</p></div>
+                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Плечо</span> <span class="text-en uppercase font-bold">| Lev</span></p><p class="text-xl font-bold text-white">5x</p></div>
+                    </div>
+                    <div class="pt-4 border-t border-blue-900/30 flex justify-between items-center">
+                        <div><span class="text-ru text-xs uppercase font-bold">Профит</span> <span class="text-en uppercase font-bold">| Net ROI</span></div>
+                        <span class="text-[#00ffcc] font-orbitron text-2xl font-black italic tracking-tighter">+16.6%</span>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 border-l-[6px] border-[#ef4444] opacity-80">
+                    <div class="flex justify-between items-start mb-8">
+                        <div>
+                            <span class="text-3xl font-black italic uppercase block mb-2 text-white">DOGE/USDT</span>
+                            <span class="text-ru text-xs uppercase font-bold tracking-[0.1em]">Шорт</span> <span class="text-en uppercase font-bold tracking-[0.1em]">| SHORT</span>
+                        </div>
+                        <span class="text-[#ef4444] px-3 py-1 font-black uppercase tracking-widest"><span class="text-ru text-[10px]">Удар СЛ</span> <span class="badge-en !text-[#ef4444]">| SL HIT</span></span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-y-6 gap-x-4 mb-8">
+                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Вход</span> <span class="text-en uppercase font-bold">| Entry</span></p><p class="text-2xl font-bold text-white">0.145</p></div>
+                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Тейк</span> <span class="text-en uppercase font-bold">| TP</span></p><p class="text-2xl font-bold text-gray-500">0.120</p></div>
+                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Выход</span> <span class="text-en uppercase font-bold">| Exit</span></p><p class="text-xl font-bold text-[#ef4444]">0.152</p></div>
+                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Плечо</span> <span class="text-en uppercase font-bold">| Lev</span></p><p class="text-xl font-bold text-white">20x</p></div>
+                    </div>
+                    <div class="pt-4 border-t border-blue-900/30 flex justify-between items-center">
+                        <div><span class="text-ru text-xs uppercase font-bold">Убыток</span> <span class="text-en uppercase font-bold">| Net Loss</span></div>
+                        <span class="text-[#ef4444] font-orbitron text-2xl font-black italic tracking-tighter">-4.8%</span>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 border-l-[6px] border-[#00ffcc] opacity-80">
+                    <div class="flex justify-between items-start mb-8">
+                        <div>
+                            <span class="text-3xl font-black italic uppercase block mb-2 text-white">LINK/USDT</span>
+                            <span class="text-ru text-xs uppercase font-bold tracking-[0.1em]">Шорт</span> <span class="text-en uppercase font-bold tracking-[0.1em]">| SHORT</span>
+                        </div>
+                        <span class="text-[#00ffcc] px-3 py-1 font-black uppercase tracking-widest"><span class="text-ru text-[10px]">Тейк</span> <span class="badge-en text-[#00ffcc]">| TP HIT</span></span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-y-6 gap-x-4 mb-8">
+                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Вход</span> <span class="text-en uppercase font-bold">| Entry</span></p><p class="text-2xl font-bold text-white">18.50</p></div>
+                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Выход</span> <span class="text-en uppercase font-bold">| Exit</span></p><p class="text-2xl font-bold text-[#00ffcc]">17.20</p></div>
+                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Стоп</span> <span class="text-en uppercase font-bold">| SL</span></p><p class="text-xl font-bold opacity-60 text-white">19.10</p></div>
+                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Плечо</span> <span class="text-en uppercase font-bold">| Lev</span></p><p class="text-xl font-bold text-white">15x</p></div>
+                    </div>
+                    <div class="pt-4 border-t border-blue-900/30 flex justify-between items-center">
+                        <div><span class="text-ru text-xs uppercase font-bold">Профит</span> <span class="text-en uppercase font-bold">| Net ROI</span></div>
+                        <span class="text-[#00ffcc] font-orbitron text-2xl font-black italic tracking-tighter">+7.0%</span>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 border-l-[6px] border-[#00ffcc] opacity-80">
+                    <div class="flex justify-between items-start mb-8">
+                        <div>
+                            <span class="text-3xl font-black italic uppercase block mb-2 text-white">BNB/USDT</span>
+                            <span class="text-ru text-xs uppercase font-bold tracking-[0.1em]">Лонг</span> <span class="text-en uppercase font-bold tracking-[0.1em]">| LONG</span>
+                        </div>
+                        <span class="text-[#00ffcc] px-3 py-1 font-black uppercase tracking-widest"><span class="text-ru text-[10px]">Тейк</span> <span class="badge-en text-[#00ffcc]">| TP HIT</span></span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-y-6 gap-x-4 mb-8">
+                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Вход</span> <span class="text-en uppercase font-bold">| Entry</span></p><p class="text-2xl font-bold text-white">580.0</p></div>
+                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Выход</span> <span class="text-en uppercase font-bold">| Exit</span></p><p class="text-2xl font-bold text-[#00ffcc]">610.5</p></div>
+                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Стоп</span> <span class="text-en uppercase font-bold">| SL</span></p><p class="text-xl font-bold opacity-60 text-white">565.0</p></div>
+                        <div><p class="mb-2"><span class="text-ru text-xs uppercase font-bold text-gray-400">Плечо</span> <span class="text-en uppercase font-bold">| Lev</span></p><p class="text-xl font-bold text-white">10x</p></div>
+                    </div>
+                    <div class="pt-4 border-t border-blue-900/30 flex justify-between items-center">
+                        <div><span class="text-ru text-xs uppercase font-bold">Профит</span> <span class="text-en uppercase font-bold">| Net ROI</span></div>
+                        <span class="text-[#00ffcc] font-orbitron text-2xl font-black italic tracking-tighter">+5.2%</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 pt-24 border-t border-blue-900/10">
+                <div class="glass-card p-10 bg-blue-900/5 border-none text-lg italic text-gray-400">"Сигналы по SOL зашли идеально. Профит за сессию покрыл подписку на год." — <span class="text-blue-500 font-black uppercase text-xs ml-2">Mikhail_Crypto</span></div>
+                <div class="glass-card p-10 bg-blue-900/5 border-none text-lg italic text-gray-400">"Using Pro package, accuracy is spot on. Truly reliable neural stream." — <span class="text-blue-500 font-black uppercase text-xs ml-2">Dima_Trade</span></div>
+                <div class="glass-card p-10 bg-blue-900/5 border-none text-lg italic text-gray-400">"Лучшее решение для Израиля. Алгоритмы отлично фильтруют рыночный шум." — <span class="text-blue-500 font-black uppercase text-xs ml-2">Igal_Analyst</span></div>
+                <div class="glass-card p-10 bg-blue-900/5 border-none text-lg italic text-gray-400">"Closed 4 trades this week. Paid off the subscription instantly. Best AI bot." — <span class="text-blue-500 font-black uppercase text-xs ml-2">Sarah_FX</span></div>
+            </div>
+        </main>
+
+        <footer class="mt-40 pt-24 border-t border-blue-900/20 pb-40 text-center">
+            <h4 class="logo-font text-3xl text-white italic opacity-40 mb-12 uppercase tracking-widest">DORD SOFTWARE</h4>
+            <div class="max-w-5xl mx-auto border border-red-900/40 rounded-[40px] p-16 space-y-10">
+                <p class="text
