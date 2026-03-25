@@ -65,57 +65,132 @@
                 <div class="flex items-baseline gap-4"><h2 class="text-sm font-black text-blue-500 uppercase tracking-widest">Accuracy | Точность =</h2><p class="text-5xl font-black text-white italic tracking-tighter">84.5%</p></div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10">
-                
-                <div class="glass-card p-8 border-l-8 border-l-emerald-500">
-                    <div class="flex justify-between items-start mb-8">
-                        <div>
-                            <span class="text-3xl font-black italic uppercase block">SOL/USDT</span>
-                            <span class="text-[10px] text-emerald-400 font-black uppercase tracking-[0.2em]">Long | Лонг</span>
-                        </div>
-                        <span class="bg-emerald-500/10 text-emerald-400 text-[9px] px-3 py-1 rounded-full font-black uppercase tracking-widest">Active</span>
-                    </div>
-                    <div class="grid grid-cols-2 gap-y-6 gap-x-4 text-[11px] mb-8">
-                        <div><p class="text-gray-500 uppercase font-bold mb-1">Entry | Вход</p><p class="text-2xl font-bold">90.99</p></div>
-                        <div><p class="text-emerald-500 uppercase font-bold mb-1">Take Profit</p><p class="text-2xl font-bold text-emerald-400">98.50</p></div>
-                        <div><p class="text-red-500 uppercase font-bold mb-1">Stop Loss</p><p class="text-xl font-bold">86.20</p></div>
-                        <div><p class="text-blue-400 uppercase font-bold mb-1">Margin %</p><p class="text-xl font-bold">3-5%</p></div>
-                    </div>
-                </div>
-
-                <div class="glass-card p-8 border-l-8 border-l-blue-500 opacity-60">
-                    <div class="flex justify-between items-start mb-8">
-                        <div>
-                            <span class="text-2xl font-black italic uppercase block">BTC/USDT</span>
-                            <span class="text-[9px] text-emerald-400 font-black uppercase tracking-[0.2em]">Long | Лонг</span>
-                        </div>
-                        <span class="text-emerald-500 text-[9px] font-black uppercase tracking-widest">Profit Hit</span>
-                    </div>
-                    <div class="grid grid-cols-2 gap-y-6 text-[10px] mb-6">
-                        <div><p class="text-gray-500 font-bold mb-1 uppercase">Entry</p><p class="text-xl font-bold">68,200</p></div>
-                        <div><p class="text-emerald-500 font-bold mb-1 uppercase">Exit (TP)</p><p class="text-xl font-bold text-emerald-400">70,592</p></div>
-                        <div><p class="text-red-900 font-bold mb-1 uppercase">Stop Loss</p><p class="text-lg font-bold opacity-50">66,500</p></div>
-                        <div class="text-right pt-4"><p class="text-emerald-500 font-black text-sm uppercase tracking-widest">+3.7% Net</p></div>
-                    </div>
-                </div>
-
-                <div class="glass-card p-8 border-l-8 border-l-blue-500 opacity-60">
-                    <div class="flex justify-between items-start mb-8">
-                        <div>
-                            <span class="text-2xl font-black italic uppercase block">ETH/USDT</span>
-                            <span class="text-[9px] text-emerald-400 font-black uppercase tracking-[0.2em]">Long | Лонг</span>
-                        </div>
-                        <span class="text-emerald-500 text-[9px] font-black uppercase tracking-widest">Profit Hit</span>
-                    </div>
-                    <div class="grid grid-cols-2 gap-y-6 text-[10px] mb-6">
-                        <div><p class="text-gray-500 font-bold mb-1 uppercase">Entry</p><p class="text-xl font-bold">1,980</p></div>
-                        <div><p class="text-emerald-500 font-bold mb-1 uppercase">Exit (TP)</p><p class="text-xl font-bold text-emerald-400">2,141</p></div>
-                        <div><p class="text-red-900 font-bold mb-1 uppercase">Stop Loss</p><p class="text-lg font-bold opacity-50">1,890</p></div>
-                        <div class="text-right pt-4"><p class="text-emerald-500 font-black text-sm uppercase tracking-widest">+8.2% Net</p></div>
-                    </div>
-                </div>
-
+           <div class="space-y-24 fade-in">
+    <h2 class="logo-font text-3xl text-white italic tracking-tighter uppercase mb-10 border-b border-blue-900/20 pb-4">
+        История Сигналов Neural <span class="text-blue-500">| Signal History Feed</span>
+    </h2>
+    
+    <div class="flex flex-col md:flex-row md:overflow-x-auto gap-8 pb-8 md:pb-6 signal-scroll-container">
+        
+        <div class="glass-card p-6 border-emerald-900/40 w-full md:w-[320px] shrink-0 shadow-[0_0_30px_rgba(16,185,129,0.05)] bg-blue-900/5">
+            <div class="flex justify-between items-center mb-4">
+                <span class="text-xl font-black italic text-white Orbitron logo-font tracking-widest">SOL/USDT</span>
+                <span class="text-[10px] text-gray-500 font-bold tracking-wider">14:02 | 25.03</span>
             </div>
+            
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-emerald-500/10 border border-emerald-500/30 rounded-full mb-6 shadow-[0_0_15px_rgba(16,185,129,0.1)]">
+                <div class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></div>
+                <span class="text-[10px] text-emerald-400 font-black uppercase">LONG | <span class="opacity-70">ПОКУПКА</span></span>
+            </div>
+            
+            <div class="space-y-2 text-xs text-gray-400 font-mono mb-6 border-t border-blue-900/20 pt-4">
+                <p class="flex justify-between items-baseline"><span>Вход | <span class="text-blue-500 text-[13px] font-bold opacity-80">Entry:</span></span> <span class="text-white font-bold text-sm">184.50</span></p>
+                <p class="flex justify-between items-baseline"><span>ТП | <span class="text-blue-500 text-[13px] font-bold opacity-80">TP (Target):</span></span> <span class="text-emerald-400 font-bold text-sm">191.00</span></p>
+                <p class="flex justify-between items-baseline"><span>СЛ | <span class="text-blue-500 text-[13px] font-bold opacity-80">SL (Stop Loss):</span></span> <span class="text-red-400 font-bold text-sm">181.20</span></p>
+            </div>
+            
+            <div class="border-t border-blue-900/20 pt-4 flex justify-between items-baseline bg-emerald-950/20 p-4 rounded-xl">
+                <span class="text-[10px] text-gray-500 font-black uppercase tracking-widest">ROI <span class="text-emerald-400 text-xs ml-1">(Win 5x)</span></span>
+                <span class="text-4xl font-black italic text-emerald-400 Orbitron logo-font tracking-tight">+21.4%</span>
+            </div>
+        </div>
+
+        <div class="glass-card p-6 border-red-900/40 w-full md:w-[320px] shrink-0 shadow-[0_0_30px_rgba(239,68,68,0.05)] bg-red-950/5">
+            <div class="flex justify-between items-center mb-4">
+                <span class="text-xl font-black italic text-white Orbitron logo-font tracking-widest opacity-60">DOGE/USDT</span>
+                <span class="text-[10px] text-gray-500 font-bold tracking-wider">13:55 | 25.03</span>
+            </div>
+            
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-red-500/10 border border-red-500/30 rounded-full mb-6">
+                <div class="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse"></div>
+                <span class="text-[10px] text-red-400 font-black uppercase tracking-wider">SHORT | <span class="opacity-70">ПРОДАЖА</span></span>
+            </div>
+            
+            <div class="space-y-2 text-xs text-gray-400 font-mono mb-6 border-t border-blue-900/20 pt-4 opacity-70">
+                <p class="flex justify-between items-baseline"><span>Вход | <span class="text-blue-500 text-[13px] font-bold opacity-80">Entry:</span></span> <span class="text-white font-bold text-sm">0.1845</span></p>
+                <p class="flex justify-between items-baseline"><span>ТП | <span class="text-blue-500 text-[13px] font-bold opacity-80">TP:</span></span> <span class="text-emerald-400 font-bold text-sm">0.1710</span></p>
+                <p class="flex justify-between items-baseline"><span>СЛ | <span class="text-blue-500 text-[13px] font-bold opacity-80">SL:</span></span> <span class="text-red-400 font-bold text-sm">0.1890 <span class="text-gray-500 text-[10px]">(Hit)</span></span></p>
+            </div>
+            
+            <div class="border-t border-red-900/20 pt-4 flex justify-between items-baseline bg-red-950/20 p-4 rounded-xl">
+                <span class="text-[10px] text-gray-500 font-black uppercase tracking-widest">ROI <span class="text-red-400 text-xs ml-1">(SL 3x)</span></span>
+                <span class="text-4xl font-black italic text-red-400 Orbitron logo-font tracking-tight">-2.5%</span>
+            </div>
+        </div>
+
+        <div class="glass-card p-6 border-emerald-900/40 w-full md:w-[320px] shrink-0 shadow-[0_0_30px_rgba(16,185,129,0.05)] bg-blue-900/5">
+            <div class="flex justify-between items-center mb-4">
+                <span class="text-xl font-black italic text-white Orbitron logo-font tracking-widest">ETH/USDT</span>
+                <span class="text-[10px] text-gray-500 font-bold tracking-wider">13:30 | 25.03</span>
+            </div>
+            
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-emerald-500/10 border border-emerald-500/30 rounded-full mb-6">
+                <div class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></div>
+                <span class="text-[10px] text-emerald-400 font-black uppercase">SHORT | <span class="opacity-70">ПРОДАЖА</span></span>
+            </div>
+            
+            <div class="space-y-2 text-xs text-gray-400 font-mono mb-6 border-t border-blue-900/20 pt-4">
+                <p class="flex justify-between items-baseline"><span>Вход | <span class="text-blue-500 text-[13px] font-bold opacity-80">Entry:</span></span> <span class="text-white font-bold text-sm">3655</span></p>
+                <p class="flex justify-between items-baseline"><span>ТП | <span class="text-blue-500 text-[13px] font-bold opacity-80">TP:</span></span> <span class="text-emerald-400 font-bold text-sm">3720</span></p>
+                <p class="flex justify-between items-baseline"><span>СЛ | <span class="text-blue-500 text-[13px] font-bold opacity-80">SL:</span></span> <span class="text-red-400 font-bold text-sm">3610</span></p>
+            </div>
+            
+            <div class="border-t border-blue-900/20 pt-4 flex justify-between items-baseline bg-emerald-950/20 p-4 rounded-xl">
+                <span class="text-[10px] text-gray-500 font-black uppercase tracking-widest">ROI <span class="text-emerald-400 text-xs ml-1">(Win 3x)</span></span>
+                <span class="text-4xl font-black italic text-emerald-400 Orbitron logo-font tracking-tight">+8.2%</span>
+            </div>
+        </div>
+
+         <div class="glass-card p-6 border-red-900/40 w-full md:w-[320px] shrink-0 shadow-[0_0_30px_rgba(239,68,68,0.05)] bg-red-950/5">
+            <div class="flex justify-between items-center mb-4">
+                <span class="text-xl font-black italic text-white Orbitron logo-font tracking-widest opacity-60">SOL/USDT</span>
+                <span class="text-[10px] text-gray-500 font-bold tracking-wider">12:15 | 25.03</span>
+            </div>
+            
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-emerald-500/10 border border-emerald-500/30 rounded-full mb-6">
+                <div class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></div>
+                <span class="text-[10px] text-emerald-400 font-black uppercase">LONG | <span class="opacity-70">ПОКУПКА</span></span>
+            </div>
+            
+            <div class="space-y-2 text-xs text-gray-400 font-mono mb-6 border-t border-blue-900/20 pt-4 opacity-70">
+                <p class="flex justify-between items-baseline"><span>Вход | <span class="text-blue-500 text-[13px] font-bold opacity-80">Entry:</span></span> <span class="text-white font-bold text-sm">188.00</span></p>
+                <p class="flex justify-between items-baseline"><span>ТП | <span class="text-blue-500 text-[13px] font-bold opacity-80">TP:</span></span> <span class="text-emerald-400 font-bold text-sm">195.00</span></p>
+                <p class="flex justify-between items-baseline"><span>СЛ | <span class="text-blue-500 text-[13px] font-bold opacity-80">SL:</span></span> <span class="text-red-400 font-bold text-sm">184.00 <span class="text-gray-500 text-[10px]">(Hit)</span></span></p>
+            </div>
+            
+            <div class="border-t border-red-900/20 pt-4 flex justify-between items-baseline bg-red-950/20 p-4 rounded-xl">
+                <span class="text-[10px] text-gray-500 font-black uppercase tracking-widest">ROI <span class="text-red-400 text-xs ml-1">(SL 5x)</span></span>
+                <span class="text-4xl font-black italic text-red-400 Orbitron logo-font tracking-tight">-4.0%</span>
+            </div>
+        </div>
+
+        <div class="glass-card p-6 border-emerald-900/40 w-full md:w-[320px] shrink-0 shadow-[0_0_30px_rgba(16,185,129,0.05)] bg-blue-900/5">
+            <div class="flex justify-between items-center mb-4">
+                <span class="text-xl font-black italic text-white Orbitron logo-font tracking-widest">ETH/USDT</span>
+                <span class="text-[10px] text-gray-500 font-bold tracking-wider">09:11 | 25.03</span>
+            </div>
+            
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-emerald-500/10 border border-emerald-500/30 rounded-full mb-6 shadow-[0_0_15px_rgba(16,185,129,0.1)]">
+                <div class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></div>
+                <span class="text-[10px] text-emerald-400 font-black uppercase tracking-wider">LONG | <span class="opacity-70">ПОКУПКА</span></span>
+            </div>
+            
+            <div class="space-y-2 text-xs text-gray-400 font-mono mb-6 border-t border-blue-900/20 pt-4">
+                <p class="flex justify-between items-baseline"><span>Вход | <span class="text-blue-500 text-[13px] font-bold opacity-80">Entry:</span></span> <span class="text-white font-bold text-sm Orbitron logo-font tracking-tight">3640</span></p>
+                <p class="flex justify-between items-baseline"><span>ТП | <span class="text-blue-500 text-[13px] font-bold opacity-80">TP:</span></span> <span class="text-emerald-400 font-bold text-sm Orbitron logo-font tracking-tight">3715</span></p>
+                <p class="flex justify-between items-baseline"><span>СЛ | <span class="text-blue-500 text-[13px] font-bold opacity-80">SL:</span></span> <span class="text-red-400 font-bold text-sm">3615</span></p>
+            </div>
+            
+            <div class="border-t border-blue-900/20 pt-4 flex justify-between items-baseline bg-emerald-950/20 p-4 rounded-xl">
+                <span class="text-[10px] text-gray-500 font-black uppercase tracking-widest">ROI <span class="text-emerald-400 text-xs ml-1">(Win 3x)</span></span>
+                <span class="text-4xl font-black italic text-emerald-400 Orbitron logo-font tracking-tight">+9.1%</span>
+            </div>
+        </div>
+
+    </div>
+</div> 
+
+          
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10 pt-24 border-t border-blue-900/10">
                 <div class="glass-card p-10 bg-blue-900/5 border-none text-lg italic text-gray-400">"Сигналы по SOL зашли идеально. Профит за сессию покрыл подписку на год." — <span class="text-blue-500 font-black uppercase text-xs ml-2">Mikhail_Crypto</span></div>
