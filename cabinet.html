@@ -281,6 +281,63 @@
             requestAnimationFrame(animate);
         }
         init(); animate();
+                // --- CYBER CLOCK & CALENDAR SCRIPT ---
+        function initCyberClock() {
+            const clockEl = document.getElementById('cyber-clock');
+            const dateEl = document.getElementById('cyber-date');
+            const calendarEl = document.getElementById('cyber-calendar');
+            
+            if(!clockEl || !dateEl || !calendarEl) return;
+
+            function updateTime() {
+                const now = new Date();
+                const hh = String(now.getHours()).padStart(2, '0');
+                const mm = String(now.getMinutes()).padStart(2, '0');
+                const ss = String(now.getSeconds()).padStart(2, '0');
+                clockEl.textContent = `${hh}:${mm}:${ss}`;
+                
+                const dd = String(now.getDate()).padStart(2, '0');
+                const mo = String(now.getMonth() + 1).padStart(2, '0');
+                const yyyy = now.getFullYear();
+                dateEl.textContent = `${dd}.${mo}.${yyyy}`;
+            }
+            
+            function buildCalendar() {
+                const now = new Date();
+                const year = now.getFullYear();
+                const month = now.getMonth();
+                const today = now.getDate();
+                
+                const firstDay = new Date(year, month, 1).getDay();
+                const daysInMonth = new Date(year, month + 1, 0).getDate();
+                
+                // Корректировка для понедельника как первого дня недели (0 = Пн, 6 = Вс)
+                let startDay = firstDay === 0 ? 6 : firstDay - 1; 
+                
+                let html = '';
+                // Пустые ячейки до первого числа
+                for (let i = 0; i < startDay; i++) {
+                    html += `<div class="p-1 opacity-20">-</div>`;
+                }
+                // Числа месяца с подсветкой текущего дня
+                for (let i = 1; i <= daysInMonth; i++) {
+                    if (i === today) {
+                        html += `<div class="p-1 bg-[#00ffcc]/20 text-[#00ffcc] font-black border border-[#00ffcc]/50 rounded shadow-[0_0_10px_rgba(0,255,204,0.3)]">${i}</div>`;
+                    } else {
+                        html += `<div class="p-1 text-gray-500 hover:text-white transition-colors cursor-default">${i}</div>`;
+                    }
+                }
+                calendarEl.innerHTML = html;
+            }
+
+            setInterval(updateTime, 1000);
+            updateTime();
+            buildCalendar();
+        }
+        
+        // Запуск виджета при загрузке страницы
+        window.addEventListener('DOMContentLoaded', initCyberClock);
+        
     </script>
 </body>
 </html>
