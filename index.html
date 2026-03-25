@@ -9,9 +9,12 @@
     <style>
         :root { --neon-blue: #3b82f6; --neon-green: #10b981; --neon-red: #ef4444; --bg-dark: #010409; }
         body { font-family: 'JetBrains Mono', monospace; background-color: var(--bg-dark); color: #f1f5f9; margin: 0; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
-        #plexus-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
+        
+        /* Исправленный Канвас */
+        #plexus-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+        .main-container { max-width: 1400px; margin: 0 auto; position: relative; z-index: 10; } /* Вывели контент над канвасом */
+        
         .logo-font { font-family: 'Orbitron', sans-serif; font-style: italic; font-weight: 900; text-transform: uppercase; }
-        .main-container { max-width: 1400px; margin: 0 auto; position: relative; }
         .glass-card { background: rgba(13, 17, 23, 0.95); border: 1px solid rgba(59, 130, 246, 0.2); backdrop-filter: blur(40px); border-radius: 30px; transition: 0.4s; }
         .sidebar-btn { color: #4b5563; font-weight: 800; transition: 0.3s; padding: 18px 30px; border-radius: 18px; text-align: left; width: 100%; border: 1px solid transparent; display: block; }
         .sidebar-btn.active { color: white; background: rgba(59, 130, 246, 0.15); border-color: var(--neon-blue); box-shadow: 0 0 25px rgba(59, 130, 246, 0.2); }
@@ -22,6 +25,12 @@
         .text-en { color: #60a5fa; font-size: 13px; }
         .badge-en { color: #60a5fa; font-size: 10px; }
         .font-orbitron { font-family: 'Orbitron', sans-serif; }
+
+        /* Скроллбар для ленты сигналов */
+        .stream-scroll::-webkit-scrollbar { height: 8px; }
+        .stream-scroll::-webkit-scrollbar-track { background: rgba(13, 17, 23, 0.5); border-radius: 4px; }
+        .stream-scroll::-webkit-scrollbar-thumb { background: rgba(59, 130, 246, 0.4); border-radius: 4px; }
+        .stream-scroll::-webkit-scrollbar-thumb:hover { background: rgba(59, 130, 246, 0.8); }
     </style>
 </head>
 <body>
@@ -81,9 +90,9 @@
                 <div class="flex items-baseline gap-4"><h2 class="text-sm font-black text-blue-500 uppercase tracking-widest">Accuracy | Точность =</h2><p class="text-5xl font-black text-white italic tracking-tighter">84.5%</p></div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10">
+            <div class="flex gap-8 overflow-x-auto stream-scroll pb-8 snap-x">
                 
-                <div class="glass-card p-8 border-l-[6px] border-[#00ffcc]">
+                <div class="glass-card p-8 border-l-[6px] border-[#00ffcc] min-w-[340px] flex-shrink-0 snap-start">
                     <div class="flex justify-between items-start mb-8">
                         <div>
                             <span class="text-3xl font-black italic uppercase block mb-2 text-white">SOL/USDT</span>
@@ -103,7 +112,7 @@
                     </div>
                 </div>
 
-                <div class="glass-card p-8 border-l-[6px] border-[#00ffcc] opacity-80">
+                <div class="glass-card p-8 border-l-[6px] border-[#00ffcc] opacity-80 min-w-[340px] flex-shrink-0 snap-start">
                     <div class="flex justify-between items-start mb-8">
                         <div>
                             <span class="text-3xl font-black italic uppercase block mb-2 text-white">BTC/USDT</span>
@@ -123,7 +132,7 @@
                     </div>
                 </div>
 
-                <div class="glass-card p-8 border-l-[6px] border-[#00ffcc] opacity-80">
+                <div class="glass-card p-8 border-l-[6px] border-[#00ffcc] opacity-80 min-w-[340px] flex-shrink-0 snap-start">
                     <div class="flex justify-between items-start mb-8">
                         <div>
                             <span class="text-3xl font-black italic uppercase block mb-2 text-white">ETH/USDT</span>
@@ -143,7 +152,7 @@
                     </div>
                 </div>
 
-                <div class="glass-card p-8 border-l-[6px] border-[#ef4444] opacity-80">
+                <div class="glass-card p-8 border-l-[6px] border-[#ef4444] opacity-80 min-w-[340px] flex-shrink-0 snap-start">
                     <div class="flex justify-between items-start mb-8">
                         <div>
                             <span class="text-3xl font-black italic uppercase block mb-2 text-white">ARB/USDT</span>
@@ -163,7 +172,7 @@
                     </div>
                 </div>
 
-                <div class="glass-card p-8 border-l-[6px] border-[#00ffcc] opacity-80">
+                <div class="glass-card p-8 border-l-[6px] border-[#00ffcc] opacity-80 min-w-[340px] flex-shrink-0 snap-start">
                     <div class="flex justify-between items-start mb-8">
                         <div>
                             <span class="text-3xl font-black italic uppercase block mb-2 text-white">ZANO/USDT</span>
@@ -183,7 +192,7 @@
                     </div>
                 </div>
 
-                <div class="glass-card p-8 border-l-[6px] border-[#ef4444] opacity-80">
+                <div class="glass-card p-8 border-l-[6px] border-[#ef4444] opacity-80 min-w-[340px] flex-shrink-0 snap-start">
                     <div class="flex justify-between items-start mb-8">
                         <div>
                             <span class="text-3xl font-black italic uppercase block mb-2 text-white">DOGE/USDT</span>
@@ -203,7 +212,7 @@
                     </div>
                 </div>
 
-                <div class="glass-card p-8 border-l-[6px] border-[#00ffcc] opacity-80">
+                <div class="glass-card p-8 border-l-[6px] border-[#00ffcc] opacity-80 min-w-[340px] flex-shrink-0 snap-start">
                     <div class="flex justify-between items-start mb-8">
                         <div>
                             <span class="text-3xl font-black italic uppercase block mb-2 text-white">LINK/USDT</span>
@@ -223,7 +232,7 @@
                     </div>
                 </div>
 
-                <div class="glass-card p-8 border-l-[6px] border-[#00ffcc] opacity-80">
+                <div class="glass-card p-8 border-l-[6px] border-[#00ffcc] opacity-80 min-w-[340px] flex-shrink-0 snap-start">
                     <div class="flex justify-between items-start mb-8">
                         <div>
                             <span class="text-3xl font-black italic uppercase block mb-2 text-white">BNB/USDT</span>
@@ -256,4 +265,64 @@
         <footer class="mt-40 pt-24 border-t border-blue-900/20 pb-40 text-center">
             <h4 class="logo-font text-3xl text-white italic opacity-40 mb-12 uppercase tracking-widest">DORD SOFTWARE</h4>
             <div class="max-w-5xl mx-auto border border-red-900/40 rounded-[40px] p-16 space-y-10">
-                <p class="text
+                <p class="text-xs text-gray-500 font-bold uppercase tracking-widest leading-relaxed">
+                    © 2026 DORD SOFTWARE NEURAL NETWORK. ALL RIGHTS RESERVED. | HQ: TEL AVIV, ISRAEL <br><br>
+                    ТОРГОВЛЯ НА ФЬЮЧЕРСАХ НЕСЕТ ВЫСОКИЕ РИСКИ ПОТЕРИ КАПИТАЛА. СТРОГО СОБЛЮДАЙТЕ РИСК-МЕНЕДЖМЕНТ: <br>
+                    <span class="text-gray-400">
+                    • НЕ ЗАВЫШАЙТЕ ПЛЕЧИ. (DO NOT OVER-LEVERAGE) <br>
+                    • НЕ ЗАХОДИТЕ В СДЕЛКУ НА БОЛЬШОЙ ПРОЦЕНТ ОТ ДЕПОЗИТА. (LOW MARGIN %) <br>
+                    • СТРОГО СЛЕДУЙТЕ ВСЕМ УКАЗАНИЯМ В ВЫДАННОМ СИГНАЛЕ. (FOLLOW SIGNALS)
+                    </span>
+                </p>
+                <div class="h-px bg-red-900/20 w-1/3 mx-auto"></div>
+                <p class="text-[11px] text-red-800 font-black uppercase tracking-[0.4em]">RISK WARNING: FUTURES TRADING INVOLVES SIGNIFICANT RISK OF LOSS.</p>
+            </div>
+        </footer>
+    </div> <script>
+        const canvas = document.getElementById('plexus-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+        window.addEventListener('resize', resize); resize();
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.4; this.vy = (Math.random() - 0.5) * 0.4;
+                this.size = Math.random() * 2 + 1;
+            }
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                if (this.x < 0) this.x = canvas.width; if (this.x > canvas.width) this.x = 0;
+                if (this.y < 0) this.y = canvas.height; if (this.y > canvas.height) this.y = 0;
+            }
+            draw() {
+                ctx.fillStyle = 'rgba(59, 130, 246, 0.4)';
+                ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill();
+            }
+        }
+        function init() { particles = [];
+            for (let i = 0; i < 110; i++) particles.push(new Particle());
+        }
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particles.length; i++) {
+                const p1 = particles[i];
+                p1.update(); p1.draw();
+                for (let j = i + 1; j < particles.length; j++) {
+                    const p2 = particles[j];
+                    const dist = Math.sqrt((p1.x-p2.x)**2 + (p1.y-p2.y)**2);
+                    if (dist < 180) {
+                        ctx.strokeStyle = `rgba(59, 130, 246, ${0.3 * (1 - dist / 180)})`;
+                        ctx.lineWidth = 0.8; ctx.beginPath();
+                        ctx.moveTo(p1.x, p1.y); ctx.lineTo(p2.x, p2.y); ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animate);
+        }
+        init(); animate();
+    </script>
+</body>
+</html>
