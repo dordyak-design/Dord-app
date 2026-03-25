@@ -1,13 +1,114 @@
+/* --- ИМПОРТ ШРИФТОВ --- */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Orbitron:wght@500;700;900&display=swap');
 
-:root { --neon-blue: #3b82f6; --neon-green: #10b981; --bg-dark: #010409; }
-body { font-family: 'JetBrains Mono', monospace; background-color: var(--bg-dark); color: #f1f5f9; margin: 0; }
-#plexus-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
-.logo-font { font-family: 'Orbitron', sans-serif; font-style: italic; font-weight: 900; text-transform: uppercase; }
-.main-container { max-width: 1400px; margin: 0 auto; position: relative; }
-.glass-card { background: rgba(13, 17, 23, 0.95); border: 1px solid rgba(59, 130, 246, 0.2); backdrop-filter: blur(40px); border-radius: 30px; }
-.sidebar-btn { color: #4b5563; font-weight: 800; padding: 18px 30px; border-radius: 18px; text-align: left; width: 100%; display: block; }
-.sidebar-btn.active { color: white; background: rgba(59, 130, 246, 0.15); border-color: var(--neon-blue); box-shadow: 0 0 25px rgba(59, 130, 246, 0.2); }
-/* Схлопываем отступы */
+/* --- ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ DORD --- */
+:root { 
+    --neon-blue: #3b82f6; 
+    --neon-green: #10b981;
+    --cyber-teal: #00ffcc; /* Основной акцент терминала (ROI, баланс, рамки) */
+    --cyber-red: #ef4444;  /* Для стопов и минусов */
+    --bg-dark: #010409;
+    --card-bg: #111111;
+    --border-dark: #333333;
+    --en-text-color: #60a5fa; /* Синий для английского языка */
+}
+
+/* --- БАЗА --- */
+body { 
+    font-family: 'JetBrains Mono', monospace; 
+    background-color: var(--bg-dark); 
+    color: #f1f5f9; 
+    margin: 0; 
+}
+
+#plexus-canvas { 
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; 
+}
+
+.main-container { 
+    max-width: 1400px; margin: 0 auto; position: relative; 
+}
+
+/* --- ШРИФТЫ И ДВУЯЗЫЧНЫЙ СТИЛЬ (v26.0) --- */
+.font-orbitron, .logo-font { 
+    font-family: 'Orbitron', sans-serif; 
+}
+
+.logo-font { 
+    font-style: italic; 
+    font-weight: 900; 
+    text-transform: uppercase; 
+}
+
+/* Русский текст (основной) */
+.text-ru {
+    color: #ffffff;
+}
+
+/* Английский текст (увеличен, чтобы не мельчил) */
+.text-en {
+    color: var(--en-text-color);
+    font-size: 14px; 
+}
+
+/* --- КАРТОЧКИ СИГНАЛОВ И КАБИНЕТА (Master Build) --- */
+.dord-card, .dord-card-red {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-dark);
+    border-radius: 8px;
+    padding: 1rem;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Жирная левая грань: Успех / Ожидание */
+.dord-card {
+    border-left: 4px solid var(--cyber-teal);
+}
+
+/* Жирная левая грань: Удар SL (Красная) */
+.dord-card-red {
+    border-left: 4px solid var(--cyber-red);
+}
+
+/* --- ЭЛЕМЕНТЫ ИНТЕРФЕЙСА --- */
+.glass-card { 
+    background: rgba(13, 17, 23, 0.95); 
+    border: 1px solid rgba(59, 130, 246, 0.2); 
+    backdrop-filter: blur(40px); 
+    border-radius: 30px; 
+}
+
+.sidebar-btn { 
+    color: #4b5563; 
+    font-weight: 800; 
+    padding: 18px 30px; 
+    border-radius: 18px; 
+    text-align: left; 
+    width: 100%; 
+    display: block; 
+    transition: all 0.3s ease;
+}
+
+.sidebar-btn.active { 
+    color: white; 
+    background: rgba(59, 130, 246, 0.15); 
+    border-color: var(--neon-blue); 
+    box-shadow: 0 0 25px rgba(59, 130, 246, 0.2); 
+}
+
+/* --- СКРОЛЛБАР ДЛЯ ЛЕНТЫ СИГНАЛОВ --- */
+.stream-scroll::-webkit-scrollbar { 
+    height: 6px; 
+}
+.stream-scroll::-webkit-scrollbar-track { 
+    background: var(--bg-dark); 
+}
+.stream-scroll::-webkit-scrollbar-thumb { 
+    background: var(--border-dark); 
+    border-radius: 3px; 
+}
+
+/* --- ОТСТУПЫ (Утилиты) --- */
 .space-y-60 { margin-top: 2rem !important; margin-bottom: 2rem !important; }
 .mb-60 { margin-bottom: 2.5rem !important; }
 .mb-40 { margin-bottom: 2rem !important; }
