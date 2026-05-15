@@ -38,11 +38,11 @@ header {
 .header-left { 
     display: flex; 
     align-items: center; 
-    gap: 30px; /* Большой отступ от лого до названия */
+    gap: 20px; /* Большой отступ от лого до названия */
 }
 
 .header-left img { 
-    height: 140px; /* ЛОГОТИП ЕЩЕ КРУПНЕЕ */
+    height: 120px; /* ЛОГОТИП ЕЩЕ КРУПНЕЕ */
     width: auto; 
 }
 
@@ -55,7 +55,7 @@ header {
 }
 
 .company-name {
-    font-size: 30px; /* Крупное название */
+    font-size: 20px; /* Крупное название */
     font-weight: 900;
     background: linear-gradient(to right, #004aad, #009b72);
     -webkit-background-clip: text;
@@ -82,7 +82,7 @@ header {
 }
 
 .server-icon { 
-    height: 40px; /* ИКОНКА СЕРВЕРА КРУПНАЯ */
+    height: 50px; /* ИКОНКА СЕРВЕРА КРУПНАЯ */
     width: auto; 
     border-right: 1px solid rgba(255,255,255,0.1); 
     padding-right: 25px; 
@@ -110,14 +110,14 @@ header {
 .led { width: 8px; height: 8px; background: var(--accent-green); border-radius: 50%; box-shadow: 0 0 10px var(--accent-green); }
 
 /* КНОПКИ НАВИГАЦИИ - БОЛЬШИЕ */
-nav { display: flex; gap: 20px; }
+nav { display: flex; gap: 16px; }
 .nav-btn {
     text-decoration: none;
     color: var(--text-main);
     font-weight: 700;
-    font-size: 15px; /* ШРИФТ КНОПОК КРУПНЫЙ */
+    font-size: 12px; /* ШРИФТ КНОПОК КРУПНЫЙ */
     text-transform: uppercase;
-    padding: 14px 28px; /* ЖИРНЫЕ КНОПКИ */
+    padding: 10px 24px; /* ЖИРНЫЕ КНОПКИ */
     border: 1px solid var(--accent-blue);
     border-radius: 12px;
     transition: 0.3s;
