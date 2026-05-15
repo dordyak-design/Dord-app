@@ -3,196 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dord Softwer AI sistems Photo Studio</title>
+    <title>Dord Softwer AI Sistems | Photo Studio</title>
     <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            /* Глубокий сине-серый фон */
-            --bg: #0f172a; 
-            --card-bg: #1e293b;
-            /* Синий цвет для наведения */
-            --accent: #004aad; 
-            --accent-green: #009b72;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-        }
-
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-
-        body {
-            background-color: var(--bg);
-            color: var(--text-main);
-            font-family: 'Inter', sans-serif;
-            line-height: 1.5;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        header {
-            padding: 20px 5%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            background: rgba(15, 23, 42, 0.95);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 25px;
-        }
-
-        /* Увеличенное лого */
-        .logo-container img {
-            height: 130px; 
-            width: auto;
-        }
-
-        /* Название в 2 строки, не такое жирное, с градиентом */
-        .title-wrapper {
-            display: flex;
-            flex-direction: column;
-            line-height: 1.2;
-            font-family: 'Unbounded', sans-serif;
-            text-transform: uppercase;
-        }
-
-        .company-name {
-            font-size: 28px;
-            font-weight: 700;
-            background: linear-gradient(to right, #004aad, #009b72);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .occupation {
-            font-size: 16px; 
-            font-weight: 600;
-            color: var(--text-muted);
-        }
-
-        /* AI — светлый */
-        .ai-light {
-            color: #e2e8f0;
-            -webkit-text-fill-color: #e2e8f0;
-        }
-
-        nav { display: flex; gap: 30px; }
-        nav a {
-            text-decoration: none;
-            color: var(--text-main);
-            font-weight: 600;
-            font-size: 14px;
-            text-transform: uppercase;
-            transition: 0.3s;
-        }
-        nav a:hover { color: var(--accent-green); }
-
-        .hero {
-            padding: 80px 5% 60px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .hero p {
-            font-size: 16px;
-            color: var(--text-muted);
-            max-width: 800px;
-            border-left: 3px solid var(--accent-green);
-            padding-left: 20px;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            padding: 0 5% 100px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .card {
-            background-color: var(--card-bg);
-            border-radius: 24px; 
-            padding: 40px;
-            transition: all 0.3s ease;
-            cursor: default;
-        }
-
-        .card:hover {
-            background-color: var(--accent);
-            color: #ffffff;
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 74, 173, 0.4);
-        }
-
-        .card h3 {
-            font-family: 'Unbounded', sans-serif;
-            font-size: 20px;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-        }
-
-        .card p {
-            font-size: 14px;
-            color: var(--text-muted);
-            margin-bottom: 15px;
-        }
-
-        .card:hover p { color: #e2e8f0; }
-
-        .card ul {
-            list-style: none;
-            margin-top: 15px;
-            font-size: 14px;
-            color: var(--text-muted);
-        }
-
-        .card:hover ul { color: #ffffff; }
-
-        .card ul li {
-            padding: 8px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .card:hover ul li { border-color: rgba(255,255,255,0.2); }
-
-        .price { font-weight: 800; color: var(--accent-green); }
-        .card:hover .price { color: #ffffff; }
-
-        footer {
-            padding: 40px 5%;
-            background-color: #0b1121;
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            display: flex;
-            justify-content: space-between;
-        }
-    </style>
+    
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
-        <div class="logo-container">
+        <div class="header-left">
             <img src="logo.PNG" alt="DORD">
             <div class="title-wrapper">
                 <span class="company-name">Dord Softwer</span>
                 <span class="occupation"><span class="ai-light">AI</span> sistems Photo Studio</span>
             </div>
         </div>
-        <nav>
-            <a href="gallery.html">Галерея</a>
-            <a href="motion.html">Видео</a>
-            <a href="crypto.html">Оплата</a>
-        </nav>
+
+        <div class="agent-monitor">
+            <div class="agent-stat">
+                Agent-1 <span><div class="led"></div> Online 92%</span>
+            </div>
+            <div class="agent-stat">
+                Agent-2 <span><div class="led"></div> Online 87%</span>
+            </div>
+            <div class="agent-stat">
+                Agent-3 <span><div class="led"></div> Online 95%</span>
+            </div>
+        </div>
     </header>
 
     <section class="hero">
@@ -232,23 +69,31 @@
 
         <div class="card">
             <h3>Брендинг</h3>
-            <p>Иконки для TG-каналов, ботов, фавиконы и минималистичные логотипы. Узнаваемость при минимальном размере, современный стиль.</p>
+            <p>TG-каналы, боты и логотипы. Узнаваемость при минимальном размере, современный стиль.</p>
         </div>
 
         <div class="card">
             <h3>Восстановление фото</h3>
-            <p>Оживление истории. Формат «До/После», профессиональная реставрация в 4K. Бережное отношение к деталям.</p>
+            <p>Оживление истории. Формат «До/После», профессиональная реставрация в 4K.</p>
         </div>
 
         <div class="card">
-            <h3>Оплата криптовалютой</h3>
-            <p>USDT / BTC. Свобода и независимость транзакций. Полный контроль над средствами, безопасность холодных кошельков и отсутствие банковских ограничений.</p>
+            <h3>Crypto Payment</h3>
+            <p>USDT / BTC. Свобода и независимость транзакций. Полный контроль над средствами.</p>
         </div>
     </div>
 
     <footer>
-        <div>DORD SOFTWARE // ISRAEL</div>
-        <div>SYSTEM ONLINE</div>
+        <div class="footer-info">
+            <b>Dord Softwer AI Sistems</b>
+            <span>Tel Aviv, Israel</span>
+            <span>Agent-based Visual Production House</span>
+        </div>
+        <div class="footer-info" style="text-align: right;">
+            <b>Secured Access</b>
+            <span>Hardware Firewall Protected</span>
+            <span>&copy; 2026 All Rights Reserved</span>
+        </div>
     </footer>
 
 </body>
