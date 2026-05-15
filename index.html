@@ -4,161 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dord Software | Визуальный контент нового уровня</title>
-    <style>
-        /* Базовые стили и переменные */
-        :root {
-            --primary-gradient: linear-gradient(135deg, #004aad 0%, #009b72 100%);
-            --dark-text: #202124;
-            --light-bg: #ffffff;
-            --section-padding: 80px 20px;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--dark-text);
-            background-color: var(--light-bg);
-        }
-
-        /* Шапка */
-        header {
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            position: sticky;
-            top: 0;
-            background: rgba(255, 255, 255, 0.95);
-            z-index: 1000;
-        }
-
-        .logo img {
-            height: 50px; /* Настрой под свой логотип */
-        }
-
-        nav a {
-            margin-left: 25px;
-            text-decoration: none;
-            color: var(--dark-text);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: #004aad;
-        }
-
-        /* Герой-секция */
-        .hero {
-            padding: var(--section-padding);
-            text-align: center;
-            background: #f8f9fa;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            background: var(--primary-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto 30px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 15px 35px;
-            background: var(--primary-gradient);
-            color: white;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: 600;
-            transition: transform 0.3s;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-        }
-
-        /* Общие стили секций */
-        section {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: var(--section-padding);
-        }
-
-        h2 {
-            font-size: 2.2rem;
-            margin-bottom: 40px;
-            text-align: center;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        /* Карточки услуг и преимуществ */
-        .card {
-            padding: 30px;
-            border-radius: 15px;
-            background: #fff;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            border-bottom: 4px solid #004aad;
-        }
-
-        .card img {
-            width: 60px;
-            margin-bottom: 20px;
-        }
-
-        /* О нас */
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-            flex-wrap: wrap;
-        }
-
-        .about-text { flex: 1; min-width: 300px; }
-        .about-image { flex: 1; min-width: 300px; text-align: center; }
-
-        /* Футер */
-        footer {
-            padding: 40px;
-            text-align: center;
-            background: #202124;
-            color: white;
-        }
-
-        /* Адаптивность */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            header { flex-direction: column; gap: 15px; }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
-        <div class="logo"><img src="logo.PNG" alt="Dord Software"></div>
+        <div class="logo">
+            <a href="index.html">
+                <img src="logo.png" alt="Dord Software">
+            </a>
+        </div>
         <nav>
-            <a href="#about">О нас</a>
-            <a href="#why">Почему мы</a>
-            <a href="#services">Услуги</a>
+            <a href="index.html#about">О нас</a>
+            <a href="index.html#why">Почему мы</a>
+            <a href="index.html#services">Услуги</a>
             <a href="gallery.html">Галерея</a>
             <a href="crypto.html">Крипто-оплата</a>
         </nav>
@@ -166,7 +25,7 @@
 
     <section class="hero">
         <h1>Ваш визуальный контент нового уровня</h1>
-        <p>Мы — молодой стартап из Израиля, создающий графику, которая привлекает внимание и продает. Специализируемся на сочных фото для рекламы, баннерах, карточках товаров и логотипах.</p>
+        <p>Мы — молодой стартап из Израиля. Создаем графику, которая привлекает внимание и продает. Специализируемся на сочных фото для рекламы, баннерах, карточках товаров и уникальных логотипах.</p>
         <a href="gallery.html" class="btn">Посмотреть примеры в Галерее</a>
     </section>
 
@@ -174,31 +33,35 @@
         <div class="about-content">
             <div class="about-text">
                 <h2>Наша команда: Синергия человека и технологий</h2>
-                <p>В основе нашего проекта лежит мощный тандем. С одной стороны — опыт основателя, с другой — неутомимая мощь наших "цифровых сотрудников". Каждый пиксель обрабатывается нейросетевыми агентами на базе производительных видеокарт, что позволяет нам быть быстрее и точнее любого агентства.</p>
+                <p>В основе нашего проекта лежит мощный тандем. С одной стороны — опыт основателя, с другой — неутомимая вычислительная мощь нашего оборудования. Каждый пиксель обрабатывается нейросетевыми агентами на базе производительных видеокарт, что позволяет нам выдавать результат высокого класса без лишних издержек.</p>
             </div>
             <div class="about-image">
-                <img src="icon-team.png" alt="Team" style="max-width: 250px;">
+                <!-- Замени на свою иконку команды -->
+                <img src="icon-team.png" alt="Команда Dord Software" style="max-width: 250px;">
             </div>
         </div>
     </section>
 
-    <section id="why" style="background: #fbfbfb;">
+    <section id="why" class="bg-alt">
         <h2>Почему мы? Инновации из Израиля</h2>
         <div class="grid">
             <div class="card">
-                <img src="icon-shield.png" alt="Security">
+                <!-- Замени на иконку защиты -->
+                <img src="icon-shield.png" alt="Безопасность">
                 <h3>Безопасность</h3>
-                <p>Ваш контент защищен на изолированном сервере с аппаратным фаерволом. Мы чтим традиции безопасности, заложенные лидерами вроде <a href="https://ru.wikipedia.org/wiki/Check_Point" target="_blank">Check Point</a>.</p>
+                <p>Ваш контент защищен на изолированном сервере с аппаратным фаерволом. Мы чтим традиции безопасности, заложенные лидерами индустрии.</p>
             </div>
             <div class="card">
-                <img src="icon-rocket.png" alt="Innovation">
+                <!-- Замени на иконку ракеты -->
+                <img src="icon-rocket.png" alt="Инновации">
                 <h3>Startup Nation</h3>
-                <p>Израиль подарил миру Waze и ICQ. Мы продолжаем этот путь, внедряя передовые AI-инструменты в ваш маркетинг.</p>
+                <p>Израиль — родина революционных технологий. Мы продолжаем этот путь, внедряя передовые AI-инструменты в ваш бизнес.</p>
             </div>
             <div class="card">
-                <img src="icon-crypto.png" alt="Independence">
+                <!-- Замени на иконку крипты -->
+                <img src="icon-crypto.png" alt="Независимость">
                 <h3>Независимость</h3>
-                <p>Мы принимаем оплату в криптовалюте, гарантируя вам анонимность и полный контроль над вашими средствами вне банковской системы.</p>
+                <p>Принимаем оплату в криптовалюте. Полный контроль над вашими средствами вне банковской системы на холодных кошельках.</p>
             </div>
         </div>
     </section>
@@ -208,15 +71,15 @@
         <div class="grid">
             <div class="card">
                 <h3>Карточки товаров</h3>
-                <p>Rich Content, который заставляет покупателя нажать кнопку «Купить».</p>
+                <p>Rich Content для маркетплейсов, который превращает просмотры в продажи.</p>
             </div>
             <div class="card">
                 <h3>Dord Motion Area</h3>
-                <p>Уникальные видео-креативы по 10-15 секунд для TikTok и Reels.</p>
+                <p>Уникальные видео-креативы по 10-15 секунд для TikTok и Reels по вашим промтам.</p>
             </div>
             <div class="card">
                 <h3>Custom Production</h3>
-                <p>Создание целых видео-сериалов и мультфильмов для вашего бренда до 60 секунд.</p>
+                <p>Видео-сериалы и мультфильмы для брендов длиной до 60 секунд. От пилота до сезона.</p>
             </div>
         </div>
     </section>
