@@ -55,7 +55,7 @@ header {
 }
 
 .company-name {
-    font-size: 20px; /* Крупное название */
+    font-size: 34px; /* Крупное название */
     font-weight: 900;
     background: linear-gradient(to right, #004aad, #009b72);
     -webkit-background-clip: text;
@@ -99,7 +99,7 @@ header {
 
 .agent-stat span { 
     color: var(--accent-green); 
-    font-size: 14px; /* Проценты загрузки крупные */
+    font-size: 10px; /* Проценты загрузки крупные */
     font-weight: 800; 
     display: flex; 
     align-items: center; 
@@ -115,7 +115,7 @@ nav { display: flex; gap: 16px; }
     text-decoration: none;
     color: var(--text-main);
     font-weight: 700;
-    font-size: 12px; /* ШРИФТ КНОПОК КРУПНЫЙ */
+    font-size: 10px; /* ШРИФТ КНОПОК КРУПНЫЙ */
     text-transform: uppercase;
     padding: 10px 24px; /* ЖИРНЫЕ КНОПКИ */
     border: 1px solid var(--accent-blue);
