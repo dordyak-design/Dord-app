@@ -3,289 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DORD TERMINAL | AI AGENT PRODUCTION</title>
-    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <title>DORD SOFTWARE | ГЕНЕРАТОР ПРОДАЖ // ISRAEL</title>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
+        /* ЧИСТЫЙ СТИЛЬ «БРУТАЛЬНЫЙ БИЗНЕС» */
         :root {
-            --bg: #050505;
-            --card-bg: #0d0d0d;
-            --accent: #004aad;
-            --accent-green: #009b72;
-            --text: #ffffff;
-            --text-dim: #a0a0a0;
-            --border: #1a1a1a;
+            --accent: #004aad; /* Твой синий */
+            --accent-green: #009b72; /* Твой зеленый */
+            --black: #0a0a0a;
+            --white: #ffffff;
+            --border: 5px solid #000000; /* Та самая толстая кайма */
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Unbounded', Arial, sans-serif; }
 
-        body {
-            background-color: var(--bg);
-            color: var(--text);
-            font-family: 'Inter', sans-serif;
-            line-height: 1.5;
-            -webkit-font-smoothing: antialiased;
-        }
+        body { background-color: var(--white); color: var(--black); line-height: 1.2; overflow-x: hidden; }
 
-        /* HEADER */
+        /* Шапка студии */
         header {
-            padding: 20px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: fixed;
-            width: 100%;
+            border-bottom: var(--border);
+            position: sticky;
             top: 0;
-            background: rgba(5, 5, 5, 0.9);
-            backdrop-filter: blur(15px);
-            z-index: 1000;
-            border-bottom: 1px solid var(--border);
+            background: var(--white);
+            z-index: 100;
         }
 
-        .logo img { height: 100px; width: auto; }
+        .logo-block { display: flex; align-items: center; gap: 20px; }
+        .logo-block img { height: 120px; width: auto; }
+        /* ТОЧНОЕ НАЗВАНИЕ */
+        .studio-name { font-weight: 700; font-size: 0.9rem; text-transform: uppercase; color: var(--accent); letter-spacing: 1px; }
 
-        nav { display: flex; align-items: center; gap: 30px; }
         nav a {
+            margin-left: 30px;
             text-decoration: none;
-            color: var(--text);
-            font-size: 11px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: 0.3s;
-        }
-        nav a:hover { color: var(--accent-green); }
-
-        /* HERO */
-        .hero {
-            padding: 180px 10% 100px;
-            background: radial-gradient(circle at top right, #0049ad20, transparent 50%);
-        }
-
-        .hero span {
-            color: var(--accent-green);
+            color: var(--black);
             font-weight: 900;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            font-size: 12px;
-            display: block;
-            margin-bottom: 20px;
-        }
-
-        .hero h1 {
-            font-family: 'Unbounded', sans-serif;
-            font-size: 3.5rem; /* Уменьшил до нормального размера */
-            line-height: 1.1;
-            text-transform: uppercase;
-            margin-bottom: 30px;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            max-width: 800px;
-            color: var(--text-dim);
-            border-left: 4px solid var(--accent);
-            padding-left: 30px;
-        }
-
-        /* СЕКЦИЯ: 3 АГЕНТА */
-        .section-title {
-            padding: 100px 10% 40px;
-            font-family: 'Unbounded', sans-serif;
-            text-transform: uppercase;
-            font-size: 1.5rem;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .agents-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            border-bottom: 1px solid var(--border);
-        }
-
-        .agent-card {
-            padding: 60px 10%;
-            border-right: 1px solid var(--border);
-        }
-
-        .agent-card h4 {
-            color: var(--accent-green);
-            margin-bottom: 20px;
             text-transform: uppercase;
             font-size: 0.9rem;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
         }
 
-        .agent-card h3 { font-size: 1.8rem; margin-bottom: 20px; text-transform: uppercase; }
+        nav a:hover { color: var(--accent); }
 
-        /* ЭКОНОМИКА / ЦЕНЫ */
-        .pricing-table {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 1px;
-            background: var(--border);
-            border-bottom: 1px solid var(--border);
+        /* Герой-секция */
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 20px;
+            text-align: left;
         }
 
-        .price-box {
-            background: var(--bg);
-            padding: 60px 10%;
-        }
+        .hero span { color: var(--accent); font-weight: 900; letter-spacing: 5px; text-transform: uppercase; font-size: 14px; margin-bottom: 20px; display: block; }
 
-        .price-box h3 { font-family: 'Unbounded', sans-serif; margin-bottom: 30px; }
-        .price-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 15px 0;
-            border-bottom: 1px solid var(--border);
-            font-weight: 600;
-        }
-        .price-item span { color: var(--accent-green); }
+        h1 { font-size: 4rem; line-height: 1; font-weight: 900; margin-bottom: 20px; text-transform: uppercase; }
 
-        /* МАНИФЕСТ / БЕЗОПАСНОСТЬ */
-        .manifesto {
-            padding: 100px 10%;
-            background: linear-gradient(to right, #000, #0a0a0a);
-        }
+        .cta-desc { font-weight: 700; font-size: 1.3rem; max-width: 700px; color: #444; border-left: 10px solid var(--black); padding-left: 30px; margin-top: 40px; }
 
-        .manifesto-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-        }
-
-        .manifesto h2 { font-family: 'Unbounded', sans-serif; font-size: 2rem; text-transform: uppercase; margin-bottom: 30px; }
-
-        /* УСЛУГИ (6 БЛОКОВ) */
+        /* Сетка Услуг - ТЕ САМЫЕ 6 ОКОН */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            border-top: var(--border);
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .service-box {
-            padding: 80px 10%;
-            border-right: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-            transition: 0.3s;
+        .service-card {
+            padding: 60px 40px;
+            border-right: var(--border);
+            border-bottom: var(--border);
+            transition: all 0.2s ease; /* Быстрая смена цвета */
         }
 
-        .service-box:hover { background: #0d0d0d; }
+        .service-card:nth-child(3n) { border-right: none; }
 
-        /* FOOTER */
-        footer {
-            padding: 60px 10%;
-            display: flex;
-            justify-content: space-between;
-            font-size: 11px;
-            color: var(--text-dim);
-            text-transform: uppercase;
-            letter-spacing: 2px;
+        /* ЧЕНЯЕМ ЦВЕТ ПРИ НАВЕДЕНИИ */
+        .service-card:hover {
+            background-color: var(--black);
+            color: var(--white);
         }
 
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .manifesto-content { grid-template-columns: 1fr; }
-            .agent-card { border-right: none; }
-        }
+        .service-card span { font-weight: 700; font-size: 0.8rem; color: var(--accent-green); margin-bottom: 20px; display: block; }
+        .service-card h3 { font-size: 1.8rem; font-weight: 900; text-transform: uppercase; margin-bottom: 20px; }
+        .service-card p { font-weight: 700; font-size: 1rem; color: #444; line-height: 1.4; }
+        .service-card:hover p { color: #aaa; }
+
+        /* Футер */
+        footer { background: var(--black); color: var(--white); padding: 40px; text-align: center; font-weight: 700; text-transform: uppercase; font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
-<header>
-    <div class="logo"><img src="logo.PNG" alt="DORD"></div>
-    <nav>
-        <a href="#system">Система</a>
-        <a href="#services">Услуги</a>
-        <a href="#pricing">Цены</a>
-        <a href="crypto.html">Crypto</a>
-    </nav>
-</header>
-
-<section class="hero">
-    <span>Israel // Advanced AI Solutions</span>
-    <h1>ВАШ ТОВАР БУДЕТ<br>ПРОДАВАТЬ СЕБЯ САМ</h1>
-    <p>DORD SOFTWARE — это не просто студия. Это технологический хаб, где 3 специализированных AI-агента работают в синергии с мощностью RTX-железа. Мы автоматизируем визуальное превосходство вашего бизнеса.</p>
-</section>
-
-<div class="section-title" id="system">Архитектура Dord Terminal</div>
-<div class="agents-grid">
-    <div class="agent-card">
-        <h4>Agent 01</h4>
-        <h3>Collector</h3>
-        <p>Мониторинг бирж, новостей и Telegram-каналов в реальном времени. Сбор сырых данных для глубокого обучения.</p>
-    </div>
-    <div class="agent-card">
-        <h4>Agent 02</h4>
-        <h3>Analyst</h3>
-        <p>Обработка данных и генерация максимально точных сигналов для трейдеров. Мозг системы Dord Terminal.</p>
-    </div>
-    <div class="agent-card">
-        <h4>Agent 03</h4>
-        <h3>Producer</h3>
-        <p>Генерация финального визуального контента: фото, видео и 3D-сцены на базе полученных инсайтов.</p>
-    </div>
-</div>
-
-<div class="section-title" id="services">Направления работы</div>
-<div class="services-grid">
-    <div class="service-box">
-        <h3>E-Commerce</h3>
-        <p>Rich Content премиального уровня. Идеальный свет и композиция для взрывных продаж на маркетплейсах.</p>
-    </div>
-    <div class="service-box">
-        <h3>Motion Area</h3>
-        <p>Ультра-динамичные креативы (5-15 сек). 13 пресетов движения камеры: от Zoom до Exploded View.</p>
-    </div>
-    <div class="service-box">
-        <h3>Custom Production</h3>
-        <p>Сюжетные ролики и AI-сериалы до 60 секунд. Ваш бренд получает собственную киновселенную.</p>
-    </div>
-    <div class="service-box">
-        <h3>Identity</h3>
-        <p>Разработка визуального кода и логотипов. Фундаментальный стиль, вызывающий доверие инвесторов.</p>
-    </div>
-    <div class="service-box">
-        <h3>Restoration</h3>
-        <p>Реставрация и анимация архивов в 4K. Превращаем старые кадры в современный актив.</p>
-    </div>
-    <div class="service-box">
-        <h3>Security</h3>
-        <p>Работа на изолированных серверах в Израиле. Ваши данные под защитой аппаратных фаерволов.</p>
-    </div>
-</div>
-
-<div class="section-title" id="pricing">Экономика проекта</div>
-<div class="pricing-table">
-    <div class="price-box">
-        <h3>Фото-пакеты</h3>
-        <div class="price-item">500 Генераций <span>$45</span></div>
-        <div class="price-item">1000 Генераций <span>$130</span></div>
-        <div class="price-item">2000 Генераций <span>$300</span></div>
-    </div>
-    <div class="price-box">
-        <h3>Видео / VIP</h3>
-        <div class="price-item">5 сек. Motion <span>$5</span></div>
-        <div class="price-item">Доп. секунда <span>$1.5</span></div>
-        <div class="price-item">Пилот сериала <span>-50%</span></div>
-    </div>
-</div>
-
-<section class="manifesto">
-    <div class="manifesto-content">
-        <div>
-            <h2>Манифест Безопасности</h2>
-            <p>В мире, где данные утекают ежесекундно, мы строим крепость. Наши сервера находятся в Израиле — мировом центре кибербезопасности. Мы используем изолированные контуры обработки данных: ваши промты и результаты никогда не покинут защищенный периметр.</p>
+    <header>
+        <div class="logo-block">
+            <img src="logo.PNG" alt="DORD">
+            <span class="studio-name">DORD Software AI Sistems</span>
         </div>
-        <div>
-            <h2>Философия Оплаты</h2>
-            <p>Мы работаем только с криптовалютой (USDT/BTC). Это гарантирует анонимность транзакций, независимость от банковских ограничений и мгновенный доступ к мощностям наших Агентов из любой точки мира.</p>
+        <nav>
+            <a href="#">ГАЛЕРЕЯ</a>
+            <a href="#">ВИДЕО</a>
+            <a href="#">ОПЛАТА</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <span>ISRAEL // AI PRODUCTION HOUSE</span>
+        <h1>ВАШ ТОВАР БУДЕТ<br>ПРОДАВАТЬ СЕБЯ САМ</h1>
+        <div class="cta-desc">
+            3 специализированных AI-агента. 1 оператор. Изолированный контур. Мы не «рисуем картинки» — мы генерируем визуальный контент, который заставляет нажать «КУПИТЬ». Пока конкуренты тратят недели на съемки, наше железо выдает результат за часы.
+        </div>
+    </section>
+
+    <div class="services-grid">
+        <div class="service-card">
+            <span>01 // E-COMMERCE</span>
+            <h3>КАРТОЧКИ, КОТОРЫЕ ПРОДАЮТ</h3>
+            <p>Не просто фото, а Rich Content премиального уровня. Идеальный свет, любая локация и акцент на деталях вашего продукта.</p>
+        </div>
+        <div class="service-card">
+            <span>02 // MOTION Area</span>
+            <h3>ВИДЕО-КРЕАТИВЫ</h3>
+            <p>Взрывные видео для TikTok и Reels. 15 секунд, которые остановят скролл и приведут клиента в ваш магазин.</p>
+        </div>
+        <div class="service-card">
+            <span>03 // СЕРИАЛЫ</span>
+            <h3>CUSTOM PRODUCTION</h3>
+            <p>Создаем сюжетную рекламу и AI-мультфильмы до 60 секунд. Ваш бренд становится главным героем.</p>
+        </div>
+        <div class="service-card">
+            <span>04 // БРЕНДИНГ</span>
+            <h3>IDENTITY & LOGO</h3>
+            <p>Визуальный код вашего бизнеса. Делаем стиль, который вызывает доверие еще до первого клика.</p>
+        </div>
+        <div class="service-card">
+            <span>05 // ИСТОРИЯ</span>
+            <h3>RESTORATION</h3>
+            <p>Вдыхаем жизнь в старые архивы. Восстановление, 4K колоризация и анимация любой сложности.</p>
+        </div>
+        <div class="service-card">
+            <span>06 // БЕЗОПАСНОСТЬ</span>
+            <h3>PRIVATE CLOUD</h3>
+            <p>Работа на изолированных серверах в Израиле под защитой аппаратных фаерволов. Ваши данные — ваша абсолютная собственность.</p>
         </div>
     </div>
-</section>
 
-<footer>
-    <div>DORD SOFTWARE &copy; 2026 // RAANANA // ISRAEL</div>
-    <div>System Status: Agents Online // RTX 3080 Secured</div>
-</footer>
+    <footer>
+        <div>DORD SOFTWARE // RA'ANANA // ISRAEL</div>
+        <div>AGENTS READY // SYSTEM ONLINE</div>
+    </footer>
 
 </body>
 </html>
