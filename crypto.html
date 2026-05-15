@@ -7,67 +7,95 @@
     <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 30px;
-            background: rgba(255,255,255,0.02);
-            border-radius: 16px;
-            overflow: hidden;
-            border: 1px solid var(--border);
+        /* Стили для интерактивной формы заказа */
+        .form-group {
+            margin-bottom: 20px;
         }
-        .comparison-table th, .comparison-table td {
-            padding: 20px;
-            text-align: left;
-            border-bottom: 1px solid var(--border);
-        }
-        .comparison-table th {
-            background: rgba(0, 74, 173, 0.2);
-            font-family: 'Unbounded', sans-serif;
-            font-size: 14px;
-            text-transform: uppercase;
-            color: var(--accent-green);
-        }
-        .comparison-table td { font-size: 14px; color: var(--text-muted); }
-        .comparison-table tr:hover { background: rgba(255,255,255,0.05); }
-        .highlight { color: var(--text-main); font-weight: 600; }
-
-        .wallet-container {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .wallet-box {
-            background: #0f172a;
-            border: 1px dashed var(--accent-green);
-            padding: 15px;
-            border-radius: 12px;
-            font-family: 'Courier New', monospace;
-            word-break: break-all;
-            color: #fff;
-            font-size: 13px;
-        }
-
-        .network-tag {
-            display: inline-block;
-            background: var(--accent-green);
-            color: #fff;
-            font-size: 10px;
-            padding: 4px 10px;
-            border-radius: 6px;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            font-weight: 800;
-            letter-spacing: 1px;
-        }
-
-        .network-label {
+        .form-group label {
+            display: block;
             font-size: 12px;
             color: var(--text-muted);
-            margin-bottom: 10px;
-            display: block;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .styled-select {
+            width: 100%;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            outline: none;
+            transition: 0.3s;
+            appearance: none; /* Убираем стандартную стрелку */
+            background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23009b72%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+            background-repeat: no-repeat;
+            background-position: right 15px top 50%;
+            background-size: 12px auto;
+        }
+        .styled-select:focus {
+            border-color: var(--accent-green);
+            box-shadow: 0 0 10px rgba(0, 155, 114, 0.2);
+        }
+        .styled-select option {
+            background: var(--card-bg);
+            color: var(--text-main);
+        }
+        
+        .total-price-box {
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .total-label { font-size: 16px; font-weight: 600; }
+        .total-amount { font-family: 'Unbounded', sans-serif; font-size: 28px; color: var(--accent-green); font-weight: 900; }
+
+        /* Блок кошельков */
+        .wallet-container { display: flex; flex-direction: column; gap: 20px; margin-top: 10px; }
+        .wallet-box {
+            background: #0f172a; border: 1px dashed var(--accent-green); padding: 15px;
+            border-radius: 12px; font-family: 'Courier New', monospace; word-break: break-all;
+            color: #fff; font-size: 13px; text-align: center; letter-spacing: 1px;
+        }
+        .network-tag {
+            display: inline-block; background: var(--accent-green); color: #fff; font-size: 10px;
+            padding: 4px 10px; border-radius: 6px; margin-bottom: 8px; text-transform: uppercase; font-weight: 800;
+        }
+
+        /* Блок мониторинга транзакции */
+        .status-box {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+        /* Анимация радара/поиска */
+        .spinner {
+            width: 50px; height: 50px;
+            border: 3px solid rgba(0, 155, 114, 0.1);
+            border-top: 3px solid var(--accent-green);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        
+        .status-text { font-family: 'Unbounded', sans-serif; font-size: 14px; color: var(--accent-green); text-transform: uppercase; }
+        .status-sub { font-size: 12px; color: var(--text-muted); }
+        .terminal-log {
+            width: 100%; background: #05070f; border-radius: 8px; padding: 15px;
+            font-family: monospace; font-size: 11px; color: #4ade80; text-align: left;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -96,82 +124,76 @@
         </nav>
     </header>
 
-    <section class="hero">
-        <h1 style="font-family: 'Unbounded', sans-serif; font-size: 36px; text-transform: uppercase; margin-bottom: 20px;">Криптовалюта: Свобода и Безопасность</h1>
-        <p>
-            Мы принимаем USDT в сетях TON и BNB Smart Chain. Это обеспечивает мгновенные транзакции с комиссией менее $1, гарантируя полную финансовую независимость вашего бизнеса.
-        </p>
+    <section class="hero" style="padding-bottom: 20px;">
+        <h1 style="font-family: 'Unbounded', sans-serif; font-size: 36px; text-transform: uppercase; margin-bottom: 20px;">Автоматизированный шлюз оплаты</h1>
+        <p>Выберите услугу, отправьте USDT на указанный адрес. Система автоматически отследит транзакцию в блокчейне и запустит вычислительных Агентов.</p>
     </section>
 
-    <div class="grid" style="grid-template-columns: 1fr;">
+    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px;">
+        
         <div class="card">
-            <h3>Почему это ваш лучший выбор?</h3>
-            <table class="comparison-table">
-                <thead>
-                    <tr>
-                        <th>Критерий</th>
-                        <th>Традиционные банки</th>
-                        <th>USDT (TON / BNB)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="highlight">Комиссия</td>
-                        <td>До $50 + скрытые сборы.</td>
-                        <td style="color: var(--accent-green);">Меньше $1.</td>
-                    </tr>
-                    <tr>
-                        <td class="highlight">Скорость</td>
-                        <td>3–5 рабочих дней.</td>
-                        <td style="color: var(--accent-green);">1–2 минуты 24/7.</td>
-                    </tr>
-                    <tr>
-                        <td class="highlight">Контроль</td>
-                        <td>Средства принадлежат банку.</td>
-                        <td style="color: var(--accent-green);">100% владение активами.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-    <h2 class="section-title">Инструкция по оплате</h2>
-    <div class="grid">
-        <div class="card">
-            <h3>1. Расчет стоимости</h3>
-            <p>Согласовываем финальный бюджет проекта или выбираем период подписки Dord Terminal (1, 3 или 12 месяцев).</p>
-        </div>
-
-        <div class="card">
-            <h3>2. Адреса для оплаты</h3>
-            <p>Выберите удобную для вас сеть. Мы принимаем <b>USDT</b> в двух форматах:</p>
+            <h3>1. Конфигурация заказа</h3>
             
-            <div class="wallet-container">
-                <div>
-                    <span class="network-tag">TON Network</span>
-                    <span class="network-label">Для USDT (TON) и монет TON</span>
-                    <div class="wallet-box">ВАШ_TON_АДРЕС</div>
-                </div>
-                
-                <div style="border-top: 1px solid var(--border); padding-top: 20px;">
-                    <span class="network-tag">BNB Smart Chain</span>
-                    <span class="network-label">Для USDT (BEP20)</span>
-                    <div class="wallet-box">ВАШ_BNB_АДРЕС</div>
-                </div>
+            <div class="form-group">
+                <label>Категория услуги</label>
+                <select id="categorySelect" class="styled-select" onchange="updatePlans()">
+                    <option value="terminal">Подписка Dord Terminal</option>
+                    <option value="photo">Фото товаров (E-commerce)</option>
+                    <option value="motion">Dord Motion Area</option>
+                    <option value="custom">Custom Production (Сериалы)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Тариф / Объем</label>
+                <select id="planSelect" class="styled-select" onchange="updatePrice()"></select>
+            </div>
+
+            <div class="total-price-box">
+                <span class="total-label">Итого к оплате:</span>
+                <span class="total-amount" id="totalPrice">$150</span>
             </div>
         </div>
 
         <div class="card">
-            <h3>3. Старт работы</h3>
-            <p>После отправки подтвердите транзакцию. Агенты мгновенно получают сигнал и приступают к выполнению задачи.</p>
+            <h3>2. Реквизиты (USDT)</h3>
+            <p style="font-size: 13px;">Отправьте точную сумму на один из кошельков. Сеть проверит платеж автоматически.</p>
+            
+            <div class="wallet-container">
+                <div>
+                    <span class="network-tag">TON Network</span>
+                    <div class="wallet-box">UQ...ВАШ_TON_АДРЕС...</div>
+                </div>
+                <div>
+                    <span class="network-tag">BNB Smart Chain (BEP20)</span>
+                    <div class="wallet-box">0x...ВАШ_BNB_АДРЕС...</div>
+                </div>
+            </div>
         </div>
+
+        <div class="card" style="border-color: rgba(0, 155, 114, 0.3);">
+            <h3>3. Статус системы</h3>
+            <div class="status-box">
+                <div class="spinner"></div>
+                <div class="status-text">Ожидание транзакции...</div>
+                <div class="status-sub">Пожалуйста, не закрывайте страницу</div>
+                
+                <div class="terminal-log">
+                    > SYSTEM LOG:<br>
+                    > Wallet listener: ACTIVE<br>
+                    > Network: TON/BSC polling...<br>
+                    > Agents status: STANDBY
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <footer>
         <div class="footer-info">
             <b>Dord Softwer AI Sistems</b>
             <span>Тель-Авив, Израиль</span>
-            <span>Agent-based Visual Production House</span>
+            <span>Автоматизированный биллинг</span>
         </div>
         <div class="footer-info" style="text-align: right;">
             <b>Secured Access</b>
@@ -180,5 +202,55 @@
         </div>
     </footer>
 
+    <script>
+        const pricingData = {
+            terminal: [
+                { text: "1 Месяц доступа", price: 150 },
+                { text: "3 Месяца (Выгодно)", price: 400 },
+                { text: "6 Месяцев", price: 750 },
+                { text: "12 Месяцев (VIP)", price: 1300 }
+            ],
+            photo: [
+                { text: "500 генераций", price: 45 },
+                { text: "1000 генераций", price: 130 },
+                { text: "2000 генераций", price: 300 }
+            ],
+            motion: [
+                { text: "Ролик 5 секунд", price: 5 },
+                { text: "Ролик 10 секунд", price: 12.5 },
+                { text: "Ролик 15 секунд", price: 20 }
+            ],
+            custom: [
+                { text: "Пилотная серия (до 60с)", price: 150 },
+                { text: "Сезон (5 серий)", price: 1200 }
+            ]
+        };
+
+        function updatePlans() {
+            const category = document.getElementById("categorySelect").value;
+            const planSelect = document.getElementById("planSelect");
+            
+            // Очищаем текущие опции
+            planSelect.innerHTML = "";
+            
+            // Загружаем новые опции
+            pricingData[category].forEach(plan => {
+                let option = document.createElement("option");
+                option.value = plan.price;
+                option.text = plan.text;
+                planSelect.appendChild(option);
+            });
+            
+            updatePrice();
+        }
+
+        function updatePrice() {
+            const price = document.getElementById("planSelect").value;
+            document.getElementById("totalPrice").innerText = "$" + price;
+        }
+
+        // Инициализация при загрузке страницы
+        window.onload = updatePlans;
+    </script>
 </body>
 </html>
