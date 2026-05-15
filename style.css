@@ -19,6 +19,9 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+/* ========================================= */
+/* ШАПКА - МАССИВНАЯ И КРУПНАЯ               */
+/* ========================================= */
 header {
     padding: 20px 5%;
     display: flex;
@@ -35,10 +38,11 @@ header {
 .header-left { 
     display: flex; 
     align-items: center; 
-    gap: 25px; /* ВЕРНУЛ ИСХОДНЫЙ ОТСТУП */
+    gap: 30px; /* Большой отступ от лого до названия */
 }
+
 .header-left img { 
-    height: 130px; 
+    height: 140px; /* ЛОГОТИП ЕЩЕ КРУПНЕЕ */
     width: auto; 
 }
 
@@ -51,8 +55,8 @@ header {
 }
 
 .company-name {
-    font-size: 28px;
-    font-weight: 700;
+    font-size: 30px; /* Крупное название */
+    font-weight: 900;
     background: linear-gradient(to right, #004aad, #009b72);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -66,112 +70,76 @@ header {
 
 .ai-light { color: #e2e8f0; -webkit-text-fill-color: #e2e8f0; }
 
-/* ВЕРНУЛ БОЛЬШИЕ РАЗМЕРЫ БЛОКА АГЕНТОВ */
+/* БЛОК АГЕНТОВ - КРУПНЫЙ И ЧИТАЕМЫЙ */
 .agent-monitor {
     display: flex;
     align-items: center;
-    gap: 27px; /* ВЕРНУЛ 25px */
-    padding: 12px 26px; /* ВЕРНУЛ 24px */
+    gap: 30px; /* Большое расстояние между агентами */
+    padding: 15px 30px; /* Жирные отступы внутри рамки */
     background: rgba(255,255,255,0.02);
     border-radius: 16px;
     border: 1px solid var(--border);
 }
 
 .server-icon { 
-    height: 52px; 
+    height: 40px; /* ИКОНКА СЕРВЕРА КРУПНАЯ */
     width: auto; 
     border-right: 1px solid rgba(255,255,255,0.1); 
-    padding-right: 20px; /* ВЕРНУЛ 20px */
+    padding-right: 25px; 
 }
 
-/* ВЕРНУЛ ИСХОДНЫЙ ШРИФТ 10px */
 .agent-stat { 
     display: flex; 
     flex-direction: column; 
-    font-size: 11px; 
+    font-size: 12px; /* ШРИФТ АГЕНТОВ КРУПНЫЙ (Был 9px) */
     text-transform: uppercase; 
     color: var(--text-muted); 
     letter-spacing: 1px; 
 }
+
 .agent-stat span { 
     color: var(--accent-green); 
+    font-size: 14px; /* Проценты загрузки крупные */
     font-weight: 800; 
     display: flex; 
     align-items: center; 
-    gap: 6px; /* ВЕРНУЛ 6px */
+    gap: 8px; 
+    margin-top: 4px;
 }
 
-.led { width: 6px; height: 6px; background: var(--accent-green); border-radius: 50%; box-shadow: 0 0 8px var(--accent-green); }
+.led { width: 8px; height: 8px; background: var(--accent-green); border-radius: 50%; box-shadow: 0 0 10px var(--accent-green); }
 
-/* ВЕРНУЛ БОЛЬШИЕ КНОПКИ НАВИГАЦИИ */
-nav { display: flex; gap: 15px; }
+/* КНОПКИ НАВИГАЦИИ - БОЛЬШИЕ */
+nav { display: flex; gap: 20px; }
 .nav-btn {
     text-decoration: none;
     color: var(--text-main);
     font-weight: 700;
-    font-size: 13px; /* ВЕРНУЛ 13px */
+    font-size: 15px; /* ШРИФТ КНОПОК КРУПНЫЙ */
     text-transform: uppercase;
-    padding: 12px 24px; /* ВЕРНУЛ 12px 24px */
+    padding: 14px 28px; /* ЖИРНЫЕ КНОПКИ */
     border: 1px solid var(--accent-blue);
-    border-radius: 12px; /* ВЕРНУЛ 12px */
+    border-radius: 12px;
     transition: 0.3s;
 }
 .nav-btn:hover { background: var(--accent-blue); box-shadow: 0 4px 15px var(--accent-glow); transform: translateY(-2px); }
 
-/* Основной контент */
-.section-title {
-    padding: 80px 5% 30px;
-    font-family: 'Unbounded', sans-serif;
-    text-transform: uppercase;
-    font-size: 26px;
-    color: var(--accent-green);
-    letter-spacing: 2px;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 30px;
-    padding: 0 5% 80px;
-    max-width: 1500px;
-    margin: 0 auto;
-}
-
-.card {
-    background-color: var(--card-bg);
-    border-radius: 24px; 
-    padding: 45px;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid var(--border);
-    position: relative;
-    overflow: hidden;
-}
-
-.card:hover {
-    background-color: var(--accent-blue);
-    transform: translateY(-8px);
-    box-shadow: 0 15px 35px var(--accent-glow);
-}
-
+/* ========================================= */
+/* ОСТАЛЬНОЙ САЙТ (Карточки, подвал и т.д.)  */
+/* ========================================= */
+.section-title { padding: 80px 5% 30px; font-family: 'Unbounded', sans-serif; text-transform: uppercase; font-size: 26px; color: var(--accent-green); letter-spacing: 2px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 30px; padding: 0 5% 80px; max-width: 1500px; margin: 0 auto; }
+.card { background-color: var(--card-bg); border-radius: 24px; padding: 45px; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid var(--border); position: relative; overflow: hidden; }
+.card:hover { background-color: var(--accent-blue); transform: translateY(-8px); box-shadow: 0 15px 35px var(--accent-glow); }
 .card h3 { font-family: 'Unbounded', sans-serif; font-size: 22px; margin-bottom: 20px; text-transform: uppercase; }
 .card p { font-size: 14px; color: var(--text-muted); margin-bottom: 20px; line-height: 1.6; }
 .card ul { list-style: none; font-size: 13px; }
 .card li { padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; }
 .card:hover p, .card:hover li { color: #e2e8f0; }
-
 .price { font-weight: 800; color: var(--accent-green); }
 .card:hover .price { color: #fff; }
-
 .hero { padding: 80px 5% 40px; max-width: 1400px; margin: 0 auto; }
 .hero p { font-size: 16px; color: var(--text-muted); max-width: 850px; border-left: 3px solid var(--accent-green); padding-left: 20px; line-height: 1.7; }
-
-footer {
-    padding: 80px 5%;
-    border-top: 1px solid var(--border);
-    display: flex;
-    justify-content: space-between;
-    background: #060914;
-}
-
+footer { padding: 80px 5%; border-top: 1px solid var(--border); display: flex; justify-content: space-between; background: #060914; }
 .footer-info { display: flex; flex-direction: column; gap: 8px; font-size: 13px; color: var(--text-muted); }
 .footer-info b { color: var(--text-main); text-transform: uppercase; font-size: 14px; letter-spacing: 1px; }
