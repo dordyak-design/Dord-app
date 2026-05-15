@@ -2,7 +2,7 @@
     --bg-dark: #080b1a; 
     --card-bg: #131a33;
     --accent-blue: #004aad;
-    --accent-glow: rgba(0, 74, 173, 0.2); /* Приглушенное свечение */
+    --accent-glow: rgba(0, 74, 173, 0.2); 
     --accent-green: #009b72;
     --text-main: #f8fafc;
     --text-muted: #94a3b8;
@@ -20,7 +20,7 @@ body {
 }
 
 header {
-    padding: 15px 5%;
+    padding: 20px 5%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -32,10 +32,16 @@ header {
     z-index: 1000;
 }
 
-.header-left { display: flex; align-items: center; gap: 25px; }
-.header-left img { height: 130px; width: auto; }
+.header-left { 
+    display: flex; 
+    align-items: center; 
+    gap: 25px; /* ВЕРНУЛ ИСХОДНЫЙ ОТСТУП */
+}
+.header-left img { 
+    height: 130px; 
+    width: auto; 
+}
 
-/* Название компании: градиент от синего к зеленому, шрифт Unbounded */
 .title-wrapper {
     display: flex;
     flex-direction: column;
@@ -60,38 +66,57 @@ header {
 
 .ai-light { color: #e2e8f0; -webkit-text-fill-color: #e2e8f0; }
 
-/* Агент-монитор в шапке */
+/* ВЕРНУЛ БОЛЬШИЕ РАЗМЕРЫ БЛОКА АГЕНТОВ */
 .agent-monitor {
     display: flex;
     align-items: center;
-    gap: 20px;
-    padding: 12px 20px;
+    gap: 25px; /* ВЕРНУЛ 25px */
+    padding: 12px 24px; /* ВЕРНУЛ 24px */
     background: rgba(255,255,255,0.02);
     border-radius: 16px;
     border: 1px solid var(--border);
 }
 
-.server-icon { height: 32px; width: auto; border-right: 1px solid rgba(255,255,255,0.1); padding-right: 15px; }
+.server-icon { 
+    height: 32px; 
+    width: auto; 
+    border-right: 1px solid rgba(255,255,255,0.1); 
+    padding-right: 20px; /* ВЕРНУЛ 20px */
+}
 
-.agent-stat { display: flex; flex-direction: column; font-size: 9px; text-transform: uppercase; color: var(--text-muted); letter-spacing: 1px; }
-.agent-stat span { color: var(--accent-green); font-weight: 800; display: flex; align-items: center; gap: 5px; }
+/* ВЕРНУЛ ИСХОДНЫЙ ШРИФТ 10px */
+.agent-stat { 
+    display: flex; 
+    flex-direction: column; 
+    font-size: 10px; 
+    text-transform: uppercase; 
+    color: var(--text-muted); 
+    letter-spacing: 1px; 
+}
+.agent-stat span { 
+    color: var(--accent-green); 
+    font-weight: 800; 
+    display: flex; 
+    align-items: center; 
+    gap: 6px; /* ВЕРНУЛ 6px */
+}
 
 .led { width: 6px; height: 6px; background: var(--accent-green); border-radius: 50%; box-shadow: 0 0 8px var(--accent-green); }
 
-/* Навигация кнопками */
-nav { display: flex; gap: 12px; }
+/* ВЕРНУЛ БОЛЬШИЕ КНОПКИ НАВИГАЦИИ */
+nav { display: flex; gap: 15px; }
 .nav-btn {
     text-decoration: none;
     color: var(--text-main);
     font-weight: 700;
-    font-size: 12px;
+    font-size: 13px; /* ВЕРНУЛ 13px */
     text-transform: uppercase;
-    padding: 10px 20px;
+    padding: 12px 24px; /* ВЕРНУЛ 12px 24px */
     border: 1px solid var(--accent-blue);
-    border-radius: 10px;
+    border-radius: 12px; /* ВЕРНУЛ 12px */
     transition: 0.3s;
 }
-.nav-btn:hover { background: var(--accent-blue); box-shadow: 0 0 15px var(--accent-glow); }
+.nav-btn:hover { background: var(--accent-blue); box-shadow: 0 4px 15px var(--accent-glow); transform: translateY(-2px); }
 
 /* Основной контент */
 .section-title {
@@ -112,7 +137,6 @@ nav { display: flex; gap: 12px; }
     margin: 0 auto;
 }
 
-/* Скругленные окна с синим наведением */
 .card {
     background-color: var(--card-bg);
     border-radius: 24px; 
@@ -141,7 +165,6 @@ nav { display: flex; gap: 12px; }
 .hero { padding: 80px 5% 40px; max-width: 1400px; margin: 0 auto; }
 .hero p { font-size: 16px; color: var(--text-muted); max-width: 850px; border-left: 3px solid var(--accent-green); padding-left: 20px; line-height: 1.7; }
 
-/* Подвал */
 footer {
     padding: 80px 5%;
     border-top: 1px solid var(--border);
