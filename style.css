@@ -79,6 +79,25 @@ header {
     border-radius: 16px;
     border: 1px solid var(--border);
 }
+/* Выравниваем монитор, чтобы иконка стояла ровно по центру с текстом */
+.agent-monitor {
+    display: flex;
+    align-items: center; /* Центруем по вертикали */
+    gap: 25px;
+    padding: 12px 24px;
+    background: rgba(255,255,255,0.02);
+    border-radius: 16px;
+    border: 1px solid var(--border);
+}
+
+/* Настройки самой иконки сервера */
+.server-icon {
+    height: 32px; /* Размер — можешь покрутить больше/меньше */
+    width: auto;
+    opacity: 0.8; /* Чуть приглушаем, чтобы не спорила с текстом */
+    border-right: 1px solid rgba(255,255,255,0.1); /* Тонкая линия-разделитель */
+    padding-right: 20px; /* Отступ до агентов */
+}
 
 .agent-stat {
     display: flex;
