@@ -7,10 +7,50 @@
     <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-        .rules-list { list-style: decimal inside !important; margin-bottom: 20px; }
-        .rules-list li { border-bottom: none !important; padding: 5px 0 !important; color: var(--text-muted); }
-        .rules-list strong { color: var(--text-main); }
+        /* Жесткое исправление конфликта стилей из style.css */
+        .rules-list { 
+            list-style: none !important; 
+            padding: 0 !important;
+            margin-top: 15px !important; 
+        }
+        .rules-list li { 
+            display: block !important; /* Убиваем флекс-конфликт, ломавший верстку */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important; 
+            padding: 20px 0 !important; 
+        }
+        .rules-list li:last-child {
+            border-bottom: none !important;
+        }
+        .rules-list strong { 
+            display: block !important;
+            color: var(--accent-green); 
+            font-family: 'Unbounded', sans-serif;
+            font-size: 13px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+        .rules-text {
+            display: block;
+            font-size: 14px;
+            color: var(--text-main);
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+        .rules-example {
+            display: block;
+            font-size: 13px;
+            color: var(--text-muted);
+            background: rgba(0, 0, 0, 0.25);
+            padding: 12px 16px;
+            border-radius: 8px;
+            border-left: 2px solid var(--accent-blue);
+        }
+        .rules-example i {
+            color: #e2e8f0;
+        }
         
+        /* Стили для кнопок нейросетей */
         .ai-links {
             display: flex;
             gap: 10px;
@@ -22,16 +62,18 @@
             border: 1px solid var(--accent-blue);
             color: var(--text-main);
             text-decoration: none;
-            padding: 10px 18px;
-            border-radius: 8px;
+            padding: 12px 20px;
+            border-radius: 10px;
             font-size: 13px;
-            font-weight: 600;
+            font-weight: 700;
             transition: 0.3s;
+            text-transform: uppercase;
         }
         .ai-link-btn:hover {
             background: var(--accent-green);
             border-color: var(--accent-green);
             color: #fff;
+            box-shadow: 0 0 10px rgba(0, 155, 114, 0.2);
         }
         
         .danger-card {
@@ -77,17 +119,34 @@
         <div class="card">
             <h3>Формула идеального ТЗ</h3>
             <p>Агенты не умеют догадываться. Описывайте задачу по четырем обязательным критериям:</p>
+            
             <ul class="rules-list">
-                <li><strong>Объект:</strong> Что конкретно в кадре (например: <i>стеклянный флакон парфюма с черной крышкой</i>).</li>
-                <li><strong>Окружение:</strong> Где он находится (<i>на мокром черном вулканическом камне, вокруг брызги воды</i>).</li>
-                <li><strong>Освещение:</strong> Какой свет (<i>драматичный боковой свет, студийная контрастная подсветка</i>).</li>
-                <li><strong>Детали и Эффекты:</strong> Для видео укажите динамику (<i>эффект Levitation, медленный наезд камеры, Light Sweep</i>).</li>
+                <li>
+                    <strong>1. Объект</strong>
+                    <span class="rules-text">Что конкретно должно находиться в кадре (форма, цвет, материал).</span>
+                    <span class="rules-example">Пример: <i>стеклянный флакон парфюма с черной матовой крышкой</i></span>
+                </li>
+                <li>
+                    <strong>2. Окружение</strong>
+                    <span class="rules-text">Где расположен объект, какой задний план, локация и сопутствующие предметы.</span>
+                    <span class="rules-example">Пример: <i>на мокром черном вулканическом камне, вокруг брызги воды</i></span>
+                </li>
+                <li>
+                    <strong>3. Освещение</strong>
+                    <span class="rules-text">Направление света, интенсивность и общая атмосфера кадра.</span>
+                    <span class="rules-example">Пример: <i>драматичный боковой свет, студийная контрастная подсветка</i></span>
+                </li>
+                <li>
+                    <strong>4. Детали и Эффекты</strong>
+                    <span class="rules-text">Для видео-роликов — точное направление движения камеры и пресеты динамики.</span>
+                    <span class="rules-example">Пример: <i>эффект Levitation, медленный наезд камеры, Light Sweep</i></span>
+                </li>
             </ul>
         </div>
 
         <div class="card">
             <h3>Проверьте концепт бесплатно</h3>
-            <p>Если вы не уверены, как нейросеть поймет ваше описание, протестируйте формулировку в бесплатных текстовых ИИ. Сформулируйте мысль там, добейтесь четкости текста, и только потом отправляйте финальное ТЗ нам.</p>
+            <p>Если вы не уверены, как нейросеть поймет ваше описание, протестируйте формулировку в бесплатных текстовых ИИ. Сформулируйте мысль там, добейтесь четкости текста, и только потом отправляйте финальное ТЗ нам для рендеринга на про-моделях.</p>
             <div class="ai-links">
                 <a href="https://chatgpt.com" target="_blank" class="ai-link-btn">ChatGPT</a>
                 <a href="https://claude.ai" target="_blank" class="ai-link-btn">Claude AI</a>
