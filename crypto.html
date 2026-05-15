@@ -7,7 +7,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Специфические стили для таблицы сравнения */
         .comparison-table {
             width: 100%;
             border-collapse: collapse;
@@ -29,14 +28,33 @@
             text-transform: uppercase;
             color: var(--accent-green);
         }
-        .comparison-table td {
-            font-size: 14px;
-            color: var(--text-muted);
-        }
-        .comparison-table tr:hover {
-            background: rgba(255,255,255,0.05);
-        }
+        .comparison-table td { font-size: 14px; color: var(--text-muted); }
+        .comparison-table tr:hover { background: rgba(255,255,255,0.05); }
         .highlight { color: var(--text-main); font-weight: 600; }
+
+        /* Стили для блока с адресом */
+        .wallet-box {
+            background: #0f172a;
+            border: 1px dashed var(--accent-green);
+            padding: 15px;
+            border-radius: 12px;
+            margin-top: 15px;
+            font-family: 'Courier New', monospace;
+            word-break: break-all;
+            color: #fff;
+            font-size: 13px;
+        }
+        .network-tag {
+            display: inline-block;
+            background: var(--accent-green);
+            color: #fff;
+            font-size: 10px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            font-weight: 800;
+        }
     </style>
 </head>
 <body>
@@ -67,7 +85,7 @@
     <section class="hero">
         <h1 style="font-family: 'Unbounded', sans-serif; font-size: 36px; text-transform: uppercase; margin-bottom: 20px;">Криптовалюта: Свобода и Безопасность</h1>
         <p>
-            Мы принимаем USDT и BTC, предоставляя клиентам полную независимость от банковской бюрократии. Оплата в крипте — это не просто транзакция, это инвестиция в технологическое будущее и защита вашего капитала.
+            Мы принимаем USDT в самых быстрых сетях с минимальными комиссиями. Никакой банковской бюрократии, никаких задержек и полный контроль над вашими транзакциями.
         </p>
     </section>
 
@@ -79,48 +97,52 @@
                     <tr>
                         <th>Критерий</th>
                         <th>Традиционные банки</th>
-                        <th>Криптовалюта (Холодный кошелек)</th>
+                        <th>USDT (BNB / TON)</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
+                        <td class="highlight">Комиссия за перевод</td>
+                        <td>От $15 до $50 + скрытые проценты.</td>
+                        <td style="color: var(--accent-green);">Менее $1 (в сетях BNB и TON).</td>
+                    </tr>
+                    <tr>
                         <td class="highlight">Владение средствами</td>
                         <td>Принадлежат банку (вы — кредитор).</td>
-                        <td style="color: var(--accent-green);">100% контроль у владельца ключей.</td>
+                        <td style="color: var(--accent-green);">100% контроль у вас.</td>
                     </tr>
                     <tr>
                         <td class="highlight">Риск блокировки</td>
-                        <td>Высокий (заморозка без предупреждения).</td>
-                        <td style="color: var(--accent-green);">Нулевой (кошелек невозможно заморозить).</td>
+                        <td>Высокий (заморозка без объяснений).</td>
+                        <td style="color: var(--accent-green);">Нулевой (кошелек невозможно арестовать).</td>
                     </tr>
                     <tr>
-                        <td class="highlight">География</td>
-                        <td>Ограничения и долгие проверки.</td>
-                        <td style="color: var(--accent-green);">Моментально в любую точку мира 24/7.</td>
-                    </tr>
-                    <tr>
-                        <td class="highlight">Защита от инфляции</td>
-                        <td>Фиат обесценивается каждый год.</td>
-                        <td style="color: var(--accent-green);">Дефляционные механизмы и потенциал роста.</td>
+                        <td class="highlight">Скорость</td>
+                        <td>До 3-5 рабочих дней.</td>
+                        <td style="color: var(--accent-green);">Мгновенно 24/7.</td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
 
-    <h2 class="section-title">Как оплатить услуги</h2>
+    <h2 class="section-title">Инструкция по оплате</h2>
     <div class="grid">
         <div class="card">
-            <h3>1. Утверждение проекта</h3>
-            <p>Согласовываем объем работ: фото, видео-креативы или подписку на Dord Terminal.</p>
+            <h3>1. Расчет стоимости</h3>
+            <p>Согласовываем финальный объем работ или выбираем тарифный план Dord Terminal.</p>
         </div>
         <div class="card">
-            <h3>2. Реквизиты</h3>
-            <p>Мы предоставляем адрес кошелька для перевода в выбранной вами сети (TRC20, ERC20 или BTC).</p>
+            <h3>2. Адрес для оплаты</h3>
+            <p>Мы принимаем <b>USDT</b>. На кошелек сети <b>TON</b> вы можете отправлять как доллары (USDT), так и монеты TON.</p>
+            <span class="network-tag">BNB Smart Chain / TON</span>
+            <div class="wallet-box">
+                ТУТ_ВАШ_АДРЕС
+            </div>
         </div>
         <div class="card">
-            <h3>3. Подтверждение</h3>
-            <p>Транзакция подтверждается сетью в течение пары минут, и наши Агенты приступают к работе.</p>
+            <h3>3. Старт работы</h3>
+            <p>Как только транзакция подтверждается сетью (обычно 1-2 минуты), Агенты мгновенно начинают генерацию.</p>
         </div>
     </div>
 
