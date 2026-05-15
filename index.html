@@ -3,69 +3,239 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DORD SOFTWARE // AI PRODUCTION STUDIO</title>
-    <link rel="stylesheet" href="style.css">
+    <title>DORD SOFTWARE | PREMIUM AI STUDIO</title>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;900&family=Inter:wght@300;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #05070a;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --accent: #004aad;
+            --accent-glow: rgba(0, 74, 173, 0.4);
+            --text: #ffffff;
+            --text-dim: #94a3b8;
+            --border: rgba(255, 255, 255, 0.08);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ЖИВОЙ ТЕХНОЛОГИЧНЫЙ ФОН */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 80% 20%, #0049ad15, transparent 40%),
+                        radial-gradient(circle at 20% 80%, #009b7210, transparent 40%);
+            z-index: -1;
+        }
+
+        /* ШАПКА */
+        header {
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            background: rgba(5, 7, 10, 0.7);
+            backdrop-filter: blur(15px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo img { height: 130px; transition: 0.3s; }
+
+        nav { display: flex; align-items: center; gap: 30px; }
+        
+        .lang-switch { font-size: 11px; font-weight: 800; letter-spacing: 1px; }
+        .lang-switch a { text-decoration: none; color: var(--text-dim); margin: 0 5px; }
+        .lang-switch a.active { color: var(--text); border-bottom: 2px solid var(--accent); }
+
+        nav a.nav-item {
+            text-decoration: none;
+            color: var(--text);
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.7;
+            transition: 0.3s;
+        }
+        nav a.nav-item:hover { opacity: 1; color: var(--accent); }
+
+        /* ГЛАВНЫЙ БЛОК */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 10%;
+            text-align: left;
+        }
+
+        .hero span {
+            font-family: 'Unbounded', sans-serif;
+            color: #009b72;
+            font-size: 14px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .hero h1 {
+            font-family: 'Unbounded', sans-serif;
+            font-size: clamp(2.5rem, 8vw, 6rem);
+            font-weight: 900;
+            line-height: 1;
+            text-transform: uppercase;
+            background: linear-gradient(to bottom, #fff, #666);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            margin-top: 40px;
+            font-size: 1.2rem;
+            max-width: 650px;
+            color: var(--text-dim);
+            line-height: 1.6;
+        }
+
+        /* СЕТКА УСЛУГ (GLASSMORPHISM) */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 20px;
+            padding: 100px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 60px 40px;
+            border-radius: 24px;
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, var(--accent-glow), transparent);
+            opacity: 0;
+            transition: 0.4s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .card:hover::before { opacity: 1; }
+
+        .card h3 {
+            font-family: 'Unbounded', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        .card p {
+            font-size: 1rem;
+            color: var(--text-dim);
+            line-height: 1.6;
+            position: relative;
+        }
+
+        /* ФУТЕР */
+        footer {
+            padding: 60px 5%;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .status { color: #009b72; display: flex; align-items: center; gap: 8px; }
+        .status::before { content: ''; width: 8px; height: 8px; background: #009b72; border-radius: 50%; display: inline-block; box-shadow: 0 0 10px #009b72; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            header { padding: 15px 20px; }
+            .logo img { height: 80px; }
+        }
+    </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">
-            <img src="logo.PNG" alt="DORD">
-        </div>
+        <div class="logo"><img src="logo.PNG" alt="DORD"></div>
         <nav>
             <div class="lang-switch">
-                <a href="#" class="active">RU</a> | <a href="#">HE</a> | <a href="#">EN</a>
+                <a href="#" class="active">RU</a> <a href="#">HE</a> <a href="#">EN</a>
             </div>
-            <a href="gallery.html" class="nav-item">Галерея</a>
+            <a href="gallery.html" class="nav-item">Портфолио</a>
             <a href="motion.html" class="nav-item">Видео</a>
             <a href="crypto.html" class="nav-item">Оплата</a>
         </nav>
     </header>
 
     <section class="hero">
-        <span>Israel // AI Production Studio</span>
-        <h1>ВАШ ТОВАР<br>БУДЕТ ПРОДАВАТЬ<br>СЕБЯ САМ</h1>
-        <div class="cta-desc">
-            Мы не делаем "просто фото". Мы создаем визуальный капитал. Пока ваши конкуренты организуют съемки, наши AI-агенты генерируют результат, который заставляет нажать «КУПИТЬ».
-        </div>
+        <span>Israel // Next-Gen AI Production</span>
+        <h1>ВАШ ТОВАР В<br>ЦЕНТРЕ ВНИМАНИЯ</h1>
+        <p>Мы объединили мощь 3-х AI Агентов и промышленного железа, чтобы вы получали визуальный контент мирового уровня за часы, а не недели. Безопасно. Быстро. Масштабируемо.</p>
     </section>
 
     <div class="grid">
-        <div class="box">
-            <span class="num">01 / E-COMMERCE</span>
-            <h3>КАРТОЧКИ ТОВАРОВ</h3>
-            <p>Rich Content премиального уровня. Идеальный свет и композиция для взрывных продаж на маркетплейсах.</p>
+        <div class="card">
+            <h3>E-Commerce</h3>
+            <p>Карточки товаров с идеальным светом и композицией. Генерация "живых" локаций без выезда на съемки.</p>
         </div>
-        <div class="box">
-            <span class="num">02 / VIDEO</span>
-            <h3>DORD MOTION AREA</h3>
-            <p>Ультра-динамичные креативы (5-15 сек). Видео, которые гарантированно останавливают бесконечный скролл.</p>
+        <div class="card">
+            <h3>Motion Area</h3>
+            <p>Взрывные 15-секундные креативы для соцсетей. Видео, которые гарантированно повышают CTR.</p>
         </div>
-        <div class="box">
-            <span class="num">03 / PRODUCTION</span>
-            <h3>AI CINEMA</h3>
-            <p>Сюжетные ролики и AI-сериалы до 60 секунд. Кинематографический сторителлинг для вашего бренда.</p>
+        <div class="card">
+            <h3>AI Cinema</h3>
+            <p>Сюжетные ролики и сериалы до 60 секунд. Ваш бренд получает собственную киновселенную.</p>
         </div>
-        <div class="box">
-            <span class="num">04 / IDENTITY</span>
-            <h3>BRANDING & LOGO</h3>
-            <p>Визуальный код, который вызывает доверие. Мы создаем стиль, который работает на вас годами.</p>
+        <div class="card">
+            <h3>Identity</h3>
+            <p>Разработка визуального кода и логотипов. Фундаментальный стиль для вашего бизнеса.</p>
         </div>
-        <div class="box">
-            <span class="num">05 / ARCHIVE</span>
-            <h3>RESTORATION</h3>
-            <p>Вторая жизнь ваших архивов. Восстановление, 4K колоризация и анимация любой сложности.</p>
+        <div class="card">
+            <h3>Restoration</h3>
+            <p>Реставрация и анимация архивов в 4K. Мы превращаем старые кадры в современный актив.</p>
         </div>
-        <div class="box">
-            <span class="num">06 / SECURITY</span>
-            <h3>PRIVATE CLOUD</h3>
-            <p>Обработка данных в Израиле на изолированных серверах под защитой аппаратного фаервола. Приватность — это стандарт.</p>
+        <div class="card">
+            <h3>Private Cloud</h3>
+            <p>Обработка на изолированных серверах в Израиле. Ваши данные защищены на уровне кибербезопасности.</p>
         </div>
     </div>
 
     <footer>
         <div>DORD SOFTWARE &copy; 2026 // ISRAEL</div>
-        <div>AGENTS READY // SYSTEM ONLINE</div>
+        <div class="status">System Online // Agents Ready</div>
     </footer>
 
 </body>
