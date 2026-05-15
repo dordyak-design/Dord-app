@@ -1,9 +1,9 @@
 :root {
-    /* Тот самый ультрамарин, темнее и глубже */
+    /* Глубокий ультрамарин */
     --bg-dark: #080b1a; 
     --card-bg: #131a33;
     --accent-blue: #004aad;
-    --accent-glow: rgba(0, 74, 173, 0.4);
+    --accent-glow: rgba(0, 74, 173, 0.25); /* Приглушенное свечение */
     --accent-green: #009b72;
     --text-main: #f8fafc;
     --text-muted: #94a3b8;
@@ -21,7 +21,7 @@ body {
 }
 
 header {
-    padding: 15px 5%;
+    padding: 20px 5%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -36,11 +36,11 @@ header {
 .header-left {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 25px;
 }
 
 .header-left img {
-    height: 110px;
+    height: 120px;
     width: auto;
 }
 
@@ -53,7 +53,7 @@ header {
 }
 
 .company-name {
-    font-size: 26px;
+    font-size: 28px;
     font-weight: 700;
     background: linear-gradient(to right, #004aad, #009b72);
     -webkit-background-clip: text;
@@ -61,7 +61,7 @@ header {
 }
 
 .occupation {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
     color: var(--text-muted);
 }
@@ -70,20 +70,20 @@ header {
     color: #e2e8f0;
 }
 
-/* Статус Агентов в шапке */
+/* Статус Агентов */
 .agent-monitor {
     display: flex;
-    gap: 20px;
-    padding: 10px 20px;
+    gap: 25px;
+    padding: 12px 24px;
     background: rgba(255,255,255,0.02);
-    border-radius: 12px;
+    border-radius: 16px;
     border: 1px solid var(--border);
 }
 
 .agent-stat {
     display: flex;
     flex-direction: column;
-    font-size: 9px;
+    font-size: 10px;
     text-transform: uppercase;
     letter-spacing: 1px;
     color: var(--text-muted);
@@ -94,7 +94,7 @@ header {
     font-weight: 800;
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 6px;
 }
 
 .led {
@@ -102,12 +102,37 @@ header {
     height: 6px;
     background: var(--accent-green);
     border-radius: 50%;
-    box-shadow: 0 0 5px var(--accent-green);
-    display: inline-block;
+    box-shadow: 0 0 8px var(--accent-green);
+}
+
+/* НАВИГАЦИОННЫЕ КНОПКИ */
+nav {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-btn {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 12px 24px;
+    border: 1px solid var(--accent-blue);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    background: transparent;
+}
+
+.nav-btn:hover {
+    background: var(--accent-blue);
+    box-shadow: 0 4px 15px var(--accent-glow);
+    transform: translateY(-2px);
 }
 
 .hero {
-    padding: 80px 5% 40px;
+    padding: 100px 5% 60px;
     max-width: 1400px;
     margin: 0 auto;
 }
@@ -116,15 +141,15 @@ header {
     font-size: 16px;
     color: var(--text-muted);
     max-width: 800px;
-    border-left: 3px solid var(--accent-green);
+    border-left: 4px solid var(--accent-green);
     padding-left: 20px;
 }
 
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 25px;
-    padding: 0 5% 80px;
+    gap: 30px;
+    padding: 0 5% 100px;
     max-width: 1400px;
     margin: 0 auto;
 }
@@ -132,29 +157,28 @@ header {
 .card {
     background-color: var(--card-bg);
     border-radius: 24px; 
-    padding: 40px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 45px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     border: 1px solid var(--border);
 }
 
-/* Убавленное свечение окон */
 .card:hover {
     background-color: var(--accent-blue);
     transform: translateY(-8px);
-    box-shadow: 0 10px 25px var(--accent-glow);
+    box-shadow: 0 12px 30px var(--accent-glow);
 }
 
 .card h3 {
     font-family: 'Unbounded', sans-serif;
-    font-size: 20px;
-    margin-bottom: 15px;
+    font-size: 22px;
+    margin-bottom: 20px;
     text-transform: uppercase;
 }
 
 .card p {
-    font-size: 14px;
+    font-size: 15px;
     color: var(--text-muted);
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .card:hover p, .card:hover ul {
@@ -163,12 +187,12 @@ header {
 
 .card ul {
     list-style: none;
-    font-size: 13px;
+    font-size: 14px;
 }
 
 .card ul li {
-    padding: 8px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.03);
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
     display: flex;
     justify-content: space-between;
 }
@@ -183,23 +207,24 @@ header {
 }
 
 footer {
-    padding: 60px 5%;
+    padding: 80px 5%;
     border-top: 1px solid var(--border);
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    font-size: 12px;
-    color: var(--text-muted);
+    background: #060914;
 }
 
 .footer-info {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--text-muted);
 }
 
 .footer-info b {
     color: var(--text-main);
     text-transform: uppercase;
     letter-spacing: 1px;
+    font-size: 14px;
 }
