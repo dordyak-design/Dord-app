@@ -7,19 +7,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Жесткое исправление конфликта стилей из style.css */
+        /* Внутренняя сетка для пунктов ТЗ внутри широкой карточки */
         .rules-list { 
             list-style: none !important; 
             padding: 0 !important;
-            margin-top: 15px !important; 
+            margin-top: 25px !important; 
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+            gap: 20px !important;
         }
         .rules-list li { 
-            display: block !important; /* Убиваем флекс-конфликт, ломавший верстку */
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important; 
-            padding: 20px 0 !important; 
-        }
-        .rules-list li:last-child {
-            border-bottom: none !important;
+            display: block !important; 
+            background: rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.03) !important;
+            padding: 20px !important; 
+            border-radius: 14px;
         }
         .rules-list strong { 
             display: block !important;
@@ -34,23 +36,20 @@
             display: block;
             font-size: 14px;
             color: var(--text-main);
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             line-height: 1.5;
         }
         .rules-example {
             display: block;
-            font-size: 13px;
+            font-size: 12px;
             color: var(--text-muted);
-            background: rgba(0, 0, 0, 0.25);
-            padding: 12px 16px;
-            border-radius: 8px;
+            background: rgba(8, 11, 26, 0.5);
+            padding: 10px 14px;
+            border-radius: 6px;
             border-left: 2px solid var(--accent-blue);
         }
-        .rules-example i {
-            color: #e2e8f0;
-        }
         
-        /* Стили для кнопок нейросетей */
+        /* Стили для ссылок на ИИ */
         .ai-links {
             display: flex;
             gap: 10px;
@@ -109,14 +108,13 @@
         </nav>
     </header>
 
-    <section class="hero" style="padding-bottom: 20px;">
+    <section class="hero" style="padding-bottom: 30px;">
         <h1 style="font-family: 'Unbounded', sans-serif; font-size: 36px; text-transform: uppercase; margin-bottom: 20px;">Инструкция по составлению ТЗ</h1>
         <p>Вычислительные Агенты Dord Software работают со строгими алгоритмами. Чтобы не сжечь бюджет впустую и получить именно тот визуальный продукт, который вы задумали, ознакомьтесь с правилами генерации.</p>
     </section>
 
-    <div class="grid">
-        
-        <div class="card">
+    <div style="max-width: 1500px; margin: 0 auto 30px; padding: 0 5%;">
+        <div class="card" style="width: 100%;">
             <h3>Формула идеального ТЗ</h3>
             <p>Агенты не умеют догадываться. Описывайте задачу по четырем обязательным критериям:</p>
             
@@ -143,7 +141,10 @@
                 </li>
             </ul>
         </div>
+    </div>
 
+    <div class="grid" style="padding-top: 0;">
+        
         <div class="card">
             <h3>Проверьте концепт бесплатно</h3>
             <p>Если вы не уверены, как нейросеть поймет ваше описание, протестируйте формулировку в бесплатных текстовых ИИ. Сформулируйте мысль там, добейтесь четкости текста, и только потом отправляйте финальное ТЗ нам для рендеринга на про-моделях.</p>
@@ -159,9 +160,9 @@
             <p class="warning-text">
                 Запуск генерации — это прямая аренда вычислительных мощностей серверов и видеокарт (машинного времени). 
                 <br><br>
-                Если сгенерированный материал строго соответствует вашему текстовому ТЗ, но не совпадает с вашими личными ожиданиями («я думал, это будет выглядеть по-другому», «мне не нравится этот стиль»), претензии не принимаются. 
+                Если сгенерированный материал строго соответствует вашему текстовому ТЗ, но не совпадает с вашими личными ожиданиями («я думал, это будет выглядеть по-другому»), претензии не принимаются. 
                 <br><br>
-                При размытом, неточном или слишком коротком описании (например: <i>«сделай крутые кроссовки»</i>) Агенты дорисовывают детали на свое усмотрение. Возврат средств за запущенные и выполненные машинные часы в таких случаях <b>невозможен</b>.
+                При размытом или слишком коротком описании Агенты дорисовывают детали на свое усмотрение. Возврат средств за выполненные машинные часы в таких случаях <b>невозможен</b>.
             </p>
         </div>
 
