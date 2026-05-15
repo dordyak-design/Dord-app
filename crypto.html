@@ -32,28 +32,42 @@
         .comparison-table tr:hover { background: rgba(255,255,255,0.05); }
         .highlight { color: var(--text-main); font-weight: 600; }
 
-        /* Стили для блока с адресом */
+        .wallet-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
         .wallet-box {
             background: #0f172a;
             border: 1px dashed var(--accent-green);
             padding: 15px;
             border-radius: 12px;
-            margin-top: 15px;
             font-family: 'Courier New', monospace;
             word-break: break-all;
             color: #fff;
             font-size: 13px;
         }
+
         .network-tag {
             display: inline-block;
             background: var(--accent-green);
             color: #fff;
             font-size: 10px;
-            padding: 2px 8px;
-            border-radius: 4px;
-            margin-bottom: 10px;
+            padding: 4px 10px;
+            border-radius: 6px;
+            margin-bottom: 8px;
             text-transform: uppercase;
             font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .network-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+            display: block;
         }
     </style>
 </head>
@@ -85,7 +99,7 @@
     <section class="hero">
         <h1 style="font-family: 'Unbounded', sans-serif; font-size: 36px; text-transform: uppercase; margin-bottom: 20px;">Криптовалюта: Свобода и Безопасность</h1>
         <p>
-            Мы принимаем USDT в самых быстрых сетях с минимальными комиссиями. Никакой банковской бюрократии, никаких задержек и полный контроль над вашими транзакциями.
+            Мы принимаем USDT в сетях TON и BNB Smart Chain. Это обеспечивает мгновенные транзакции с комиссией менее $1, гарантируя полную финансовую независимость вашего бизнеса.
         </p>
     </section>
 
@@ -97,29 +111,24 @@
                     <tr>
                         <th>Критерий</th>
                         <th>Традиционные банки</th>
-                        <th>USDT (BNB / TON)</th>
+                        <th>USDT (TON / BNB)</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="highlight">Комиссия за перевод</td>
-                        <td>От $15 до $50 + скрытые проценты.</td>
-                        <td style="color: var(--accent-green);">Менее $1 (в сетях BNB и TON).</td>
-                    </tr>
-                    <tr>
-                        <td class="highlight">Владение средствами</td>
-                        <td>Принадлежат банку (вы — кредитор).</td>
-                        <td style="color: var(--accent-green);">100% контроль у вас.</td>
-                    </tr>
-                    <tr>
-                        <td class="highlight">Риск блокировки</td>
-                        <td>Высокий (заморозка без объяснений).</td>
-                        <td style="color: var(--accent-green);">Нулевой (кошелек невозможно арестовать).</td>
+                        <td class="highlight">Комиссия</td>
+                        <td>До $50 + скрытые сборы.</td>
+                        <td style="color: var(--accent-green);">Меньше $1.</td>
                     </tr>
                     <tr>
                         <td class="highlight">Скорость</td>
-                        <td>До 3-5 рабочих дней.</td>
-                        <td style="color: var(--accent-green);">Мгновенно 24/7.</td>
+                        <td>3–5 рабочих дней.</td>
+                        <td style="color: var(--accent-green);">1–2 минуты 24/7.</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight">Контроль</td>
+                        <td>Средства принадлежат банку.</td>
+                        <td style="color: var(--accent-green);">100% владение активами.</td>
                     </tr>
                 </tbody>
             </table>
@@ -130,19 +139,31 @@
     <div class="grid">
         <div class="card">
             <h3>1. Расчет стоимости</h3>
-            <p>Согласовываем финальный объем работ или выбираем тарифный план Dord Terminal.</p>
+            <p>Согласовываем финальный бюджет проекта или выбираем период подписки Dord Terminal (1, 3 или 12 месяцев).</p>
         </div>
+
         <div class="card">
-            <h3>2. Адрес для оплаты</h3>
-            <p>Мы принимаем <b>USDT</b>. На кошелек сети <b>TON</b> вы можете отправлять как доллары (USDT), так и монеты TON.</p>
-            <span class="network-tag">BNB Smart Chain / TON</span>
-            <div class="wallet-box">
-                ТУТ_ВАШ_АДРЕС
+            <h3>2. Адреса для оплаты</h3>
+            <p>Выберите удобную для вас сеть. Мы принимаем <b>USDT</b> в двух форматах:</p>
+            
+            <div class="wallet-container">
+                <div>
+                    <span class="network-tag">TON Network</span>
+                    <span class="network-label">Для USDT (TON) и монет TON</span>
+                    <div class="wallet-box">ВАШ_TON_АДРЕС</div>
+                </div>
+                
+                <div style="border-top: 1px solid var(--border); padding-top: 20px;">
+                    <span class="network-tag">BNB Smart Chain</span>
+                    <span class="network-label">Для USDT (BEP20)</span>
+                    <div class="wallet-box">ВАШ_BNB_АДРЕС</div>
+                </div>
             </div>
         </div>
+
         <div class="card">
             <h3>3. Старт работы</h3>
-            <p>Как только транзакция подтверждается сетью (обычно 1-2 минуты), Агенты мгновенно начинают генерацию.</p>
+            <p>После отправки подтвердите транзакцию. Агенты мгновенно получают сигнал и приступают к выполнению задачи.</p>
         </div>
     </div>
 
