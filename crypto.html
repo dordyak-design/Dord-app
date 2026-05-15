@@ -3,79 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Крипто-оплата | Dord Software</title>
+    <title>Оплата криптовалютой | Dord Softwer AI Sistems</title>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Специфические стили для таблицы сравнения */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+            background: rgba(255,255,255,0.02);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+        .comparison-table th, .comparison-table td {
+            padding: 20px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        .comparison-table th {
+            background: rgba(0, 74, 173, 0.2);
+            font-family: 'Unbounded', sans-serif;
+            font-size: 14px;
+            text-transform: uppercase;
+            color: var(--accent-green);
+        }
+        .comparison-table td {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+        .comparison-table tr:hover {
+            background: rgba(255,255,255,0.05);
+        }
+        .highlight { color: var(--text-main); font-weight: 600; }
+    </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">
-            <a href="index.html">
-                <img src="logo.PNG" alt="Dord Software">
-            </a>
+        <div class="header-left">
+            <img src="logo.PNG" alt="DORD">
+            <div class="title-wrapper">
+                <span class="company-name">Dord Softwer</span>
+                <span class="occupation"><span class="ai-light">AI</span> sistems Photo Studio</span>
+            </div>
         </div>
+
+        <div class="agent-monitor">
+            <img src="server_icon.png" alt="Server" class="server-icon">
+            <div class="agent-stat">Агент-1 <span><div class="led"></div> Online 92%</span></div>
+            <div class="agent-stat">Агент-2 <span><div class="led"></div> Online 87%</span></div>
+            <div class="agent-stat">Агент-3 <span><div class="led"></div> Online 95%</span></div>
+        </div>
+
         <nav>
-            <a href="index.html#about">О нас</a>
-            <a href="index.html#why">Почему мы</a>
-            <a href="index.html#services">Услуги</a>
-            <a href="gallery.html">Галерея</a>
-            <a href="crypto.html">Крипто-оплата</a>
+            <a href="index.html" class="nav-btn">Главная</a>
+            <a href="gallery.html" class="nav-btn">Галерея</a>
+            <a href="motion.html" class="nav-btn">Видео</a>
         </nav>
     </header>
 
-    <section class="page-header">
-        <h1>Оплата криптовалютой</h1>
-        <p>Свобода, безопасность и инвестиция в будущее</p>
+    <section class="hero">
+        <h1 style="font-family: 'Unbounded', sans-serif; font-size: 36px; text-transform: uppercase; margin-bottom: 20px;">Криптовалюта: Свобода и Безопасность</h1>
+        <p>
+            Мы принимаем USDT и BTC, предоставляя клиентам полную независимость от банковской бюрократии. Оплата в крипте — это не просто транзакция, это инвестиция в технологическое будущее и защита вашего капитала.
+        </p>
     </section>
 
-    <section>
-        <div class="content-block">
-            <h2>Почему это ваш лучший выбор?</h2>
-            <ul>
-                <li><strong>Полный контроль:</strong> Ваши деньги принадлежат только вам, а не банку.</li>
-                <li><strong>Безопасность:</strong> Хранение на холодных кошельках исключает риск ареста или блокировки средств.</li>
-                <li><strong>Рост активов:</strong> Криптовалюта — это дефляционный актив, который со временем дорожает.</li>
-            </ul>
-        </div>
-
-        <div class="content-block">
-            <h2>Сравнение: Банки vs Крипто</h2>
-            <table class="crypto-table">
+    <div class="grid" style="grid-template-columns: 1fr;">
+        <div class="card">
+            <h3>Почему это ваш лучший выбор?</h3>
+            <table class="comparison-table">
                 <thead>
                     <tr>
                         <th>Критерий</th>
                         <th>Традиционные банки</th>
-                        <th>Криптовалюта (Cold Wallet)</th>
+                        <th>Криптовалюта (Холодный кошелек)</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Владение</td>
-                        <td>Банк владеет счетом</td>
-                        <td>Вы владеете ключами</td>
+                        <td class="highlight">Владение средствами</td>
+                        <td>Принадлежат банку (вы — кредитор).</td>
+                        <td style="color: var(--accent-green);">100% контроль у владельца ключей.</td>
                     </tr>
                     <tr>
-                        <td>Риск блокировки</td>
-                        <td>Высокий</td>
-                        <td>Нулевой</td>
+                        <td class="highlight">Риск блокировки</td>
+                        <td>Высокий (заморозка без предупреждения).</td>
+                        <td style="color: var(--accent-green);">Нулевой (кошелек невозможно заморозить).</td>
                     </tr>
                     <tr>
-                        <td>Комиссии</td>
-                        <td>Высокие / Скрытые</td>
-                        <td>Минимальные / Прозрачные</td>
+                        <td class="highlight">География</td>
+                        <td>Ограничения и долгие проверки.</td>
+                        <td style="color: var(--accent-green);">Моментально в любую точку мира 24/7.</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight">Защита от инфляции</td>
+                        <td>Фиат обесценивается каждый год.</td>
+                        <td style="color: var(--accent-green);">Дефляционные механизмы и потенциал роста.</td>
                     </tr>
                 </tbody>
             </table>
         </div>
+    </div>
 
-        <div class="content-block danger-zone">
-            <h3>Главное правило</h3>
-            <p>Никогда не теряйте свою сид-фразу (пароль). В криптомире нет службы поддержки, которая восстановит доступ. Запишите пароль на бумаге!</p>
+    <h2 class="section-title">Как оплатить услуги</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>1. Утверждение проекта</h3>
+            <p>Согласовываем объем работ: фото, видео-креативы или подписку на Dord Terminal.</p>
         </div>
-    </section>
+        <div class="card">
+            <h3>2. Реквизиты</h3>
+            <p>Мы предоставляем адрес кошелька для перевода в выбранной вами сети (TRC20, ERC20 или BTC).</p>
+        </div>
+        <div class="card">
+            <h3>3. Подтверждение</h3>
+            <p>Транзакция подтверждается сетью в течение пары минут, и наши Агенты приступают к работе.</p>
+        </div>
+    </div>
 
     <footer>
-        <p>&copy; 2026 Dord Software | Powered by AI, Secured in Israel</p>
+        <div class="footer-info">
+            <b>Dord Softwer AI Sistems</b>
+            <span>Тель-Авив, Израиль</span>
+            <span>Agent-based Visual Production House</span>
+        </div>
+        <div class="footer-info" style="text-align: right;">
+            <b>Secured Access</b>
+            <span>Hardware Firewall Protected</span>
+            <span>&copy; 2026 Все права защищены</span>
+        </div>
     </footer>
 
 </body>
