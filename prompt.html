@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Промпт-Гайд | Dord Softwer AI Sistems</title>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .rules-list { list-style: decimal inside !important; margin-bottom: 20px; }
+        .rules-list li { border-bottom: none !important; padding: 5px 0 !important; color: var(--text-muted); }
+        .rules-list strong { color: var(--text-main); }
+        
+        .ai-links {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        .ai-link-btn {
+            background: rgba(0, 74, 173, 0.2);
+            border: 1px solid var(--accent-blue);
+            color: var(--text-main);
+            text-decoration: none;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .ai-link-btn:hover {
+            background: var(--accent-green);
+            border-color: var(--accent-green);
+            color: #fff;
+        }
+        
+        .danger-card {
+            border: 1px solid #ef4444 !important;
+            background: rgba(239, 68, 68, 0.02) !important;
+        }
+        .danger-card h3 { color: #ef4444 !important; }
+        .warning-text { color: #f87171 !important; font-size: 13px; line-height: 1.6; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-left">
+            <img src="logo.PNG" alt="DORD">
+            <div class="title-wrapper">
+                <span class="company-name">Dord Softwer</span>
+                <span class="occupation"><span class="ai-light">AI</span> sistems Photo Studio</span>
+            </div>
+        </div>
+
+        <div class="agent-monitor">
+            <img src="server_icon.png" alt="Server" class="server-icon">
+            <div class="agent-stat">Агент-1 <span><div class="led"></div> Online 92%</span></div>
+            <div class="agent-stat">Агент-2 <span><div class="led"></div> Online 87%</span></div>
+            <div class="agent-stat">Агент-3 <span><div class="led"></div> Online 95%</span></div>
+        </div>
+
+        <nav>
+            <a href="index.html" class="nav-btn">Главная</a>
+            <a href="gallery.html" class="nav-btn">Галерея</a>
+            <a href="crypto.html" class="nav-btn">Оплата</a>
+        </nav>
+    </header>
+
+    <section class="hero" style="padding-bottom: 20px;">
+        <h1 style="font-family: 'Unbounded', sans-serif; font-size: 36px; text-transform: uppercase; margin-bottom: 20px;">Инструкция по составлению ТЗ</h1>
+        <p>Вычислительные Агенты Dord Software работают со строгими алгоритмами. Чтобы не сжечь бюджет впустую и получить именно тот визуальный продукт, который вы задумали, ознакомьтесь с правилами генерации.</p>
+    </section>
+
+    <div class="grid">
+        
+        <div class="card">
+            <h3>Формула идеального ТЗ</h3>
+            <p>Агенты не умеют догадываться. Описывайте задачу по четырем обязательным критериям:</p>
+            <ul class="rules-list">
+                <li><strong>Объект:</strong> Что конкретно в кадре (например: <i>стеклянный флакон парфюма с черной крышкой</i>).</li>
+                <li><strong>Окружение:</strong> Где он находится (<i>на мокром черном вулканическом камне, вокруг брызги воды</i>).</li>
+                <li><strong>Освещение:</strong> Какой свет (<i>драматичный боковой свет, студийная контрастная подсветка</i>).</li>
+                <li><strong>Детали и Эффекты:</strong> Для видео укажите динамику (<i>эффект Levitation, медленный наезд камеры, Light Sweep</i>).</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>Проверьте концепт бесплатно</h3>
+            <p>Если вы не уверены, как нейросеть поймет ваше описание, протестируйте формулировку в бесплатных текстовых ИИ. Сформулируйте мысль там, добейтесь четкости текста, и только потом отправляйте финальное ТЗ нам.</p>
+            <div class="ai-links">
+                <a href="https://chatgpt.com" target="_blank" class="ai-link-btn">ChatGPT</a>
+                <a href="https://claude.ai" target="_blank" class="ai-link-btn">Claude AI</a>
+                <a href="https://grok.com" target="_blank" class="ai-link-btn">Grok</a>
+            </div>
+        </div>
+
+        <div class="card danger-card">
+            <h3>Отказ от ответственности (Disclaimer)</h3>
+            <p class="warning-text">
+                Запуск генерации — это прямая аренда вычислительных мощностей серверов и видеокарт (машинного времени). 
+                <br><br>
+                Если сгенерированный материал строго соответствует вашему текстовому ТЗ, но не совпадает с вашими личными ожиданиями («я думал, это будет выглядеть по-другому», «мне не нравится этот стиль»), претензии не принимаются. 
+                <br><br>
+                При размытом, неточном или слишком коротком описании (например: <i>«сделай крутые кроссовки»</i>) Агенты дорисовывают детали на свое усмотрение. Возврат средств за запущенные и выполненные машинные часы в таких случаях <b>невозможен</b>.
+            </p>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="footer-info">
+            <b>Dord Softwer AI Sistems</b>
+            <span>Тель-Авив, Израиль</span>
+            <span>Legal & Tech Support</span>
+        </div>
+        <div class="footer-info" style="text-align: right;">
+            <b>Secured Access</b>
+            <span>Hardware Firewall Protected</span>
+            <span>&copy; 2026 Все права защищены</span>
+        </div>
+    </footer>
+
+</body>
+</html>
