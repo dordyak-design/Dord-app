@@ -3,231 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DORD SOFTWARE | ГЕНЕРАТОР ПРОДАЖ</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-    <style>
-        /* ВЕСЬ ДИЗАЙН ТУТ - ТЕПЕРЬ НИЧЕГО НЕ ПОТЕРЯЕТСЯ */
-        :root {
-            --black: #050505;
-            --accent: #004aad;
-            --white: #ffffff;
-            --gray: #f5f5f7;
-            --border: #e5e5e5;
-        }
-
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--white);
-            color: var(--black);
-            line-height: 1.5;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        /* ШАПКА */
-        header {
-            padding: 40px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid var(--border);
-            position: sticky;
-            top: 0;
-            background: rgba(255,255,255,0.9);
-            backdrop-filter: blur(10px);
-            z-index: 100;
-        }
-
-        .logo img {
-            height: 150px; /* Твой размер лого */
-            width: auto;
-        }
-
-        nav { display: flex; align-items: center; gap: 30px; }
-        
-        .lang-switch a {
-            text-decoration: none;
-            color: #999;
-            font-size: 12px;
-            font-weight: 900;
-        }
-        .lang-switch .active { color: var(--black); }
-
-        nav a {
-            text-decoration: none;
-            color: var(--black);
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 13px;
-            letter-spacing: 1px;
-        }
-
-        /* ГЛАВНЫЙ БЛОК - МАРКЕТИНГОВЫЙ УДАР */
-        .hero {
-            padding: 120px 5%;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .hero span {
-            font-weight: 900;
-            color: var(--accent);
-            letter-spacing: 3px;
-            font-size: 14px;
-        }
-
-        .hero h1 {
-            font-size: clamp(3rem, 8vw, 6rem);
-            font-weight: 900;
-            line-height: 0.9;
-            margin: 20px 0;
-            text-transform: uppercase;
-            letter-spacing: -3px;
-        }
-
-        .hero p {
-            font-size: 1.4rem;
-            max-width: 800px;
-            font-weight: 500;
-            color: #333;
-            border-left: 5px solid var(--black);
-            padding-left: 30px;
-            margin-top: 40px;
-        }
-
-        /* СЕТКА УСЛУГ - 6 ОКОН */
-        .services {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            border-top: 1px solid var(--border);
-        }
-
-        .card {
-            padding: 80px 10%;
-            border-right: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card:hover {
-            background: var(--gray);
-            padding-left: 11%;
-        }
-
-        .card span {
-            font-size: 11px;
-            font-weight: 900;
-            color: #aaa;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .card h3 {
-            font-size: 2rem;
-            font-weight: 900;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-        }
-
-        .card p {
-            font-size: 1.1rem;
-            color: #555;
-            max-width: 350px;
-        }
-
-        .card::after {
-            content: "→";
-            position: absolute;
-            right: 40px;
-            bottom: 40px;
-            font-size: 30px;
-            opacity: 0;
-            transition: 0.3s;
-        }
-
-        .card:hover::after { opacity: 1; right: 60px; }
-
-        /* ФУТЕР */
-        footer {
-            padding: 100px 5%;
-            background: var(--black);
-            color: var(--white);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .footer-info { text-transform: uppercase; font-weight: 900; font-size: 12px; letter-spacing: 2px; }
-
-        /* АДАПТИВ */
-        @media (max-width: 1024px) {
-            .services { grid-template-columns: 1fr; }
-            .card { border-right: none; }
-            .hero h1 { font-size: 4rem; }
-        }
-    </style>
+    <title>DORD SOFTWARE // AI PRODUCTION STUDIO</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
         <div class="logo">
-            <img src="logo.PNG" alt="DORD SOFTWARE">
+            <img src="logo.PNG" alt="DORD">
         </div>
         <nav>
             <div class="lang-switch">
                 <a href="#" class="active">RU</a> | <a href="#">HE</a> | <a href="#">EN</a>
             </div>
-            <a href="gallery.html">Галерея</a>
-            <a href="motion.html">Видео</a>
-            <a href="crypto.html">Оплата</a>
+            <a href="gallery.html" class="nav-item">Галерея</a>
+            <a href="motion.html" class="nav-item">Видео</a>
+            <a href="crypto.html" class="nav-item">Оплата</a>
         </nav>
     </header>
 
     <section class="hero">
-        <span>ISRAEL // AI PRODUCTION HOUSE</span>
-        <h1>ВАШ ТОВАР БУДЕТ<br>ПРОДАВАТЬ СЕБЯ САМ</h1>
-        <p>Мы не «рисуем картинки». Мы генерируем визуальные активы, которые приносят прибыль. Пока конкуренты тратят недели на фотосессии, наши AI-агенты выдают результат за часы.</p>
+        <span>Israel // AI Production Studio</span>
+        <h1>ВАШ ТОВАР<br>БУДЕТ ПРОДАВАТЬ<br>СЕБЯ САМ</h1>
+        <div class="cta-desc">
+            Мы не делаем "просто фото". Мы создаем визуальный капитал. Пока ваши конкуренты организуют съемки, наши AI-агенты генерируют результат, который заставляет нажать «КУПИТЬ».
+        </div>
     </section>
 
-    <div class="services">
-        <div class="card">
-            <span>01 // E-COMMERCE</span>
+    <div class="grid">
+        <div class="box">
+            <span class="num">01 / E-COMMERCE</span>
             <h3>КАРТОЧКИ ТОВАРОВ</h3>
-            <p>Rich Content, который конвертирует просмотры в продажи. Идеальный рендер для маркетплейсов.</p>
+            <p>Rich Content премиального уровня. Идеальный свет и композиция для взрывных продаж на маркетплейсах.</p>
         </div>
-        <div class="card">
-            <span>02 // VIDEO</span>
+        <div class="box">
+            <span class="num">02 / VIDEO</span>
             <h3>DORD MOTION AREA</h3>
-            <p>Взрывные креативы для TikTok и Reels. 15 секунд, которые гарантированно остановят скролл.</p>
+            <p>Ультра-динамичные креативы (5-15 сек). Видео, которые гарантированно останавливают бесконечный скролл.</p>
         </div>
-        <div class="card">
-            <span>03 // CINEMA</span>
-            <h3>CUSTOM PRODUCTION</h3>
-            <p>Сюжетная реклама и мультфильмы до 60 секунд. Ваш бренд в главной роли.</p>
+        <div class="box">
+            <span class="num">03 / PRODUCTION</span>
+            <h3>AI CINEMA</h3>
+            <p>Сюжетные ролики и AI-сериалы до 60 секунд. Кинематографический сторителлинг для вашего бренда.</p>
         </div>
-        <div class="card) ">
-            <span>04 // IDENTITY</span>
+        <div class="box">
+            <span class="num">04 / IDENTITY</span>
             <h3>BRANDING & LOGO</h3>
-            <p>Создание визуального кода. Стиль, который вызывает доверие еще до первого клика.</p>
+            <p>Визуальный код, который вызывает доверие. Мы создаем стиль, который работает на вас годами.</p>
         </div>
-        <div class="card">
-            <span>05 // ARCHIVE</span>
+        <div class="box">
+            <span class="num">05 / ARCHIVE</span>
             <h3>RESTORATION</h3>
-            <p>Восстановление и анимация старых фото. Качество 4K и вторая жизнь вашей истории.</p>
+            <p>Вторая жизнь ваших архивов. Восстановление, 4K колоризация и анимация любой сложности.</p>
         </div>
-        <div class="card">
-            <span>06 // SECURITY</span>
+        <div class="box">
+            <span class="num">06 / SECURITY</span>
             <h3>PRIVATE CLOUD</h3>
-            <p>Работа на изолированных серверах в Израиле. Ваши данные под полной защитой.</p>
+            <p>Обработка данных в Израиле на изолированных серверах под защитой аппаратного фаервола. Приватность — это стандарт.</p>
         </div>
     </div>
 
     <footer>
-        <div class="footer-info">DORD SOFTWARE &copy; 2026 // ISRAEL // AI POWERED</div>
-        <div class="footer-status">SYSTEM ONLINE // AGENTS READY</div>
+        <div>DORD SOFTWARE &copy; 2026 // ISRAEL</div>
+        <div>AGENTS READY // SYSTEM ONLINE</div>
     </footer>
 
 </body>
