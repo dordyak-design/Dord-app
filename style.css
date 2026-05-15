@@ -1,137 +1,205 @@
-/* DORD STUDIO PREMIUM CSS // 2026 */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap');
-
 :root {
-    --bg: #ffffff;
-    --black: #000000;
-    --accent: #004aad;
-    --gray: #f2f2f2;
-    --text-muted: #666;
+    /* Тот самый ультрамарин, темнее и глубже */
+    --bg-dark: #080b1a; 
+    --card-bg: #131a33;
+    --accent-blue: #004aad;
+    --accent-glow: rgba(0, 74, 173, 0.4);
+    --accent-green: #009b72;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --border: rgba(255, 255, 255, 0.05);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-    font-family: 'Inter', sans-serif;
-    background-color: var(--bg);
-    color: var(--black);
-    line-height: 1.1;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: 'Inter', -apple-system, sans-serif;
+    line-height: 1.5;
     -webkit-font-smoothing: antialiased;
 }
 
-/* ШАПКА */
 header {
-    padding: 30px 5%;
+    padding: 15px 5%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    position: fixed;
-    width: 100%;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+    background: rgba(8, 11, 26, 0.95);
+    backdrop-filter: blur(10px);
+    position: sticky;
     top: 0;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(15px);
     z-index: 1000;
-    border-bottom: 1px solid #eee;
 }
 
-.logo img { height: 120px; width: auto; transition: 0.3s; }
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
 
-nav { display: flex; align-items: center; gap: 40px; }
+.header-left img {
+    height: 110px;
+    width: auto;
+}
 
-.lang-switch { font-size: 11px; font-weight: 900; letter-spacing: 2px; }
-.lang-switch a { text-decoration: none; color: #ccc; transition: 0.3s; }
-.lang-switch a.active { color: var(--black); }
+.title-wrapper {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+    font-family: 'Unbounded', sans-serif;
+    text-transform: uppercase;
+}
 
-nav a.nav-item {
-    text-decoration: none;
-    color: var(--black);
+.company-name {
+    font-size: 26px;
     font-weight: 700;
-    font-size: 12px;
+    background: linear-gradient(to right, #004aad, #009b72);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.occupation {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.ai-light {
+    color: #e2e8f0;
+}
+
+/* Статус Агентов в шапке */
+.agent-monitor {
+    display: flex;
+    gap: 20px;
+    padding: 10px 20px;
+    background: rgba(255,255,255,0.02);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+}
+
+.agent-stat {
+    display: flex;
+    flex-direction: column;
+    font-size: 9px;
     text-transform: uppercase;
     letter-spacing: 1px;
+    color: var(--text-muted);
 }
 
-/* ГЕРОЙ-СЕКЦИЯ (МАРКЕТИНГОВЫЙ УДАР) */
+.agent-stat span {
+    color: var(--accent-green);
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.led {
+    width: 6px;
+    height: 6px;
+    background: var(--accent-green);
+    border-radius: 50%;
+    box-shadow: 0 0 5px var(--accent-green);
+    display: inline-block;
+}
+
 .hero {
-    padding: 200px 5% 100px;
+    padding: 80px 5% 40px;
     max-width: 1400px;
     margin: 0 auto;
 }
 
-.hero span {
-    font-size: 12px;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    color: var(--accent);
-    display: block;
-    margin-bottom: 30px;
+.hero p {
+    font-size: 16px;
+    color: var(--text-muted);
+    max-width: 800px;
+    border-left: 3px solid var(--accent-green);
+    padding-left: 20px;
 }
 
-.hero h1 {
-    font-size: clamp(3rem, 10vw, 8rem);
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: -4px;
-    line-height: 0.85;
-}
-
-.hero .cta-desc {
-    margin-top: 50px;
-    font-size: 1.5rem;
-    max-width: 700px;
-    font-weight: 400;
-    line-height: 1.4;
-    color: #333;
-}
-
-/* СЕТКА УСЛУГ (ТЕ САМЫЕ 6 ОКОН) */
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-    border-top: 1px solid #000;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 25px;
+    padding: 0 5% 80px;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
-.box {
-    padding: 100px 10%;
-    border-right: 1px solid #eee;
-    border-bottom: 1px solid #eee;
-    transition: background 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+.card {
+    background-color: var(--card-bg);
+    border-radius: 24px; 
+    padding: 40px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid var(--border);
 }
 
-.box:hover { background-color: var(--gray); }
+/* Убавленное свечение окон */
+.card:hover {
+    background-color: var(--accent-blue);
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px var(--accent-glow);
+}
 
-.box .num { font-size: 12px; font-weight: 900; color: var(--accent); margin-bottom: 40px; display: block; }
-
-.box h3 {
-    font-size: 2.2rem;
-    font-weight: 900;
+.card h3 {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 20px;
+    margin-bottom: 15px;
     text-transform: uppercase;
-    margin-bottom: 25px;
-    letter-spacing: -1px;
 }
 
-.box p {
-    font-size: 1.1rem;
-    color: #444;
-    line-height: 1.5;
-    max-width: 350px;
+.card p {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 15px;
 }
 
-/* ФУТЕР */
-footer {
-    padding: 100px 5%;
-    border-top: 1px solid #000;
+.card:hover p, .card:hover ul {
+    color: #e2e8f0;
+}
+
+.card ul {
+    list-style: none;
+    font-size: 13px;
+}
+
+.card ul li {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
     display: flex;
     justify-content: space-between;
-    font-size: 11px;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 2px;
 }
 
-@media (max-width: 768px) {
-    .hero h1 { font-size: 4rem; }
-    .grid { grid-template-columns: 1fr; }
-    .box { border-right: none; }
+.price {
+    font-weight: 800;
+    color: var(--accent-green);
+}
+
+.card:hover .price {
+    color: #fff;
+}
+
+footer {
+    padding: 60px 5%;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.footer-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.footer-info b {
+    color: var(--text-main);
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
