@@ -3,89 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dord Software | Визуальный контент нового уровня</title>
-    <link rel="stylesheet" href="style.css">
+    <title>DORD SOFTWARE | STUDIO</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black: #000000;
+            --gray-light: #f9f9f9;
+            --gray-border: #e2e2e2;
+            --accent: #004aad;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: var(--black);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Шапка студии */
+        header {
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 1px solid var(--gray-border);
+        }
+
+        .logo img {
+            height: 150px; /* Твой размер */
+            width: auto;
+            margin-bottom: 30px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--black);
+            font-weight: 700;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover { opacity: 0.5; }
+
+        /* Главный экран */
+        .hero {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 900;
+            line-height: 0.9;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            margin-bottom: 40px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Сетка услуг — как в дорогих агентствах */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            border-top: 1px solid var(--gray-border);
+        }
+
+        .service-card {
+            padding: 80px 60px;
+            border-right: 1px solid var(--gray-border);
+            border-bottom: 1px solid var(--gray-border);
+            transition: background 0.4s;
+        }
+
+        .service-card:hover { background-color: var(--gray-light); }
+
+        .service-card span {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--accent);
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.8rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .service-card p {
+            font-size: 1rem;
+            color: #444;
+            max-width: 300px;
+        }
+
+        /* Футер */
+        footer {
+            padding: 100px 20px;
+            text-align: center;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #999;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .services-grid { grid-template-columns: 1fr; }
+            .service-card { padding: 40px; border-right: none; }
+        }
+    </style>
 </head>
 <body>
 
     <header>
         <div class="logo">
-            <a href="index.html">
-                <img src="logo.PNG" alt="Dord Software">
-            </a>
+            <img src="logo.png" alt="DORD SOFTWARE">
         </div>
         <nav>
-            <a href="index.html#about">О нас</a>
-            <a href="index.html#why">Почему мы</a>
-            <a href="index.html#services">Услуги</a>
-            <a href="gallery.html">Галерея</a>
-            <a href="crypto.html">Крипто-оплата</a>
+            <a href="#">Галерея</a>
+            <a href="#">Видео</a>
+            <a href="#">Оплата</a>
+            <a href="#">Контакт</a>
         </nav>
     </header>
 
     <section class="hero">
-        <h1>Ваш визуальный контент нового уровня</h1>
-        <p>Мы — молодой стартап из Израиля. Создаем графику, которая привлекает внимание и продает. Специализируемся на сочных фото для рекламы, баннерах, карточках товаров и уникальных логотипах.</p>
-        <a href="gallery.html" class="btn">Посмотреть примеры в Галерее</a>
+        <p>Israel Based Visual Production</p>
+        <h1>Visual<br>Excellence</h1>
     </section>
 
-    <section id="about">
-        <div class="about-content">
-            <div class="about-text">
-                <h2>Наша команда: Синергия человека и технологий</h2>
-                <p>В основе нашего проекта лежит мощный тандем. С одной стороны — опыт основателя, с другой — неутомимая вычислительная мощь нашего оборудования. Каждый пиксель обрабатывается нейросетевыми агентами на базе производительных видеокарт, что позволяет нам выдавать результат высокого класса без лишних издержек.</p>
-            </div>
-            <div class="about-image">
-                <!-- Замени на свою иконку команды -->
-                <img src="icon-team.png" alt="Команда Dord Software" style="max-width: 250px;">
-            </div>
+    <div class="services-grid">
+        <div class="service-card">
+            <span>01 // E-COMMERCE</span>
+            <h3>Product Imagery</h3>
+            <p>Высокотехнологичный рендеринг карточек товаров на базе RTX мощностей.</p>
         </div>
-    </section>
-
-    <section id="why" class="bg-alt">
-        <h2>Почему мы? Инновации из Израиля</h2>
-        <div class="grid">
-            <div class="card">
-                <!-- Замени на иконку защиты -->
-                <img src="icon-shield.png" alt="Безопасность">
-                <h3>Безопасность</h3>
-                <p>Ваш контент защищен на изолированном сервере с аппаратным фаерволом. Мы чтим традиции безопасности, заложенные лидерами индустрии.</p>
-            </div>
-            <div class="card">
-                <!-- Замени на иконку ракеты -->
-                <img src="icon-rocket.png" alt="Инновации">
-                <h3>Startup Nation</h3>
-                <p>Израиль — родина революционных технологий. Мы продолжаем этот путь, внедряя передовые AI-инструменты в ваш бизнес.</p>
-            </div>
-            <div class="card">
-                <!-- Замени на иконку крипты -->
-                <img src="icon-crypto.png" alt="Независимость">
-                <h3>Независимость</h3>
-                <p>Принимаем оплату в криптовалюте. Полный контроль над вашими средствами вне банковской системы на холодных кошельках.</p>
-            </div>
+        <div class="service-card">
+            <span>02 // MOTION</span>
+            <h3>Motion Area</h3>
+            <p>Создание уникальных видео-креативов 5-15 секунд для продвижения брендов.</p>
         </div>
-    </section>
-
-    <section id="services">
-        <h2>Что мы делаем?</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Карточки товаров</h3>
-                <p>Rich Content для маркетплейсов, который превращает просмотры в продажи.</p>
-            </div>
-            <div class="card">
-                <h3>Dord Motion Area</h3>
-                <p>Уникальные видео-креативы по 10-15 секунд для TikTok и Reels по вашим промтам.</p>
-            </div>
-            <div class="card">
-                <h3>Custom Production</h3>
-                <p>Видео-сериалы и мультфильмы для брендов длиной до 60 секунд. От пилота до сезона.</p>
-            </div>
+        <div class="service-card">
+            <span>03 // CINEMA</span>
+            <h3>Custom Prod</h3>
+            <p>Сюжетные ролики и сериалы до 60 секунд. От идеи до финального рендера.</p>
         </div>
-    </section>
+        <div class="service-card">
+            <span>04 // IDENTITY</span>
+            <h3>Branding</h3>
+            <p>Разработка визуальных кодов и логотипов для цифровых проектов.</p>
+        </div>
+        <div class="service-card">
+            <span>05 // HISTORY</span>
+            <h3>Restoration</h3>
+            <p>Восстановление и анимация архивов с использованием нейросетевых агентов.</p>
+        </div>
+        <div class="service-card">
+            <span>06 // SECURITY</span>
+            <h3>Private Cloud</h3>
+            <p>Закрытый контур обработки данных. Изолированные серверы в Израиле.</p>
+        </div>
+    </div>
 
     <footer>
-        <p>&copy; 2026 Dord Software | Powered by AI, Secured in Israel</p>
+        &copy; 2026 Dord Software Studio // Ra'anana, Israel // Secured by AI
     </footer>
 
 </body>
