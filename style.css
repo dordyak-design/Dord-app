@@ -70,7 +70,7 @@ header {
 }
 
 .header-left img {
-    height: 64px;
+    height: 44px;
     width: auto;
 }
 
@@ -889,4 +889,393 @@ footer {
     .hero-cta-group { flex-direction: column; }
     .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
     .hero-stats { grid-template-columns: 1fr 1fr; }
+}
+
+/* ===================== ТИЗЕР-КАРТОЧКИ (главная) ===================== */
+.teaser-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 48px;
+}
+
+.teaser-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 36px 28px;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.teaser-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-blue), var(--accent-green));
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.teaser-card:hover::before { opacity: 1; }
+
+.teaser-card:hover {
+    border-color: var(--border-green);
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+}
+
+.teaser-icon {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 20px;
+    display: block;
+    flex-shrink: 0;
+}
+
+/* Маленькая иконка внутри service-tag */
+.tag-icon {
+    width: 13px;
+    height: 13px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 4px;
+    margin-top: -2px;
+}
+
+.teaser-card h3 {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    margin-bottom: 12px;
+}
+
+.teaser-card p {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.65;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.teaser-price {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--accent-green);
+    margin-bottom: 20px;
+}
+
+.btn-teaser {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--accent-green);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    transition: gap 0.2s ease;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-teaser:hover { gap: 10px; }
+
+/* ===================== СТРАНИЦА УСЛУГ ===================== */
+
+/* Хлебные крошки */
+.breadcrumb {
+    padding: 20px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+    font-size: 12px;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.breadcrumb a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.breadcrumb a:hover { color: var(--accent-green); }
+
+.breadcrumb span { color: var(--text-soft); }
+
+/* Блок услуги (заголовок секции) */
+.service-block {
+    padding: 80px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.service-block + .service-block {
+    border-top: 1px solid var(--border);
+}
+
+.service-header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    gap: 40px;
+    margin-bottom: 48px;
+}
+
+.service-header-text {}
+
+.service-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--accent-green-dim);
+    border: 1px solid var(--border-green);
+    border-radius: 100px;
+    padding: 5px 14px;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent-green);
+    margin-bottom: 16px;
+}
+
+.service-header h2 {
+    font-family: 'Unbounded', sans-serif;
+    font-size: clamp(22px, 3vw, 36px);
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1.15;
+    margin-bottom: 16px;
+}
+
+.service-header p {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    max-width: 600px;
+}
+
+.service-header-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.service-header-price {
+    text-align: right;
+}
+
+.service-header-price .from {
+    font-size: 11px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.service-header-price .amount {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--accent-green);
+    line-height: 1;
+}
+
+/* Пакеты на странице услуг */
+.pkg-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+    margin-bottom: 40px;
+}
+
+.pkg-tile {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 28px 24px;
+    transition: var(--transition);
+    position: relative;
+}
+
+.pkg-tile.popular {
+    border-color: var(--accent-green);
+}
+
+.pkg-tile:hover {
+    border-color: var(--border-green);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+}
+
+.pkg-popular-badge {
+    position: absolute;
+    top: -11px;
+    left: 20px;
+    background: var(--accent-green);
+    color: #000;
+    font-size: 9px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 4px 12px;
+    border-radius: 100px;
+}
+
+.pkg-tile .pkg-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.pkg-tile .pkg-amount {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--accent-green);
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.pkg-tile .pkg-per {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    display: block;
+}
+
+.pkg-tile .pkg-desc {
+    font-size: 12px;
+    color: var(--text-soft);
+    line-height: 1.5;
+}
+
+/* Список преимуществ */
+.benefits-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 12px;
+    margin-bottom: 40px;
+}
+
+.benefits-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--text-soft);
+    line-height: 1.5;
+}
+
+.benefits-list li::before {
+    content: '✓';
+    color: var(--accent-green);
+    font-weight: 800;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+/* Блок сравнения с традиционным */
+.compare-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    background: rgba(0,0,0,0.2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    margin-bottom: 40px;
+}
+
+.compare-side h4 {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+}
+
+.compare-side.old h4 { color: #f87171; }
+.compare-side.new h4 { color: var(--accent-green); }
+
+.compare-side ul {
+    list-style: none;
+}
+
+.compare-side ul li {
+    font-size: 13px;
+    color: var(--text-muted);
+    padding: 7px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+}
+
+.compare-side ul li:last-child { border-bottom: none; }
+
+.compare-side.old ul li::before { content: '✗'; color: #f87171; flex-shrink: 0; }
+.compare-side.new ul li::before { content: '✓'; color: var(--accent-green); flex-shrink: 0; }
+
+/* Разделитель секций на странице услуг */
+.section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border-green), transparent);
+    margin: 0 5%;
+    max-width: 1400px;
+}
+
+/* ===================== НОВЫЕ МОБИЛЬНЫЕ СТИЛИ ===================== */
+@media (max-width: 768px) {
+    .teaser-grid { grid-template-columns: 1fr; gap: 14px; }
+    .teaser-card { padding: 28px 20px; }
+
+    .service-header {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .service-header-cta { align-items: flex-start; }
+    .service-header-price { text-align: left; }
+
+    .service-block { padding: 48px 16px; }
+
+    .pkg-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .pkg-tile { padding: 20px 16px; }
+    .pkg-tile .pkg-amount { font-size: 22px; }
+
+    .compare-box {
+        grid-template-columns: 1fr;
+        padding: 24px 20px;
+        gap: 24px;
+    }
+
+    .benefits-list { grid-template-columns: 1fr; }
+
+    .breadcrumb { padding: 16px; }
+}
+
+@media (max-width: 480px) {
+    .pkg-grid { grid-template-columns: 1fr; }
 }
