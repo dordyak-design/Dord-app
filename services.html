@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Услуги и цены — Dord AI Studio</title>
+    <meta name="description" content="Полный прайс-лист Dord AI Studio: карточки товаров, видеореклама, AI-сериалы, аватары брендов и подписка на GPU-мощности. Оплата USDT.">
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ===================== SVG СПРАЙТ ===================== -->
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+     style="position:absolute;width:0;height:0;overflow:hidden;">
+  <defs>
+    <linearGradient id="dg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#004aad"/>
+      <stop offset="100%" stop-color="#00c896"/>
+    </linearGradient>
+  </defs>
+  <symbol id="ic-rocket" viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" fill="url(#dg)"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" fill="none" stroke="url(#dg)" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" fill="url(#dg)"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" fill="url(#dg)"/></symbol>
+  <symbol id="ic-bag"    viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" fill="none" stroke="url(#dg)" stroke-width="1.5" stroke-linejoin="round"/><line x1="3" y1="6" x2="21" y2="6" stroke="url(#dg)" stroke-width="1.5"/><path d="M16 10a4 4 0 0 1-8 0" fill="none" stroke="url(#dg)" stroke-width="1.5" stroke-linecap="round"/></symbol>
+  <symbol id="ic-film"   viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7" fill="url(#dg)"/><rect x="1" y="5" width="15" height="14" rx="2" fill="none" stroke="url(#dg)" stroke-width="1.5"/></symbol>
+  <symbol id="ic-tv"     viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" fill="none" stroke="url(#dg)" stroke-width="1.5"/><line x1="8" y1="21" x2="16" y2="21" stroke="url(#dg)" stroke-width="1.5" stroke-linecap="round"/><line x1="12" y1="17" x2="12" y2="21" stroke="url(#dg)" stroke-width="1.5" stroke-linecap="round"/></symbol>
+  <symbol id="ic-bot"    viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="13" rx="2" fill="none" stroke="url(#dg)" stroke-width="1.5"/><line x1="12" y1="3" x2="12" y2="8" stroke="url(#dg)" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="2.5" r="1.2" fill="url(#dg)"/><circle cx="9" cy="14" r="1.5" fill="url(#dg)"/><circle cx="15" cy="14" r="1.5" fill="url(#dg)"/><path d="M9 18h6" stroke="url(#dg)" stroke-width="1.5" stroke-linecap="round"/></symbol>
+  <symbol id="ic-gear"   viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" fill="none" stroke="url(#dg)" stroke-width="1.5"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" fill="none" stroke="url(#dg)" stroke-width="1.5"/></symbol>
+</svg>
+<!-- ============================================================== -->
+
+    <!-- ===== ШАПКА ===== -->
+    <header>
+        <div class="header-left">
+            <img src="logo.PNG" alt="DORD">
+            <div class="title-wrapper">
+                <span class="company-name">Dord Software</span>
+                <span class="occupation"><span class="ai-light">AI</span> Systems Photo Studio</span>
+            </div>
+        </div>
+
+        <div class="agent-monitor">
+            <img src="server_icon.png" alt="Server" class="server-icon">
+            <div class="agent-stat">Agent-1 <span><div class="led"></div> Online 92%</span></div>
+            <div class="agent-stat">Agent-2 <span><div class="led"></div> Online 87%</span></div>
+            <div class="agent-stat">Agent-3 <span><div class="led"></div> Online 95%</span></div>
+        </div>
+
+        <nav>
+            <a href="index.html" class="nav-btn">Главная</a>
+            <a href="prompt.html" class="nav-btn">ТЗ</a>
+            <a href="crypto.html" class="nav-btn cta">Заказать</a>
+        </nav>
+    </header>
+
+    <!-- Хлебные крошки -->
+    <div class="breadcrumb">
+        <a href="index.html">Главная</a>
+        <span>›</span>
+        <span>Услуги и цены</span>
+    </div>
+
+    <!-- ===== PAGE HERO ===== -->
+    <div class="page-hero">
+        <div class="hero-badge">
+            <span class="dot"></span>
+            Цены обновлены · Май 2026
+        </div>
+        <h1>Услуги и цены</h1>
+        <p>Все пакеты Dord AI Studio — от стартового теста за $20 до полной годовой лицензии. Выберите формат под ваш объём задач.</p>
+    </div>
+
+    <!-- ================================================== -->
+    <!-- СТАРТОВЫЙ ПАКЕТ                                    -->
+    <!-- ================================================== -->
+    <div id="starter" class="service-block">
+
+        <div class="service-header">
+            <div class="service-header-text">
+                <div class="service-tag"><svg class="tag-icon" aria-hidden="true"><use href="#ic-rocket"/></svg>Новинка</div>
+                <h2>Стартовый пакет</h2>
+                <p>
+                    Не уверены в качестве? Не хотите рисковать большим бюджетом? Стартовый пакет — это ваш вход без риска. 100 генераций фото или один видеоролик, чтобы убедиться лично. Большинство клиентов после теста сразу переходят на основные пакеты.
+                </p>
+            </div>
+            <div class="service-header-cta">
+                <div class="service-header-price">
+                    <span class="from">Цена</span>
+                    <span class="amount">$20</span>
+                </div>
+                <a href="crypto.html" class="btn-primary">Попробовать →</a>
+            </div>
+        </div>
+
+        <div class="pkg-grid">
+            <div class="pkg-tile popular">
+                <div class="pkg-popular-badge">Старт</div>
+                <span class="pkg-label">Фото-тест</span>
+                <div class="pkg-amount">$20</div>
+                <span class="pkg-per">100 генераций · $0.20/шт</span>
+                <p class="pkg-desc">100 фотогенераций по вашему ТЗ. Идеально чтобы проверить качество и попрактиковаться в написании промптов.</p>
+            </div>
+            <div class="pkg-tile">
+                <span class="pkg-label">Видео-тест</span>
+                <div class="pkg-amount">$15</div>
+                <span class="pkg-per">1 ролик · 5 секунд</span>
+                <p class="pkg-desc">Один полноценный 5-секундный ролик с вашим продуктом. Убедитесь в стиле и динамике перед большим заказом.</p>
+            </div>
+        </div>
+
+        <ul class="benefits-list">
+            <li>Никаких подписок и скрытых платежей</li>
+            <li>Коммерческое использование включено</li>
+            <li>Результат в течение 24 часов</li>
+            <li>Полная поддержка по составлению ТЗ</li>
+        </ul>
+
+        <a href="crypto.html" class="btn-primary">Заказать стартовый пакет →</a>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- ================================================== -->
+    <!-- ФОТО ТОВАРОВ                                       -->
+    <!-- ================================================== -->
+    <div id="photo" class="service-block">
+
+        <div class="service-header">
+            <div class="service-header-text">
+                <div class="service-tag"><svg class="tag-icon" aria-hidden="true"><use href="#ic-bag"/></svg>E-Commerce</div>
+                <h2>Фото товаров для маркетплейсов</h2>
+                <p>
+                    Карточка товара — это ваш главный продавец. На Shopify, Amazon и Etsy покупатель принимает решение в первые 3 секунды. Плохое фото убивает конверсию даже у отличного продукта. Dord AI генерирует профессиональный коммерческий визуал: чистый белый фон, студийный свет, lifestyle-сцены — всё точно по вашему описанию.
+                </p>
+            </div>
+            <div class="service-header-cta">
+                <div class="service-header-price">
+                    <span class="from">от</span>
+                    <span class="amount">$75</span>
+                </div>
+                <a href="crypto.html" class="btn-primary">Заказать →</a>
+            </div>
+        </div>
+
+        <!-- Сравнение -->
+        <div class="compare-box">
+            <div class="compare-side old">
+                <h4>Традиционная съёмка</h4>
+                <ul>
+                    <li>$500–$5 000 за сессию</li>
+                    <li>$25–$100 за одно фото</li>
+                    <li>Неделя согласований</li>
+                    <li>2 дня съёмки + 3 дня ретуши</li>
+                    <li>Итог: 1–3 финальных снимка</li>
+                </ul>
+            </div>
+            <div class="compare-side new">
+                <h4>Dord AI Studio</h4>
+                <ul>
+                    <li>$75 за 500 изображений</li>
+                    <li>$0.15 за одно фото</li>
+                    <li>ТЗ сегодня — результат завтра</li>
+                    <li>Генерация в течение 24 часов</li>
+                    <li>Итог: 500–2 000 снимков</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Пакеты -->
+        <h3 class="font-title" style="font-size:13px; color:var(--text-muted); letter-spacing:1.5px; margin-bottom:20px;">Выберите объём</h3>
+        <div class="pkg-grid">
+            <div class="pkg-tile">
+                <span class="pkg-label">Стартовый</span>
+                <div class="pkg-amount">$75</div>
+                <span class="pkg-per">500 генераций · $0.15/шт</span>
+                <p class="pkg-desc">Запуск нового SKU, тест нескольких стилей подачи. Хватит на полноценный лендинг и карточки для маркетплейса.</p>
+            </div>
+            <div class="pkg-tile popular">
+                <div class="pkg-popular-badge">Хит</div>
+                <span class="pkg-label">Основной</span>
+                <div class="pkg-amount">$150</div>
+                <span class="pkg-per">1 000 генераций · $0.15/шт</span>
+                <p class="pkg-desc">Полноценный каталог для магазина до 50–100 SKU. Разные фоны, сезонные вариации, A/B-тест стилей.</p>
+            </div>
+            <div class="pkg-tile">
+                <span class="pkg-label">Расширенный</span>
+                <div class="pkg-amount">$300</div>
+                <span class="pkg-per">2 000 генераций · $0.15/шт</span>
+                <p class="pkg-desc">Крупный каталог, несколько брендов или сезонное обновление. Максимальная гибкость и охват всех позиций.</p>
+            </div>
+            <div class="pkg-tile">
+                <span class="pkg-label">Агентский</span>
+                <div class="pkg-amount">$550</div>
+                <span class="pkg-per">4 000 генераций · $0.14/шт</span>
+                <p class="pkg-desc">Для агентств и брендов с постоянным потоком SKU. Наилучшая цена за единицу при разовой оплате.</p>
+            </div>
+        </div>
+
+        <ul class="benefits-list">
+            <li>Amazon-ready: белый фон RGB 255,255,255, 2000px+</li>
+            <li>Shopify-ready: соотношение 1:1, до 5000×5000px</li>
+            <li>Lifestyle-сцены по описанию: локация, свет, окружение</li>
+            <li>Любое количество ракурсов и вариаций стиля</li>
+            <li>Коммерческие права включены без доплат</li>
+            <li>Поддержка по написанию промптов для каждого SKU</li>
+        </ul>
+
+        <a href="prompt.html" class="btn-secondary" style="margin-right: 12px;">Читать гайд по ТЗ</a>
+        <a href="crypto.html" class="btn-primary">Заказать фото →</a>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- ================================================== -->
+    <!-- ВИДЕО                                              -->
+    <!-- ================================================== -->
+    <div id="video" class="service-block">
+
+        <div class="service-header">
+            <div class="service-header-text">
+                <div class="service-tag"><svg class="tag-icon" aria-hidden="true"><use href="#ic-film"/></svg>Motion</div>
+                <h2>Dord Motion Area — Видеореклама</h2>
+                <p>
+                    Видео конвертирует в 3–5 раз лучше статичных фото. Короткий динамичный ролик в Instagram Stories или TikTok — это не роскошь, это необходимость для современного ecom-бренда. Dord Motion создаёт 5–15-секундные рекламные ролики с профессиональными физическими эффектами. Вы описываете продукт и настроение — агент строит сцену, задаёт движение и выдаёт готовый файл.
+                </p>
+            </div>
+            <div class="service-header-cta">
+                <div class="service-header-price">
+                    <span class="from">от</span>
+                    <span class="amount">$15</span>
+                </div>
+                <a href="crypto.html" class="btn-primary">Заказать →</a>
+            </div>
+        </div>
+
+        <div class="pkg-grid">
+            <div class="pkg-tile">
+                <span class="pkg-label">Ролик 5 сек</span>
+                <div class="pkg-amount">$15</div>
+                <span class="pkg-per">Один ролик</span>
+                <p class="pkg-desc">Stories, TikTok-вставка, баннер. Быстрый акцент на продукте с одним ключевым эффектом.</p>
+            </div>
+            <div class="pkg-tile popular">
+                <div class="pkg-popular-badge">Топ</div>
+                <span class="pkg-label">Ролик 10 сек</span>
+                <div class="pkg-amount">$25</div>
+                <span class="pkg-per">Один ролик</span>
+                <p class="pkg-desc">Полноценная рекламная вставка: продукт + окружение + динамика. Универсальный формат для всех платформ.</p>
+            </div>
+            <div class="pkg-tile">
+                <span class="pkg-label">Ролик 15 сек</span>
+                <div class="pkg-amount">$35</div>
+                <span class="pkg-per">Один ролик</span>
+                <p class="pkg-desc">Развёрнутый сюжет с несколькими сценами. Максимальный хронометраж для Reels и YouTube Shorts.</p>
+            </div>
+            <div class="pkg-tile">
+                <span class="pkg-label">Пакет 5 роликов</span>
+                <div class="pkg-amount">$99</div>
+                <span class="pkg-per">5 роликов до 10 сек · $19.8/шт</span>
+                <p class="pkg-desc">A/B-тест нескольких вариантов или контент на неделю для активного SMM. Скидка 20% vs поштучной цены.</p>
+            </div>
+        </div>
+
+        <!-- Эффекты -->
+        <div class="card" style="margin-bottom: 32px;">
+            <h3>Доступные визуальные пресеты</h3>
+            <p>Укажите в ТЗ нужный эффект — агент применит его к вашему продукту.</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 20px;">
+                <div style="background: rgba(0,0,0,0.2); border-radius: 10px; padding: 14px 16px; font-size: 13px; color: var(--text-soft);">
+                    <b style="color: var(--accent-green); display: block; margin-bottom: 4px;">Levitation</b>
+                    Продукт парит в воздухе с лёгкой тенью снизу. Популярно для парфюма и электроники.
+                </div>
+                <div style="background: rgba(0,0,0,0.2); border-radius: 10px; padding: 14px 16px; font-size: 13px; color: var(--text-soft);">
+                    <b style="color: var(--accent-green); display: block; margin-bottom: 4px;">Light Sweep</b>
+                    Полоса света проходит по продукту. Создаёт ощущение премиального качества и блеска.
+                </div>
+                <div style="background: rgba(0,0,0,0.2); border-radius: 10px; padding: 14px 16px; font-size: 13px; color: var(--text-soft);">
+                    <b style="color: var(--accent-green); display: block; margin-bottom: 4px;">Particle Burst</b>
+                    Взрыв частиц вокруг продукта. Эффектно для косметики, специй, порошков.
+                </div>
+                <div style="background: rgba(0,0,0,0.2); border-radius: 10px; padding: 14px 16px; font-size: 13px; color: var(--text-soft);">
+                    <b style="color: var(--accent-green); display: block; margin-bottom: 4px;">Camera Push</b>
+                    Медленный наезд камеры с фокусировкой на продукте. Кинематографичный стиль.
+                </div>
+                <div style="background: rgba(0,0,0,0.2); border-radius: 10px; padding: 14px 16px; font-size: 13px; color: var(--text-soft);">
+                    <b style="color: var(--accent-green); display: block; margin-bottom: 4px;">Water / Liquid</b>
+                    Брызги воды, жидкость вокруг продукта. Идеально для напитков и косметики.
+                </div>
+                <div style="background: rgba(0,0,0,0.2); border-radius: 10px; padding: 14px 16px; font-size: 13px; color: var(--text-soft);">
+                    <b style="color: var(--accent-green); display: block; margin-bottom: 4px;">360° Orbit</b>
+                    Облёт вокруг продукта. Показывает все стороны и создаёт глубину сцены.
+                </div>
+            </div>
+        </div>
+
+        <a href="crypto.html" class="btn-primary">Заказать видеоролик →</a>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- ================================================== -->
+    <!-- СЕРИАЛЫ                                            -->
+    <!-- ================================================== -->
+    <div id="serials" class="service-block">
+
+        <div class="service-header">
+            <div class="service-header-text">
+                <div class="service-tag"><svg class="tag-icon" aria-hidden="true"><use href="#ic-tv"/></svg>Серии</div>
+                <h2>Студия Dord AI — Бренд-сериалы</h2>
+                <p>
+                    Единственный на рынке формат многосерийного AI-видеоконтента с полным удержанием персонажа и стилистики между эпизодами. Если обычные инструменты каждый раз "забывают" как выглядит ваш герой — наши агенты сохраняют последовательность через все серии. Для брендов, которые строят аудиторию через сторителлинг.
+                </p>
+            </div>
+            <div class="service-header-cta">
+                <div class="service-header-price">
+                    <span class="from">от</span>
+                    <span class="amount">$300</span>
+                </div>
+                <a href="crypto.html" class="btn-primary">Заказать →</a>
+            </div>
+        </div>
+
+        <div class="pkg-grid">
+            <div class="pkg-tile">
+                <span class="pkg-label">Мини-сезон · 30 сек</span>
+                <div class="pkg-amount">$300</div>
+                <span class="pkg-per">5 серий · $60/серия</span>
+                <p class="pkg-desc">Тест формата или завершённая история. Идеально для рекламной кампании или прогрева аудитории.</p>
+            </div>
+            <div class="pkg-tile popular">
+                <div class="pkg-popular-badge">Популярно</div>
+                <span class="pkg-label">Полный сезон · 30 сек</span>
+                <div class="pkg-amount">$600</div>
+                <span class="pkg-per">10 серий · $60/серия</span>
+                <p class="pkg-desc">Полноценный сезон: контента хватает на 2–3 недели активного постинга с нарастающим интересом аудитории.</p>
+            </div>
+            <div class="pkg-tile">
+                <span class="pkg-label">Мини-сезон · 60 сек</span>
+                <div class="pkg-amount">$600</div>
+                <span class="pkg-per">5 серий · $120/серия</span>
+                <p class="pkg-desc">Длинный формат для YouTube Shorts и LinkedIn. Больше пространства для раскрытия персонажа и сюжета.</p>
+            </div>
+            <div class="pkg-tile">
+                <span class="pkg-label">Полный сезон · 60 сек</span>
+                <div class="pkg-amount">$1 200</div>
+                <span class="pkg-per">10 серий · $120/серия</span>
+                <p class="pkg-desc">Максимальный охват: месяц контента, глубокий сторителлинг, полноценная дуга персонажа бренда.</p>
+            </div>
+        </div>
+
+        <ul class="benefits-list">
+            <li>Удержание внешности персонажа через все серии</li>
+            <li>Последовательная стилистика и цветовая палитра</li>
+            <li>Продолжение сюжетной линии между эпизодами</li>
+            <li>Готовые файлы для каждой серии отдельно</li>
+            <li>Оптимизация под вертикальный формат (9:16)</li>
+            <li>Коммерческое использование без ограничений</li>
+        </ul>
+
+        <a href="crypto.html" class="btn-primary">Заказать сезон →</a>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- ================================================== -->
+    <!-- АВАТАРЫ                                            -->
+    <!-- ================================================== -->
+    <div id="avatar" class="service-block">
+
+        <div class="service-header">
+            <div class="service-header-text">
+                <div class="service-tag"><svg class="tag-icon" aria-hidden="true"><use href="#ic-bot"/></svg>Брендинг</div>
+                <h2>AI-аватары и маскоты бренда</h2>
+                <p>
+                    Ваш бренд — это не только логотип. Это лицо, персонаж, характер. AI-маскот или цифровая модель-посол бренда делает его узнаваемым и живым. Мы создаём уникального визуального персонажа под ваш стиль: реалистичного, мультяшного, футуристичного — любого. И самое главное — вы получаете контроль над его внешностью навсегда.
+                </p>
+            </div>
+            <div class="service-header-cta">
+                <div class="service-header-price">
+                    <span class="from">от</span>
+                    <span class="amount">$99</span>
+                </div>
+                <a href="crypto.html" class="btn-primary">Заказать →</a>
+            </div>
+        </div>
+
+        <div class="pkg-grid">
+            <div class="pkg-tile">
+                <span class="pkg-label">Базовый аватар</span>
+                <div class="pkg-amount">$99</div>
+                <span class="pkg-per">1 персонаж · 10 вариаций</span>
+                <p class="pkg-desc">Один персонаж в 10 вариациях поз и выражений. Готов к использованию в соцсетях и карточках товаров.</p>
+            </div>
+            <div class="pkg-tile popular">
+                <div class="pkg-popular-badge">Рекомендуем</div>
+                <span class="pkg-label">Бренд-маскот</span>
+                <div class="pkg-amount">$199</div>
+                <span class="pkg-per">1 персонаж · 30 вариаций + анимация</span>
+                <p class="pkg-desc">Полноценный маскот: 30 поз и выражений + короткая анимация-заставка для Stories и видеорекламы.</p>
+            </div>
+            <div class="pkg-tile">
+                <span class="pkg-label">AI-модель каталога</span>
+                <div class="pkg-amount">$299</div>
+                <span class="pkg-per">1 модель · неограниченные позы</span>
+                <p class="pkg-desc">Реалистичная AI-модель для fashion и lifestyle-каталога. Генерируйте любые позы с вашим товаром без реальных фотосессий.</p>
+            </div>
+        </div>
+
+        <ul class="benefits-list">
+            <li>Уникальный персонаж — не шаблон из стока</li>
+            <li>Полный контроль над внешностью и стилем</li>
+            <li>Готов к использованию во всех форматах</li>
+            <li>Возможность использовать в сериалах (скидка 20%)</li>
+            <li>Передача всех прав на персонажа</li>
+        </ul>
+
+        <a href="crypto.html" class="btn-primary">Заказать аватар →</a>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- ================================================== -->
+    <!-- ПОДПИСКА                                           -->
+    <!-- ================================================== -->
+    <div id="subscription" class="service-block">
+
+        <div class="service-header">
+            <div class="service-header-text">
+                <div class="service-tag"><svg class="tag-icon" aria-hidden="true"><use href="#ic-gear"/></svg>Доступ</div>
+                <h2>Подписка Dord AI Studio</h2>
+                <p>
+                    Если вам нужен постоянный поток визуала — подписка выгоднее разовых пакетов. Вы получаете круглосуточный доступ к выделенным GPU-агентам без ограничений на количество генераций. Не тратите время на каждый отдельный заказ — просто работаете.
+                </p>
+            </div>
+            <div class="service-header-cta">
+                <div class="service-header-price">
+                    <span class="from">от</span>
+                    <span class="amount">$49</span>
+                </div>
+                <a href="crypto.html" class="btn-primary">Оформить →</a>
+            </div>
+        </div>
+
+        <div class="grid-3">
+            <div class="pricing-card">
+                <h3>Месячный доступ</h3>
+                <p class="tagline">Попробуйте подписку на месяц. Идеально для активного запуска или сезонной кампании. Никаких долгосрочных обязательств.</p>
+                <div class="price-big">$49</div>
+                <div class="price-period">/ месяц</div>
+                <ul class="pricing-features">
+                    <li>Неограниченная генерация фото</li>
+                    <li>Доступ 24/7 к 3 агентам</li>
+                    <li>Приоритетная очередь запросов</li>
+                    <li>Поддержка по ТЗ и промптам</li>
+                    <li>Коммерческие права на всё созданное</li>
+                </ul>
+                <a href="crypto.html" class="btn-card outline">Начать →</a>
+            </div>
+
+            <div class="pricing-card featured">
+                <div class="featured-badge">🔥 Лучший выбор</div>
+                <h3>Квартальный пакет</h3>
+                <p class="tagline">Оптимальный баланс для продавцов с постоянным потоком SKU. Стабильный доступ без ежемесячного продления.</p>
+                <div class="price-big">$135</div>
+                <div class="price-period">/ 3 месяца</div>
+                <div class="price-saving">Экономия $12 · $45/мес эффективно</div>
+                <ul class="pricing-features">
+                    <li>Всё из месячного тарифа</li>
+                    <li>Закреплённый агент за вашим брендом</li>
+                    <li>Приоритет на генерацию видео</li>
+                    <li>История всех промптов сохраняется</li>
+                    <li>Быстрый рестарт агента по запросу</li>
+                </ul>
+                <a href="crypto.html" class="btn-card">Выбрать →</a>
+            </div>
+
+            <div class="pricing-card">
+                <h3>Годовая лицензия</h3>
+                <p class="tagline">Для агентств, студий и брендов с постоянным высоким объёмом. Максимальная скидка и выделенные ресурсы на весь год.</p>
+                <div class="price-big">$490</div>
+                <div class="price-period">/ год</div>
+                <div class="price-saving">Скидка 16% · $40.8/мес эффективно</div>
+                <ul class="pricing-features">
+                    <li>Всё из квартального</li>
+                    <li>Выделенные серверы в Electra Tower</li>
+                    <li>SLA-гарантия аптайма 95%+</li>
+                    <li>Персональный менеджер проекта</li>
+                    <li>Доступ к бета-функциям студии</li>
+                </ul>
+                <a href="crypto.html" class="btn-card outline">Оформить →</a>
+            </div>
+        </div>
+
+        <div class="card mt-32">
+            <h3>Когда подписка выгоднее разовых пакетов?</h3>
+            <p>Если вы заказываете фото или видео чаще одного раза в месяц — подписка окупается. При месячном тарифе $49 вы генерируете без ограничений: это выгоднее любого разового пакета уже при объёме от 300–400 изображений.</p>
+        </div>
+    </div>
+
+    <!-- ===== ИТОГОВЫЙ CTA ===== -->
+    <div class="section-wrap-alt">
+        <div class="section-inner" style="text-align: center; padding: 20px 0;">
+            <div class="section-label" style="justify-content: center; display: flex;">Не знаете с чего начать?</div>
+            <h2 class="section-title" style="margin: 0 auto 20px; max-width: 600px;">Начните с $20 — и убедитесь сами</h2>
+            <p style="color: var(--text-muted); font-size: 15px; margin-bottom: 36px; max-width: 500px; margin-left: auto; margin-right: auto; line-height: 1.7;">
+                Стартовый пакет: 100 генераций фото или один видеоролик. Без риска, без подписки, без лишних слов.
+            </p>
+            <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                <a href="crypto.html" class="btn-primary">Заказать за $20 →</a>
+                <a href="prompt.html" class="btn-secondary">Как написать ТЗ</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== DISCLAIMER ===== -->
+    <div class="section-wrap" style="padding-top: 48px; padding-bottom: 48px;">
+        <div class="disclaimer-box">
+            <span class="disclaimer-icon">⚠️</span>
+            <div>
+                <h4>Политика возврата</h4>
+                <p>Запуск генерации — прямая аренда GPU-часов. Если результат точно соответствует вашему ТЗ, но не совпадает с личными ожиданиями — возврат невозможен. При размытом описании агенты дополняют детали самостоятельно. Рекомендуем сначала протестировать промпт в <a href="https://claude.ai" target="_blank" class="text-green">Claude AI</a> или <a href="https://chatgpt.com" target="_blank" class="text-green">ChatGPT</a>, и только после — отправлять финальное ТЗ нам. <a href="prompt.html" class="text-green">Читать гайд по ТЗ →</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="footer-info">
+            <b>Dord Software AI Systems</b>
+            <span>Израиль, Тель-Авив, ул. Игаль Алон 98, Electra Tower</span>
+            <span>Автоматизированный AI-продакшен</span>
+        </div>
+        <div class="footer-info footer-right">
+            <b>Secured Access</b>
+            <span>Hardware Firewall Protected</span>
+            <span>&copy; 2026 Все права защищены</span>
+        </div>
+    </footer>
+
+</body>
+</html>
