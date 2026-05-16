@@ -233,14 +233,14 @@ header {
         gap: 8px;
     }
     .header-left img {
-        height: 24px; /* Крошечный логотип вместо огромного */
+        height: 34px; /* Крошечный логотип вместо огромного */
         width: auto;
     }
     .company-name {
-        font-size: 14px !important; /* Мелкий аккуратный шрифт */
+        font-size: 16px !important; /* Мелкий аккуратный шрифт */
     }
     .occupation {
-        font-size: 10px !important; /* Суб-текст делаем совсем незаметным */
+        font-size: 11px !important; /* Суб-текст делаем совсем незаметным */
     }
 
     /* 2. Монитор Агентов (Сжимаем в одну строчку на 70%) */
@@ -280,16 +280,16 @@ header {
     nav .nav-btn {
         flex: 1;
         padding: 6px 2px !important; /* Тонкие аккуратные кнопки */
-        font-size: 11px !important;   /* Мелкий текст */
+        font-size: 10px !important;   /* Мелкий текст */
         text-align: center;
         border-radius: 4px;
     }
 
     /* Уменьшаем заголовки секций на мобилке */
     .section-title {
-        font-size: 16px !important; 
-        margin-top: 20px;
-        margin-bottom: 15px;
+        font-size: 14px !important; 
+        margin-top: 18px;
+        margin-bottom: 12px;
         text-align: center;
     }
 }
