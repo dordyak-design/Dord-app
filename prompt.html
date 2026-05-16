@@ -3,178 +3,426 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Промпт-Гайд | Dord Softwer AI Sistems</title>
-    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <title>Гайд по ТЗ — Dord AI Studio</title>
+    <meta name="description" content="Как написать техническое задание для AI-генерации фото и видео. Формула идеального промпта — объект, окружение, свет, эффекты.">
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Внутренняя сетка для пунктов ТЗ внутри широкой карточки */
-        .rules-list { 
-            list-style: none !important; 
-            padding: 0 !important;
-            margin-top: 25px !important; 
-            display: grid !important;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
-            gap: 20px !important;
+        /* ── Специфичные стили только для этой страницы ── */
+
+        /* Сетка правил формулы */
+        .formula-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 16px;
+            margin-top: 28px;
         }
-        .rules-list li { 
-            display: block !important; 
-            background: rgba(0, 0, 0, 0.15);
-            border: 1px solid rgba(255, 255, 255, 0.03) !important;
-            padding: 20px !important; 
-            border-radius: 14px;
+
+        .formula-item {
+            background: rgba(0,0,0,0.18);
+            border: 1px solid rgba(255,255,255,0.04);
+            border-radius: var(--radius-md);
+            padding: 22px 20px;
         }
-        .rules-list strong { 
-            display: block !important;
-            color: var(--accent-green); 
-            font-family: 'Unbounded', sans-serif;
-            font-size: 13px;
-            text-transform: uppercase;
-            margin-bottom: 8px;
-            letter-spacing: 0.5px;
-        }
-        .rules-text {
+
+        .formula-num {
             display: block;
-            font-size: 14px;
-            color: var(--text-main);
-            margin-bottom: 12px;
-            line-height: 1.5;
+            font-family: 'Unbounded', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-green);
+            margin-bottom: 8px;
         }
-        .rules-example {
+
+        .formula-desc {
+            display: block;
+            font-size: 13px;
+            color: var(--text-soft);
+            line-height: 1.55;
+            margin-bottom: 12px;
+        }
+
+        .formula-example {
             display: block;
             font-size: 12px;
             color: var(--text-muted);
-            background: rgba(8, 11, 26, 0.5);
+            background: rgba(8,11,26,0.6);
             padding: 10px 14px;
             border-radius: 6px;
             border-left: 2px solid var(--accent-blue);
+            line-height: 1.5;
         }
-        
-        /* Стили для ссылок на ИИ */
+
+        /* Ссылки на AI-инструменты */
         .ai-links {
             display: flex;
             gap: 10px;
-            margin-top: 15px;
+            margin-top: 20px;
             flex-wrap: wrap;
         }
+
         .ai-link-btn {
-            background: rgba(0, 74, 173, 0.2);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(0,74,173,0.15);
             border: 1px solid var(--accent-blue);
             color: var(--text-main);
             text-decoration: none;
-            padding: 12px 20px;
-            border-radius: 10px;
-            font-size: 13px;
+            padding: 11px 20px;
+            border-radius: var(--radius-sm);
+            font-size: 12px;
             font-weight: 700;
-            transition: 0.3s;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: var(--transition);
         }
+
         .ai-link-btn:hover {
             background: var(--accent-green);
             border-color: var(--accent-green);
-            color: #fff;
-            box-shadow: 0 0 10px rgba(0, 155, 114, 0.2);
+            color: #000;
         }
-        
-        .danger-card {
-            border: 1px solid #ef4444 !important;
-            background: rgba(239, 68, 68, 0.02) !important;
+
+        /* Примеры промптов */
+        .prompt-example {
+            background: rgba(0,0,0,0.25);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            margin-top: 16px;
         }
-        .danger-card h3 { color: #ef4444 !important; }
-        .warning-text { color: #f87171 !important; font-size: 13px; line-height: 1.6; }
+
+        .prompt-example-label {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent-green);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .prompt-text {
+            font-size: 13px;
+            color: var(--text-soft);
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        .prompt-breakdown {
+            margin-top: 14px;
+            padding-top: 14px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .prompt-tag {
+            font-size: 11px;
+            padding: 3px 10px;
+            border-radius: 100px;
+            font-weight: 700;
+        }
+
+        .tag-object   { background: rgba(0,74,173,0.2);   border: 1px solid rgba(0,74,173,0.4);   color: #7eb3ff; }
+        .tag-env      { background: rgba(0,200,150,0.12); border: 1px solid var(--border-green);  color: var(--accent-green); }
+        .tag-light    { background: rgba(234,179,8,0.1);  border: 1px solid rgba(234,179,8,0.3);  color: #fbbf24; }
+        .tag-effect   { background: rgba(168,85,247,0.1); border: 1px solid rgba(168,85,247,0.3); color: #c084fc; }
+
+        /* Частые ошибки */
+        .error-list {
+            list-style: none;
+            margin-top: 16px;
+        }
+
+        .error-list li {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 16px;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 13px;
+            line-height: 1.55;
+        }
+
+        .error-list li:last-child { border-bottom: none; }
+
+        .error-bad {
+            color: #f87171;
+        }
+
+        .error-good {
+            color: var(--accent-green);
+        }
+
+        .error-vs {
+            font-family: 'Unbounded', sans-serif;
+            font-size: 9px;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            align-self: center;
+            padding-top: 2px;
+        }
+
+        /* Мобилка */
+        @media (max-width: 768px) {
+            .formula-grid { grid-template-columns: 1fr; }
+            .ai-links { flex-direction: column; }
+            .ai-link-btn { justify-content: center; }
+        }
     </style>
 </head>
 <body>
 
+<!-- ===================== SVG СПРАЙТ ===================== -->
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+     style="position:absolute;width:0;height:0;overflow:hidden;">
+  <defs>
+    <linearGradient id="dg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#004aad"/>
+      <stop offset="100%" stop-color="#00c896"/>
+    </linearGradient>
+  </defs>
+  <!-- Коробка / объект -->
+  <symbol id="ic-box" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" fill="none" stroke="url(#dg)" stroke-width="1.5" stroke-linejoin="round"/><polyline points="3.27 6.96 12 12.01 20.73 6.96" fill="none" stroke="url(#dg)" stroke-width="1.5" stroke-linejoin="round"/><line x1="12" y1="22.08" x2="12" y2="12" stroke="url(#dg)" stroke-width="1.5" stroke-linecap="round"/></symbol>
+  <!-- Глобус / окружение -->
+  <symbol id="ic-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="url(#dg)" stroke-width="1.5"/><line x1="2" y1="12" x2="22" y2="12" stroke="url(#dg)" stroke-width="1.5"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" fill="none" stroke="url(#dg)" stroke-width="1.5"/></symbol>
+  <!-- Молния / свет -->
+  <symbol id="ic-bolt" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" fill="url(#dg)"/></symbol>
+  <!-- Звезда / эффекты -->
+  <symbol id="ic-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="none" stroke="url(#dg)" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+  <!-- Прицел / точные примеры -->
+  <symbol id="ic-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="url(#dg)" stroke-width="1.5"/><circle cx="12" cy="12" r="6" fill="none" stroke="url(#dg)" stroke-width="1.5"/><circle cx="12" cy="12" r="2" fill="url(#dg)"/></symbol>
+  <!-- Предупреждение / ошибки -->
+  <symbol id="ic-alert" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" fill="none" stroke="url(#dg)" stroke-width="1.5" stroke-linejoin="round"/><line x1="12" y1="9" x2="12" y2="13" stroke="url(#dg)" stroke-width="1.5" stroke-linecap="round"/><line x1="12" y1="17" x2="12.01" y2="17" stroke="url(#dg)" stroke-width="2" stroke-linecap="round"/></symbol>
+  <!-- Ссылка / внешние AI -->
+  <symbol id="ic-link" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" fill="none" stroke="url(#dg)" stroke-width="1.5" stroke-linecap="round"/><polyline points="15 3 21 3 21 9" fill="none" stroke="url(#dg)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><line x1="10" y1="14" x2="21" y2="3" stroke="url(#dg)" stroke-width="1.5" stroke-linecap="round"/></symbol>
+</svg>
+<!-- ============================================================== -->
+
+    <!-- ===== ШАПКА ===== -->
     <header>
         <div class="header-left">
             <img src="logo.PNG" alt="DORD">
             <div class="title-wrapper">
-                <span class="company-name">Dord Softwer</span>
-                <span class="occupation"><span class="ai-light">AI</span> sistems Photo Studio</span>
+                <span class="company-name">Dord Software</span>
+                <span class="occupation"><span class="ai-light">AI</span> Systems Photo Studio</span>
             </div>
         </div>
 
         <div class="agent-monitor">
             <img src="server_icon.png" alt="Server" class="server-icon">
-            <div class="agent-stat">Агент-1 <span><div class="led"></div> Online 92%</span></div>
-            <div class="agent-stat">Агент-2 <span><div class="led"></div> Online 87%</span></div>
-            <div class="agent-stat">Агент-3 <span><div class="led"></div> Online 95%</span></div>
+            <div class="agent-stat">Agent-1 <span><div class="led"></div> Online 92%</span></div>
+            <div class="agent-stat">Agent-2 <span><div class="led"></div> Online 87%</span></div>
+            <div class="agent-stat">Agent-3 <span><div class="led"></div> Online 95%</span></div>
         </div>
 
         <nav>
             <a href="index.html" class="nav-btn">Главная</a>
-            <a href="gallery.html" class="nav-btn">Галерея</a>
-            <a href="crypto.html" class="nav-btn">Оплата</a>
+            <a href="services.html" class="nav-btn">Услуги</a>
+            <a href="crypto.html" class="nav-btn cta">Заказать</a>
         </nav>
     </header>
 
-    <section class="hero" style="padding-bottom: 30px;">
-        <h1 style="font-family: 'Unbounded', sans-serif; font-size: 36px; text-transform: uppercase; margin-bottom: 20px;">Инструкция по составлению ТЗ</h1>
-        <p>Вычислительные Агенты Dord Software работают со строгими алгоритмами. Чтобы не сжечь бюджет впустую и получить именно тот визуальный продукт, который вы задумали, ознакомьтесь с правилами генерации.</p>
+    <!-- Хлебные крошки -->
+    <div class="breadcrumb">
+        <a href="index.html">Главная</a>
+        <span>›</span>
+        <span>Гайд по ТЗ</span>
+    </div>
+
+    <!-- ===== PAGE HERO ===== -->
+    <div class="page-hero">
+        <h1>Как написать ТЗ для агента</h1>
+        <p>Агенты Dord AI работают по строгим алгоритмам. Чёткое ТЗ — это гарантия того, что вы получите именно то, что задумали, а не то, что агент нарисовал на своё усмотрение.</p>
+    </div>
+
+    <!-- ===== ФОРМУЛА ===== -->
+    <section class="section-wrap">
+        <div class="section-label">Формула</div>
+        <h2 class="section-title">Четыре обязательных элемента</h2>
+        <p class="section-sub">Агент не умеет догадываться. Каждый пропущенный элемент — это деталь, которую он дорисует сам. Опишите все четыре.</p>
+
+        <div class="formula-grid">
+            <div class="formula-item">
+                <svg style="width:32px;height:32px;display:block;margin-bottom:12px;" aria-hidden="true"><use href="#ic-box"/></svg>
+                <span class="formula-num">1 · Объект</span>
+                <span class="formula-desc">Что именно должно быть в кадре: форма, цвет, материал, размер, особые детали.</span>
+                <span class="formula-example">Пример: <i>стеклянный флакон парфюма 100мл с матовой чёрной крышкой и золотым лого</i></span>
+            </div>
+            <div class="formula-item">
+                <svg style="width:32px;height:32px;display:block;margin-bottom:12px;" aria-hidden="true"><use href="#ic-globe"/></svg>
+                <span class="formula-num">2 · Окружение</span>
+                <span class="formula-desc">Где расположен объект, какой задний план, локация, сопутствующие предметы и текстуры.</span>
+                <span class="formula-example">Пример: <i>на мокром чёрном вулканическом камне, вокруг мелкие брызги воды, туманный фон</i></span>
+            </div>
+            <div class="formula-item">
+                <svg style="width:32px;height:32px;display:block;margin-bottom:12px;" aria-hidden="true"><use href="#ic-bolt"/></svg>
+                <span class="formula-num">3 · Освещение</span>
+                <span class="formula-desc">Направление и характер света, контраст, цветовая температура, общая атмосфера кадра.</span>
+                <span class="formula-example">Пример: <i>драматичный боковой свет слева, тёплый студийный контрастный, тени справа</i></span>
+            </div>
+            <div class="formula-item">
+                <svg style="width:32px;height:32px;display:block;margin-bottom:12px;" aria-hidden="true"><use href="#ic-star"/></svg>
+                <span class="formula-num">4 · Детали и эффекты</span>
+                <span class="formula-desc">Для фото — отражения, текстуры, глубина резкости. Для видео — движение камеры и динамические пресеты.</span>
+                <span class="formula-example">Пример: <i>эффект Levitation, медленный наезд камеры слева направо, Light Sweep по флакону</i></span>
+            </div>
+        </div>
     </section>
 
-    <div style="max-width: 1500px; margin: 0 auto 30px; padding: 0 5%;">
-        <div class="card" style="width: 100%;">
-            <h3>Формула идеального ТЗ</h3>
-            <p>Агенты не умеют догадываться. Описывайте задачу по четырем обязательным критериям:</p>
-            
-            <ul class="rules-list">
+    <!-- ===== ПРИМЕРЫ ПРОМПТОВ ===== -->
+    <div class="section-wrap-alt">
+        <div class="section-inner">
+            <div class="section-label">Примеры</div>
+            <h2 class="section-title">Разбор готовых промптов</h2>
+            <p class="section-sub">Посмотрите как выглядит правильное ТЗ в реальности — и что каждая часть даёт агенту.</p>
+
+            <div class="prompt-example">
+                <span class="prompt-example-label">Пример 1 · Парфюм · Фото</span>
+                <p class="prompt-text">
+                    "Стеклянный флакон парфюма с чёрной матовой крышкой и золотым тиснением логотипа. Расположен на мокром тёмно-сером мраморе с каплями воды. Драматичный студийный боковой свет справа, глубокие тени слева, тёплая цветовая температура. Чёткое отражение во влажном мраморе, лёгкий туман на заднем плане."
+                </p>
+                <div class="prompt-breakdown">
+                    <span class="prompt-tag tag-object">Объект: флакон + детали</span>
+                    <span class="prompt-tag tag-env">Окружение: мрамор + капли + туман</span>
+                    <span class="prompt-tag tag-light">Свет: боковой + тёплый</span>
+                    <span class="prompt-tag tag-effect">Эффект: отражение</span>
+                </div>
+            </div>
+
+            <div class="prompt-example">
+                <span class="prompt-example-label">Пример 2 · Кроссовки · Видео 10 сек</span>
+                <p class="prompt-text">
+                    "Белые кроссовки с неоново-зелёными вставками на подошве, парят в воздухе (эффект Levitation). Фон — тёмная студия с мягким синим градиентом. Медленный облёт камеры 360° вокруг кроссовок. Light Sweep проходит по подошве в середине ролика. В конце камера медленно приближается к лого на язычке."
+                </p>
+                <div class="prompt-breakdown">
+                    <span class="prompt-tag tag-object">Объект: кроссовки + цвет вставок</span>
+                    <span class="prompt-tag tag-env">Окружение: тёмная студия + градиент</span>
+                    <span class="prompt-tag tag-light">Свет: синий фоновый</span>
+                    <span class="prompt-tag tag-effect">Эффекты: Levitation + 360° + Light Sweep</span>
+                </div>
+            </div>
+
+            <div class="prompt-example">
+                <span class="prompt-example-label">Пример 3 · Протеиновый батончик · Фото для Amazon</span>
+                <p class="prompt-text">
+                    "Шоколадный протеиновый батончик в обёртке с красно-чёрным дизайном. Лежит на деревянной доске рядом с тремя какао-бобами и листом мяты. Чистый белый фон (RGB 255,255,255). Равномерный студийный свет сверху без теней. Продукт занимает 85% кадра, центральное расположение."
+                </p>
+                <div class="prompt-breakdown">
+                    <span class="prompt-tag tag-object">Объект: батончик + дизайн обёртки</span>
+                    <span class="prompt-tag tag-env">Окружение: доска + реквизит</span>
+                    <span class="prompt-tag tag-light">Свет: равномерный, без теней</span>
+                    <span class="prompt-tag tag-effect">Эффект: белый фон Amazon-ready</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== ЧАСТЫЕ ОШИБКИ ===== -->
+    <section class="section-wrap">
+        <div class="section-label">
+            <svg class="tag-icon" aria-hidden="true"><use href="#ic-alert"/></svg>
+            Ошибки
+        </div>
+        <h2 class="section-title">Как не сжечь бюджет впустую</h2>
+        <p class="section-sub">Самые частые ошибки в ТЗ — и как их исправить.</p>
+
+        <div class="card">
+            <ul class="error-list">
                 <li>
-                    <strong>1. Объект</strong>
-                    <span class="rules-text">Что конкретно должно находиться в кадре (форма, цвет, материал).</span>
-                    <span class="rules-example">Пример: <i>стеклянный флакон парфюма с черной матовой крышкой</i></span>
+                    <div>
+                        <div class="error-bad">✗ &nbsp;"Сделайте красиво"</div>
+                        <div style="font-size:11px; color: var(--text-muted); margin-top: 6px;">"Красиво" — субъективно. Агент интерпретирует по-своему.</div>
+                    </div>
+                    <div>
+                        <div class="error-good">✓ &nbsp;"Минималистичный стиль: белый фон, один источник света сверху, тени мягкие"</div>
+                        <div style="font-size:11px; color: var(--text-muted); margin-top: 6px;">Конкретные параметры = предсказуемый результат.</div>
+                    </div>
                 </li>
                 <li>
-                    <strong>2. Окружение</strong>
-                    <span class="rules-text">Где расположен объект, какой задний план, локация и сопутствующие предметы.</span>
-                    <span class="rules-example">Пример: <i>на мокром черном вулканическом камне, вокруг брызги воды</i></span>
+                    <div>
+                        <div class="error-bad">✗ &nbsp;"Флакон духов на красивом фоне"</div>
+                        <div style="font-size:11px; color: var(--text-muted); margin-top: 6px;">Какой флакон? Какой фон? Агент решит сам.</div>
+                    </div>
+                    <div>
+                        <div class="error-good">✓ &nbsp;"Прозрачный флакон 50мл с золотой крышкой, на мраморной поверхности, тёплый боковой свет"</div>
+                        <div style="font-size:11px; color: var(--text-muted); margin-top: 6px;">Форма + материал + крышка + поверхность + свет.</div>
+                    </div>
                 </li>
                 <li>
-                    <strong>3. Освещение</strong>
-                    <span class="rules-text">Направление света, интенсивность и общая атмосфера кадра.</span>
-                    <span class="rules-example">Пример: <i>драматичный боковой свет, студийная контрастная подсветка</i></span>
+                    <div>
+                        <div class="error-bad">✗ &nbsp;"Как у Nike"</div>
+                        <div style="font-size:11px; color: var(--text-muted); margin-top: 6px;">Агент не знает какую именно кампанию Nike вы имеете в виду.</div>
+                    </div>
+                    <div>
+                        <div class="error-good">✓ &nbsp;"Тёмный фон, продукт в центре, динамичный боковой свет, длинная тень"</div>
+                        <div style="font-size:11px; color: var(--text-muted); margin-top: 6px;">Опишите стиль словами, а не названием бренда.</div>
+                    </div>
                 </li>
                 <li>
-                    <strong>4. Детали и Эффекты</strong>
-                    <span class="rules-text">Для видео-роликов — точное направление движения камеры и пресеты динамики.</span>
-                    <span class="rules-example">Пример: <i>эффект Levitation, медленный наезд камеры, Light Sweep</i></span>
+                    <div>
+                        <div class="error-bad">✗ &nbsp;Отправить только название товара</div>
+                        <div style="font-size:11px; color: var(--text-muted); margin-top: 6px;">"Крем для лица" — агент не знает ни упаковку, ни стиль, ни аудиторию.</div>
+                    </div>
+                    <div>
+                        <div class="error-good">✓ &nbsp;Описать упаковку, цвет, целевую атмосферу и платформу</div>
+                        <div style="font-size:11px; color: var(--text-muted); margin-top: 6px;">Каждая деталь снижает вероятность переделки.</div>
+                    </div>
                 </li>
             </ul>
         </div>
-    </div>
+    </section>
 
-    <div class="grid" style="padding-top: 0;">
-        
-        <div class="card">
-            <h3>Проверьте концепт бесплатно</h3>
-            <p>Если вы не уверены, как нейросеть поймет ваше описание, протестируйте формулировку в бесплатных текстовых ИИ. Сформулируйте мысль там, добейтесь четкости текста, и только потом отправляйте финальное ТЗ нам для рендеринга на про-моделях.</p>
+    <!-- ===== ПРОТЕСТИРУЙ БЕСПЛАТНО ===== -->
+    <div class="section-wrap-alt">
+        <div class="section-inner">
+            <div class="section-label">
+                <svg class="tag-icon" aria-hidden="true"><use href="#ic-link"/></svg>
+                Совет
+            </div>
+            <h2 class="section-title">Протестируй промпт бесплатно</h2>
+            <p class="section-sub">Прежде чем отправлять ТЗ нам — проверьте формулировку в текстовом AI. Спросите: "Как ты понял моё описание? Что именно ты бы нарисовал?" Если ответ расходится с вашей идеей — уточните ТЗ. И только потом отправляйте на рендеринг.</p>
+
             <div class="ai-links">
-                <a href="https://chatgpt.com" target="_blank" class="ai-link-btn">ChatGPT</a>
                 <a href="https://claude.ai" target="_blank" class="ai-link-btn">Claude AI</a>
+                <a href="https://chatgpt.com" target="_blank" class="ai-link-btn">ChatGPT</a>
                 <a href="https://grok.com" target="_blank" class="ai-link-btn">Grok</a>
             </div>
         </div>
-
-        <div class="card danger-card">
-            <h3>Отказ от ответственности (Disclaimer)</h3>
-            <p class="warning-text">
-                Запуск генерации — это прямая аренда вычислительных мощностей серверов и видеокарт (машинного времени). 
-                <br><br>
-                Если сгенерированный материал строго соответствует вашему текстовому ТЗ, но не совпадает с вашими личными ожиданиями («я думал, это будет выглядеть по-другому»), претензии не принимаются. 
-                <br><br>
-                При размытом или слишком коротком описании Агенты дорисовывают детали на свое усмотрение. Возврат средств за выполненные машинные часы в таких случаях <b>невозможен</b>.
-            </p>
-        </div>
-
     </div>
 
+    <!-- ===== DISCLAIMER ===== -->
+    <section class="section-wrap">
+        <div class="disclaimer-box">
+            <span class="disclaimer-icon">⚠️</span>
+            <div>
+                <h4>Политика возврата</h4>
+                <p>
+                    Запуск генерации — прямая аренда машинного времени (GPU-часов). Если сгенерированный материал точно соответствует вашему ТЗ, но не совпадает с личными ожиданиями — претензии не принимаются. При размытом или слишком коротком описании агенты дорисовывают детали самостоятельно. Возврат средств за выполненные машинные часы в таких случаях <b>невозможен</b>. Используйте стартовый пакет за $20 для проверки качества перед большим заказом.
+                </p>
+            </div>
+        </div>
+
+        <div style="margin-top: 32px; display: flex; gap: 14px; flex-wrap: wrap;">
+            <a href="crypto.html" class="btn-primary">Перейти к оплате →</a>
+            <a href="services.html" class="btn-secondary">Все услуги и цены</a>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
     <footer>
         <div class="footer-info">
-            <b>Dord Softwer AI Sistems</b>
+            <b>Dord Software AI Systems</b>
             <span>Израиль, Тель-Авив, ул. Игаль Алон 98, Electra Tower</span>
             <span>Автоматизированный AI-продакшен</span>
         </div>
-        <div class="footer-info" style="text-align: right;">
+        <div class="footer-info footer-right">
             <b>Secured Access</b>
             <span>Hardware Firewall Protected</span>
             <span>&copy; 2026 Все права защищены</span>
