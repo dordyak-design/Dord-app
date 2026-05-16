@@ -1,73 +1,892 @@
+/* =====================================================
+   DORD SOFTWARE AI SYSTEMS — ЕДИНЫЙ ДИЗАЙН-ФАЙЛ
+   Все страницы сайта подключают только этот файл.
+   Меняй переменные в :root — меняется весь сайт.
+   ===================================================== */
+
+/* ===================== ПЕРЕМЕННЫЕ ===================== */
 :root {
-    --bg-dark: #080b1a; 
-    --card-bg: #131a33;
+    --bg-dark: #080b1a;
+    --card-bg: #111827;
+    --card-hover-bg: #0f1f3d;
     --accent-blue: #004aad;
-    --accent-glow: rgba(0, 74, 173, 0.2); 
-    --accent-green: #009b72;
-    --text-main: #f8fafc;
-    --text-muted: #94a3b8;
-    --border: rgba(255, 255, 255, 0.05);
+    --accent-glow: rgba(0, 74, 173, 0.25);
+    --accent-green: #00c896;
+    --accent-green-dim: rgba(0, 200, 150, 0.12);
+    --text-main: #f1f5f9;
+    --text-muted: #64748b;
+    --text-soft: #94a3b8;
+    --border: rgba(255, 255, 255, 0.06);
+    --border-green: rgba(0, 200, 150, 0.25);
+    --border-red: rgba(239, 68, 68, 0.2);
+    --radius-sm: 10px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
+/* ===================== СБРОС И BASE ===================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
 
 body {
     background-color: var(--bg-dark);
     color: var(--text-main);
     font-family: 'Inter', sans-serif;
-    line-height: 1.5;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
 }
 
-/* ========================================= */
-/* ПК И НОУТБУКИ                             */
-/* ========================================= */
+/* ===================== ШАПКА ===================== */
 header {
-    padding: 20px 5%;
+    padding: 0 5%;
+    height: 80px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 16px;
     border-bottom: 1px solid var(--border);
-    background: rgba(8, 11, 26, 0.96);
-    backdrop-filter: blur(15px);
+    background: rgba(8, 11, 26, 0.97);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     position: sticky;
     top: 0;
     z-index: 1000;
 }
 
-.header-left { display: flex; align-items: center; gap: 20px; }
-.header-left img { height: 120px; width: auto; }
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-shrink: 0;
+}
 
-.title-wrapper { display: flex; flex-direction: column; line-height: 1.2; font-family: 'Unbounded', sans-serif; text-transform: uppercase; }
-.company-name { font-size: 34px; font-weight: 900; background: linear-gradient(to right, #004aad, #009b72); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-.occupation { font-size: 16px; font-weight: 600; color: var(--text-muted); }
-.ai-light { color: #e2e8f0; -webkit-text-fill-color: #e2e8f0; }
+.header-left img {
+    height: 44px;
+    width: auto;
+}
 
-.agent-monitor { display: flex; align-items: center; gap: 30px; padding: 15px 30px; background: rgba(255,255,255,0.02); border-radius: 16px; border: 1px solid var(--border); }
-.server-icon { height: 50px; width: auto; border-right: 1px solid rgba(255,255,255,0.1); padding-right: 25px; }
-.agent-stat { display: flex; flex-direction: column; font-size: 12px; text-transform: uppercase; color: var(--text-muted); letter-spacing: 1px; }
-.agent-stat span { color: var(--accent-green); font-size: 10px; font-weight: 800; display: flex; align-items: center; gap: 8px; margin-top: 4px; }
-.led { width: 8px; height: 8px; background: var(--accent-green); border-radius: 50%; box-shadow: 0 0 10px var(--accent-green); }
+.title-wrapper {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+    font-family: 'Unbounded', sans-serif;
+    text-transform: uppercase;
+}
 
-nav { display: flex; gap: 16px; }
-.nav-btn { text-decoration: none; color: var(--text-main); font-weight: 700; font-size: 10px; text-transform: uppercase; padding: 10px 24px; border: 1px solid var(--accent-blue); border-radius: 12px; transition: 0.3s; }
-.nav-btn:hover { background: var(--accent-blue); box-shadow: 0 4px 15px var(--accent-glow); transform: translateY(-2px); }
+.company-name {
+    font-size: clamp(14px, 2vw, 22px);
+    font-weight: 900;
+    background: linear-gradient(90deg, #004aad, #00c896);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
 
-.section-title { padding: 80px 5% 30px; font-family: 'Unbounded', sans-serif; text-transform: uppercase; font-size: 26px; color: var(--accent-green); letter-spacing: 2px; }
+.occupation {
+    font-size: clamp(8px, 1.1vw, 11px);
+    font-weight: 600;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+}
 
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; padding: 0 5% 80px; max-width: 1500px; margin: 0 auto; }
+.ai-light {
+    color: #e2e8f0;
+    -webkit-text-fill-color: #e2e8f0;
+}
 
-.card { background-color: var(--card-bg); border-radius: 24px; padding: 45px; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid var(--border); position: relative; overflow: hidden; }
-.card:hover { background: linear-gradient(135deg, var(--accent-blue), #005c43); transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0, 155, 114, 0.25); }
-.card h3 { font-family: 'Unbounded', sans-serif; font-size: 22px; margin-bottom: 20px; text-transform: uppercase; }
-.card p { font-size: 14px; color: var(--text-muted); margin-bottom: 20px; line-height: 1.6; }
+/* Агент-монитор */
+.agent-monitor {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    flex-shrink: 0;
+}
 
-.card ul, .card-list { list-style: none; font-size: 13px; padding: 0; margin: 15px 0 0 0; }
-.card li, .card-list li { padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; }
-.card:hover p, .card:hover li, .card:hover .card-list li { color: #e2e8f0; }
+.server-icon {
+    height: 32px;
+    width: auto;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    padding-right: 16px;
+}
 
-.price, .card-list li b, .price-box .price { font-weight: 800; color: var(--accent-green) !important; }
-.card:hover .price, .card:hover .card-list li b { color: #fff !important; }
+.agent-stat {
+    display: flex;
+    flex-direction: column;
+    font-size: 10px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    letter-spacing: 0.8px;
+    line-height: 1.3;
+}
 
-.guarantee-section { padding: 0 5% 40px; max-width: 1500px; margin: 0 auto; }
-.guarantee-box { display: flex; align-
+.agent-stat span {
+    color: var(--accent-green);
+    font-size: 9px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 3px;
+}
+
+.led {
+    width: 6px;
+    height: 6px;
+    background: var(--accent-green);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--accent-green);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
+/* Навигация */
+nav {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.nav-btn {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 700;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 9px 18px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
+    white-space: nowrap;
+}
+
+.nav-btn:hover {
+    background: var(--accent-blue);
+    border-color: var(--accent-blue);
+    box-shadow: 0 4px 15px var(--accent-glow);
+}
+
+.nav-btn.cta {
+    background: var(--accent-green);
+    border-color: var(--accent-green);
+    color: #000;
+}
+
+.nav-btn.cta:hover {
+    background: #00e6ac;
+    box-shadow: 0 4px 20px rgba(0, 200, 150, 0.4);
+}
+
+/* ===================== ТИПОГРАФИКА СЕКЦИЙ ===================== */
+.section-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent-green);
+    margin-bottom: 14px;
+}
+
+.section-title {
+    font-family: 'Unbounded', sans-serif;
+    font-size: clamp(22px, 3vw, 36px);
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1.2;
+    margin-bottom: 16px;
+}
+
+.section-sub {
+    font-size: 14px;
+    color: var(--text-muted);
+    max-width: 600px;
+    line-height: 1.7;
+    margin-bottom: 48px;
+}
+
+/* ===================== КНОПКИ ===================== */
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent-green);
+    color: #000;
+    font-weight: 800;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 16px 32px;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-primary:hover {
+    background: #00e6ac;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 200, 150, 0.4);
+}
+
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: var(--text-main);
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 16px 32px;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-secondary:hover {
+    border-color: var(--accent-blue);
+    background: rgba(0, 74, 173, 0.1);
+}
+
+/* Кнопка внутри карточки */
+.btn-card {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+    background: var(--accent-green);
+    font-weight: 800;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 15px;
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
+    margin-top: auto;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-card:hover {
+    background: #00e6ac;
+    box-shadow: 0 6px 20px rgba(0, 200, 150, 0.4);
+}
+
+.btn-card.outline {
+    background: transparent;
+    color: var(--text-main);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.btn-card.outline:hover {
+    border-color: var(--accent-green);
+    background: var(--accent-green-dim);
+    color: var(--accent-green);
+    box-shadow: none;
+}
+
+/* ===================== КАРТОЧКИ (универсальные) ===================== */
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 40px 32px;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.card:hover {
+    border-color: var(--border-green);
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+.card h3 {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    letter-spacing: 0.3px;
+}
+
+.card p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Линия-акцент сверху карточки при ховере */
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-blue), var(--accent-green));
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+/* ===================== СЕТКИ ===================== */
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 20px;
+}
+
+/* ===================== СПИСКИ ВНУТРИ КАРТОЧЕК ===================== */
+.card-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.card-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--text-soft);
+}
+
+.card-list li:last-child {
+    border-bottom: none;
+}
+
+.card-list li b,
+.price-accent {
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 800;
+    font-size: 15px;
+    color: var(--accent-green);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+/* ===================== HERO ===================== */
+.hero {
+    padding: 80px 5% 60px;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent-green-dim);
+    border: 1px solid var(--border-green);
+    border-radius: 100px;
+    padding: 6px 16px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent-green);
+    margin-bottom: 28px;
+}
+
+.hero-badge .dot {
+    width: 6px;
+    height: 6px;
+    background: var(--accent-green);
+    border-radius: 50%;
+    animation: pulse 1.5s ease infinite;
+}
+
+.hero h1 {
+    font-family: 'Unbounded', sans-serif;
+    font-size: clamp(28px, 4vw, 52px);
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1.1;
+    margin-bottom: 24px;
+}
+
+.hero h1 .highlight {
+    background: linear-gradient(90deg, #00c896, #004aad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-sub {
+    font-size: clamp(14px, 1.5vw, 17px);
+    color: var(--text-soft);
+    line-height: 1.7;
+    margin-bottom: 36px;
+    max-width: 520px;
+}
+
+.hero-cta-group {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+/* Статы в hero */
+.hero-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.stat-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 28px 24px;
+    transition: var(--transition);
+}
+
+.stat-card:hover {
+    border-color: var(--border-green);
+    transform: translateY(-4px);
+}
+
+.stat-num {
+    font-family: 'Unbounded', sans-serif;
+    font-size: clamp(28px, 3vw, 40px);
+    font-weight: 900;
+    color: var(--accent-green);
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.stat-label {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+/* ===================== HERO СТРАНИЦ (не главная) ===================== */
+.page-hero {
+    padding: 60px 5% 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.page-hero h1 {
+    font-family: 'Unbounded', sans-serif;
+    font-size: clamp(24px, 3.5vw, 42px);
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1.15;
+    margin-bottom: 16px;
+}
+
+.page-hero p {
+    font-size: 15px;
+    color: var(--text-muted);
+    max-width: 640px;
+    line-height: 1.7;
+}
+
+/* ===================== ОСНОВНЫЕ БЛОКИ СТРАНИЦ ===================== */
+.section-wrap {
+    padding: 80px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.section-wrap-alt {
+    background: rgba(255, 255, 255, 0.015);
+    padding: 80px 5%;
+}
+
+.section-wrap-alt .section-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* ===================== ПРАЙС-КАРТОЧКИ ПОДПИСКИ ===================== */
+.pricing-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 40px 32px;
+    transition: var(--transition);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.pricing-card.featured {
+    border-color: var(--accent-green);
+    background: linear-gradient(135deg, #0a1f1a, #0d1f35);
+}
+
+.pricing-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    border-color: var(--accent-green);
+}
+
+.featured-badge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent-green);
+    color: #000;
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 5px 16px;
+    border-radius: 100px;
+    white-space: nowrap;
+}
+
+.pricing-card h3 {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.pricing-card .tagline {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-bottom: 28px;
+    flex-grow: 1;
+}
+
+.price-big {
+    font-family: 'Unbounded', sans-serif;
+    font-size: clamp(36px, 4vw, 48px);
+    font-weight: 900;
+    color: var(--accent-green);
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.price-period {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+}
+
+.price-saving {
+    font-size: 12px;
+    color: var(--accent-green);
+    font-weight: 700;
+    margin-bottom: 28px;
+}
+
+.pricing-features {
+    list-style: none;
+    margin-bottom: 32px;
+}
+
+.pricing-features li {
+    font-size: 13px;
+    color: var(--text-soft);
+    padding: 9px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.pricing-features li::before {
+    content: '✓';
+    color: var(--accent-green);
+    font-weight: 800;
+    flex-shrink: 0;
+}
+
+/* ===================== ШАГИ (как это работает) ===================== */
+.steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0;
+    position: relative;
+}
+
+.steps::before {
+    content: '';
+    position: absolute;
+    top: 36px;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-green), transparent);
+    z-index: 0;
+}
+
+.step {
+    text-align: center;
+    padding: 0 16px;
+    position: relative;
+    z-index: 1;
+}
+
+.step-num {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: var(--card-bg);
+    border: 2px solid var(--accent-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Unbounded', sans-serif;
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--accent-green);
+    margin: 0 auto 20px;
+}
+
+.step h4 {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+}
+
+.step p {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* ===================== DISCLAIMER ===================== */
+.disclaimer-box {
+    background: rgba(239, 68, 68, 0.04);
+    border: 1px solid var(--border-red);
+    border-radius: var(--radius-lg);
+    padding: 32px 36px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.disclaimer-icon {
+    font-size: 28px;
+}
+
+.disclaimer-box h4 {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #f87171;
+    margin-bottom: 10px;
+}
+
+.disclaimer-box p,
+.warning-text {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+/* ===================== ФОРМЫ ===================== */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.styled-select,
+.styled-input {
+    width: 100%;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text-main);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    outline: none;
+    transition: var(--transition);
+}
+
+.styled-select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2300c896%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px top 50%;
+    background-size: 12px auto;
+}
+
+.styled-select:focus,
+.styled-input:focus {
+    border-color: var(--accent-green);
+    box-shadow: 0 0 10px rgba(0, 200, 150, 0.15);
+}
+
+.styled-select option {
+    background: var(--card-bg);
+    color: var(--text-main);
+}
+
+/* ===================== FOOTER ===================== */
+footer {
+    border-top: 1px solid var(--border);
+    padding: 40px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.footer-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.footer-info b {
+    color: var(--text-main);
+    font-size: 13px;
+}
+
+.footer-right {
+    text-align: right;
+}
+
+/* ===================== УТИЛИТЫ ===================== */
+.text-green { color: var(--accent-green); }
+.text-muted { color: var(--text-muted); }
+.text-soft  { color: var(--text-soft); }
+.font-title { font-family: 'Unbounded', sans-serif; text-transform: uppercase; }
+.mt-8  { margin-top: 8px; }
+.mt-16 { margin-top: 16px; }
+.mt-24 { margin-top: 24px; }
+.mt-32 { margin-top: 32px; }
+.mt-48 { margin-top: 48px; }
+
+/* ===================== МОБИЛЬНАЯ АДАПТАЦИЯ ===================== */
+
+/* Планшет — убираем агент-монитор */
+@media (max-width: 1024px) {
+    .agent-monitor { display: none; }
+}
+
+/* Мобильник */
+@media (max-width: 768px) {
+    header {
+        padding: 0 16px;
+        height: 64px;
+    }
+
+    .header-left img { height: 32px; }
+    .company-name { font-size: 14px; }
+    .occupation { font-size: 8px; }
+
+    nav { gap: 6px; }
+    .nav-btn { padding: 7px 10px; font-size: 9px; }
+
+    /* Hero */
+    .hero {
+        grid-template-columns: 1fr;
+        padding: 40px 16px 48px;
+        gap: 36px;
+    }
+
+    .hero-stats {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+
+    .stat-card { padding: 20px 16px; }
+
+    /* Page hero */
+    .page-hero { padding: 40px 16px 32px; }
+
+    /* Секции */
+    .section-wrap { padding: 48px 16px; }
+    .section-wrap-alt { padding: 48px 16px; }
+    .section-title { font-size: 20px; }
+    .section-sub { margin-bottom: 32px; }
+
+    /* Сетки */
+    .grid-3, .grid-2 { grid-template-columns: 1fr; gap: 14px; }
+
+    /* Карточки */
+    .card { padding: 28px 20px; }
+    .pricing-card { padding: 32px 22px; }
+
+    /* Шаги */
+    .steps { grid-template-columns: 1fr; gap: 32px; }
+    .steps::before { display: none; }
+
+    /* Disclaimer */
+    .disclaimer-box {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 24px 20px;
+    }
+
+    /* Footer */
+    footer {
+        padding: 32px 16px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+    .footer-right { text-align: left; }
+}
+
+@media (max-width: 480px) {
+    .hero-cta-group { flex-direction: column; }
+    .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+}
