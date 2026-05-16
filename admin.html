@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <style>
         /* ── Лейаут ── */
-        .admin-wrap { display: grid; grid-template-columns: 220px 1fr; min-height: 100vh; }
+        .admin-wrap { min-height: 100vh; }
 
         /* ── Сайдбар ── */
         .admin-sidebar {
@@ -125,7 +125,6 @@
             .admin-two-col { grid-template-columns:1fr; }
         }
         @media (max-width:768px) {
-            .admin-wrap { grid-template-columns:1fr; }
             .admin-sidebar { display:none; }
             .admin-main { margin-left:0; }
             .admin-content { padding:16px; }
