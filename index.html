@@ -3,118 +3,274 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dord Software AI Systems | Photo Studio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <title>Dord AI Studio — Карточки товаров и фото для бизнеса</title>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Главный контейнер: держит 60% по центру на ПК и 100% на смартфонах -->
-    <div class="app-container">
+    <!-- ===== ШАПКА ===== -->
+    <header>
+        <div class="header-left">
+            <img src="logo.PNG" alt="DORD">
+            <div class="title-wrapper">
+                <span class="company-name">Dord Software</span>
+                <span class="occupation"><span class="ai-light">AI</span> Systems Photo Studio</span>
+            </div>
+        </div>
 
-        <header>
-            <div class="header-left">
-                <img src="logo.PNG" alt="DORD">
-                <div class="title-wrapper">
-                    <span class="company-name">Dord Software</span>
-                    <span class="occupation"><span class="ai-light">AI</span> Systems Photo Studio</span>
+        <div class="agent-monitor">
+            <img src="server_icon.png" alt="Server" class="server-icon">
+            <div class="agent-stat">Agent-1 <span><div class="led"></div> Online 92%</span></div>
+            <div class="agent-stat">Agent-2 <span><div class="led"></div> Online 87%</span></div>
+            <div class="agent-stat">Agent-3 <span><div class="led"></div> Online 95%</span></div>
+        </div>
+
+        <nav>
+            <a href="gallery.html" class="nav-btn">Галерея</a>
+            <a href="motion.html" class="nav-btn">Видео</a>
+            <a href="prompt.html" class="nav-btn">ТЗ</a>
+            <a href="crypto.html" class="nav-btn cta">Заказать</a>
+        </nav>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+        <div class="hero-text">
+            <div class="hero-badge">
+                <span class="dot"></span>
+                Серверы онлайн — 3 агента активны
+            </div>
+            <h1>
+                Карточки товаров<br>
+                за <span class="highlight">секунды,</span><br>
+                не недели
+            </h1>
+            <p class="hero-sub">
+                AI-студия для Shopify-продавцов и малого бизнеса. Профессиональные фото продуктов, аватары брендов и рекламные ролики — без фотографов, без студий, без ожидания.
+            </p>
+            <div class="hero-cta-group">
+                <a href="gallery.html" class="btn-primary">Смотреть примеры →</a>
+                <a href="crypto.html" class="btn-secondary">Цены и оплата</a>
+            </div>
+        </div>
+
+        <div class="hero-stats">
+            <div class="stat-card">
+                <div class="stat-num">500</div>
+                <div class="stat-label">фото товаров<br>от $45</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num">36GB</div>
+                <div class="stat-label">VRAM<br>на борту</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num">24/7</div>
+                <div class="stat-label">Доступ при подписке.<br>Без очередей.</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num">3</div>
+                <div class="stat-label">независимых<br>агента онлайн</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ЦЕННОСТЬ ===== -->
+    <div class="section-wrap-alt">
+        <div class="section-inner">
+            <div class="section-label">Почему Dord AI Studio</div>
+            <h2 class="section-title">Фотосессия стоит $300+. Мы — от $45.</h2>
+
+            <div class="grid-3 mt-48">
+                <div class="card">
+                    <span style="font-size:36px;display:block;margin-bottom:16px;">📦</span>
+                    <h3>Карточки для маркетплейсов</h3>
+                    <p>Продуктовый визуал для Shopify, Amazon, Etsy. Белый фон, студийный свет, lifestyle-окружение — любой стиль по вашему ТЗ.</p>
+                </div>
+                <div class="card">
+                    <span style="font-size:36px;display:block;margin-bottom:16px;">⚡</span>
+                    <h3>Скорость — не дни, а часы</h3>
+                    <p>Обычная студия: неделя переговоров + 2 дня съёмки + 3 дня ретуши. Dord AI: отправляете ТЗ — получаете результат в тот же день.</p>
+                </div>
+                <div class="card">
+                    <span style="font-size:36px;display:block;margin-bottom:16px;">💰</span>
+                    <h3>Экономия до 90%</h3>
+                    <p>500 коммерческих снимков у профессионала — от $1500. У нас — $45. Тот же визуальный уровень, без оверхеда на студию и команду.</p>
+                </div>
+                <div class="card">
+                    <span style="font-size:36px;display:block;margin-bottom:16px;">🎯</span>
+                    <h3>Контроль над результатом</h3>
+                    <p>Описываете объект, фон, свет, эффекты — агент генерирует точно по ТЗ. Получаете то, что задумали, а не то, как понял фотограф.</p>
+                </div>
+                <div class="card">
+                    <span style="font-size:36px;display:block;margin-bottom:16px;">🏙️</span>
+                    <h3>Израильская юрисдикция</h3>
+                    <p>Серверы в Electra Tower, Тель-Авив. Оплата в USDT. Работаем с клиентами по всему миру без ограничений по банкингу.</p>
+                </div>
+                <div class="card">
+                    <span style="font-size:36px;display:block;margin-bottom:16px;">🎬</span>
+                    <h3>Не только фото</h3>
+                    <p>Видеоролики 5–15 секунд для соцсетей, сериальный контент с удержанием персонажей, аватары брендов — всё в одном месте.</p>
                 </div>
             </div>
+        </div>
+    </div>
 
-            <div class="agent-monitor">
-                <img src="server_icon.png" alt="Server" class="server-icon">
-                <div class="agent-stat">Agent-1 <span><div class="led"></div> Online 92%</span></div>
-                <div class="agent-stat">Agent-2 <span><div class="led"></div> Online 87%</span></div>
-                <div class="agent-stat">Agent-3 <span><div class="led"></div> Online 95%</span></div>
+    <!-- ===== ПОДПИСКА ===== -->
+    <section class="section-wrap">
+        <div class="section-label">Доступ к мощностям</div>
+        <h2 class="section-title">Подписка Dord AI Studio</h2>
+        <p class="section-sub">Круглосуточный доступ к выделенным GPU-агентам. Генерируйте без ограничений — столько, сколько нужно вашему бизнесу.</p>
+
+        <div class="grid-3">
+            <div class="pricing-card">
+                <h3>Месячный доступ</h3>
+                <p class="tagline">Идеально для первого запуска или тестирования студии перед долгосрочным сотрудничеством.</p>
+                <div class="price-big">$65</div>
+                <div class="price-period">/ месяц</div>
+                <ul class="pricing-features">
+                    <li>Неограниченная генерация фото</li>
+                    <li>Доступ 24/7 к 3 агентам</li>
+                    <li>Приоритетная очередь</li>
+                    <li>Поддержка по ТЗ</li>
+                </ul>
+                <a href="crypto.html" class="btn-card outline">Начать →</a>
             </div>
 
-            <nav>
-                <a href="gallery.html" class="nav-btn">Галерея</a>
-                <a href="motion.html" class="nav-btn">Видео</a>
-                <a href="crypto.html" class="nav-btn">Оплата</a>
-                <a href="prompt.html" class="nav-btn">ТЗ / Промпт</a>
-            </nav>
-        </header>
+            <div class="pricing-card featured">
+                <div class="featured-badge">🔥 Лучший выбор</div>
+                <h3>Квартальный пакет</h3>
+                <p class="tagline">Для активных продавцов и контент-мейкеров. Стабильный поток визуала без ежемесячного продления.</p>
+                <div class="price-big">$180</div>
+                <div class="price-period">/ 3 месяца</div>
+                <div class="price-saving">Экономия $15 vs месячного</div>
+                <ul class="pricing-features">
+                    <li>Всё из месячного тарифа</li>
+                    <li>Закреплённый агент за брендом</li>
+                    <li>Приоритет генерации видео</li>
+                    <li>История всех промптов</li>
+                </ul>
+                <a href="crypto.html" class="btn-card">Выбрать →</a>
+            </div>
 
-        <main>
-            <!-- СЕКЦИЯ 1: ПОДПИСКА -->
-            <section class="services-section">
-                <h2 class="section-title">Аренда мощностей: Подписка Dord AI Studio</h2>
-                <div class="grid">
-                    <div class="card">
-                        <h3>Месячный доступ</h3>
-                        <p>Полный круглосуточный доступ к выделенным мощностям Агентов для генерации графики без ограничений и задержек.</p>
-                        <div class="price-box">
-                            <span class="price">$65 <span>/ мес</span></span>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <h3>Квартальный пакет</h3>
-                        <p>Стабильный приоритетный доступ для коммерческих студий и контент-мейкеров. Оптимальный выбор для средних проектов.</p>
-                        <div class="price-box">
-                            <span class="price">$180 <span>/ 3 мес</span></span>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <h3>Годовая лицензия</h3>
-                        <p>Максимальная выгода со скидкой 5%. Закрепленные за вашим брендом сервера в Electra Tower на 12 месяцев.</p>
-                        <div class="price-box">
-                            <span class="price">$741 <span>/ год</span></span>
-                        </div>
-                    </div>
+            <div class="pricing-card">
+                <h3>Годовая лицензия</h3>
+                <p class="tagline">Для студий и брендов с высоким потоком контента. Максимальная скидка и ресурсы на весь год.</p>
+                <div class="price-big">$741</div>
+                <div class="price-period">/ год</div>
+                <div class="price-saving">Скидка 5% · Экономия ~$39</div>
+                <ul class="pricing-features">
+                    <li>Всё из квартального</li>
+                    <li>Выделенные серверы в Electra Tower</li>
+                    <li>SLA-гарантия аптайма</li>
+                    <li>Персональный менеджер</li>
+                </ul>
+                <a href="crypto.html" class="btn-card outline">Оформить →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== РАЗОВЫЕ ПАКЕТЫ ===== -->
+    <div class="section-wrap-alt">
+        <div class="section-inner">
+            <div class="section-label">Разовые пакеты</div>
+            <h2 class="section-title">Нужен конкретный объём? Берите пакет.</h2>
+            <p class="section-sub">Без подписки, без обязательств. Купили объём — получили результат. Оплата в USDT, запуск в течение 24 часов.</p>
+
+            <div class="grid-3">
+                <div class="card">
+                    <span style="font-size:40px;display:block;margin-bottom:20px;">🛍️</span>
+                    <h3>Фото товаров (E-Commerce)</h3>
+                    <p>Коммерческий визуал для маркетплейсов и Shopify. Фон, свет, окружение — по вашему ТЗ.</p>
+                    <ul class="card-list">
+                        <li><span>500 генераций</span><b>$45</b></li>
+                        <li><span>1 000 генераций</span><b>$90</b></li>
+                        <li><span>2 000 генераций</span><b>$180</b></li>
+                    </ul>
+                    <a href="crypto.html" class="btn-card mt-24">Заказать →</a>
                 </div>
-            </section>
 
-            <!-- СЕКЦИЯ 2: ПАКЕТЫ ВИЗУАЛА -->
-            <section class="services-section">
-                <h2 class="section-title">Пакетные услуги визуального продакшена</h2>
-                <div class="grid">
-                    <div class="card">
-                        <h3>Фото товаров (E-Commerce)</h3>
-                        <p>Генерация коммерческого контента премиального уровня для маркетплейсов и Amazon.</p>
-                        <ul class="card-list">
-                            <li>500 генераций — <b>$45</b></li>
-                            <li>1000 генераций — <b>$90</b></li>
-                            <li>2000 генераций — <b>$180</b></li>
-                        </ul>
-                    </div>
-                    <div class="card">
-                        <h3>Dord Motion Area</h3>
-                        <p>Создание видео-креативов и динамической рекламы (5–15 сек) с использованием сложных физических пресетов.</p>
-                        <ul class="card-list">
-                            <li>Ролик 5 секунд — <b>$15</b></li>
-                            <li>Ролик 10 секунд — <b>$25</b></li>
-                            <li>Ролик 15 секунд — <b>$35</b></li>
-                        </ul>
-                    </div>
-                    <div class="card">
-                        <h3>Студия Dord AI Сериалы</h3>
-                        <p>Производство сюжетных многосерийных роликов с полным удержанием персонажей и стилистики.</p>
-                        <ul class="card-list">
-                            <li>30 сек / 5 серий — <b>$300</b></li>
-                            <li>30 сек / 10 серий — <b>$600</b></li>
-                            <li>60 сек / 5 серий — <b>$600</b></li>
-                            <li>60 сек / 10 серий — <b>$1200</b></li>
-                        </ul>
-                    </div>
+                <div class="card">
+                    <span style="font-size:40px;display:block;margin-bottom:20px;">🎬</span>
+                    <h3>Dord Motion Area</h3>
+                    <p>Видеокреативы для соцсетей. Динамические пресеты, физические эффекты, Levitation, Light Sweep.</p>
+                    <ul class="card-list">
+                        <li><span>Ролик 5 секунд</span><b>$15</b></li>
+                        <li><span>Ролик 10 секунд</span><b>$25</b></li>
+                        <li><span>Ролик 15 секунд</span><b>$35</b></li>
+                    </ul>
+                    <a href="crypto.html" class="btn-card outline mt-24">Заказать →</a>
                 </div>
-            </section>
-        </main>
 
-        <footer>
-            <div class="footer-info">
-                <b>Dord Software AI Systems</b>
-                <span>Израиль, Тель-Авив, ул. Игаль Алон 98, Electra Tower</span>
-                <span>Автоматизированный AI-продакшен</span>
+                <div class="card">
+                    <span style="font-size:40px;display:block;margin-bottom:20px;">🎭</span>
+                    <h3>Студия Dord AI Сериалы</h3>
+                    <p>Сериальный контент с полным удержанием персонажей и стилистики. Для брендов с историей.</p>
+                    <ul class="card-list">
+                        <li><span>30 сек · 5 серий</span><b>$300</b></li>
+                        <li><span>30 сек · 10 серий</span><b>$600</b></li>
+                        <li><span>60 сек · 5 серий</span><b>$600</b></li>
+                        <li><span>60 сек · 10 серий</span><b>$1 200</b></li>
+                    </ul>
+                    <a href="crypto.html" class="btn-card outline mt-24">Заказать →</a>
+                </div>
             </div>
-            <div class="footer-info footer-right">
-                <b>Secured Access</b>
-                <span>Hardware Firewall Protected</span>
-                <span>&copy; 2026 Все права защищены</span>
-            </div>
-        </footer>
+        </div>
+    </div>
 
-    </div> <!-- Конец app-container -->
+    <!-- ===== КАК РАБОТАЕТ ===== -->
+    <section class="section-wrap">
+        <div class="section-label">Процесс</div>
+        <h2 class="section-title">Как это работает</h2>
+
+        <div class="steps mt-48">
+            <div class="step">
+                <div class="step-num">1</div>
+                <h4>Составляете ТЗ</h4>
+                <p>Описываете объект, фон, освещение и эффекты. Промпт-гайд поможет не ошибиться.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <h4>Оплачиваете в USDT</h4>
+                <p>Выбираете тариф, отправляете USDT на кошелёк. Блокчейн отслеживается автоматически.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <h4>Агенты запускаются</h4>
+                <p>После подтверждения транзакции агенты немедленно начинают генерацию.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">4</div>
+                <h4>Получаете результат</h4>
+                <p>Готовые файлы в вашем разделе. Коммерческое использование включено.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== DISCLAIMER ===== -->
+    <div class="section-wrap" style="padding-top:0;">
+        <div class="disclaimer-box">
+            <span class="disclaimer-icon">⚠️</span>
+            <div>
+                <h4>Важно перед оплатой</h4>
+                <p>Запуск генерации — прямая аренда GPU-часов. Если результат соответствует вашему ТЗ, но не совпадает с личными ожиданиями — возврат невозможен. При размытом описании агенты дополняют детали самостоятельно. Рекомендуем сначала протестировать промпт в <a href="https://claude.ai" target="_blank" class="text-green">Claude AI</a> или <a href="https://chatgpt.com" target="_blank" class="text-green">ChatGPT</a>.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="footer-info">
+            <b>Dord Software AI Systems</b>
+            <span>Израиль, Тель-Авив, ул. Игаль Алон 98, Electra Tower</span>
+            <span>Автоматизированный AI-продакшен</span>
+        </div>
+        <div class="footer-info footer-right">
+            <b>Secured Access</b>
+            <span>Hardware Firewall Protected</span>
+            <span>&copy; 2026 Все права защищены</span>
+        </div>
+    </footer>
 
 </body>
 </html>
