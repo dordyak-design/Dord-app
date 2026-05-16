@@ -11,33 +11,33 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* ЦЕНТРИРУЕМ ВЕСЬ САЙТ НА ПК НА 60% ЧЕРЕЗ BODY */
 body {
     background-color: var(--bg-dark);
     color: var(--text-main);
     font-family: 'Inter', sans-serif;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
+    max-width: 1200px; /* Эквивалент 60% для стандартных мониторов */
+    margin: 0 auto;    /* Центрирует всю страницу на экране */
+    padding: 0 20px;
 }
 
-/* ГЛАВНЫЙ КОНТЕЙНЕР: СТРОГО 60% ПО ЦЕНТРУ НА ПК */
+/* Оболочка больше не зажимает контент */
 .app-container {
-    width: 60%;
-    max-width: 1200px;
-    margin: 0 auto;
-    box-sizing: border-box;
+    width: 100%;
 }
 
 /* ========================================= */
-/* ШАПКА - МАССИВНАЯ И КРУПНАЯ (ДЛЯ ПК)      */
+/* ШАПКА - МАССИВНАЯ И КРУПНАЯ               */
 /* ========================================= */
 header {
-    padding: 20px 0; /* Убрали боковые паддинги, так как контейнер уже 60% */
+    padding: 20px 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid var(--border);
-    background: rgba(8, 11, 26, 0.96);
-    backdrop-filter: blur(15px);
+    background: var(--bg-dark);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -134,14 +134,14 @@ nav { display: flex; gap: 16px; }
 
 
 /* ========================================= */
-/* ОСТАЛЬНОЙ САЙТ (Сетка, Карточки, ТЗ)      */
+/* КОНТЕНТ (Сетка, Карточки, ТЗ)             */
 /* ========================================= */
-.section-title { padding: 60px 0 30px; font-family: 'Unbounded', sans-serif; text-transform: uppercase; font-size: 26px; color: var(--accent-green); letter-spacing: 2px; }
+.section-title { padding: 60px 0 30px; font-family: 'Unbounded', sans-serif; text-transform: uppercase; font-size: 26px; color: var(--accent-green); letter-spacing: 2px; width: 100%; }
 
-/* СЕТКА ГИБКАЯ И СТРОГО ВНУТРИ НАШИХ 60% */
-.grid { display: flex; flex-wrap: wrap; gap: 30px; padding-bottom: 80px; width: 100%; }
+/* Правильная сетка, которая не ломает внутренности страниц */
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding-bottom: 80px; width: 100%; }
 
-.card { flex: 1 1 calc(33.333% - 30px); min-width: 300px; background-color: var(--card-bg); border-radius: 24px; padding: 45px; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid var(--border); position: relative; overflow: hidden; }
+.card { background-color: var(--card-bg); border-radius: 24px; padding: 45px; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid var(--border); position: relative; overflow: hidden; }
 .card:hover {
     background: linear-gradient(135deg, var(--accent-blue), #005c43);
     transform: translateY(-8px);
@@ -150,41 +150,37 @@ nav { display: flex; gap: 16px; }
 .card h3 { font-family: 'Unbounded', sans-serif; font-size: 22px; margin-bottom: 20px; text-transform: uppercase; }
 .card p { font-size: 14px; color: var(--text-muted); margin-bottom: 20px; line-height: 1.6; }
 
-/* СПИСКИ ВНУТРИ КАРТОЧЕК */
+/* Списки */
 .card ul, .card-list { list-style: none; font-size: 13px; padding: 0; margin: 0; color: var(--text-muted); width: 100%; }
 .card li, .card-list li { padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; width: 100%; }
 .card:hover p, .card:hover li, .card:hover .card-list li { color: #e2e8f0; }
 
-/* СТРОГО ЗЕЛЕНЫЙ ЦВЕТ ДЛЯ ВСЕХ ЦЕН НА ПК И МОБИЛКАХ */
+/* Зеленый цвет цен */
 .price, .card-list li b, .price-box .price { font-weight: 800; color: var(--accent-green) !important; }
 .card:hover .price, .card:hover .card-list li b { color: #fff !important; }
 
-/* ПОДВАЛ */
-footer { padding: 60px 0; border-top: 1px solid var(--border); display: flex; justify-content: space-between; background: #060914; width: 100%; }
+/* Подвал */
+footer { padding: 60px 0; border-top: 1px solid var(--border); display: flex; justify-content: space-between; background: #060914; width: 100%; margin-top: auto; }
 .footer-info { display: flex; flex-direction: column; gap: 8px; font-size: 13px; color: var(--text-muted); }
 .footer-info b { color: var(--text-main); text-transform: uppercase; font-size: 14px; letter-spacing: 1px; }
 
 
 /* ========================================= */
-/* МОБИЛЬНАЯ АДАПТАЦИЯ (СТРОГО ДЛЯ ТЕЛЕФОНОВ)*/
+/* АДАПТАЦИЯ ДЛЯ СМАРТФОНОВ                  */
 /* ========================================= */
 @media (max-width: 768px) {
-    /* На мобилке забираем все 100% экрана, чтобы не сжималось в щель */
-    .app-container { width: 100% !important; padding: 10px; }
+    body { max-width: 100%; padding: 0 10px; }
+    .app-container { width: 100%; }
 
     header {
         flex-direction: column; 
         gap: 8px;              
-        padding: 8px;          
+        padding: 10px;          
         background: rgba(255, 255, 255, 0.02); 
         border-radius: 8px;
     }
 
-    .header-left {
-        flex-direction: row !important; 
-        align-items: center;
-        gap: 8px;
-    }
+    .header-left { flex-direction: row !important; align-items: center; gap: 8px; }
     .header-left img { height: 34px; width: auto; }
     .company-name { font-size: 16px !important; }
     .occupation { font-size: 11px !important; }
@@ -195,47 +191,26 @@ footer { padding: 60px 0; border-top: 1px solid var(--border); display: flex; ju
         justify-content: center;
         gap: 10px;
         width: 100%;
-        padding: 4px 0;
+        padding: 6px 0;
+        border-left: none;
+        border-right: none;
         border-top: 1px solid rgba(255, 255, 255, 0.05);
         border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        box-sizing: border-box;
+        border-radius: 0;
     }
     .server-icon { display: none; }
     .agent-stat { font-size: 10px !important; margin: 0; }
     .agent-stat span { font-size: 9px !important; }
     .led { width: 5px !important; height: 5px !important; }
 
-    nav {
-        width: 100%;
-        display: flex;
-        flex-direction: row !important; 
-        justify-content: space-between; 
-        gap: 4px;
-    }
-    nav .nav-btn {
-        flex: 1;
-        padding: 6px 2px !important; 
-        font-size: 10px !important;  
-        text-align: center;
-        border-radius: 4px;
-    }
+    nav { width: 100%; display: flex; flex-direction: row !important; justify-content: space-between; gap: 4px; }
+    nav .nav-btn { flex: 1; padding: 6px 2px !important; font-size: 10px !important; text-align: center; border-radius: 4px; }
 
-    /* Заголовки на мобилках */
-    h1, .main-title { font-size: 22px !important; text-align: center !important; margin-bottom: 15px !important; }
-    h2, .section-title { 
-        font-size: 16px !important; 
-        text-align: center !important; 
-        line-height: 1.3 !important; 
-        margin-top: 20px !important; 
-        margin-bottom: 15px !important; 
-        padding: 20px 0 10px;
-    }
+    h1, .main-title { font-size: 20px !important; text-align: center !important; }
+    h2, .section-title { font-size: 16px !important; text-align: center !important; line-height: 1.3 !important; padding: 30px 0 10px; }
     h3, .card-title { font-size: 14px !important; text-align: center !important; }
 
-    /* Сетка карточек на мобилках (в 1 колонку) */
-    .grid { flex-direction: column; gap: 15px; padding: 0 0 40px; }
-    .card { flex: 1 1 100%; padding: 25px; }
-
-    /* Подвал на мобилках */
-    footer { flex-direction: column; gap: 20px; text-align: center; padding: 40px 0; }
+    .grid { grid-template-columns: 1fr; gap: 15px; padding: 0 0 40px; }
+    .card { padding: 25px; }
+    footer { flex-direction: column; gap: 20px; text-align: center; padding: 30px 0; }
 }
