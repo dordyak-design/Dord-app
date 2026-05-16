@@ -148,3 +148,116 @@ nav { display: flex; gap: 16px; }
 footer { padding: 80px 5%; border-top: 1px solid var(--border); display: flex; justify-content: space-between; background: #060914; }
 .footer-info { display: flex; flex-direction: column; gap: 8px; font-size: 13px; color: var(--text-muted); }
 .footer-info b { color: var(--text-main); text-transform: uppercase; font-size: 14px; letter-spacing: 1px; }
+/* --- АДАПТИВНАЯ СТРУКТУРА И ФИКСАЦИЯ ЦЕНТРА --- */
+
+/* Базовые настройки для центрирования на больших мониторах */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Центрирует внутренний контейнер по горизонтали */
+    min-height: 100vh;
+}
+
+/* Оболочка, которая держит сайт собранным (аналог 60% ширины) */
+.app-container {
+    width: 100%;
+    max-width: 1200px; /* Ограничиваем максимальную ширину контента */
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Сетка карточек: переключаем на flex с авто-переносом */
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+}
+
+/* Карточки подстраиваются под экран: на ПК их 3 в ряд, на мобилке — по одной */
+.card {
+    flex: 1 1 calc(33.333% - 20px);
+    min-width: 290px; /* Если экран узкий, карточка падает на новую строку */
+    box-sizing: border-box;
+}
+
+/* Стили для списков внутри карточек, чтобы убрать инлайн-стили из HTML */
+.card-list {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0 0 0;
+    color: var(--text-muted, #a0a0a5);
+    font-size: 14px;
+}
+.card-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.card-list li:last-child {
+    border-bottom: none;
+}
+
+/* Хедер: делаем адаптивным */
+header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* МЕДИА-ЗАПРОСЫ ДЛЯ ТЕЛЕФОНОВ (экраны меньше 768px) */
+@media (max-width: 768px) {
+    .app-container {
+        padding: 12px; /* Уменьшаем поля на смартфонах */
+    }
+
+    header {
+        flex-direction: column; /* На мобилке элементы шапки встают друг под друга */
+        text-align: center;
+    }
+
+    .header-left {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .agent-monitor {
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    nav {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    nav .nav-btn {
+        flex: 1 1 calc(50% - 10px); /* Кнопки меню встают сеткой 2х2 на мобилке */
+        text-align: center;
+    }
+
+    .section-title {
+        font-size: 20px; /* Чуть уменьшаем заголовки, чтобы не ломали экран */
+        text-align: center;
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .footer-right {
+        text-align: center !important;
+    }
+}
