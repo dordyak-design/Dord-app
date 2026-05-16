@@ -212,52 +212,84 @@ header {
 }
 
 /* МЕДИА-ЗАПРОСЫ ДЛЯ ТЕЛЕФОНОВ (экраны меньше 768px) */
+/* МЕДИА-ЗАПРОСЫ ДЛЯ ТЕЛЕФОНОВ (экраны меньше 768px) */
 @media (max-width: 768px) {
     .app-container {
-        padding: 12px; /* Уменьшаем поля на смартфонах */
+        padding: 10px; /* Минимальные отступы по бокам */
     }
 
     header {
-        flex-direction: column; /* На мобилке элементы шапки встают друг под друга */
-        text-align: center;
+        flex-direction: column; 
+        gap: 8px;              /* Минимальный зазор между блоками */
+        padding: 8px;          /* Зажимаем внутренние отступы шапки */
+        background: rgba(255, 255, 255, 0.02); /* Легкая плашка */
+        border-radius: 8px;
     }
 
+    /* 1. Логотип и Название (Уменьшаем жестко) */
     .header-left {
-        flex-direction: column;
+        flex-direction: row !important; /* В одну строку, а не друг под друга */
         align-items: center;
+        gap: 8px;
+    }
+    .header-left img {
+        height: 24px; /* Крошечный логотип вместо огромного */
+        width: auto;
+    }
+    .company-name {
+        font-size: 14px !important; /* Мелкий аккуратный шрифт */
+    }
+    .occupation {
+        font-size: 10px !important; /* Суб-текст делаем совсем незаметным */
     }
 
+    /* 2. Монитор Агентов (Сжимаем в одну строчку на 70%) */
     .agent-monitor {
+        display: flex;
+        flex-direction: row !important; /* Выстраиваем Агентов горизонтально в ряд! */
         justify-content: center;
-        flex-wrap: wrap;
+        gap: 10px;
         width: 100%;
+        padding: 4px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .server-icon {
+        display: none; /* Убираем иконку сервера на мобилке, чтобы не жрала место */
+    }
+    .agent-stat {
+        font-size: 10px !important; /* Уменьшаем текст Агентов до минимума */
+        margin: 0;
+    }
+    .agent-stat span {
+        font-size: 9px !important;
+    }
+    .led {
+        width: 5px !important; /* Маленькие диоды */
+        height: 5px !important;
     }
 
+    /* 3. Навигация (Кнопки в один компактный ряд) */
     nav {
         width: 100%;
         display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 10px;
+        flex-direction: row !important; /* Строго в один ряд */
+        justify-content: space-between; /* Растягиваем равномерно */
+        gap: 4px;
     }
-
     nav .nav-btn {
-        flex: 1 1 calc(50% - 10px); /* Кнопки меню встают сеткой 2х2 на мобилке */
+        flex: 1;
+        padding: 6px 2px !important; /* Тонкие аккуратные кнопки */
+        font-size: 11px !important;   /* Мелкий текст */
         text-align: center;
+        border-radius: 4px;
     }
 
+    /* Уменьшаем заголовки секций на мобилке */
     .section-title {
-        font-size: 20px; /* Чуть уменьшаем заголовки, чтобы не ломали экран */
+        font-size: 16px !important; 
+        margin-top: 20px;
+        margin-bottom: 15px;
         text-align: center;
-    }
-
-    footer {
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
-    }
-
-    .footer-right {
-        text-align: center !important;
     }
 }
