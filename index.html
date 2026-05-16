@@ -3,11 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dord AI Studio — Карточки товаров и фото для бизнеса</title>
+    <title>Dord AI Studio — AI-фотостудия для бизнеса и Shopify</title>
+    <meta name="description" content="Профессиональные карточки товаров, фото продуктов и видеореклама с помощью ИИ. Для Shopify-продавцов и малого бизнеса. От $20.">
     <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<!-- ===================== SVG СПРАЙТ — ИКОНКИ ===================== -->
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+     style="position:absolute;width:0;height:0;overflow:hidden;">
+  <defs>
+    <linearGradient id="dg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#004aad"/>
+      <stop offset="100%" stop-color="#00c896"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Молния / скорость -->
+  <symbol id="ic-bolt" viewBox="0 0 24 24">
+    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"
+             fill="url(#dg)"/>
+  </symbol>
+
+  <!-- Прицел / точность -->
+  <symbol id="ic-target" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="10" fill="none" stroke="url(#dg)" stroke-width="1.5"/>
+    <circle cx="12" cy="12" r="6"  fill="none" stroke="url(#dg)" stroke-width="1.5"/>
+    <circle cx="12" cy="12" r="2"  fill="url(#dg)"/>
+  </symbol>
+
+  <!-- Рост / график -->
+  <symbol id="ic-trending" viewBox="0 0 24 24">
+    <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"
+              fill="none" stroke="url(#dg)" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round"/>
+    <polyline points="16 7 22 7 22 13"
+              fill="none" stroke="url(#dg)" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+
+  <!-- Глобус / весь мир -->
+  <symbol id="ic-globe" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="10" fill="none" stroke="url(#dg)" stroke-width="1.5"/>
+    <line x1="2" y1="12" x2="22" y2="12" stroke="url(#dg)" stroke-width="1.5"/>
+    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10
+             15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+          fill="none" stroke="url(#dg)" stroke-width="1.5"/>
+  </symbol>
+
+  <!-- Сумка / e-commerce -->
+  <symbol id="ic-bag" viewBox="0 0 24 24">
+    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"
+          fill="none" stroke="url(#dg)" stroke-width="1.5" stroke-linejoin="round"/>
+    <line x1="3" y1="6" x2="21" y2="6" stroke="url(#dg)" stroke-width="1.5"/>
+    <path d="M16 10a4 4 0 0 1-8 0"
+          fill="none" stroke="url(#dg)" stroke-width="1.5" stroke-linecap="round"/>
+  </symbol>
+
+  <!-- Камера / видео -->
+  <symbol id="ic-film" viewBox="0 0 24 24">
+    <polygon points="23 7 16 12 23 17 23 7" fill="url(#dg)"/>
+    <rect x="1" y="5" width="15" height="14" rx="2"
+          fill="none" stroke="url(#dg)" stroke-width="1.5"/>
+  </symbol>
+
+  <!-- Монитор / сериалы -->
+  <symbol id="ic-tv" viewBox="0 0 24 24">
+    <rect x="2" y="3" width="20" height="14" rx="2"
+          fill="none" stroke="url(#dg)" stroke-width="1.5"/>
+    <line x1="8"  y1="21" x2="16" y2="21" stroke="url(#dg)" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="12" y1="17" x2="12" y2="21" stroke="url(#dg)" stroke-width="1.5" stroke-linecap="round"/>
+    <!-- Полосы на экране -->
+    <line x1="6"  y1="8"  x2="18" y2="8"  stroke="url(#dg)" stroke-width="1" stroke-linecap="round" opacity=".5"/>
+    <line x1="6"  y1="11" x2="14" y2="11" stroke="url(#dg)" stroke-width="1" stroke-linecap="round" opacity=".5"/>
+  </symbol>
+
+  <!-- Шестерня / подписка -->
+  <symbol id="ic-gear" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="3" fill="none" stroke="url(#dg)" stroke-width="1.5"/>
+    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06
+             a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09
+             A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83
+             l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09
+             A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83
+             l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09
+             a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83
+             l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09
+             a1.65 1.65 0 0 0-1.51 1z"
+          fill="none" stroke="url(#dg)" stroke-width="1.5"/>
+  </symbol>
+
+  <!-- Робот / аватар -->
+  <symbol id="ic-bot" viewBox="0 0 24 24">
+    <rect x="3" y="8" width="18" height="13" rx="2"
+          fill="none" stroke="url(#dg)" stroke-width="1.5"/>
+    <line x1="12" y1="3" x2="12" y2="8"
+          stroke="url(#dg)" stroke-width="1.5" stroke-linecap="round"/>
+    <circle cx="12" cy="2.5" r="1.2" fill="url(#dg)"/>
+    <circle cx="9"  cy="14" r="1.5" fill="url(#dg)"/>
+    <circle cx="15" cy="14" r="1.5" fill="url(#dg)"/>
+    <path d="M9 18h6" stroke="url(#dg)" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="3"  y1="14" x2="1"  y2="14" stroke="url(#dg)" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="21" y1="14" x2="23" y2="14" stroke="url(#dg)" stroke-width="1.5" stroke-linecap="round"/>
+  </symbol>
+
+  <!-- Ракета / старт -->
+  <symbol id="ic-rocket" viewBox="0 0 24 24">
+    <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2
+             c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"
+          fill="url(#dg)"/>
+    <path d="M12 15l-3-3a22 22 0 0 1 2-3.95
+             A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11
+             a22.35 22.35 0 0 1-4 2z"
+          fill="none" stroke="url(#dg)" stroke-width="1.5" stroke-linejoin="round"/>
+    <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"   fill="url(#dg)"/>
+    <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"  fill="url(#dg)"/>
+  </symbol>
+
+  <!-- Коробка / пакет -->
+  <symbol id="ic-box" viewBox="0 0 24 24">
+    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0
+             l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4
+             a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+          fill="none" stroke="url(#dg)" stroke-width="1.5" stroke-linejoin="round"/>
+    <polyline points="3.27 6.96 12 12.01 20.73 6.96"
+              fill="none" stroke="url(#dg)" stroke-width="1.5" stroke-linejoin="round"/>
+    <line x1="12" y1="22.08" x2="12" y2="12"
+          stroke="url(#dg)" stroke-width="1.5" stroke-linecap="round"/>
+  </symbol>
+
+</svg>
+<!-- ===================== КОНЕЦ СПРАЙТА ===================== -->
 
     <!-- ===== ШАПКА ===== -->
     <header>
@@ -27,8 +154,7 @@
         </div>
 
         <nav>
-            <a href="gallery.html" class="nav-btn">Галерея</a>
-            <a href="motion.html" class="nav-btn">Видео</a>
+            <a href="services.html" class="nav-btn">Услуги</a>
             <a href="prompt.html" class="nav-btn">ТЗ</a>
             <a href="crypto.html" class="nav-btn cta">Заказать</a>
         </nav>
@@ -42,208 +168,171 @@
                 Серверы онлайн — 3 агента активны
             </div>
             <h1>
-                Карточки товаров<br>
-                за <span class="highlight">секунды,</span><br>
+                Визуал для вашего<br>
+                бизнеса — за <span class="highlight">часы,</span><br>
                 не недели
             </h1>
             <p class="hero-sub">
-                AI-студия для Shopify-продавцов и малого бизнеса. Профессиональные фото продуктов, аватары брендов и рекламные ролики — без фотографов, без студий, без ожидания.
+                AI-студия для Shopify-продавцов и малого бизнеса. Карточки товаров, рекламные ролики и бренд-аватары — без фотографов, без студий, без ожидания. Оплата в USDT, запуск в течение 24 часов.
             </p>
             <div class="hero-cta-group">
-                <a href="gallery.html" class="btn-primary">Смотреть примеры →</a>
-                <a href="crypto.html" class="btn-secondary">Цены и оплата</a>
+                <a href="services.html" class="btn-primary">Все услуги и цены →</a>
+                <a href="prompt.html" class="btn-secondary">Как сделать заказ</a>
             </div>
         </div>
 
         <div class="hero-stats">
             <div class="stat-card">
-                <div class="stat-num">500</div>
-                <div class="stat-label">фото товаров<br>от $45</div>
+                <div class="stat-num">от $20</div>
+                <div class="stat-label">стартовый пакет<br>для тестирования</div>
             </div>
             <div class="stat-card">
-                <div class="stat-num">48GB</div>
-                <div class="stat-label">VRAM<br>на борту</div>
+                <div class="stat-num">36GB</div>
+                <div class="stat-label">VRAM на борту.<br>RTX 3080Ti + 3060.</div>
             </div>
             <div class="stat-card">
                 <div class="stat-num">24/7</div>
-                <div class="stat-label">Доступ при подписке.<br>Без очередей.</div>
+                <div class="stat-label">Работаем без<br>выходных и очередей.</div>
             </div>
             <div class="stat-card">
-                <div class="stat-num">3</div>
-                <div class="stat-label">независимых<br>агента онлайн</div>
+                <div class="stat-num">−90%</div>
+                <div class="stat-label">к стоимости vs.<br>традиционной съёмки</div>
             </div>
         </div>
     </section>
 
-    <!-- ===== ЦЕННОСТЬ ===== -->
+    <!-- ===== ПОЧЕМУ МЫ ===== -->
     <div class="section-wrap-alt">
         <div class="section-inner">
             <div class="section-label">Почему Dord AI Studio</div>
-            <h2 class="section-title">Фотосессия стоит $300+. Мы — от $45.</h2>
+            <h2 class="section-title">Фотосессия стоит $300+. Мы — от $20.</h2>
+            <p class="section-sub">Профессиональный студийный визуал без студии, фотографа и недельного ожидания. Просто опишите задачу — агент сделает остальное.</p>
 
-            <div class="grid-3 mt-48">
-                <div class="card">
-                    <span style="font-size:36px;display:block;margin-bottom:16px;">📦</span>
-                    <h3>Карточки для маркетплейсов</h3>
-                    <p>Продуктовый визуал для Shopify, Amazon, Etsy. Белый фон, студийный свет, lifestyle-окружение — любой стиль по вашему ТЗ.</p>
+            <div class="teaser-grid">
+                <div class="teaser-card">
+                    <svg class="teaser-icon" aria-hidden="true"><use href="#ic-bolt"/></svg>
+                    <h3>Скорость</h3>
+                    <p>Обычная студия: неделя переговоров, 2 дня съёмки, 3 дня ретуши. Dord AI: ТЗ сегодня — результат завтра.</p>
                 </div>
-                <div class="card">
-                    <span style="font-size:36px;display:block;margin-bottom:16px;">⚡</span>
-                    <h3>Скорость — не дни, а часы</h3>
-                    <p>Обычная студия: неделя переговоров + 2 дня съёмки + 3 дня ретуши. Dord AI: отправляете ТЗ — получаете результат в тот же день.</p>
+                <div class="teaser-card">
+                    <svg class="teaser-icon" aria-hidden="true"><use href="#ic-target"/></svg>
+                    <h3>Контроль</h3>
+                    <p>Вы описываете объект, фон, свет и эффекты. Агент генерирует точно по ТЗ — без творческой самодеятельности.</p>
                 </div>
-                <div class="card">
-                    <span style="font-size:36px;display:block;margin-bottom:16px;">💰</span>
-                    <h3>Экономия до 90%</h3>
-                    <p>500 коммерческих снимков у профессионала — от $1500. У нас — $45. Тот же визуальный уровень, без оверхеда на студию и команду.</p>
+                <div class="teaser-card">
+                    <svg class="teaser-icon" aria-hidden="true"><use href="#ic-trending"/></svg>
+                    <h3>Масштаб</h3>
+                    <p>500 карточек товаров за $75. Фотограф за те же деньги сделает 1–3 снимка. Разница в 150–500 раз.</p>
                 </div>
-                <div class="card">
-                    <span style="font-size:36px;display:block;margin-bottom:16px;">🎯</span>
-                    <h3>Контроль над результатом</h3>
-                    <p>Описываете объект, фон, свет, эффекты — агент генерирует точно по ТЗ. Получаете то, что задумали, а не то, как понял фотограф.</p>
-                </div>
-                <div class="card">
-                    <span style="font-size:36px;display:block;margin-bottom:16px;">🏙️</span>
-                    <h3>Израильская юрисдикция</h3>
-                    <p>Серверы в Electra Tower, Тель-Авив. Оплата в USDT. Работаем с клиентами по всему миру без ограничений по банкингу.</p>
-                </div>
-                <div class="card">
-                    <span style="font-size:36px;display:block;margin-bottom:16px;">🎬</span>
-                    <h3>Не только фото</h3>
-                    <p>Видеоролики 5–15 секунд для соцсетей, сериальный контент с удержанием персонажей, аватары брендов — всё в одном месте.</p>
+                <div class="teaser-card">
+                    <svg class="teaser-icon" aria-hidden="true"><use href="#ic-globe"/></svg>
+                    <h3>Без границ</h3>
+                    <p>Серверы в Тель-Авиве, оплата в USDT. Работаем с клиентами по всему миру без банковских ограничений.</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- ===== ПОДПИСКА ===== -->
+    <!-- ===== ТИЗЕРЫ УСЛУГ ===== -->
     <section class="section-wrap">
-        <div class="section-label">Доступ к мощностям</div>
-        <h2 class="section-title">Подписка Dord AI Studio</h2>
-        <p class="section-sub">Круглосуточный доступ к выделенным GPU-агентам. Генерируйте без ограничений — столько, сколько нужно вашему бизнесу.</p>
+        <div class="section-label">Что мы делаем</div>
+        <h2 class="section-title">Услуги студии</h2>
+        <p class="section-sub">Четыре направления для роста вашего бизнеса. Кликните на любое, чтобы увидеть полное описание, примеры и цены.</p>
 
-        <div class="grid-3">
-            <div class="pricing-card">
-                <h3>Месячный доступ</h3>
-                <p class="tagline">Идеально для первого запуска или тестирования студии перед долгосрочным сотрудничеством.</p>
-                <div class="price-big">$65</div>
-                <div class="price-period">/ месяц</div>
-                <ul class="pricing-features">
-                    <li>Неограниченная генерация фото</li>
-                    <li>Доступ 24/7 к 3 агентам</li>
-                    <li>Приоритетная очередь</li>
-                    <li>Поддержка по ТЗ</li>
-                </ul>
-                <a href="crypto.html" class="btn-card outline">Начать →</a>
+        <div class="teaser-grid">
+
+            <div class="teaser-card">
+                <svg class="teaser-icon" aria-hidden="true"><use href="#ic-bag"/></svg>
+                <h3>Фото товаров E-Commerce</h3>
+                <p>Карточки продуктов для Shopify, Amazon, Etsy. Студийный фон, lifestyle-окружение, белый фон — любой стиль по вашему ТЗ.</p>
+                <div class="teaser-price">от $75 за 500 изображений</div>
+                <a href="services.html#photo" class="btn-teaser">Подробнее и цены →</a>
             </div>
 
-            <div class="pricing-card featured">
-                <div class="featured-badge">🔥 Лучший выбор</div>
-                <h3>Квартальный пакет</h3>
-                <p class="tagline">Для активных продавцов и контент-мейкеров. Стабильный поток визуала без ежемесячного продления.</p>
-                <div class="price-big">$180</div>
-                <div class="price-period">/ 3 месяца</div>
-                <div class="price-saving">Экономия $15 vs месячного</div>
-                <ul class="pricing-features">
-                    <li>Всё из месячного тарифа</li>
-                    <li>Закреплённый агент за брендом</li>
-                    <li>Приоритет генерации видео</li>
-                    <li>История всех промптов</li>
-                </ul>
-                <a href="crypto.html" class="btn-card">Выбрать →</a>
+            <div class="teaser-card">
+                <svg class="teaser-icon" aria-hidden="true"><use href="#ic-film"/></svg>
+                <h3>Dord Motion — Видеореклама</h3>
+                <p>Короткие динамические ролики 5–15 секунд для Instagram, TikTok и рекламных кампаний. Levitation, Light Sweep, particle-эффекты.</p>
+                <div class="teaser-price">от $15 за ролик</div>
+                <a href="services.html#video" class="btn-teaser">Подробнее и цены →</a>
             </div>
 
-            <div class="pricing-card">
-                <h3>Годовая лицензия</h3>
-                <p class="tagline">Для студий и брендов с высоким потоком контента. Максимальная скидка и ресурсы на весь год.</p>
-                <div class="price-big">$741</div>
-                <div class="price-period">/ год</div>
-                <div class="price-saving">Скидка 5% · Экономия ~$39</div>
-                <ul class="pricing-features">
-                    <li>Всё из квартального</li>
-                    <li>Выделенные серверы в Electra Tower</li>
-                    <li>SLA-гарантия аптайма</li>
-                    <li>Персональный менеджер</li>
-                </ul>
-                <a href="crypto.html" class="btn-card outline">Оформить →</a>
+            <div class="teaser-card">
+                <svg class="teaser-icon" aria-hidden="true"><use href="#ic-tv"/></svg>
+                <h3>AI Сериалы — Бренд-контент</h3>
+                <p>Многосерийный видеоконтент с полным удержанием персонажей и стилистики. Для брендов, которые рассказывают историю через видео.</p>
+                <div class="teaser-price">от $300 за серию</div>
+                <a href="services.html#serials" class="btn-teaser">Подробнее и цены →</a>
             </div>
+
+            <div class="teaser-card">
+                <svg class="teaser-icon" aria-hidden="true"><use href="#ic-gear"/></svg>
+                <h3>Подписка — Доступ к агентам</h3>
+                <p>Круглосуточный доступ к выделенным GPU-мощностям для неограниченной генерации. Оптимально для активных продавцов и агентств.</p>
+                <div class="teaser-price">от $49 в месяц</div>
+                <a href="services.html#subscription" class="btn-teaser">Подробнее и цены →</a>
+            </div>
+
+            <div class="teaser-card">
+                <svg class="teaser-icon" aria-hidden="true"><use href="#ic-bot"/></svg>
+                <h3>AI-аватары и маскоты бренда</h3>
+                <p>Уникальный визуальный персонаж вашего бренда: маскот, AI-модель для каталога, цифровой ambassador.</p>
+                <div class="teaser-price">от $99 за персонажа</div>
+                <a href="services.html#avatar" class="btn-teaser">Подробнее и цены →</a>
+            </div>
+
+            <div class="teaser-card">
+                <svg class="teaser-icon" aria-hidden="true"><use href="#ic-rocket"/></svg>
+                <h3>Стартовый пакет</h3>
+                <p>Не уверены? Попробуйте без риска. 100 генераций фото или 1 видеоролик — убедитесь в качестве перед основным заказом.</p>
+                <div class="teaser-price">$20 — без обязательств</div>
+                <a href="services.html#starter" class="btn-teaser">Начать с малого →</a>
+            </div>
+
         </div>
     </section>
 
-    <!-- ===== РАЗОВЫЕ ПАКЕТЫ ===== -->
+    <!-- ===== КАК РАБОТАЕТ ===== -->
     <div class="section-wrap-alt">
         <div class="section-inner">
-            <div class="section-label">Разовые пакеты</div>
-            <h2 class="section-title">Нужен конкретный объём? Берите пакет.</h2>
-            <p class="section-sub">Без подписки, без обязательств. Купили объём — получили результат. Оплата в USDT, запуск в течение 24 часов.</p>
+            <div class="section-label">Процесс</div>
+            <h2 class="section-title">Четыре шага от идеи до результата</h2>
 
-            <div class="grid-3">
-                <div class="card">
-                    <span style="font-size:40px;display:block;margin-bottom:20px;">🛍️</span>
-                    <h3>Фото товаров (E-Commerce)</h3>
-                    <p>Коммерческий визуал для маркетплейсов и Shopify. Фон, свет, окружение — по вашему ТЗ.</p>
-                    <ul class="card-list">
-                        <li><span>500 генераций</span><b>$50</b></li>
-                        <li><span>1 000 генераций</span><b>$100</b></li>
-                        <li><span>2 000 генераций</span><b>$200</b></li>
-                    </ul>
-                    <a href="crypto.html" class="btn-card mt-24">Заказать →</a>
+            <div class="steps mt-48">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <h4>Составьте ТЗ</h4>
+                    <p>Объект, фон, свет, эффекты. Промпт-гайд поможет описать задачу правильно — даже если вы делаете это впервые.</p>
                 </div>
-
-                <div class="card">
-                    <span style="font-size:40px;display:block;margin-bottom:20px;">🎬</span>
-                    <h3>Dord Motion Area</h3>
-                    <p>Видеокреативы для соцсетей. Динамические пресеты, физические эффекты, Levitation, Light Sweep.</p>
-                    <ul class="card-list">
-                        <li><span>Ролик 5 секунд</span><b>$15</b></li>
-                        <li><span>Ролик 10 секунд</span><b>$25</b></li>
-                        <li><span>Ролик 15 секунд</span><b>$35</b></li>
-                    </ul>
-                    <a href="crypto.html" class="btn-card outline mt-24">Заказать →</a>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <h4>Выберите пакет</h4>
+                    <p>Стартовый тест за $20, разовый пакет или подписка. Выбирайте под объём задачи — без лишних обязательств.</p>
                 </div>
-
-                <div class="card">
-                    <span style="font-size:40px;display:block;margin-bottom:20px;">🎭</span>
-                    <h3>Студия Dord AI Сериалы</h3>
-                    <p>Сериальный контент с полным удержанием персонажей и стилистики. Для брендов с историей.</p>
-                    <ul class="card-list">
-                        <li><span>30 сек · 5 серий</span><b>$300</b></li>
-                        <li><span>30 сек · 10 серий</span><b>$600</b></li>
-                        <li><span>60 сек · 5 серий</span><b>$600</b></li>
-                        <li><span>60 сек · 10 серий</span><b>$1 200</b></li>
-                    </ul>
-                    <a href="crypto.html" class="btn-card outline mt-24">Заказать →</a>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <h4>Оплатите в USDT</h4>
+                    <p>TON или BNB Smart Chain. Система автоматически отслеживает транзакцию в блокчейне и запускает агентов.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">4</div>
+                    <h4>Получите результат</h4>
+                    <p>Готовые файлы в вашем разделе. Коммерческое использование включено — публикуйте сразу.</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- ===== КАК РАБОТАЕТ ===== -->
-    <section class="section-wrap">
-        <div class="section-label">Процесс</div>
-        <h2 class="section-title">Как это работает</h2>
-
-        <div class="steps mt-48">
-            <div class="step">
-                <div class="step-num">1</div>
-                <h4>Составляете ТЗ</h4>
-                <p>Описываете объект, фон, освещение и эффекты. Промпт-гайд поможет не ошибиться.</p>
-            </div>
-            <div class="step">
-                <div class="step-num">2</div>
-                <h4>Оплачиваете в USDT</h4>
-                <p>Выбираете тариф, отправляете USDT на кошелёк. Блокчейн отслеживается автоматически.</p>
-            </div>
-            <div class="step">
-                <div class="step-num">3</div>
-                <h4>Агенты запускаются</h4>
-                <p>После подтверждения транзакции агенты немедленно начинают генерацию.</p>
-            </div>
-            <div class="step">
-                <div class="step-num">4</div>
-                <h4>Получаете результат</h4>
-                <p>Готовые файлы в вашем разделе. Коммерческое использование включено.</p>
-            </div>
+    <!-- ===== CTA ===== -->
+    <section class="section-wrap" style="text-align:center;">
+        <div class="section-label" style="justify-content:center;display:flex;">Готовы начать?</div>
+        <h2 class="section-title" style="margin:0 auto 20px;max-width:600px;">Первые 100 генераций — всего $20</h2>
+        <p style="color:var(--text-muted);font-size:15px;margin-bottom:36px;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.7;">
+            Попробуйте без риска. Убедитесь в качестве и только потом решайте про большой заказ.
+        </p>
+        <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+            <a href="crypto.html" class="btn-primary">Заказать стартовый пакет →</a>
+            <a href="services.html" class="btn-secondary">Смотреть все услуги</a>
         </div>
     </section>
 
@@ -253,7 +342,7 @@
             <span class="disclaimer-icon">⚠️</span>
             <div>
                 <h4>Важно перед оплатой</h4>
-                <p>Запуск генерации — прямая аренда GPU-часов. Если результат соответствует вашему ТЗ, но не совпадает с личными ожиданиями — возврат невозможен. При размытом описании агенты дополняют детали самостоятельно. Рекомендуем сначала протестировать промпт в <a href="https://claude.ai" target="_blank" class="text-green">Claude AI</a> или <a href="https://chatgpt.com" target="_blank" class="text-green">ChatGPT</a>.</p>
+                <p>Запуск генерации — прямая аренда GPU-часов. Если результат точно соответствует вашему ТЗ, но не совпадает с личными ожиданиями — возврат невозможен. Рекомендуем сначала протестировать промпт в <a href="https://claude.ai" target="_blank" class="text-green">Claude AI</a> или <a href="https://chatgpt.com" target="_blank" class="text-green">ChatGPT</a>. <a href="prompt.html" class="text-green">Читать гайд →</a></p>
             </div>
         </div>
     </div>
