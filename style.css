@@ -15,139 +15,191 @@ body {
     background-color: var(--bg-dark);
     color: var(--text-main);
     font-family: 'Inter', sans-serif;
-    line-height: 1.6;
+    line-height: 1.5;
     -webkit-font-smoothing: antialiased;
-    overflow-x: hidden; /* Жестко запрещаем горизонтальную прокрутку и вылеты текста */
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-/* --- УНИВЕРСАЛЬНЫЙ КОНТЕЙНЕР ДЛЯ ВСЕХ СТРАНИЦ --- */
-/* Этот блок выравнивает любой контент ровно по центру и не дает ему слипнуться или разлететься */
-.app-container, header, main, section, footer {
-    width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding-left: 20px;
-    padding-right: 20px;
 }
 
 /* ========================================= */
-/* ШАПКА - СТРОГО ЕДИНАЯ ДЛЯ ВСЕХ СТРАНИЦ    */
+/* ТВОЙ ОРИГИНАЛЬНЫЙ КОД ДЛЯ ПК (БЕЗ ИЗМЕНЕНИЙ) */
 /* ========================================= */
 header {
+    padding: 20px 5%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: 20px;
-    padding-bottom: 20px;
     border-bottom: 1px solid var(--border);
-    background: var(--bg-dark);
+    background: rgba(8, 11, 26, 0.96);
+    backdrop-filter: blur(15px);
     position: sticky;
     top: 0;
     z-index: 1000;
 }
 
-.header-left { display: flex; align-items: center; gap: 20px; }
-.header-left img { height: 80px; width: auto; } /* Оптимальный размер лого, чтобы не рвать шапку */
+.header-left { 
+    display: flex; 
+    align-items: center; 
+    gap: 20px; 
+}
 
-.title-wrapper { display: flex; flex-direction: column; line-height: 1.2; font-family: 'Unbounded', sans-serif; text-transform: uppercase; }
-.company-name { font-size: 28px; font-weight: 900; background: linear-gradient(to right, #004aad, #009b72); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-.occupation { font-size: 14px; font-weight: 600; color: var(--text-muted); }
+.header-left img { 
+    height: 120px; 
+    width: auto; 
+}
+
+.title-wrapper {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+    font-family: 'Unbounded', sans-serif;
+    text-transform: uppercase;
+}
+
+.company-name {
+    font-size: 34px; 
+    font-weight: 900;
+    background: linear-gradient(to right, #004aad, #009b72);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.occupation {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
 .ai-light { color: #e2e8f0; -webkit-text-fill-color: #e2e8f0; }
 
-/* БЛОК АГЕНТОВ */
-.agent-monitor { display: flex; align-items: center; gap: 20px; padding: 10px 20px; background: rgba(255,255,255,0.02); border-radius: 12px; border: 1px solid var(--border); }
-.server-icon { height: 40px; width: auto; border-right: 1px solid rgba(255,255,255,0.1); padding-right: 15px; }
-.agent-stat { display: flex; flex-direction: column; font-size: 11px; text-transform: uppercase; color: var(--text-muted); letter-spacing: 1px; }
-.agent-stat span { color: var(--accent-green); font-size: 10px; font-weight: 800; display: flex; align-items: center; gap: 6px; margin-top: 4px; }
+.agent-monitor {
+    display: flex;
+    align-items: center;
+    gap: 30px; 
+    padding: 15px 30px; 
+    background: rgba(255,255,255,0.02);
+    border-radius: 16px;
+    border: 1px solid var(--border);
+}
+
+.server-icon { 
+    height: 50px; 
+    width: auto; 
+    border-right: 1px solid rgba(255,255,255,0.1); 
+    padding-right: 25px; 
+}
+
+.agent-stat { 
+    display: flex; 
+    flex-direction: column; 
+    font-size: 12px; 
+    text-transform: uppercase; 
+    color: var(--text-muted); 
+    letter-spacing: 1px; 
+}
+
+.agent-stat span { 
+    color: var(--accent-green); 
+    font-size: 10px; 
+    font-weight: 800; 
+    display: flex; 
+    align-items: center; 
+    gap: 8px; 
+    margin-top: 4px;
+}
+
 .led { width: 8px; height: 8px; background: var(--accent-green); border-radius: 50%; box-shadow: 0 0 10px var(--accent-green); }
 
-/* КНОПКИ НАВИГАЦИИ (АБСОЛЮТНО ОДИНАКОВЫЕ ВЕЗДЕ) */
-nav { display: flex; gap: 12px; }
+nav { display: flex; gap: 16px; }
 .nav-btn {
     text-decoration: none;
     color: var(--text-main);
     font-weight: 700;
-    font-size: 11px; 
+    font-size: 10px; 
     text-transform: uppercase;
-    padding: 12px 20px; 
+    padding: 10px 24px; 
     border: 1px solid var(--accent-blue);
-    border-radius: 8px;
+    border-radius: 12px;
     transition: 0.3s;
-    white-space: nowrap; /* Текст в кнопках никогда не переносится на вторую строку */
 }
 .nav-btn:hover { background: var(--accent-blue); box-shadow: 0 4px 15px var(--accent-glow); transform: translateY(-2px); }
 
-
-/* ========================================= */
-/* ОСНОВНОЙ КОНТЕНТ (Сетка, Заголовки, Текст)*/
-/* ========================================= */
-main { flex: 1; padding-bottom: 60px; } /* Всегда прижимает футер к самому низу экрана */
-
-.section-title { padding: 40px 0 20px; font-family: 'Unbounded', sans-serif; text-transform: uppercase; font-size: 28px; color: var(--accent-green); letter-spacing: 1px; }
-p { margin-bottom: 15px; color: var(--text-muted); }
-
-/* СЕТКА (Универсальная, сама подстраивается под ширину) */
-.grid { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
-    gap: 30px; 
-    width: 100%; 
-    margin-top: 20px;
+.section-title { padding: 80px 5% 30px; font-family: 'Unbounded', sans-serif; text-transform: uppercase; font-size: 26px; color: var(--accent-green); letter-spacing: 2px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 30px; padding: 0 5% 80px; max-width: 1500px; margin: 0 auto; }
+.card { background-color: var(--card-bg); border-radius: 24px; padding: 45px; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid var(--border); position: relative; overflow: hidden; }
+.card:hover {
+    background: linear-gradient(135deg, var(--accent-blue), #005c43);
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 155, 114, 0.25);
 }
+.card h3 { font-family: 'Unbounded', sans-serif; font-size: 22px; margin-bottom: 20px; text-transform: uppercase; }
+.card p { font-size: 14px; color: var(--text-muted); margin-bottom: 20px; line-height: 1.6; }
+.card ul { list-style: none; font-size: 13px; }
+.card li { padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; }
+.card:hover p, .card:hover li { color: #e2e8f0; }
+.price { font-weight: 800; color: var(--accent-green); }
+.card:hover .price { color: #fff; }
 
-.card { background-color: var(--card-bg); border-radius: 20px; padding: 40px; transition: all 0.3s ease; border: 1px solid var(--border); }
-.card:hover { border-color: var(--accent-blue); box-shadow: 0 10px 30px rgba(0, 74, 173, 0.15); transform: translateY(-5px); }
-.card h3 { font-family: 'Unbounded', sans-serif; font-size: 20px; margin-bottom: 15px; text-transform: uppercase; color: #fff; }
+.hero { padding: 80px 5% 40px; max-width: 1400px; margin: 0 auto; }
+.hero p { font-size: 16px; color: var(--text-muted); max-width: 850px; border-left: 3px solid var(--accent-green); padding-left: 20px; line-height: 1.7; }
 
-/* Списки и цены */
-.card ul, .card-list { list-style: none; font-size: 14px; padding: 0; margin: 0; }
-.card li, .card-list li { padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; }
-.price, .card-list li b, .price-box .price { font-weight: 800; color: var(--accent-green) !important; font-size: 16px; }
+footer { padding: 80px 5%; border-top: 1px solid var(--border); display: flex; justify-content: space-between; background: #060914; }
+.footer-info { display: flex; flex-direction: column; gap: 8px; font-size: 13px; color: var(--text-muted); }
+.footer-info b { color: var(--text-main); text-transform: uppercase; font-size: 14px; letter-spacing: 1px; }
 
-/* Блок гарантии цены */
-.guarantee-section { margin-top: 40px; margin-bottom: 20px; width: 100%; }
+/* Доп. стили для списков, гарантии и зеленых цен, чтобы они не ломались */
+.card-list { list-style: none; padding: 0; margin: 15px 0 0 0; color: var(--text-muted); font-size: 14px; }
+.card-list li { padding: 8px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.05); display: flex; justify-content: space-between; }
+.card-list li:last-child { border-bottom: none; }
+.card-list li b, .price-box .price { font-weight: 800; color: var(--accent-green) !important; }
+
+.guarantee-section { margin: 40px 5% 20px; max-width: 1500px; }
 .guarantee-box { display: flex; align-items: center; gap: 20px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%); border: 1px dashed rgba(255, 255, 255, 0.15); border-radius: 12px; padding: 25px; transition: border-color 0.3s ease; }
 .guarantee-box:hover { border-color: var(--accent-green); }
 .guarantee-icon { font-size: 40px; line-height: 1; background: linear-gradient(135deg, #fff, #a0a0a5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 .guarantee-text h3 { margin: 0 0 8px 0; font-family: 'Unbounded', sans-serif; font-size: 18px; color: #fff; }
 .guarantee-text p { margin: 0; font-family: 'Inter', sans-serif; font-size: 14px; color: var(--text-muted); line-height: 1.5; }
 
-/* ПОДВАЛ */
-footer { padding: 40px 20px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; background: #060914; margin-top: auto; }
-.footer-info { display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: var(--text-muted); }
-.footer-info b { color: var(--text-main); text-transform: uppercase; font-size: 14px; letter-spacing: 1px; }
-
 
 /* ========================================= */
-/* АДАПТАЦИЯ (ПЛАНШЕТЫ И ТЕЛЕФОНЫ)           */
+/* ИЗОЛИРОВАННАЯ АДАПТАЦИЯ ДЛЯ ТЕЛЕФОНОВ     */
 /* ========================================= */
-@media (max-width: 1100px) {
-    header { flex-wrap: wrap; gap: 20px; justify-content: center; }
-    .agent-monitor { width: 100%; justify-content: center; }
-}
-
 @media (max-width: 768px) {
-    .app-container, header, main, section, footer { padding-left: 15px; padding-right: 15px; }
+    header {
+        flex-direction: column; 
+        gap: 8px;              
+        padding: 10px;          
+        background: rgba(255, 255, 255, 0.02); 
+    }
 
-    header { flex-direction: column; gap: 15px; padding-top: 15px; padding-bottom: 15px; }
-    .header-left { flex-direction: column; text-align: center; gap: 10px; }
-    .header-left img { height: 60px; }
-    .company-name { font-size: 22px; }
+    .header-left { flex-direction: column; text-align: center; gap: 8px; }
+    .header-left img { height: 60px; width: auto; }
+    .company-name { font-size: 20px; }
     .occupation { font-size: 12px; }
 
-    .agent-monitor { flex-wrap: wrap; padding: 10px; border-radius: 8px; gap: 15px; border: 1px solid var(--border); }
+    .agent-monitor {
+        flex-direction: row; 
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+        padding: 10px;
+        border-radius: 8px;
+    }
     .server-icon { display: none; }
+    .agent-stat { font-size: 10px; margin: 0; }
+    .agent-stat span { font-size: 9px; }
+    .led { width: 5px; height: 5px; }
 
     nav { width: 100%; flex-wrap: wrap; justify-content: center; gap: 8px; }
-    .nav-btn { flex: 1 1 calc(50% - 8px); text-align: center; font-size: 10px; padding: 10px; }
+    .nav-btn { flex: 1 1 calc(50% - 8px); padding: 8px; font-size: 10px; text-align: center; }
 
-    .section-title { font-size: 22px; text-align: center; }
+    .section-title { font-size: 20px; text-align: center; padding: 40px 5% 20px; line-height: 1.3; }
+    h1, h2, h3 { text-align: center; }
+    
+    .grid { grid-template-columns: 1fr; gap: 20px; padding: 0 5% 40px; }
     .card { padding: 25px; }
     
+    .guarantee-section { margin: 20px 5%; }
     .guarantee-box { flex-direction: column; text-align: center; padding: 20px; }
     
-    footer { flex-direction: column; gap: 20px; text-align: center; }
+    footer { flex-direction: column; gap: 20px; text-align: center; padding: 40px 5%; }
 }
