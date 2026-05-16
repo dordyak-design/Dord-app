@@ -305,5 +305,9 @@ header {
         font-size: 14px !important;
         text-align: center !important;
     }
-
+/* ВОЗВРАЩАЕМ ФИРМЕННЫЙ ЗЕЛЕНЫЙ ЦВЕТ ДЛЯ ЦЕН */
+.card-list li b, 
+.price-box .price {
+    color: #00ffcc !important; /* Тот самый неоново-зеленый ИИ цвет */
+}
 } /* ВОТ ЭТА ОДНА СКОБКА ЗАКРЫВАЕТ ВЕСЬ МЕДИА-ЗАПРОС @media */
