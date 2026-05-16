@@ -866,8 +866,17 @@ html, body {
     .company-name { font-size: 14px; }
     .occupation { font-size: 8px; }
 
-    nav { gap: 6px; }
-    .nav-btn { padding: 7px 10px; font-size: 9px; }
+    nav {
+        gap: 6px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding-bottom: 2px;
+        flex-shrink: 1;
+        min-width: 0;
+    }
+    nav::-webkit-scrollbar { display: none; }
+    .nav-btn { padding: 7px 10px; font-size: 9px; flex-shrink: 0; }
 
     /* Hero */
     .hero {
