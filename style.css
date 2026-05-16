@@ -19,8 +19,13 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+/* Оболочка - на ПК прозрачная, не мешает ширине */
+.app-container {
+    width: 100%;
+}
+
 /* ========================================= */
-/* ШАПКА - МАССИВНАЯ И КРУПНАЯ               */
+/* ШАПКА - МАССИВНАЯ И КРУПНАЯ (ДЛЯ ПК)      */
 /* ========================================= */
 header {
     padding: 20px 5%;
@@ -38,11 +43,11 @@ header {
 .header-left { 
     display: flex; 
     align-items: center; 
-    gap: 20px; /* Большой отступ от лого до названия */
+    gap: 20px; 
 }
 
 .header-left img { 
-    height: 120px; /* ЛОГОТИП ЕЩЕ КРУПНЕЕ */
+    height: 120px; 
     width: auto; 
 }
 
@@ -55,7 +60,7 @@ header {
 }
 
 .company-name {
-    font-size: 34px; /* Крупное название */
+    font-size: 34px; 
     font-weight: 900;
     background: linear-gradient(to right, #004aad, #009b72);
     -webkit-background-clip: text;
@@ -70,19 +75,19 @@ header {
 
 .ai-light { color: #e2e8f0; -webkit-text-fill-color: #e2e8f0; }
 
-/* БЛОК АГЕНТОВ - КРУПНЫЙ И ЧИТАЕМЫЙ */
+/* БЛОК АГЕНТОВ */
 .agent-monitor {
     display: flex;
     align-items: center;
-    gap: 30px; /* Большое расстояние между агентами */
-    padding: 15px 30px; /* Жирные отступы внутри рамки */
+    gap: 30px; 
+    padding: 15px 30px; 
     background: rgba(255,255,255,0.02);
     border-radius: 16px;
     border: 1px solid var(--border);
 }
 
 .server-icon { 
-    height: 50px; /* ИКОНКА СЕРВЕРА КРУПНАЯ */
+    height: 50px; 
     width: auto; 
     border-right: 1px solid rgba(255,255,255,0.1); 
     padding-right: 25px; 
@@ -91,7 +96,7 @@ header {
 .agent-stat { 
     display: flex; 
     flex-direction: column; 
-    font-size: 12px; /* ШРИФТ АГЕНТОВ КРУПНЫЙ (Был 9px) */
+    font-size: 12px; 
     text-transform: uppercase; 
     color: var(--text-muted); 
     letter-spacing: 1px; 
@@ -99,7 +104,7 @@ header {
 
 .agent-stat span { 
     color: var(--accent-green); 
-    font-size: 10px; /* Проценты загрузки крупные */
+    font-size: 10px; 
     font-weight: 800; 
     display: flex; 
     align-items: center; 
@@ -109,205 +114,128 @@ header {
 
 .led { width: 8px; height: 8px; background: var(--accent-green); border-radius: 50%; box-shadow: 0 0 10px var(--accent-green); }
 
-/* КНОПКИ НАВИГАЦИИ - БОЛЬШИЕ */
+/* КНОПКИ НАВИГАЦИИ */
 nav { display: flex; gap: 16px; }
 .nav-btn {
     text-decoration: none;
     color: var(--text-main);
     font-weight: 700;
-    font-size: 10px; /* ШРИФТ КНОПОК КРУПНЫЙ */
+    font-size: 10px; 
     text-transform: uppercase;
-    padding: 10px 24px; /* ЖИРНЫЕ КНОПКИ */
+    padding: 10px 24px; 
     border: 1px solid var(--accent-blue);
     border-radius: 12px;
     transition: 0.3s;
 }
 .nav-btn:hover { background: var(--accent-blue); box-shadow: 0 4px 15px var(--accent-glow); transform: translateY(-2px); }
 
+
 /* ========================================= */
-/* ОСТАЛЬНОЙ САЙТ (Карточки, подвал и т.д.)  */
+/* ОСТАЛЬНОЙ САЙТ (Сетка, Карточки, ТЗ)      */
 /* ========================================= */
 .section-title { padding: 80px 5% 30px; font-family: 'Unbounded', sans-serif; text-transform: uppercase; font-size: 26px; color: var(--accent-green); letter-spacing: 2px; }
+
+/* ТВОЯ ОРИГИНАЛЬНАЯ ШИРОКАЯ СЕТКА (ДО 1500px) */
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 30px; padding: 0 5% 80px; max-width: 1500px; margin: 0 auto; }
+
 .card { background-color: var(--card-bg); border-radius: 24px; padding: 45px; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid var(--border); position: relative; overflow: hidden; }
 .card:hover {
-    /* Заменили светлый зеленый на глубокий темный оттенок #005c43 */
     background: linear-gradient(135deg, var(--accent-blue), #005c43);
     transform: translateY(-8px);
     box-shadow: 0 15px 35px rgba(0, 155, 114, 0.25);
 }
 .card h3 { font-family: 'Unbounded', sans-serif; font-size: 22px; margin-bottom: 20px; text-transform: uppercase; }
 .card p { font-size: 14px; color: var(--text-muted); margin-bottom: 20px; line-height: 1.6; }
-.card ul { list-style: none; font-size: 13px; }
-.card li { padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; }
-.card:hover p, .card:hover li { color: #e2e8f0; }
-.price { font-weight: 800; color: var(--accent-green); }
-.card:hover .price { color: #fff; }
-.hero { padding: 80px 5% 40px; max-width: 1400px; margin: 0 auto; }
-.hero p { font-size: 16px; color: var(--text-muted); max-width: 850px; border-left: 3px solid var(--accent-green); padding-left: 20px; line-height: 1.7; }
+
+/* СПИСКИ ВНУТРИ КАРТОЧЕК */
+.card ul, .card-list { list-style: none; font-size: 13px; padding: 0; margin: 0; color: var(--text-muted); }
+.card li, .card-list li { padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; }
+.card:hover p, .card:hover li, .card:hover .card-list li { color: #e2e8f0; }
+
+/* ЦВЕТА ЦЕН (ЖЕЛЕЗНО ЗЕЛЕНЫЕ ВЕЗДЕ) */
+.price, .card-list li b, .price-box .price { font-weight: 800; color: var(--accent-green) !important; }
+.card:hover .price, .card:hover .card-list li b { color: #fff !important; }
+
+/* ПОДВАЛ */
 footer { padding: 80px 5%; border-top: 1px solid var(--border); display: flex; justify-content: space-between; background: #060914; }
 .footer-info { display: flex; flex-direction: column; gap: 8px; font-size: 13px; color: var(--text-muted); }
 .footer-info b { color: var(--text-main); text-transform: uppercase; font-size: 14px; letter-spacing: 1px; }
-/* --- АДАПТИВНАЯ СТРУКТУРА И ФИКСАЦИЯ ЦЕНТРА --- */
 
-/* Базовые настройки для центрирования на больших мониторах */
-body {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Центрирует внутренний контейнер по горизонтали */
-    min-height: 100vh;
-}
 
-/* Оболочка, которая держит сайт собранным (аналог 60% ширины) */
-.app-container {
-    width: 100%;
-    max-width: 1200px; /* Ограничиваем максимальную ширину контента */
-    margin: 0 auto;
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-/* Сетка карточек: переключаем на flex с авто-переносом */
-.grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    width: 100%;
-}
-
-/* Карточки подстраиваются под экран: на ПК их 3 в ряд, на мобилке — по одной */
-.card {
-    flex: 1 1 calc(33.333% - 20px);
-    min-width: 290px; /* Если экран узкий, карточка падает на новую строку */
-    box-sizing: border-box;
-}
-
-/* Стили для списков внутри карточек, чтобы убрать инлайн-стили из HTML */
-.card-list {
-    list-style: none;
-    padding: 0;
-    margin: 15px 0 0 0;
-    color: var(--text-muted, #a0a0a5);
-    font-size: 14px;
-}
-.card-list li {
-    padding: 8px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-.card-list li:last-child {
-    border-bottom: none;
-}
-
-/* Хедер: делаем адаптивным */
-header {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* МЕДИА-ЗАПРОСЫ ДЛЯ ТЕЛЕФОНОВ (экраны меньше 768px) */
-/* МЕДИА-ЗАПРОСЫ ДЛЯ ТЕЛЕФОНОВ (экраны меньше 768px) */
+/* ========================================= */
+/* МОБИЛЬНАЯ АДАПТАЦИЯ (СТРОГО ДЛЯ ТЕЛЕФОНОВ)*/
+/* ========================================= */
 @media (max-width: 768px) {
-    .app-container {
-        padding: 10px; /* Минимальные отступы по бокам */
-    }
+    .app-container { padding: 10px; }
 
     header {
         flex-direction: column; 
-        gap: 8px;              /* Минимальный зазор между блоками */
-        padding: 8px;          /* Зажимаем внутренние отступы шапки */
-        background: rgba(255, 255, 255, 0.02); /* Легкая плашка */
+        gap: 8px;              
+        padding: 8px;          
+        background: rgba(255, 255, 255, 0.02); 
         border-radius: 8px;
     }
 
-    /* 1. Логотип и Название (Уменьшаем жестко) */
     .header-left {
-        flex-direction: row !important; /* В одну строку, а не друг под друга */
+        flex-direction: row !important; 
         align-items: center;
         gap: 8px;
     }
-    .header-left img {
-        height: 34px; /* Крошечный логотип вместо огромного */
-        width: auto;
-    }
-    .company-name {
-        font-size: 16px !important; /* Мелкий аккуратный шрифт */
-    }
-    .occupation {
-        font-size: 11px !important; /* Суб-текст делаем совсем незаметным */
-    }
+    .header-left img { height: 34px; width: auto; }
+    .company-name { font-size: 16px !important; }
+    .occupation { font-size: 11px !important; }
 
-    /* 2. Монитор Агентов (Сжимаем в одну строчку на 70%) */
     .agent-monitor {
         display: flex;
-        flex-direction: row !important; /* Выстраиваем Агентов горизонтально в ряд! */
+        flex-direction: row !important; 
         justify-content: center;
         gap: 10px;
         width: 100%;
         padding: 4px 0;
         border-top: 1px solid rgba(255, 255, 255, 0.05);
         border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        box-sizing: border-box;
     }
-    .server-icon {
-        display: none; /* Убираем иконку сервера на мобилке, чтобы не жрала место */
-    }
-    .agent-stat {
-        font-size: 10px !important; /* Уменьшаем текст Агентов до минимума */
-        margin: 0;
-    }
-    .agent-stat span {
-        font-size: 9px !important;
-    }
-    .led {
-        width: 5px !important; /* Маленькие диоды */
-        height: 5px !important;
-    }
+    .server-icon { display: none; }
+    .agent-stat { font-size: 10px !important; margin: 0; }
+    .agent-stat span { font-size: 9px !important; }
+    .led { width: 5px !important; height: 5px !important; }
 
-   /* 3. Навигация (Кнопки в один компактный ряд) */
     nav {
         width: 100%;
         display: flex;
-        flex-direction: row !important; /* Строго в один ряд */
-        justify-content: space-between; /* Растягиваем равномерно */
+        flex-direction: row !important; 
+        justify-content: space-between; 
         gap: 4px;
     }
-    
     nav .nav-btn {
         flex: 1;
-        padding: 6px 2px !important; /* Тонкие аккуратные кнопки */
-        font-size: 10px !important;  /* Мелкий текст */
+        padding: 6px 2px !important; 
+        font-size: 10px !important;  
         text-align: center;
         border-radius: 4px;
     }
 
-    /* Убиваем гигантские заголовки на ВСЕХ страницах для мобилок */
-    h1, .main-title {
-        font-size: 22px !important;
-        text-align: center !important;
-        margin-bottom: 15px !important;
+    /* Заголовки на мобилках */
+    h1, .main-title { font-size: 22px !important; text-align: center !important; margin-bottom: 15px !important; }
+    h2, .section-title { 
+        font-size: 16px !important; 
+        text-align: center !important; 
+        line-height: 1.3 !important; 
+        margin-top: 20px !important; 
+        margin-bottom: 15px !important; 
+        padding: 20px 5% 10px;
     }
+    h3, .card-title { font-size: 14px !important; text-align: center !important; }
 
-    h2, .section-title {
-        font-size: 16px !important; /* Тот самый аккуратный размер вместо 36-го */
-        text-align: center !important;
-        line-height: 1.3 !important;
-        margin-top: 20px !important;
-        margin-bottom: 15px !important;
+    /* Сетка карточек на мобилках (1 колонка) */
+    .grid {
+        grid-template-columns: 1fr; 
+        gap: 15px;
+        padding: 0 10px 40px;
     }
+    .card { padding: 25px; }
 
-    h3, .card-title {
-        font-size: 14px !important;
-        text-align: center !important;
-    }
-/* ВОЗВРАЩАЕМ ФИРМЕННЫЙ ЗЕЛЕНЫЙ ЦВЕТ ДЛЯ ЦЕН */
-.card-list li b, 
-.price-box .price {
-    color: #00ffcc !important; /* Тот самый неоново-зеленый ИИ цвет */
+    /* Футер */
+    footer { flex-direction: column; gap: 20px; text-align: center; padding: 40px 5%; }
 }
-} /* ВОТ ЭТА ОДНА СКОБКА ЗАКРЫВАЕТ ВЕСЬ МЕДИА-ЗАПРОС @media */
