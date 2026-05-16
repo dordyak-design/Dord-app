@@ -70,7 +70,7 @@ header {
 }
 
 .header-left img {
-    height: 64px;
+    height: 44px;
     width: auto;
 }
 
@@ -477,7 +477,21 @@ nav {
     border-radius: var(--radius-lg);
     padding: 28px 24px;
     transition: var(--transition);
+    position: relative;
+    overflow: hidden;
 }
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-blue), var(--accent-green));
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.stat-card:hover::before { opacity: 1; }
 
 .stat-card:hover {
     border-color: var(--border-green);
@@ -549,12 +563,27 @@ nav {
     position: relative;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
+
+.pricing-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-blue), var(--accent-green));
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.pricing-card:hover::before { opacity: 1; }
 
 .pricing-card.featured {
     border-color: var(--accent-green);
     background: linear-gradient(135deg, #0a1f1a, #0d1f35);
 }
+
+.pricing-card.featured::before { opacity: 1; }
 
 .pricing-card:hover {
     transform: translateY(-8px);
@@ -815,6 +844,12 @@ footer {
 
 /* ===================== МОБИЛЬНАЯ АДАПТАЦИЯ ===================== */
 
+/* Глобальный фикс горизонтального скролла */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 /* Планшет — убираем агент-монитор */
 @media (max-width: 1024px) {
     .agent-monitor { display: none; }
@@ -841,6 +876,13 @@ footer {
         gap: 36px;
     }
 
+    .hero-badge {
+        font-size: 10px;
+        padding: 5px 12px;
+        white-space: normal;
+        text-align: center;
+    }
+
     .hero-stats {
         grid-template-columns: 1fr 1fr;
         gap: 12px;
@@ -856,6 +898,9 @@ footer {
     .section-wrap-alt { padding: 48px 16px; }
     .section-title { font-size: 20px; }
     .section-sub { margin-bottom: 32px; }
+
+    /* Badge и лейблы */
+    .hero-badge, .section-label, .service-tag { white-space: normal; }
 
     /* Сетки */
     .grid-3, .grid-2 { grid-template-columns: 1fr; gap: 14px; }
@@ -1112,7 +1157,21 @@ footer {
     padding: 28px 24px;
     transition: var(--transition);
     position: relative;
+    overflow: hidden;
 }
+
+.pkg-tile::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-blue), var(--accent-green));
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.pkg-tile:hover::before { opacity: 1; }
+.pkg-tile.popular::before { opacity: 1; }
 
 .pkg-tile.popular {
     border-color: var(--accent-green);
