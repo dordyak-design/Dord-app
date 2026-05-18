@@ -4,13 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Галерея — Dord AI Studio</title>
-    <meta name="description" content="Примеры работ Dord AI Studio. Ювелирные украшения, косметика, мода, техника, еда — всё сгенерировано нашими агентами.">
+    <meta name="description" content="Примеры работ Dord AI Studio. Ювелирные украшения, косметика, мода, техника, еда, карточки товаров Shopify.">
     <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Базовый путь к фото */
-        /* https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ */
-
         .gallery-section { padding: 60px 5% 0; max-width: 1400px; margin: 0 auto; }
 
         .gallery-category {
@@ -42,11 +39,10 @@
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 16px;
-            margin-bottom: 16px;
         }
 
         .gallery-grid.wide {
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
         }
 
         .gallery-item {
@@ -57,6 +53,7 @@
             cursor: pointer;
             position: relative;
             background: var(--card-bg);
+            aspect-ratio: 1/1;
         }
 
         .gallery-item:hover {
@@ -75,13 +72,6 @@
 
         .gallery-item:hover img { transform: scale(1.03); }
 
-        /* Соотношения сторон */
-        .ratio-1-1 { aspect-ratio: 1/1; }
-        .ratio-4-5 { aspect-ratio: 4/5; }
-        .ratio-4-3 { aspect-ratio: 4/3; }
-        .ratio-3-4 { aspect-ratio: 3/4; }
-
-        /* Лейбл категории */
         .item-label {
             position: absolute;
             bottom: 12px;
@@ -136,7 +126,6 @@
 
         .lightbox-close:hover { color: var(--text-main); }
 
-        /* CTA блок */
         .gallery-cta {
             text-align: center;
             padding: 80px 5%;
@@ -144,7 +133,14 @@
             margin: 0 auto;
         }
 
-        /* Мобилка */
+        /* Разделитель между крупными секциями */
+        .section-divider-gallery {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-green), transparent);
+            margin: 60px 5% 0;
+            max-width: 1400px;
+        }
+
         @media (max-width: 768px) {
             .gallery-section { padding: 40px 16px 0; }
             .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
@@ -152,16 +148,11 @@
         }
 
         @media (max-width: 480px) {
-            .gallery-grid { grid-template-columns: 1fr; }
+            .gallery-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
         }
     </style>
 </head>
 <body>
-
-<!-- SVG -->
-<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden;">
-  <defs><linearGradient id="dg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#004aad"/><stop offset="100%" stop-color="#00c896"/></linearGradient></defs>
-</svg>
 
     <!-- ШАПКА -->
     <header>
@@ -197,7 +188,7 @@
             Все работы сгенерированы нашими агентами · Май 2026
         </div>
         <h1>Галерея работ</h1>
-        <p>Реальные примеры генерации Dord AI Studio. Ювелирные украшения, косметика, мода, техника, еда и интерьер — всё создано на нашем оборудовании по текстовому описанию.</p>
+        <p>Реальные примеры генерации Dord AI Studio. От ювелирных украшений премиум-класса до карточек товаров для Shopify и Amazon — всё создано по текстовому описанию.</p>
     </div>
 
     <!-- ===== ЮВЕЛИРНЫЕ УКРАШЕНИЯ ===== -->
@@ -206,44 +197,44 @@
             <h3>👑 Комплект "Диана"</h3>
             <span class="count">4 работы</span>
         </div>
-        <p style="color:var(--text-muted);font-size:13px;margin-bottom:24px;max-width:600px;">Ювелирная съёмка премиум-уровня. Диадема, кулон, браслеты и серьги — полный комплект по одному ТЗ.</p>
+        <p style="color:var(--text-muted);font-size:13px;margin-bottom:24px;max-width:600px;">Ювелирная съёмка премиум-уровня. Полный комплект по одному ТЗ.</p>
         <div class="gallery-grid">
-            <div class="gallery-item ratio-1-1" onclick="openLightbox(this)">
-                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00015_.png" alt="Диадема с изумрудами" loading="lazy">
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00015_.png" alt="Диадема" loading="lazy">
                 <span class="item-label">Диадема · Изумруды</span>
             </div>
-            <div class="gallery-item ratio-1-1" onclick="openLightbox(this)">
-                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00014_.png" alt="Кулон с изумрудами и сапфирами" loading="lazy">
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00014_.png" alt="Кулон" loading="lazy">
                 <span class="item-label">Кулон · Изумруды и сапфиры</span>
             </div>
-            <div class="gallery-item ratio-1-1" onclick="openLightbox(this)">
-                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00013_.png" alt="Браслеты на мраморе" loading="lazy">
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00013_.png" alt="Браслеты" loading="lazy">
                 <span class="item-label">Браслеты · Белый мрамор</span>
             </div>
-            <div class="gallery-item ratio-1-1" onclick="openLightbox(this)">
-                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00010_.png" alt="Серьги на шёлке" loading="lazy">
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00010_.png" alt="Серьги" loading="lazy">
                 <span class="item-label">Серьги · Шёлк</span>
             </div>
         </div>
     </div>
 
-    <!-- ===== КОСМЕТИКА И УХОД ===== -->
+    <!-- ===== КОСМЕТИКА ===== -->
     <div class="gallery-section">
         <div class="gallery-category">
             <h3>🌸 Косметика и уход</h3>
             <span class="count">3 работы</span>
         </div>
         <div class="gallery-grid">
-            <div class="gallery-item ratio-1-1" onclick="openLightbox(this)">
-                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00006_.png" alt="Крем с пионами" loading="lazy">
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00006_.png" alt="Крем" loading="lazy">
                 <span class="item-label">Крем · Пионы · Мрамор</span>
             </div>
-            <div class="gallery-item ratio-1-1" onclick="openLightbox(this)">
-                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00007_.png" alt="Витамины с цитрусами" loading="lazy">
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00007_.png" alt="Витамины" loading="lazy">
                 <span class="item-label">Витамины · Цитрусы</span>
             </div>
-            <div class="gallery-item ratio-1-1" onclick="openLightbox(this)">
-                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00004_.png" alt="Парфюм на мраморе" loading="lazy">
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00004_.png" alt="Парфюм" loading="lazy">
                 <span class="item-label">Парфюм · Тёмный мрамор</span>
             </div>
         </div>
@@ -256,31 +247,13 @@
             <span class="count">2 работы</span>
         </div>
         <div class="gallery-grid">
-            <div class="gallery-item ratio-1-1" onclick="openLightbox(this)">
-                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00008_.png" alt="Белая кожаная сумка" loading="lazy">
-                <span class="item-label">Сумка · Премиум · Студия</span>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00008_.png" alt="Сумка" loading="lazy">
+                <span class="item-label">Сумка · Премиум</span>
             </div>
-            <div class="gallery-item ratio-1-1" onclick="openLightbox(this)">
-                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00011_.png" alt="Солнцезащитные очки на пляже" loading="lazy">
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00011_.png" alt="Очки" loading="lazy">
                 <span class="item-label">Очки · Пляж · Lifestyle</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- ===== ТЕХНИКА ===== -->
-    <div class="gallery-section">
-        <div class="gallery-category">
-            <h3>📱 Техника и гаджеты</h3>
-            <span class="count">2 работы</span>
-        </div>
-        <div class="gallery-grid">
-            <div class="gallery-item ratio-1-1" onclick="openLightbox(this)">
-                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00020_.png" alt="AirPods в кейсе" loading="lazy">
-                <span class="item-label">AirPods · Студийная съёмка</span>
-            </div>
-            <div class="gallery-item ratio-1-1" onclick="openLightbox(this)">
-                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00016_.png" alt="Серебристый пауербанк" loading="lazy">
-                <span class="item-label">Пауербанк · Металлик</span>
             </div>
         </div>
     </div>
@@ -292,50 +265,143 @@
             <span class="count">3 работы</span>
         </div>
         <div class="gallery-grid">
-            <div class="gallery-item ratio-1-1" onclick="openLightbox(this)">
-                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00021_.png" alt="Круассан и капучино" loading="lazy">
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00021_.png" alt="Круассан" loading="lazy">
                 <span class="item-label">Круассан · Капучино · Утро</span>
             </div>
-            <div class="gallery-item ratio-1-1" onclick="openLightbox(this)">
-                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00022_.png" alt="Столик для двоих с цветами" loading="lazy">
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00022_.png" alt="Столик" loading="lazy">
                 <span class="item-label">Столик · Цветы · Романтика</span>
             </div>
-            <div class="gallery-item ratio-1-1" onclick="openLightbox(this)">
-                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00012_.png" alt="Тёмный шоколад" loading="lazy">
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00012_.png" alt="Шоколад" loading="lazy">
                 <span class="item-label">Шоколад · Фуд-фото</span>
             </div>
         </div>
     </div>
 
-    <!-- ===== ИНТЕРЬЕР И ХОББИ ===== -->
+    <!-- ===== ИНТЕРЬЕР ===== -->
     <div class="gallery-section">
         <div class="gallery-category">
             <h3>🏠 Интерьер и хобби</h3>
             <span class="count">2 работы</span>
         </div>
         <div class="gallery-grid">
-            <div class="gallery-item ratio-1-1" onclick="openLightbox(this)">
-                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00018_.png" alt="RGB лампа в интерьере" loading="lazy">
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00018_.png" alt="RGB лампа" loading="lazy">
                 <span class="item-label">RGB лампа · Интерьер</span>
             </div>
-            <div class="gallery-item ratio-1-1" onclick="openLightbox(this)">
-                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00017_.png" alt="Лего замок" loading="lazy">
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00017_.png" alt="Лего" loading="lazy">
                 <span class="item-label">Лего · Замок · Хобби</span>
             </div>
         </div>
     </div>
 
-    <!-- ===== АРТ СЕКЦИЯ ===== -->
+    <!-- ===== АРТ ===== -->
     <div class="gallery-section">
         <div class="gallery-category">
             <h3>🎨 Арт и иллюстрации</h3>
             <span class="count">1 работа</span>
         </div>
-        <p style="color:var(--text-muted);font-size:13px;margin-bottom:24px;max-width:600px;">Помимо фото мы создаём иллюстрации, постеры и ретро-арт. Этот стиль идеален для рекламных кампаний и брендинга.</p>
+        <p style="color:var(--text-muted);font-size:13px;margin-bottom:24px;max-width:600px;">Помимо фото мы создаём иллюстрации и ретро-арт для рекламных кампаний.</p>
         <div class="gallery-grid">
-            <div class="gallery-item ratio-1-1" onclick="openLightbox(this)" style="max-width:400px;">
-                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00001_.png" alt="Ретро арт реклама" loading="lazy">
+            <div class="gallery-item" style="max-width:360px;" onclick="openLightbox(this)">
+                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00001_.png" alt="Ретро арт" loading="lazy">
                 <span class="item-label">Ретро арт · Иллюстрация</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== SHOPIFY КАРТОЧКИ ===== -->
+    <div class="section-divider-gallery"></div>
+
+    <div class="gallery-section">
+        <div class="section-label">Карточки товаров</div>
+        <h2 class="section-title">Shopify & Amazon Ready</h2>
+        <p class="section-sub">Коммерческий визуал для маркетплейсов. Именно такие карточки заказывают продавцы — чистый фон, правильный свет, lifestyle-окружение.</p>
+
+        <!-- Гаджеты и техника -->
+        <div class="gallery-category" style="margin-top:32px;">
+            <h3>📱 Гаджеты и техника</h3>
+            <span class="count">6 работ</span>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00020_.png" alt="AirPods" loading="lazy">
+                <span class="item-label">AirPods · Студийная съёмка</span>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_shopy_00028_.png" alt="Фитнес-браслет" loading="lazy">
+                <span class="item-label">Фитнес-браслет</span>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_shopy_00045_.png" alt="Беспроводная зарядка" loading="lazy">
+                <span class="item-label">Беспроводная зарядка</span>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_shopy_00047_.png" alt="Умная колонка" loading="lazy">
+                <span class="item-label">Умная колонка · RGB</span>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_shopy_00048_.png" alt="Умный горшок" loading="lazy">
+                <span class="item-label">Smart Plant Speaker</span>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00016_.png" alt="Пауербанк" loading="lazy">
+                <span class="item-label">Пауербанк · Металлик</span>
+            </div>
+        </div>
+
+        <!-- Косметика Shopify -->
+        <div class="gallery-category">
+            <h3>✨ Красота и уход</h3>
+            <span class="count">3 работы</span>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_shopy_00041_.png" alt="Сыворотка" loading="lazy">
+                <span class="item-label">Сыворотка · Золото</span>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_shopy_00042_.png" alt="Сыворотки" loading="lazy">
+                <span class="item-label">Линейка сывороток</span>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_shoppy_00042_.png" alt="Косметика" loading="lazy">
+                <span class="item-label">Косметика · Lifestyle</span>
+            </div>
+        </div>
+
+        <!-- Фитнес и образ жизни -->
+        <div class="gallery-category">
+            <h3>🏃 Фитнес и образ жизни</h3>
+            <span class="count">3 работы</span>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_shopy_00050_.png" alt="Йога-мат серый" loading="lazy">
+                <span class="item-label">Йога-мат · Серый</span>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_shopy_00051_.png" alt="Йога-мат лавандовый" loading="lazy">
+                <span class="item-label">Йога-мат · Лаванда</span>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_shopy_00056_.png" alt="Термостакан" loading="lazy">
+                <span class="item-label">Термостакан · Rose Gold</span>
+            </div>
+        </div>
+
+        <!-- Кухня -->
+        <div class="gallery-category">
+            <h3>🍳 Кухня и дом</h3>
+            <span class="count">1 работа</span>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item" style="max-width:360px;" onclick="openLightbox(this)">
+                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_shopy00024_.png" alt="Блендер" loading="lazy">
+                <span class="item-label">Блендер · Кухня</span>
             </div>
         </div>
     </div>
@@ -366,7 +432,7 @@
 
     <!-- ЛАЙТБОКС -->
     <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-        <span class="lightbox-close" onclick="closeLightbox()">×</span>
+        <span class="lightbox-close">×</span>
         <img id="lightbox-img" src="" alt="">
     </div>
 
