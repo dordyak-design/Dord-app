@@ -4,218 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Галерея — Dord AI Studio</title>
-    <meta name="description" content="Примеры работ и визуальные пресеты Dord AI Studio. Levitation, Light Sweep, студийный белый фон, Particle Burst.">
+    <meta name="description" content="Примеры работ Dord AI Studio. Ювелирные украшения, косметика, мода, техника, еда — всё сгенерировано нашими агентами.">
     <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-        /* ── Демо-карточки эффектов ── */
-        .presets-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 48px;
-        }
+        /* Базовый путь к фото */
+        /* https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ */
 
-        .preset-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            transition: var(--transition);
-            cursor: default;
-        }
+        .gallery-section { padding: 60px 5% 0; max-width: 1400px; margin: 0 auto; }
 
-        .preset-card:hover {
-            border-color: var(--border-green);
-            transform: translateY(-6px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
-        }
-
-        .preset-demo {
-            height: 220px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .preset-info {
-            padding: 24px;
-        }
-
-        .preset-info h3 {
-            font-family: 'Unbounded', sans-serif;
-            font-size: 14px;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 8px;
-        }
-
-        .preset-info p {
-            font-size: 13px;
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
-
-        .preset-tag {
-            display: inline-block;
-            margin-top: 12px;
-            font-size: 10px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--accent-green);
-            background: var(--accent-green-dim);
-            border: 1px solid var(--border-green);
-            padding: 3px 10px;
-            border-radius: 100px;
-        }
-
-        /* ── LEVITATION ── */
-        .demo-levitation {
-            background: radial-gradient(ellipse at center, #0d1f3d 0%, #080b1a 70%);
-        }
-        .demo-levitation .product {
-            animation: levitate 3s ease-in-out infinite;
-            position: relative;
-            z-index: 2;
-        }
-        .demo-levitation .shadow-oval {
-            position: absolute;
-            bottom: 32px;
-            width: 60px;
-            height: 10px;
-            background: rgba(0,0,0,0.5);
-            border-radius: 50%;
-            filter: blur(4px);
-            animation: shadow-pulse 3s ease-in-out infinite;
-        }
-        @keyframes levitate {
-            0%,100% { transform: translateY(0); }
-            50%      { transform: translateY(-16px); }
-        }
-        @keyframes shadow-pulse {
-            0%,100% { transform: scaleX(1);   opacity: 0.5; }
-            50%      { transform: scaleX(0.7); opacity: 0.2; }
-        }
-
-        /* ── LIGHT SWEEP ── */
-        .demo-sweep {
-            background: #0a0a12;
-        }
-        .demo-sweep::after {
-            content: '';
-            position: absolute;
-            top: 0; left: -100%;
-            width: 60%; height: 100%;
-            background: linear-gradient(90deg,
-                transparent 0%,
-                rgba(255,255,255,0.08) 40%,
-                rgba(0,200,150,0.18) 50%,
-                rgba(255,255,255,0.08) 60%,
-                transparent 100%);
-            animation: sweep 3s ease-in-out infinite;
-            pointer-events: none;
-        }
-        @keyframes sweep {
-            0%   { left: -100%; }
-            100% { left: 200%;  }
-        }
-
-        /* ── STUDIO WHITE ── */
-        .demo-white {
-            background: linear-gradient(180deg, #e8edf5 0%, #ffffff 100%);
-        }
-        .demo-white .product-w { filter: drop-shadow(0 8px 20px rgba(0,0,0,0.12)); }
-
-        /* ── DRAMATIC DARK ── */
-        .demo-dramatic {
-            background: linear-gradient(135deg, #02040a 0%, #0a0d1a 100%);
-        }
-        .demo-dramatic .glow-rim {
-            filter: drop-shadow(0 0 12px rgba(0,200,150,0.5))
-                    drop-shadow(0 0 30px rgba(0,74,173,0.3));
-        }
-
-        /* ── PARTICLES ── */
-        .demo-particles {
-            background: radial-gradient(ellipse at center, #091428 0%, #080b1a 100%);
-        }
-        .particle {
-            position: absolute;
-            width: 4px; height: 4px;
-            border-radius: 50%;
-            background: var(--accent-green);
-            opacity: 0;
-            animation: particle-float var(--dur, 3s) ease-in-out var(--delay, 0s) infinite;
-        }
-        @keyframes particle-float {
-            0%   { transform: translate(0, 0) scale(0);   opacity: 0; }
-            20%  { opacity: 1; }
-            100% { transform: translate(var(--tx, 20px), var(--ty, -40px)) scale(0.3); opacity: 0; }
-        }
-
-        /* ── 360 ORBIT ── */
-        .demo-orbit {
-            background: linear-gradient(135deg, #080b1a, #0d1525);
-        }
-        .orbit-ring {
-            position: absolute;
-            border-radius: 50%;
-            border: 1.5px dashed rgba(0,200,150,0.3);
-            animation: spin-ring 8s linear infinite;
-        }
-        .orbit-ring.r1 { width: 160px; height: 60px; }
-        .orbit-ring.r2 { width: 180px; height: 68px; animation-duration: 12s; animation-direction: reverse; opacity: 0.5; }
-        @keyframes spin-ring {
-            from { transform: rotateX(75deg) rotate(0deg); }
-            to   { transform: rotateX(75deg) rotate(360deg); }
-        }
-        .orbit-dot {
-            position: absolute;
-            width: 6px; height: 6px;
-            border-radius: 50%;
-            background: var(--accent-green);
-            box-shadow: 0 0 8px var(--accent-green);
-            top: 50%; left: 50%;
-            margin: -3px;
-            animation: orbit-move 8s linear infinite;
-            transform-origin: 0 0;
-        }
-        @keyframes orbit-move {
-            from { transform: rotate(0deg) translateX(80px) rotateX(-75deg); }
-            to   { transform: rotate(360deg) translateX(80px) rotateX(-75deg); }
-        }
-
-        /* ── SVG Product Silhouettes ── */
-        .bottle-svg { width: 80px; height: 140px; }
-        .bottle-dark { width: 70px; height: 130px; }
-
-        /* ── Placeholder фото-сетка ── */
-        .coming-section {
-            margin-top: 48px;
-        }
-
-        .category-label {
+        .gallery-category {
             display: flex;
             align-items: center;
             gap: 12px;
             margin-bottom: 20px;
+            margin-top: 48px;
         }
 
-        .category-label h3 {
+        .gallery-category h3 {
             font-family: 'Unbounded', sans-serif;
-            font-size: 14px;
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-
-        .category-label .soon-badge {
-            font-size: 10px;
+            font-size: 13px;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
+        }
+
+        .gallery-category .count {
+            font-size: 11px;
             color: var(--text-muted);
             background: rgba(255,255,255,0.04);
             border: 1px solid var(--border);
@@ -223,88 +38,129 @@
             border-radius: 100px;
         }
 
-        .photo-grid {
+        .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 12px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 16px;
+            margin-bottom: 16px;
         }
 
-        .photo-placeholder {
-            aspect-ratio: 1;
-            border-radius: var(--radius-md);
+        .gallery-grid.wide {
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+        }
+
+        .gallery-item {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
             background: var(--card-bg);
-            border: 1px dashed rgba(255,255,255,0.08);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            font-size: 11px;
-            color: var(--text-muted);
+        }
+
+        .gallery-item:hover {
+            border-color: var(--border-green);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover img { transform: scale(1.03); }
+
+        /* Соотношения сторон */
+        .ratio-1-1 { aspect-ratio: 1/1; }
+        .ratio-4-5 { aspect-ratio: 4/5; }
+        .ratio-4-3 { aspect-ratio: 4/3; }
+        .ratio-3-4 { aspect-ratio: 3/4; }
+
+        /* Лейбл категории */
+        .item-label {
+            position: absolute;
+            bottom: 12px;
+            left: 12px;
+            background: rgba(8,11,26,0.85);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            padding: 4px 12px;
+            font-size: 10px;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            transition: var(--transition);
+            color: var(--text-soft);
+            opacity: 0;
+            transition: opacity 0.3s;
         }
 
-        .photo-placeholder:hover {
-            border-color: var(--border-green);
-            background: rgba(0,200,150,0.03);
+        .gallery-item:hover .item-label { opacity: 1; }
+
+        /* Лайтбокс */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.92);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
         }
 
-        .photo-placeholder svg {
-            opacity: 0.3;
+        .lightbox.active { display: flex; }
+
+        .lightbox img {
+            max-width: 90vw;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: var(--radius-lg);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.8);
         }
 
-        /* ── Форма подписки ── */
-        .notify-form {
-            display: flex;
-            gap: 12px;
-            max-width: 480px;
-            margin-top: 24px;
+        .lightbox-close {
+            position: absolute;
+            top: 20px; right: 24px;
+            font-size: 32px;
+            color: var(--text-muted);
+            cursor: pointer;
+            line-height: 1;
+            transition: color 0.2s;
         }
 
-        .notify-form input {
-            flex: 1;
-            padding: 14px 18px;
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            color: var(--text-main);
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-            outline: none;
-            transition: var(--transition);
+        .lightbox-close:hover { color: var(--text-main); }
+
+        /* CTA блок */
+        .gallery-cta {
+            text-align: center;
+            padding: 80px 5%;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        .notify-form input:focus {
-            border-color: var(--accent-green);
-        }
-
-        .notify-form input::placeholder { color: var(--text-muted); }
-
-        /* Mobile */
+        /* Мобилка */
         @media (max-width: 768px) {
-            .presets-grid { grid-template-columns: 1fr; gap: 14px; }
-            .photo-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
-            .notify-form { flex-direction: column; }
-            .notify-form input, .notify-form button { width: 100%; }
+            .gallery-section { padding: 40px 16px 0; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .gallery-grid.wide { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-<!-- SVG СПРАЙТ -->
-<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
-     style="position:absolute;width:0;height:0;overflow:hidden;">
-  <defs>
-    <linearGradient id="dg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#004aad"/>
-      <stop offset="100%" stop-color="#00c896"/>
-    </linearGradient>
-  </defs>
-  <symbol id="ic-img" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" fill="none" stroke="url(#dg)" stroke-width="1.5"/><circle cx="8.5" cy="8.5" r="1.5" fill="url(#dg)"/><polyline points="21 15 16 10 5 21" fill="none" stroke="url(#dg)" stroke-width="1.5" stroke-linejoin="round"/></symbol>
-  <symbol id="ic-video" viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7" fill="url(#dg)"/><rect x="1" y="5" width="15" height="14" rx="2" fill="none" stroke="url(#dg)" stroke-width="1.5"/></symbol>
-  <symbol id="ic-bot" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="13" rx="2" fill="none" stroke="url(#dg)" stroke-width="1.5"/><line x1="12" y1="3" x2="12" y2="8" stroke="url(#dg)" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="2.5" r="1.2" fill="url(#dg)"/><circle cx="9" cy="14" r="1.5" fill="url(#dg)"/><circle cx="15" cy="14" r="1.5" fill="url(#dg)"/><path d="M9 18h6" stroke="url(#dg)" stroke-width="1.5" stroke-linecap="round"/></symbol>
+<!-- SVG -->
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden;">
+  <defs><linearGradient id="dg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#004aad"/><stop offset="100%" stop-color="#00c896"/></linearGradient></defs>
 </svg>
 
     <!-- ШАПКА -->
@@ -326,8 +182,6 @@
             <a href="index.html" class="nav-btn">Главная</a>
             <a href="services.html" class="nav-btn">Услуги</a>
             <a href="prompt.html" class="nav-btn">ТЗ</a>
-            <a href="dashboard.html" class="nav-btn">Кабинет</a>
-            <a href="gallery.html" class="nav-btn">Галерея</a>
             <a href="crypto.html" class="nav-btn cta">Заказать</a>
         </nav>
     </header>
@@ -340,216 +194,169 @@
     <div class="page-hero">
         <div class="hero-badge" style="margin-bottom:20px;">
             <span class="dot"></span>
-            Студия работает с мая 2026 · Портфолио пополняется
+            Все работы сгенерированы нашими агентами · Май 2026
         </div>
         <h1>Галерея работ</h1>
-        <p>Пока агенты нарабатывают портфолио, смотри как выглядят визуальные пресеты в реальности. Каждый эффект генерируется точно по твоему ТЗ.</p>
+        <p>Реальные примеры генерации Dord AI Studio. Ювелирные украшения, косметика, мода, техника, еда и интерьер — всё создано на нашем оборудовании по текстовому описанию.</p>
     </div>
 
-    <!-- ===== ВИЗУАЛЬНЫЕ ПРЕСЕТЫ ===== -->
-    <section class="section-wrap">
-        <div class="section-label">Визуальные пресеты</div>
-        <h2 class="section-title">Как выглядит каждый стиль</h2>
-        <p class="section-sub">Интерактивные демо — наведи на карточку. Всё это генерируется на наших GPU под твой продукт.</p>
-
-        <div class="presets-grid">
-
-            <!-- LEVITATION -->
-            <div class="preset-card">
-                <div class="preset-demo demo-levitation">
-                    <div class="shadow-oval"></div>
-                    <div class="product">
-                        <svg class="bottle-svg" viewBox="0 0 80 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="24" y="55" width="32" height="72" rx="8" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
-                            <rect x="30" y="42" width="20" height="16" rx="4" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
-                            <rect x="34" y="34" width="12" height="10" rx="3" fill="rgba(0,200,150,0.5)" stroke="rgba(0,200,150,0.8)" stroke-width="1"/>
-                            <rect x="28" y="70" width="24" height="1" fill="rgba(255,255,255,0.1)"/>
-                            <rect x="28" y="80" width="20" height="1" fill="rgba(255,255,255,0.07)"/>
-                        </svg>
-                    </div>
-                </div>
-                <div class="preset-info">
-                    <h3>Levitation</h3>
-                    <p>Продукт парит в воздухе с мягкой тенью снизу. Идеально для парфюма, электроники, luxury-товаров.</p>
-                    <span class="preset-tag">Фото · Видео</span>
-                </div>
-            </div>
-
-            <!-- LIGHT SWEEP -->
-            <div class="preset-card">
-                <div class="preset-demo demo-sweep">
-                    <svg class="bottle-svg" viewBox="0 0 80 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="24" y="55" width="32" height="72" rx="8" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
-                        <rect x="30" y="42" width="20" height="16" rx="4" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
-                        <rect x="34" y="34" width="12" height="10" rx="3" fill="rgba(0,74,173,0.6)" stroke="rgba(0,74,173,0.9)" stroke-width="1"/>
-                    </svg>
-                </div>
-                <div class="preset-info">
-                    <h3>Light Sweep</h3>
-                    <p>Полоса света движется по продукту, создавая ощущение блеска и премиального качества.</p>
-                    <span class="preset-tag">Фото · Видео</span>
-                </div>
-            </div>
-
-            <!-- STUDIO WHITE -->
-            <div class="preset-card">
-                <div class="preset-demo demo-white">
-                    <div class="product-w">
-                        <svg class="bottle-svg" viewBox="0 0 80 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="24" y="55" width="32" height="72" rx="8" fill="rgba(255,255,255,0.9)" stroke="rgba(0,0,0,0.15)" stroke-width="1"/>
-                            <rect x="30" y="42" width="20" height="16" rx="4" fill="rgba(255,255,255,0.7)" stroke="rgba(0,0,0,0.1)" stroke-width="1"/>
-                            <rect x="34" y="34" width="12" height="10" rx="3" fill="#004aad"/>
-                            <text x="26" y="90" font-size="6" fill="rgba(0,0,0,0.3)" font-family="Inter">DORD</text>
-                            <text x="26" y="100" font-size="5" fill="rgba(0,0,0,0.2)" font-family="Inter">PARFUM</text>
-                        </svg>
-                    </div>
-                </div>
-                <div class="preset-info">
-                    <h3>Studio White</h3>
-                    <p>Чистый белый фон RGB 255,255,255. Amazon-ready, Shopify-ready. Продукт занимает 85% кадра.</p>
-                    <span class="preset-tag">Маркетплейсы</span>
-                </div>
-            </div>
-
-            <!-- DRAMATIC DARK -->
-            <div class="preset-card">
-                <div class="preset-demo demo-dramatic">
-                    <div class="glow-rim">
-                        <svg class="bottle-dark" viewBox="0 0 70 130" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="20" y="50" width="30" height="68" rx="8" fill="rgba(255,255,255,0.05)" stroke="rgba(0,200,150,0.6)" stroke-width="1.5"/>
-                            <rect x="26" y="38" width="18" height="15" rx="4" fill="rgba(255,255,255,0.03)" stroke="rgba(0,200,150,0.4)" stroke-width="1"/>
-                            <rect x="30" y="30" width="10" height="10" rx="2" fill="rgba(0,200,150,0.7)"/>
-                            <rect x="20" y="85" width="30" height="1" fill="rgba(255,255,255,0.06)"/>
-                        </svg>
-                    </div>
-                </div>
-                <div class="preset-info">
-                    <h3>Dramatic Dark</h3>
-                    <p>Тёмный фон с боковой подсветкой. Глубокие тени, rimlight-контур. Для premium и luxury-брендов.</p>
-                    <span class="preset-tag">Фото · Имиджевое</span>
-                </div>
-            </div>
-
-            <!-- PARTICLES -->
-            <div class="preset-card">
-                <div class="preset-demo demo-particles">
-                    <div class="particle" style="--dur:2.5s;--delay:0s;  --tx:30px; --ty:-50px; left:55%; top:60%;"></div>
-                    <div class="particle" style="--dur:3s;  --delay:.4s; --tx:-25px;--ty:-40px; left:45%; top:65%;"></div>
-                    <div class="particle" style="--dur:2s;  --delay:.8s; --tx:20px; --ty:-60px; left:60%; top:55%;"></div>
-                    <div class="particle" style="--dur:3.5s;--delay:.2s; --tx:-30px;--ty:-55px; left:40%; top:60%;"></div>
-                    <div class="particle" style="--dur:2.8s;--delay:1s;  --tx:40px; --ty:-35px; left:50%; top:70%; background:#004aad;"></div>
-                    <div class="particle" style="--dur:2.2s;--delay:.6s; --tx:-40px;--ty:-30px; left:55%; top:70%; background:#004aad;"></div>
-                    <svg class="bottle-svg" viewBox="0 0 80 140" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:relative;z-index:2;">
-                        <rect x="24" y="55" width="32" height="72" rx="8" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
-                        <rect x="30" y="42" width="20" height="16" rx="4" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
-                        <rect x="34" y="34" width="12" height="10" rx="3" fill="rgba(0,200,150,0.6)"/>
-                    </svg>
-                </div>
-                <div class="preset-info">
-                    <h3>Particle Burst</h3>
-                    <p>Взрыв частиц вокруг продукта. Идеально для косметики, специй, порошков, кофе.</p>
-                    <span class="preset-tag">Видео · Динамика</span>
-                </div>
-            </div>
-
-            <!-- 360 ORBIT -->
-            <div class="preset-card">
-                <div class="preset-demo demo-orbit">
-                    <div class="orbit-ring r1"></div>
-                    <div class="orbit-ring r2"></div>
-                    <div class="orbit-dot"></div>
-                    <svg class="bottle-svg" viewBox="0 0 80 140" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:relative;z-index:2;">
-                        <rect x="24" y="55" width="32" height="72" rx="8" fill="rgba(255,255,255,0.07)" stroke="rgba(0,74,173,0.5)" stroke-width="1"/>
-                        <rect x="30" y="42" width="20" height="16" rx="4" fill="rgba(255,255,255,0.04)" stroke="rgba(0,74,173,0.3)" stroke-width="1"/>
-                        <rect x="34" y="34" width="12" height="10" rx="3" fill="rgba(0,74,173,0.7)"/>
-                    </svg>
-                </div>
-                <div class="preset-info">
-                    <h3>360° Orbit</h3>
-                    <p>Облёт камеры вокруг продукта. Показывает все стороны, создаёт глубину и динамику сцены.</p>
-                    <span class="preset-tag">Видео</span>
-                </div>
-            </div>
-
+    <!-- ===== ЮВЕЛИРНЫЕ УКРАШЕНИЯ ===== -->
+    <div class="gallery-section">
+        <div class="gallery-category">
+            <h3>👑 Комплект "Диана"</h3>
+            <span class="count">4 работы</span>
         </div>
-    </section>
-
-    <!-- ===== ПОРТФОЛИО (COMING SOON) ===== -->
-    <div class="section-wrap-alt">
-        <div class="section-inner">
-            <div class="section-label">Портфолио</div>
-            <h2 class="section-title">Реальные работы студии</h2>
-            <p class="section-sub">Агенты запущены в мае 2026. Первые коммерческие работы появятся здесь по мере выполнения заказов.</p>
-
-            <!-- Фото -->
-            <div class="coming-section">
-                <div class="category-label">
-                    <svg width="20" height="20" aria-hidden="true"><use href="#ic-img"/></svg>
-                    <h3>Фото товаров · E-Commerce</h3>
-                    <span class="soon-badge">Пополняется</span>
-                </div>
-                <div class="photo-grid">
-                    <div class="photo-placeholder"><svg width="28" height="28"><use href="#ic-img"/></svg>Парфюмерия</div>
-                    <div class="photo-placeholder"><svg width="28" height="28"><use href="#ic-img"/></svg>Косметика</div>
-                    <div class="photo-placeholder"><svg width="28" height="28"><use href="#ic-img"/></svg>Кроссовки</div>
-                    <div class="photo-placeholder"><svg width="28" height="28"><use href="#ic-img"/></svg>Электроника</div>
-                    <div class="photo-placeholder"><svg width="28" height="28"><use href="#ic-img"/></svg>Еда & Напитки</div>
-                    <div class="photo-placeholder"><svg width="28" height="28"><use href="#ic-img"/></svg>Украшения</div>
-                    <div class="photo-placeholder"><svg width="28" height="28"><use href="#ic-img"/></svg>Одежда</div>
-                    <div class="photo-placeholder"><svg width="28" height="28"><use href="#ic-img"/></svg>Спорттовары</div>
-                </div>
+        <p style="color:var(--text-muted);font-size:13px;margin-bottom:24px;max-width:600px;">Ювелирная съёмка премиум-уровня. Диадема, кулон, браслеты и серьги — полный комплект по одному ТЗ.</p>
+        <div class="gallery-grid">
+            <div class="gallery-item ratio-1-1" onclick="openLightbox(this)">
+                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00015_.png" alt="Диадема с изумрудами" loading="lazy">
+                <span class="item-label">Диадема · Изумруды</span>
             </div>
-
-            <!-- Видео -->
-            <div class="coming-section" style="margin-top:48px;">
-                <div class="category-label">
-                    <svg width="20" height="20" aria-hidden="true"><use href="#ic-video"/></svg>
-                    <h3>Motion · Видеореклама</h3>
-                    <span class="soon-badge">Пополняется</span>
-                </div>
-                <div class="photo-grid">
-                    <div class="photo-placeholder" style="aspect-ratio:9/16;"><svg width="28" height="28"><use href="#ic-video"/></svg>Levitation 5 сек</div>
-                    <div class="photo-placeholder" style="aspect-ratio:9/16;"><svg width="28" height="28"><use href="#ic-video"/></svg>Light Sweep 10 сек</div>
-                    <div class="photo-placeholder" style="aspect-ratio:9/16;"><svg width="28" height="28"><use href="#ic-video"/></svg>360° Orbit 10 сек</div>
-                    <div class="photo-placeholder" style="aspect-ratio:9/16;"><svg width="28" height="28"><use href="#ic-video"/></svg>Particle Burst 5 сек</div>
-                </div>
+            <div class="gallery-item ratio-1-1" onclick="openLightbox(this)">
+                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00014_.png" alt="Кулон с изумрудами и сапфирами" loading="lazy">
+                <span class="item-label">Кулон · Изумруды и сапфиры</span>
             </div>
-
-            <!-- Аватары -->
-            <div class="coming-section" style="margin-top:48px;">
-                <div class="category-label">
-                    <svg width="20" height="20" aria-hidden="true"><use href="#ic-bot"/></svg>
-                    <h3>AI Аватары и маскоты</h3>
-                    <span class="soon-badge">Пополняется</span>
-                </div>
-                <div class="photo-grid">
-                    <div class="photo-placeholder"><svg width="28" height="28"><use href="#ic-bot"/></svg>Реалистичный</div>
-                    <div class="photo-placeholder"><svg width="28" height="28"><use href="#ic-bot"/></svg>Мультяшный</div>
-                    <div class="photo-placeholder"><svg width="28" height="28"><use href="#ic-bot"/></svg>Футуристичный</div>
-                    <div class="photo-placeholder"><svg width="28" height="28"><use href="#ic-bot"/></svg>Минимализм</div>
-                </div>
+            <div class="gallery-item ratio-1-1" onclick="openLightbox(this)">
+                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00013_.png" alt="Браслеты на мраморе" loading="lazy">
+                <span class="item-label">Браслеты · Белый мрамор</span>
+            </div>
+            <div class="gallery-item ratio-1-1" onclick="openLightbox(this)">
+                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00010_.png" alt="Серьги на шёлке" loading="lazy">
+                <span class="item-label">Серьги · Шёлк</span>
             </div>
         </div>
     </div>
 
-    <!-- ===== УВЕДОМЛЕНИЕ ===== -->
-    <section class="section-wrap" style="text-align:center;">
-        <div class="section-label" style="justify-content:center;display:flex;">Будьте первыми</div>
-        <h2 class="section-title" style="margin:0 auto 16px;max-width:520px;">Уведомить когда появятся новые работы</h2>
-        <p style="color:var(--text-muted);font-size:14px;margin-bottom:28px;max-width:420px;margin-left:auto;margin-right:auto;line-height:1.7;">
-            Оставьте email — пришлём уведомление как только загрузим первые реальные кейсы.
-        </p>
-        <div class="notify-form" style="margin:0 auto;">
-            <input type="email" placeholder="ваш@email.com">
-            <button class="btn-primary" onclick="notifySubmit(this)">Уведомить →</button>
+    <!-- ===== КОСМЕТИКА И УХОД ===== -->
+    <div class="gallery-section">
+        <div class="gallery-category">
+            <h3>🌸 Косметика и уход</h3>
+            <span class="count">3 работы</span>
         </div>
-    </section>
+        <div class="gallery-grid">
+            <div class="gallery-item ratio-1-1" onclick="openLightbox(this)">
+                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00006_.png" alt="Крем с пионами" loading="lazy">
+                <span class="item-label">Крем · Пионы · Мрамор</span>
+            </div>
+            <div class="gallery-item ratio-1-1" onclick="openLightbox(this)">
+                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00007_.png" alt="Витамины с цитрусами" loading="lazy">
+                <span class="item-label">Витамины · Цитрусы</span>
+            </div>
+            <div class="gallery-item ratio-1-1" onclick="openLightbox(this)">
+                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00004_.png" alt="Парфюм на мраморе" loading="lazy">
+                <span class="item-label">Парфюм · Тёмный мрамор</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== МОДА ===== -->
+    <div class="gallery-section">
+        <div class="gallery-category">
+            <h3>👜 Мода и аксессуары</h3>
+            <span class="count">2 работы</span>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item ratio-1-1" onclick="openLightbox(this)">
+                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00008_.png" alt="Белая кожаная сумка" loading="lazy">
+                <span class="item-label">Сумка · Премиум · Студия</span>
+            </div>
+            <div class="gallery-item ratio-1-1" onclick="openLightbox(this)">
+                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00011_.png" alt="Солнцезащитные очки на пляже" loading="lazy">
+                <span class="item-label">Очки · Пляж · Lifestyle</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== ТЕХНИКА ===== -->
+    <div class="gallery-section">
+        <div class="gallery-category">
+            <h3>📱 Техника и гаджеты</h3>
+            <span class="count">2 работы</span>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item ratio-1-1" onclick="openLightbox(this)">
+                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00020_.png" alt="AirPods в кейсе" loading="lazy">
+                <span class="item-label">AirPods · Студийная съёмка</span>
+            </div>
+            <div class="gallery-item ratio-1-1" onclick="openLightbox(this)">
+                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00016_.png" alt="Серебристый пауербанк" loading="lazy">
+                <span class="item-label">Пауербанк · Металлик</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== ЕДА ===== -->
+    <div class="gallery-section">
+        <div class="gallery-category">
+            <h3>☕ Еда и напитки</h3>
+            <span class="count">3 работы</span>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item ratio-1-1" onclick="openLightbox(this)">
+                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00021_.png" alt="Круассан и капучино" loading="lazy">
+                <span class="item-label">Круассан · Капучино · Утро</span>
+            </div>
+            <div class="gallery-item ratio-1-1" onclick="openLightbox(this)">
+                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00022_.png" alt="Столик для двоих с цветами" loading="lazy">
+                <span class="item-label">Столик · Цветы · Романтика</span>
+            </div>
+            <div class="gallery-item ratio-1-1" onclick="openLightbox(this)">
+                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00012_.png" alt="Тёмный шоколад" loading="lazy">
+                <span class="item-label">Шоколад · Фуд-фото</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== ИНТЕРЬЕР И ХОББИ ===== -->
+    <div class="gallery-section">
+        <div class="gallery-category">
+            <h3>🏠 Интерьер и хобби</h3>
+            <span class="count">2 работы</span>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item ratio-1-1" onclick="openLightbox(this)">
+                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00018_.png" alt="RGB лампа в интерьере" loading="lazy">
+                <span class="item-label">RGB лампа · Интерьер</span>
+            </div>
+            <div class="gallery-item ratio-1-1" onclick="openLightbox(this)">
+                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00017_.png" alt="Лего замок" loading="lazy">
+                <span class="item-label">Лего · Замок · Хобби</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== АРТ СЕКЦИЯ ===== -->
+    <div class="gallery-section">
+        <div class="gallery-category">
+            <h3>🎨 Арт и иллюстрации</h3>
+            <span class="count">1 работа</span>
+        </div>
+        <p style="color:var(--text-muted);font-size:13px;margin-bottom:24px;max-width:600px;">Помимо фото мы создаём иллюстрации, постеры и ретро-арт. Этот стиль идеален для рекламных кампаний и брендинга.</p>
+        <div class="gallery-grid">
+            <div class="gallery-item ratio-1-1" onclick="openLightbox(this)" style="max-width:400px;">
+                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00001_.png" alt="Ретро арт реклама" loading="lazy">
+                <span class="item-label">Ретро арт · Иллюстрация</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== CTA ===== -->
+    <div class="gallery-cta">
+        <div class="section-label" style="justify-content:center;display:flex;">Хотите так же?</div>
+        <h2 class="section-title" style="margin:0 auto 16px;max-width:500px;">Закажите съёмку вашего товара</h2>
+        <p style="color:var(--text-muted);font-size:14px;margin-bottom:32px;line-height:1.7;">Опишите продукт — агент сделает остальное. От $20 за стартовый пакет.</p>
+        <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+            <a href="crypto.html" class="btn-primary">Заказать →</a>
+            <a href="prompt.html" class="btn-secondary">Как написать ТЗ</a>
+        </div>
+    </div>
 
     <!-- FOOTER -->
-    <footer>
+    <footer style="margin-top:80px;">
         <div class="footer-info">
             <b>Dord Software AI Systems</b>
             <span>Израиль, Тель-Авив, ул. Игаль Алон 98, Electra Tower</span>
+            <span>Автоматизированный AI-продакшен</span>
         </div>
         <div class="footer-info footer-right">
             <b>Secured Access</b>
@@ -557,19 +364,28 @@
         </div>
     </footer>
 
+    <!-- ЛАЙТБОКС -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close" onclick="closeLightbox()">×</span>
+        <img id="lightbox-img" src="" alt="">
+    </div>
+
     <script>
-        function notifySubmit(btn) {
-            const input = btn.previousElementSibling;
-            if (!input.value || !input.value.includes('@')) {
-                input.style.borderColor = '#f87171';
-                return;
-            }
-            btn.textContent = '✓ Записали!';
-            btn.style.background = '#00c896';
-            input.style.borderColor = '#00c896';
-            input.disabled = true;
-            btn.disabled = true;
+        function openLightbox(el) {
+            const img = el.querySelector('img');
+            document.getElementById('lightbox-img').src = img.src;
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
         }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') closeLightbox();
+        });
     </script>
 </body>
 </html>
