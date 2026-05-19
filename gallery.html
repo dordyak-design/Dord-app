@@ -133,7 +133,196 @@
             margin: 0 auto;
         }
 
-        /* Разделитель между крупными секциями */
+        /* ── Карточки товаров Shopify-стиль ── */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 20px;
+            margin-bottom: 8px;
+        }
+
+        .product-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            border-color: var(--border-green);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+        }
+
+        .product-img-wrap {
+            position: relative;
+            aspect-ratio: 1/1;
+            overflow: hidden;
+            background: #f8f9fa;
+        }
+
+        .product-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .product-card:hover .product-img-wrap img { transform: scale(1.05); }
+
+        .product-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: #ef4444;
+            color: #fff;
+            font-size: 10px;
+            font-weight: 800;
+            padding: 3px 10px;
+            border-radius: 100px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .product-badge.new {
+            background: var(--accent-green);
+        }
+
+        .product-info {
+            padding: 16px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .product-name {
+            font-family: 'Unbounded', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            line-height: 1.3;
+        }
+
+        .product-stars {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .stars {
+            color: #fbbf24;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        .reviews {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        .product-price {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 2px;
+        }
+
+        .price-new {
+            font-family: 'Unbounded', sans-serif;
+            font-size: 18px;
+            font-weight: 900;
+            color: var(--accent-green);
+        }
+
+        .price-old {
+            font-size: 13px;
+            color: var(--text-muted);
+            text-decoration: line-through;
+        }
+
+        .price-save {
+            font-size: 10px;
+            font-weight: 700;
+            color: #ef4444;
+            background: rgba(239,68,68,0.1);
+            padding: 2px 7px;
+            border-radius: 100px;
+        }
+
+        .product-pros {
+            list-style: none;
+            margin-top: 4px;
+        }
+
+        .product-pros li {
+            font-size: 11px;
+            color: var(--text-soft);
+            padding: 3px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 6px;
+            line-height: 1.4;
+        }
+
+        .product-pros li::before {
+            content: '✓';
+            color: var(--accent-green);
+            font-weight: 800;
+            flex-shrink: 0;
+            font-size: 10px;
+            margin-top: 1px;
+        }
+
+        .product-con {
+            font-size: 10px;
+            color: var(--text-muted);
+            font-style: italic;
+            padding: 8px 10px;
+            background: rgba(255,255,255,0.02);
+            border-radius: 8px;
+            border-left: 2px solid rgba(251,191,36,0.4);
+            line-height: 1.4;
+            margin-top: 2px;
+        }
+
+        .product-con::before {
+            content: '⚠ ';
+            color: #fbbf24;
+        }
+
+        .btn-order-card {
+            display: block;
+            text-align: center;
+            background: var(--accent-green);
+            color: #000;
+            font-weight: 800;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 12px;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: var(--transition);
+            margin-top: auto;
+        }
+
+        .btn-order-card:hover {
+            background: #00e6ac;
+            box-shadow: 0 4px 16px rgba(0,200,150,0.4);
+        }
+
+        @media (max-width: 768px) {
+            .product-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+        }
+
+        @media (max-width: 480px) {
+            .product-grid { grid-template-columns: 1fr; }
+        }
         .section-divider-gallery {
             height: 1px;
             background: linear-gradient(90deg, transparent, var(--border-green), transparent);
@@ -319,90 +508,314 @@
     <div class="gallery-section">
         <div class="section-label">Карточки товаров</div>
         <h2 class="section-title">Shopify & Amazon Ready</h2>
-        <p class="section-sub">Коммерческий визуал для маркетплейсов. Именно такие карточки заказывают продавцы — чистый фон, правильный свет, lifestyle-окружение.</p>
+        <p class="section-sub">Так выглядит контент который мы создаём для продавцов. Профессиональное фото + карточка товара = конверсия выше в 3–5 раз.</p>
 
-        <!-- Гаджеты и техника -->
+        <!-- Гаджеты -->
         <div class="gallery-category" style="margin-top:32px;">
             <h3>📱 Гаджеты и техника</h3>
-            <span class="count">6 работ</span>
         </div>
-        <div class="gallery-grid">
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00020_.png" alt="AirPods" loading="lazy">
-                <span class="item-label">AirPods · Студийная съёмка</span>
+        <div class="product-grid">
+
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00020_.png" alt="AirPods" loading="lazy">
+                    <span class="product-badge">−30%</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-name">Pro Wireless Earbuds</div>
+                    <div class="product-stars"><span class="stars">★★★★★</span><span class="reviews">4.9 (2 841 отзыв)</span></div>
+                    <div class="product-price">
+                        <span class="price-new">$49</span>
+                        <span class="price-old">$69</span>
+                        <span class="price-save">−$20</span>
+                    </div>
+                    <ul class="product-pros">
+                        <li>30 часов автономной работы</li>
+                        <li>Активное шумоподавление</li>
+                        <li>Быстрая зарядка 15 мин = 3 часа</li>
+                    </ul>
+                    <div class="product-con">Предупреждение: после покупки кошелёк может почувствовать лёгкую грусть</div>
+                    <a href="crypto.html" class="btn-order-card">Заказать фото →</a>
+                </div>
             </div>
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_shopy_00028_.png" alt="Фитнес-браслет" loading="lazy">
-                <span class="item-label">Фитнес-браслет</span>
+
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_shopy_00028_.png" alt="Фитнес-браслет" loading="lazy">
+                    <span class="product-badge new">Хит</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-name">Smart Fitness Band Pro</div>
+                    <div class="product-stars"><span class="stars">★★★★★</span><span class="reviews">4.8 (5 127 отзывов)</span></div>
+                    <div class="product-price">
+                        <span class="price-new">$35</span>
+                        <span class="price-old">$55</span>
+                        <span class="price-save">−$20</span>
+                    </div>
+                    <ul class="product-pros">
+                        <li>Мониторинг сна и пульса 24/7</li>
+                        <li>Водонепроницаемый IP68</li>
+                        <li>14 дней без зарядки</li>
+                    </ul>
+                    <div class="product-con">Предупреждение: покажет сколько шагов вы НЕ сделали сегодня</div>
+                    <a href="crypto.html" class="btn-order-card">Заказать фото →</a>
+                </div>
             </div>
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_shopy_00045_.png" alt="Беспроводная зарядка" loading="lazy">
-                <span class="item-label">Беспроводная зарядка</span>
+
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_shopy_00045_.png" alt="Зарядка" loading="lazy">
+                    <span class="product-badge">−25%</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-name">Dual Wireless Charger</div>
+                    <div class="product-stars"><span class="stars">★★★★☆</span><span class="reviews">4.7 (1 203 отзыва)</span></div>
+                    <div class="product-price">
+                        <span class="price-new">$29</span>
+                        <span class="price-old">$39</span>
+                        <span class="price-save">−$10</span>
+                    </div>
+                    <ul class="product-pros">
+                        <li>Заряжает 2 устройства одновременно</li>
+                        <li>15W быстрая зарядка</li>
+                        <li>Совместима с iPhone и Android</li>
+                    </ul>
+                    <div class="product-con">Предупреждение: провода станут историей, но привычка их искать — нет</div>
+                    <a href="crypto.html" class="btn-order-card">Заказать фото →</a>
+                </div>
             </div>
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_shopy_00047_.png" alt="Умная колонка" loading="lazy">
-                <span class="item-label">Умная колонка · RGB</span>
+
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_shopy_00047_.png" alt="Колонка" loading="lazy">
+                    <span class="product-badge new">New</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-name">Smart RGB Speaker</div>
+                    <div class="product-stars"><span class="stars">★★★★★</span><span class="reviews">4.9 (892 отзыва)</span></div>
+                    <div class="product-price">
+                        <span class="price-new">$79</span>
+                        <span class="price-old">$119</span>
+                        <span class="price-save">−$40</span>
+                    </div>
+                    <ul class="product-pros">
+                        <li>Голосовой ассистент Alexa/Google</li>
+                        <li>16 млн цветов RGB подсветки</li>
+                        <li>360° объёмный звук</li>
+                    </ul>
+                    <div class="product-con">Предупреждение: соседи узнают о вашем вкусе в музыке раньше чем вы думаете</div>
+                    <a href="crypto.html" class="btn-order-card">Заказать фото →</a>
+                </div>
             </div>
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_shopy_00048_.png" alt="Умный горшок" loading="lazy">
-                <span class="item-label">Smart Plant Speaker</span>
+
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_shopy_00048_.png" alt="Умный горшок" loading="lazy">
+                    <span class="product-badge new">Тренд</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-name">Smart Plant Speaker</div>
+                    <div class="product-stars"><span class="stars">★★★★★</span><span class="reviews">4.8 (3 441 отзыв)</span></div>
+                    <div class="product-price">
+                        <span class="price-new">$59</span>
+                        <span class="price-old">$89</span>
+                        <span class="price-save">−$30</span>
+                    </div>
+                    <ul class="product-pros">
+                        <li>Умный горшок + Bluetooth колонка</li>
+                        <li>RGB подсветка 16 млн цветов</li>
+                        <li>Датчик влажности почвы</li>
+                    </ul>
+                    <div class="product-con">Предупреждение: растение выживет, а вот бюджет — вопрос открытый</div>
+                    <a href="crypto.html" class="btn-order-card">Заказать фото →</a>
+                </div>
             </div>
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00016_.png" alt="Пауербанк" loading="lazy">
-                <span class="item-label">Пауербанк · Металлик</span>
+
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00016_.png" alt="Пауербанк" loading="lazy">
+                    <span class="product-badge">−20%</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-name">Slim Power Bank 20000</div>
+                    <div class="product-stars"><span class="stars">★★★★☆</span><span class="reviews">4.6 (7 209 отзывов)</span></div>
+                    <div class="product-price">
+                        <span class="price-new">$39</span>
+                        <span class="price-old">$49</span>
+                        <span class="price-save">−$10</span>
+                    </div>
+                    <ul class="product-pros">
+                        <li>20 000 mAh — 5 полных зарядок</li>
+                        <li>Алюминиевый корпус 9мм тонкий</li>
+                        <li>USB-C и USB-A одновременно</li>
+                    </ul>
+                    <div class="product-con">Предупреждение: теперь у друзей появится новый лучший друг — вы с пауербанком</div>
+                    <a href="crypto.html" class="btn-order-card">Заказать фото →</a>
+                </div>
             </div>
+
         </div>
 
-        <!-- Косметика Shopify -->
+        <!-- Красота -->
         <div class="gallery-category">
             <h3>✨ Красота и уход</h3>
-            <span class="count">3 работы</span>
         </div>
-        <div class="gallery-grid">
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_shopy_00041_.png" alt="Сыворотка" loading="lazy">
-                <span class="item-label">Сыворотка · Золото</span>
+        <div class="product-grid">
+
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_shopy_00042_.png" alt="Сыворотки" loading="lazy">
+                    <span class="product-badge">−35%</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-name">Gold Serum Collection</div>
+                    <div class="product-stars"><span class="stars">★★★★★</span><span class="reviews">4.9 (4 812 отзывов)</span></div>
+                    <div class="product-price">
+                        <span class="price-new">$89</span>
+                        <span class="price-old">$139</span>
+                        <span class="price-save">−$50</span>
+                    </div>
+                    <ul class="product-pros">
+                        <li>24K золото + гиалуроновая кислота</li>
+                        <li>Видимый эффект за 7 дней</li>
+                        <li>Без парабенов и силиконов</li>
+                    </ul>
+                    <div class="product-con">Предупреждение: после курса зеркало станет вашим лучшим другом</div>
+                    <a href="crypto.html" class="btn-order-card">Заказать фото →</a>
+                </div>
             </div>
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_shopy_00042_.png" alt="Сыворотки" loading="lazy">
-                <span class="item-label">Линейка сывороток</span>
+
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_shopy_00041_.png" alt="Сыворотка" loading="lazy">
+                    <span class="product-badge new">Бестселлер</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-name">Vitamin C Brightening Serum</div>
+                    <div class="product-stars"><span class="stars">★★★★★</span><span class="reviews">4.8 (9 341 отзыв)</span></div>
+                    <div class="product-price">
+                        <span class="price-new">$45</span>
+                        <span class="price-old">$65</span>
+                        <span class="price-save">−$20</span>
+                    </div>
+                    <ul class="product-pros">
+                        <li>20% Витамин С + Ниацинамид</li>
+                        <li>SPF-бустер эффект</li>
+                        <li>Подходит для всех типов кожи</li>
+                    </ul>
+                    <div class="product-con">Предупреждение: придётся купить новый тональный крем — старый станет лишним</div>
+                    <a href="crypto.html" class="btn-order-card">Заказать фото →</a>
+                </div>
             </div>
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_shoppy_00042_.png" alt="Косметика" loading="lazy">
-                <span class="item-label">Косметика · Lifestyle</span>
-            </div>
+
         </div>
 
-        <!-- Фитнес и образ жизни -->
+        <!-- Фитнес -->
         <div class="gallery-category">
             <h3>🏃 Фитнес и образ жизни</h3>
-            <span class="count">3 работы</span>
         </div>
-        <div class="gallery-grid">
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_shopy_00050_.png" alt="Йога-мат серый" loading="lazy">
-                <span class="item-label">Йога-мат · Серый</span>
+        <div class="product-grid">
+
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_shopy_00050_.png" alt="Йога-мат серый" loading="lazy">
+                    <span class="product-badge">−20%</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-name">Pro Yoga Mat 6mm</div>
+                    <div class="product-stars"><span class="stars">★★★★★</span><span class="reviews">4.9 (6 203 отзыва)</span></div>
+                    <div class="product-price">
+                        <span class="price-new">$39</span>
+                        <span class="price-old">$49</span>
+                        <span class="price-save">−$10</span>
+                    </div>
+                    <ul class="product-pros">
+                        <li>Нескользящее покрытие с двух сторон</li>
+                        <li>Экологичный TPE материал</li>
+                        <li>Идеальная амортизация 6мм</li>
+                    </ul>
+                    <div class="product-con">Предупреждение: отговорки "нет коврика" больше не работают</div>
+                    <a href="crypto.html" class="btn-order-card">Заказать фото →</a>
+                </div>
             </div>
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_shopy_00051_.png" alt="Йога-мат лавандовый" loading="lazy">
-                <span class="item-label">Йога-мат · Лаванда</span>
+
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_shopy_00051_.png" alt="Йога-мат лавандовый" loading="lazy">
+                    <span class="product-badge new">Тренд 2026</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-name">Lavender Yoga Mat Premium</div>
+                    <div class="product-stars"><span class="stars">★★★★★</span><span class="reviews">4.8 (3 891 отзыв)</span></div>
+                    <div class="product-price">
+                        <span class="price-new">$45</span>
+                        <span class="price-old">$59</span>
+                        <span class="price-save">−$14</span>
+                    </div>
+                    <ul class="product-pros">
+                        <li>Лавандовый цвет — хит сезона</li>
+                        <li>Широкий формат 183×68см</li>
+                        <li>Ремень для переноски в комплекте</li>
+                    </ul>
+                    <div class="product-con">Предупреждение: Instagram сам по себе не откроется, но рука потянется</div>
+                    <a href="crypto.html" class="btn-order-card">Заказать фото →</a>
+                </div>
             </div>
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_shopy_00056_.png" alt="Термостакан" loading="lazy">
-                <span class="item-label">Термостакан · Rose Gold</span>
+
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_shopy_00056_.png" alt="Термостакан" loading="lazy">
+                    <span class="product-badge">−30%</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-name">Smart Tumbler Rose Gold</div>
+                    <div class="product-stars"><span class="stars">★★★★★</span><span class="reviews">4.9 (11 204 отзыва)</span></div>
+                    <div class="product-price">
+                        <span class="price-new">$35</span>
+                        <span class="price-old">$49</span>
+                        <span class="price-save">−$14</span>
+                    </div>
+                    <ul class="product-pros">
+                        <li>Держит тепло 12ч, холод 24ч</li>
+                        <li>Rose Gold нержавеющая сталь</li>
+                        <li>Подходит для кофе, смузи, воды</li>
+                    </ul>
+                    <div class="product-con">Предупреждение: коллеги начнут просить "тот красивый стакан"</div>
+                    <a href="crypto.html" class="btn-order-card">Заказать фото →</a>
+                </div>
             </div>
+
         </div>
 
         <!-- Кухня -->
         <div class="gallery-category">
             <h3>🍳 Кухня и дом</h3>
-            <span class="count">1 работа</span>
         </div>
-        <div class="gallery-grid">
-            <div class="gallery-item" style="max-width:360px;" onclick="openLightbox(this)">
-                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_shopy00024_.png" alt="Блендер" loading="lazy">
-                <span class="item-label">Блендер · Кухня</span>
+        <div class="product-grid">
+
+            <div class="product-card">
+                <div class="product-img-wrap">
+                    <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_shopy00024_.png" alt="Блендер" loading="lazy">
+                    <span class="product-badge new">Бестселлер</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-name">Portable Blender Pro</div>
+                    <div class="product-stars"><span class="stars">★★★★★</span><span class="reviews">4.8 (14 502 отзыва)</span></div>
+                    <div class="product-price">
+                        <span class="price-new">$29</span>
+                        <span class="price-old">$45</span>
+                        <span class="price-save">−$16</span>
+                    </div>
+                    <ul class="product-pros">
+                        <li>USB-C зарядка, 20 циклов от заряда</li>
+                        <li>6 лезвий из нержавеющей стали</li>
+                        <li>600мл — идеальная порция</li>
+                    </ul>
+                    <div class="product-con">Предупреждение: смузи на завтрак войдёт в привычку быстрее чем вы думаете</div>
+                    <a href="crypto.html" class="btn-order-card">Заказать фото →</a>
+                </div>
             </div>
+
         </div>
     </div>
 
