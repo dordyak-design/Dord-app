@@ -1,133 +1,79 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-
-    <title>Галерея AI-фото товаров — Dord AI Studio | Shopify, Amazon, Ювелирные украшения</title>
-
-    <!-- SEO Meta -->
-    <meta name="description" content="Галерея работ Dord AI Studio — AI-генерация фото товаров для Shopify и Amazon. Ювелирные украшения, косметика, гаджеты, одежда. Примеры карточек товаров от $20.">
-    <meta name="keywords" content="AI фото товаров, карточки товаров Shopify, генерация фото продуктов, product photography AI, дропшиппинг фото, AI студия Израиль, фото для Amazon, ювелирная съёмка AI">
-    <meta name="robots" content="index, follow">
-    <meta name="author" content="Dord AI Studio">
-    <link rel="canonical" href="https://dordai.art/gallery.html">
-
-    <!-- Open Graph -->
-    <meta property="og:title" content="Галерея AI-фото товаров — Dord AI Studio">
-    <meta property="og:description" content="Реальные примеры AI-генерации: ювелирные украшения, косметика, гаджеты, карточки товаров для Shopify и Amazon. От $20.">
-    <meta property="og:url" content="https://dordai.art/gallery.html">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00015_.png">
-    <meta property="og:locale" content="ru_RU">
-    <meta property="og:site_name" content="Dord AI Studio">
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Галерея AI-фото товаров — Dord AI Studio">
-    <meta name="twitter:description" content="AI-генерация фото для Shopify и Amazon. Ювелирные украшения, косметика, гаджеты. От $20.">
-    <meta name="twitter:image" content="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00015_.png">
-
-    <!-- Structured Data — ImageGallery -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ImageGallery",
-      "name": "Галерея работ Dord AI Studio",
-      "description": "AI-генерация фото товаров для Shopify и Amazon. Ювелирные украшения, косметика, гаджеты, одежда.",
-      "url": "https://dordai.art/gallery.html",
-      "author": {
-        "@type": "Organization",
-        "name": "Dord AI Studio",
-        "url": "https://dordai.art",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Игаль Алон 98, Electra Tower",
-          "addressLocality": "Тель-Авив",
-          "addressCountry": "IL"
-        }
-      }
-    }
-    </script>
-
-    <!-- Structured Data — LocalBusiness -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Dord AI Studio",
-      "description": "AI-студия профессиональной фото и видео генерации для Shopify и Amazon продавцов",
-      "url": "https://dordai.art",
-      "image": "https://dordai.art/logo.PNG",
-      "priceRange": "$20 - $1200",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Игаль Алон 98, Electra Tower",
-        "addressLocality": "Тель-Авив",
-        "addressCountry": "IL"
-      },
-      "offers": {
-        "@type": "Offer",
-        "priceCurrency": "USD",
-        "price": "20",
-        "description": "Стартовый пакет — 100 AI-генераций"
-      }
-    }
-    </script>
-
-    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <style>
-        .lang-switcher{display:flex;align-items:center;gap:2px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:3px;margin-left:12px}
-        .lang-btn{padding:5px 10px;border-radius:6px;border:none;background:transparent;color:var(--text-muted,#8892a4);font-family:'Inter',sans-serif;font-size:12px;font-weight:600;cursor:pointer;transition:all 0.2s ease;letter-spacing:0.5px}
-        .lang-btn.active{background:linear-gradient(135deg,#004aad,#00c896);color:#fff}
-        .lang-btn:hover:not(.active){color:#fff;background:rgba(255,255,255,0.08)}
-    </style>
-    <style>
-        .gallery-section{padding:60px 5% 0;max-width:1400px;margin:0 auto}
-        .gallery-category{display:flex;align-items:center;gap:12px;margin-bottom:20px;margin-top:48px}
-        .gallery-category h3{font-family:'Unbounded',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px}
-        .gallery-category .count{font-size:11px;color:var(--text-muted);background:rgba(255,255,255,0.04);border:1px solid var(--border);padding:3px 10px;border-radius:100px}
-        .gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
-        .gallery-grid.wide{grid-template-columns:repeat(auto-fill,minmax(320px,1fr))}
-        .gallery-item{border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border);transition:var(--transition);cursor:pointer;position:relative;background:var(--card-bg);aspect-ratio:1/1}
-        .gallery-item:hover{border-color:var(--border-green);transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,0.4)}
-        .gallery-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s ease}
-        .gallery-item:hover img{transform:scale(1.03)}
-        .item-label{position:absolute;bottom:12px;left:12px;background:rgba(8,11,26,0.85);backdrop-filter:blur(10px);border:1px solid var(--border);border-radius:100px;padding:4px 12px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-soft);opacity:0;transition:opacity 0.3s}
-        .gallery-item:hover .item-label{opacity:1}
-        .lightbox{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.92);z-index:9999;align-items:center;justify-content:center;padding:20px}
-        .lightbox.active{display:flex}
-        .lightbox img{max-width:90vw;max-height:90vh;object-fit:contain;border-radius:var(--radius-lg);box-shadow:0 30px 80px rgba(0,0,0,0.8)}
-        .lightbox-close{position:absolute;top:20px;right:24px;font-size:32px;color:var(--text-muted);cursor:pointer;line-height:1;transition:color 0.2s}
-        .lightbox-close:hover{color:var(--text-main)}
-        .gallery-cta{text-align:center;padding:80px 5%;max-width:600px;margin:0 auto}
-        .product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px;margin-bottom:8px}
-        .product-card{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;transition:var(--transition);display:flex;flex-direction:column}
-        .product-card:hover{border-color:var(--border-green);transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,0.4)}
-        .product-img-wrap{position:relative;aspect-ratio:1/1;overflow:hidden;background:#f8f9fa}
-        .product-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease}
-        .product-card:hover .product-img-wrap img{transform:scale(1.05)}
-        .product-badge{position:absolute;top:12px;left:12px;background:#ef4444;color:#fff;font-size:10px;font-weight:800;padding:3px 10px;border-radius:100px;text-transform:uppercase;letter-spacing:0.5px}
-        .product-badge.new{background:var(--accent-green)}
-        .product-info{padding:16px;flex:1;display:flex;flex-direction:column;gap:8px}
-        .product-name{font-family:'Unbounded',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.3px;line-height:1.3}
-        .product-stars{display:flex;align-items:center;gap:6px}
-        .stars{color:#fbbf24;font-size:12px;letter-spacing:1px}
-        .reviews{font-size:11px;color:var(--text-muted)}
-        .product-price{display:flex;align-items:center;gap:8px;margin-top:2px}
-        .price-new{font-family:'Unbounded',sans-serif;font-size:18px;font-weight:900;color:var(--accent-green)}
-        .price-old{font-size:13px;color:var(--text-muted);text-decoration:line-through}
-        .price-save{font-size:10px;font-weight:700;color:#ef4444;background:rgba(239,68,68,0.1);padding:2px 7px;border-radius:100px}
-        .product-pros{list-style:none;margin-top:4px}
-        .product-pros li{font-size:11px;color:var(--text-soft);padding:3px 0;display:flex;align-items:flex-start;gap:6px;line-height:1.4}
-        .product-pros li::before{content:'✓';color:var(--accent-green);font-weight:800;flex-shrink:0;font-size:10px;margin-top:1px}
-        .product-con{font-size:10px;color:var(--text-muted);font-style:italic;padding:8px 10px;background:rgba(255,255,255,0.02);border-radius:8px;border-left:2px solid rgba(251,191,36,0.4);line-height:1.4;margin-top:2px}
-        .product-con::before{content:'⚠ ';color:#fbbf24}
-        .btn-order-card{display:block;text-align:center;background:var(--accent-green);color:#000;font-weight:800;font-size:11px;text-transform:uppercase;letter-spacing:0.5px;padding:12px;border-radius:10px;text-decoration:none;transition:var(--transition);margin-top:auto}
-        .btn-order-card:hover{background:#00e6ac;box-shadow:0 4px 16px rgba(0,200,150,0.4)}
-        .section-divider-gallery{height:1px;background:linear-gradient(90deg,transparent,var(--border-green),transparent);margin:60px 5% 0;max-width:1400px}
-        @media(max-width:768px){.product-grid{grid-template-columns:repeat(2,1fr);gap:12px}.gallery-section{padding:40px 16px 0}.gallery-grid{grid-template-columns:repeat(2,1fr);gap:10px}.gallery-grid.wide{grid-template-columns:repeat(2,1fr)}}
-        @media(max-width:480px){.product-grid{grid-template-columns:1fr}.gallery-grid{grid-template-columns:1fr 1fr;gap:8px}}
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Галерея AI-фото товаров — Dord AI Studio | Shopify, Amazon, Ювелирные украшения</title>
+<meta name="description" content="Галерея работ Dord AI Studio — AI-генерация фото товаров для Shopify и Amazon. Ювелирные украшения, косметика, гаджеты, одежда. Примеры карточек товаров от $20.">
+<meta name="keywords" content="AI фото товаров, карточки товаров Shopify, генерация фото продуктов, product photography AI, дропшиппинг фото, AI студия Израиль, фото для Amazon, ювелирная съёмка AI">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Dord AI Studio">
+<link rel="canonical" href="https://dordai.art/gallery.html">
+<meta property="og:title" content="Галерея AI-фото товаров — Dord AI Studio">
+<meta property="og:description" content="Реальные примеры AI-генерации: ювелирные украшения, косметика, гаджеты, карточки товаров для Shopify и Amazon. От $20.">
+<meta property="og:url" content="https://dordai.art/gallery.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00015_.png">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="Dord AI Studio">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Галерея AI-фото товаров — Dord AI Studio">
+<meta name="twitter:description" content="AI-генерация фото для Shopify и Amazon. Ювелирные украшения, косметика, гаджеты. От $20.">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00015_.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ImageGallery","name":"Галерея работ Dord AI Studio","description":"AI-генерация фото товаров для Shopify и Amazon.","url":"https://dordai.art/gallery.html","author":{"@type":"Organization","name":"Dord AI Studio","url":"https://dordai.art"}}</script>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.lang-switcher{display:flex;align-items:center;gap:2px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:3px;margin-left:12px}
+.lang-btn{padding:5px 10px;border-radius:6px;border:none;background:transparent;color:var(--text-muted,#8892a4);font-family:'Inter',sans-serif;font-size:12px;font-weight:600;cursor:pointer;transition:all 0.2s ease;letter-spacing:0.5px}
+.lang-btn.active{background:linear-gradient(135deg,#004aad,#00c896);color:#fff}
+.lang-btn:hover:not(.active){color:#fff;background:rgba(255,255,255,0.08)}
+.gallery-section{padding:60px 5% 0;max-width:1400px;margin:0 auto}
+.gallery-category{display:flex;align-items:center;gap:12px;margin-bottom:20px;margin-top:48px}
+.gallery-category h3{font-family:'Unbounded',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px}
+.gallery-category .count{font-size:11px;color:var(--text-muted);background:rgba(255,255,255,0.04);border:1px solid var(--border);padding:3px 10px;border-radius:100px}
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.gallery-grid.wide{grid-template-columns:repeat(auto-fill,minmax(320px,1fr))}
+.gallery-item{border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border);transition:var(--transition);cursor:pointer;position:relative;background:var(--card-bg);aspect-ratio:1/1}
+.gallery-item:hover{border-color:var(--border-green);transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,0.4)}
+.gallery-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s ease}
+.gallery-item:hover img{transform:scale(1.03)}
+.item-label{position:absolute;bottom:12px;left:12px;background:rgba(8,11,26,0.85);backdrop-filter:blur(10px);border:1px solid var(--border);border-radius:100px;padding:4px 12px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-soft);opacity:0;transition:opacity 0.3s}
+.gallery-item:hover .item-label{opacity:1}
+.lightbox{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.92);z-index:9999;align-items:center;justify-content:center;padding:20px}
+.lightbox.active{display:flex}
+.lightbox img{max-width:90vw;max-height:90vh;object-fit:contain;border-radius:var(--radius-lg);box-shadow:0 30px 80px rgba(0,0,0,0.8)}
+.lightbox-close{position:absolute;top:20px;right:24px;font-size:32px;color:var(--text-muted);cursor:pointer;line-height:1;transition:color 0.2s}
+.lightbox-close:hover{color:var(--text-main)}
+.gallery-cta{text-align:center;padding:80px 5%;max-width:600px;margin:0 auto}
+.product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px;margin-bottom:8px}
+.product-card{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;transition:var(--transition);display:flex;flex-direction:column}
+.product-card:hover{border-color:var(--border-green);transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,0.4)}
+.product-img-wrap{position:relative;aspect-ratio:1/1;overflow:hidden;background:#f8f9fa}
+.product-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease}
+.product-card:hover .product-img-wrap img{transform:scale(1.05)}
+.product-badge{position:absolute;top:12px;left:12px;background:#ef4444;color:#fff;font-size:10px;font-weight:800;padding:3px 10px;border-radius:100px;text-transform:uppercase;letter-spacing:0.5px}
+.product-badge.new{background:var(--accent-green)}
+.product-info{padding:16px;flex:1;display:flex;flex-direction:column;gap:8px}
+.product-name{font-family:'Unbounded',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.3px;line-height:1.3}
+.product-stars{display:flex;align-items:center;gap:6px}
+.stars{color:#fbbf24;font-size:12px;letter-spacing:1px}
+.reviews{font-size:11px;color:var(--text-muted)}
+.product-price{display:flex;align-items:center;gap:8px;margin-top:2px}
+.price-new{font-family:'Unbounded',sans-serif;font-size:18px;font-weight:900;color:var(--accent-green)}
+.price-old{font-size:13px;color:var(--text-muted);text-decoration:line-through}
+.price-save{font-size:10px;font-weight:700;color:#ef4444;background:rgba(239,68,68,0.1);padding:2px 7px;border-radius:100px}
+.product-pros{list-style:none;margin-top:4px}
+.product-pros li{font-size:11px;color:var(--text-soft);padding:3px 0;display:flex;align-items:flex-start;gap:6px;line-height:1.4}
+.product-pros li::before{content:'✓';color:var(--accent-green);font-weight:800;flex-shrink:0;font-size:10px;margin-top:1px}
+.product-con{font-size:10px;color:var(--text-muted);font-style:italic;padding:8px 10px;background:rgba(255,255,255,0.02);border-radius:8px;border-left:2px solid rgba(251,191,36,0.4);line-height:1.4;margin-top:2px}
+.product-con::before{content:'⚠ ';color:#fbbf24}
+.btn-order-card{display:block;text-align:center;background:var(--accent-green);color:#000;font-weight:800;font-size:11px;text-transform:uppercase;letter-spacing:0.5px;padding:12px;border-radius:10px;text-decoration:none;transition:var(--transition);margin-top:auto}
+.btn-order-card:hover{background:#00e6ac;box-shadow:0 4px 16px rgba(0,200,150,0.4)}
+.section-divider-gallery{height:1px;background:linear-gradient(90deg,transparent,var(--border-green),transparent);margin:60px 5% 0;max-width:1400px}
+@media(max-width:768px){.product-grid{grid-template-columns:repeat(2,1fr);gap:12px}.gallery-section{padding:40px 16px 0}.gallery-grid{grid-template-columns:repeat(2,1fr);gap:10px}.gallery-grid.wide{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.product-grid{grid-template-columns:1fr}.gallery-grid{grid-template-columns:1fr 1fr;gap:8px}}
+</style>
 </head>
 <body data-page="gallery">
 
@@ -167,506 +113,100 @@
         <p data-i18n="gallery.sub">Реальные примеры AI-генерации Dord AI Studio. Ювелирные украшения премиум-класса, косметика, гаджеты, карточки товаров для Shopify и Amazon — всё создано по текстовому описанию за 15–45 минут.</p>
     </div>
 
-    <!-- ====== ЮВЕЛИРНЫЕ УКРАШЕНИЯ ====== -->
     <div class="gallery-section">
-        <div class="gallery-category">
-            <h3 data-i18n="gallery.cat1">👑 Комплект "Диана"</h3>
-            <span class="count">4</span>
-        </div>
-        <p style="color:var(--text-muted);font-size:13px;margin-bottom:24px;max-width:600px;" data-i18n="gallery.cat1.sub">
-            Ювелирная съёмка премиум-уровня. Полный комплект украшений по одному техническому заданию. AI-генерация для ювелирных магазинов и интернет-витрин.
-        </p>
+        <div class="gallery-category"><h3 data-i18n="gallery.cat1">👑 Комплект "Диана"</h3><span class="count">4</span></div>
+        <p style="color:var(--text-muted);font-size:13px;margin-bottom:24px;max-width:600px;" data-i18n="gallery.cat1.sub">Ювелирная съёмка премиум-уровня. Полный комплект украшений по одному техническому заданию.</p>
         <div class="gallery-grid">
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00015_.png"
-                     alt="AI-фото диадемы с изумрудами — ювелирная съёмка премиум Dord AI Studio"
-                     title="Диадема с изумрудами — AI-генерация ювелирных украшений"
-                     loading="lazy">
-                <span class="item-label" data-i18n="gallery.i1">Диадема · Изумруды</span>
-            </div>
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00014_.png"
-                     alt="AI-фото кулона с изумрудами и сапфирами — профессиональная ювелирная фотография"
-                     title="Кулон с изумрудами и сапфирами — AI-генерация"
-                     loading="lazy">
-                <span class="item-label" data-i18n="gallery.i2">Кулон · Изумруды и сапфиры</span>
-            </div>
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00013_.png"
-                     alt="AI-фото браслетов на белом мраморе — ювелирная съёмка для интернет-магазина"
-                     title="Браслеты на белом мраморе — AI фото для Shopify"
-                     loading="lazy">
-                <span class="item-label" data-i18n="gallery.i3">Браслеты · Белый мрамор</span>
-            </div>
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00010_.png"
-                     alt="AI-фото серёг на шёлке — профессиональное фото украшений для Amazon и Shopify"
-                     title="Серьги на шёлке — AI-генерация ювелирных фото"
-                     loading="lazy">
-                <span class="item-label" data-i18n="gallery.i4">Серьги · Шёлк</span>
-            </div>
+            <div class="gallery-item" onclick="openLightbox(this)"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00015_.png" alt="AI-фото диадемы с изумрудами — ювелирная съёмка премиум Dord AI Studio" loading="lazy"><span class="item-label" data-i18n="gallery.i1">Диадема · Изумруды</span></div>
+            <div class="gallery-item" onclick="openLightbox(this)"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00014_.png" alt="AI-фото кулона с изумрудами и сапфирами — профессиональная ювелирная фотография" loading="lazy"><span class="item-label" data-i18n="gallery.i2">Кулон · Изумруды и сапфиры</span></div>
+            <div class="gallery-item" onclick="openLightbox(this)"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00013_.png" alt="AI-фото браслетов на белом мраморе — ювелирная съёмка для интернет-магазина" loading="lazy"><span class="item-label" data-i18n="gallery.i3">Браслеты · Белый мрамор</span></div>
+            <div class="gallery-item" onclick="openLightbox(this)"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00010_.png" alt="AI-фото серёг на шёлке — профессиональное фото украшений для Amazon и Shopify" loading="lazy"><span class="item-label" data-i18n="gallery.i4">Серьги · Шёлк</span></div>
         </div>
     </div>
 
-    <!-- ====== КОСМЕТИКА ====== -->
     <div class="gallery-section">
-        <div class="gallery-category">
-            <h3 data-i18n="gallery.cat2">🌸 Косметика и уход</h3>
-            <span class="count">3</span>
-        </div>
-        <p style="color:var(--text-muted);font-size:13px;margin-bottom:24px;max-width:600px;">
-            AI-генерация фото косметики и средств по уходу для Shopify, Amazon и Instagram. Пионы, мрамор, цитрусы, тёмный фон — любой пресет по ТЗ.
-        </p>
+        <div class="gallery-category"><h3 data-i18n="gallery.cat2">🌸 Косметика и уход</h3><span class="count">3</span></div>
+        <p style="color:var(--text-muted);font-size:13px;margin-bottom:24px;max-width:600px;">AI-генерация фото косметики для Shopify, Amazon и Instagram.</p>
         <div class="gallery-grid">
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00006_.png"
-                     alt="AI-фото крема на фоне пионов и мрамора — профессиональная косметическая съёмка"
-                     title="Крем с пионами на мраморе — AI фото косметики"
-                     loading="lazy">
-                <span class="item-label" data-i18n="gallery.i5">Крем · Пионы · Мрамор</span>
-            </div>
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00007_.png"
-                     alt="AI-фото витаминов с цитрусовым декором — lifestyle фото для интернет-магазина"
-                     title="Витамины с цитрусами — AI-генерация lifestyle фото"
-                     loading="lazy">
-                <span class="item-label" data-i18n="gallery.i6">Витамины · Цитрусы</span>
-            </div>
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00004_.png"
-                     alt="AI-фото парфюма на тёмном мраморе — премиальная съёмка духов для Shopify"
-                     title="Парфюм на тёмном мраморе — AI фото для Shopify"
-                     loading="lazy">
-                <span class="item-label" data-i18n="gallery.i7">Парфюм · Тёмный мрамор</span>
-            </div>
+            <div class="gallery-item" onclick="openLightbox(this)"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00006_.png" alt="AI-фото крема на фоне пионов и мрамора — профессиональная косметическая съёмка" loading="lazy"><span class="item-label" data-i18n="gallery.i5">Крем · Пионы · Мрамор</span></div>
+            <div class="gallery-item" onclick="openLightbox(this)"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00007_.png" alt="AI-фото витаминов с цитрусовым декором — lifestyle фото для интернет-магазина" loading="lazy"><span class="item-label" data-i18n="gallery.i6">Витамины · Цитрусы</span></div>
+            <div class="gallery-item" onclick="openLightbox(this)"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00004_.png" alt="AI-фото парфюма на тёмном мраморе — премиальная съёмка духов для Shopify" loading="lazy"><span class="item-label" data-i18n="gallery.i7">Парфюм · Тёмный мрамор</span></div>
         </div>
     </div>
 
-    <!-- ====== МОДА ====== -->
     <div class="gallery-section">
-        <div class="gallery-category">
-            <h3 data-i18n="gallery.cat3">👜 Мода и аксессуары</h3>
-            <span class="count">2</span>
-        </div>
-        <p style="color:var(--text-muted);font-size:13px;margin-bottom:24px;max-width:600px;">
-            AI-генерация фото сумок, очков и аксессуаров для дропшиппинга и брендов одежды.
-        </p>
+        <div class="gallery-category"><h3 data-i18n="gallery.cat3">👜 Мода и аксессуары</h3><span class="count">2</span></div>
         <div class="gallery-grid">
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00008_.png"
-                     alt="AI-фото премиум сумки — профессиональная съёмка кожаных аксессуаров для Shopify"
-                     title="Премиум сумка — AI фото аксессуаров для интернет-магазина"
-                     loading="lazy">
-                <span class="item-label" data-i18n="gallery.i8">Сумка · Премиум</span>
-            </div>
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00011_.png"
-                     alt="AI lifestyle фото солнцезащитных очков на пляже — летняя съёмка аксессуаров"
-                     title="Солнцезащитные очки — lifestyle AI фото на пляже"
-                     loading="lazy">
-                <span class="item-label" data-i18n="gallery.i9">Очки · Пляж · Lifestyle</span>
-            </div>
+            <div class="gallery-item" onclick="openLightbox(this)"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00008_.png" alt="AI-фото премиум сумки — профессиональная съёмка аксессуаров для Shopify" loading="lazy"><span class="item-label" data-i18n="gallery.i8">Сумка · Премиум</span></div>
+            <div class="gallery-item" onclick="openLightbox(this)"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00011_.png" alt="AI lifestyle фото солнцезащитных очков на пляже — летняя съёмка аксессуаров" loading="lazy"><span class="item-label" data-i18n="gallery.i9">Очки · Пляж · Lifestyle</span></div>
         </div>
     </div>
 
-    <!-- ====== ЕДА ====== -->
     <div class="gallery-section">
-        <div class="gallery-category">
-            <h3 data-i18n="gallery.cat4">☕ Еда и напитки</h3>
-            <span class="count">3</span>
-        </div>
-        <p style="color:var(--text-muted);font-size:13px;margin-bottom:24px;max-width:600px;">
-            AI-фуд-фотография для ресторанов, кафе и пищевых брендов. Аппетитные снимки без фотографа и студии.
-        </p>
+        <div class="gallery-category"><h3 data-i18n="gallery.cat4">☕ Еда и напитки</h3><span class="count">3</span></div>
         <div class="gallery-grid">
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00021_.png"
-                     alt="AI фуд-фото круассана с капучино — утренняя сцена для меню кафе"
-                     title="Круассан и капучино — AI фуд-фотография"
-                     loading="lazy">
-                <span class="item-label" data-i18n="gallery.i10">Круассан · Капучино · Утро</span>
-            </div>
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00022_.png"
-                     alt="AI фото романтического столика с цветами — lifestyle фотография для ресторана"
-                     title="Романтический столик с цветами — AI lifestyle фото"
-                     loading="lazy">
-                <span class="item-label" data-i18n="gallery.i11">Столик · Цветы · Романтика</span>
-            </div>
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00012_.png"
-                     alt="AI фуд-фото шоколада — профессиональная кондитерская съёмка для интернет-магазина"
-                     title="Шоколад — AI фуд-фотография для продаж"
-                     loading="lazy">
-                <span class="item-label" data-i18n="gallery.i12">Шоколад · Фуд-фото</span>
-            </div>
+            <div class="gallery-item" onclick="openLightbox(this)"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00021_.png" alt="AI фуд-фото круассана с капучино — утренняя сцена для меню кафе" loading="lazy"><span class="item-label" data-i18n="gallery.i10">Круассан · Капучино · Утро</span></div>
+            <div class="gallery-item" onclick="openLightbox(this)"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00022_.png" alt="AI фото романтического столика с цветами — lifestyle фотография для ресторана" loading="lazy"><span class="item-label" data-i18n="gallery.i11">Столик · Цветы · Романтика</span></div>
+            <div class="gallery-item" onclick="openLightbox(this)"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00012_.png" alt="AI фуд-фото шоколада — профессиональная кондитерская съёмка" loading="lazy"><span class="item-label" data-i18n="gallery.i12">Шоколад · Фуд-фото</span></div>
         </div>
     </div>
 
-    <!-- ====== ИНТЕРЬЕР ====== -->
     <div class="gallery-section">
-        <div class="gallery-category">
-            <h3 data-i18n="gallery.cat5">🏠 Интерьер и хобби</h3>
-            <span class="count">2</span>
-        </div>
-        <p style="color:var(--text-muted);font-size:13px;margin-bottom:24px;max-width:600px;">
-            AI-генерация фото товаров для дома, декора и хобби. Карточки товаров для Shopify и Amazon дропшиппинга.
-        </p>
+        <div class="gallery-category"><h3 data-i18n="gallery.cat5">🏠 Интерьер и хобби</h3><span class="count">2</span></div>
         <div class="gallery-grid">
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00018_.png"
-                     alt="AI-фото RGB лампы в интерьере — карточка товара для дропшиппинга Shopify"
-                     title="RGB лампа в интерьере — AI фото для Shopify"
-                     loading="lazy">
-                <span class="item-label" data-i18n="gallery.i13">RGB лампа · Интерьер</span>
-            </div>
-            <div class="gallery-item" onclick="openLightbox(this)">
-                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00017_.png"
-                     alt="AI-фото набора Лего Замок — карточка товара для хобби-магазина Shopify"
-                     title="Лего Замок — AI фото для хобби-магазина"
-                     loading="lazy">
-                <span class="item-label" data-i18n="gallery.i14">Лего · Замок · Хобби</span>
-            </div>
+            <div class="gallery-item" onclick="openLightbox(this)"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00018_.png" alt="AI-фото RGB лампы в интерьере — карточка товара для дропшиппинга Shopify" loading="lazy"><span class="item-label" data-i18n="gallery.i13">RGB лампа · Интерьер</span></div>
+            <div class="gallery-item" onclick="openLightbox(this)"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00017_.png" alt="AI-фото набора Лего Замок — карточка товара для хобби-магазина" loading="lazy"><span class="item-label" data-i18n="gallery.i14">Лего · Замок · Хобби</span></div>
         </div>
     </div>
 
-    <!-- ====== АРТ ====== -->
     <div class="gallery-section">
-        <div class="gallery-category">
-            <h3 data-i18n="gallery.cat6">🎨 Арт и иллюстрации</h3>
-            <span class="count">1</span>
-        </div>
-        <p style="color:var(--text-muted);font-size:13px;margin-bottom:24px;max-width:600px;" data-i18n="gallery.cat6.sub">
-            AI-иллюстрации и ретро-арт для рекламных кампаний, брендинга и социальных сетей. Уникальный визуал под любую концепцию.
-        </p>
+        <div class="gallery-category"><h3 data-i18n="gallery.cat6">🎨 Арт и иллюстрации</h3><span class="count">1</span></div>
+        <p style="color:var(--text-muted);font-size:13px;margin-bottom:24px;max-width:600px;" data-i18n="gallery.cat6.sub">AI-иллюстрации и ретро-арт для рекламных кампаний и брендинга.</p>
         <div class="gallery-grid">
-            <div class="gallery-item" style="max-width:360px;" onclick="openLightbox(this)">
-                <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00001_.png"
-                     alt="AI ретро-арт иллюстрация — уникальный визуал для рекламной кампании и брендинга"
-                     title="Ретро арт — AI иллюстрация для рекламы"
-                     loading="lazy">
-                <span class="item-label" data-i18n="gallery.i15">Ретро арт · Иллюстрация</span>
-            </div>
+            <div class="gallery-item" style="max-width:360px;" onclick="openLightbox(this)"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00001_.png" alt="AI ретро-арт иллюстрация — уникальный визуал для рекламной кампании и брендинга" loading="lazy"><span class="item-label" data-i18n="gallery.i15">Ретро арт · Иллюстрация</span></div>
         </div>
     </div>
 
     <div class="section-divider-gallery"></div>
 
-    <!-- ====== SHOPIFY КАРТОЧКИ ====== -->
     <div class="gallery-section">
         <div class="section-label" data-i18n="gallery.shopify.label">Карточки товаров</div>
         <h2 class="section-title" data-i18n="gallery.shopify.title">Shopify &amp; Amazon Ready</h2>
-        <p class="section-sub" data-i18n="gallery.shopify.sub">
-            Так выглядит контент который мы создаём для продавцов и дропшипперов. Профессиональное AI-фото + карточка товара = конверсия выше в 3–5 раз. От $75 за полный сет.
-        </p>
+        <p class="section-sub" data-i18n="gallery.shopify.sub">Профессиональное AI-фото + карточка товара = конверсия выше в 3–5 раз. От $75 за полный сет.</p>
 
-        <!-- ГАДЖЕТЫ -->
-        <div class="gallery-category" style="margin-top:32px;">
-            <h3 data-i18n="gallery.cat.gadgets">📱 Гаджеты и техника</h3>
-        </div>
-        <p style="color:var(--text-muted);font-size:13px;margin-bottom:20px;max-width:600px;">
-            AI-карточки товаров для электроники и гаджетов. Белый фон, левитация, lifestyle — любой пресет для Shopify и Amazon.
-        </p>
+        <div class="gallery-category" style="margin-top:32px;"><h3 data-i18n="gallery.cat.gadgets">📱 Гаджеты и техника</h3></div>
         <div class="product-grid">
-            <div class="product-card">
-                <div class="product-img-wrap">
-                    <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00020_.png"
-                         alt="AI-фото беспроводных наушников AirPods — карточка товара для Shopify с белым фоном"
-                         title="Беспроводные наушники — AI карточка товара Shopify"
-                         loading="lazy">
-                    <span class="product-badge">−30%</span>
-                </div>
-                <div class="product-info">
-                    <div class="product-name">Pro Wireless Earbuds</div>
-                    <div class="product-stars"><span class="stars">★★★★★</span><span class="reviews">4.9 (2 841)</span></div>
-                    <div class="product-price"><span class="price-new">$49</span><span class="price-old">$69</span><span class="price-save">−$20</span></div>
-                    <ul class="product-pros">
-                        <li data-i18n="p1.f1">30 часов автономной работы</li>
-                        <li data-i18n="p1.f2">Активное шумоподавление</li>
-                        <li data-i18n="p1.f3">Быстрая зарядка 15 мин = 3 часа</li>
-                    </ul>
-                    <div class="product-con" data-i18n="p1.con">Предупреждение: после покупки кошелёк может почувствовать лёгкую грусть</div>
-                    <a href="crypto.html" class="btn-order-card" data-i18n="gallery.order.btn">Заказать фото →</a>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-img-wrap">
-                    <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_shopy_00028_.png"
-                         alt="AI-фото фитнес-браслета Smart Band — карточка товара для дропшиппинга Shopify"
-                         title="Smart Fitness Band — AI фото карточка Shopify"
-                         loading="lazy">
-                    <span class="product-badge new">Хит</span>
-                </div>
-                <div class="product-info">
-                    <div class="product-name">Smart Fitness Band Pro</div>
-                    <div class="product-stars"><span class="stars">★★★★★</span><span class="reviews">4.8 (5 127)</span></div>
-                    <div class="product-price"><span class="price-new">$35</span><span class="price-old">$55</span><span class="price-save">−$20</span></div>
-                    <ul class="product-pros">
-                        <li data-i18n="p2.f1">Мониторинг сна и пульса 24/7</li>
-                        <li data-i18n="p2.f2">Водонепроницаемый IP68</li>
-                        <li data-i18n="p2.f3">14 дней без зарядки</li>
-                    </ul>
-                    <div class="product-con" data-i18n="p2.con">Предупреждение: покажет сколько шагов вы НЕ сделали сегодня</div>
-                    <a href="crypto.html" class="btn-order-card" data-i18n="gallery.order.btn">Заказать фото →</a>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-img-wrap">
-                    <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_shopy_00045_.png"
-                         alt="AI-фото двойной беспроводной зарядки — карточка товара для Amazon и Shopify"
-                         title="Dual Wireless Charger — AI карточка товара Amazon"
-                         loading="lazy">
-                    <span class="product-badge">−25%</span>
-                </div>
-                <div class="product-info">
-                    <div class="product-name">Dual Wireless Charger</div>
-                    <div class="product-stars"><span class="stars">★★★★☆</span><span class="reviews">4.7 (1 203)</span></div>
-                    <div class="product-price"><span class="price-new">$29</span><span class="price-old">$39</span><span class="price-save">−$10</span></div>
-                    <ul class="product-pros">
-                        <li data-i18n="p3.f1">Заряжает 2 устройства одновременно</li>
-                        <li data-i18n="p3.f2">15W быстрая зарядка</li>
-                        <li data-i18n="p3.f3">Совместима с iPhone и Android</li>
-                    </ul>
-                    <div class="product-con" data-i18n="p3.con">Предупреждение: провода станут историей, но привычка их искать — нет</div>
-                    <a href="crypto.html" class="btn-order-card" data-i18n="gallery.order.btn">Заказать фото →</a>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-img-wrap">
-                    <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_shopy_00047_.png"
-                         alt="AI-фото умной RGB колонки — карточка товара для дропшиппинга с подсветкой"
-                         title="Smart RGB Speaker — AI фото карточка дропшиппинг"
-                         loading="lazy">
-                    <span class="product-badge new">New</span>
-                </div>
-                <div class="product-info">
-                    <div class="product-name">Smart RGB Speaker</div>
-                    <div class="product-stars"><span class="stars">★★★★★</span><span class="reviews">4.9 (892)</span></div>
-                    <div class="product-price"><span class="price-new">$79</span><span class="price-old">$119</span><span class="price-save">−$40</span></div>
-                    <ul class="product-pros">
-                        <li data-i18n="p4.f1">Голосовой ассистент Alexa/Google</li>
-                        <li data-i18n="p4.f2">16 млн цветов RGB подсветки</li>
-                        <li data-i18n="p4.f3">360° объёмный звук</li>
-                    </ul>
-                    <div class="product-con" data-i18n="p4.con">Предупреждение: соседи узнают о вашем вкусе в музыке раньше чем вы думаете</div>
-                    <a href="crypto.html" class="btn-order-card" data-i18n="gallery.order.btn">Заказать фото →</a>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-img-wrap">
-                    <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_shopy_00048_.png"
-                         alt="AI-фото умного горшка со встроенной Bluetooth колонкой — необычный товар для дропшиппинга"
-                         title="Smart Plant Speaker — AI фото умного горшка"
-                         loading="lazy">
-                    <span class="product-badge new">Тренд</span>
-                </div>
-                <div class="product-info">
-                    <div class="product-name">Smart Plant Speaker</div>
-                    <div class="product-stars"><span class="stars">★★★★★</span><span class="reviews">4.8 (3 441)</span></div>
-                    <div class="product-price"><span class="price-new">$59</span><span class="price-old">$89</span><span class="price-save">−$30</span></div>
-                    <ul class="product-pros">
-                        <li data-i18n="p5.f1">Умный горшок + Bluetooth колонка</li>
-                        <li data-i18n="p5.f2">RGB подсветка 16 млн цветов</li>
-                        <li data-i18n="p5.f3">Датчик влажности почвы</li>
-                    </ul>
-                    <div class="product-con" data-i18n="p5.con">Предупреждение: растение выживет, а вот бюджет — вопрос открытый</div>
-                    <a href="crypto.html" class="btn-order-card" data-i18n="gallery.order.btn">Заказать фото →</a>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-img-wrap">
-                    <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00016_.png"
-                         alt="AI-фото тонкого пауэрбанка 20000 мАч — карточка товара Shopify белый фон"
-                         title="Slim Power Bank 20000 — AI карточка Shopify"
-                         loading="lazy">
-                    <span class="product-badge">−20%</span>
-                </div>
-                <div class="product-info">
-                    <div class="product-name">Slim Power Bank 20000</div>
-                    <div class="product-stars"><span class="stars">★★★★☆</span><span class="reviews">4.6 (7 209)</span></div>
-                    <div class="product-price"><span class="price-new">$39</span><span class="price-old">$49</span><span class="price-save">−$10</span></div>
-                    <ul class="product-pros">
-                        <li data-i18n="p6.f1">20 000 mAh — 5 полных зарядок</li>
-                        <li data-i18n="p6.f2">Алюминиевый корпус 9мм тонкий</li>
-                        <li data-i18n="p6.f3">USB-C и USB-A одновременно</li>
-                    </ul>
-                    <div class="product-con" data-i18n="p6.con">Предупреждение: теперь у друзей появится новый лучший друг — вы с пауербанком</div>
-                    <a href="crypto.html" class="btn-order-card" data-i18n="gallery.order.btn">Заказать фото →</a>
-                </div>
-            </div>
+            <div class="product-card"><div class="product-img-wrap"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00020_.png" alt="AI-фото беспроводных наушников — карточка товара для Shopify" loading="lazy"><span class="product-badge">−30%</span></div><div class="product-info"><div class="product-name">Pro Wireless Earbuds</div><div class="product-stars"><span class="stars">★★★★★</span><span class="reviews">4.9 (2 841)</span></div><div class="product-price"><span class="price-new">$49</span><span class="price-old">$69</span><span class="price-save">−$20</span></div><ul class="product-pros"><li data-i18n="p1.f1">30 часов автономной работы</li><li data-i18n="p1.f2">Активное шумоподавление</li><li data-i18n="p1.f3">Быстрая зарядка 15 мин = 3 часа</li></ul><div class="product-con" data-i18n="p1.con">Предупреждение: после покупки кошелёк может почувствовать лёгкую грусть</div><a href="crypto.html" class="btn-order-card" data-i18n="gallery.order.btn">Заказать фото →</a></div></div>
+            <div class="product-card"><div class="product-img-wrap"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_shopy_00028_.png" alt="AI-фото фитнес-браслета Smart Band — карточка для дропшиппинга Shopify" loading="lazy"><span class="product-badge new">Хит</span></div><div class="product-info"><div class="product-name">Smart Fitness Band Pro</div><div class="product-stars"><span class="stars">★★★★★</span><span class="reviews">4.8 (5 127)</span></div><div class="product-price"><span class="price-new">$35</span><span class="price-old">$55</span><span class="price-save">−$20</span></div><ul class="product-pros"><li data-i18n="p2.f1">Мониторинг сна и пульса 24/7</li><li data-i18n="p2.f2">Водонепроницаемый IP68</li><li data-i18n="p2.f3">14 дней без зарядки</li></ul><div class="product-con" data-i18n="p2.con">Предупреждение: покажет сколько шагов вы НЕ сделали сегодня</div><a href="crypto.html" class="btn-order-card" data-i18n="gallery.order.btn">Заказать фото →</a></div></div>
+            <div class="product-card"><div class="product-img-wrap"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_shopy_00045_.png" alt="AI-фото беспроводной зарядки — карточка для Amazon и Shopify" loading="lazy"><span class="product-badge">−25%</span></div><div class="product-info"><div class="product-name">Dual Wireless Charger</div><div class="product-stars"><span class="stars">★★★★☆</span><span class="reviews">4.7 (1 203)</span></div><div class="product-price"><span class="price-new">$29</span><span class="price-old">$39</span><span class="price-save">−$10</span></div><ul class="product-pros"><li data-i18n="p3.f1">Заряжает 2 устройства одновременно</li><li data-i18n="p3.f2">15W быстрая зарядка</li><li data-i18n="p3.f3">Совместима с iPhone и Android</li></ul><div class="product-con" data-i18n="p3.con">Предупреждение: провода станут историей, но привычка их искать — нет</div><a href="crypto.html" class="btn-order-card" data-i18n="gallery.order.btn">Заказать фото →</a></div></div>
+            <div class="product-card"><div class="product-img-wrap"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_shopy_00047_.png" alt="AI-фото умной RGB колонки — карточка для дропшиппинга" loading="lazy"><span class="product-badge new">New</span></div><div class="product-info"><div class="product-name">Smart RGB Speaker</div><div class="product-stars"><span class="stars">★★★★★</span><span class="reviews">4.9 (892)</span></div><div class="product-price"><span class="price-new">$79</span><span class="price-old">$119</span><span class="price-save">−$40</span></div><ul class="product-pros"><li data-i18n="p4.f1">Голосовой ассистент Alexa/Google</li><li data-i18n="p4.f2">16 млн цветов RGB подсветки</li><li data-i18n="p4.f3">360° объёмный звук</li></ul><div class="product-con" data-i18n="p4.con">Предупреждение: соседи узнают о вашем вкусе в музыке раньше чем вы думаете</div><a href="crypto.html" class="btn-order-card" data-i18n="gallery.order.btn">Заказать фото →</a></div></div>
+            <div class="product-card"><div class="product-img-wrap"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_shopy_00048_.png" alt="AI-фото умного горшка со Bluetooth колонкой — дропшиппинг товар" loading="lazy"><span class="product-badge new">Тренд</span></div><div class="product-info"><div class="product-name">Smart Plant Speaker</div><div class="product-stars"><span class="stars">★★★★★</span><span class="reviews">4.8 (3 441)</span></div><div class="product-price"><span class="price-new">$59</span><span class="price-old">$89</span><span class="price-save">−$30</span></div><ul class="product-pros"><li data-i18n="p5.f1">Умный горшок + Bluetooth колонка</li><li data-i18n="p5.f2">RGB подсветка 16 млн цветов</li><li data-i18n="p5.f3">Датчик влажности почвы</li></ul><div class="product-con" data-i18n="p5.con">Предупреждение: растение выживет, а вот бюджет — вопрос открытый</div><a href="crypto.html" class="btn-order-card" data-i18n="gallery.order.btn">Заказать фото →</a></div></div>
+            <div class="product-card"><div class="product-img-wrap"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00016_.png" alt="AI-фото пауэрбанка 20000 мАч — карточка Shopify белый фон" loading="lazy"><span class="product-badge">−20%</span></div><div class="product-info"><div class="product-name">Slim Power Bank 20000</div><div class="product-stars"><span class="stars">★★★★☆</span><span class="reviews">4.6 (7 209)</span></div><div class="product-price"><span class="price-new">$39</span><span class="price-old">$49</span><span class="price-save">−$10</span></div><ul class="product-pros"><li data-i18n="p6.f1">20 000 mAh — 5 полных зарядок</li><li data-i18n="p6.f2">Алюминиевый корпус 9мм тонкий</li><li data-i18n="p6.f3">USB-C и USB-A одновременно</li></ul><div class="product-con" data-i18n="p6.con">Предупреждение: теперь у друзей появится новый лучший друг — вы с пауербанком</div><a href="crypto.html" class="btn-order-card" data-i18n="gallery.order.btn">Заказать фото →</a></div></div>
         </div>
 
-        <!-- КРАСОТА -->
-        <div class="gallery-category">
-            <h3 data-i18n="gallery.cat.beauty">✨ Красота и уход</h3>
-        </div>
-        <p style="color:var(--text-muted);font-size:13px;margin-bottom:20px;max-width:600px;">
-            AI-фото косметики и средств по уходу. Золото, мрамор, цветы — профессиональный визуал для beauty-брендов на Shopify и Amazon.
-        </p>
+        <div class="gallery-category"><h3 data-i18n="gallery.cat.beauty">✨ Красота и уход</h3></div>
         <div class="product-grid">
-            <div class="product-card">
-                <div class="product-img-wrap">
-                    <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_shopy_00042_.png"
-                         alt="AI-фото коллекции золотых сывороток с 24К золотом — премиальная косметика Shopify"
-                         title="Gold Serum Collection — AI фото премиальной косметики"
-                         loading="lazy">
-                    <span class="product-badge">−35%</span>
-                </div>
-                <div class="product-info">
-                    <div class="product-name">Gold Serum Collection</div>
-                    <div class="product-stars"><span class="stars">★★★★★</span><span class="reviews">4.9 (4 812)</span></div>
-                    <div class="product-price"><span class="price-new">$89</span><span class="price-old">$139</span><span class="price-save">−$50</span></div>
-                    <ul class="product-pros">
-                        <li data-i18n="p7.f1">24K золото + гиалуроновая кислота</li>
-                        <li data-i18n="p7.f2">Видимый эффект за 7 дней</li>
-                        <li data-i18n="p7.f3">Без парабенов и силиконов</li>
-                    </ul>
-                    <div class="product-con" data-i18n="p7.con">Предупреждение: после курса зеркало станет вашим лучшим другом</div>
-                    <a href="crypto.html" class="btn-order-card" data-i18n="gallery.order.btn">Заказать фото →</a>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-img-wrap">
-                    <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_shopy_00041_.png"
-                         alt="AI-фото сыворотки с витамином С — карточка товара бестселлер для Amazon и Shopify"
-                         title="Vitamin C Brightening Serum — AI карточка Amazon"
-                         loading="lazy">
-                    <span class="product-badge new">Бестселлер</span>
-                </div>
-                <div class="product-info">
-                    <div class="product-name">Vitamin C Brightening Serum</div>
-                    <div class="product-stars"><span class="stars">★★★★★</span><span class="reviews">4.8 (9 341)</span></div>
-                    <div class="product-price"><span class="price-new">$45</span><span class="price-old">$65</span><span class="price-save">−$20</span></div>
-                    <ul class="product-pros">
-                        <li data-i18n="p8.f1">20% Витамин С + Ниацинамид</li>
-                        <li data-i18n="p8.f2">SPF-бустер эффект</li>
-                        <li data-i18n="p8.f3">Подходит для всех типов кожи</li>
-                    </ul>
-                    <div class="product-con" data-i18n="p8.con">Предупреждение: придётся купить новый тональный крем — старый станет лишним</div>
-                    <a href="crypto.html" class="btn-order-card" data-i18n="gallery.order.btn">Заказать фото →</a>
-                </div>
-            </div>
+            <div class="product-card"><div class="product-img-wrap"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_shopy_00042_.png" alt="AI-фото коллекции золотых сывороток — премиальная косметика Shopify" loading="lazy"><span class="product-badge">−35%</span></div><div class="product-info"><div class="product-name">Gold Serum Collection</div><div class="product-stars"><span class="stars">★★★★★</span><span class="reviews">4.9 (4 812)</span></div><div class="product-price"><span class="price-new">$89</span><span class="price-old">$139</span><span class="price-save">−$50</span></div><ul class="product-pros"><li data-i18n="p7.f1">24K золото + гиалуроновая кислота</li><li data-i18n="p7.f2">Видимый эффект за 7 дней</li><li data-i18n="p7.f3">Без парабенов и силиконов</li></ul><div class="product-con" data-i18n="p7.con">Предупреждение: после курса зеркало станет вашим лучшим другом</div><a href="crypto.html" class="btn-order-card" data-i18n="gallery.order.btn">Заказать фото →</a></div></div>
+            <div class="product-card"><div class="product-img-wrap"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_shopy_00041_.png" alt="AI-фото сыворотки с витамином С — бестселлер для Amazon и Shopify" loading="lazy"><span class="product-badge new">Бестселлер</span></div><div class="product-info"><div class="product-name">Vitamin C Brightening Serum</div><div class="product-stars"><span class="stars">★★★★★</span><span class="reviews">4.8 (9 341)</span></div><div class="product-price"><span class="price-new">$45</span><span class="price-old">$65</span><span class="price-save">−$20</span></div><ul class="product-pros"><li data-i18n="p8.f1">20% Витамин С + Ниацинамид</li><li data-i18n="p8.f2">SPF-бустер эффект</li><li data-i18n="p8.f3">Подходит для всех типов кожи</li></ul><div class="product-con" data-i18n="p8.con">Предупреждение: придётся купить новый тональный крем — старый станет лишним</div><a href="crypto.html" class="btn-order-card" data-i18n="gallery.order.btn">Заказать фото →</a></div></div>
         </div>
 
-        <!-- ФИТНЕС -->
-        <div class="gallery-category">
-            <h3 data-i18n="gallery.cat.fitness">🏃 Фитнес и образ жизни</h3>
-        </div>
-        <p style="color:var(--text-muted);font-size:13px;margin-bottom:20px;max-width:600px;">
-            AI-фото товаров для спорта и здорового образа жизни. Йога-маты, термосы, аксессуары — карточки для Shopify дропшиппинга.
-        </p>
+        <div class="gallery-category"><h3 data-i18n="gallery.cat.fitness">🏃 Фитнес и образ жизни</h3></div>
         <div class="product-grid">
-            <div class="product-card">
-                <div class="product-img-wrap">
-                    <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_shopy_00054_.png"
-                         alt="AI-фото серого профессионального йога-мата 6мм — карточка товара для фитнес-магазина Shopify"
-                         title="Pro Yoga Mat 6mm — AI карточка товара фитнес Shopify"
-                         loading="lazy">
-                    <span class="product-badge">−20%</span>
-                </div>
-                <div class="product-info">
-                    <div class="product-name">Pro Yoga Mat 6mm</div>
-                    <div class="product-stars"><span class="stars">★★★★★</span><span class="reviews">4.9 (6 203)</span></div>
-                    <div class="product-price"><span class="price-new">$39</span><span class="price-old">$49</span><span class="price-save">−$10</span></div>
-                    <ul class="product-pros">
-                        <li data-i18n="p9.f1">Нескользящее покрытие с двух сторон</li>
-                        <li data-i18n="p9.f2">Экологичный TPE материал</li>
-                        <li data-i18n="p9.f3">Идеальная амортизация 6мм</li>
-                    </ul>
-                    <div class="product-con" data-i18n="p9.con">Предупреждение: отговорки "нет коврика" больше не работают</div>
-                    <a href="crypto.html" class="btn-order-card" data-i18n="gallery.order.btn">Заказать фото →</a>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-img-wrap">
-                    <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_shopy_00051_.png"
-                         alt="AI-фото лавандового премиум йога-мата — тренд 2026 для фитнес дропшиппинга"
-                         title="Lavender Yoga Mat Premium — AI фото тренд 2026"
-                         loading="lazy">
-                    <span class="product-badge new">Тренд 2026</span>
-                </div>
-                <div class="product-info">
-                    <div class="product-name">Lavender Yoga Mat Premium</div>
-                    <div class="product-stars"><span class="stars">★★★★★</span><span class="reviews">4.8 (3 891)</span></div>
-                    <div class="product-price"><span class="price-new">$45</span><span class="price-old">$59</span><span class="price-save">−$14</span></div>
-                    <ul class="product-pros">
-                        <li data-i18n="p10.f1">Лавандовый цвет — хит сезона</li>
-                        <li data-i18n="p10.f2">Широкий формат 183×68см</li>
-                        <li data-i18n="p10.f3">Ремень для переноски в комплекте</li>
-                    </ul>
-                    <div class="product-con" data-i18n="p10.con">Предупреждение: Instagram сам по себе не откроется, но рука потянется</div>
-                    <a href="crypto.html" class="btn-order-card" data-i18n="gallery.order.btn">Заказать фото →</a>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-img-wrap">
-                    <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_shopy_00056_.png"
-                         alt="AI-фото термостакана Rose Gold — карточка товара для lifestyle дропшиппинга Shopify"
-                         title="Smart Tumbler Rose Gold — AI карточка lifestyle Shopify"
-                         loading="lazy">
-                    <span class="product-badge">−30%</span>
-                </div>
-                <div class="product-info">
-                    <div class="product-name">Smart Tumbler Rose Gold</div>
-                    <div class="product-stars"><span class="stars">★★★★★</span><span class="reviews">4.9 (11 204)</span></div>
-                    <div class="product-price"><span class="price-new">$35</span><span class="price-old">$49</span><span class="price-save">−$14</span></div>
-                    <ul class="product-pros">
-                        <li data-i18n="p11.f1">Держит тепло 12ч, холод 24ч</li>
-                        <li data-i18n="p11.f2">Rose Gold нержавеющая сталь</li>
-                        <li data-i18n="p11.f3">Подходит для кофе, смузи, воды</li>
-                    </ul>
-                    <div class="product-con" data-i18n="p11.con">Предупреждение: коллеги начнут просить "тот красивый стакан"</div>
-                    <a href="crypto.html" class="btn-order-card" data-i18n="gallery.order.btn">Заказать фото →</a>
-                </div>
-            </div>
+            <div class="product-card"><div class="product-img-wrap"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_shopy_00054_.png" alt="AI-фото серого йога-мата 6мм — карточка для фитнес-магазина Shopify" loading="lazy"><span class="product-badge">−20%</span></div><div class="product-info"><div class="product-name">Pro Yoga Mat 6mm</div><div class="product-stars"><span class="stars">★★★★★</span><span class="reviews">4.9 (6 203)</span></div><div class="product-price"><span class="price-new">$39</span><span class="price-old">$49</span><span class="price-save">−$10</span></div><ul class="product-pros"><li data-i18n="p9.f1">Нескользящее покрытие с двух сторон</li><li data-i18n="p9.f2">Экологичный TPE материал</li><li data-i18n="p9.f3">Идеальная амортизация 6мм</li></ul><div class="product-con" data-i18n="p9.con">Предупреждение: отговорки "нет коврика" больше не работают</div><a href="crypto.html" class="btn-order-card" data-i18n="gallery.order.btn">Заказать фото →</a></div></div>
+            <div class="product-card"><div class="product-img-wrap"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_shopy_00051_.png" alt="AI-фото лавандового йога-мата — тренд 2026 дропшиппинг" loading="lazy"><span class="product-badge new">Тренд 2026</span></div><div class="product-info"><div class="product-name">Lavender Yoga Mat Premium</div><div class="product-stars"><span class="stars">★★★★★</span><span class="reviews">4.8 (3 891)</span></div><div class="product-price"><span class="price-new">$45</span><span class="price-old">$59</span><span class="price-save">−$14</span></div><ul class="product-pros"><li data-i18n="p10.f1">Лавандовый цвет — хит сезона</li><li data-i18n="p10.f2">Широкий формат 183×68см</li><li data-i18n="p10.f3">Ремень для переноски в комплекте</li></ul><div class="product-con" data-i18n="p10.con">Предупреждение: Instagram сам по себе не откроется, но рука потянется</div><a href="crypto.html" class="btn-order-card" data-i18n="gallery.order.btn">Заказать фото →</a></div></div>
+            <div class="product-card"><div class="product-img-wrap"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_shopy_00056_.png" alt="AI-фото термостакана Rose Gold — карточка lifestyle Shopify" loading="lazy"><span class="product-badge">−30%</span></div><div class="product-info"><div class="product-name">Smart Tumbler Rose Gold</div><div class="product-stars"><span class="stars">★★★★★</span><span class="reviews">4.9 (11 204)</span></div><div class="product-price"><span class="price-new">$35</span><span class="price-old">$49</span><span class="price-save">−$14</span></div><ul class="product-pros"><li data-i18n="p11.f1">Держит тепло 12ч, холод 24ч</li><li data-i18n="p11.f2">Rose Gold нержавеющая сталь</li><li data-i18n="p11.f3">Подходит для кофе, смузи, воды</li></ul><div class="product-con" data-i18n="p11.con">Предупреждение: коллеги начнут просить "тот красивый стакан"</div><a href="crypto.html" class="btn-order-card" data-i18n="gallery.order.btn">Заказать фото →</a></div></div>
         </div>
 
-        <!-- КУХНЯ -->
-        <div class="gallery-category">
-            <h3 data-i18n="gallery.cat.kitchen">🍳 Кухня и дом</h3>
-        </div>
-        <p style="color:var(--text-muted);font-size:13px;margin-bottom:20px;max-width:600px;">
-            AI-генерация фото кухонных гаджетов и товаров для дома. Белый фон, lifestyle-сцены — карточки для Amazon и Shopify.
-        </p>
+        <div class="gallery-category"><h3 data-i18n="gallery.cat.kitchen">🍳 Кухня и дом</h3></div>
         <div class="product-grid">
-            <div class="product-card">
-                <div class="product-img-wrap">
-                    <img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_shopy00024_.png"
-                         alt="AI-фото портативного блендера — карточка товара бестселлер для кухонного дропшиппинга Shopify"
-                         title="Portable Blender Pro — AI карточка кухня Shopify"
-                         loading="lazy">
-                    <span class="product-badge new">Бестселлер</span>
-                </div>
-                <div class="product-info">
-                    <div class="product-name">Portable Blender Pro</div>
-                    <div class="product-stars"><span class="stars">★★★★★</span><span class="reviews">4.8 (14 502)</span></div>
-                    <div class="product-price"><span class="price-new">$29</span><span class="price-old">$45</span><span class="price-save">−$16</span></div>
-                    <ul class="product-pros">
-                        <li data-i18n="p12.f1">USB-C зарядка, 20 циклов от заряда</li>
-                        <li data-i18n="p12.f2">6 лезвий из нержавеющей стали</li>
-                        <li data-i18n="p12.f3">600мл — идеальная порция</li>
-                    </ul>
-                    <div class="product-con" data-i18n="p12.con">Предупреждение: смузи на завтрак войдёт в привычку быстрее чем вы думаете</div>
-                    <a href="crypto.html" class="btn-order-card" data-i18n="gallery.order.btn">Заказать фото →</a>
-                </div>
-            </div>
+            <div class="product-card"><div class="product-img-wrap"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_shopy00024_.png" alt="AI-фото портативного блендера — бестселлер для кухонного дропшиппинга" loading="lazy"><span class="product-badge new">Бестселлер</span></div><div class="product-info"><div class="product-name">Portable Blender Pro</div><div class="product-stars"><span class="stars">★★★★★</span><span class="reviews">4.8 (14 502)</span></div><div class="product-price"><span class="price-new">$29</span><span class="price-old">$45</span><span class="price-save">−$16</span></div><ul class="product-pros"><li data-i18n="p12.f1">USB-C зарядка, 20 циклов от заряда</li><li data-i18n="p12.f2">6 лезвий из нержавеющей стали</li><li data-i18n="p12.f3">600мл — идеальная порция</li></ul><div class="product-con" data-i18n="p12.con">Предупреждение: смузи на завтрак войдёт в привычку быстрее чем вы думаете</div><a href="crypto.html" class="btn-order-card" data-i18n="gallery.order.btn">Заказать фото →</a></div></div>
         </div>
     </div>
 
     <div class="gallery-cta">
         <div class="section-label" style="justify-content:center;display:flex;" data-i18n="gallery.cta.label">Хотите так же?</div>
         <h2 class="section-title" style="margin:0 auto 16px;max-width:500px;" data-i18n="gallery.cta.title">Закажите AI-съёмку вашего товара</h2>
-        <p style="color:var(--text-muted);font-size:14px;margin-bottom:32px;line-height:1.7;" data-i18n="gallery.cta.sub">
-            Опишите продукт — AI-агент сделает остальное. От $20 за стартовый пакет. Готово за 15–45 минут.
-        </p>
+        <p style="color:var(--text-muted);font-size:14px;margin-bottom:32px;line-height:1.7;" data-i18n="gallery.cta.sub">Опишите продукт — AI-агент сделает остальное. От $20 за стартовый пакет.</p>
         <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
             <a href="crypto.html" class="btn-primary" data-i18n="btn.order">Заказать →</a>
             <a href="prompt.html" class="btn-secondary" data-i18n="btn.guide">Как написать ТЗ</a>
