@@ -1347,3 +1347,33 @@ html, body {
 @media (max-width: 480px) {
     .pkg-grid { grid-template-columns: 1fr; }
 }
+.social-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 8px 5%;
+  background: rgba(255,255,255,0.02);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.social-bar a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.6);
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.social-bar a:hover { color: #fff; border-color: rgba(255,255,255,0.3); }
+.social-bar a.tg { border-color: rgba(34,158,217,0.4); color: #229ED9; }
+.social-bar a.tg:hover { background: rgba(34,158,217,0.1); }
+.social-bar a.ig { border-color: rgba(225,48,108,0.4); color: #E1306C; }
+.social-bar a.ig:hover { background: rgba(225,48,108,0.1); }
+.social-bar a.x { border-color: rgba(255,255,255,0.2); color: #fff; }
+.social-bar a.x:hover { background: rgba(255,255,255,0.05); }
