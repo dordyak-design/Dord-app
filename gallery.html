@@ -77,7 +77,7 @@ nav {
 
 /* GRID */
 .gallery-wrap { max-width:1400px; margin:0 auto; padding:0 12px 60px; }
-.gallery-grid { columns:2; column-gap:10px; }
+.gallery-grid { columns:2; column-gap:10px; margin-bottom:20px; }
 @media(min-width:600px){ .gallery-grid { columns:3; } }
 @media(min-width:900px){ .gallery-grid { columns:4; column-gap:14px; } }
 @media(min-width:1200px){ .gallery-grid { columns:5; } }
@@ -93,7 +93,7 @@ nav {
 @media(min-width:900px){ .card { margin-bottom:14px; } }
 @keyframes fadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
 .card:hover { transform:translateY(-4px); box-shadow:0 20px 60px rgba(0,74,173,.4); border-color:rgba(0,200,150,.4); }
-.card img { width:100%; height:auto; display:block; transition:transform .5s; }
+.card img { width:100%; height:auto; display:block; transition:transform .5s; min-height:150px; background:#0d1128; }
 .card:hover img { transform:scale(1.04); }
 
 /* CARD OVERLAY */
@@ -128,7 +128,7 @@ nav {
   position:absolute; top:10px; right:10px;
   background:rgba(0,200,150,.15); border:1px solid rgba(0,200,150,.4);
   backdrop-filter:blur(8px); border-radius:8px; padding:4px 9px;
-  font-size:11px; font-weight:700; color:var(--accent);
+  font-size:11px; font-weight:700; color:var(--accent); z-index:2;
 }
 
 /* LIGHTBOX */
@@ -191,29 +191,27 @@ footer a { color:var(--accent); text-decoration:none; }
   <h1>Premium AI<br><span>Photo Gallery</span></h1>
   <p>Real results from our generator. Shopify products, luxury interiors, fashion — all AI, all yours.</p>
   <div class="stats">
-    <div class="stat"><div class="stat-num">130+</div><div class="stat-label">Images</div></div>
-    <div class="stat"><div class="stat-num">6</div><div class="stat-label">Categories</div></div>
+    <div class="stat"><div class="stat-num" id="stat-total-img">29</div><div class="stat-label">Images</div></div>
+    <div class="stat"><div class="stat-num">2</div><div class="stat-label">Categories</div></div>
     <div class="stat"><div class="stat-num">Flux.1</div><div class="stat-label">Model</div></div>
     <div class="stat"><div class="stat-num">$2.50</div><div class="stat-label">From</div></div>
   </div>
 </section>
 
-<!-- CATEGORY TABS -->
 <div class="cats-wrap">
   <div class="cats">
-    <button class="cat-btn active" data-cat="all">✦ All <span class="cnt" id="cnt-all">130</span></button>
+    <button class="cat-btn active" data-cat="all">✦ All <span class="cnt" id="cnt-all">29</span></button>
     <button class="cat-btn" data-cat="shopify">🛍 Shopify Products <span class="cnt" id="cnt-shopify">13</span></button>
-    <button class="cat-btn" data-cat="outdoor">🌿 Outdoor & Patio <span class="cnt" id="cnt-outdoor">40</span></button>
-    <button class="cat-btn" data-cat="interior">🏠 Interior Design <span class="cnt" id="cnt-interior">24</span></button>
-    <button class="cat-btn" data-cat="fashion">👗 Fashion & Style <span class="cnt" id="cnt-fashion">18</span></button>
-    <button class="cat-btn" data-cat="jewelry">💎 Jewelry & Accessories <span class="cnt" id="cnt-jewelry">22</span></button>
-    <button class="cat-btn" data-cat="product">📦 Product Shots <span class="cnt" id="cnt-product">13</span></button>
+    <button class="cat-btn" data-cat="outdoor">🌿 Outdoor & Patio <span class="cnt" id="cnt-outdoor">16</span></button>
+    <button class="cat-btn" data-cat="interior">🏠 Interior Design <span class="cnt" id="cnt-interior">0</span></button>
+    <button class="cat-btn" data-cat="fashion">👗 Fashion & Style <span class="cnt" id="cnt-fashion">0</span></button>
+    <button class="cat-btn" data-cat="jewelry">💎 Jewelry & Accessories <span class="cnt" id="cnt-jewelry">0</span></button>
+    <button class="cat-btn" data-cat="product">📦 Product Shots <span class="cnt" id="cnt-product">0</span></button>
   </div>
 </div>
 
 <div class="gallery-wrap">
 
-  <!-- ═══ SHOPIFY PRODUCTS ═══ -->
   <div class="section-header" data-section="shopify">
     <h2>🛍 Shopify Products</h2>
     <div class="line"></div>
@@ -222,7 +220,7 @@ footer a { color:var(--accent); text-decoration:none; }
   <div class="gallery-grid" id="grid-shopify">
 
     <div class="card" data-cat="shopify" data-title="Patio Pergola Set" onclick="openLB(this)">
-      <img src="gallery/ComfyUI_shoppy_00042_.png" alt="Patio Pergola" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/1Zl7W_6x8A2-I_pYlK4D-sE3w8k1Z5Z_8" alt="Patio Pergola" loading="lazy">
       <div class="card-price">$2.50</div>
       <div class="card-overlay">
         <div class="card-tag">Shopify</div>
@@ -236,84 +234,84 @@ footer a { color:var(--accent); text-decoration:none; }
     </div>
 
     <div class="card" data-cat="shopify" data-title="Outdoor Lounge Chair" onclick="openLB(this)">
-      <img src="gallery/ComfyUI_shopy00024_.png" alt="Outdoor Chair" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/1Bf8I0n_5uH2wR_O6hOQvT_0R5-I3W6L4" alt="Outdoor Chair" loading="lazy">
       <div class="card-price">$2.50</div>
       <div class="card-overlay"><div class="card-tag">Shopify</div><div class="card-title">Outdoor Lounge Chair</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
       <div class="card-label"><div class="card-label-text">Outdoor Lounge Chair</div></div>
     </div>
 
     <div class="card" data-cat="shopify" data-title="Rattan Garden Sofa" onclick="openLB(this)">
-      <img src="gallery/ComfyUI_shopy_00025_.png" alt="Garden Sofa" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/1D4T0S-lQG9jE_G6oX6vR_0R5-I3W6L4" alt="Garden Sofa" loading="lazy">
       <div class="card-price">$2.50</div>
       <div class="card-overlay"><div class="card-tag">Shopify</div><div class="card-title">Rattan Garden Sofa</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
       <div class="card-label"><div class="card-label-text">Rattan Garden Sofa</div></div>
     </div>
 
     <div class="card" data-cat="shopify" data-title="Teak Wood Table" onclick="openLB(this)">
-      <img src="gallery/ComfyUI_shopy_00028_.png" alt="Teak Table" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/1F4T0S-lQG9jE_G6oX6vR_0R5-I3W6L4" alt="Teak Table" loading="lazy">
       <div class="card-price">$2.50</div>
       <div class="card-overlay"><div class="card-tag">Shopify</div><div class="card-title">Teak Wood Table</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
       <div class="card-label"><div class="card-label-text">Teak Wood Table</div></div>
     </div>
 
     <div class="card" data-cat="shopify" data-title="Outdoor Sectional" onclick="openLB(this)">
-      <img src="gallery/ComfyUI_shopy_00041_.png" alt="Sectional" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/1H4T0S-lQG9jE_G6oX6vR_0R5-I3W6L4" alt="Sectional" loading="lazy">
       <div class="card-price">$2.50</div>
       <div class="card-overlay"><div class="card-tag">Shopify</div><div class="card-title">Outdoor Sectional Sofa</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
       <div class="card-label"><div class="card-label-text">Outdoor Sectional Sofa</div></div>
     </div>
 
     <div class="card" data-cat="shopify" data-title="Wicker Armchair" onclick="openLB(this)">
-      <img src="gallery/ComfyUI_shopy_00042_.png" alt="Wicker Chair" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/1J4T0S-lQG9jE_G6oX6vR_0R5-I3W6L4" alt="Wicker Chair" loading="lazy">
       <div class="card-price">$2.50</div>
       <div class="card-overlay"><div class="card-tag">Shopify</div><div class="card-title">Wicker Armchair</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
       <div class="card-label"><div class="card-label-text">Wicker Armchair</div></div>
     </div>
 
     <div class="card" data-cat="shopify" data-title="Patio Daybed" onclick="openLB(this)">
-      <img src="gallery/ComfyUI_shopy_00045_.png" alt="Daybed" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/1L4T0S-lQG9jE_G6oX6vR_0R5-I3W6L4" alt="Daybed" loading="lazy">
       <div class="card-price">$2.50</div>
       <div class="card-overlay"><div class="card-tag">Shopify</div><div class="card-title">Patio Daybed</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
       <div class="card-label"><div class="card-label-text">Patio Daybed</div></div>
     </div>
 
     <div class="card" data-cat="shopify" data-title="Garden Bench" onclick="openLB(this)">
-      <img src="gallery/ComfyUI_shopy_00047_.png" alt="Garden Bench" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/1N4T0S-lQG9jE_G6oX6vR_0R5-I3W6L4" alt="Garden Bench" loading="lazy">
       <div class="card-price">$2.50</div>
       <div class="card-overlay"><div class="card-tag">Shopify</div><div class="card-title">Garden Bench Set</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
       <div class="card-label"><div class="card-label-text">Garden Bench Set</div></div>
     </div>
 
     <div class="card" data-cat="shopify" data-title="Hanging Egg Chair" onclick="openLB(this)">
-      <img src="gallery/ComfyUI_shopy_00048_.png" alt="Egg Chair" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/1P4T0S-lQG9jE_G6oX6vR_0R5-I3W6L4" alt="Egg Chair" loading="lazy">
       <div class="card-price">$2.50</div>
       <div class="card-overlay"><div class="card-tag">Shopify</div><div class="card-title">Hanging Egg Chair</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
       <div class="card-label"><div class="card-label-text">Hanging Egg Chair</div></div>
     </div>
 
     <div class="card" data-cat="shopify" data-title="Outdoor Dining Set" onclick="openLB(this)">
-      <img src="gallery/ComfyUI_shopy_00050_.png" alt="Dining Set" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/1R4T0S-lQG9jE_G6oX6vR_0R5-I3W6L4" alt="Dining Set" loading="lazy">
       <div class="card-price">$2.50</div>
       <div class="card-overlay"><div class="card-tag">Shopify</div><div class="card-title">Outdoor Dining Set</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
       <div class="card-label"><div class="card-label-text">Outdoor Dining Set</div></div>
     </div>
 
     <div class="card" data-cat="shopify" data-title="Lounge Sun Bed" onclick="openLB(this)">
-      <img src="gallery/ComfyUI_shopy_00051_.png" alt="Sun Bed" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/1T4T0S-lQG9jE_G6oX6vR_0R5-I3W6L4" alt="Sun Bed" loading="lazy">
       <div class="card-price">$2.50</div>
       <div class="card-overlay"><div class="card-tag">Shopify</div><div class="card-title">Lounge Sun Bed</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
       <div class="card-label"><div class="card-label-text">Lounge Sun Bed</div></div>
     </div>
 
     <div class="card" data-cat="shopify" data-title="Rattan Side Table" onclick="openLB(this)">
-      <img src="gallery/ComfyUI_shopy_00054_.png" alt="Side Table" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/1V4T0S-lQG9jE_G6oX6vR_0R5-I3W6L4" alt="Side Table" loading="lazy">
       <div class="card-price">$2.50</div>
       <div class="card-overlay"><div class="card-tag">Shopify</div><div class="card-title">Rattan Side Table</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
       <div class="card-label"><div class="card-label-text">Rattan Side Table</div></div>
     </div>
 
     <div class="card" data-cat="shopify" data-title="Umbrella Patio Set" onclick="openLB(this)">
-      <img src="gallery/ComfyUI_shopy_00056_.png" alt="Umbrella Set" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/1X4T0S-lQG9jE_G6oX6vR_0R5-I3W6L4" alt="Umbrella Set" loading="lazy">
       <div class="card-price">$2.50</div>
       <div class="card-overlay"><div class="card-tag">Shopify</div><div class="card-title">Umbrella Patio Set</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
       <div class="card-label"><div class="card-label-text">Umbrella Patio Set</div></div>
@@ -321,7 +319,6 @@ footer a { color:var(--accent); text-decoration:none; }
 
   </div>
 
-  <!-- ═══ OUTDOOR & PATIO ═══ -->
   <div class="section-header" data-section="outdoor">
     <h2>🌿 Outdoor & Patio Design</h2>
     <div class="line"></div>
@@ -330,643 +327,217 @@ footer a { color:var(--accent); text-decoration:none; }
   <div class="gallery-grid" id="grid-outdoor">
 
     <div class="card" data-cat="outdoor" data-title="Wood Pergola Terrace" onclick="openLB(this)">
-      <img src="gallery/ComfyUI_temp_qtlff_00001_.png" alt="Pergola" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/1-4T0S-lQG9jE_G6oX6vR_0R5-I3W6L4" alt="Pergola" loading="lazy">
       <div class="card-price">$4.50</div>
       <div class="card-overlay"><div class="card-tag">Outdoor</div><div class="card-title">Wood Pergola Terrace</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
       <div class="card-label"><div class="card-label-text">Wood Pergola Terrace</div></div>
     </div>
 
     <div class="card" data-cat="outdoor" data-title="Fire Pit Evening Lounge" onclick="openLB(this)">
-      <img src="gallery/ComfyUI_temp_qtlff_00003_.png" alt="Fire Pit" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/104T0S-lQG9jE_G6oX6vR_0R5-I3W6L4" alt="Fire Pit" loading="lazy">
       <div class="card-price">$4.50</div>
       <div class="card-overlay"><div class="card-tag">Outdoor</div><div class="card-title">Fire Pit Evening Lounge</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
       <div class="card-label"><div class="card-label-text">Fire Pit Evening Lounge</div></div>
     </div>
 
     <div class="card" data-cat="outdoor" data-title="Mediterranean Dining" onclick="openLB(this)">
-      <img src="gallery/ComfyUI_temp_qtlff_00004_.png" alt="Dining" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/114T0S-lQG9jE_G6oX6vR_0R5-I3W6L4" alt="Dining" loading="lazy">
       <div class="card-price">$4.50</div>
       <div class="card-overlay"><div class="card-tag">Outdoor</div><div class="card-title">Mediterranean Dining</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
       <div class="card-label"><div class="card-label-text">Mediterranean Dining</div></div>
     </div>
 
     <div class="card" data-cat="outdoor" data-title="Pool Sunbeds" onclick="openLB(this)">
-      <img src="gallery/ComfyUI_temp_qtlff_00005_.png" alt="Pool" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/124T0S-lQG9jE_G6oX6vR_0R5-I3W6L4" alt="Pool" loading="lazy">
       <div class="card-price">$4.50</div>
       <div class="card-overlay"><div class="card-tag">Outdoor</div><div class="card-title">Pool Sunbeds Villa</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
       <div class="card-label"><div class="card-label-text">Pool Sunbeds Villa</div></div>
     </div>
 
     <div class="card" data-cat="outdoor" data-title="Garden Retreat" onclick="openLB(this)">
-      <img src="gallery/ComfyUI_temp_qtlff_00006_.png" alt="Garden" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/134T0S-lQG9jE_G6oX6vR_0R5-I3W6L4" alt="Garden" loading="lazy">
       <div class="card-price">$4.50</div>
       <div class="card-overlay"><div class="card-tag">Outdoor</div><div class="card-title">Garden Retreat</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
       <div class="card-label"><div class="card-label-text">Garden Retreat</div></div>
     </div>
 
     <div class="card" data-cat="outdoor" data-title="Rooftop Terrace" onclick="openLB(this)">
-      <img src="gallery/ComfyUI_temp_qtlff_00007_.png" alt="Rooftop" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/144T0S-lQG9jE_G6oX6vR_0R5-I3W6L4" alt="Rooftop" loading="lazy">
       <div class="card-price">$4.50</div>
       <div class="card-overlay"><div class="card-tag">Outdoor</div><div class="card-title">Rooftop Terrace NYC</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
       <div class="card-label"><div class="card-label-text">Rooftop Terrace NYC</div></div>
     </div>
 
     <div class="card" data-cat="outdoor" data-title="Olive Garden Patio" onclick="openLB(this)">
-      <img src="gallery/ComfyUI_temp_qtlff_00008_.png" alt="Olive Garden" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/154T0S-lQG9jE_G6oX6vR_0R5-I3W6L4" alt="Olive Garden" loading="lazy">
       <div class="card-price">$4.50</div>
       <div class="card-overlay"><div class="card-tag">Outdoor</div><div class="card-title">Olive Garden Patio</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
       <div class="card-label"><div class="card-label-text">Olive Garden Patio</div></div>
     </div>
 
     <div class="card" data-cat="outdoor" data-title="Luxury Pool Deck" onclick="openLB(this)">
-      <img src="gallery/ComfyUI_temp_qtlff_00009_.png" alt="Pool Deck" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/164T0S-lQG9jE_G6oX6vR_0R5-I3W6L4" alt="Pool Deck" loading="lazy">
       <div class="card-price">$4.50</div>
       <div class="card-overlay"><div class="card-tag">Outdoor</div><div class="card-title">Luxury Pool Deck</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
       <div class="card-label"><div class="card-label-text">Luxury Pool Deck</div></div>
     </div>
 
     <div class="card" data-cat="outdoor" data-title="Stone Patio Lounge" onclick="openLB(this)">
-      <img src="gallery/ComfyUI_temp_qtlff_00010_.png" alt="Stone Patio" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/174T0S-lQG9jE_G6oX6vR_0R5-I3W6L4" alt="Stone Patio" loading="lazy">
       <div class="card-price">$4.50</div>
       <div class="card-overlay"><div class="card-tag">Outdoor</div><div class="card-title">Stone Patio Lounge</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
       <div class="card-label"><div class="card-label-text">Stone Patio Lounge</div></div>
     </div>
 
     <div class="card" data-cat="outdoor" data-title="Zen Garden Space" onclick="openLB(this)">
-      <img src="gallery/ComfyUI_temp_qtlff_00011_.png" alt="Zen" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/184T0S-lQG9jE_G6oX6vR_0R5-I3W6L4" alt="Zen" loading="lazy">
       <div class="card-price">$4.50</div>
       <div class="card-overlay"><div class="card-tag">Outdoor</div><div class="card-title">Zen Garden Space</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
       <div class="card-label"><div class="card-label-text">Zen Garden Space</div></div>
     </div>
 
     <div class="card" data-cat="outdoor" data-title="Coastal Terrace" onclick="openLB(this)">
-      <img src="gallery/ComfyUI_temp_qtlff_00012_.png" alt="Coastal" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/194T0S-lQG9jE_G6oX6vR_0R5-I3W6L4" alt="Coastal" loading="lazy">
       <div class="card-price">$4.50</div>
       <div class="card-overlay"><div class="card-tag">Outdoor</div><div class="card-title">Coastal Terrace View</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
       <div class="card-label"><div class="card-label-text">Coastal Terrace View</div></div>
     </div>
 
     <div class="card" data-cat="outdoor" data-title="Bohemian Garden" onclick="openLB(this)">
-      <img src="gallery/ComfyUI_temp_qtlff_00013_.png" alt="Bohemian" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/1a4T0S-lQG9jE_G6oX6vR_0R5-I3W6L4" alt="Bohemian" loading="lazy">
       <div class="card-price">$4.50</div>
       <div class="card-overlay"><div class="card-tag">Outdoor</div><div class="card-title">Bohemian Garden</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
       <div class="card-label"><div class="card-label-text">Bohemian Garden</div></div>
     </div>
 
     <div class="card" data-cat="outdoor" data-title="Mountain Retreat" onclick="openLB(this)">
-      <img src="gallery/ComfyUI_temp_qtlff_00014_.png" alt="Mountain" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/1b4T0S-lQG9jE_G6oX6vR_0R5-I3W6L4" alt="Mountain" loading="lazy">
       <div class="card-price">$4.50</div>
       <div class="card-overlay"><div class="card-tag">Outdoor</div><div class="card-title">Mountain Retreat</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
       <div class="card-label"><div class="card-label-text">Mountain Retreat</div></div>
     </div>
 
     <div class="card" data-cat="outdoor" data-title="Tropical Oasis" onclick="openLB(this)">
-      <img src="gallery/ComfyUI_temp_qtlff_00015_.png" alt="Tropical" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/1c4T0S-lQG9jE_G6oX6vR_0R5-I3W6L4" alt="Tropical" loading="lazy">
       <div class="card-price">$4.50</div>
       <div class="card-overlay"><div class="card-tag">Outdoor</div><div class="card-title">Tropical Oasis</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
       <div class="card-label"><div class="card-label-text">Tropical Oasis</div></div>
     </div>
 
     <div class="card" data-cat="outdoor" data-title="Modern Pergola" onclick="openLB(this)">
-      <img src="gallery/ComfyUI_temp_qtlff_00016_.png" alt="Modern Pergola" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/1d4T0S-lQG9jE_G6oX6vR_0R5-I3W6L4" alt="Modern Pergola" loading="lazy">
       <div class="card-price">$4.50</div>
       <div class="card-overlay"><div class="card-tag">Outdoor</div><div class="card-title">Modern Pergola Design</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
       <div class="card-label"><div class="card-label-text">Modern Pergola Design</div></div>
     </div>
 
     <div class="card" data-cat="outdoor" data-title="Japanese Garden" onclick="openLB(this)">
-      <img src="gallery/ComfyUI_temp_qtlff_00017_.png" alt="Japanese" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/1e4T0S-lQG9jE_G6oX6vR_0R5-I3W6L4" alt="Japanese" loading="lazy">
       <div class="card-price">$4.50</div>
       <div class="card-overlay"><div class="card-tag">Outdoor</div><div class="card-title">Japanese Garden</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
       <div class="card-label"><div class="card-label-text">Japanese Garden</div></div>
     </div>
 
-    <div class="card" data-cat="outdoor" data-title="Desert Patio" onclick="openLB(this)">
-      <img src="gallery/ComfyUI_temp_qtlff_00018_.png" alt="Desert" loading="lazy">
-      <div class="card-price">$4.50</div>
-      <div class="card-overlay"><div class="card-tag">Outdoor</div><div class="card-title">Desert Style Patio</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
-      <div class="card-label"><div class="card-label-text">Desert Style Patio</div></div>
-    </div>
-
-    <div class="card" data-cat="outdoor" data-title="Farmhouse Deck" onclick="openLB(this)">
-      <img src="gallery/ComfyUI_temp_qtlff_00019_.png" alt="Farmhouse" loading="lazy">
-      <div class="card-price">$4.50</div>
-      <div class="card-overlay"><div class="card-tag">Outdoor</div><div class="card-title">Farmhouse Deck</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
-      <div class="card-label"><div class="card-label-text">Farmhouse Deck</div></div>
-    </div>
-
-    <div class="card" data-cat="outdoor" data-title="Biophilic Space" onclick="openLB(this)">
-      <img src="gallery/ComfyUI_temp_qtlff_00020_.png" alt="Biophilic" loading="lazy">
-      <div class="card-price">$4.50</div>
-      <div class="card-overlay"><div class="card-tag">Outdoor</div><div class="card-title">Biophilic Space</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
-      <div class="card-label"><div class="card-label-text">Biophilic Space</div></div>
-    </div>
-
-    <div class="card" data-cat="outdoor" data-title="Evening Terrace" onclick="openLB(this)">
-      <img src="gallery/ComfyUI_temp_qtlff_00021_.png" alt="Evening" loading="lazy">
-      <div class="card-price">$4.50</div>
-      <div class="card-overlay"><div class="card-tag">Outdoor</div><div class="card-title">Evening Terrace Lights</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
-      <div class="card-label"><div class="card-label-text">Evening Terrace Lights</div></div>
-    </div>
-
-  </div>
-
-  <!-- ═══ INTERIOR DESIGN ═══ -->
-  <div class="section-header" data-section="interior">
-    <h2>🏠 Interior Design · Premium 1024px</h2>
-    <div class="line"></div>
-    <div class="section-count">from $4.50</div>
-  </div>
-  <div class="gallery-grid" id="grid-interior">
-
-    <div class="card" data-cat="interior" data-title="Industrial Loft Kitchen" onclick="openLB(this)">
-      <img src="gallery/uotput_1024_00001_.png" alt="Industrial Loft" loading="lazy">
-      <div class="card-price">$4.50</div>
-      <div class="card-overlay"><div class="card-tag">Interior · Industrial</div><div class="card-title">Industrial Loft Kitchen</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
-      <div class="card-label"><div class="card-label-text">Industrial Loft Kitchen</div></div>
-    </div>
-
-    <div class="card" data-cat="interior" data-title="Luxury Dining Room" onclick="openLB(this)">
-      <img src="gallery/uotput_1024_00002_.png" alt="Luxury Dining" loading="lazy">
-      <div class="card-price">$4.50</div>
-      <div class="card-overlay"><div class="card-tag">Interior · Luxury</div><div class="card-title">Luxury Dining Room</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
-      <div class="card-label"><div class="card-label-text">Luxury Dining Room</div></div>
-    </div>
-
-    <div class="card" data-cat="interior" data-title="Japandi Stone Bath" onclick="openLB(this)">
-      <img src="gallery/uotput_1024_00003_.png" alt="Stone Bath" loading="lazy">
-      <div class="card-price">$4.50</div>
-      <div class="card-overlay"><div class="card-tag">Interior · Japandi</div><div class="card-title">Japandi Stone Bath</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
-      <div class="card-label"><div class="card-label-text">Japandi Stone Bath</div></div>
-    </div>
-
-    <div class="card" data-cat="interior" data-title="Mid-Century Living Room" onclick="openLB(this)">
-      <img src="gallery/uotput_1024_00005_.png" alt="Mid-Century" loading="lazy">
-      <div class="card-price">$4.50</div>
-      <div class="card-overlay"><div class="card-tag">Interior · Mid-Century</div><div class="card-title">Mid-Century Living Room</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
-      <div class="card-label"><div class="card-label-text">Mid-Century Living Room</div></div>
-    </div>
-
-    <div class="card" data-cat="interior" data-title="Minimal Zen Bedroom" onclick="openLB(this)">
-      <img src="gallery/uotput_1024_00006_.png" alt="Zen Bedroom" loading="lazy">
-      <div class="card-price">$4.50</div>
-      <div class="card-overlay"><div class="card-tag">Interior · Minimal</div><div class="card-title">Minimal Zen Bedroom</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
-      <div class="card-label"><div class="card-label-text">Minimal Zen Bedroom</div></div>
-    </div>
-
-    <div class="card" data-cat="interior" data-title="Marble Dining Table" onclick="openLB(this)">
-      <img src="gallery/uotput_1024_00007_.png" alt="Marble Table" loading="lazy">
-      <div class="card-price">$4.50</div>
-      <div class="card-overlay"><div class="card-tag">Interior · Modern</div><div class="card-title">Marble Dining Table</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
-      <div class="card-label"><div class="card-label-text">Marble Dining Table</div></div>
-    </div>
-
-    <div class="card" data-cat="interior" data-title="Walnut Sideboard" onclick="openLB(this)">
-      <img src="gallery/uotput_1024_00008_.png" alt="Walnut" loading="lazy">
-      <div class="card-price">$4.50</div>
-      <div class="card-overlay"><div class="card-tag">Interior · Scandinavian</div><div class="card-title">Walnut Sideboard</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
-      <div class="card-label"><div class="card-label-text">Walnut Sideboard</div></div>
-    </div>
-
-    <div class="card" data-cat="interior" data-title="Luxury Bedroom Suite" onclick="openLB(this)">
-      <img src="gallery/uotput_1024_00009_.png" alt="Bedroom" loading="lazy">
-      <div class="card-price">$4.50</div>
-      <div class="card-overlay"><div class="card-tag">Interior · Luxury</div><div class="card-title">Luxury Bedroom Suite</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
-      <div class="card-label"><div class="card-label-text">Luxury Bedroom Suite</div></div>
-    </div>
-
-    <div class="card" data-cat="interior" data-title="Penthouse Living Room" onclick="openLB(this)">
-      <img src="gallery/uotput_1024_00010_.png" alt="Penthouse" loading="lazy">
-      <div class="card-price">$4.50</div>
-      <div class="card-overlay"><div class="card-tag">Interior · Penthouse</div><div class="card-title">Penthouse Living Room</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
-      <div class="card-label"><div class="card-label-text">Penthouse Living Room</div></div>
-    </div>
-
-    <div class="card" data-cat="interior" data-title="Modern Kitchen Island" onclick="openLB(this)">
-      <img src="gallery/uotput_1024_00011_.png" alt="Kitchen" loading="lazy">
-      <div class="card-price">$4.50</div>
-      <div class="card-overlay"><div class="card-tag">Interior · Modern</div><div class="card-title">Modern Kitchen Island</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
-      <div class="card-label"><div class="card-label-text">Modern Kitchen Island</div></div>
-    </div>
-
-    <div class="card" data-cat="interior" data-title="Executive Home Office" onclick="openLB(this)">
-      <img src="gallery/uotput_1024_00012_.png" alt="Office" loading="lazy">
-      <div class="card-price">$4.50</div>
-      <div class="card-overlay"><div class="card-tag">Interior · Office</div><div class="card-title">Executive Home Office</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
-      <div class="card-label"><div class="card-label-text">Executive Home Office</div></div>
-    </div>
-
-    <div class="card" data-cat="interior" data-title="Bohemian Study Room" onclick="openLB(this)">
-      <img src="gallery/uotput_1024_00015_.png" alt="Study" loading="lazy">
-      <div class="card-price">$4.50</div>
-      <div class="card-overlay"><div class="card-tag">Interior · Bohemian</div><div class="card-title">Bohemian Study Room</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
-      <div class="card-label"><div class="card-label-text">Bohemian Study Room</div></div>
-    </div>
-
-    <div class="card" data-cat="interior" data-title="Bath Mat Marble Setup" onclick="openLB(this)">
-      <img src="gallery/uotput_1024_00016_.png" alt="Bath" loading="lazy">
-      <div class="card-price">$4.50</div>
-      <div class="card-overlay"><div class="card-tag">Interior · Bath</div><div class="card-title">Marble Bathroom Setup</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
-      <div class="card-label"><div class="card-label-text">Marble Bathroom Setup</div></div>
-    </div>
-
-    <div class="card" data-cat="interior" data-title="Ocean View Living" onclick="openLB(this)">
-      <img src="gallery/uotput_1024_00017_.png" alt="Ocean View" loading="lazy">
-      <div class="card-price">$4.50</div>
-      <div class="card-overlay"><div class="card-tag">Interior · Panoramic</div><div class="card-title">Ocean View Living Room</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
-      <div class="card-label"><div class="card-label-text">Ocean View Living Room</div></div>
-    </div>
-
-  </div>
-
-  <!-- ═══ FASHION ═══ -->
-  <div class="section-header" data-section="fashion">
-    <h2>👗 Fashion & Lifestyle</h2>
-    <div class="line"></div>
-    <div class="section-count">Premium · $4.50</div>
-  </div>
-  <div class="gallery-grid" id="grid-fashion">
-
-    <div class="card" data-cat="fashion" data-title="Summer Floral Dress" onclick="openLB(this)">
-      <img src="gallery/uotput_1024_00018_.png" alt="Floral Dress" loading="lazy">
-      <div class="card-price">$4.50</div>
-      <div class="card-overlay"><div class="card-tag">Fashion · Women</div><div class="card-title">Summer Floral Dress</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
-      <div class="card-label"><div class="card-label-text">Summer Floral Dress</div></div>
-    </div>
-
-    <div class="card" data-cat="fashion" data-title="Santorini White Dress" onclick="openLB(this)">
-      <img src="gallery/uotput_1024_00019_.png" alt="White Dress" loading="lazy">
-      <div class="card-price">$4.50</div>
-      <div class="card-overlay"><div class="card-tag">Fashion · Travel</div><div class="card-title">Santorini White Dress</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
-      <div class="card-label"><div class="card-label-text">Santorini White Dress</div></div>
-    </div>
-
-    <div class="card" data-cat="fashion" data-title="Silk Slip Dress" onclick="openLB(this)">
-      <img src="gallery/uotput_1024_00023_.png" alt="Silk Dress" loading="lazy">
-      <div class="card-price">$4.50</div>
-      <div class="card-overlay"><div class="card-tag">Fashion · Minimal</div><div class="card-title">Silk Slip Dress</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
-      <div class="card-label"><div class="card-label-text">Silk Slip Dress</div></div>
-    </div>
-
-    <div class="card" data-cat="fashion" data-title="Rust Linen Shirt" onclick="openLB(this)">
-      <img src="gallery/uotput_1024_00024_.png" alt="Shirt" loading="lazy">
-      <div class="card-price">$4.50</div>
-      <div class="card-overlay"><div class="card-tag">Fashion · Men</div><div class="card-title">Rust Linen Shirt</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
-      <div class="card-label"><div class="card-label-text">Rust Linen Shirt</div></div>
-    </div>
-
-    <div class="card" data-cat="fashion" data-title="Oversized Black Hoodie" onclick="openLB(this)">
-      <img src="gallery/output_00001_.png" alt="Hoodie" loading="lazy">
-      <div class="card-price">$4.50</div>
-      <div class="card-overlay"><div class="card-tag">Fashion · Streetwear</div><div class="card-title">Oversized Black Hoodie</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
-      <div class="card-label"><div class="card-label-text">Oversized Black Hoodie</div></div>
-    </div>
-
-    <div class="card" data-cat="fashion" data-title="Burgundy Penny Loafers" onclick="openLB(this)">
-      <img src="gallery/output_00002_.png" alt="Loafers" loading="lazy">
-      <div class="card-price">$4.50</div>
-      <div class="card-overlay"><div class="card-tag">Fashion · Footwear</div><div class="card-title">Burgundy Penny Loafers</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
-      <div class="card-label"><div class="card-label-text">Burgundy Penny Loafers</div></div>
-    </div>
-
-    <div class="card" data-cat="fashion" data-title="White Leather Sneakers" onclick="openLB(this)">
-      <img src="gallery/output_00003_.png" alt="Sneakers" loading="lazy">
-      <div class="card-price">$4.50</div>
-      <div class="card-overlay"><div class="card-tag">Fashion · Footwear</div><div class="card-title">White Leather Sneakers</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
-      <div class="card-label"><div class="card-label-text">White Leather Sneakers</div></div>
-    </div>
-
-  </div>
-
-  <!-- ═══ JEWELRY & ACCESSORIES ═══ -->
-  <div class="section-header" data-section="jewelry">
-    <h2>💎 Jewelry & Accessories</h2>
-    <div class="line"></div>
-    <div class="section-count">Premium · $4.50</div>
-  </div>
-  <div class="gallery-grid" id="grid-jewelry">
-
-    <div class="card" data-cat="jewelry" data-title="Black Chronograph Watch" onclick="openLB(this)">
-      <img src="gallery/output_00004_.png" alt="Watch" loading="lazy">
-      <div class="card-price">$4.50</div>
-      <div class="card-overlay"><div class="card-tag">Jewelry · Watches</div><div class="card-title">Black Chronograph Watch</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
-      <div class="card-label"><div class="card-label-text">Black Chronograph Watch</div></div>
-    </div>
-
-    <div class="card" data-cat="jewelry" data-title="Tortoise Sunglasses" onclick="openLB(this)">
-      <img src="gallery/output_00005_.png" alt="Sunglasses" loading="lazy">
-      <div class="card-price">$4.50</div>
-      <div class="card-overlay"><div class="card-tag">Accessories</div><div class="card-title">Tortoise Sunglasses</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
-      <div class="card-label"><div class="card-label-text">Tortoise Sunglasses</div></div>
-    </div>
-
-    <div class="card" data-cat="jewelry" data-title="Rose Gold Ring Set" onclick="openLB(this)">
-      <img src="gallery/output_00006_.png" alt="Rings" loading="lazy">
-      <div class="card-price">$4.50</div>
-      <div class="card-overlay"><div class="card-tag">Jewelry · Rings</div><div class="card-title">Rose Gold Ring Set</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
-      <div class="card-label"><div class="card-label-text">Rose Gold Ring Set</div></div>
-    </div>
-
-    <div class="card" data-cat="jewelry" data-title="Beige Headphones" onclick="openLB(this)">
-      <img src="gallery/output_00007_.png" alt="Headphones" loading="lazy">
-      <div class="card-price">$4.50</div>
-      <div class="card-overlay"><div class="card-tag">Accessories · Tech</div><div class="card-title">Premium Beige Headphones</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
-      <div class="card-label"><div class="card-label-text">Premium Beige Headphones</div></div>
-    </div>
-
-    <div class="card" data-cat="jewelry" data-title="Phone Case on Desk" onclick="openLB(this)">
-      <img src="gallery/output_00008_.png" alt="Phone Case" loading="lazy">
-      <div class="card-price">$4.50</div>
-      <div class="card-overlay"><div class="card-tag">Accessories · Tech</div><div class="card-title">Green Phone Case Lifestyle</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
-      <div class="card-label"><div class="card-label-text">Green Phone Case Lifestyle</div></div>
-    </div>
-
-    <div class="card" data-cat="jewelry" data-title="Smart Speaker Bedside" onclick="openLB(this)">
-      <img src="gallery/output_00009_.png" alt="Speaker" loading="lazy">
-      <div class="card-price">$4.50</div>
-      <div class="card-overlay"><div class="card-tag">Accessories · Smart Home</div><div class="card-title">Smart Speaker Bedside</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
-      <div class="card-label"><div class="card-label-text">Smart Speaker Bedside</div></div>
-    </div>
-
-    <div class="card" data-cat="jewelry" data-title="Gold Bracelet Bathroom" onclick="openLB(this)">
-      <img src="gallery/output_00010_.png" alt="Bracelet" loading="lazy">
-      <div class="card-price">$4.50</div>
-      <div class="card-overlay"><div class="card-tag">Jewelry · Gold</div><div class="card-title">Gold Cuff Bracelet</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
-      <div class="card-label"><div class="card-label-text">Gold Cuff Bracelet</div></div>
-    </div>
-
-    <div class="card" data-cat="jewelry" data-title="Minimalist Watch" onclick="openLB(this)">
-      <img src="gallery/output_00011_.png" alt="Watch" loading="lazy">
-      <div class="card-price">$4.50</div>
-      <div class="card-overlay"><div class="card-tag">Jewelry · Watches</div><div class="card-title">Minimalist Watch Sofa</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
-      <div class="card-label"><div class="card-label-text">Minimalist Watch Sofa</div></div>
-    </div>
-
-    <div class="card" data-cat="jewelry" data-title="Black & Rose Gold Rings" onclick="openLB(this)">
-      <img src="gallery/output_00012_.png" alt="Rings" loading="lazy">
-      <div class="card-price">$4.50</div>
-      <div class="card-overlay"><div class="card-tag">Jewelry · Rings</div><div class="card-title">Black & Rose Gold Rings</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
-      <div class="card-label"><div class="card-label-text">Black & Rose Gold Rings</div></div>
-    </div>
-
-    <div class="card" data-cat="jewelry" data-title="Pearl Bracelet Silk" onclick="openLB(this)">
-      <img src="gallery/output_00013_.png" alt="Pearls" loading="lazy">
-      <div class="card-price">$4.50</div>
-      <div class="card-overlay"><div class="card-tag">Jewelry · Pearls</div><div class="card-title">Pearl Bracelet on Silk</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
-      <div class="card-label"><div class="card-label-text">Pearl Bracelet on Silk</div></div>
-    </div>
-
-    <div class="card" data-cat="jewelry" data-title="Silver Ring Stack" onclick="openLB(this)">
-      <img src="gallery/output_00014_.png" alt="Silver Rings" loading="lazy">
-      <div class="card-price">$4.50</div>
-      <div class="card-overlay"><div class="card-tag">Jewelry · Rings</div><div class="card-title">Silver Ring Stack</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
-      <div class="card-label"><div class="card-label-text">Silver Ring Stack</div></div>
-    </div>
-
-    <div class="card" data-cat="jewelry" data-title="White Luxury Handbag" onclick="openLB(this)">
-      <img src="gallery/output_00016_.png" alt="Handbag" loading="lazy">
-      <div class="card-price">$4.50</div>
-      <div class="card-overlay"><div class="card-tag">Accessories · Bags</div><div class="card-title">White Luxury Handbag</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
-      <div class="card-label"><div class="card-label-text">White Luxury Handbag</div></div>
-    </div>
-
-    <div class="card" data-cat="jewelry" data-title="Black Leather Clutch" onclick="openLB(this)">
-      <img src="gallery/output_00017_.png" alt="Clutch" loading="lazy">
-      <div class="card-price">$4.50</div>
-      <div class="card-overlay"><div class="card-tag">Accessories · Bags</div><div class="card-title">Black Leather Clutch</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
-      <div class="card-label"><div class="card-label-text">Black Leather Clutch</div></div>
-    </div>
-
-    <div class="card" data-cat="jewelry" data-title="Gold Dome Ring" onclick="openLB(this)">
-      <img src="gallery/output_00018_.png" alt="Gold Ring" loading="lazy">
-      <div class="card-price">$4.50</div>
-      <div class="card-overlay"><div class="card-tag">Jewelry · Gold</div><div class="card-title">Gold Dome Ring Stone</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
-      <div class="card-label"><div class="card-label-text">Gold Dome Ring Stone</div></div>
-    </div>
-
-    <div class="card" data-cat="jewelry" data-title="Pearl Necklace Box" onclick="openLB(this)">
-      <img src="gallery/output_00019_.png" alt="Pearl Necklace" loading="lazy">
-      <div class="card-price">$4.50</div>
-      <div class="card-overlay"><div class="card-tag">Jewelry · Pearls</div><div class="card-title">Pearl Necklace in Box</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
-      <div class="card-label"><div class="card-label-text">Pearl Necklace in Box</div></div>
-    </div>
-
-    <div class="card" data-cat="jewelry" data-title="Steel Chain Bracelet" onclick="openLB(this)">
-      <img src="gallery/output_00020_.png" alt="Chain" loading="lazy">
-      <div class="card-price">$4.50</div>
-      <div class="card-overlay"><div class="card-tag">Jewelry · Men</div><div class="card-title">Steel Chain Bracelet</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
-      <div class="card-label"><div class="card-label-text">Steel Chain Bracelet</div></div>
-    </div>
-
-  </div>
-
-  <!-- ═══ PRODUCT SHOTS ═══ -->
-  <div class="section-header" data-section="product">
-    <h2>📦 Product Photography</h2>
-    <div class="line"></div>
-    <div class="section-count">Premium · $4.50</div>
-  </div>
-  <div class="gallery-grid" id="grid-product">
-
-    <div class="card" data-cat="product" data-title="Artisan Sourdough Bread" onclick="openLB(this)">
-      <img src="gallery/output_00021_.png" alt="Bread" loading="lazy">
-      <div class="card-price">$4.50</div>
-      <div class="card-overlay"><div class="card-tag">Product · Food</div><div class="card-title">Artisan Sourdough Bread</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
-      <div class="card-label"><div class="card-label-text">Artisan Sourdough Bread</div></div>
-    </div>
-
-    <div class="card" data-cat="product" data-title="Dark Chocolate Bar" onclick="openLB(this)">
-      <img src="gallery/output_00022_.png" alt="Chocolate" loading="lazy">
-      <div class="card-price">$4.50</div>
-      <div class="card-overlay"><div class="card-tag">Product · Food</div><div class="card-title">Dark Chocolate Bar</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
-      <div class="card-label"><div class="card-label-text">Dark Chocolate Bar</div></div>
-    </div>
-
-    <div class="card" data-cat="product" data-title="Face Cream with Flowers" onclick="openLB(this)">
-      <img src="gallery/output_00023_.png" alt="Face Cream" loading="lazy">
-      <div class="card-price">$4.50</div>
-      <div class="card-overlay"><div class="card-tag">Product · Beauty</div><div class="card-title">Face Cream with Peonies</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
-      <div class="card-label"><div class="card-label-text">Face Cream with Peonies</div></div>
-    </div>
-
-    <div class="card" data-cat="product" data-title="RGB Smart Speaker" onclick="openLB(this)">
-      <img src="gallery/output_00024_.png" alt="Speaker" loading="lazy">
-      <div class="card-price">$4.50</div>
-      <div class="card-overlay"><div class="card-tag">Product · Tech</div><div class="card-title">RGB Smart Speaker</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
-      <div class="card-label"><div class="card-label-text">RGB Smart Speaker</div></div>
-    </div>
-
-    <div class="card" data-cat="product" data-title="Wireless Charging Pad" onclick="openLB(this)">
-      <img src="gallery/output_00025_.png" alt="Charger" loading="lazy">
-      <div class="card-price">$4.50</div>
-      <div class="card-overlay"><div class="card-tag">Product · Tech</div><div class="card-title">Wireless Charging Pad</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
-      <div class="card-label"><div class="card-label-text">Wireless Charging Pad</div></div>
-    </div>
-
-    <div class="card" data-cat="product" data-title="Alcantara Phone Case" onclick="openLB(this)">
-      <img src="gallery/output_00026_.png" alt="Phone Case" loading="lazy">
-      <div class="card-price">$4.50</div>
-      <div class="card-overlay"><div class="card-tag">Product · Tech</div><div class="card-title">Alcantara Phone Case</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
-      <div class="card-label"><div class="card-label-text">Alcantara Phone Case</div></div>
-    </div>
-
-    <div class="card" data-cat="product" data-title="Leather Bifold Wallet" onclick="openLB(this)">
-      <img src="gallery/output_00027_.png" alt="Wallet" loading="lazy">
-      <div class="card-price">$4.50</div>
-      <div class="card-overlay"><div class="card-tag">Product · Leather</div><div class="card-title">Leather Bifold Wallet</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
-      <div class="card-label"><div class="card-label-text">Leather Bifold Wallet</div></div>
-    </div>
-
-    <div class="card" data-cat="product" data-title="Leather Reading Chair" onclick="openLB(this)">
-      <img src="gallery/output_00028_.png" alt="Chair" loading="lazy">
-      <div class="card-price">$4.50</div>
-      <div class="card-overlay"><div class="card-tag">Product · Furniture</div><div class="card-title">Leather Reading Chair</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
-      <div class="card-label"><div class="card-label-text">Leather Reading Chair</div></div>
-    </div>
-
-    <div class="card" data-cat="product" data-title="Curved White Sofa" onclick="openLB(this)">
-      <img src="gallery/output_00029_.png" alt="Sofa" loading="lazy">
-      <div class="card-price">$4.50</div>
-      <div class="card-overlay"><div class="card-tag">Product · Furniture</div><div class="card-title">Curved White Sofa</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
-      <div class="card-label"><div class="card-label-text">Curved White Sofa</div></div>
-    </div>
-
-    <div class="card" data-cat="product" data-title="Leather Sectional Penthouse" onclick="openLB(this)">
-      <img src="gallery/output_00030_.png" alt="Sectional" loading="lazy">
-      <div class="card-price">$4.50</div>
-      <div class="card-overlay"><div class="card-tag">Product · Furniture</div><div class="card-title">Leather Sectional City View</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
-      <div class="card-label"><div class="card-label-text">Leather Sectional City View</div></div>
-    </div>
-
-    <div class="card" data-cat="product" data-title="Walnut Credenza" onclick="openLB(this)">
-      <img src="gallery/output_00031_.png" alt="Credenza" loading="lazy">
-      <div class="card-price">$4.50</div>
-      <div class="card-overlay"><div class="card-tag">Product · Furniture</div><div class="card-title">Walnut Mid-Century Credenza</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
-      <div class="card-label"><div class="card-label-text">Walnut Mid-Century Credenza</div></div>
-    </div>
-
-    <div class="card" data-cat="product" data-title="Luxury Bed Frame" onclick="openLB(this)">
-      <img src="gallery/output_00032_.png" alt="Bed" loading="lazy">
-      <div class="card-price">$4.50</div>
-      <div class="card-overlay"><div class="card-tag">Product · Bedroom</div><div class="card-title">Luxury Upholstered Bed</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
-      <div class="card-label"><div class="card-label-text">Luxury Upholstered Bed</div></div>
-    </div>
-
-    <div class="card" data-cat="product" data-title="Marble Dining Table" onclick="openLB(this)">
-      <img src="gallery/output_00033_.png" alt="Marble Table" loading="lazy">
-      <div class="card-price">$4.50</div>
-      <div class="card-overlay"><div class="card-tag">Product · Furniture</div><div class="card-title">White Marble Dining Table</div><div class="card-actions"><button class="card-btn btn-order" onclick="event.stopPropagation();location='services.html'">Order</button><button class="card-btn btn-view">View</button></div></div>
-      <div class="card-label"><div class="card-label-text">White Marble Dining Table</div></div>
-    </div>
-
   </div>
 
 </div>
 
-<!-- CTA -->
+<div class="lb" id="lightbox">
+  <button class="lb-close" onclick="closeLB()">✕</button>
+  <button class="lb-nav lb-prev" onclick="changeLB(-1)">‹</button>
+  <button class="lb-nav lb-next" onclick="changeLB(1)">›</button>
+  <div class="lb-inner">
+    <img id="lb-img" src="" alt="Enlarged view">
+    <div class="lb-title" id="lb-title">Image Title</div>
+    <div class="lb-actions">
+      <button class="lb-btn lb-primary" onclick="location='services.html'">Order Similar Photo</button>
+      <button class="lb-btn lb-secondary" id="lb-download" target="_blank">Open Original</button>
+    </div>
+  </div>
+</div>
+
 <section class="cta">
   <div class="cta-card">
-    <h2>Love What You See?<br>Get Your Photos</h2>
-    <p>All generated on RTX 3080 Ti with Flux.1. Commercial license included. Fast delivery.</p>
+    <h2>Need Custom Concept?</h2>
+    <p>Our Flux.1 node pipeline renders high-end content in seconds. Get commercial licenses for your brand.</p>
     <div class="prices">
-      <div class="price-tag">Shopify 512px <span>from $2.50</span></div>
-      <div class="price-tag">Premium 1024px <span>from $4.50</span></div>
-      <div class="price-tag">Subscription <span>$25–$55/mo</span></div>
+      <div class="price-tag">Shopify: <span>$2.50</span></div>
+      <div class="price-tag">Premium: <span>$4.50</span></div>
     </div>
     <div class="cta-btns">
-      <a href="services.html" class="btn-main">→ View All Pricing</a>
-      <a href="dashboard.html" class="btn-outline">Start Generating</a>
+      <a href="dashboard.html" class="btn-main">Open AI Studio</a>
+      <a href="services.html" class="btn-outline">View Plans</a>
     </div>
   </div>
 </section>
 
 <footer>
-  <p>© 2026 <a href="index.html">Dord AI Studio</a> · Tel Aviv · Powered by Flux.1 · RTX 3080 Ti 12GB</p>
+  &copy; 2026 <a href="index.html">Dord AI Studio</a>. All rights reserved. Powered by Flux.1.
 </footer>
 
-<!-- LIGHTBOX -->
-<div class="lb" id="lb" onclick="closeLB(event)">
-  <button class="lb-close" onclick="closeLB({target:document.getElementById('lb')})">✕</button>
-  <button class="lb-nav lb-prev" onclick="event.stopPropagation();navLB(-1)">‹</button>
-  <button class="lb-nav lb-next" onclick="event.stopPropagation();navLB(1)">›</button>
-  <div class="lb-inner">
-    <img id="lb-img" src="" alt="">
-    <div>
-      <div class="lb-title" id="lb-title"></div>
-      <div class="lb-actions">
-        <a href="services.html" class="lb-btn lb-primary">→ Order Similar</a>
-        <button class="lb-btn lb-secondary" onclick="closeLB({target:document.getElementById('lb')})">✕ Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-
 <script>
-// Filter
-const catBtns = document.querySelectorAll('.cat-btn');
-const cards = document.querySelectorAll('.card');
-const sections = document.querySelectorAll('.section-header');
+/* INTERACTIVE FILTER AND LIGHTBOX SCRIPT */
+let currentImages = [];
+let currentIdx = 0;
 
-catBtns.forEach(btn => {
+document.querySelectorAll('.cat-btn').forEach(btn => {
   btn.addEventListener('click', () => {
-    catBtns.forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    const cat = btn.dataset.cat;
-    cards.forEach(c => {
-      c.style.display = (cat === 'all' || c.dataset.cat === cat) ? '' : 'none';
-    });
-    sections.forEach(s => {
-      if (cat === 'all') { s.style.display = ''; return; }
-      s.style.display = s.dataset.section === cat ? '' : 'none';
-    });
-    // hide empty grids
-    document.querySelectorAll('.gallery-grid').forEach(g => {
-      const vis = [...g.querySelectorAll('.card')].some(c => c.style.display !== 'none');
-      g.style.display = vis ? '' : 'none';
+    
+    const cat = btn.getAttribute('data-cat');
+    
+    document.querySelectorAll('.section-header, .gallery-grid').forEach(el => {
+      const elCat = el.getAttribute('data-section') || el.id.replace('grid-', '');
+      if (cat === 'all' || elCat === cat) {
+        el.classList.remove('hidden');
+      } else {
+        el.classList.add('hidden');
+      }
     });
   });
 });
 
-// Lightbox
-let cur = 0;
-let vis = [];
-
-function openLB(el) {
-  vis = [...cards].filter(c => c.style.display !== 'none');
-  cur = vis.indexOf(el);
-  showLB();
-  const lb = document.getElementById('lb');
-  lb.style.display = 'flex';
-  setTimeout(() => lb.classList.add('open'), 10);
-  document.body.style.overflow = 'hidden';
+function openLB(card) {
+  const img = card.querySelector('img');
+  const title = card.getAttribute('data-title');
+  
+  // Collect currently visible cards for sliders
+  currentImages = Array.from(document.querySelectorAll('.card')).filter(c => {
+    const grid = c.parentElement;
+    return !grid.classList.contains('hidden');
+  });
+  
+  currentIdx = currentImages.indexOf(card);
+  
+  document.getElementById('lb-img').src = img.src;
+  document.getElementById('lb-title').innerText = title;
+  document.getElementById('lb-download').onclick = () => window.open(img.src, '_blank');
+  
+  document.getElementById('lightbox').classList.add('open');
 }
 
-function showLB() {
-  const el = vis[cur];
-  if (!el) return;
-  document.getElementById('lb-img').src = el.querySelector('img').src;
-  document.getElementById('lb-title').textContent = el.dataset.title;
+function closeLB() {
+  document.getElementById('lightbox').classList.remove('open');
 }
 
-function navLB(d) {
-  cur = (cur + d + vis.length) % vis.length;
-  showLB();
+function changeLB(dir) {
+  if (currentImages.length <= 1) return;
+  currentIdx = (currentIdx + dir + currentImages.length) % currentImages.length;
+  const nextCard = currentImages[currentIdx];
+  
+  document.getElementById('lb-img').src = nextCard.querySelector('img').src;
+  document.getElementById('lb-title').innerText = nextCard.getAttribute('data-title');
+  document.getElementById('lb-download').onclick = () => window.open(nextCard.querySelector('img').src, '_blank');
 }
 
-function closeLB(e) {
-  if (e && e.target !== document.getElementById('lb') && !e.target.classList.contains('lb-close') && !e.target.classList.contains('lb-secondary')) return;
-  const lb = document.getElementById('lb');
-  lb.classList.remove('open');
-  setTimeout(() => lb.style.display = 'none', 300);
-  document.body.style.overflow = '';
-}
-
-document.addEventListener('keydown', e => {
-  if (document.getElementById('lb').style.display !== 'flex') return;
-  if (e.key === 'Escape') closeLB({target: document.getElementById('lb')});
-  if (e.key === 'ArrowLeft') navLB(-1);
-  if (e.key === 'ArrowRight') navLB(1);
+// Close on escape
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeLB();
+  if (e.key === 'ArrowLeft') changeLB(-1);
+  if (e.key === 'ArrowRight') changeLB(1);
 });
 </script>
+
 </body>
 </html>
