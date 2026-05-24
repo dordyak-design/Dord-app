@@ -905,3 +905,26 @@ Object.assign(DORD_I18N.en, {
     "footer.type": "Automated AI Production Studio",
     "footer.copy": "© 2026 All rights reserved"
 });
+// Обновлённые ключи пакетов EN
+Object.assign(DORD_I18N.en, {
+    "svc1.price": "/ 20 images",
+    "svc1.text": "20 premium luxury visuals of your product. Mix of 1024×1024 and 1024×768 — 10 of each, or all in one size. Your call.",
+    "svc1.f1": "20 images: 1024×1024 + 1024×768",
+    "svc1.f2": "Size ratio on client's choice",
+    "svc1.f3": "Shopify & Amazon ready format",
+    "svc1.f4": "Delivered within 48 hours",
+    "svc2.price": "/ 50 images",
+    "svc2.text": "50 luxury commercial visuals. Multiple scenes, angles, backgrounds. Full product catalog for Shopify or Amazon in one order.",
+    "svc2.f1": "50 images: 1024×1024 + 1024×768",
+    "svc2.f2": "Size ratio on client's choice",
+    "svc2.f3": "Amazon-ready & Shopify-ready formats",
+    "svc2.f4": "Full commercial rights included",
+    "svc2.f5": "Delivered within 48 hours",
+    "svc3.price": "/ 150 images",
+    "svc3.text": "150 luxury visuals — a complete visual identity for your brand. Style that won't be replicated for any competitor.",
+    "svc3.f1": "150 images: 1024×1024 + 1024×768",
+    "svc3.f2": "Size ratio on client's choice",
+    "svc3.f3": "Custom visual style for your brand",
+    "svc3.f4": "Lifestyle, studio & macro-detail shots",
+    "svc3.f5": "Delivered within 48 hours"
+});
