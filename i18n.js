@@ -799,3 +799,40 @@ Object.assign(DORD_I18N.en, {
     "prompt.tip.sub":"Before sending the brief to us — test the wording in a text AI. Ask: \"How did you understand my description? What would you draw?\" If the answer doesn't match your idea — refine the brief. Then send it for rendering.",
     "prompt.cta.pay":"Go to payment →"
 });
+// ===== GALLERY 2205 =====
+Object.assign(DORD_I18N.ru, {
+    "gallery.new.label":"Май 2026 · Новые работы",
+    "gallery.new.title":"Интерьер & Экстерьер · Люкс",
+    "gallery.new.sub":"Премиальная AI-визуализация для застройщиков, дизайнеров интерьера, риэлторов и мебельных брендов.",
+    "gallery.cat.interior":"🏢 Интерьер · Индустриальный лофт",
+    "gallery.cat.exterior":"🌿 Экстерьер · Уличные зоны отдыха",
+    "gallery.cat.luxury":"👑 Мебель люкс · Premium 1024px",
+    "gallery.cat.exterior2":"🏡 Дополнительные сцены · Экстерьер",
+    "gallery.new.cards":"Новые карточки · Май 2026",
+    "gallery.new.cards.title":"Shopify & Amazon Ready · Новая коллекция",
+    "gallery.new.cards.sub":"Свежие карточки товаров из майской генерации.",
+    "gallery.cat.bags":"👜 Сумки и аксессуары",
+    "gallery.cat.gadgets2":"⌚ Гаджеты и аксессуары",
+    "gallery.cat.jewelry":"💍 Украшения · Новая коллекция",
+    "gallery.cat.clothes":"👗 Одежда · Мода",
+    "gallery.cat.shoes":"👟 Обувь",
+    "gallery.cat.beauty2":"🌿 Косметика · Новинки"
+});
+Object.assign(DORD_I18N.en, {
+    "gallery.new.label":"May 2026 · New works",
+    "gallery.new.title":"Interior & Exterior · Luxury",
+    "gallery.new.sub":"Premium AI visualization for developers, interior designers, realtors and furniture brands.",
+    "gallery.cat.interior":"🏢 Interior · Industrial Loft",
+    "gallery.cat.exterior":"🌿 Exterior · Outdoor Lounges",
+    "gallery.cat.luxury":"👑 Luxury Furniture · Premium 1024px",
+    "gallery.cat.exterior2":"🏡 Additional Scenes · Exterior",
+    "gallery.new.cards":"New Cards · May 2026",
+    "gallery.new.cards.title":"Shopify & Amazon Ready · New Collection",
+    "gallery.new.cards.sub":"Fresh product cards from the May generation.",
+    "gallery.cat.bags":"👜 Bags & Accessories",
+    "gallery.cat.gadgets2":"⌚ Gadgets & Accessories",
+    "gallery.cat.jewelry":"💍 Jewelry · New Collection",
+    "gallery.cat.clothes":"👗 Clothing · Fashion",
+    "gallery.cat.shoes":"👟 Footwear",
+    "gallery.cat.beauty2":"🌿 Cosmetics · New Arrivals"
+});
