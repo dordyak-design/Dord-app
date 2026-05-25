@@ -312,12 +312,13 @@ body{background:var(--bg-dark)}
             <label data-i18n="dash.form.light">Lighting</label>
             <input type="text" id="orderLight" placeholder="e.g. Dramatic side light from the right, warm studio">
           </div>
-          <div class="form-field">
-            <label data-i18n="dash.form.qty">Number of variants per task</label>
+        <div class="form-field">
+            <label data-i18n="dash.form.qty">Select your pack</label>
             <select id="orderQty">
-              <option data-i18n="dash.qty.5">5 variants per task</option>
-              <option data-i18n="dash.qty.7">7 variants per task</option>
-              <option data-i18n="dash.qty.10">10 variants per task</option>
+              <option value="sample">Free Sample — 1-2 preview images (free)</option>
+              <option value="starter">Starter Shot — 20 images ($49)</option>
+              <option value="ecom">E-Com Launch Pack — 50 images ($199)</option>
+              <option value="brand">Brand Identity Pack — 150 images ($499)</option>
             </select>
           </div>
         </div>
@@ -325,9 +326,12 @@ body{background:var(--bg-dark)}
           <label data-i18n="dash.form.fx">Additional details & effects</label>
           <textarea id="orderFx" rows="2" placeholder="e.g. Soft reflection in wet marble, Light Sweep effect, Levitation"></textarea>
         </div>
+        <div class="form-field">
+          <label>Your email — for order confirmation & delivery</label>
+          <input type="email" id="orderEmail" placeholder="your@email.com">
+        </div>
         <div>
           <button class="btn-primary" onclick="submitOrder(this)" data-i18n="dash.form.submit">Send Order →</button>
-        </div>
       </div>
     </div>
 
@@ -483,24 +487,43 @@ body{background:var(--bg-dark)}
   window.submitOrder = async function(btn) {
     const user = auth.currentUser;
     if (!user) return;
+
+    const pack = document.getElementById('orderQty').value;
+    const type = document.getElementById('orderType').value;
+    const obj = document.getElementById('orderObject').value;
+    const bg = document.getElementById('orderBg').value;
+    const light = document.getElementById('orderLight').value;
+    const fx = document.getElementById('orderFx').value;
+    const clientEmail = document.getElementById('orderEmail').value;
+
     btn.textContent = '✓ Order sent!';
     btn.disabled = true;
     btn.style.background = '#00c896';
+
+    // Firebase
     try {
       await addDoc(collection(db, 'orders'), {
         uid: user.uid, email: user.email,
-        type: document.getElementById('orderType').value,
-        object: document.getElementById('orderObject').value,
-        background: document.getElementById('orderBg').value,
-        lighting: document.getElementById('orderLight').value,
-        quantity: document.getElementById('orderQty').value,
-        details: document.getElementById('orderFx').value,
+        pack, type, object: obj, background: bg,
+        lighting: light, details: fx,
+        client_email: clientEmail,
         status: 'new', created_at: serverTimestamp()
       });
     } catch(e) { console.log(e); }
+
+    // Telegram
+    const msg = `🔔 NEW ORDER — Dord AI Studio\n\n👤 ${user.email}\n📧 Client email: ${clientEmail || '—'}\n📦 Pack: ${pack}\n🎯 Type: ${type}\n\n📝 Object: ${obj || '—'}\n🌿 Background: ${bg || '—'}\n💡 Lighting: ${light || '—'}\n✨ Details: ${fx || '—'}`;
+    try {
+      await fetch('https://api.telegram.org/bot8742382444:AAE3oWQxDlWF9XH8PHTOPLR93rMK3DVcf6s/sendMessage', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({chat_id: '528289836', text: msg})
+      });
+    } catch(e) { console.log('Telegram error:', e); }
   };
 </script>
 
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script src="i18n.js"></script>
 <script>
 window.showAuthTab = function(name) {
