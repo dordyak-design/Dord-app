@@ -928,3 +928,46 @@ Object.assign(DORD_I18N.en, {
     "svc3.f4": "Lifestyle, studio & macro-detail shots",
     "svc3.f5": "Delivered within 48 hours"
 });
+// ===== SERVICES UPDATE =====
+Object.assign(DORD_I18N.ru, {
+    "phero.sub": "Три пакета. Без подписок. Каждый заказ — персональная работа под ваш продукт и бренд.",
+    "services.free.title": "🎁 Бесплатный пробник",
+    "services.free.desc": "Пришлите фото вашего товара — даже со смартфона на белом фоне. Мы вернём 1–2 премиальных снимка бесплатно. Увидите разницу — выберете пакет.",
+    "services.free.btn": "Получить пробник →",
+    "services.compare.title": "Dord AI Studio vs. традиционная студия",
+    "services.compare.param": "Параметр",
+    "services.compare.old": "Традиционная съёмка",
+    "services.compare.new": "Dord AI Studio",
+    "services.compare.r1": "Стоимость",
+    "services.compare.r2": "Цена за снимок",
+    "services.compare.r3": "Срок",
+    "services.compare.r4": "Количество снимков",
+    "services.compare.r5": "Приватность данных",
+    "services.compare.r6": "Правки",
+    "svc2.f6": "Коммерческие права включены",
+    "svc3.f6": "Коммерческие права включены"
+});
+Object.assign(DORD_I18N.en, {
+    "phero.badge": "Pricing updated · May 2026",
+    "phero.title": "Services & Pricing",
+    "phero.sub": "Three packs. No subscriptions. Every order is handled personally.",
+    "services.free.title": "🎁 Free Sample",
+    "services.free.desc": "Send us a photo of your product — even a phone shot on white background. We'll return 1–2 premium images for free. See the difference, choose a pack.",
+    "services.free.btn": "Get Free Sample →",
+    "services.compare.title": "Dord AI Studio vs. Traditional Studio",
+    "services.compare.param": "Parameter",
+    "services.compare.old": "Traditional Shoot",
+    "services.compare.new": "Dord AI Studio",
+    "services.compare.r1": "Cost",
+    "services.compare.r2": "Per image",
+    "services.compare.r3": "Turnaround",
+    "services.compare.r4": "Number of images",
+    "services.compare.r5": "Data privacy",
+    "services.compare.r6": "Revisions",
+    "svc1.price": "/ 20 images",
+    "svc2.price": "/ 50 images",
+    "svc2.badge": "Most Popular",
+    "svc2.f6": "Full commercial rights included",
+    "svc3.price": "/ 150 images",
+    "svc3.f6": "Full commercial rights included"
+});
