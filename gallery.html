@@ -423,7 +423,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <div class="lightbox" id="lightbox" onclick="closeLightbox()">
         <span class="lightbox-close">×</span>
-        <img id="lightbox-img" src="" alt="Увеличенное изображение работы Dord AI Studio">
+        <div style="position:relative;display:inline-block;">
+            <img id="lightbox-img" src="" alt="Увеличенное изображение работы Dord AI Studio">
+            <span style="position:absolute;bottom:10%;right:8%;font-family:'Inter',sans-serif;font-size:clamp(12px,1.5vw,18px);font-weight:700;color:rgba(255,255,255,0.35);letter-spacing:1px;pointer-events:none;text-shadow:0 1px 4px rgba(0,0,0,0.6);user-select:none;">dordai.art</span>
+        </div>
     </div>
 
     <script src="i18n.js"></script>
