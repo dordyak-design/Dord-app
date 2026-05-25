@@ -288,52 +288,92 @@ body{background:var(--bg-dark)}
         <input type="file" id="fileInput" multiple accept="image/*" onchange="handleFiles(this.files)">
         <div class="uploaded-files" id="uploadedFiles"></div>
       </div>
+      <div style="display:grid;grid-template-columns:1fr 300px;gap:24px;align-items:start;">
       <div class="order-form">
         <div class="form-field">
           <label data-i18n="dash.form.type">Service type</label>
           <select id="orderType">
-            <option data-i18n="dash.svc.photo">Product Photo — E-Commerce</option>
-            <option data-i18n="dash.svc.v5">Video 5 seconds</option>
-            <option data-i18n="dash.svc.v10">Video 10 seconds</option>
-            <option data-i18n="dash.svc.v15">Video 15 seconds</option>
-            <option data-i18n="dash.svc.avatar">AI Avatar / Brand Mascot</option>
+            <option>Product Photo — E-Commerce</option>
+            <option>Product Cards (min 20 pcs)</option>
+            <option>Video 5 sec · from $15</option>
+            <option>Video 10 sec · from $25</option>
+            <option>Video 15 sec · from $35</option>
+            <option>AI Avatar / Brand Mascot</option>
           </select>
         </div>
         <div class="form-field">
-          <label data-i18n="dash.form.object">Object description — what needs to be photographed</label>
+          <label>Image size</label>
+          <select id="orderSize">
+            <option value="512">512×512 — compact, fast, cheaper</option>
+            <option value="768">512×768 — portrait format</option>
+            <option value="1024" selected>1024×1024 — premium square</option>
+            <option value="1024x768">1024×768 — wide landscape</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label>Pack / quantity</label>
+          <select id="orderQty">
+            <option value="sample">🎁 Free Sample — 1 preview image (free)</option>
+            <option value="cards_512">Product Cards 512px — 20 pcs ($25)</option>
+            <option value="cards_1024">Product Cards 1024px — 20 pcs ($45)</option>
+            <option value="starter_512">Starter Shot 512px — 40 pcs ($49)</option>
+            <option value="starter_1024">Starter Shot 1024px — 20 pcs ($49)</option>
+            <option value="ecom_512">E-Com Launch 512px — 100 pcs ($199)</option>
+            <option value="ecom_1024">E-Com Launch 1024px — 50 pcs ($199)</option>
+            <option value="brand_512">Brand Identity 512px — 300 pcs ($499)</option>
+            <option value="brand_1024">Brand Identity 1024px — 150 pcs ($499)</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label data-i18n="dash.form.object">Object description</label>
           <textarea id="orderObject" rows="3" placeholder="e.g. Glass perfume bottle 100ml, matte black cap, gold logo embossed"></textarea>
         </div>
         <div class="form-field">
           <label data-i18n="dash.form.env">Environment & background</label>
           <textarea id="orderBg" rows="2" placeholder="e.g. Wet dark marble, water splashes, foggy background"></textarea>
         </div>
-        <div class="form-row">
-          <div class="form-field">
-            <label data-i18n="dash.form.light">Lighting</label>
-            <input type="text" id="orderLight" placeholder="e.g. Dramatic side light from the right, warm studio">
-          </div>
         <div class="form-field">
-            <label data-i18n="dash.form.qty">Select your pack</label>
-            <select id="orderQty">
-              <option value="sample">Free Sample — 1-2 preview images (free)</option>
-              <option value="starter">Starter Shot — 20 images ($49)</option>
-              <option value="ecom">E-Com Launch Pack — 50 images ($199)</option>
-              <option value="brand">Brand Identity Pack — 150 images ($499)</option>
-            </select>
-          </div>
+          <label data-i18n="dash.form.light">Lighting</label>
+          <input type="text" id="orderLight" placeholder="e.g. Dramatic side light from the right, warm studio">
         </div>
         <div class="form-field">
           <label data-i18n="dash.form.fx">Additional details & effects</label>
           <textarea id="orderFx" rows="2" placeholder="e.g. Soft reflection in wet marble, Light Sweep effect, Levitation"></textarea>
         </div>
         <div class="form-field">
-          <label>Your email — for order confirmation & delivery</label>
+          <label>Your email — for delivery notification</label>
           <input type="email" id="orderEmail" placeholder="your@email.com">
         </div>
         <div>
           <button class="btn-primary" onclick="submitOrder(this)" data-i18n="dash.form.submit">Send Order →</button>
+        </div>
       </div>
-    </div>
+
+      <!-- ИНФО БЛОК -->
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div class="card" style="padding:20px;font-size:13px;line-height:1.7;">
+          <div style="font-family:'Unbounded',sans-serif;font-size:11px;font-weight:700;color:var(--accent-green);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:12px;">📐 Sizes & Pricing</div>
+          <div style="color:var(--text-soft);margin-bottom:8px;"><b style="color:#fff;">512px</b> — ~2× cheaper<br><span style="color:var(--text-muted);font-size:11px;">Fast delivery, great for listings</span></div>
+          <div style="color:var(--text-soft);margin-bottom:8px;"><b style="color:#fff;">1024×1024</b> — premium<br><span style="color:var(--text-muted);font-size:11px;">Full detail, luxury quality</span></div>
+          <div style="color:var(--text-soft);margin-bottom:16px;"><b style="color:#fff;">1024×768</b> — wide<br><span style="color:var(--text-muted);font-size:11px;">Landscape, interior & exterior</span></div>
+          <div style="border-top:1px solid var(--border);padding-top:12px;color:var(--text-muted);font-size:11px;">Prices shown are for 1024px.<br>512px = same pack, 2× more images.</div>
+        </div>
+
+        <div class="card" style="padding:20px;font-size:13px;line-height:1.7;">
+          <div style="font-family:'Unbounded',sans-serif;font-size:11px;font-weight:700;color:var(--accent-green);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:12px;">🎬 Video on demand</div>
+          <div style="color:var(--text-soft);margin-bottom:4px;">5 sec — from <b style="color:#fff;">$15</b></div>
+          <div style="color:var(--text-soft);margin-bottom:4px;">10 sec — from <b style="color:#fff;">$25</b></div>
+          <div style="color:var(--text-soft);margin-bottom:16px;">15 sec — from <b style="color:#fff;">$35</b></div>
+          <div style="color:var(--text-muted);font-size:11px;">Levitation, Light Sweep, 360°, Particle Burst and more. Discuss details in support.</div>
+        </div>
+
+        <div class="card" style="padding:20px;">
+          <div style="font-family:'Unbounded',sans-serif;font-size:11px;font-weight:700;color:var(--accent-green);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:12px;">💬 Ask a question</div>
+          <textarea id="supportMsg" rows="3" style="width:100%;background:var(--card-bg);border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:var(--text-main);font-family:'Inter',sans-serif;font-size:13px;outline:none;resize:vertical;box-sizing:border-box;" placeholder="Your question..."></textarea>
+          <button onclick="sendSupport(this)" style="margin-top:10px;width:100%;padding:11px;background:transparent;border:1px solid var(--border-green);color:var(--accent-green);border-radius:8px;font-family:'Inter',sans-serif;font-size:12px;font-weight:700;cursor:pointer;text-transform:uppercase;letter-spacing:0.5px;transition:all 0.2s;">Send to Support →</button>
+        </div>
+      </div>
+      </div>
 
     <!-- MY ORDERS -->
     <div id="tab-orders" class="tab-panel">
@@ -512,7 +552,7 @@ body{background:var(--bg-dark)}
     } catch(e) { console.log(e); }
 
     // Telegram
-    const msg = `🔔 NEW ORDER — Dord AI Studio\n\n👤 ${user.email}\n📧 Client email: ${clientEmail || '—'}\n📦 Pack: ${pack}\n🎯 Type: ${type}\n\n📝 Object: ${obj || '—'}\n🌿 Background: ${bg || '—'}\n💡 Lighting: ${light || '—'}\n✨ Details: ${fx || '—'}`;
+    const msg = `🔔 NEW ORDER — Dord AI Studio\n\n👤 ${user.email}\n📧 Client email: ${clientEmail || '—'}\n📦 Pack: ${pack}\n📐 Size: ${document.getElementById('orderSize').value}\n🎯 Type: ${type}\n\n📝 Object: ${obj || '—'}\n🌿 Background: ${bg || '—'}\n💡 Lighting: ${light || '—'}\n✨ Details: ${fx || '—'}`;
     try {
       await fetch('https://api.telegram.org/bot8742382444:AAE3oWQxDlWF9XH8PHTOPLR93rMK3DVcf6s/sendMessage', {
         method: 'POST',
@@ -546,6 +586,21 @@ function handleFiles(files) {
   Array.from(files).forEach(f => { const d=document.createElement('div'); d.className='file-chip'; d.innerHTML=`<span>${f.name}</span><span class="remove" onclick="this.parentElement.remove()">✕</span>`; c.appendChild(d); });
 }
 function handleDrop(e) { e.preventDefault(); e.currentTarget.classList.remove('drag-over'); handleFiles(e.dataTransfer.files); }
+
+async function sendSupport(btn) {
+  const msg = document.getElementById('supportMsg').value.trim();
+  if (!msg) return;
+  btn.textContent = '✓ Sent!';
+  btn.disabled = true;
+  try {
+    await fetch('https://api.telegram.org/bot8742382444:AAE3oWQxDlWF9XH8PHTOPLR93rMK3DVcf6s/sendMessage', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({chat_id: '528289836', text: '❓ SUPPORT QUESTION — Dord AI Studio\n\n' + msg})
+    });
+  } catch(e) { console.log(e); }
+  setTimeout(() => { btn.textContent = 'Send to Support →'; btn.disabled = false; document.getElementById('supportMsg').value = ''; }, 3000);
+}
 document.addEventListener('DOMContentLoaded', function() {
   const saved = localStorage.getItem('dord_lang');
   if (!saved) setLang('en');
