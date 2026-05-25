@@ -126,6 +126,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .pack-cta.outline{background:transparent;color:var(--accent-green);border:1px solid var(--border-green)}
 .pack-cta.outline:hover{background:rgba(0,200,150,0.1)}
 @media(max-width:768px){.israel-stats{grid-template-columns:1fr}.packs-grid{grid-template-columns:1fr}.israel-block{padding:28px 20px}.free-sample-block{padding:32px 20px}}
+.hero-preview{display:block;border-radius:12px;overflow:hidden;border:1px solid var(--border);transition:var(--transition);aspect-ratio:1/1}
+.hero-preview:hover{border-color:var(--border-green);transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,0.4)}
+.hero-preview img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s ease}
+.hero-preview:hover img{transform:scale(1.05)}
 </style>
 </head>
 <body data-page="index">
@@ -154,7 +158,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <img src="server_icon.png" alt="Private GPU Servers Online" class="server-icon">
         <div class="agent-stat">Agent-1 <span><div class="led"></div> Online 92%</span></div>
         <div class="agent-stat">Agent-2 <span><div class="led"></div> Online 87%</span></div>
-        <div class="agent-stat">Agent-3 <span><div class="led"></div> Stand by 3%</span></div>
+        <div class="agent-stat">Agent-3 <span><div class="led"></div> Online 95%</span></div>
     </div>
     <nav>
         <a href="index.html" class="nav-btn" data-i18n="nav.home">Home</a>
@@ -196,37 +200,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
     </div>
     <div class="hero-stats">
-        <div class="stat-card"><div class="stat-num">$0</div><div class="stat-label" data-i18n="stats.s1">Free preview<br>for your product</div></div>
-        <div class="stat-card"><div class="stat-num">68GB</div><div class="stat-label" data-i18n="stats.s2">VRAM on board.<br>NVIDIA CUDA</div></div>
-        <div class="stat-card"><div class="stat-num">24h</div><div class="stat-label" data-i18n="stats.s3">Delivery guaranteed.<br>No queues, no delays.</div></div>
-        <div class="stat-card"><div class="stat-num">−90%</div><div class="stat-label" data-i18n="stats.s4">vs. traditional<br>studio cost</div></div>
+        <a href="gallery.html#interior" class="hero-preview"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/uotput_1024_00001_.png" alt="Interior luxury AI photo"></a>
+        <a href="gallery.html#interior" class="hero-preview"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/uotput_1024_00018_.png" alt="Outdoor lounge AI photo"></a>
+        <a href="gallery.html#fashion" class="hero-preview"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/output_00003_.png" alt="Luxury bag AI photo"></a>
+        <a href="gallery.html#fashion" class="hero-preview"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/output_00029_.png" alt="Fashion dress AI photo"></a>
+        <a href="gallery.html#interior" class="hero-preview"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/uotput_1024_00023_.png" alt="Fire pit outdoor AI photo"></a>
+        <a href="gallery.html#gadgets" class="hero-preview"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/output_00009_.png" alt="Luxury watch AI photo"></a>
     </div>
 </section>
-
-<!-- ISRAELI TECH EDGE -->
-<div class="section-wrap-alt">
-    <div class="section-inner">
-        <div class="israel-block">
-            <div class="section-label" style="margin-bottom:16px;" data-i18n="why.label">The Israeli Tech Edge</div>
-            <h2 data-i18n="why.title">Why Mass-Market AI Fails You</h2>
-            <p data-i18n="why.sub">Standard cloud AI bots give you distorted jewelry, fake glass reflections, and backgrounds that look like bad collages. We don't use generic bots. Born in Israel's high-tech ecosystem — the same country that gave the world Wix, Monday.com, and Fiverr — our studio runs custom-calibrated AI pipelines. Gold gleams like gold. Leather shows its pores. Glass holds its geometry. Marble is marble, not gray fog.</p>
-            <div class="israel-stats">
-                <div class="israel-stat">
-                    <strong data-i18n="why.c1.title">Perfect Material Physics</strong>
-                    <span data-i18n="why.c1.text">Jewelry facets, glass highlights, leather texture, chrome reflections — rendered accurately, every time.</span>
-                </div>
-                <div class="israel-stat">
-                    <strong data-i18n="why.c2.title">Zero Data Leaks</strong>
-                    <span data-i18n="why.c2.text">Your product images never enter training datasets. Private servers, private results. Not Midjourney. Not DALL-E.</span>
-                </div>
-                <div class="israel-stat">
-                    <strong data-i18n="why.c3.title">Done-For-You</strong>
-                    <span data-i18n="why.c3.text">You send us a raw photo or description. We deliver a luxury commercial visual. No software to learn. No prompts to write.</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 <!-- ПАКЕТЫ -->
 <section class="section-wrap">
@@ -280,6 +261,31 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </div>
     <p style="text-align:center;color:var(--text-muted);font-size:13px;margin-top:24px;" data-i18n="svc.note">Need something custom? <a href="https://t.me/DordAI" target="_blank" style="color:var(--accent-green)">Contact us on Telegram</a> — every project is discussed personally.</p>
 </section>
+
+<!-- ISRAELI TECH EDGE -->
+<div class="section-wrap-alt">
+    <div class="section-inner">
+        <div class="israel-block">
+            <div class="section-label" style="margin-bottom:16px;" data-i18n="why.label">The Israeli Tech Edge</div>
+            <h2 data-i18n="why.title">Why Mass-Market AI Fails You</h2>
+            <p data-i18n="why.sub">Standard cloud AI bots give you distorted jewelry, fake glass reflections, and backgrounds that look like bad collages. We don't use generic bots. Born in Israel's high-tech ecosystem — the same country that gave the world Wix, Monday.com, and Fiverr — our studio runs custom-calibrated AI pipelines. Gold gleams like gold. Leather shows its pores. Glass holds its geometry. Marble is marble, not gray fog.</p>
+            <div class="israel-stats">
+                <div class="israel-stat">
+                    <strong data-i18n="why.c1.title">Perfect Material Physics</strong>
+                    <span data-i18n="why.c1.text">Jewelry facets, glass highlights, leather texture, chrome reflections — rendered accurately, every time.</span>
+                </div>
+                <div class="israel-stat">
+                    <strong data-i18n="why.c2.title">Zero Data Leaks</strong>
+                    <span data-i18n="why.c2.text">Your product images never enter training datasets. Private servers, private results. Not Midjourney. Not DALL-E.</span>
+                </div>
+                <div class="israel-stat">
+                    <strong data-i18n="why.c3.title">Done-For-You</strong>
+                    <span data-i18n="why.c3.text">You send us a raw photo or description. We deliver a luxury commercial visual. No software to learn. No prompts to write.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- FREE SAMPLE -->
 <div class="section-wrap-alt">
