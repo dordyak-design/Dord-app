@@ -971,3 +971,8 @@ Object.assign(DORD_I18N.en, {
     "svc3.price": "/ 150 images",
     "svc3.f6": "Full commercial rights included"
 });
+Object.assign(DORD_I18N.en, {
+    "phero.badge": "Pricing updated · May 2026",
+    "phero.title": "Services & Pricing",
+    "phero.sub": "Three packs. No subscriptions. Every order is handled personally."
+});
