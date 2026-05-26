@@ -1369,6 +1369,7 @@ html, body {
   font-weight: 600;
   text-decoration: none;
   transition: all 0.2s ease;
+  white-space: nowrap;
 }
 .social-bar a:hover { color: #fff; border-color: rgba(255,255,255,0.3); }
 .social-bar a.tg { border-color: rgba(34,158,217,0.4); color: #229ED9; }
