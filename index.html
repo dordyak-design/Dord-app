@@ -49,6 +49,36 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
+ /* Контейнер-капсула для кнопок */
+.lang-switcher {
+    display: inline-flex;
+    background: #11141a; /* Темный фон как у соцсетей */
+    border: 1px solid #222733; /* Тонкая аккуратная рамка */
+    border-radius: 10px; /* Закругление капсулы */
+    padding: 3px;
+    align-items: center;
+}
+
+/* Базовый стиль кнопок (сброс дефолтных настроек браузера) */
+.lang-btn {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    color: #565d6d; /* Серый цвет для неактивного языка */
+    font-weight: 700;
+    font-size: 14px;
+    padding: 6px 14px;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Активное состояние с градиентом */
+.lang-btn.active {
+    background: linear-gradient(135deg, #00b4d8 0%, #0077b6 100%) !important; /* Сине-зеленый градиент */
+    color: #ffffff !important; /* Белый текст */
+} 
 .israel-block{background:linear-gradient(135deg,rgba(0,74,173,0.12),rgba(0,200,150,0.06));border:1px solid rgba(0,200,150,0.15);border-radius:20px;padding:48px;max-width:1200px;margin:0 auto}
 .israel-block h2{font-family:'Unbounded',sans-serif;font-size:clamp(18px,2.5vw,28px);font-weight:900;color:#fff;margin-bottom:16px;text-transform:uppercase;letter-spacing:0.5px}
 .israel-block p{font-size:15px;color:var(--text-muted);line-height:1.8;max-width:800px}
