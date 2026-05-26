@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDYY04P81S"></script>
@@ -54,224 +54,760 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
-.lang-switcher{display:flex;align-items:center;gap:2px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:3px;margin-left:12px}
-.lang-btn{padding:5px 10px;border-radius:6px;border:none;background:transparent;color:var(--text-muted,#8892a4);font-family:'Inter',sans-serif;font-size:12px;font-weight:600;cursor:pointer;transition:all 0.2s ease;letter-spacing:0.5px}
+/* ── LANG SWITCHER ── */
+.lang-switcher-fixed{position:fixed;top:18px;right:20px;z-index:9999;display:flex;align-items:center;gap:2px;background:rgba(8,11,26,0.85);border:1px solid rgba(0,200,150,0.25);border-radius:8px;padding:3px;backdrop-filter:blur(10px)}
+.lang-btn{padding:5px 11px;border-radius:6px;border:none;background:transparent;color:#8892a4;font-family:'Inter',sans-serif;font-size:12px;font-weight:700;cursor:pointer;transition:all 0.2s;letter-spacing:0.5px}
 .lang-btn.active{background:linear-gradient(135deg,#004aad,#00c896);color:#fff}
 .lang-btn:hover:not(.active){color:#fff;background:rgba(255,255,255,0.08)}
-.packs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1200px;margin:48px auto 0}
-.pack-card{background:var(--card-bg);border:1px solid var(--border);border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:12px;transition:var(--transition);position:relative}
-.pack-card:hover{border-color:var(--border-green);transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,0.4)}
-.pack-card.featured{border-color:var(--border-green);background:linear-gradient(135deg,rgba(0,74,173,0.1),rgba(0,200,150,0.05))}
-.pack-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#004aad,#00c896);color:#000;font-family:'Unbounded',sans-serif;font-size:10px;font-weight:900;padding:4px 16px;border-radius:100px;text-transform:uppercase;white-space:nowrap}
-.pack-name{font-family:'Unbounded',sans-serif;font-size:13px;font-weight:700;color:var(--text-soft);text-transform:uppercase;letter-spacing:0.5px}
-.pack-price{font-family:'Unbounded',sans-serif;font-size:40px;font-weight:900;color:#fff;line-height:1}
-.pack-price span{font-size:15px;color:var(--text-muted);font-family:'Inter',sans-serif;font-weight:400}
-.pack-desc{font-size:13px;color:var(--text-muted);line-height:1.7}
-.pack-features{list-style:none;display:flex;flex-direction:column;gap:8px;margin-top:8px}
-.pack-features li{font-size:12px;color:var(--text-soft);display:flex;align-items:flex-start;gap:8px;line-height:1.4}
-.pack-features li::before{content:'✓';color:var(--accent-green);font-weight:800;flex-shrink:0;font-size:11px;margin-top:1px}
-.pack-cta{display:block;text-align:center;background:var(--accent-green);color:#000;font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:0.5px;padding:14px;border-radius:10px;text-decoration:none;transition:var(--transition);margin-top:auto}
-.pack-cta:hover{background:#00e6ac;box-shadow:0 4px 16px rgba(0,200,150,0.4)}
-.pack-cta.outline{background:transparent;color:var(--accent-green);border:1px solid var(--border-green)}
-.pack-cta.outline:hover{background:rgba(0,200,150,0.1)}
-.free-sample-row{display:flex;align-items:center;justify-content:space-between;gap:32px;background:linear-gradient(135deg,rgba(0,74,173,0.1),rgba(0,200,150,0.05));border:1px solid rgba(0,200,150,0.2);border-radius:20px;padding:32px 40px;max-width:1200px;margin:0 auto 32px;flex-wrap:wrap}
-.free-sample-row h3{font-family:'Unbounded',sans-serif;font-size:16px;font-weight:900;color:#fff;text-transform:uppercase;margin-bottom:8px}
-.free-sample-row p{font-size:13px;color:var(--text-muted);max-width:600px;line-height:1.7;margin:0}
-.compare-table{width:100%;border-collapse:collapse;margin-top:32px;font-size:13px}
-.compare-table th{font-family:'Unbounded',sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:0.5px;padding:12px 16px;text-align:left;border-bottom:1px solid var(--border);color:var(--text-muted)}
-.compare-table td{padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.04);color:var(--text-soft);vertical-align:top}
+
+/* ── SOCIAL BAR ── */
+.social-bar{display:flex;align-items:center;gap:8px;padding:8px 24px;border-bottom:1px solid rgba(255,255,255,0.05)}
+.social-bar a{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;border:1px solid rgba(255,255,255,0.12);color:#8892a4;transition:all 0.2s;text-decoration:none}
+.social-bar a:hover{border-color:var(--accent-green,#00c896);color:#00c896;transform:scale(1.1)}
+.social-bar a svg{width:14px;height:14px}
+
+/* ── HIGH LOAD BANNER ── */
+.hload-banner{background:linear-gradient(90deg,rgba(0,74,173,0.15),rgba(0,200,150,0.08));border-bottom:1px solid rgba(0,200,150,0.2);padding:10px 24px;display:flex;align-items:center;gap:10px;font-size:12px;color:#8892a4;line-height:1.5}
+.hload-banner .hload-icon{font-size:16px;flex-shrink:0}
+.hload-banner b{color:#fff}
+
+/* ── CONFIGURATOR LAYOUT ── */
+.configurator-wrap{display:grid;grid-template-columns:1fr 320px;gap:28px;max-width:1200px;margin:0 auto;padding:0 24px 60px;align-items:start}
+@media(max-width:960px){.configurator-wrap{grid-template-columns:1fr}}
+
+/* ── SECTION BLOCKS ── */
+.cfg-section{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:18px;padding:28px;margin-bottom:20px}
+.cfg-section-title{font-family:'Unbounded',sans-serif;font-size:13px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.cfg-section-sub{font-size:12px;color:#8892a4;margin-bottom:20px;line-height:1.6}
+
+/* ── CHOICE BUTTONS ── */
+.choice-group{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:16px}
+.choice-label{font-size:11px;text-transform:uppercase;letter-spacing:0.5px;color:#8892a4;margin-bottom:8px;font-weight:600}
+.choice-btn{padding:10px 16px;border-radius:10px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.04);color:#cdd5e0;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;cursor:pointer;transition:all 0.2s;line-height:1.4;text-align:center}
+.choice-btn:hover{border-color:rgba(0,200,150,0.4);color:#fff}
+.choice-btn.selected{border-color:#00c896;background:linear-gradient(135deg,rgba(0,74,173,0.25),rgba(0,200,150,0.15));color:#fff;box-shadow:0 0 16px rgba(0,200,150,0.15)}
+.choice-btn .btn-price{display:block;font-family:'Unbounded',sans-serif;font-size:16px;font-weight:900;color:#fff;margin-top:2px}
+.choice-btn .btn-count{display:block;font-size:11px;color:#00c896;margin-top:2px;min-height:14px}
+
+/* ── RESOLUTION BUTTONS ── */
+.res-btn{flex:1;min-width:120px;padding:12px 16px}
+
+/* ── AI SERIES CARD ── */
+.series-card{background:linear-gradient(135deg,rgba(0,74,173,0.12),rgba(0,200,150,0.06));border:1px solid rgba(0,200,150,0.25);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:12px}
+.series-price{font-family:'Unbounded',sans-serif;font-size:32px;font-weight:900;color:#fff}
+.series-price span{font-size:13px;color:#8892a4;font-family:'Inter',sans-serif;font-weight:400}
+.series-features{list-style:none;display:flex;flex-direction:column;gap:6px}
+.series-features li{font-size:12px;color:#cdd5e0;display:flex;align-items:flex-start;gap:8px}
+.series-features li::before{content:'✓';color:#00c896;font-weight:800;flex-shrink:0}
+.series-note{font-size:11px;color:#8892a4;line-height:1.5;padding:10px;background:rgba(0,0,0,0.2);border-radius:8px;border-left:2px solid rgba(0,200,150,0.3)}
+.btn-tg{display:flex;align-items:center;justify-content:center;gap:8px;padding:13px;border-radius:10px;background:linear-gradient(135deg,#004aad,#00c896);color:#fff;font-family:'Inter',sans-serif;font-size:13px;font-weight:700;text-decoration:none;transition:all 0.2s;border:none;cursor:pointer;width:100%}
+.btn-tg:hover{opacity:0.9;transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,200,150,0.3)}
+
+/* ── BULK CARDS ── */
+.bulk-counter{display:flex;align-items:center;gap:0;border:1px solid rgba(255,255,255,0.12);border-radius:10px;overflow:hidden;width:fit-content}
+.bulk-btn{width:40px;height:44px;background:rgba(255,255,255,0.05);border:none;color:#fff;font-size:20px;cursor:pointer;transition:background 0.2s;display:flex;align-items:center;justify-content:center}
+.bulk-btn:hover{background:rgba(0,200,150,0.15)}
+.bulk-input{width:64px;height:44px;background:rgba(0,0,0,0.3);border:none;border-left:1px solid rgba(255,255,255,0.08);border-right:1px solid rgba(255,255,255,0.08);color:#fff;font-family:'Unbounded',sans-serif;font-size:15px;font-weight:700;text-align:center;outline:none}
+.bulk-total{font-family:'Unbounded',sans-serif;font-size:20px;font-weight:900;color:#00c896;margin-top:12px}
+.bulk-total span{font-size:12px;color:#8892a4;font-family:'Inter',sans-serif;font-weight:400}
+.btn-add-cart{display:flex;align-items:center;justify-content:center;gap:8px;padding:13px 24px;border-radius:10px;background:rgba(0,200,150,0.12);border:1px solid rgba(0,200,150,0.35);color:#00c896;font-family:'Inter',sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:all 0.2s;margin-top:12px;width:100%}
+.btn-add-cart:hover{background:rgba(0,200,150,0.22);transform:translateY(-1px)}
+.bulk-requirements{margin-top:16px;padding:14px;background:rgba(255,160,0,0.06);border:1px solid rgba(255,160,0,0.2);border-radius:10px}
+.bulk-requirements h4{font-size:11px;text-transform:uppercase;letter-spacing:0.5px;color:#ffa500;font-weight:700;margin-bottom:8px}
+.bulk-requirements ul{list-style:none;display:flex;flex-direction:column;gap:5px}
+.bulk-requirements ul li{font-size:11px;color:#8892a4;display:flex;gap:6px;line-height:1.4}
+.bulk-requirements ul li::before{content:'⚠';flex-shrink:0}
+
+/* ── FILE UPLOAD ── */
+.upload-zone{border:2px dashed rgba(0,200,150,0.25);border-radius:14px;padding:32px;text-align:center;cursor:pointer;transition:all 0.2s;background:rgba(0,200,150,0.03)}
+.upload-zone:hover,.upload-zone.dragover{border-color:#00c896;background:rgba(0,200,150,0.07)}
+.upload-icon{font-size:32px;margin-bottom:8px}
+.upload-title{font-family:'Unbounded',sans-serif;font-size:13px;color:#fff;margin-bottom:4px}
+.upload-sub{font-size:12px;color:#8892a4}
+.upload-sub b{color:#00c896}
+.upload-list{margin-top:14px;display:flex;flex-direction:column;gap:6px}
+.upload-item{display:flex;align-items:center;gap:10px;padding:8px 12px;background:rgba(0,200,150,0.07);border-radius:8px;font-size:12px;color:#cdd5e0}
+.upload-item-name{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.upload-remove{background:none;border:none;color:#8892a4;cursor:pointer;font-size:16px;padding:0;line-height:1}
+.upload-remove:hover{color:#ff4444}
+#fileInput{display:none}
+
+/* ── STICKY CART ── */
+.cart-sidebar{position:sticky;top:100px;background:rgba(8,11,26,0.95);border:1px solid rgba(0,200,150,0.2);border-radius:18px;padding:24px;backdrop-filter:blur(20px)}
+.cart-title{font-family:'Unbounded',sans-serif;font-size:12px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.cart-empty{text-align:center;padding:24px 0;color:#8892a4;font-size:12px}
+.cart-items{display:flex;flex-direction:column;gap:10px;margin-bottom:16px;min-height:40px}
+.cart-item{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;padding:10px 12px;background:rgba(255,255,255,0.04);border-radius:10px;border:1px solid rgba(255,255,255,0.06)}
+.cart-item-info{flex:1}
+.cart-item-name{font-size:12px;color:#cdd5e0;font-weight:600;line-height:1.3}
+.cart-item-detail{font-size:11px;color:#8892a4;margin-top:2px}
+.cart-item-price{font-family:'Unbounded',sans-serif;font-size:13px;font-weight:700;color:#fff;white-space:nowrap}
+.cart-item-remove{background:none;border:none;color:#8892a4;cursor:pointer;font-size:14px;padding:0;line-height:1;flex-shrink:0}
+.cart-item-remove:hover{color:#ff4444}
+.cart-divider{height:1px;background:rgba(255,255,255,0.07);margin:12px 0}
+.cart-total-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.cart-total-label{font-size:12px;color:#8892a4;font-weight:600}
+.cart-total-amount{font-family:'Unbounded',sans-serif;font-size:22px;font-weight:900;color:#00c896}
+.btn-pay{display:block;width:100%;padding:15px;border-radius:12px;background:linear-gradient(135deg,#004aad,#00c896);color:#fff;font-family:'Unbounded',sans-serif;font-size:12px;font-weight:700;text-align:center;text-transform:uppercase;letter-spacing:0.5px;border:none;cursor:pointer;transition:all 0.2s;text-decoration:none}
+.btn-pay:hover{opacity:0.9;transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,200,150,0.3)}
+.btn-pay:disabled{opacity:0.4;cursor:not-allowed;transform:none}
+.cart-pay-note{font-size:10px;color:#8892a4;text-align:center;margin-top:8px;line-height:1.5}
+
+/* ── PAYMENT PLACEHOLDER ── */
+.payment-placeholder{border:2px dashed rgba(0,200,150,0.2);border-radius:12px;padding:20px;text-align:center;margin-top:12px;background:rgba(0,200,150,0.03)}
+.payment-placeholder p{font-size:11px;color:#8892a4;line-height:1.5;margin:0}
+.payment-placeholder b{color:#00c896;display:block;font-size:12px;margin-bottom:4px}
+
+/* ── MOBILE CART BUTTON ── */
+.mobile-cart-btn{display:none;position:fixed;bottom:20px;right:20px;z-index:1000;background:linear-gradient(135deg,#004aad,#00c896);color:#fff;border:none;border-radius:50px;padding:14px 20px;font-family:'Inter',sans-serif;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 8px 24px rgba(0,200,150,0.35);align-items:center;gap:8px;transition:all 0.2s}
+.mobile-cart-btn:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(0,200,150,0.45)}
+@media(max-width:960px){.mobile-cart-btn{display:flex}.cart-sidebar{display:none}}
+
+/* ── MOBILE CART SHEET ── */
+.cart-sheet-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:1001;backdrop-filter:blur(4px)}
+.cart-sheet-overlay.open{display:block}
+.cart-sheet{position:fixed;bottom:0;left:0;right:0;background:#0d1121;border-top:1px solid rgba(0,200,150,0.25);border-radius:20px 20px 0 0;padding:24px;z-index:1002;transform:translateY(100%);transition:transform 0.3s ease;max-height:80vh;overflow-y:auto}
+.cart-sheet.open{transform:translateY(0)}
+.cart-sheet-handle{width:40px;height:4px;background:rgba(255,255,255,0.15);border-radius:2px;margin:0 auto 20px}
+
+/* ── COMPARE TABLE ── */
+.compare-table{width:100%;border-collapse:collapse;font-size:13px}
+.compare-table th{font-family:'Unbounded',sans-serif;font-size:10px;text-transform:uppercase;letter-spacing:0.5px;padding:12px 16px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.08);color:#8892a4}
+.compare-table td{padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.04);color:#cdd5e0;vertical-align:top;font-size:12px}
 .compare-table tr:last-child td{border-bottom:none}
-.compare-table .check{color:var(--accent-green);font-weight:800}
-.fx-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:20px}
-.fx-item{background:rgba(0,0,0,0.2);border-radius:10px;padding:14px 16px}
-.fx-item b{color:var(--accent-green);display:block;margin-bottom:4px;font-size:13px}
-.fx-item span{font-size:12px;color:var(--text-soft)}
-@media(max-width:900px){.packs-grid{grid-template-columns:1fr}.free-sample-row{flex-direction:column;padding:24px 20px}}
+.compare-table .check{color:#00c896;font-weight:700}
+
+/* ── HOW IT WORKS ── */
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:28px}
+@media(max-width:700px){.steps-grid{grid-template-columns:1fr}}
+.step-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:24px;text-align:center}
+.step-num{font-family:'Unbounded',sans-serif;font-size:28px;font-weight:900;background:linear-gradient(135deg,#004aad,#00c896);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:10px}
+.step-title{font-family:'Unbounded',sans-serif;font-size:12px;font-weight:700;color:#fff;margin-bottom:8px;text-transform:uppercase}
+.step-desc{font-size:12px;color:#8892a4;line-height:1.6}
+
+/* ── FAQ ── */
+.faq-list{display:flex;flex-direction:column;gap:12px;margin-top:28px}
+.faq-item{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;overflow:hidden}
+.faq-q{padding:16px 20px;font-size:13px;font-weight:600;color:#fff;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.faq-q:hover{color:#00c896}
+.faq-icon{color:#00c896;font-size:18px;flex-shrink:0;transition:transform 0.2s}
+.faq-item.open .faq-icon{transform:rotate(45deg)}
+.faq-a{display:none;padding:0 20px 16px;font-size:12px;color:#8892a4;line-height:1.7}
+.faq-item.open .faq-a{display:block}
+
+/* ── FREE SAMPLE ── */
+.free-sample-row{display:flex;align-items:center;justify-content:space-between;gap:32px;background:linear-gradient(135deg,rgba(0,74,173,0.1),rgba(0,200,150,0.05));border:1px solid rgba(0,200,150,0.2);border-radius:20px;padding:32px 40px;flex-wrap:wrap}
+.free-sample-row h3{font-family:'Unbounded',sans-serif;font-size:16px;font-weight:900;color:#fff;text-transform:uppercase;margin-bottom:8px}
+.free-sample-row p{font-size:13px;color:#8892a4;max-width:600px;line-height:1.7;margin:0}
+.btn-primary{display:inline-flex;align-items:center;padding:14px 28px;border-radius:12px;background:linear-gradient(135deg,#004aad,#00c896);color:#fff;font-family:'Unbounded',sans-serif;font-size:12px;font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:0.5px;white-space:nowrap;transition:all 0.2s}
+.btn-primary:hover{opacity:0.9;transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,200,150,0.3)}
+@media(max-width:700px){.free-sample-row{flex-direction:column;padding:24px 20px}}
+
+/* ── SECTION WRAPPERS ── */
+.section-wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.section-block{margin:60px 0}
+.section-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(0,200,150,0.15),transparent);margin:0}
+
+/* ── VIDEO CARDS ── */
+.video-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin-top:0}
+.video-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:10px;transition:all 0.2s;cursor:pointer}
+.video-card:hover{border-color:rgba(0,200,150,0.35);transform:translateY(-3px)}
+.video-card.selected{border-color:#00c896;background:linear-gradient(135deg,rgba(0,74,173,0.15),rgba(0,200,150,0.08))}
+.video-card-name{font-family:'Unbounded',sans-serif;font-size:11px;font-weight:700;color:#8892a4;text-transform:uppercase;letter-spacing:0.5px}
+.video-card-price{font-family:'Unbounded',sans-serif;font-size:28px;font-weight:900;color:#fff;line-height:1}
+.video-card-desc{font-size:11px;color:#8892a4;line-height:1.5;flex:1}
+.video-add-btn{padding:9px;border-radius:8px;background:rgba(0,200,150,0.1);border:1px solid rgba(0,200,150,0.25);color:#00c896;font-size:11px;font-weight:700;cursor:pointer;transition:all 0.2s;text-align:center}
+.video-add-btn:hover{background:rgba(0,200,150,0.2)}
+
+/* ── SERIES CARD BIG ── */
+.series-big-card{background:linear-gradient(135deg,rgba(0,74,173,0.12),rgba(0,200,150,0.06));border:1px solid rgba(0,200,150,0.3);border-radius:18px;padding:28px;margin-top:20px}
+.series-big-header{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:16px}
+.series-big-title{font-family:'Unbounded',sans-serif;font-size:14px;font-weight:700;color:#fff;text-transform:uppercase;margin-bottom:6px}
+.series-big-desc{font-size:12px;color:#8892a4;line-height:1.6;max-width:500px}
+.series-big-price{font-family:'Unbounded',sans-serif;font-size:36px;font-weight:900;color:#fff;white-space:nowrap}
+.series-big-price small{font-size:12px;color:#8892a4;font-family:'Inter',sans-serif;font-weight:400;display:block}
+.series-negotiate{padding:12px 16px;background:rgba(0,0,0,0.25);border-radius:10px;border-left:3px solid rgba(0,200,150,0.4);font-size:12px;color:#8892a4;line-height:1.5;margin-bottom:16px}
+.series-negotiate b{color:#fff}
+
+/* extra page hero */
+.page-hero{text-align:center;padding:60px 24px 40px}
+.page-hero h1{font-family:'Unbounded',sans-serif;font-size:clamp(28px,5vw,52px);font-weight:900;color:#fff;line-height:1.1;margin:12px 0 16px}
+.page-hero p{font-size:14px;color:#8892a4;max-width:600px;margin:0 auto;line-height:1.7}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:100px;border:1px solid rgba(0,200,150,0.3);font-size:11px;color:#8892a4;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px}
+.hero-badge .dot{width:6px;height:6px;border-radius:50%;background:#00c896;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+
+.section-label{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#00c896;font-weight:700;margin-bottom:10px}
+.section-title{font-family:'Unbounded',sans-serif;font-size:clamp(20px,3.5vw,32px);font-weight:900;color:#fff;line-height:1.2;margin-bottom:12px}
+.section-sub{font-size:13px;color:#8892a4;line-height:1.7;max-width:600px}
+
+.breadcrumb{padding:8px 24px;font-size:12px;color:#8892a4;display:flex;gap:6px;align-items:center}
+.breadcrumb a{color:#8892a4;text-decoration:none}
+.breadcrumb a:hover{color:#00c896}
 </style>
 </head>
 <body data-page="services">
 
+<!-- FIXED LANG SWITCHER -->
+<div class="lang-switcher-fixed">
+  <button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
+  <button class="lang-btn" data-lang="ru" onclick="setLang('ru')">RU</button>
+</div>
+
 <header>
-    <div class="header-left">
-        <img src="logo.PNG" alt="Dord AI Studio">
-        <div class="title-wrapper">
-            <span class="company-name">Dord Software</span>
-            <span class="occupation"><span class="ai-light">AI</span> Systems Photo Studio</span>
-        </div>
+  <div class="header-left">
+    <img src="logo.PNG" alt="Dord AI Studio">
+    <div class="title-wrapper">
+      <span class="company-name">Dord Software</span>
+      <span class="occupation"><span class="ai-light">AI</span> Systems Photo Studio</span>
     </div>
-    <div class="agent-monitor">
-        <img src="server_icon.png" alt="Private GPU Servers Online" class="server-icon">
-        <div class="agent-stat">Agent-1 <span><div class="led"></div> Online 92%</span></div>
-        <div class="agent-stat">Agent-2 <span><div class="led"></div> Online 87%</span></div>
-        <div class="agent-stat">Agent-3 <span><div class="led"></div> Stand by 3%</span></div>
-    </div>
-    <nav>
-        <a href="index.html" class="nav-btn" data-i18n="nav.home">Главная</a>
-        <a href="services.html" class="nav-btn" data-i18n="nav.services">Услуги</a>
-        <a href="dashboard.html" class="nav-btn" data-i18n="nav.dashboard">Кабинет</a>
-        <a href="gallery.html" class="nav-btn" data-i18n="nav.gallery">Галерея</a>
-        <a href="crypto.html" class="nav-btn cta" data-i18n="nav.order">Заказать</a>
-        <div class="lang-switcher">
-            <button class="lang-btn active" data-lang="ru" onclick="setLang('ru')">RU</button>
-            <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
-        </div>
-    </nav>
+  </div>
+  <div class="agent-monitor">
+    <img src="server_icon.png" alt="Private GPU Servers Online" class="server-icon">
+    <div class="agent-stat">Agent-1 <span><div class="led"></div> Online 92%</span></div>
+    <div class="agent-stat">Agent-2 <span><div class="led"></div> Online 87%</span></div>
+    <div class="agent-stat">Agent-3 <span><div class="led"></div> Stand by 3%</span></div>
+  </div>
+  <nav>
+    <a href="index.html" class="nav-btn">Home</a>
+    <a href="services.html" class="nav-btn">Order</a>
+    <a href="dashboard.html" class="nav-btn">Dashboard</a>
+    <a href="gallery.html" class="nav-btn">Gallery</a>
+  </nav>
 </header>
 
+<!-- SOCIAL BAR compact round -->
 <div class="social-bar">
-  <a href="https://t.me/DordAI" target="_blank" class="tg">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.941z"/></svg>
-    Telegram
+  <a href="https://t.me/DordAI" target="_blank" title="Telegram">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.941z"/></svg>
   </a>
-  <a href="https://instagram.com/dordaistudio" target="_blank" class="ig">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-    Instagram
+  <a href="https://instagram.com/dordaistudio" target="_blank" title="Instagram">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.919-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
   </a>
-  <a href="https://x.com/dordaistudio" target="_blank" class="x">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.259 5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-    X / Twitter
+  <a href="https://x.com/dordaistudio" target="_blank" title="X / Twitter">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.259 5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
   </a>
+</div>
+
+<!-- HIGH LOAD BANNER -->
+<div class="hload-banner">
+  <span class="hload-icon">⚠️</span>
+  <span><b>High Load Notice:</b> Due to an extreme influx of orders from US retailers, all generation nodes are running at 100% capacity. Orders are processed strictly in queue order. Even our office water cooler is currently generating 512×512 product backgrounds. Thank you for your patience!</span>
 </div>
 
 <div class="breadcrumb">
-    <a href="index.html" data-i18n="nav.home">Главная</a><span>›</span><span data-i18n="nav.services">Услуги</span>
+  <a href="index.html">Home</a><span>›</span><span>Services & Pricing</span>
 </div>
 
 <div class="page-hero">
-    <div class="hero-badge"><span class="dot"></span><span data-i18n="phero.badge">Цены обновлены · Май 2026</span></div>
-    <h1 data-i18n="phero.title">Услуги и цены</h1>
-    <p data-i18n="phero.sub">Три пакета. Без подписок. Каждый заказ — персональная работа под ваш продукт и бренд.</p>
+  <div class="hero-badge"><span class="dot"></span>Updated · May 2026</div>
+  <h1>Build Your Order</h1>
+  <p>Select exactly what you need. Every order is handled personally — custom result for your product, your brand, your market.</p>
 </div>
 
-<div class="section-wrap">
+<!-- MAIN CONFIGURATOR -->
+<div class="configurator-wrap">
 
-    <!-- FREE SAMPLE -->
-    <div class="free-sample-row">
+  <!-- LEFT: CONFIGURATOR -->
+  <div class="cfg-left">
+
+    <!-- ── SECTION 1: IMAGE PACKS ── -->
+    <div class="cfg-section">
+      <div class="cfg-section-title">📸 Image Packs — Premium Product Photos</div>
+      <div class="cfg-section-sub">Choose your resolution first — the photo count updates automatically. Lower resolution = more photos for the same price.</div>
+
+      <div class="choice-label">Step 1 — Resolution</div>
+      <div class="choice-group" id="resGroup">
+        <button class="choice-btn res-btn" data-res="1024" onclick="selectRes(this,'1024')">
+          HD Pro
+          <span class="btn-count">1024×1024 / 768×768</span>
+        </button>
+        <button class="choice-btn res-btn" data-res="768" onclick="selectRes(this,'768')">
+          Standard
+          <span class="btn-count">768×768</span>
+        </button>
+        <button class="choice-btn res-btn" data-res="512" onclick="selectRes(this,'512')">
+          Economy
+          <span class="btn-count">512×512</span>
+        </button>
+      </div>
+
+      <div class="choice-label">Step 2 — Volume</div>
+      <div class="choice-group" id="packGroup">
+        <button class="choice-btn" data-pack="49" data-base="20" onclick="selectPack(this,49,20)">
+          Starter Shot
+          <span class="btn-price">$49</span>
+          <span class="btn-count" id="cnt-49">20 photos</span>
+        </button>
+        <button class="choice-btn" data-pack="199" data-base="50" onclick="selectPack(this,199,50)">
+          E-Com Launch
+          <span class="btn-price">$199</span>
+          <span class="btn-count" id="cnt-199">50 photos</span>
+        </button>
+        <button class="choice-btn" data-pack="499" data-base="150" onclick="selectPack(this,499,150)">
+          Brand Identity
+          <span class="btn-price">$499</span>
+          <span class="btn-count" id="cnt-499">150 photos</span>
+        </button>
+      </div>
+
+      <button class="btn-add-cart" id="addImgBtn" onclick="addImagePack()" disabled style="opacity:0.4">
+        + Add Image Pack to Cart
+      </button>
+    </div>
+
+    <!-- ── SECTION 2: VIDEO REELS ── -->
+    <div class="cfg-section">
+      <div class="cfg-section-title">🎬 Video Reels — TikTok / Instagram / Reels</div>
+      <div class="cfg-section-sub">Short dynamic videos 5–15 seconds. Video converts 3–5× better than static images. Add multiple if needed — each is added separately to cart.</div>
+
+      <div class="video-grid">
+        <div class="video-card">
+          <div class="video-card-name">Promo Reel</div>
+          <div class="video-card-price">$30</div>
+          <div class="video-card-desc">5 seconds. One key visual effect. Perfect for TikTok & Stories.</div>
+          <button class="video-add-btn" onclick="addVideo('Promo Reel · 5 sec',30)">+ Add to Cart</button>
+        </div>
+        <div class="video-card">
+          <div class="video-card-name">Full Reel</div>
+          <div class="video-card-price">$60</div>
+          <div class="video-card-desc">10 seconds. Full-featured ad. Instagram Reels, Facebook Ads.</div>
+          <button class="video-add-btn" onclick="addVideo('Full Reel · 10 sec',60)">+ Add to Cart</button>
+        </div>
+        <div class="video-card">
+          <div class="video-card-name">Extended Reel</div>
+          <div class="video-card-price">$90</div>
+          <div class="video-card-desc">15 seconds. Extended narrative. YouTube Shorts, brand story.</div>
+          <button class="video-add-btn" onclick="addVideo('Extended Reel · 15 sec',90)">+ Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- AI SOCIAL SERIES -->
+      <div class="series-big-card" style="margin-top:24px">
+        <div class="series-big-header">
+          <div>
+            <div class="series-big-title">📺 AI Social Series — Account Boost Program</div>
+            <div class="series-big-desc">15 high-retention 10-second videos. Delivered 1 video every other day for 1 month — timed to blast social media algorithms and build your audience fast.</div>
+          </div>
+          <div>
+            <div class="series-big-price">$1,000<small>/ 15 videos · 1 month</small></div>
+          </div>
+        </div>
+        <div class="series-negotiate">
+          <b>Budget is flexible?</b> Price is negotiable: $650–$1,000. All terms and conditions are discussed individually with the manager.
+        </div>
+        <a href="https://t.me/dordai_art_support_bot" target="_blank" class="btn-tg">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.941z"/></svg>
+          💬 Discuss Custom Terms with Manager
+        </a>
+      </div>
+    </div>
+
+    <!-- ── SECTION 3: BULK PRODUCT CARDS ── -->
+    <div class="cfg-section">
+      <div class="cfg-section-title">🏷️ Bulk Product Cards — E-Commerce Ready</div>
+      <div class="cfg-section-sub">$1.75 per card. Minimum 30 cards — maximum 200 cards per order. Perfect for Shopify and Amazon product listings.</div>
+
+      <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:4px">
         <div>
-            <h3 data-i18n="services.free.title">🎁 Бесплатный пробник</h3>
-            <p data-i18n="services.free.desc">Пришлите фото вашего товара — даже со смартфона на белом фоне. Мы вернём 1–2 премиальных снимка в маленьком разрешении бесплатно. Увидите разницу — выберете пакет.</p>
+          <div class="choice-label">Number of Cards</div>
+          <div class="bulk-counter">
+            <button class="bulk-btn" onclick="changeBulk(-5)">−</button>
+            <input class="bulk-input" type="number" id="bulkCount" value="30" min="30" max="200" onchange="updateBulk()">
+            <button class="bulk-btn" onclick="changeBulk(5)">+</button>
+          </div>
+          <div style="font-size:10px;color:#8892a4;margin-top:5px">min 30 · max 200 per order</div>
         </div>
-        <a href="crypto.html?sample=1" class="btn-primary" style="white-space:nowrap;" data-i18n="services.free.btn">Получить пробник →</a>
+        <div>
+          <div class="choice-label">Total</div>
+          <div class="bulk-total" id="bulkTotal">$52.50 <span>/ 30 cards</span></div>
+        </div>
+      </div>
+
+      <button class="btn-add-cart" onclick="addBulkCards()">
+        + Add Product Cards to Cart
+      </button>
+
+      <div class="bulk-requirements">
+        <h4>⚠️ Photo Requirements from Client</h4>
+        <ul>
+          <li>No dark, blurry, or low-resolution source photos</li>
+          <li>Product must be clearly visible with good contrast</li>
+          <li>Ideally 3 angles per product (front, side, detail)</li>
+          <li>Minimum recommended source size: 800×800 px</li>
+          <li>Accepted formats: JPG, PNG, HEIC, WebP</li>
+        </ul>
+      </div>
     </div>
 
-    <!-- 3 ПАКЕТА -->
-    <div style="text-align:center;">
-        <div class="section-label" style="justify-content:center;display:flex;" data-i18n="svc.label">Тарифы</div>
-        <h2 class="section-title" data-i18n="svc.title">Три пакета. Без подписок.</h2>
-        <p class="section-sub" data-i18n="svc.sub">Каждый заказ обсуждается лично. Вы получаете результат под ваш продукт, ваш бренд, ваш рынок.</p>
+    <!-- ── SECTION 4: FILE UPLOAD ── -->
+    <div class="cfg-section">
+      <div class="cfg-section-title">📎 Upload Your Product Photos</div>
+      <div class="cfg-section-sub">Upload your product images here. We'll review them and start generation within 48 hours after payment confirmation.</div>
+
+      <div class="upload-zone" id="uploadZone" onclick="document.getElementById('fileInput').click()">
+        <div class="upload-icon">📁</div>
+        <div class="upload-title">Drag & Drop or Click to Upload</div>
+        <div class="upload-sub">JPG, PNG, HEIC, WebP — up to <b>20 files</b> per upload · max <b>10MB</b> each</div>
+      </div>
+      <input type="file" id="fileInput" multiple accept=".jpg,.jpeg,.png,.heic,.webp" onchange="handleFiles(this.files)">
+      <div class="upload-list" id="uploadList"></div>
     </div>
 
-    <div class="packs-grid">
+  </div><!-- /cfg-left -->
 
-        <div class="pack-card">
-            <div class="pack-name" data-i18n="svc1.title">The Starter Shot</div>
-            <div class="pack-price">$49 <span data-i18n="svc1.price">/ 20 снимков</span></div>
-            <div class="pack-desc" data-i18n="svc1.text">20 премиальных снимков товара. Микс 1024×1024 и 1024×768 — 10 каждого, или всё в одном размере на выбор клиента.</div>
-            <ul class="pack-features">
-                <li data-i18n="svc1.f1">20 снимков: 1024×1024 + 1024×768</li>
-                <li data-i18n="svc1.f2">Соотношение размеров на выбор клиента</li>
-                <li data-i18n="svc1.f3">Готово для Shopify и Amazon</li>
-                <li data-i18n="svc1.f4">Доставка в течение 48 часов</li>
-                <li data-i18n="svc1.f5">Коммерческие права включены</li>
-            </ul>
-            <a href="crypto.html" class="pack-cta outline" data-i18n="btn.order">Заказать →</a>
-        </div>
-
-        <div class="pack-card featured">
-            <div class="pack-badge" data-i18n="svc2.badge">Самый популярный</div>
-            <div class="pack-name" data-i18n="svc2.title">E-Com Launch Pack</div>
-            <div class="pack-price">$199 <span data-i18n="svc2.price">/ 50 снимков</span></div>
-            <div class="pack-desc" data-i18n="svc2.text">50 люксовых снимков товара. Разные сцены, ракурсы, фоны. Полный каталог для Shopify или Amazon в одном заказе.</div>
-            <ul class="pack-features">
-                <li data-i18n="svc2.f1">50 снимков: 1024×1024 + 1024×768</li>
-                <li data-i18n="svc2.f2">Соотношение размеров на выбор клиента</li>
-                <li data-i18n="svc2.f3">Amazon-ready и Shopify-ready форматы</li>
-                <li data-i18n="svc2.f4">Lifestyle и студийные сцены</li>
-                <li data-i18n="svc2.f5">Доставка в течение 48 часов</li>
-                <li data-i18n="svc2.f6">Коммерческие права включены</li>
-            </ul>
-            <a href="crypto.html" class="pack-cta" data-i18n="btn.order">Заказать →</a>
-        </div>
-
-        <div class="pack-card">
-            <div class="pack-name" data-i18n="svc3.title">Brand Identity Pack</div>
-            <div class="pack-price">$499 <span data-i18n="svc3.price">/ 150 снимков</span></div>
-            <div class="pack-desc" data-i18n="svc3.text">150 люксовых снимков — полная визуальная концепция вашего бренда. Уникальный стиль который не повторится ни у одного конкурента.</div>
-            <ul class="pack-features">
-                <li data-i18n="svc3.f1">150 снимков: 1024×1024 + 1024×768</li>
-                <li data-i18n="svc3.f2">Соотношение размеров на выбор клиента</li>
-                <li data-i18n="svc3.f3">Уникальный визуальный стиль бренда</li>
-                <li data-i18n="svc3.f4">Lifestyle, студия и макро-детали</li>
-                <li data-i18n="svc3.f5">Доставка в течение 48 часов</li>
-                <li data-i18n="svc3.f6">Коммерческие права включены</li>
-            </ul>
-            <a href="crypto.html" class="pack-cta outline" data-i18n="btn.order">Заказать →</a>
-        </div>
-
+  <!-- RIGHT: STICKY CART -->
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-title">🛒 Your Order</div>
+    <div class="cart-items" id="cartItems">
+      <div class="cart-empty" id="cartEmpty">Your cart is empty.<br>Select services on the left.</div>
     </div>
-
-    <p style="text-align:center;color:var(--text-muted);font-size:13px;margin-top:24px;" data-i18n="svc.note">Нужно что-то нестандартное? <a href="https://t.me/DordAI" target="_blank" style="color:var(--accent-green)">Напишите в Telegram</a> — каждый проект обсуждается лично.</p>
-
-    <!-- СРАВНЕНИЕ -->
-    <div class="section-divider" style="margin-top:60px;"></div>
-    <div style="max-width:1200px;margin:60px auto 0;">
-        <h2 class="section-title" data-i18n="services.compare.title">Dord AI Studio vs. традиционная студия</h2>
-        <table class="compare-table">
-            <thead>
-                <tr>
-                    <th data-i18n="services.compare.param">Параметр</th>
-                    <th data-i18n="services.compare.old">Традиционная съёмка</th>
-                    <th style="color:var(--accent-green);" data-i18n="services.compare.new">Dord AI Studio</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td data-i18n="services.compare.r1">Стоимость</td><td>$500–$5 000 за сессию</td><td class="check">от $49 за 20 снимков</td></tr>
-                <tr><td data-i18n="services.compare.r2">Цена за снимок</td><td>$25–$100</td><td class="check">от $2.45</td></tr>
-                <tr><td data-i18n="services.compare.r3">Срок</td><td>1–2 недели</td><td class="check">до 48 часов</td></tr>
-                <tr><td data-i18n="services.compare.r4">Количество снимков</td><td>5–20 финальных</td><td class="check">20–150 за один заказ</td></tr>
-                <tr><td data-i18n="services.compare.r5">Приватность данных</td><td>Ваш товар снимают чужие люди</td><td class="check">Приватный сервер, данные не передаются</td></tr>
-                <tr><td data-i18n="services.compare.r6">Правки</td><td>Дополнительная оплата</td><td class="check">Включены в пакет</td></tr>
-            </tbody>
-        </table>
+    <div id="cartSummary" style="display:none">
+      <div class="cart-divider"></div>
+      <div class="cart-total-row">
+        <span class="cart-total-label">TOTAL</span>
+        <span class="cart-total-amount" id="cartTotal">$0</span>
+      </div>
+      <!-- PAYMENT WIDGET PLACEHOLDER -->
+      <div class="payment-placeholder">
+        <b>💳 Payment Widget</b>
+        <p>Crypto payment gateway will be placed here (Plisio / CryptAPI). USDC · USDT · TON · BTC</p>
+      </div>
+      <div class="cart-pay-note">🔒 Secure crypto payment · USDC · USDT · TON<br>Order activates after blockchain confirmation</div>
     </div>
+    <button class="btn-pay" id="payBtn" disabled onclick="handlePay()">Proceed to Payment</button>
+  </div>
 
-    <!-- ВИДЕО -->
-    <div class="section-divider" style="margin-top:60px;"></div>
-    <div style="max-width:1200px;margin:60px auto 0;">
-        <div class="section-label" data-i18n="video.tag">Motion</div>
-        <h2 class="section-title" data-i18n="video.title">AI-видеореклама — Dord Motion</h2>
-        <p class="section-sub" data-i18n="video.desc">Короткие динамические ролики 5–15 секунд для TikTok, Instagram и Amazon. Видео конвертирует в 3–5 раз лучше статичного фото.</p>
-        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-top:32px;">
-            <div class="pack-card"><div class="pack-name" data-i18n="video.p1.label">Ролик 5 сек</div><div class="pack-price">$15</div><div class="pack-desc" data-i18n="video.p1.desc">Stories, TikTok. Один ключевой эффект.</div><a href="crypto.html" class="pack-cta outline" data-i18n="btn.order">Заказать →</a></div>
-            <div class="pack-card featured"><div class="pack-name" data-i18n="video.p2.label">Ролик 10 сек</div><div class="pack-price">$25</div><div class="pack-desc" data-i18n="video.p2.desc">Instagram Reels, Facebook Ads. Полноценная реклама.</div><a href="crypto.html" class="pack-cta" data-i18n="btn.order">Заказать →</a></div>
-            <div class="pack-card"><div class="pack-name" data-i18n="video.p3.label">Ролик 15 сек</div><div class="pack-price">$35</div><div class="pack-desc" data-i18n="video.p3.desc">YouTube Shorts. Развёрнутый сюжет.</div><a href="crypto.html" class="pack-cta outline" data-i18n="btn.order">Заказать →</a></div>
-            <div class="pack-card"><div class="pack-name" data-i18n="video.p4.label">Пакет 5 роликов</div><div class="pack-price">$99</div><div class="pack-desc" data-i18n="video.p4.desc">5 роликов до 10 сек. A/B-тест или контент на неделю.</div><a href="crypto.html" class="pack-cta outline" data-i18n="btn.order">Заказать →</a></div>
-        </div>
-        <div class="fx-grid" style="margin-top:32px;">
-            <div class="fx-item"><b data-i18n="video.fx1.name">Levitation</b><span data-i18n="video.fx1.text">Продукт парит в воздухе.</span></div>
-            <div class="fx-item"><b data-i18n="video.fx2.name">Light Sweep</b><span data-i18n="video.fx2.text">Полоса света по продукту.</span></div>
-            <div class="fx-item"><b data-i18n="video.fx3.name">Particle Burst</b><span data-i18n="video.fx3.text">Взрыв частиц вокруг.</span></div>
-            <div class="fx-item"><b data-i18n="video.fx4.name">Camera Push</b><span data-i18n="video.fx4.text">Кинематографический наезд.</span></div>
-            <div class="fx-item"><b data-i18n="video.fx5.name">Water / Liquid</b><span data-i18n="video.fx5.text">Брызги воды вокруг продукта.</span></div>
-            <div class="fx-item"><b data-i18n="video.fx6.name">360° Orbit</b><span data-i18n="video.fx6.text">Облёт камеры вокруг продукта.</span></div>
-        </div>
+</div><!-- /configurator-wrap -->
+
+<!-- MOBILE CART BUTTON -->
+<button class="mobile-cart-btn" id="mobileCartBtn" onclick="openCartSheet()">
+  🛒 <span id="mobileCartLabel">Cart · $0</span>
+</button>
+
+<!-- MOBILE CART SHEET -->
+<div class="cart-sheet-overlay" id="cartOverlay" onclick="closeCartSheet()"></div>
+<div class="cart-sheet" id="cartSheet">
+  <div class="cart-sheet-handle"></div>
+  <div class="cart-title">🛒 Your Order</div>
+  <div class="cart-items" id="cartItemsMobile">
+    <div class="cart-empty">Your cart is empty.</div>
+  </div>
+  <div id="cartSummaryMobile" style="display:none">
+    <div class="cart-divider"></div>
+    <div class="cart-total-row">
+      <span class="cart-total-label">TOTAL</span>
+      <span class="cart-total-amount" id="cartTotalMobile">$0</span>
     </div>
+    <div class="payment-placeholder" style="margin-bottom:12px">
+      <b>💳 Payment Widget</b>
+      <p>Crypto payment gateway will be placed here.</p>
+    </div>
+  </div>
+  <button class="btn-pay" onclick="handlePay()">Proceed to Payment</button>
+</div>
 
+<!-- COMPARE TABLE -->
+<div class="section-wrap" style="margin-top:60px">
+  <div class="section-divider"></div>
+  <div class="section-block">
+    <div class="section-label">Why AI Studio</div>
+    <h2 class="section-title">Dord AI Studio vs. Traditional Studio</h2>
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Parameter</th>
+          <th>Traditional Shoot</th>
+          <th style="color:#00c896">Dord AI Studio</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Cost</td><td>$500–$5,000 per session</td><td class="check">from $49 / 20 images</td></tr>
+        <tr><td>Per image</td><td>$25–$100</td><td class="check">from $2.45</td></tr>
+        <tr><td>Turnaround</td><td>1–2 weeks</td><td class="check">up to 48 hours</td></tr>
+        <tr><td>Number of images</td><td>5–20 finals</td><td class="check">20–150 per order</td></tr>
+        <tr><td>Data privacy</td><td>Strangers handle your product</td><td class="check">Private server — your data never leaves</td></tr>
+        <tr><td>Revisions</td><td>Charged separately</td><td class="check">Included in the pack</td></tr>
+        <tr><td>Commercial rights</td><td>Additional licensing fee</td><td class="check">Included in every pack</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<div class="section-wrap">
+  <div class="section-divider"></div>
+  <div class="section-block">
+    <div class="section-label">Process</div>
+    <h2 class="section-title">How It Works</h2>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <div class="step-title">Upload Your Photos</div>
+        <div class="step-desc">Send us your product photos — even a phone shot on a white background works. We accept JPG, PNG, HEIC, WebP.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <div class="step-title">Configure & Pay</div>
+        <div class="step-desc">Choose your pack, resolution, and any add-ons. Pay securely via crypto. Order activates after blockchain confirmation.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <div class="step-title">Receive Results</div>
+        <div class="step-desc">Premium AI-rendered visuals delivered to your dashboard within 48 hours. Studio quality, ready for Shopify & Amazon.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="section-wrap">
+  <div class="section-divider"></div>
+  <div class="section-block">
+    <div class="section-label">FAQ</div>
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What quality of source photos do you need from me? <span class="faq-icon">+</span></div>
+        <div class="faq-a">We can work with phone photos, but the better your source — the better the result. Minimum recommended: 800×800 px, good lighting, product clearly visible. Ideally 3 angles per product. No blurry, dark, or heavily compressed images.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">How long does delivery take? <span class="faq-icon">+</span></div>
+        <div class="faq-a">Standard turnaround is up to 48 hours after payment confirmation. In most cases we deliver faster. For large orders (150+ images) we'll confirm the timeline personally.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What formats and resolutions do you deliver? <span class="faq-icon">+</span></div>
+        <div class="faq-a">We deliver JPG and PNG files in the resolution you select: 1024×1024, 768×768, or 512×512. All files are Shopify and Amazon ready. Commercial rights are included in every pack.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What payment methods do you accept? <span class="faq-icon">+</span></div>
+        <div class="faq-a">We accept crypto payments: USDC, USDT, TON, BTC. Payment is processed automatically via a secure gateway. Order activates immediately after blockchain confirmation — no manual steps required.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Is my product data kept private? <span class="faq-icon">+</span></div>
+        <div class="faq-a">Yes. All generation happens on our private GPU servers. Your product photos are never shared with third-party cloud services or AI training datasets. Data is yours — always.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FREE SAMPLE -->
+<div class="section-wrap">
+  <div class="section-divider"></div>
+  <div class="section-block">
+    <div class="free-sample-row">
+      <div>
+        <h3>🎁 Free Sample — Try Before You Buy</h3>
+        <p>Send us a photo of your product — even a phone shot on a white background. We'll return 1–2 premium renders in small resolution, completely free. See the quality first, then choose your pack.</p>
+      </div>
+      <a href="https://t.me/DordAI" target="_blank" class="btn-primary">Get Free Sample →</a>
+    </div>
+  </div>
 </div>
 
 <footer>
-    <div class="footer-info">
-        <b>Dord Software AI Systems</b>
-        <span data-i18n="footer.address">Израиль, Тель-Авив, ул. Игаль Алон 98, Electra Tower</span>
-        <span data-i18n="footer.type">Автоматизированный AI-продакшен</span>
-    </div>
-    <div class="footer-info footer-right">
-        <b>Secured Access</b>
-        <span>Hardware Firewall Protected</span>
-        <span data-i18n="footer.copy">© 2026 Все права защищены</span>
-    </div>
+  <div class="footer-info">
+    <b>Dord Software AI Systems</b>
+    <span>Israel, Tel Aviv, Igal Alon St 98, Electra Tower</span>
+    <span>Automated AI Production Studio</span>
+  </div>
+  <div class="footer-info footer-right">
+    <b>Secured Access</b>
+    <span>Hardware Firewall Protected</span>
+    <span>© 2026 All rights reserved</span>
+  </div>
 </footer>
 
+<script>
+// ── STATE ──
+let cart = [];
+let selectedRes = null;
+let selectedPack = null;
+let uploadedFiles = [];
+
+// ── RESOLUTION MULTIPLIERS ──
+const resMultiplier = { '1024': 1, '768': 1.5, '512': 2 };
+const resLabel = { '1024': 'HD Pro 1024×1024', '768': 'Standard 768×768', '512': 'Economy 512×512' };
+const baseCounts = { '49': 20, '199': 50, '499': 150 };
+
+function selectRes(btn, res) {
+  document.querySelectorAll('#resGroup .choice-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  selectedRes = res;
+  updatePackCounts();
+  updateAddBtn();
+}
+
+function updatePackCounts() {
+  const m = selectedRes ? resMultiplier[selectedRes] : 1;
+  document.getElementById('cnt-49').textContent = Math.round(20 * m) + ' photos';
+  document.getElementById('cnt-199').textContent = Math.round(50 * m) + ' photos';
+  document.getElementById('cnt-499').textContent = Math.round(150 * m) + ' photos';
+}
+
+function selectPack(btn, price, base) {
+  document.querySelectorAll('#packGroup .choice-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  selectedPack = { price, base };
+  updateAddBtn();
+}
+
+function updateAddBtn() {
+  const btn = document.getElementById('addImgBtn');
+  if (selectedRes && selectedPack) {
+    btn.disabled = false;
+    btn.style.opacity = '1';
+    const count = Math.round(selectedPack.base * resMultiplier[selectedRes]);
+    btn.textContent = `+ Add ${count} Photos (${resLabel[selectedRes]}) · $${selectedPack.price} to Cart`;
+  } else {
+    btn.disabled = true;
+    btn.style.opacity = '0.4';
+    btn.textContent = '+ Add Image Pack to Cart';
+  }
+}
+
+function addImagePack() {
+  if (!selectedRes || !selectedPack) return;
+  const count = Math.round(selectedPack.base * resMultiplier[selectedRes]);
+  addToCart({
+    id: 'img_' + Date.now(),
+    name: 'Image Pack',
+    detail: `${count} photos · ${resLabel[selectedRes]}`,
+    price: selectedPack.price
+  });
+  // reset
+  document.querySelectorAll('#resGroup .choice-btn, #packGroup .choice-btn').forEach(b => b.classList.remove('selected'));
+  selectedRes = null; selectedPack = null;
+  updatePackCounts(); updateAddBtn();
+}
+
+function addVideo(name, price) {
+  addToCart({ id: 'vid_' + Date.now(), name: 'Video Reel', detail: name, price });
+}
+
+// ── BULK CARDS ──
+function changeBulk(delta) {
+  const inp = document.getElementById('bulkCount');
+  let v = parseInt(inp.value) + delta;
+  v = Math.max(30, Math.min(200, v));
+  inp.value = v;
+  updateBulk();
+}
+function updateBulk() {
+  let v = parseInt(document.getElementById('bulkCount').value);
+  v = Math.max(30, Math.min(200, v));
+  document.getElementById('bulkCount').value = v;
+  const total = (v * 1.75).toFixed(2);
+  document.getElementById('bulkTotal').innerHTML = `$${total} <span>/ ${v} cards</span>`;
+}
+function addBulkCards() {
+  const v = parseInt(document.getElementById('bulkCount').value);
+  const total = parseFloat((v * 1.75).toFixed(2));
+  addToCart({ id: 'bulk_' + Date.now(), name: 'Product Cards', detail: `${v} cards · $1.75 each`, price: total });
+}
+
+// ── CART ──
+function addToCart(item) {
+  cart.push(item);
+  renderCart();
+}
+function removeFromCart(id) {
+  cart = cart.filter(i => i.id !== id);
+  renderCart();
+}
+function renderCart() {
+  const total = cart.reduce((s, i) => s + i.price, 0);
+  const isEmpty = cart.length === 0;
+
+  // Desktop
+  const itemsEl = document.getElementById('cartItems');
+  const summaryEl = document.getElementById('cartSummary');
+  const emptyEl = document.getElementById('cartEmpty');
+  const payBtn = document.getElementById('payBtn');
+
+  itemsEl.innerHTML = isEmpty ? '<div class="cart-empty" id="cartEmpty">Your cart is empty.<br>Select services on the left.</div>' :
+    cart.map(i => `
+      <div class="cart-item">
+        <div class="cart-item-info">
+          <div class="cart-item-name">${i.name}</div>
+          <div class="cart-item-detail">${i.detail}</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px">
+          <div class="cart-item-price">$${i.price.toFixed(2)}</div>
+          <button class="cart-item-remove" onclick="removeFromCart('${i.id}')">✕</button>
+        </div>
+      </div>`).join('');
+
+  summaryEl.style.display = isEmpty ? 'none' : 'block';
+  payBtn.disabled = isEmpty;
+  document.getElementById('cartTotal').textContent = '$' + total.toFixed(2);
+
+  // Mobile
+  const mLabel = document.getElementById('mobileCartLabel');
+  mLabel.textContent = `Cart · $${total.toFixed(2)}`;
+  document.getElementById('cartItemsMobile').innerHTML = document.getElementById('cartItems').innerHTML;
+  document.getElementById('cartSummaryMobile').style.display = isEmpty ? 'none' : 'block';
+  document.getElementById('cartTotalMobile').textContent = '$' + total.toFixed(2);
+}
+
+function openCartSheet() {
+  document.getElementById('cartOverlay').classList.add('open');
+  document.getElementById('cartSheet').classList.add('open');
+}
+function closeCartSheet() {
+  document.getElementById('cartOverlay').classList.remove('open');
+  document.getElementById('cartSheet').classList.remove('open');
+}
+function handlePay() {
+  if (cart.length === 0) return;
+  alert('Payment widget will be connected here.\nPlease contact us on Telegram: @DordAI');
+}
+
+// ── FILE UPLOAD ──
+const uploadZone = document.getElementById('uploadZone');
+uploadZone.addEventListener('dragover', e => { e.preventDefault(); uploadZone.classList.add('dragover'); });
+uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('dragover'));
+uploadZone.addEventListener('drop', e => { e.preventDefault(); uploadZone.classList.remove('dragover'); handleFiles(e.dataTransfer.files); });
+
+function handleFiles(files) {
+  Array.from(files).forEach(f => {
+    if (uploadedFiles.length >= 20) return;
+    if (f.size > 10 * 1024 * 1024) { alert(`File ${f.name} exceeds 10MB limit.`); return; }
+    uploadedFiles.push({ name: f.name, size: (f.size / 1024 / 1024).toFixed(1) + ' MB', id: 'f_' + Date.now() + Math.random() });
+  });
+  renderUploadList();
+}
+function removeFile(id) {
+  uploadedFiles = uploadedFiles.filter(f => f.id !== id);
+  renderUploadList();
+}
+function renderUploadList() {
+  const el = document.getElementById('uploadList');
+  el.innerHTML = uploadedFiles.map(f => `
+    <div class="upload-item">
+      <span>📄</span>
+      <span class="upload-item-name">${f.name}</span>
+      <span style="color:#8892a4;font-size:11px">${f.size}</span>
+      <button class="upload-remove" onclick="removeFile('${f.id}')">✕</button>
+    </div>`).join('');
+}
+
+// ── FAQ ──
+function toggleFaq(el) {
+  const item = el.parentElement;
+  item.classList.toggle('open');
+}
+
+// ── LANG ──
+function setLang(lang) {
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+  if (typeof window.i18nSetLang === 'function') window.i18nSetLang(lang);
+}
+
+// init
+updateBulk();
+renderCart();
+</script>
 <script src="i18n.js"></script>
 </body>
 </html>
