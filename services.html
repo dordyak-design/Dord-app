@@ -250,6 +250,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .breadcrumb{padding:8px 24px;font-size:12px;color:#8892a4;display:flex;gap:6px;align-items:center}
 .breadcrumb a{color:#8892a4;text-decoration:none}
 .breadcrumb a:hover{color:#00c896}
+.lang-btn.active{background:linear-gradient(135deg,#004aad,#00c896);color:#fff}
+.lang-btn:hover:not(.active){color:#fff;background:rgba(255,255,255,0.08)} 
 </style>
 </head>
 <body data-page="services">
@@ -295,12 +297,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
     <button class="lang-btn" data-lang="ru" onclick="setLang('ru')">RU</button>
   </div>
-</div>
-
-<!-- HIGH LOAD BANNER -->
-<div class="hload-banner">
-  <span class="hload-icon">⚠️</span>
-  <span><b>High Load Notice:</b> Due to an extreme influx of orders from US retailers, all generation nodes are running at 100% capacity. Orders are processed strictly in queue order. Even our office water cooler is currently generating 512×512 product backgrounds. Thank you for your patience!</span>
 </div>
 
 <div class="breadcrumb">
