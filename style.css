@@ -1350,7 +1350,7 @@ html, body {
 .social-bar {
   display: flex;
   align-items: center;
-  justify-content: space-between
+  justify-content: center;
   gap: 12px;
   padding: 8px 5%;
   background: rgba(255,255,255,0.02);
