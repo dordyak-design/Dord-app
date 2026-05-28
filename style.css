@@ -1,7 +1,5 @@
 /* =====================================================
    DORD SOFTWARE AI SYSTEMS — ЕДИНЫЙ ДИЗАЙН-ФАЙЛ
-   Все страницы сайта подключают только этот файл.
-   Меняй переменные в :root — меняется весь сайт.
    ===================================================== */
 
 /* ===================== ПЕРЕМЕННЫЕ ===================== */
@@ -23,6 +21,8 @@
     --radius-md: 16px;
     --radius-lg: 24px;
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --page-max: 1200px;
+    --page-pad: 24px;
 }
 
 /* ===================== СБРОС И BASE ===================== */
@@ -34,6 +34,8 @@
 
 html {
     scroll-behavior: smooth;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 body {
@@ -43,11 +45,20 @@ body {
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
+    max-width: 100%;
+}
+
+/* ===================== ЦЕНТРИРУЮЩИЙ КОНТЕЙНЕР ===================== */
+.container {
+    width: 100%;
+    max-width: var(--page-max);
+    margin: 0 auto;
+    padding: 0 var(--page-pad);
 }
 
 /* ===================== ШАПКА ===================== */
 header {
-    padding: 0 5%;
+    padding: 0 var(--page-pad);
     height: 80px;
     display: flex;
     align-items: center;
@@ -148,10 +159,10 @@ header {
     background: var(--accent-green);
     border-radius: 50%;
     box-shadow: 0 0 8px var(--accent-green);
-    animation: pulse 2s ease-in-out infinite;
+    animation: ledpulse 2s ease-in-out infinite;
 }
 
-@keyframes pulse {
+@keyframes ledpulse {
     0%, 100% { opacity: 1; }
     50% { opacity: 0.4; }
 }
@@ -193,6 +204,64 @@ nav {
     background: #00e6ac;
     box-shadow: 0 4px 20px rgba(0, 200, 150, 0.4);
 }
+
+/* ===================== SOCIAL BAR ===================== */
+.social-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 8px var(--page-pad);
+    background: rgba(255, 255, 255, 0.02);
+    border-bottom: 1px solid var(--border);
+}
+
+.social-bar a {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 16px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.6);
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.social-bar a:hover { color: #fff; border-color: rgba(255, 255, 255, 0.3); }
+.social-bar a.tg { border-color: rgba(34, 158, 217, 0.4); color: #229ED9; }
+.social-bar a.tg:hover { background: rgba(34, 158, 217, 0.1); }
+.social-bar a.ig { border-color: rgba(225, 48, 108, 0.4); color: #E1306C; }
+.social-bar a.ig:hover { background: rgba(225, 48, 108, 0.1); }
+.social-bar a.x { border-color: rgba(255, 255, 255, 0.2); color: #fff; }
+.social-bar a.x:hover { background: rgba(255, 255, 255, 0.05); }
+.social-bar a svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+/* ===================== ХЛЕБНЫЕ КРОШКИ ===================== */
+.breadcrumb {
+    width: 100%;
+    max-width: var(--page-max);
+    margin: 0 auto;
+    padding: 20px var(--page-pad);
+    font-size: 12px;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.breadcrumb a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.breadcrumb a:hover { color: var(--accent-green); }
+.breadcrumb span { color: var(--text-soft); }
 
 /* ===================== ТИПОГРАФИКА СЕКЦИЙ ===================== */
 .section-label {
@@ -269,7 +338,6 @@ nav {
     background: rgba(0, 74, 173, 0.1);
 }
 
-/* Кнопка внутри карточки */
 .btn-card {
     display: block;
     text-align: center;
@@ -306,7 +374,7 @@ nav {
     box-shadow: none;
 }
 
-/* ===================== КАРТОЧКИ (универсальные) ===================== */
+/* ===================== КАРТОЧКИ ===================== */
 .card {
     background: var(--card-bg);
     border: 1px solid var(--border);
@@ -339,7 +407,6 @@ nav {
     margin-bottom: 20px;
 }
 
-/* Линия-акцент сверху карточки при ховере */
 .card::before {
     content: '';
     position: absolute;
@@ -350,9 +417,7 @@ nav {
     transition: opacity 0.3s;
 }
 
-.card:hover::before {
-    opacity: 1;
-}
+.card:hover::before { opacity: 1; }
 
 /* ===================== СЕТКИ ===================== */
 .grid-3 {
@@ -370,8 +435,6 @@ nav {
 /* ===================== СПИСКИ ВНУТРИ КАРТОЧЕК ===================== */
 .card-list {
     list-style: none;
-    margin: 0;
-    padding: 0;
 }
 
 .card-list li {
@@ -385,9 +448,7 @@ nav {
     color: var(--text-soft);
 }
 
-.card-list li:last-child {
-    border-bottom: none;
-}
+.card-list li:last-child { border-bottom: none; }
 
 .card-list li b,
 .price-accent {
@@ -401,8 +462,8 @@ nav {
 
 /* ===================== HERO ===================== */
 .hero {
-    padding: 80px 5% 60px;
-    max-width: 1400px;
+    padding: 80px var(--page-pad) 60px;
+    max-width: var(--page-max);
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -431,7 +492,7 @@ nav {
     height: 6px;
     background: var(--accent-green);
     border-radius: 50%;
-    animation: pulse 1.5s ease infinite;
+    animation: ledpulse 1.5s ease infinite;
 }
 
 .hero h1 {
@@ -464,7 +525,6 @@ nav {
     flex-wrap: wrap;
 }
 
-/* Статы в hero */
 .hero-stats {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -513,11 +573,12 @@ nav {
     line-height: 1.4;
 }
 
-/* ===================== HERO СТРАНИЦ (не главная) ===================== */
+/* ===================== PAGE HERO ===================== */
 .page-hero {
-    padding: 60px 5% 40px;
-    max-width: 1400px;
+    width: 100%;
+    max-width: var(--page-max);
     margin: 0 auto;
+    padding: 60px var(--page-pad) 40px;
 }
 
 .page-hero h1 {
@@ -538,22 +599,34 @@ nav {
 
 /* ===================== ОСНОВНЫЕ БЛОКИ СТРАНИЦ ===================== */
 .section-wrap {
-    padding: 80px 5%;
-    max-width: 1400px;
+    width: 100%;
+    max-width: var(--page-max);
     margin: 0 auto;
+    padding: 80px var(--page-pad);
 }
 
 .section-wrap-alt {
     background: rgba(255, 255, 255, 0.015);
-    padding: 80px 5%;
+    padding: 80px 0;
 }
 
 .section-wrap-alt .section-inner {
-    max-width: 1400px;
+    width: 100%;
+    max-width: var(--page-max);
+    margin: 0 auto;
+    padding: 0 var(--page-pad);
+}
+
+/* ===================== РАЗДЕЛИТЕЛЬ СЕКЦИЙ ===================== */
+.section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border-green), transparent);
+    width: calc(100% - 48px);
+    max-width: var(--page-max);
     margin: 0 auto;
 }
 
-/* ===================== ПРАЙС-КАРТОЧКИ ПОДПИСКИ ===================== */
+/* ===================== ПРАЙС-КАРТОЧКИ ===================== */
 .pricing-card {
     background: var(--card-bg);
     border: 1px solid var(--border);
@@ -667,7 +740,7 @@ nav {
     flex-shrink: 0;
 }
 
-/* ===================== ШАГИ (как это работает) ===================== */
+/* ===================== ШАГИ ===================== */
 .steps {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -736,9 +809,7 @@ nav {
     align-items: start;
 }
 
-.disclaimer-icon {
-    font-size: 28px;
-}
+.disclaimer-icon { font-size: 28px; }
 
 .disclaimer-box h4 {
     font-family: 'Unbounded', sans-serif;
@@ -757,9 +828,7 @@ nav {
 }
 
 /* ===================== ФОРМЫ ===================== */
-.form-group {
-    margin-bottom: 20px;
-}
+.form-group { margin-bottom: 20px; }
 
 .form-group label {
     display: block;
@@ -806,7 +875,7 @@ nav {
 /* ===================== FOOTER ===================== */
 footer {
     border-top: 1px solid var(--border);
-    padding: 40px 5%;
+    padding: 40px var(--page-pad);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -827,9 +896,7 @@ footer {
     font-size: 13px;
 }
 
-.footer-right {
-    text-align: right;
-}
+.footer-right { text-align: right; }
 
 /* ===================== УТИЛИТЫ ===================== */
 .text-green { color: var(--accent-green); }
@@ -842,110 +909,7 @@ footer {
 .mt-32 { margin-top: 32px; }
 .mt-48 { margin-top: 48px; }
 
-/* ===================== МОБИЛЬНАЯ АДАПТАЦИЯ ===================== */
-
-/* Глобальный фикс горизонтального скролла */
-html, body {
-    max-width: 100%;
-    overflow-x: hidden;
-}
-
-/* Планшет — убираем агент-монитор */
-@media (max-width: 1024px) {
-    .agent-monitor { display: none; }
-}
-
-/* Мобильник */
-@media (max-width: 768px) {
-    header {
-        padding: 0 16px;
-        height: 64px;
-    }
-
-    .header-left img { height: 32px; }
-    .company-name { font-size: 14px; }
-    .occupation { font-size: 8px; }
-
-    nav {
-        gap: 6px;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        padding-bottom: 2px;
-        flex-shrink: 1;
-        min-width: 0;
-    }
-    nav::-webkit-scrollbar { display: none; }
-    .nav-btn { padding: 7px 10px; font-size: 9px; flex-shrink: 0; }
-
-    /* Hero */
-    .hero {
-        grid-template-columns: 1fr;
-        padding: 40px 16px 48px;
-        gap: 36px;
-    }
-
-    .hero-badge {
-        font-size: 10px;
-        padding: 5px 12px;
-        white-space: normal;
-        text-align: center;
-    }
-
-    .hero-stats {
-        grid-template-columns: 1fr 1fr;
-        gap: 12px;
-    }
-
-    .stat-card { padding: 20px 16px; }
-
-    /* Page hero */
-    .page-hero { padding: 40px 16px 32px; }
-
-    /* Секции */
-    .section-wrap { padding: 48px 16px; }
-    .section-wrap-alt { padding: 48px 16px; }
-    .section-title { font-size: 20px; }
-    .section-sub { margin-bottom: 32px; }
-
-    /* Badge и лейблы */
-    .hero-badge, .section-label, .service-tag { white-space: normal; }
-
-    /* Сетки */
-    .grid-3, .grid-2 { grid-template-columns: 1fr; gap: 14px; }
-
-    /* Карточки */
-    .card { padding: 28px 20px; }
-    .pricing-card { padding: 32px 22px; }
-
-    /* Шаги */
-    .steps { grid-template-columns: 1fr; gap: 32px; }
-    .steps::before { display: none; }
-
-    /* Disclaimer */
-    .disclaimer-box {
-        grid-template-columns: 1fr;
-        gap: 12px;
-        padding: 24px 20px;
-    }
-
-    /* Footer */
-    footer {
-        padding: 32px 16px;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
-    }
-    .footer-right { text-align: left; }
-}
-
-@media (max-width: 480px) {
-    .hero-cta-group { flex-direction: column; }
-    .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
-    .hero-stats { grid-template-columns: 1fr 1fr; }
-}
-
-/* ===================== ТИЗЕР-КАРТОЧКИ (главная) ===================== */
+/* ===================== ТИЗЕР-КАРТОЧКИ ===================== */
 .teaser-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -980,7 +944,7 @@ html, body {
 .teaser-card:hover {
     border-color: var(--border-green);
     transform: translateY(-6px);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
 }
 
 .teaser-icon {
@@ -991,7 +955,6 @@ html, body {
     flex-shrink: 0;
 }
 
-/* Маленькая иконка внутри service-tag */
 .tag-icon {
     width: 13px;
     height: 13px;
@@ -1046,34 +1009,11 @@ html, body {
 .btn-teaser:hover { gap: 10px; }
 
 /* ===================== СТРАНИЦА УСЛУГ ===================== */
-
-/* Хлебные крошки */
-.breadcrumb {
-    padding: 20px 5%;
-    max-width: 1400px;
-    margin: 0 auto;
-    font-size: 12px;
-    color: var(--text-muted);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.breadcrumb a {
-    color: var(--text-muted);
-    text-decoration: none;
-    transition: color 0.2s;
-}
-
-.breadcrumb a:hover { color: var(--accent-green); }
-
-.breadcrumb span { color: var(--text-soft); }
-
-/* Блок услуги (заголовок секции) */
 .service-block {
-    padding: 80px 5%;
-    max-width: 1400px;
+    width: 100%;
+    max-width: var(--page-max);
     margin: 0 auto;
+    padding: 80px var(--page-pad);
 }
 
 .service-block + .service-block {
@@ -1087,8 +1027,6 @@ html, body {
     gap: 40px;
     margin-bottom: 48px;
 }
-
-.service-header-text {}
 
 .service-tag {
     display: inline-flex;
@@ -1130,9 +1068,7 @@ html, body {
     flex-shrink: 0;
 }
 
-.service-header-price {
-    text-align: right;
-}
+.service-header-price { text-align: right; }
 
 .service-header-price .from {
     font-size: 11px;
@@ -1151,7 +1087,6 @@ html, body {
     line-height: 1;
 }
 
-/* Пакеты на странице услуг */
 .pkg-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -1181,15 +1116,12 @@ html, body {
 
 .pkg-tile:hover::before { opacity: 1; }
 .pkg-tile.popular::before { opacity: 1; }
-
-.pkg-tile.popular {
-    border-color: var(--accent-green);
-}
+.pkg-tile.popular { border-color: var(--accent-green); }
 
 .pkg-tile:hover {
     border-color: var(--border-green);
     transform: translateY(-4px);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
 }
 
 .pkg-popular-badge {
@@ -1237,7 +1169,6 @@ html, body {
     line-height: 1.5;
 }
 
-/* Список преимуществ */
 .benefits-list {
     list-style: none;
     display: grid;
@@ -1263,12 +1194,11 @@ html, body {
     margin-top: 1px;
 }
 
-/* Блок сравнения с традиционным */
 .compare-box {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 16px;
-    background: rgba(0,0,0,0.2);
+    background: rgba(0, 0, 0, 0.2);
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
     padding: 32px;
@@ -1287,9 +1217,7 @@ html, body {
 .compare-side.old h4 { color: #f87171; }
 .compare-side.new h4 { color: var(--accent-green); }
 
-.compare-side ul {
-    list-style: none;
-}
+.compare-side ul { list-style: none; }
 
 .compare-side ul li {
     font-size: 13px;
@@ -1302,82 +1230,90 @@ html, body {
 }
 
 .compare-side ul li:last-child { border-bottom: none; }
-
 .compare-side.old ul li::before { content: '✗'; color: #f87171; flex-shrink: 0; }
 .compare-side.new ul li::before { content: '✓'; color: var(--accent-green); flex-shrink: 0; }
 
-/* Разделитель секций на странице услуг */
-.section-divider {
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--border-green), transparent);
-    margin: 0 5%;
-    max-width: 1400px;
+/* ===================== WATERMARK ===================== */
+.gallery-item::after {
+    content: 'dordai.art';
+    position: absolute;
+    bottom: 10px;
+    right: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.45);
+    letter-spacing: 0.5px;
+    pointer-events: none;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
 }
 
-/* ===================== НОВЫЕ МОБИЛЬНЫЕ СТИЛИ ===================== */
+/* ===================== МОБИЛЬНАЯ АДАПТАЦИЯ ===================== */
+@media (max-width: 1024px) {
+    .agent-monitor { display: none; }
+}
+
 @media (max-width: 768px) {
+    header { padding: 0 16px; height: 64px; }
+    .header-left img { height: 32px; }
+    .company-name { font-size: 14px; }
+    .occupation { font-size: 8px; }
+
+    nav {
+        gap: 6px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding-bottom: 2px;
+        flex-shrink: 1;
+        min-width: 0;
+    }
+    nav::-webkit-scrollbar { display: none; }
+    .nav-btn { padding: 7px 10px; font-size: 9px; flex-shrink: 0; }
+
+    .hero { grid-template-columns: 1fr; padding: 40px 16px 48px; gap: 36px; }
+    .hero-badge { font-size: 10px; padding: 5px 12px; }
+    .hero-stats { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .stat-card { padding: 20px 16px; }
+
+    .page-hero { padding: 40px 16px 32px; }
+    .section-wrap { padding: 48px 16px; }
+    .section-wrap-alt { padding: 48px 0; }
+    .section-title { font-size: 20px; }
+    .section-sub { margin-bottom: 32px; }
+
+    .grid-3, .grid-2 { grid-template-columns: 1fr; gap: 14px; }
+    .card { padding: 28px 20px; }
+    .pricing-card { padding: 32px 22px; }
+
+    .steps { grid-template-columns: 1fr; gap: 32px; }
+    .steps::before { display: none; }
+
+    .disclaimer-box { grid-template-columns: 1fr; gap: 12px; padding: 24px 20px; }
+
     .teaser-grid { grid-template-columns: 1fr; gap: 14px; }
     .teaser-card { padding: 28px 20px; }
 
-    .service-header {
-        grid-template-columns: 1fr;
-        gap: 24px;
-    }
-
+    .service-header { grid-template-columns: 1fr; gap: 24px; }
     .service-header-cta { align-items: flex-start; }
     .service-header-price { text-align: left; }
-
     .service-block { padding: 48px 16px; }
 
     .pkg-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
     .pkg-tile { padding: 20px 16px; }
     .pkg-tile .pkg-amount { font-size: 22px; }
 
-    .compare-box {
-        grid-template-columns: 1fr;
-        padding: 24px 20px;
-        gap: 24px;
-    }
-
+    .compare-box { grid-template-columns: 1fr; padding: 24px 20px; gap: 24px; }
     .benefits-list { grid-template-columns: 1fr; }
 
     .breadcrumb { padding: 16px; }
+
+    footer { padding: 32px 16px; flex-direction: column; align-items: flex-start; gap: 16px; }
+    .footer-right { text-align: left; }
 }
 
 @media (max-width: 480px) {
+    .hero-cta-group { flex-direction: column; }
+    .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+    .hero-stats { grid-template-columns: 1fr 1fr; }
     .pkg-grid { grid-template-columns: 1fr; }
 }
-.social-bar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  padding: 8px 5%;
-  background: rgba(255,255,255,0.02);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-}
-.social-bar a {
-  display: flex;
-  align-items: center;
-  gap:12px;
-  padding: 6px 16px;
-  border-radius: 20px;
-  border: 1px solid rgba(255,255,255,0.1);
-  color: rgba(255,255,255,0.6);
-  font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.2s ease;
-  white-space: nowrap;
-}
-.social-bar a:hover { color: #fff; border-color: rgba(255,255,255,0.3); }
-.social-bar a.tg { border-color: rgba(34,158,217,0.4); color: #229ED9; }
-.social-bar a.tg:hover { background: rgba(34,158,217,0.1); }
-.social-bar a.ig { border-color: rgba(225,48,108,0.4); color: #E1306C; }
-.social-bar a.ig:hover { background: rgba(225,48,108,0.1); }
-.social-bar a.x { border-color: rgba(255,255,255,0.2); color: #fff; }
-.social-bar a.x:hover { background: rgba(255,255,255,0.05); }
-.social-bar a svg{width:14px;height:14px;flex-shrink:0}
-.gallery-item::after{content:'dordai.art';position:absolute;bottom:10px;right:12px;font-size:11px;font-weight:700;color:rgba(255,255,255,0.45);letter-spacing:0.5px;pointer-events:none;text-shadow:0 1px 3px rgba(0,0,0,0.8)}
-.hero-stats{max-width:90%}.hero-stats .hero-preview{max-height:160px}
