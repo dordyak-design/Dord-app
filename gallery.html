@@ -63,15 +63,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .filter-btn:hover,.filter-btn.active{border-color:#00c896;color:#fff;background:rgba(0,200,150,0.08)}
 
 /* ── INLINE CTA STRIP ── */
-.cta-strip{background:linear-gradient(135deg,rgba(0,74,173,0.12),rgba(0,200,150,0.06));border:1px solid rgba(0,200,150,0.2);border-radius:16px;padding:24px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin:40px 5%;max-width:1360px}
+.cta-strip-outer{width:100%;display:flex;justify-content:center;padding:40px 24px 0}
+.cta-strip{background:linear-gradient(135deg,rgba(0,74,173,0.12),rgba(0,200,150,0.06));border:1px solid rgba(0,200,150,0.2);border-radius:16px;padding:24px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;width:100%;max-width:1200px}
 .cta-strip-left h3{font-family:'Unbounded',sans-serif;font-size:14px;font-weight:700;color:#fff;margin-bottom:4px;text-transform:uppercase}
 .cta-strip-left p{font-size:12px;color:#8892a4;line-height:1.5;margin:0}
 .btn-cta-strip{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:10px;background:linear-gradient(135deg,#004aad,#00c896);color:#fff;font-family:'Unbounded',sans-serif;font-size:11px;font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:0.5px;white-space:nowrap;transition:all 0.2s}
 .btn-cta-strip:hover{opacity:0.9;transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,200,150,0.3)}
 
 /* ── GALLERY ── */
-.gallery-section{padding:0 5%;max-width:1400px;margin:0 auto}
-.gallery-section-wrap{padding:60px 5% 0;max-width:1400px;margin:0 auto}
+.page-center{width:100%;display:flex;justify-content:center;padding:0 24px}
+.page-center-inner{width:100%;max-width:1200px}
+.gallery-section{width:100%;max-width:1200px;margin:0 auto;padding:0 24px}
+.gallery-section-wrap{width:100%;max-width:1200px;margin:0 auto;padding:60px 24px 0}
 .gallery-category{display:flex;align-items:center;gap:12px;margin-bottom:20px;margin-top:48px}
 .gallery-category h3{font-family:'Unbounded',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#fff}
 .gallery-category .count{font-size:11px;color:var(--text-muted);background:rgba(255,255,255,0.04);border:1px solid var(--border);padding:3px 10px;border-radius:100px}
@@ -119,7 +122,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .btn-order-card{display:block;text-align:center;background:#00c896;color:#000;font-weight:800;font-size:11px;text-transform:uppercase;letter-spacing:0.5px;padding:12px;border-radius:10px;text-decoration:none;transition:all 0.2s;margin-top:auto}
 .btn-order-card:hover{background:#00e6ac;box-shadow:0 4px 16px rgba(0,200,150,0.4)}
 
-.section-divider-gallery{height:1px;background:linear-gradient(90deg,transparent,rgba(0,200,150,0.15),transparent);margin:60px 5% 0;max-width:1400px}
+.section-divider-gallery{height:1px;background:linear-gradient(90deg,transparent,rgba(0,200,150,0.15),transparent);margin:60px auto 0;max-width:1200px;width:calc(100% - 48px)}
 
 /* ── SECTION LABELS ── */
 .section-label{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#00c896;font-weight:700;margin-bottom:10px}
@@ -137,7 +140,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .btn-secondary:hover{background:rgba(0,200,150,0.08);transform:translateY(-2px)}
 
 /* ── PROOF STRIP ── */
-.proof-strip{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;padding:32px 5%;border-top:1px solid rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.05);background:rgba(255,255,255,0.01);margin:40px 0}
+.proof-strip{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;padding:32px 24px;border-top:1px solid rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.05);background:rgba(255,255,255,0.01);margin:40px 0}
 .proof-item{display:flex;align-items:center;gap:10px;font-size:12px;color:#8892a4}
 .proof-item .proof-icon{font-size:18px}
 .proof-item b{color:#fff}
@@ -284,13 +287,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </div>
 
 <!-- CTA STRIP 1 -->
-<div class="cta-strip">
+<div class="cta-strip-outer"><div class="cta-strip">
   <div class="cta-strip-left">
     <h3>Need visuals like these for your listing?</h3>
     <p>20 studio-grade renders from $99 · Delivered in 48 hours · Private server, zero cloud</p>
   </div>
   <a href="services.html" class="btn-cta-strip">Order Now →</a>
-</div>
+</div></div>
 
 <div id="exterior" class="gallery-section-wrap">
   <div class="gallery-category">
@@ -337,13 +340,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </div>
 
 <!-- CTA STRIP 2 -->
-<div class="cta-strip">
+<div class="cta-strip-outer"><div class="cta-strip">
   <div class="cta-strip-left">
     <h3>Interior designer or furniture brand?</h3>
     <p>We build full visual pipelines for catalogs and listings. 150 images from $699 · Custom terms available</p>
   </div>
   <a href="https://t.me/dordai_art_support_bot" target="_blank" class="btn-cta-strip">Talk to Us →</a>
-</div>
+</div></div>
 
 <div class="gallery-section-wrap">
   <div class="gallery-category">
@@ -428,13 +431,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </div>
 
 <!-- CTA STRIP 3 -->
-<div class="cta-strip">
+<div class="cta-strip-outer"><div class="cta-strip">
   <div class="cta-strip-left">
     <h3>Jewelry, fashion, or cosmetics brand?</h3>
     <p>We handle complex textures — leather, suede, metal, glass. Your product looks like it belongs on page one.</p>
   </div>
   <a href="services.html" class="btn-cta-strip">See Pricing →</a>
-</div>
+</div></div>
 
 <!-- ════════════════════════════════════════════
      SECTION: SHOPIFY PRODUCT CARDS
