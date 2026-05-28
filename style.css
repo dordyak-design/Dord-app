@@ -1317,3 +1317,42 @@ footer {
     .hero-stats { grid-template-columns: 1fr 1fr; }
     .pkg-grid { grid-template-columns: 1fr; }
 }
+
+/* ===================== КНОПКА НАВЕРХ ===================== */
+.back-to-top {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #004aad, #00c896);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.3s, transform 0.3s, box-shadow 0.3s;
+    pointer-events: none;
+}
+.back-to-top.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+.back-to-top:hover {
+    box-shadow: 0 8px 24px rgba(0, 200, 150, 0.45);
+    transform: translateY(-3px);
+}
+.back-to-top svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: #fff;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
