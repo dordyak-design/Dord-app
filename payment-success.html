@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment Successful — Dord AI Studio</title>
+<meta name="robots" content="noindex, nofollow">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.success-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+.success-card{background:rgba(255,255,255,0.03);border:1px solid rgba(0,200,150,0.25);border-radius:24px;padding:48px 40px;max-width:540px;width:100%;text-align:center}
+.success-icon{font-size:64px;margin-bottom:16px}
+.success-title{font-family:'Unbounded',sans-serif;font-size:24px;font-weight:900;color:#fff;margin-bottom:12px}
+.success-sub{font-size:14px;color:#8892a4;line-height:1.7;margin-bottom:32px}
+.success-order{background:rgba(0,200,150,0.06);border:1px solid rgba(0,200,150,0.2);border-radius:12px;padding:16px 20px;margin-bottom:28px;font-size:13px;color:#8892a4;text-align:left}
+.success-order b{color:#fff}
+.success-order .row{display:flex;justify-content:space-between;margin-bottom:6px}
+.success-order .row:last-child{margin-bottom:0}
+.btn-dash{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:linear-gradient(135deg,#004aad,#00c896);color:#fff;border:none;border-radius:12px;font-family:'Unbounded',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;text-decoration:none;cursor:pointer;transition:all 0.2s}
+.btn-dash:hover{opacity:0.9;transform:translateY(-1px)}
+.success-note{font-size:11px;color:#8892a4;margin-top:20px;line-height:1.6}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-left">
+    <img src="logo.PNG" alt="Dord AI Studio">
+    <div class="title-wrapper">
+      <span class="company-name">Dord Software</span>
+      <span class="occupation"><span class="ai-light">AI</span> Systems Photo Studio</span>
+    </div>
+  </div>
+  <nav>
+    <a href="index.html" class="nav-btn">Home</a>
+    <a href="dashboard.html" class="nav-btn">Dashboard</a>
+  </nav>
+</header>
+
+<div class="success-wrap">
+  <div class="success-card">
+    <div class="success-icon">✅</div>
+    <div class="success-title">Payment Confirmed!</div>
+    <div class="success-sub">Your order has been received and is now in the queue.<br>We'll start processing within a few hours.</div>
+
+    <div class="success-order" id="orderSummary">
+      <div class="row"><span>Order ID</span><b id="orderIdEl">—</b></div>
+      <div class="row"><span>Status</span><b style="color:#00c896">Paid ✓</b></div>
+      <div class="row"><span>Delivery</span><b>Up to 48 hours</b></div>
+    </div>
+
+    <a href="dashboard.html" class="btn-dash">Go to Dashboard →</a>
+    <div class="success-note">
+      Results will appear in your dashboard.<br>
+      Questions? <a href="https://t.me/DordAI" target="_blank" style="color:#00c896">Telegram @DordAI</a>
+    </div>
+  </div>
+</div>
+
+<script>
+// Показываем orderId из URL
+const params = new URLSearchParams(window.location.search);
+const orderId = params.get('orderId');
+if (orderId) document.getElementById('orderIdEl').textContent = orderId;
+
+// Чистим pending order из localStorage
+localStorage.removeItem('dord_pending_order');
+</script>
+</body>
+</html>
