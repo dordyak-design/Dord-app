@@ -1,0 +1,10 @@
+{
+  "functions": {
+    "api/create-invoice.js": { "maxDuration": 15 },
+    "api/payment-callback.js": { "maxDuration": 15 }
+  },
+  "rewrites": [
+    { "source": "/api/create-invoice",    "destination": "/api/create-invoice.js" },
+    { "source": "/api/payment-callback",  "destination": "/api/payment-callback.js" }
+  ]
+}
