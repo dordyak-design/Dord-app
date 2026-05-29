@@ -25,7 +25,7 @@ export default async function handler(req, res) {
       feePaidByPayer: 0,
       underPaidCover: 0.5,
       callbackUrl:    `${siteUrl}/api/payment-callback`,
-      returnUrl:      `${siteUrl}/payment-success?orderId=${orderId}`,
+      returnUrl:      `${siteUrl}/payment-success.html?orderId=${orderId}`,
       description:    description || `DordAI Order #${orderId}`,
       orderId:        String(orderId),
       email:          email || '',
