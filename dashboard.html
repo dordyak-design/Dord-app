@@ -298,27 +298,27 @@
     <div class="ranks-ladder" id="ranksLadder">
       <div class="rank-step" data-rank="novice">
         <div class="rank-dot">🌱</div>
-        <div class="rank-name">Новичок</div>
+        <div class="rank-name">Newcomer</div>
         <div class="rank-pts">0 pts</div>
       </div>
       <div class="rank-step" data-rank="designer">
         <div class="rank-dot">✏️</div>
-        <div class="rank-name">Дизайнер</div>
+        <div class="rank-name">Designer</div>
         <div class="rank-pts">100 pts</div>
       </div>
       <div class="rank-step" data-rank="manager">
         <div class="rank-dot">📊</div>
-        <div class="rank-name">Менеджер</div>
+        <div class="rank-name">Manager</div>
         <div class="rank-pts">300 pts</div>
       </div>
       <div class="rank-step" data-rank="director">
         <div class="rank-dot">👔</div>
-        <div class="rank-name">Директор</div>
+        <div class="rank-name">Director</div>
         <div class="rank-pts">500 pts</div>
       </div>
       <div class="rank-step" data-rank="ceo">
         <div class="rank-dot">👑</div>
-        <div class="rank-name">СЕО</div>
+        <div class="rank-name">CEO</div>
         <div class="rank-pts">700 pts</div>
       </div>
     </div>
@@ -369,13 +369,12 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 
 // ─── LOYALTY LOGIC ───
-// Лестница рангов: [минимум баллов, ранг, скидка%, CSS-класс, emoji]
 const RANKS = [
-  { min: 0,   key: 'novice',   name: 'Новичок',  discount: 3,  cls: 'rank-novice',   emoji: '🌱' },
-  { min: 100, key: 'designer', name: 'Дизайнер', discount: 5,  cls: 'rank-designer', emoji: '✏️' },
-  { min: 300, key: 'manager',  name: 'Менеджер', discount: 7,  cls: 'rank-manager',  emoji: '📊' },
-  { min: 500, key: 'director', name: 'Директор', discount: 10, cls: 'rank-director', emoji: '👔' },
-  { min: 700, key: 'ceo',      name: 'СЕО',      discount: 12, cls: 'rank-ceo',      emoji: '👑' },
+  { min: 0,   key: 'novice',   name: 'Newcomer', discount: 3,  cls: 'rank-novice',   emoji: '🌱' },
+  { min: 100, key: 'designer', name: 'Designer',  discount: 5,  cls: 'rank-designer', emoji: '✏️' },
+  { min: 300, key: 'manager',  name: 'Manager',   discount: 7,  cls: 'rank-manager',  emoji: '📊' },
+  { min: 500, key: 'director', name: 'Director',  discount: 10, cls: 'rank-director', emoji: '👔' },
+  { min: 700, key: 'ceo',      name: 'CEO',       discount: 12, cls: 'rank-ceo',      emoji: '👑' },
 ];
 
 function calcLoyalty(points) {
@@ -492,15 +491,15 @@ onAuthStateChanged(auth, async (user) => {
     document.getElementById('statLeft').textContent = Math.max(0, total - done) + ' remaining';
     document.getElementById('statSpent').textContent = '$' + spent.toFixed(0);
 
-    // Лояльность
-    const pts = d.loyalty_points || 0;
+    // Лояльность — берём points, fallback из total_spent
+    const pts = d.loyalty_points || Math.floor(spent) || 0;
     renderLoyalty(pts);
 
-    // Если поля лояльности ещё нет — инициализируем
+    // Инициализируем поля если нет
     if (!snap.exists() || d.loyalty_points === undefined) {
       await setDoc(doc(db, 'users', user.uid), {
-        loyalty_points: 0,
-        loyalty_rank: 'Новичок',
+        loyalty_points: Math.floor(spent),
+        loyalty_rank: 'Newcomer',
         loyalty_discount: 3,
       }, { merge: true });
     }
