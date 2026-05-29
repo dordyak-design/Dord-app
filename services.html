@@ -201,6 +201,15 @@
 .value-badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
 .value-badge{display:inline-flex;align-items:center;gap:5px;padding:5px 12px;border-radius:20px;border:1px solid rgba(0,200,150,0.2);background:rgba(0,200,150,0.05);font-size:11px;color:#8892a4;font-weight:600}
 .value-badge .vb-dot{width:5px;height:5px;border-radius:50%;background:#00c896}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-field{display:flex;flex-direction:column;gap:6px}
+.form-field label{font-size:11px;color:#8892a4;text-transform:uppercase;letter-spacing:0.8px;font-weight:700}
+.form-field input,.form-field select,.form-field textarea{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:12px 16px;color:#fff;font-family:'Inter',sans-serif;font-size:14px;outline:none;transition:all 0.2s;resize:vertical;width:100%;box-sizing:border-box}
+.form-field input:focus,.form-field select:focus,.form-field textarea:focus{border-color:#00c896;box-shadow:0 0 0 3px rgba(0,200,150,0.08)}
+.form-field select{appearance:none;background-image:url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg' width%3D'12' height%3D'12'%3E%3Cpath fill%3D'%2300c896' d%3D'M6 8L1 3h10z'%2F%3E%3C%2Fsvg%3E");background-repeat:no-repeat;background-position:right 14px center}
+.form-field select option{background:#0d1121}
+.order-form{display:grid;gap:16px}
+@media(max-width:600px){.form-row{grid-template-columns:1fr}}
 /* AUTH REQUIRED BANNER */
 .auth-required{display:none;background:rgba(0,74,173,0.1);border:1px solid rgba(0,74,173,0.3);border-radius:12px;padding:14px 20px;margin-bottom:16px;font-size:13px;color:#4d8fff;text-align:center}
 .auth-required a{color:#00c896;font-weight:700;text-decoration:none}
@@ -410,6 +419,54 @@
       </div>
       <input type="file" id="fileInput" multiple accept=".jpg,.jpeg,.png,.heic,.webp" onchange="handleFiles(this.files)">
       <div class="upload-list" id="uploadList"></div>
+    </div>
+
+    <!-- ── SECTION 5: ORDER DETAILS ── -->
+    <div class="cfg-section">
+      <div class="cfg-section-title">✏️ Order Details — Describe Your Vision</div>
+      <div class="cfg-section-sub">Fill in as much detail as possible — the more context you give, the better the result.</div>
+
+      <div class="order-form">
+        <div class="form-row">
+          <div class="form-field">
+            <label>Service type</label>
+            <select id="orderType">
+              <option>Product Photo — E-Commerce</option>
+              <option>Product Cards (min 20 pcs)</option>
+              <option>Video 5 sec · $30</option>
+              <option>Video 10 sec · $50</option>
+              <option>Video 15 sec · $70</option>
+              <option>AI Avatar / Brand Mascot</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label>Your email — for delivery</label>
+            <input type="email" id="orderEmail" placeholder="your@email.com">
+          </div>
+        </div>
+        <div class="form-field">
+          <label>Object description</label>
+          <textarea id="orderObject" rows="3" placeholder="e.g. Glass perfume bottle 100ml, matte black cap, gold logo embossed"></textarea>
+        </div>
+        <div class="form-field">
+          <label>Environment & background</label>
+          <textarea id="orderBg" rows="2" placeholder="e.g. Wet dark marble, water splashes, foggy background"></textarea>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label>Lighting</label>
+            <input type="text" id="orderLight" placeholder="e.g. Dramatic side light, warm studio">
+          </div>
+          <div class="form-field">
+            <label>Texture / Material details</label>
+            <input type="text" id="orderTexture" placeholder="e.g. Brushed metal, soft matte, glossy glass">
+          </div>
+        </div>
+        <div class="form-field">
+          <label>Additional effects & prompt notes</label>
+          <textarea id="orderFx" rows="2" placeholder="e.g. Soft reflection in wet marble, Light Sweep effect, Levitation, particle burst"></textarea>
+        </div>
+      </div>
     </div>
 
   </div><!-- /cfg-left -->
@@ -753,6 +810,26 @@ async function handlePay() {
   const total = cart.reduce((s, i) => s + i.price, 0);
   const orderId = 'ORD-' + Date.now();
   const description = cart.map(i => i.name + ': ' + i.detail).join(' | ');
+
+  // Собираем поля заказа
+  const orderDetails = {
+    type:        document.getElementById('orderType')?.value || '—',
+    object:      document.getElementById('orderObject')?.value || '—',
+    background:  document.getElementById('orderBg')?.value || '—',
+    lighting:    document.getElementById('orderLight')?.value || '—',
+    texture:     document.getElementById('orderTexture')?.value || '—',
+    effects:     document.getElementById('orderFx')?.value || '—',
+    clientEmail: document.getElementById('orderEmail')?.value || window._currentUser.email,
+  };
+  // Сохраняем локально — пригодится на payment-success
+  localStorage.setItem('dord_pending_order', JSON.stringify({ orderId, cart, total, orderDetails }));
+
+  // Отправляем детали в Telegram
+  const tgMsg = `🛒 NEW ORDER — Dord AI Studio\n\n👤 ${window._currentUser.email}\n📧 Client: ${orderDetails.clientEmail}\n💰 Total: $${total.toFixed(2)}\n🆔 Order: ${orderId}\n\n📦 Cart: ${description}\n\n🎯 Type: ${orderDetails.type}\n📝 Object: ${orderDetails.object}\n🌿 BG: ${orderDetails.background}\n💡 Light: ${orderDetails.lighting}\n🪨 Texture: ${orderDetails.texture}\n✨ FX: ${orderDetails.effects}`;
+  fetch('https://api.telegram.org/bot8742382444:AAE3oWQxDlWF9XH8PHTOPLR93rMK3DVcf6s/sendMessage', {
+    method: 'POST', headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({ chat_id: '528289836', text: tgMsg })
+  }).catch(() => {});
 
   const payBtn = document.getElementById('payBtn');
   payBtn.disabled = true;
