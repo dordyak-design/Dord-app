@@ -9,15 +9,7 @@
   gtag('js', new Date());
   gtag('config', 'G-BDYY04P81S');
 </script>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PQMV2NV4"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-PQMV2NV4');</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PQMV2NV4');</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dashboard — Dord AI Studio</title>
@@ -25,7 +17,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
-/* LOGIN */
+/* ─── LOGIN OVERLAY ─── */
 .login-overlay{position:fixed;inset:0;background:rgba(8,11,26,0.97);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px}
 .login-overlay::before{content:'';position:absolute;width:600px;height:600px;background:radial-gradient(circle,rgba(0,74,173,0.15) 0%,transparent 70%);top:-200px;left:-200px;pointer-events:none}
 .login-overlay::after{content:'';position:absolute;width:500px;height:500px;background:radial-gradient(circle,rgba(0,200,150,0.1) 0%,transparent 70%);bottom:-150px;right:-150px;pointer-events:none}
@@ -54,80 +46,108 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .auth-msg.success{background:rgba(0,200,150,0.1);border:1px solid rgba(0,200,150,0.3);color:#00c896}
 .auth-link{font-size:12px;color:rgba(255,255,255,0.3);margin-top:16px}
 .auth-link a{color:#00c896;text-decoration:none;cursor:pointer}
-.loading-spinner{display:inline-block;width:16px;height:16px;border:2px solid rgba(255,255,255,0.3);border-top-color:#fff;border-radius:50%;animation:spin 0.8s linear infinite;vertical-align:middle;margin-right:6px}
-@keyframes spin{to{transform:rotate(360deg)}}
-/* DASH */
+
+/* ─── DASH HEADER ─── */
 .lang-switcher{display:flex;align-items:center;gap:2px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:3px;margin-left:12px}
-.lang-btn{padding:5px 10px;border-radius:6px;border:none;background:transparent;color:var(--text-muted,#8892a4);font-family:'Inter',sans-serif;font-size:12px;font-weight:600;cursor:pointer;transition:all 0.2s;letter-spacing:0.5px}
+.lang-btn{padding:5px 10px;border-radius:6px;border:none;background:transparent;color:rgba(136,146,164,1);font-family:'Inter',sans-serif;font-size:12px;font-weight:600;cursor:pointer;transition:all 0.2s;letter-spacing:0.5px}
 .lang-btn.active{background:linear-gradient(135deg,#004aad,#00c896);color:#fff}
 .lang-btn:hover:not(.active){color:#fff;background:rgba(255,255,255,0.08)}
-body{background:var(--bg-dark)}
-.dash-header{padding:0 5%;height:64px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);background:rgba(8,11,26,0.97);backdrop-filter:blur(20px);position:sticky;top:0;z-index:100;gap:16px}
+.dash-header{padding:0 5%;height:64px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,0.06);background:rgba(8,11,26,0.97);backdrop-filter:blur(20px);position:sticky;top:0;z-index:100;gap:16px}
 .dash-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
 .dash-logo img{height:32px}
 .dash-logo span{font-family:'Unbounded',sans-serif;font-size:13px;font-weight:700;background:linear-gradient(90deg,#004aad,#00c896);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-transform:uppercase}
 .dash-user{display:flex;align-items:center;gap:14px;font-size:13px}
-.plan-badge{background:var(--accent-green-dim);border:1px solid var(--border-green);color:var(--accent-green);font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:1px;padding:4px 12px;border-radius:100px}
-.dash-user .user-name{color:var(--text-soft);font-weight:600}
-.user-avatar{width:32px;height:32px;border-radius:50%;border:2px solid var(--border-green);object-fit:cover;display:none}
-.btn-logout{font-size:11px;color:var(--text-muted);border:1px solid var(--border);padding:6px 14px;border-radius:var(--radius-sm);transition:var(--transition);cursor:pointer;background:none;font-family:'Inter',sans-serif}
+.plan-badge{background:rgba(0,200,150,0.08);border:1px solid rgba(0,200,150,0.25);color:#00c896;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:1px;padding:4px 12px;border-radius:100px}
+.dash-user .user-name{color:rgba(255,255,255,0.7);font-weight:600}
+.user-avatar{width:32px;height:32px;border-radius:50%;border:2px solid rgba(0,200,150,0.5);object-fit:cover;display:none}
+.btn-logout{font-size:11px;color:rgba(136,146,164,1);border:1px solid rgba(255,255,255,0.08);padding:6px 14px;border-radius:8px;transition:all 0.2s;cursor:pointer;background:none;font-family:'Inter',sans-serif}
 .btn-logout:hover{border-color:#f87171;color:#f87171}
-.dash-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px)}
-.dash-sidebar{border-right:1px solid var(--border);padding:32px 20px;background:rgba(255,255,255,0.01)}
-.sidebar-plan{background:var(--card-bg);border:1px solid var(--border-green);border-radius:var(--radius-md);padding:20px;margin-bottom:32px}
-.sidebar-plan .plan-name{font-family:'Unbounded',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;color:var(--accent-green);margin-bottom:4px}
-.sidebar-plan .plan-expires{font-size:11px;color:var(--text-muted);margin-bottom:16px}
-.quota-bar{height:4px;background:rgba(255,255,255,0.06);border-radius:2px;margin-bottom:6px;overflow:hidden}
-.quota-fill{height:100%;background:linear-gradient(90deg,#004aad,#00c896);border-radius:2px}
-.quota-label{font-size:11px;color:var(--text-muted);display:flex;justify-content:space-between}
-.sidebar-nav{list-style:none}
-.sidebar-nav li{margin-bottom:4px}
-.sidebar-nav a{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:var(--radius-sm);text-decoration:none;color:var(--text-muted);font-size:13px;font-weight:600;transition:var(--transition)}
-.sidebar-nav a:hover,.sidebar-nav a.active{background:rgba(0,200,150,0.07);color:var(--text-main)}
-.sidebar-nav a.active{color:var(--accent-green)}
-.dash-main{padding:40px 5%;max-width:1000px}
-/* PLAN BLOCK */
-.plan-block{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:32px}
-.plan-stat{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-md);padding:20px}
-.plan-stat .ps-label{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px}
-.plan-stat .ps-num{font-family:'Unbounded',sans-serif;font-size:28px;font-weight:900;color:var(--accent-green);line-height:1}
-.plan-stat .ps-sub{font-size:12px;color:var(--text-muted);margin-top:4px}
-.plan-stat.featured{border-color:var(--border-green);background:linear-gradient(135deg,rgba(0,74,173,0.08),rgba(0,200,150,0.04))}
-.plan-info-box{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-md);padding:20px;margin-bottom:32px;font-size:13px;color:var(--text-muted);line-height:1.7}
-.plan-info-box strong{color:var(--accent-green)}
-/* TABS */
-.tabs{display:flex;gap:4px;background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:var(--radius-md);padding:4px;margin-bottom:32px;width:fit-content}
-.tab-btn{padding:9px 20px;border-radius:10px;border:none;background:none;color:var(--text-muted);font-family:'Inter',sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:var(--transition);text-transform:uppercase;letter-spacing:0.3px}
-.tab-btn.active{background:var(--card-bg);color:var(--text-main);box-shadow:0 2px 8px rgba(0,0,0,0.3)}
-.tab-panel{display:none}
-.tab-panel.active{display:block}
-/* UPLOAD */
-.upload-zone{border:2px dashed rgba(0,200,150,0.3);border-radius:var(--radius-lg);padding:48px 32px;text-align:center;cursor:pointer;transition:var(--transition);background:rgba(0,200,150,0.02);margin-bottom:24px}
-.upload-zone:hover,.upload-zone.drag-over{border-color:var(--accent-green);background:rgba(0,200,150,0.05)}
-.upload-zone svg{margin:0 auto 16px;display:block;opacity:0.6}
-.upload-zone h3{font-family:'Unbounded',sans-serif;font-size:14px;font-weight:700;text-transform:uppercase;margin-bottom:8px}
-.upload-zone p{font-size:13px;color:var(--text-muted);margin-bottom:20px}
-.upload-zone input[type=file]{display:none}
-.uploaded-files{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
-.file-chip{display:flex;align-items:center;gap:6px;background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-sm);padding:6px 12px;font-size:12px;color:var(--text-soft)}
-.file-chip .remove{color:var(--text-muted);cursor:pointer;margin-left:4px}
-.file-chip .remove:hover{color:#f87171}
-/* FORM */
-.order-form{display:grid;gap:16px}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.form-field{display:flex;flex-direction:column;gap:6px}
-.form-field label{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.8px;font-weight:700}
-.form-field input,.form-field select,.form-field textarea{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px 16px;color:var(--text-main);font-family:'Inter',sans-serif;font-size:14px;outline:none;transition:var(--transition);resize:vertical}
-.form-field input:focus,.form-field select:focus,.form-field textarea:focus{border-color:var(--accent-green);box-shadow:0 0 0 3px rgba(0,200,150,0.08)}
-.form-field select{appearance:none;background-image:url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg' width%3D'12' height%3D'12'%3E%3Cpath fill%3D'%2300c896' d%3D'M6 8L1 3h10z'%2F%3E%3C%2Fsvg%3E");background-repeat:no-repeat;background-position:right 14px center}
-.form-field select option{background:var(--card-bg)}
-/* TABLE */
+
+/* ─── MAIN LAYOUT ─── */
+.dash-main{max-width:860px;margin:0 auto;padding:40px 24px 80px;}
+
+/* ─── PROFILE CARD ─── */
+.profile-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:20px;padding:28px 32px;display:flex;align-items:center;gap:24px;margin-bottom:24px;}
+.profile-avatar{width:72px;height:72px;border-radius:50%;border:2px solid rgba(0,200,150,0.4);object-fit:cover;flex-shrink:0;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;font-family:'Unbounded',sans-serif;font-size:24px;font-weight:900;color:rgba(255,255,255,0.2)}
+.profile-avatar img{width:72px;height:72px;border-radius:50%;object-fit:cover;display:none}
+.profile-info{flex:1}
+.profile-name{font-family:'Unbounded',sans-serif;font-size:18px;font-weight:700;color:#fff;margin-bottom:4px}
+.profile-email{font-size:13px;color:rgba(255,255,255,0.4);margin-bottom:10px}
+.profile-meta{display:flex;gap:8px;flex-wrap:wrap}
+.profile-tag{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;padding:4px 12px;border-radius:100px;border:1px solid}
+.profile-tag.plan{background:rgba(0,74,173,0.1);border-color:rgba(0,74,173,0.3);color:#4d8fff}
+.profile-tag.verified{background:rgba(0,200,150,0.08);border-color:rgba(0,200,150,0.25);color:#00c896}
+.btn-new-order{margin-left:auto;padding:13px 28px;background:linear-gradient(135deg,#004aad,#00c896);color:#fff;border:none;border-radius:12px;font-family:'Unbounded',sans-serif;font-size:11px;font-weight:700;cursor:pointer;text-transform:uppercase;letter-spacing:0.5px;white-space:nowrap;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all 0.2s}
+.btn-new-order:hover{opacity:0.9;transform:translateY(-1px)}
+
+/* ─── STATS GRID ─── */
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:24px}
+.stat-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:16px;padding:20px 24px}
+.stat-card.accent{border-color:rgba(0,200,150,0.2);background:linear-gradient(135deg,rgba(0,74,173,0.06),rgba(0,200,150,0.03))}
+.stat-label{font-size:11px;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:0.8px;font-weight:700;margin-bottom:8px}
+.stat-value{font-family:'Unbounded',sans-serif;font-size:26px;font-weight:900;color:#00c896;line-height:1}
+.stat-sub{font-size:12px;color:rgba(255,255,255,0.3);margin-top:5px}
+
+/* ─── LOYALTY BLOCK ─── */
+.loyalty-block{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:20px;padding:28px 32px;margin-bottom:24px}
+.loyalty-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:12px}
+.loyalty-title{font-family:'Unbounded',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;color:rgba(255,255,255,0.5);letter-spacing:0.5px}
+.loyalty-rank-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 20px;border-radius:100px;font-family:'Unbounded',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;border:1px solid}
+.rank-novice{background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.15);color:rgba(255,255,255,0.7)}
+.rank-designer{background:rgba(0,150,255,0.08);border-color:rgba(0,150,255,0.3);color:#4d9fff}
+.rank-manager{background:rgba(120,80,255,0.08);border-color:rgba(120,80,255,0.3);color:#a070ff}
+.rank-director{background:rgba(255,160,0,0.08);border-color:rgba(255,160,0,0.3);color:#ffaa00}
+.rank-ceo{background:rgba(0,200,150,0.1);border-color:rgba(0,200,150,0.35);color:#00c896}
+.loyalty-discount{font-family:'Unbounded',sans-serif;font-size:28px;font-weight:900;color:#00c896;margin-bottom:4px}
+.loyalty-discount-label{font-size:12px;color:rgba(255,255,255,0.35);margin-bottom:20px}
+.loyalty-progress-wrap{margin-bottom:16px}
+.loyalty-progress-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
+.loyalty-pts{font-family:'Unbounded',sans-serif;font-size:14px;font-weight:700;color:#fff}
+.loyalty-next{font-size:12px;color:rgba(255,255,255,0.35)}
+.loyalty-bar{height:8px;background:rgba(255,255,255,0.06);border-radius:4px;overflow:hidden}
+.loyalty-bar-fill{height:100%;background:linear-gradient(90deg,#004aad,#00c896);border-radius:4px;transition:width 0.8s ease}
+.loyalty-hint{font-size:12px;color:rgba(255,255,255,0.3);margin-top:8px}
+/* Лестница рангов */
+.ranks-ladder{display:flex;align-items:center;gap:0;margin-top:20px;overflow-x:auto;padding-bottom:4px}
+.rank-step{display:flex;flex-direction:column;align-items:center;gap:4px;flex:1;min-width:80px;position:relative}
+.rank-step::after{content:'';position:absolute;top:14px;left:50%;width:100%;height:2px;background:rgba(255,255,255,0.06);z-index:0}
+.rank-step:last-child::after{display:none}
+.rank-dot{width:28px;height:28px;border-radius:50%;border:2px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.04);display:flex;align-items:center;justify-content:center;font-size:12px;position:relative;z-index:1;transition:all 0.3s}
+.rank-step.done .rank-dot{border-color:rgba(0,200,150,0.5);background:rgba(0,200,150,0.1)}
+.rank-step.current .rank-dot{border-color:#00c896;background:linear-gradient(135deg,#004aad,#00c896);box-shadow:0 0 12px rgba(0,200,150,0.3)}
+.rank-name{font-size:10px;color:rgba(255,255,255,0.3);font-weight:600;text-transform:uppercase;letter-spacing:0.3px;text-align:center}
+.rank-step.done .rank-name,.rank-step.current .rank-name{color:rgba(255,255,255,0.6)}
+.rank-pts{font-size:9px;color:rgba(255,255,255,0.2)}
+.rank-step.current .rank-pts{color:#00c896}
+
+/* ─── ORDERS TABLE ─── */
+.orders-block{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:20px;overflow:hidden;margin-bottom:24px}
+.orders-block-header{padding:20px 28px;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:space-between}
+.orders-block-title{font-family:'Unbounded',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;color:rgba(255,255,255,0.5);letter-spacing:0.5px}
 .orders-table{width:100%;border-collapse:collapse;font-size:13px}
-.orders-table th{text-align:left;padding:10px 16px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);border-bottom:1px solid var(--border)}
-.orders-table td{padding:14px 16px;border-bottom:1px solid var(--border);color:var(--text-soft);vertical-align:middle}
-.status-done{color:var(--accent-green);font-weight:700;font-size:11px;text-transform:uppercase}
-@media(max-width:900px){.dash-layout{grid-template-columns:1fr}.dash-sidebar{display:none}.plan-block{grid-template-columns:1fr 1fr}.form-row{grid-template-columns:1fr}}
-@media(max-width:480px){.plan-block{grid-template-columns:1fr}.dash-main{padding:24px 16px}}
+.orders-table th{text-align:left;padding:10px 20px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,0.25);border-bottom:1px solid rgba(255,255,255,0.05)}
+.orders-table td{padding:14px 20px;border-bottom:1px solid rgba(255,255,255,0.04);color:rgba(255,255,255,0.55);vertical-align:middle}
+.orders-table tr:last-child td{border-bottom:none}
+.orders-table tr:hover td{background:rgba(255,255,255,0.02)}
+.status-badge{display:inline-block;padding:3px 10px;border-radius:100px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px}
+.status-new{background:rgba(0,150,255,0.1);color:#4d9fff;border:1px solid rgba(0,150,255,0.2)}
+.status-processing{background:rgba(255,160,0,0.1);color:#ffaa00;border:1px solid rgba(255,160,0,0.2)}
+.status-done{background:rgba(0,200,150,0.1);color:#00c896;border:1px solid rgba(0,200,150,0.2)}
+.status-paid{background:rgba(120,80,255,0.1);color:#a070ff;border:1px solid rgba(120,80,255,0.2)}
+.orders-empty{padding:48px 20px;text-align:center;color:rgba(255,255,255,0.2);font-size:13px}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:700px){
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .profile-card{flex-wrap:wrap}
+  .btn-new-order{margin-left:0;width:100%;justify-content:center}
+  .loyalty-header{flex-direction:column;align-items:flex-start}
+  .dash-main{padding:24px 16px 60px}
+}
+@media(max-width:480px){
+  .stats-grid{grid-template-columns:1fr}
+  .profile-name{font-size:15px}
+}
 </style>
 </head>
 <body data-page="dashboard">
@@ -139,62 +159,50 @@ body{background:var(--bg-dark)}
       <img src="logo.PNG" alt="DORD">
       <span>Dord AI</span>
     </div>
-    <div class="login-subtitle" data-i18n="dash.login.subtitle">AI Photo & Video Studio · Tel Aviv</div>
-
+    <div class="login-subtitle">AI Photo & Video Studio · Tel Aviv</div>
     <div class="auth-tabs">
-      <button class="auth-tab active" onclick="showAuthTab('signin')" data-i18n="dash.login.signin">Sign In</button>
-      <button class="auth-tab" onclick="showAuthTab('signup')" data-i18n="dash.login.register">Register</button>
+      <button class="auth-tab active" onclick="showAuthTab('signin')">Sign In</button>
+      <button class="auth-tab" onclick="showAuthTab('signup')">Register</button>
     </div>
-
     <!-- SIGN IN -->
     <div class="auth-panel active" id="panel-signin">
       <div class="auth-msg" id="signin-msg"></div>
-      <div class="auth-field"><label data-i18n="dash.login.email">Email</label><input type="email" id="signin-email" placeholder="your@email.com"></div>
-      <div class="auth-field"><label data-i18n="dash.login.password">Password</label><input type="password" id="signin-pass" placeholder="••••••••"></div>
-      <button class="btn-auth" onclick="signInEmail()" data-i18n="dash.login.signin.btn">Sign In →</button>
-      <div class="auth-link"><a onclick="showAuthTab('reset')" data-i18n="dash.login.forgot">Forgot password?</a></div>
-      <div class="divider" data-i18n="dash.login.or">or</div>
-      <button class="btn-google" onclick="loginGoogle()">
-        <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
-        Continue with Google
-      </button>
-    </div>
-
-    <!-- SIGN UP -->
-    <div class="auth-panel" id="panel-signup">
-      <div class="auth-msg" id="signup-msg"></div>
-      <div class="auth-field"><label data-i18n="dash.login.email">Email</label><input type="email" id="signup-email" placeholder="your@email.com"></div>
-      <div class="auth-field"><label data-i18n="dash.login.password">Password</label><input type="password" id="signup-pass" placeholder="Min 6 characters"></div>
-      <div class="auth-field"><label data-i18n="dash.login.confirm">Confirm Password</label><input type="password" id="signup-pass2" placeholder="Repeat password"></div>
-      <button class="btn-auth" onclick="signUpEmail()" data-i18n="dash.login.create">Create Account →</button>
+      <div class="auth-field"><label>Email</label><input type="email" id="signin-email" placeholder="your@email.com"></div>
+      <div class="auth-field"><label>Password</label><input type="password" id="signin-pass" placeholder="••••••••"></div>
+      <button class="btn-auth" onclick="signInEmail()">Sign In →</button>
+      <div class="auth-link"><a onclick="showAuthTab('reset')">Forgot password?</a></div>
       <div class="divider">or</div>
       <button class="btn-google" onclick="loginGoogle()">
         <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
         Continue with Google
       </button>
     </div>
-
-    <!-- RESET PASSWORD -->
+    <!-- SIGN UP -->
+    <div class="auth-panel" id="panel-signup">
+      <div class="auth-msg" id="signup-msg"></div>
+      <div class="auth-field"><label>Email</label><input type="email" id="signup-email" placeholder="your@email.com"></div>
+      <div class="auth-field"><label>Password</label><input type="password" id="signup-pass" placeholder="Min 6 characters"></div>
+      <div class="auth-field"><label>Confirm Password</label><input type="password" id="signup-pass2" placeholder="Repeat password"></div>
+      <button class="btn-auth" onclick="signUpEmail()">Create Account →</button>
+      <div class="divider">or</div>
+      <button class="btn-google" onclick="loginGoogle()">
+        <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+        Continue with Google
+      </button>
+    </div>
+    <!-- RESET -->
     <div class="auth-panel" id="panel-reset">
       <div class="auth-msg" id="reset-msg"></div>
-      <p style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:16px;text-align:left;" data-i18n="dash.login.reset.desc">Enter your email and we'll send a password reset link.</p>
-      <div class="auth-field"><label data-i18n="dash.login.email">Email</label><input type="email" id="reset-email" placeholder="your@email.com"></div>
-      <button class="btn-auth" onclick="resetPassword()" data-i18n="dash.login.reset.btn">Send Reset Link →</button>
-      <div class="auth-link"><a onclick="showAuthTab('signin')" data-i18n="dash.login.back">← Back to Sign In</a></div>
+      <p style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:16px;text-align:left;">Enter your email and we'll send a password reset link.</p>
+      <div class="auth-field"><label>Email</label><input type="email" id="reset-email" placeholder="your@email.com"></div>
+      <button class="btn-auth" onclick="resetPassword()">Send Reset Link →</button>
+      <div class="auth-link"><a onclick="showAuthTab('signin')">← Back to Sign In</a></div>
     </div>
-
-    <div class="auth-link" style="margin-top:20px;"><a href="index.html" data-i18n="dash.login.main">← Back to main page</a></div>
+    <div class="auth-link" style="margin-top:20px;"><a href="index.html">← Back to main page</a></div>
   </div>
 </div>
 
-<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden;">
-  <defs><linearGradient id="dg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#004aad"/><stop offset="100%" stop-color="#00c896"/></linearGradient></defs>
-  <symbol id="ic-order" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="url(#dg)" stroke-width="1.5" stroke-linejoin="round"/><polyline points="14 2 14 8 20 8" fill="none" stroke="url(#dg)" stroke-width="1.5" stroke-linejoin="round"/></symbol>
-  <symbol id="ic-upload" viewBox="0 0 24 24"><polyline points="16 16 12 12 8 16" fill="none" stroke="url(#dg)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><line x1="12" y1="12" x2="12" y2="21" stroke="url(#dg)" stroke-width="1.5" stroke-linecap="round"/><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3" fill="none" stroke="url(#dg)" stroke-width="1.5" stroke-linecap="round"/></symbol>
-  <symbol id="ic-img" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" fill="none" stroke="url(#dg)" stroke-width="1.5"/><circle cx="8.5" cy="8.5" r="1.5" fill="url(#dg)"/><polyline points="21 15 16 10 5 21" fill="none" stroke="url(#dg)" stroke-width="1.5" stroke-linejoin="round"/></symbol>
-  <symbol id="ic-mail" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" fill="none" stroke="url(#dg)" stroke-width="1.5"/><polyline points="22 6 12 13 2 6" fill="none" stroke="url(#dg)" stroke-width="1.5" stroke-linejoin="round"/></symbol>
-</svg>
-
+<!-- HEADER -->
 <header class="dash-header">
   <a href="index.html" class="dash-logo">
     <img src="logo.PNG" alt="DORD">
@@ -204,7 +212,7 @@ body{background:var(--bg-dark)}
     <span class="plan-badge" id="planBadge">Loading...</span>
     <img src="" alt="" class="user-avatar" id="userAvatar">
     <span class="user-name" id="userName">...</span>
-    <button class="btn-logout" onclick="logoutUser()" data-i18n="dash.logout">Sign out</button>
+    <button class="btn-logout" onclick="logoutUser()">Sign out</button>
     <div class="lang-switcher">
       <button class="lang-btn" data-lang="ru" onclick="setLang('ru')">RU</button>
       <button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
@@ -212,6 +220,7 @@ body{background:var(--bg-dark)}
   </div>
 </header>
 
+<!-- SOCIAL BAR -->
 <div class="social-bar">
   <a href="https://t.me/DordAI" target="_blank" class="tg">
     <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.941z"/></svg>
@@ -227,375 +236,400 @@ body{background:var(--bg-dark)}
   </a>
 </div>
 
-<div class="dash-layout">
-  <aside class="dash-sidebar">
-    <div class="sidebar-plan">
-      <div class="plan-name" id="sidebarPlanName">—</div>
-      <div class="plan-expires" id="sidebarPlanExpires"></div>
-      <div class="quota-bar"><div class="quota-fill" id="quotaFill" style="width:0%"></div></div>
-      <div class="quota-label">
-        <span id="quotaUsed">0 done</span>
-        <span id="quotaTotal">of 0</span>
+<!-- MAIN -->
+<main class="dash-main">
+
+  <!-- PROFILE CARD -->
+  <div class="profile-card">
+    <div class="profile-avatar" id="avatarWrap">
+      <img id="userAvatarBig" src="" alt="">
+      <span id="avatarInitial">?</span>
+    </div>
+    <div class="profile-info">
+      <div class="profile-name" id="profileName">Loading...</div>
+      <div class="profile-email" id="profileEmail"></div>
+      <div class="profile-meta">
+        <span class="profile-tag plan" id="profilePlan">Free</span>
+        <span class="profile-tag verified" id="profileVerified" style="display:none">✓ Verified</span>
       </div>
     </div>
-    <ul class="sidebar-nav">
-      <li><a href="#" class="active" onclick="switchTab('new-order');return false;"><svg width="16" height="16"><use href="#ic-upload"/></svg><span data-i18n="dash.tab.neworder">New Order</span></a></li>
-      <li><a href="#" onclick="switchTab('orders');return false;"><svg width="16" height="16"><use href="#ic-order"/></svg><span data-i18n="dash.tab.orders">My Orders</span></a></li>
-      <li><a href="#" onclick="switchTab('results');return false;"><svg width="16" height="16"><use href="#ic-img"/></svg><span data-i18n="dash.tab.results">Results</span></a></li>
-      <li><a href="#" onclick="switchTab('contact');return false;"><svg width="16" height="16"><use href="#ic-mail"/></svg><span data-i18n="dash.tab.contact">Contact</span></a></li>
-    </ul>
-  </aside>
+    <a href="services.html" class="btn-new-order">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      New Order
+    </a>
+  </div>
 
-  <main class="dash-main">
+  <!-- STATS -->
+  <div class="stats-grid">
+    <div class="stat-card accent">
+      <div class="stat-label">Images in pack</div>
+      <div class="stat-value" id="statTotal">0</div>
+      <div class="stat-sub">purchased total</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Completed</div>
+      <div class="stat-value" id="statDone">0</div>
+      <div class="stat-sub" id="statLeft">0 remaining</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Total spent</div>
+      <div class="stat-value" id="statSpent">$0</div>
+      <div class="stat-sub">all time</div>
+    </div>
+  </div>
 
-    <!-- PLAN BLOCK -->
-    <div class="plan-block">
-      <div class="plan-stat featured">
-        <div class="ps-label" data-i18n="dash.plan.label">Active Plan</div>
-        <div class="ps-num" id="statPlanName" style="font-size:18px;">—</div>
-        <div class="ps-sub" id="statPlanDesc" data-i18n="dash.plan.none">No active pack</div>
+  <!-- LOYALTY BLOCK -->
+  <div class="loyalty-block">
+    <div class="loyalty-header">
+      <div class="loyalty-title">🏆 Loyalty Program</div>
+      <div class="loyalty-rank-badge rank-novice" id="rankBadge">Новичок</div>
+    </div>
+    <div class="loyalty-discount" id="loyaltyDiscount">3%</div>
+    <div class="loyalty-discount-label">Your personal discount on all orders</div>
+    <div class="loyalty-progress-wrap">
+      <div class="loyalty-progress-top">
+        <span class="loyalty-pts"><span id="loyaltyPts">0</span> pts</span>
+        <span class="loyalty-next" id="loyaltyNextLabel">100 pts to next rank</span>
       </div>
-      <div class="plan-stat">
-        <div class="ps-label" data-i18n="dash.plan.total">Images in pack</div>
-        <div class="ps-num" id="statTotal">0</div>
-        <div class="ps-sub" data-i18n="dash.plan.purchased">purchased total</div>
+      <div class="loyalty-bar"><div class="loyalty-bar-fill" id="loyaltyBarFill" style="width:0%"></div></div>
+      <div class="loyalty-hint" id="loyaltyHint">1 spent $ = 1 loyalty point</div>
+    </div>
+    <!-- Лестница рангов -->
+    <div class="ranks-ladder" id="ranksLadder">
+      <div class="rank-step" data-rank="novice">
+        <div class="rank-dot">🌱</div>
+        <div class="rank-name">Новичок</div>
+        <div class="rank-pts">0 pts</div>
       </div>
-      <div class="plan-stat">
-        <div class="ps-label" data-i18n="dash.plan.done">Completed</div>
-        <div class="ps-num" id="statDone">0</div>
-        <div class="ps-sub" id="statLeft">0 remaining</div>
+      <div class="rank-step" data-rank="designer">
+        <div class="rank-dot">✏️</div>
+        <div class="rank-name">Дизайнер</div>
+        <div class="rank-pts">100 pts</div>
+      </div>
+      <div class="rank-step" data-rank="manager">
+        <div class="rank-dot">📊</div>
+        <div class="rank-name">Менеджер</div>
+        <div class="rank-pts">300 pts</div>
+      </div>
+      <div class="rank-step" data-rank="director">
+        <div class="rank-dot">👔</div>
+        <div class="rank-name">Директор</div>
+        <div class="rank-pts">500 pts</div>
+      </div>
+      <div class="rank-step" data-rank="ceo">
+        <div class="rank-dot">👑</div>
+        <div class="rank-name">СЕО</div>
+        <div class="rank-pts">700 pts</div>
       </div>
     </div>
+  </div>
 
-    <div class="plan-info-box" data-i18n="dash.plan.info">
-      You can order <strong>the full pack at once</strong> or split it into <strong>multiple partial orders</strong> — for example, 10 images now, 20 later. Each batch will be processed separately and delivered within 48 hours. Contact us via <a href="https://t.me/DordAI" target="_blank" style="color:var(--accent-green)">Telegram</a> to discuss the schedule.
+  <!-- ORDERS HISTORY -->
+  <div class="orders-block">
+    <div class="orders-block-header">
+      <div class="orders-block-title">📋 Order History</div>
+      <a href="services.html" style="font-size:12px;color:#00c896;text-decoration:none;font-weight:700;">+ New Order</a>
     </div>
+    <table class="orders-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Type</th>
+          <th>Pack</th>
+          <th>Amount</th>
+          <th>Date</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="ordersTableBody">
+        <tr><td colspan="6" class="orders-empty">No orders yet.<br><a href="services.html" style="color:#00c896;text-decoration:none;">Place your first order →</a></td></tr>
+      </tbody>
+    </table>
+  </div>
 
-    <div class="tabs">
-      <button class="tab-btn active" onclick="switchTab('new-order')" data-i18n="dash.tab.neworder">New Order</button>
-      <button class="tab-btn" onclick="switchTab('orders')" data-i18n="dash.tab.orders">My Orders</button>
-      <button class="tab-btn" onclick="switchTab('results')" data-i18n="dash.tab.results">Results</button>
-      <button class="tab-btn" onclick="switchTab('contact')" data-i18n="dash.tab.contact">Contact</button>
-    </div>
+</main>
 
-    <!-- NEW ORDER -->
-    <div id="tab-new-order" class="tab-panel active">
-      <div class="upload-zone" onclick="document.getElementById('fileInput').click()" ondragover="event.preventDefault();this.classList.add('drag-over')" ondragleave="this.classList.remove('drag-over')" ondrop="handleDrop(event)">
-        <svg width="48" height="48"><use href="#ic-upload"/></svg>
-        <h3 data-i18n="dash.upload.title">Upload your product photo</h3>
-        <p data-i18n="dash.upload.sub">Drag files here or click to select<br>JPG, PNG, WEBP · up to 20MB · up to 10 files</p>
-        <button class="btn-secondary" onclick="event.stopPropagation();document.getElementById('fileInput').click()" data-i18n="dash.upload.btn">Choose files</button>
-        <input type="file" id="fileInput" multiple accept="image/*" onchange="handleFiles(this.files)">
-        <div class="uploaded-files" id="uploadedFiles"></div>
-      </div>
-      <div style="display:grid;grid-template-columns:1fr 300px;gap:24px;align-items:start;">
-      <div class="order-form">
-        <div class="form-field">
-          <label data-i18n="dash.form.type">Service type</label>
-          <select id="orderType">
-            <option>Product Photo — E-Commerce</option>
-            <option>Product Cards (min 20 pcs)</option>
-            <option>Video 5 sec · $30</option>
-            <option>Video 10 sec · $50</option>
-            <option>Video 15 sec · $70</option>
-            <option>AI Avatar / Brand Mascot</option>
-          </select>
-        </div>
-        <div class="form-field">
-          <label>Image size</label>
-          <select id="orderSize">
-            <option value="512">512×512 — compact · 2× more images per pack</option>
-            <option value="1024" selected>1024×1024 — premium square</option>
-            <option value="1024x768">1024×768 — wide landscape</option>
-          </select>
-        </div>
-        <div class="form-field">
-          <label>Pack</label>
-          <select id="orderQty">
-            <option value="sample">🎁 Free Sample — 1 preview (free)</option>
-            <option value="cards">Product Cards — 20 pcs ($25 / 512px · $45 / 1024px)</option>
-            <option value="starter">Starter Shot — 20×1024px or 40×512px ($49)</option>
-            <option value="ecom">E-Com Launch — 50×1024px or 100×512px ($199)</option>
-            <option value="brand">Brand Identity — 150×1024px or 300×512px ($499)</option>
-          </select>
-        </div>
-        <div class="form-field">
-          <label data-i18n="dash.form.object">Object description</label>
-          <textarea id="orderObject" rows="3" placeholder="e.g. Glass perfume bottle 100ml, matte black cap, gold logo embossed"></textarea>
-        </div>
-        <div class="form-field">
-          <label data-i18n="dash.form.env">Environment & background</label>
-          <textarea id="orderBg" rows="2" placeholder="e.g. Wet dark marble, water splashes, foggy background"></textarea>
-        </div>
-        <div class="form-field">
-          <label data-i18n="dash.form.light">Lighting</label>
-          <input type="text" id="orderLight" placeholder="e.g. Dramatic side light from the right, warm studio">
-        </div>
-        <div class="form-field">
-          <label data-i18n="dash.form.fx">Additional details & effects</label>
-          <textarea id="orderFx" rows="2" placeholder="e.g. Soft reflection in wet marble, Light Sweep effect, Levitation"></textarea>
-        </div>
-        <div class="form-field">
-          <label>Your email — for delivery notification</label>
-          <input type="email" id="orderEmail" placeholder="your@email.com">
-        </div>
-        <div>
-          <button class="btn-primary" onclick="submitOrder(this)" data-i18n="dash.form.submit">Send Order →</button>
-        </div>
-      </div>
-
-      <!-- ИНФО БЛОК -->
-      <div style="display:flex;flex-direction:column;gap:16px;">
-        <div class="card" style="padding:20px;font-size:13px;line-height:1.7;">
-          <div style="font-family:'Unbounded',sans-serif;font-size:11px;font-weight:700;color:var(--accent-green);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:12px;">📐 Sizes & Pricing</div>
-          <div style="color:var(--text-soft);margin-bottom:8px;"><b style="color:#fff;">512px</b> — ~2× cheaper<br><span style="color:var(--text-muted);font-size:11px;">Fast delivery, great for listings</span></div>
-          <div style="color:var(--text-soft);margin-bottom:8px;"><b style="color:#fff;">1024×1024</b> — premium<br><span style="color:var(--text-muted);font-size:11px;">Full detail, luxury quality</span></div>
-          <div style="color:var(--text-soft);margin-bottom:16px;"><b style="color:#fff;">1024×768</b> — wide<br><span style="color:var(--text-muted);font-size:11px;">Landscape, interior & exterior</span></div>
-          <div style="border-top:1px solid var(--border);padding-top:12px;color:var(--text-muted);font-size:11px;">Prices shown are for 1024px.<br>512px = same pack, 2× more images.</div>
-        </div>
-
-        <div class="card" style="padding:20px;font-size:13px;line-height:1.7;">
-          <div style="font-family:'Unbounded',sans-serif;font-size:11px;font-weight:700;color:var(--accent-green);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:12px;">🎬 Video on demand</div>
-          <div style="color:var(--text-soft);margin-bottom:4px;">5 sec — from <b style="color:#fff;">$30</b></div>
-          <div style="color:var(--text-soft);margin-bottom:4px;">10 sec — from <b style="color:#fff;">$50</b></div>
-          <div style="color:var(--text-soft);margin-bottom:16px;">15 sec — from <b style="color:#fff;">$70</b></div>
-          <div style="color:var(--text-muted);font-size:11px;">Levitation, Light Sweep, 360°, Particle Burst and more. Discuss details in support.</div>
-        </div>
-
-        <div class="card" style="padding:20px;">
-          <div style="font-family:'Unbounded',sans-serif;font-size:11px;font-weight:700;color:var(--accent-green);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:12px;">💬 Ask a question</div>
-          <textarea id="supportMsg" rows="3" style="width:100%;background:var(--card-bg);border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:var(--text-main);font-family:'Inter',sans-serif;font-size:13px;outline:none;resize:vertical;box-sizing:border-box;" placeholder="Your question..."></textarea>
-          <button onclick="sendSupport(this)" style="margin-top:10px;width:100%;padding:11px;background:transparent;border:1px solid var(--border-green);color:var(--accent-green);border-radius:8px;font-family:'Inter',sans-serif;font-size:12px;font-weight:700;cursor:pointer;text-transform:uppercase;letter-spacing:0.5px;transition:all 0.2s;">Send to Support →</button>
-        </div>
-      </div>
-      </div>
-
-    <!-- MY ORDERS -->
-    <div id="tab-orders" class="tab-panel">
-      <h2 class="section-title" style="font-size:20px;margin-bottom:24px;" data-i18n="dash.orders.title">Order History</h2>
-      <div class="card" style="padding:0;overflow:hidden;">
-        <table class="orders-table">
-          <thead><tr><th>#</th><th>Type</th><th>Variants</th><th>Date</th><th>Status</th></tr></thead>
-          <tbody id="ordersTableBody"><tr><td colspan="5" style="text-align:center;color:var(--text-muted);padding:32px;">No orders yet</td></tr></tbody>
-        </table>
-      </div>
-    </div>
-
-    <!-- RESULTS -->
-    <div id="tab-results" class="tab-panel">
-      <h2 class="section-title" style="font-size:20px;margin-bottom:8px;">Completed Work</h2>
-      <p style="color:var(--text-muted);font-size:13px;margin-bottom:28px;">Files are stored for 48 hours after order completion.</p>
-      <div class="card" style="padding:20px 24px;text-align:center;border-style:dashed;">
-        <p style="margin:0;font-size:13px;color:var(--text-muted);">No completed work yet.</p>
-      </div>
-    </div>
-
-    <!-- CONTACT -->
-    <div id="tab-contact" class="tab-panel">
-      <h2 class="section-title" style="font-size:20px;margin-bottom:8px;">Contact Us</h2>
-      <p style="color:var(--text-muted);font-size:13px;margin-bottom:28px;">For urgent questions — <a href="https://t.me/DordAI" target="_blank" style="color:#00c896;">Telegram</a>.</p>
-      <div class="card" style="max-width:560px;">
-        <div class="order-form">
-          <div class="form-field"><label>Subject</label><select><option>Order question</option><option>Technical issue</option><option>Payment question</option><option>Other</option></select></div>
-          <div class="form-field"><label>Message</label><textarea rows="5" placeholder="Describe your question..."></textarea></div>
-          <button class="btn-primary" onclick="this.textContent='✓ Sent!';this.disabled=true;">Send →</button>
-        </div>
-      </div>
-    </div>
-
-  </main>
-</div>
-
+<!-- FIREBASE -->
 <script type="module">
-  import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
-  import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail, sendEmailVerification } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
-  import { getFirestore, doc, setDoc, getDoc, addDoc, collection, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail, sendEmailVerification } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
+import { getFirestore, doc, setDoc, getDoc, collection, query, where, orderBy, limit, getDocs, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyCfot_WKYkikmKHrqet2nXnPasQB1ln61g",
-    authDomain: "dord-ai-studio.firebaseapp.com",
-    projectId: "dord-ai-studio",
-    storageBucket: "dord-ai-studio.firebasestorage.app",
-    messagingSenderId: "759031422125",
-    appId: "1:759031422125:web:22367b8059ce661f51fa24"
-  };
+const firebaseConfig = {
+  apiKey: "AIzaSyCfot_WKYkikmKHrqet2nXnPasQB1ln61g",
+  authDomain: "dord-ai-studio.firebaseapp.com",
+  projectId: "dord-ai-studio",
+  storageBucket: "dord-ai-studio.firebasestorage.app",
+  messagingSenderId: "759031422125",
+  appId: "1:759031422125:web:22367b8059ce661f51fa24"
+};
 
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-  const db = getFirestore(app);
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
 
-  function showMsg(id, text, type) {
-    const el = document.getElementById(id);
-    el.textContent = text;
-    el.className = 'auth-msg ' + type;
-    el.style.display = 'block';
+// ─── LOYALTY LOGIC ───
+// Лестница рангов: [минимум баллов, ранг, скидка%, CSS-класс, emoji]
+const RANKS = [
+  { min: 0,   key: 'novice',   name: 'Новичок',  discount: 3,  cls: 'rank-novice',   emoji: '🌱' },
+  { min: 100, key: 'designer', name: 'Дизайнер', discount: 5,  cls: 'rank-designer', emoji: '✏️' },
+  { min: 300, key: 'manager',  name: 'Менеджер', discount: 7,  cls: 'rank-manager',  emoji: '📊' },
+  { min: 500, key: 'director', name: 'Директор', discount: 10, cls: 'rank-director', emoji: '👔' },
+  { min: 700, key: 'ceo',      name: 'СЕО',      discount: 12, cls: 'rank-ceo',      emoji: '👑' },
+];
+
+function calcLoyalty(points) {
+  // Находим текущий ранг (последний подходящий)
+  let rankIdx = 0;
+  for (let i = 0; i < RANKS.length; i++) {
+    if (points >= RANKS[i].min) rankIdx = i;
+  }
+  const current = RANKS[rankIdx];
+  const next = RANKS[rankIdx + 1] || null;
+
+  // Прогресс внутри текущего уровня
+  let progress = 100; // по умолчанию 100% (СЕО)
+  let ptsToNext = 0;
+  if (next) {
+    const rangeSize = next.min - current.min;         // размер диапазона уровня
+    const rangeProgress = points - current.min;       // баллов набрано в этом уровне
+    progress = Math.min(100, Math.round(rangeProgress / rangeSize * 100));
+    ptsToNext = next.min - points;
   }
 
-  onAuthStateChanged(auth, async (user) => {
-    if (!user) { document.getElementById('loginOverlay').style.display='flex'; return; }
-    document.getElementById('loginOverlay').style.display='none';
-    document.getElementById('userName').textContent = user.email;
-    if (user.photoURL) { const av=document.getElementById('userAvatar'); av.src=user.photoURL; av.style.display='block'; }
-    try {
-      const snap = await getDoc(doc(db, 'users', user.uid));
-      const d = snap.exists() ? snap.data() : {};
-      const planNames = {free:'Free',starter:'Starter Shot',ecom:'E-Com Launch Pack',brand:'Brand Identity Pack'};
-      const pName = planNames[d.plan] || 'Free';
-      document.getElementById('planBadge').textContent = 'Plan: ' + pName;
-      document.getElementById('sidebarPlanName').textContent = pName;
-      document.getElementById('statPlanName').textContent = pName;
-      const total = d.generations_limit || 0;
-      const done = d.generations_used || 0;
-      const left = Math.max(0, total - done);
-      document.getElementById('statTotal').textContent = total;
-      document.getElementById('statDone').textContent = done;
-      document.getElementById('statLeft').textContent = left + ' remaining';
-      document.getElementById('statPlanDesc').textContent = total > 0 ? (total + ' images purchased') : 'No active pack';
-      document.getElementById('quotaUsed').textContent = done + ' done';
-      document.getElementById('quotaTotal').textContent = 'of ' + total;
-      document.getElementById('quotaFill').style.width = (total > 0 ? Math.min(100, Math.round(done/total*100)) : 0) + '%';
-      if (d.plan_expires) {
-        document.getElementById('sidebarPlanExpires').textContent = 'Until ' + d.plan_expires.toDate().toLocaleDateString('en-US');
-      }
-    } catch(e) { console.log(e); }
+  return { current, next, progress, ptsToNext, rankIdx };
+}
+
+function renderLoyalty(points) {
+  const { current, next, progress, ptsToNext, rankIdx } = calcLoyalty(points);
+
+  // Бейдж ранга
+  const badge = document.getElementById('rankBadge');
+  badge.textContent = current.emoji + ' ' + current.name;
+  badge.className = 'loyalty-rank-badge ' + current.cls;
+
+  // Скидка
+  document.getElementById('loyaltyDiscount').textContent = current.discount + '%';
+
+  // Баллы и прогресс
+  document.getElementById('loyaltyPts').textContent = points;
+  document.getElementById('loyaltyBarFill').style.width = progress + '%';
+
+  // Подпись под баром
+  if (next) {
+    document.getElementById('loyaltyNextLabel').textContent = ptsToNext + ' pts to ' + next.name;
+    document.getElementById('loyaltyHint').textContent = '1 spent $ = 1 loyalty point · Next rank at ' + next.min + ' pts';
+  } else {
+    document.getElementById('loyaltyNextLabel').textContent = '🏆 Maximum rank reached!';
+    document.getElementById('loyaltyHint').textContent = 'You have reached the highest rank. Discount: 12%';
+  }
+
+  // Лестница — подсвечиваем пройденные и текущий
+  document.querySelectorAll('.rank-step').forEach((el, idx) => {
+    el.classList.remove('done', 'current');
+    if (idx < rankIdx) el.classList.add('done');
+    if (idx === rankIdx) el.classList.add('current');
   });
+}
 
-  window.loginGoogle = async function() {
-    try {
-      const result = await signInWithPopup(auth, new GoogleAuthProvider());
-      const user = result.user;
-      const ref = doc(db, 'users', user.uid);
-      const snap = await getDoc(ref);
-      if (!snap.exists()) {
-        await setDoc(ref, { uid:user.uid, email:user.email, name:user.displayName||'', photo:user.photoURL||'', plan:'free', generations_used:0, generations_limit:0, orders_count:0, created_at:serverTimestamp(), last_login:serverTimestamp() });
-      } else {
-        await setDoc(ref, { last_login:serverTimestamp() }, { merge:true });
-      }
-    } catch(err) {
-      if (err.code !== 'auth/popup-closed-by-user') alert('Error: ' + err.message);
+// ─── AUTH ───
+function showMsg(id, text, type) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.textContent = text;
+  el.className = 'auth-msg ' + type;
+  el.style.display = 'block';
+}
+
+const planNames = { free: 'Free', starter: 'Starter Shot', ecom: 'E-Com Launch', brand: 'Brand Identity' };
+
+onAuthStateChanged(auth, async (user) => {
+  if (!user) {
+    document.getElementById('loginOverlay').style.display = 'flex';
+    return;
+  }
+  document.getElementById('loginOverlay').style.display = 'none';
+
+  // Шапка
+  document.getElementById('userName').textContent = user.displayName || user.email;
+  if (user.photoURL) {
+    const av = document.getElementById('userAvatar');
+    av.src = user.photoURL;
+    av.style.display = 'block';
+  }
+
+  // Профиль большой
+  document.getElementById('profileName').textContent = user.displayName || user.email;
+  document.getElementById('profileEmail').textContent = user.email;
+  if (user.emailVerified) document.getElementById('profileVerified').style.display = 'inline-block';
+
+  // Аватар большой
+  if (user.photoURL) {
+    const bigAv = document.getElementById('userAvatarBig');
+    bigAv.src = user.photoURL;
+    bigAv.style.display = 'block';
+    document.getElementById('avatarInitial').style.display = 'none';
+  } else {
+    const initial = (user.displayName || user.email || '?')[0].toUpperCase();
+    document.getElementById('avatarInitial').textContent = initial;
+  }
+
+  // Firestore данные
+  try {
+    const snap = await getDoc(doc(db, 'users', user.uid));
+    const d = snap.exists() ? snap.data() : {};
+
+    const pName = planNames[d.plan] || 'Free';
+    document.getElementById('planBadge').textContent = 'Plan: ' + pName;
+    document.getElementById('profilePlan').textContent = pName;
+
+    const total = d.generations_limit || 0;
+    const done = d.generations_used || 0;
+    const spent = d.total_spent || 0;
+
+    document.getElementById('statTotal').textContent = total;
+    document.getElementById('statDone').textContent = done;
+    document.getElementById('statLeft').textContent = Math.max(0, total - done) + ' remaining';
+    document.getElementById('statSpent').textContent = '$' + spent.toFixed(0);
+
+    // Лояльность
+    const pts = d.loyalty_points || 0;
+    renderLoyalty(pts);
+
+    // Если поля лояльности ещё нет — инициализируем
+    if (!snap.exists() || d.loyalty_points === undefined) {
+      await setDoc(doc(db, 'users', user.uid), {
+        loyalty_points: 0,
+        loyalty_rank: 'Новичок',
+        loyalty_discount: 3,
+      }, { merge: true });
     }
-  };
 
-  window.signUpEmail = async function() {
-    const email = document.getElementById('signup-email').value.trim();
-    const pass = document.getElementById('signup-pass').value;
-    const pass2 = document.getElementById('signup-pass2').value;
-    if (!email || !pass) { showMsg('signup-msg','Fill in all fields','error'); return; }
-    if (pass !== pass2) { showMsg('signup-msg','Passwords do not match','error'); return; }
-    if (pass.length < 6) { showMsg('signup-msg','Password must be at least 6 characters','error'); return; }
-    try {
-      const result = await createUserWithEmailAndPassword(auth, email, pass);
-      await sendEmailVerification(result.user);
-      await setDoc(doc(db, 'users', result.user.uid), { uid:result.user.uid, email, plan:'free', generations_used:0, generations_limit:0, orders_count:0, created_at:serverTimestamp(), last_login:serverTimestamp() });
-      showMsg('signup-msg','Account created! Check your email to verify.','success');
-    } catch(err) {
-      const msgs = { 'auth/email-already-in-use':'This email is already registered', 'auth/invalid-email':'Invalid email address', 'auth/weak-password':'Password is too weak' };
-      showMsg('signup-msg', msgs[err.code] || err.message, 'error');
-    }
-  };
+  } catch(e) {
+    console.error('Firestore error:', e);
+  }
 
-  window.signInEmail = async function() {
-    const email = document.getElementById('signin-email').value.trim();
-    const pass = document.getElementById('signin-pass').value;
-    if (!email || !pass) { showMsg('signin-msg','Fill in all fields','error'); return; }
-    try {
-      await signInWithEmailAndPassword(auth, email, pass);
-    } catch(err) {
-      const msgs = { 'auth/user-not-found':'No account with this email', 'auth/wrong-password':'Incorrect password', 'auth/invalid-email':'Invalid email address', 'auth/invalid-credential':'Incorrect email or password' };
-      showMsg('signin-msg', msgs[err.code] || err.message, 'error');
-    }
-  };
+  // Загрузка истории заказов
+  try {
+    const q = query(
+      collection(db, 'orders'),
+      where('uid', '==', user.uid),
+      orderBy('created_at', 'desc'),
+      limit(20)
+    );
+    const snap = await getDocs(q);
+    const tbody = document.getElementById('ordersTableBody');
 
-  window.resetPassword = async function() {
-    const email = document.getElementById('reset-email').value.trim();
-    if (!email) { showMsg('reset-msg','Enter your email','error'); return; }
-    try {
-      await sendPasswordResetEmail(auth, email);
-      showMsg('reset-msg','Reset link sent! Check your inbox.','success');
-    } catch(err) {
-      showMsg('reset-msg', err.message, 'error');
-    }
-  };
+    if (snap.empty) return;
 
-  window.logoutUser = async function() { await signOut(auth); };
+    tbody.innerHTML = '';
+    let i = 1;
+    snap.forEach(docSnap => {
+      const o = docSnap.data();
+      const date = o.created_at ? o.created_at.toDate().toLocaleDateString('en-US') : '—';
+      const statusMap = { new: 'status-new', paid: 'status-paid', processing: 'status-processing', done: 'status-done' };
+      const cls = statusMap[o.status] || 'status-new';
+      const amount = o.amount ? '$' + o.amount : '—';
+      tbody.innerHTML += `
+        <tr>
+          <td style="color:rgba(255,255,255,0.25);font-size:11px;">#${i++}</td>
+          <td style="color:#fff;">${o.type || '—'}</td>
+          <td>${o.pack || '—'}</td>
+          <td style="color:#00c896;font-weight:700;">${amount}</td>
+          <td>${date}</td>
+          <td><span class="status-badge ${cls}">${o.status || 'new'}</span></td>
+        </tr>`;
+    });
+  } catch(e) {
+    console.error('Orders load error:', e);
+  }
+});
 
-  window.submitOrder = async function(btn) {
-    const user = auth.currentUser;
-    if (!user) return;
-
-    const pack = document.getElementById('orderQty').value;
-    const type = document.getElementById('orderType').value;
-    const obj = document.getElementById('orderObject').value;
-    const bg = document.getElementById('orderBg').value;
-    const light = document.getElementById('orderLight').value;
-    const fx = document.getElementById('orderFx').value;
-    const clientEmail = document.getElementById('orderEmail').value;
-
-    btn.textContent = '✓ Order sent!';
-    btn.disabled = true;
-    btn.style.background = '#00c896';
-
-    // Firebase
-    try {
-      await addDoc(collection(db, 'orders'), {
+// Google Auth
+window.loginGoogle = async function() {
+  try {
+    const result = await signInWithPopup(auth, new GoogleAuthProvider());
+    const user = result.user;
+    const ref = doc(db, 'users', user.uid);
+    const snap = await getDoc(ref);
+    if (!snap.exists()) {
+      await setDoc(ref, {
         uid: user.uid, email: user.email,
-        pack, type, object: obj, background: bg,
-        lighting: light, details: fx,
-        client_email: clientEmail,
-        status: 'new', created_at: serverTimestamp()
+        name: user.displayName || '',
+        photo: user.photoURL || '',
+        plan: 'free',
+        generations_used: 0, generations_limit: 0,
+        orders_count: 0, total_spent: 0,
+        loyalty_points: 0, loyalty_rank: 'Новичок', loyalty_discount: 3,
+        created_at: serverTimestamp(), last_login: serverTimestamp()
       });
-    } catch(e) { console.log(e); }
+    } else {
+      await setDoc(ref, { last_login: serverTimestamp() }, { merge: true });
+    }
+  } catch(err) {
+    if (err.code !== 'auth/popup-closed-by-user') alert('Error: ' + err.message);
+  }
+};
 
-    // Telegram
-    const msg = `🔔 NEW ORDER — Dord AI Studio\n\n👤 ${user.email}\n📧 Client email: ${clientEmail || '—'}\n📦 Pack: ${pack}\n📐 Size: ${document.getElementById('orderSize').value}\n🎯 Type: ${type}\n\n📝 Object: ${obj || '—'}\n🌿 Background: ${bg || '—'}\n💡 Lighting: ${light || '—'}\n✨ Details: ${fx || '—'}`;
-    try {
-      await fetch('https://api.telegram.org/bot8742382444:AAE3oWQxDlWF9XH8PHTOPLR93rMK3DVcf6s/sendMessage', {
-        method: 'POST',
-        headers: {'Content-Type':'application/json'},
-        body: JSON.stringify({chat_id: '528289836', text: msg})
-      });
-    } catch(e) { console.log('Telegram error:', e); }
-  };
+window.signUpEmail = async function() {
+  const email = document.getElementById('signup-email').value.trim();
+  const pass = document.getElementById('signup-pass').value;
+  const pass2 = document.getElementById('signup-pass2').value;
+  if (!email || !pass) { showMsg('signup-msg', 'Fill in all fields', 'error'); return; }
+  if (pass !== pass2) { showMsg('signup-msg', 'Passwords do not match', 'error'); return; }
+  if (pass.length < 6) { showMsg('signup-msg', 'Password must be at least 6 characters', 'error'); return; }
+  try {
+    const result = await createUserWithEmailAndPassword(auth, email, pass);
+    await sendEmailVerification(result.user);
+    await setDoc(doc(db, 'users', result.user.uid), {
+      uid: result.user.uid, email, plan: 'free',
+      generations_used: 0, generations_limit: 0,
+      orders_count: 0, total_spent: 0,
+      loyalty_points: 0, loyalty_rank: 'Новичок', loyalty_discount: 3,
+      created_at: serverTimestamp(), last_login: serverTimestamp()
+    });
+    showMsg('signup-msg', 'Account created! Check your email to verify.', 'success');
+  } catch(err) {
+    const msgs = { 'auth/email-already-in-use': 'This email is already registered', 'auth/invalid-email': 'Invalid email', 'auth/weak-password': 'Password is too weak' };
+    showMsg('signup-msg', msgs[err.code] || err.message, 'error');
+  }
+};
+
+window.signInEmail = async function() {
+  const email = document.getElementById('signin-email').value.trim();
+  const pass = document.getElementById('signin-pass').value;
+  if (!email || !pass) { showMsg('signin-msg', 'Fill in all fields', 'error'); return; }
+  try {
+    await signInWithEmailAndPassword(auth, email, pass);
+  } catch(err) {
+    const msgs = { 'auth/user-not-found': 'No account with this email', 'auth/wrong-password': 'Incorrect password', 'auth/invalid-credential': 'Incorrect email or password' };
+    showMsg('signin-msg', msgs[err.code] || err.message, 'error');
+  }
+};
+
+window.resetPassword = async function() {
+  const email = document.getElementById('reset-email').value.trim();
+  if (!email) { showMsg('reset-msg', 'Enter your email', 'error'); return; }
+  try {
+    await sendPasswordResetEmail(auth, email);
+    showMsg('reset-msg', 'Reset link sent! Check your inbox.', 'success');
+  } catch(err) { showMsg('reset-msg', err.message, 'error'); }
+};
+
+window.logoutUser = async function() { await signOut(auth); };
 </script>
 
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script src="i18n.js"></script>
 <script>
 window.showAuthTab = function(name) {
   document.querySelectorAll('.auth-panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.auth-tab').forEach(b => b.classList.remove('active'));
-  document.getElementById('panel-'+name).classList.add('active');
-  document.querySelectorAll('.auth-tab').forEach(b => { if(b.getAttribute('onclick').includes(name)) b.classList.add('active'); });
-};
-function switchTab(name) {
-  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.querySelectorAll('.sidebar-nav a').forEach(a => a.classList.remove('active'));
-  const panel = document.getElementById('tab-'+name);
+  const panel = document.getElementById('panel-' + name);
   if (panel) panel.classList.add('active');
-  document.querySelectorAll('.tab-btn').forEach(b => { if(b.getAttribute('onclick')&&b.getAttribute('onclick').includes(name)) b.classList.add('active'); });
-  document.querySelectorAll('.sidebar-nav a').forEach(a => { if(a.getAttribute('onclick')&&a.getAttribute('onclick').includes(name)) a.classList.add('active'); });
-}
-function handleFiles(files) {
-  const c = document.getElementById('uploadedFiles');
-  Array.from(files).forEach(f => { const d=document.createElement('div'); d.className='file-chip'; d.innerHTML=`<span>${f.name}</span><span class="remove" onclick="this.parentElement.remove()">✕</span>`; c.appendChild(d); });
-}
-function handleDrop(e) { e.preventDefault(); e.currentTarget.classList.remove('drag-over'); handleFiles(e.dataTransfer.files); }
-
-async function sendSupport(btn) {
-  const msg = document.getElementById('supportMsg').value.trim();
-  if (!msg) return;
-  btn.textContent = '✓ Sent!';
-  btn.disabled = true;
-  try {
-    await fetch('https://api.telegram.org/bot8742382444:AAE3oWQxDlWF9XH8PHTOPLR93rMK3DVcf6s/sendMessage', {
-      method: 'POST',
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({chat_id: '528289836', text: '❓ SUPPORT QUESTION — Dord AI Studio\n\n' + msg})
-    });
-  } catch(e) { console.log(e); }
-  setTimeout(() => { btn.textContent = 'Send to Support →'; btn.disabled = false; document.getElementById('supportMsg').value = ''; }, 3000);
-}
+  document.querySelectorAll('.auth-tab').forEach(b => {
+    if (b.getAttribute('onclick') && b.getAttribute('onclick').includes(name)) b.classList.add('active');
+  });
+};
 document.addEventListener('DOMContentLoaded', function() {
   const saved = localStorage.getItem('dord_lang');
   if (!saved) setLang('en');
