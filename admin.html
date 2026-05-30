@@ -1,392 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-BDYY04P81S"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-BDYY04P81S');</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin Panel — Dord AI Studio</title>
-<meta name="robots" content="noindex, nofollow">
+<title>Admin Dashboard — Dord AI Studio</title>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
-.admin-wrap{min-height:100vh}
-.admin-sidebar{background:#070a16;border-right:1px solid var(--border);display:flex;flex-direction:column;position:fixed;top:0;left:0;width:220px;height:100vh;z-index:100;overflow-y:auto}
-.admin-brand{padding:20px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
-.admin-brand img{height:28px}
-.admin-brand span{font-family:'Unbounded',sans-serif;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted)}
-.admin-badge{font-size:9px;font-weight:800;text-transform:uppercase;background:rgba(239,68,68,0.15);color:#f87171;border:1px solid rgba(239,68,68,0.3);padding:2px 8px;border-radius:100px;margin-left:auto}
-.admin-nav{list-style:none;padding:16px 12px;flex:1}
-.admin-nav .nav-section{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--text-muted);padding:16px 8px 6px}
-.admin-nav a[data-page]{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:var(--radius-sm);text-decoration:none;color:var(--text-muted);font-size:12px;font-weight:600;transition:var(--transition);margin-bottom:2px;cursor:pointer}
-.admin-nav a[data-page]:hover{background:rgba(0,200,150,0.07);color:var(--text-main)}
-.admin-nav a[data-page].active{background:rgba(0,200,150,0.1);color:var(--accent-green)}
-.admin-footer-nav{padding:12px;border-top:1px solid var(--border)}
-.admin-footer-nav a{display:flex;align-items:center;gap:8px;padding:8px 10px;font-size:12px;color:var(--text-muted);text-decoration:none;border-radius:var(--radius-sm);transition:var(--transition)}
-.admin-footer-nav a:hover{color:var(--text-main)}
-.admin-main{margin-left:220px;min-height:100vh;display:flex;flex-direction:column}
-.admin-topbar{height:56px;border-bottom:1px solid var(--border);padding:0 32px;display:flex;align-items:center;justify-content:space-between;background:rgba(8,11,26,0.95);backdrop-filter:blur(10px);position:sticky;top:0;z-index:50;flex-shrink:0;gap:20px}
-.admin-topbar h1{font-family:'Unbounded',sans-serif;font-size:14px;font-weight:700;text-transform:uppercase;white-space:nowrap}
-.topbar-right{display:flex;align-items:center;gap:12px;font-size:11px;color:var(--text-muted);white-space:nowrap}
-.topbar-right .led{width:8px;height:8px;background:var(--accent-green);border-radius:50%;box-shadow:0 0 8px var(--accent-green);flex-shrink:0}
-.admin-content{padding:32px;flex:1;overflow-y:auto}
-.admin-section{display:none}
-.admin-section.active{display:block}
-.admin-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:32px}
-.admin-stat{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-md);padding:20px;transition:var(--transition)}
-.admin-stat:hover{border-color:var(--border-green)}
-.admin-stat .as-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);margin-bottom:8px}
-.admin-stat .as-num{font-family:'Unbounded',sans-serif;font-size:28px;font-weight:900;color:var(--accent-green);line-height:1;margin-bottom:4px}
-.admin-stat .as-sub{font-size:11px;color:var(--text-muted)}
-.agents-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:32px}
-.agent-card{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-md);padding:20px}
-.agent-card.busy{border-color:rgba(0,200,150,0.4)}
-.agent-card.idle{border-color:rgba(251,191,36,0.3)}
-.agent-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
-.agent-name{font-family:'Unbounded',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase}
-.agent-status-badge{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:0.5px;padding:3px 10px;border-radius:100px}
-.badge-busy{background:rgba(0,200,150,0.12);color:var(--accent-green);border:1px solid var(--border-green)}
-.badge-idle{background:rgba(251,191,36,0.1);color:#fbbf24;border:1px solid rgba(251,191,36,0.3)}
-.agent-gpu{font-size:11px;color:var(--text-muted);margin-bottom:14px}
-.agent-metric{margin-bottom:10px}
-.agent-metric-label{display:flex;justify-content:space-between;font-size:10px;color:var(--text-muted);margin-bottom:5px;text-transform:uppercase;letter-spacing:0.5px}
-.agent-metric-label span:last-child{color:var(--text-main)}
-.metric-bar{height:3px;background:rgba(255,255,255,0.05);border-radius:2px;overflow:hidden}
-.metric-fill{height:100%;background:linear-gradient(90deg,#004aad,#00c896);border-radius:2px}
-.agent-task{margin-top:14px;padding-top:14px;border-top:1px solid var(--border);font-size:11px;color:var(--text-muted);line-height:1.6}
-.admin-table-wrap{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden;margin-bottom:20px}
-.admin-table-header{padding:16px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-.admin-table-header h3{font-family:'Unbounded',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;white-space:nowrap}
-.table-search{background:rgba(0,0,0,0.2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:7px 14px;color:var(--text-main);font-family:'Inter',sans-serif;font-size:12px;outline:none;transition:var(--transition);width:200px}
-.table-search:focus{border-color:var(--accent-green)}
-.admin-table{width:100%;border-collapse:collapse;font-size:12px}
-.admin-table th{text-align:left;padding:10px 20px;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);border-bottom:1px solid var(--border);background:rgba(0,0,0,0.1)}
-.admin-table td{padding:12px 20px;border-bottom:1px solid var(--border);color:var(--text-soft);vertical-align:middle}
-.admin-table tr:last-child td{border-bottom:none}
-.admin-table tr:hover td{background:rgba(255,255,255,0.015)}
-.status-pill{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;padding:3px 10px;border-radius:100px}
-.pill-done{background:rgba(0,200,150,0.1);color:var(--accent-green);border:1px solid rgba(0,200,150,0.2)}
-.pill-run{background:rgba(96,165,250,0.1);color:#60a5fa;border:1px solid rgba(96,165,250,0.2)}
-.pill-queue{background:rgba(251,191,36,0.1);color:#fbbf24;border:1px solid rgba(251,191,36,0.2)}
-.pill-new{background:rgba(160,100,255,0.1);color:#a070ff;border:1px solid rgba(160,100,255,0.2)}
-.pill-paid{background:rgba(0,200,150,0.1);color:#00c896;border:1px solid rgba(0,200,150,0.2)}
-.admin-two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:8px}
-/* STATUS SELECT */
-.status-select{background:rgba(0,0,0,0.3);border:1px solid rgba(255,255,255,0.1);border-radius:6px;padding:4px 8px;color:#fff;font-family:'Inter',sans-serif;font-size:11px;outline:none;cursor:pointer}
-.status-select:focus{border-color:#00c896}
-/* ACTION BTN */
-.btn-sm{padding:5px 12px;font-size:10px;font-weight:700;border-radius:6px;border:1px solid;cursor:pointer;font-family:'Inter',sans-serif;text-transform:uppercase;letter-spacing:0.3px;transition:all 0.2s}
-.btn-sm.danger{border-color:rgba(239,68,68,0.4);color:#f87171;background:rgba(239,68,68,0.06)}
-.btn-sm.danger:hover{background:rgba(239,68,68,0.15)}
-.btn-sm.primary{border-color:rgba(0,200,150,0.4);color:#00c896;background:rgba(0,200,150,0.06)}
-.btn-sm.primary:hover{background:rgba(0,200,150,0.15)}
-/* PROMO */
-.promo-form{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:12px;align-items:end;padding:20px;border-bottom:1px solid var(--border)}
-.promo-field{display:flex;flex-direction:column;gap:6px}
-.promo-field label{font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;font-weight:700}
-.promo-field input{background:rgba(0,0,0,0.3);border:1px solid var(--border);border-radius:8px;padding:9px 12px;color:#fff;font-family:'Inter',sans-serif;font-size:13px;outline:none}
-.promo-field input:focus{border-color:#00c896}
-.btn-add-promo{padding:9px 20px;background:linear-gradient(135deg,#004aad,#00c896);color:#fff;border:none;border-radius:8px;font-family:'Unbounded',sans-serif;font-size:10px;font-weight:700;cursor:pointer;text-transform:uppercase;white-space:nowrap;align-self:end}
-/* GALLERY UPLOAD */
-.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}
-.gallery-section-card{background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:20px}
-.gallery-section-title{font-family:'Unbounded',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;color:#fff;margin-bottom:12px}
-.gallery-upload-zone{border:2px dashed rgba(0,200,150,0.2);border-radius:10px;padding:20px;text-align:center;cursor:pointer;transition:all 0.2s;background:rgba(0,200,150,0.02);font-size:12px;color:var(--text-muted)}
-.gallery-upload-zone:hover{border-color:#00c896;background:rgba(0,200,150,0.05);color:#fff}
-.gallery-preview{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
-.gallery-preview img{width:60px;height:60px;object-fit:cover;border-radius:6px;border:1px solid var(--border)}
-/* DISCOUNT FORM */
-.discount-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;padding:20px;border-bottom:1px solid var(--border)}
-.discount-card{background:rgba(0,0,0,0.2);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center}
-.discount-rank{font-family:'Unbounded',sans-serif;font-size:10px;font-weight:700;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px}
-.discount-pct{font-family:'Unbounded',sans-serif;font-size:24px;font-weight:900;color:#00c896}
-.discount-input{width:60px;background:rgba(0,0,0,0.3);border:1px solid var(--border);border-radius:6px;padding:5px;color:#fff;font-family:'Unbounded',sans-serif;font-size:16px;font-weight:700;text-align:center;outline:none;margin-top:6px}
-.discount-input:focus{border-color:#00c896}
-/* USER EDIT */
-.user-edit-btn{font-size:10px;padding:3px 10px;border-radius:6px;border:1px solid rgba(0,200,150,0.3);color:#00c896;background:transparent;cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.2s}
-.user-edit-btn:hover{background:rgba(0,200,150,0.1)}
-/* TOAST */
-.toast{position:fixed;bottom:24px;right:24px;background:#00c896;color:#000;font-family:'Inter',sans-serif;font-size:13px;font-weight:700;padding:12px 20px;border-radius:10px;z-index:9999;display:none;animation:fadeIn 0.3s ease}
-@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-/* ACCESS DENIED */
-.access-denied{position:fixed;inset:0;background:#080b16;display:flex;align-items:center;justify-content:center;z-index:9999;flex-direction:column;gap:16px;text-align:center}
-.access-denied h2{font-family:'Unbounded',sans-serif;font-size:20px;color:#f87171}
-.access-denied p{color:var(--text-muted);font-size:13px}
-@media(max-width:1100px){.admin-stats{grid-template-columns:repeat(2,1fr)}.agents-grid{grid-template-columns:1fr}.admin-two-col{grid-template-columns:1fr}.gallery-grid{grid-template-columns:repeat(2,1fr)}.promo-form{grid-template-columns:1fr 1fr}.discount-grid{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:768px){.admin-sidebar{display:none}.admin-main{margin-left:0}.admin-content{padding:16px}.admin-topbar{padding:0 16px}}
+.admin-container { display: grid; grid-template-columns: 200px 1fr; min-height: 100vh; background: #080b1a; }
+.admin-sidebar { background: rgba(0,0,0,0.3); border-right: 1px solid rgba(0,200,150,0.1); padding: 20px; position: sticky; top: 0; height: 100vh; overflow-y: auto; }
+.admin-content { padding: 40px; }
+.admin-tab { padding: 12px 16px; margin-bottom: 8px; border-radius: 8px; border: none; background: rgba(255,255,255,0.04); color: #8892a4; cursor: pointer; font-family: 'Inter'; font-size: 13px; font-weight: 600; text-align: left; transition: all 0.2s; width: 100%; }
+.admin-tab:hover { background: rgba(0,200,150,0.1); color: #fff; }
+.admin-tab.active { background: linear-gradient(135deg,#004aad,#00c896); color: #fff; }
+.admin-section { display: none; }
+.admin-section.active { display: block; }
+.admin-title { font-family: 'Unbounded'; font-size: 28px; font-weight: 900; color: #fff; margin-bottom: 24px; }
+.admin-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px; padding: 20px; margin-bottom: 20px; }
+.admin-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.admin-table th { background: rgba(0,200,150,0.1); padding: 12px; text-align: left; color: #00c896; font-weight: 700; border-bottom: 1px solid rgba(0,200,150,0.2); }
+.admin-table td { padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); color: #cdd5e0; }
+.admin-table tr:hover { background: rgba(0,200,150,0.05); }
+.status-paid { color: #00c896; font-weight: 700; }
+.status-pending { color: #ffa500; font-weight: 700; }
+.btn-small { padding: 8px 12px; border-radius: 6px; border: 1px solid rgba(0,200,150,0.3); background: rgba(0,200,150,0.1); color: #00c896; font-size: 11px; cursor: pointer; transition: all 0.2s; }
+.btn-small:hover { background: rgba(0,200,150,0.2); }
+.loading { text-align: center; color: #8892a4; padding: 20px; }
+.empty-state { text-align: center; color: #8892a4; padding: 40px; font-size: 14px; }
 </style>
 </head>
 <body>
 
-<!-- ACCESS DENIED (показывается до проверки auth) -->
-<div class="access-denied" id="accessDenied">
-  <h2>🔒 Доступ запрещён</h2>
-  <p>Проверка авторизации...</p>
-  <a href="index.html" style="color:#00c896;font-size:12px;">← На главную</a>
-</div>
-
-<div class="toast" id="toast"></div>
-
-<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden;">
-  <defs><linearGradient id="dg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#004aad"/><stop offset="100%" stop-color="#00c896"/></linearGradient></defs>
-  <symbol id="ic-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1" fill="none" stroke="url(#dg)" stroke-width="1.5"/><rect x="14" y="3" width="7" height="7" rx="1" fill="none" stroke="url(#dg)" stroke-width="1.5"/><rect x="3" y="14" width="7" height="7" rx="1" fill="none" stroke="url(#dg)" stroke-width="1.5"/><rect x="14" y="14" width="7" height="7" rx="1" fill="none" stroke="url(#dg)" stroke-width="1.5"/></symbol>
-  <symbol id="ic-server" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="8" rx="2" fill="none" stroke="url(#dg)" stroke-width="1.5"/><rect x="2" y="14" width="20" height="8" rx="2" fill="none" stroke="url(#dg)" stroke-width="1.5"/></symbol>
-  <symbol id="ic-users" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" fill="none" stroke="url(#dg)" stroke-width="1.5"/><circle cx="9" cy="7" r="4" fill="none" stroke="url(#dg)" stroke-width="1.5"/></symbol>
-  <symbol id="ic-order" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="url(#dg)" stroke-width="1.5"/></symbol>
-  <symbol id="ic-tag" viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" fill="none" stroke="url(#dg)" stroke-width="1.5"/><line x1="7" y1="7" x2="7.01" y2="7" stroke="url(#dg)" stroke-width="2" stroke-linecap="round"/></symbol>
-  <symbol id="ic-img" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" fill="none" stroke="url(#dg)" stroke-width="1.5"/><circle cx="8.5" cy="8.5" r="1.5" fill="url(#dg)"/><polyline points="21 15 16 10 5 21" fill="none" stroke="url(#dg)" stroke-width="1.5"/></symbol>
-  <symbol id="ic-gift" viewBox="0 0 24 24"><polyline points="20 12 20 22 4 22 4 12" fill="none" stroke="url(#dg)" stroke-width="1.5"/><rect x="2" y="7" width="20" height="5" fill="none" stroke="url(#dg)" stroke-width="1.5"/><line x1="12" y1="22" x2="12" y2="7" stroke="url(#dg)" stroke-width="1.5"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z" fill="none" stroke="url(#dg)" stroke-width="1.5"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z" fill="none" stroke="url(#dg)" stroke-width="1.5"/></symbol>
-  <symbol id="ic-home" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" fill="none" stroke="url(#dg)" stroke-width="1.5"/></symbol>
-</svg>
-
-<div class="admin-wrap" id="adminWrap" style="display:none">
-
+<div class="admin-container">
   <!-- SIDEBAR -->
-  <aside class="admin-sidebar">
-    <div class="admin-brand">
-      <img src="logo.PNG" alt="DORD">
-      <span>Admin</span>
-      <span class="admin-badge">Root</span>
-    </div>
-    <ul class="admin-nav">
-      <li class="nav-section">Обзор</li>
-      <li><a data-page="overview" class="active"><svg width="14" height="14"><use href="#ic-grid"/></svg>Дашборд</a></li>
-      <li class="nav-section">Система</li>
-      <li><a data-page="agents"><svg width="14" height="14"><use href="#ic-server"/></svg>Агенты</a></li>
-      <li><a data-page="orders"><svg width="14" height="14"><use href="#ic-order"/></svg>Заказы</a></li>
-      <li class="nav-section">Клиенты</li>
-      <li><a data-page="clients"><svg width="14" height="14"><use href="#ic-users"/></svg>Пользователи</a></li>
-      <li><a data-page="samples"><svg width="14" height="14"><use href="#ic-gift"/></svg>Free Samples</a></li>
-      <li class="nav-section">Инструменты</li>
-      <li><a data-page="promo"><svg width="14" height="14"><use href="#ic-tag"/></svg>Промокоды</a></li>
-      <li><a data-page="gallery"><svg width="14" height="14"><use href="#ic-img"/></svg>Галерея</a></li>
-    </ul>
-    <div class="admin-footer-nav">
-      <a href="index.html"><svg width="14" height="14"><use href="#ic-home"/></svg>На сайт</a>
-      <a href="#" onclick="logoutAdmin()" style="margin-top:4px;color:#f87171">Выйти</a>
-    </div>
-  </aside>
+  <div class="admin-sidebar">
+    <div style="font-family:'Unbounded'; font-size:14px; font-weight:700; color:#fff; margin-bottom:20px;">⚙️ ADMIN</div>
+    
+    <button class="admin-tab active" onclick="switchTab('dashboard')">📊 Dashboard</button>
+    <button class="admin-tab" onclick="switchTab('orders')">📋 Заказы</button>
+    <button class="admin-tab" onclick="switchTab('gallery')">🖼️ Галерея</button>
+    <button class="admin-tab" onclick="switchTab('agents')">🤖 Агенты</button>
+    <button class="admin-tab" onclick="switchTab('samples')">🎁 Free Samples</button>
+    <button class="admin-tab" onclick="logout()" style="margin-top:40px;background:rgba(239,68,68,0.1);color:#f87171;">🚪 Выход</button>
+  </div>
 
-  <!-- MAIN -->
-  <div class="admin-main">
-    <div class="admin-topbar">
-      <h1 id="page-title">Dashboard</h1>
-      <div class="topbar-right">
-        <span id="adminEmail" style="color:#00c896"></span>
-        <div class="led"></div>
-        <span>Система работает</span>
+  <!-- CONTENT -->
+  <div class="admin-content">
+
+    <!-- DASHBOARD -->
+    <div id="dashboard" class="admin-section active">
+      <div class="admin-title">📊 Dashboard</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px">
+        <div class="admin-card">
+          <div style="color:#8892a4;font-size:12px;margin-bottom:8px">Всего заказов</div>
+          <div style="font-family:'Unbounded';font-size:32px;font-weight:900;color:#fff" id="totalOrders">0</div>
+        </div>
+        <div class="admin-card">
+          <div style="color:#8892a4;font-size:12px;margin-bottom:8px">Общая сумма</div>
+          <div style="font-family:'Unbounded';font-size:32px;font-weight:900;color:#00c896" id="totalAmount">$0</div>
+        </div>
+        <div class="admin-card">
+          <div style="color:#8892a4;font-size:12px;margin-bottom:8px">Оплачено</div>
+          <div style="font-family:'Unbounded';font-size:32px;font-weight:900;color:#00c896" id="paidOrders">0</div>
+        </div>
       </div>
     </div>
 
-    <div class="admin-content">
-
-      <!-- ═══ OVERVIEW ═══ -->
-      <div id="page-overview" class="admin-section active">
-        <div class="admin-stats">
-          <div class="admin-stat"><div class="as-label">Total Revenue</div><div class="as-num" id="statRevenue">$0</div><div class="as-sub">all orders paid</div></div>
-          <div class="admin-stat"><div class="as-label">Total Users</div><div class="as-num" id="statUsers">0</div><div class="as-sub">registered accounts</div></div>
-          <div class="admin-stat"><div class="as-label">Total Orders</div><div class="as-num" id="statOrders">0</div><div class="as-sub">all time</div></div>
-          <div class="admin-stat"><div class="as-label">Free Samples</div><div class="as-num" id="statSamples">0</div><div class="as-sub">requests received</div></div>
-        </div>
-        <div class="admin-table-wrap">
-          <div class="admin-table-header"><h3>Последние заказы</h3></div>
-          <table class="admin-table">
-            <thead><tr><th>ID заказа</th><th>Email</th><th>Сумма</th><th>Дата</th><th>Статус</th></tr></thead>
-            <tbody id="overviewOrdersBody"><tr><td colspan="5" style="text-align:center;color:var(--text-muted);padding:24px">Loading...</td></tr></tbody>
-          </table>
-        </div>
+    <!-- ORDERS -->
+    <div id="orders" class="admin-section">
+      <div class="admin-title">📋 Заказы</div>
+      <div class="admin-card">
+        <div id="ordersLoading" class="loading">Загрузка заказов...</div>
+        <table class="admin-table" id="ordersTable" style="display:none">
+          <thead>
+            <tr>
+              <th>ID Заказа</th>
+              <th>Клиент</th>
+              <th>Сумма</th>
+              <th>Статус</th>
+              <th>Дата</th>
+              <th>Действие</th>
+            </tr>
+          </thead>
+          <tbody id="ordersList"></tbody>
+        </table>
+        <div id="ordersEmpty" class="empty-state" style="display:none">Заказов нет</div>
       </div>
-
-      <!-- ═══ AGENTS ═══ -->
-      <div id="page-agents" class="admin-section">
-        <div class="agents-grid">
-          <div class="agent-card busy">
-            <div class="agent-header"><div class="agent-name">Agent-1</div><span class="agent-status-badge badge-busy">Online</span></div>
-            <div class="agent-gpu">RTX 3080 Ti · 12GB · Port 8188</div>
-            <div class="agent-metric"><div class="agent-metric-label"><span>VRAM</span><span>~10 / 12 GB</span></div><div class="metric-bar"><div class="metric-fill" style="width:83%"></div></div></div>
-            <div class="agent-metric"><div class="agent-metric-label"><span>Model</span><span>Flux.1-dev-fp8</span></div><div class="metric-bar"><div class="metric-fill" style="width:100%"></div></div></div>
-            <div class="agent-task">Primary generation server. ComfyUI on port 8188. Systemd autostart enabled.</div>
-          </div>
-          <div class="agent-card busy">
-            <div class="agent-header"><div class="agent-name">Agent-2</div><span class="agent-status-badge badge-busy">Online</span></div>
-            <div class="agent-gpu">RTX 3060 · 12GB · Port 8189</div>
-            <div class="agent-metric"><div class="agent-metric-label"><span>VRAM</span><span>~8 / 12 GB</span></div><div class="metric-bar"><div class="metric-fill" style="width:67%"></div></div></div>
-            <div class="agent-metric"><div class="agent-metric-label"><span>Model</span><span>Flux.1-dev-fp8</span></div><div class="metric-bar"><div class="metric-fill" style="width:100%"></div></div></div>
-            <div class="agent-task">Secondary generation server. ComfyUI on port 8189. Systemd autostart enabled.</div>
-          </div>
-          <div class="agent-card idle">
-            <div class="agent-header"><div class="agent-name">Agent-3</div><span class="agent-status-badge badge-idle">Standby</span></div>
-            <div class="agent-gpu">RTX 3060 · 12GB · Reserve</div>
-            <div class="agent-metric"><div class="agent-metric-label"><span>VRAM</span><span>~1 / 12 GB</span></div><div class="metric-bar"><div class="metric-fill" style="width:8%"></div></div></div>
-            <div class="agent-metric"><div class="agent-metric-label"><span>Status</span><span>Idle</span></div><div class="metric-bar"><div class="metric-fill" style="width:5%"></div></div></div>
-            <div class="agent-task" style="color:#fbbf24">Reserve GPU. Available for high-load periods.</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ═══ ORDERS ═══ -->
-      <div id="page-orders" class="admin-section">
-        <div class="admin-table-wrap">
-          <div class="admin-table-header">
-            <h3>Все заказы</h3>
-            <input class="table-search" placeholder="Поиск по email..." oninput="filterOrders(this.value)">
-          </div>
-          <table class="admin-table">
-            <thead><tr><th>ID заказа</th><th>Email</th><th>Тип</th><th>Сумма</th><th>Дата</th><th>Статус</th><th>Действие</th></tr></thead>
-            <tbody id="ordersBody"><tr><td colspan="7" style="text-align:center;color:var(--text-muted);padding:24px">Loading...</td></tr></tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- ═══ USERS ═══ -->
-      <div id="page-clients" class="admin-section">
-        <div class="admin-table-wrap">
-          <div class="admin-table-header">
-            <h3>Все пользователи</h3>
-            <input class="table-search" placeholder="Поиск по email..." oninput="filterUsers(this.value)">
-          </div>
-          <table class="admin-table">
-            <thead><tr><th>Email</th><th>План</th><th>Потрачено</th><th>Баллы</th><th>Ранг</th><th>Заказов</th><th>Дата</th><th>Ред.</th></tr></thead>
-            <tbody id="usersBody"><tr><td colspan="8" style="text-align:center;color:var(--text-muted);padding:24px">Loading...</td></tr></tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- ═══ FREE SAMPLES ═══ -->
-      <div id="page-samples" class="admin-section">
-        <div class="admin-table-wrap">
-          <div class="admin-table-header"><h3>Заявки на Free Sample</h3></div>
-          <table class="admin-table">
-            <thead><tr><th>Email</th><th>Размер</th><th>Объект</th><th>Фон</th><th>Свет</th><th>Эффекты</th><th>Дата</th><th>Статус</th></tr></thead>
-            <tbody id="samplesBody"><tr><td colspan="8" style="text-align:center;color:var(--text-muted);padding:24px">Loading...</td></tr></tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- ═══ PROMO CODES ═══ -->
-      <div id="page-promo" class="admin-section">
-        <div class="admin-table-wrap">
-          <div class="admin-table-header"><h3>Промокоды</h3></div>
-          <div class="promo-form">
-            <div class="promo-field"><label>Код</label><input type="text" id="promoCode" placeholder="SUMMER25" style="text-transform:uppercase"></div>
-            <div class="promo-field"><label>Скидка %</label><input type="number" id="promoDiscount" placeholder="15" min="1" max="100"></div>
-            <div class="promo-field"><label>Срок действия</label><input type="date" id="promoExpires"></div>
-            <button class="btn-add-promo" onclick="createPromo()">+ Создать</button>
-          </div>
-          <table class="admin-table">
-            <thead><tr><th>Код</th><th>Скидка</th><th>Использован</th><th>Истекает</th><th>Статус</th><th></th></tr></thead>
-            <tbody id="promoBody"><tr><td colspan="6" style="text-align:center;color:var(--text-muted);padding:24px">No promo codes yet</td></tr></tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- ═══ GALLERY UPLOAD ═══ -->
-      <div id="page-gallery" class="admin-section">
-        <div class="admin-table-wrap">
-          <div class="admin-table-header"><h3>Загрузка галереи по разделам</h3><span style="font-size:11px;color:var(--text-muted)">Загрузи файлы вручную в GitHub → gallery/</span></div>
-          <div style="padding:20px">
-            <div class="gallery-grid">
-              <!-- Luxury Furniture -->
-              <div class="gallery-section-card">
-                <div class="gallery-section-title">🛋️ Luxury Furniture</div>
-                <div class="gallery-upload-zone" onclick="triggerUpload('furniture')" ondragover="event.preventDefault()" ondrop="handleGalleryDrop(event,'furniture')">
-                  📁 Drop or click to upload<br><span style="font-size:10px;margin-top:4px;display:block">JPG, PNG, WEBP</span>
-                </div>
-                <input type="file" id="upload-furniture" multiple accept="image/*" style="display:none" onchange="handleGalleryFiles(this.files,'furniture')">
-                <div class="gallery-preview" id="preview-furniture"></div>
-              </div>
-              <!-- Interior -->
-              <div class="gallery-section-card">
-                <div class="gallery-section-title">🏠 Interior</div>
-                <div class="gallery-upload-zone" onclick="triggerUpload('interior')" ondragover="event.preventDefault()" ondrop="handleGalleryDrop(event,'interior')">
-                  📁 Drop or click to upload<br><span style="font-size:10px;margin-top:4px;display:block">JPG, PNG, WEBP</span>
-                </div>
-                <input type="file" id="upload-interior" multiple accept="image/*" style="display:none" onchange="handleGalleryFiles(this.files,'interior')">
-                <div class="gallery-preview" id="preview-interior"></div>
-              </div>
-              <!-- Exterior -->
-              <div class="gallery-section-card">
-                <div class="gallery-section-title">🏙️ Exterior</div>
-                <div class="gallery-upload-zone" onclick="triggerUpload('exterior')" ondragover="event.preventDefault()" ondrop="handleGalleryDrop(event,'exterior')">
-                  📁 Drop or click to upload<br><span style="font-size:10px;margin-top:4px;display:block">JPG, PNG, WEBP</span>
-                </div>
-                <input type="file" id="upload-exterior" multiple accept="image/*" style="display:none" onchange="handleGalleryFiles(this.files,'exterior')">
-                <div class="gallery-preview" id="preview-exterior"></div>
-              </div>
-              <!-- Shopify Cards -->
-              <div class="gallery-section-card">
-                <div class="gallery-section-title">🏷️ Shopify Cards</div>
-                <div class="gallery-upload-zone" onclick="triggerUpload('shopify')" ondragover="event.preventDefault()" ondrop="handleGalleryDrop(event,'shopify')">
-                  📁 Drop or click to upload<br><span style="font-size:10px;margin-top:4px;display:block">JPG, PNG, WEBP</span>
-                </div>
-                <input type="file" id="upload-shopify" multiple accept="image/*" style="display:none" onchange="handleGalleryFiles(this.files,'shopify')">
-                <div class="gallery-preview" id="preview-shopify"></div>
-              </div>
-              <!-- Real Estate -->
-              <div class="gallery-section-card">
-                <div class="gallery-section-title">🏡 Real Estate & Villas</div>
-                <div class="gallery-upload-zone" onclick="triggerUpload('realestate')" ondragover="event.preventDefault()" ondrop="handleGalleryDrop(event,'realestate')">
-                  📁 Drop or click to upload<br><span style="font-size:10px;margin-top:4px;display:block">JPG, PNG, WEBP</span>
-                </div>
-                <input type="file" id="upload-realestate" multiple accept="image/*" style="display:none" onchange="handleGalleryFiles(this.files,'realestate')">
-                <div class="gallery-preview" id="preview-realestate"></div>
-              </div>
-              <!-- Food -->
-              <div class="gallery-section-card">
-                <div class="gallery-section-title">🍽️ Food & Product Shots</div>
-                <div class="gallery-upload-zone" onclick="triggerUpload('food')" ondragover="event.preventDefault()" ondrop="handleGalleryDrop(event,'food')">
-                  📁 Drop or click to upload<br><span style="font-size:10px;margin-top:4px;display:block">JPG, PNG, WEBP</span>
-                </div>
-                <input type="file" id="upload-food" multiple accept="image/*" style="display:none" onchange="handleGalleryFiles(this.files,'food')">
-                <div class="gallery-preview" id="preview-food"></div>
-              </div>
-              <!-- Nature -->
-              <div class="gallery-section-card">
-                <div class="gallery-section-title">🌿 Nature · Flora & Fauna</div>
-                <div class="gallery-upload-zone" onclick="triggerUpload('nature')" ondragover="event.preventDefault()" ondrop="handleGalleryDrop(event,'nature')">
-                  📁 Drop or click to upload<br><span style="font-size:10px;margin-top:4px;display:block">JPG, PNG, WEBP</span>
-                </div>
-                <input type="file" id="upload-nature" multiple accept="image/*" style="display:none" onchange="handleGalleryFiles(this.files,'nature')">
-                <div class="gallery-preview" id="preview-nature"></div>
-              </div>;border:1px solid rgba(255,160,0,0.2);border-radius:10px;font-size:12px;color:#8892a4;line-height:1.6">
-              ⚠️ Предпросмотр показан локально. Для публикации: зайди в <a href="https://github.com/dordyak-design/Dord-app/tree/main/gallery" target="_blank" style="color:#00c896">GitHub → gallery/</a> и загрузи файлы в нужную папку вручную.
-            </div>
-          </div>
-        </div>
-      </div>
-
     </div>
+
+    <!-- GALLERY -->
+    <div id="gallery" class="admin-section">
+      <div class="admin-title">🖼️ Галерея</div>
+      <div class="admin-card">
+        <div style="color:#8892a4;margin-bottom:20px">Раздел галереи для управления фото</div>
+        <button class="btn-small" onclick="alert('Функция в разработке')">+ Создать раздел</button>
+      </div>
+    </div>
+
+    <!-- AGENTS -->
+    <div id="agents" class="admin-section">
+      <div class="admin-title">🤖 Агенты</div>
+      <div class="admin-card">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Agent</th>
+              <th>Статус</th>
+              <th>Uptime</th>
+              <th>GPU</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Agent-1</td>
+              <td><span style="color:#00c896">🟢 Online</span></td>
+              <td>92%</td>
+              <td>RTX 3080 Ti 12GB</td>
+            </tr>
+            <tr>
+              <td>Agent-2</td>
+              <td><span style="color:#00c896">🟢 Online</span></td>
+              <td>87%</td>
+              <td>RTX 3060 12GB</td>
+            </tr>
+            <tr>
+              <td>Agent-3</td>
+              <td><span style="color:#ffa500">🟡 Standby</span></td>
+              <td>3%</td>
+              <td>RTX 3060 12GB</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- SAMPLES -->
+    <div id="samples" class="admin-section">
+      <div class="admin-title">🎁 Free Samples</div>
+      <div class="admin-card">
+        <div id="samplesLoading" class="loading">Загрузка...</div>
+        <table class="admin-table" id="samplesTable" style="display:none">
+          <thead>
+            <tr>
+              <th>Email</th>
+              <th>Объект</th>
+              <th>Размер</th>
+              <th>Дата</th>
+              <th>Статус</th>
+            </tr>
+          </thead>
+          <tbody id="samplesList"></tbody>
+        </table>
+      </div>
+    </div>
+
   </div>
 </div>
 
-<!-- USER EDIT MODAL -->
-<div id="userEditModal" style="display:none;position:fixed;inset:0;background:rgba(8,11,26,0.95);z-index:9999;align-items:center;justify-content:center;padding:20px">
-  <div style="background:#0d1121;border:1px solid rgba(0,200,150,0.25);border-radius:20px;padding:32px;max-width:400px;width:100%;position:relative">
-    <button onclick="closeUserEdit()" style="position:absolute;top:14px;right:16px;background:none;border:none;color:#8892a4;font-size:20px;cursor:pointer">✕</button>
-    <div style="font-family:'Unbounded',sans-serif;font-size:13px;font-weight:700;color:#fff;margin-bottom:20px">Редактировать пользователя</div>
-    <input type="hidden" id="editUid">
-    <div style="display:flex;flex-direction:column;gap:14px">
-      <div class="promo-field"><label>План</label>
-        <select id="editPlan" style="background:rgba(0,0,0,0.3);border:1px solid var(--border);border-radius:8px;padding:9px 12px;color:#fff;font-family:'Inter',sans-serif;font-size:13px;outline:none">
-          <option value="free">Free</option>
-          <option value="starter">Starter</option>
-          <option value="ecom">E-Com Launch</option>
-          <option value="brand">Brand Identity</option>
-        </select>
-      </div>
-      <div class="promo-field"><label>Баллы лояльности</label><input type="number" id="editPoints" placeholder="0"></div>
-      <div class="promo-field"><label>Лимит изображений</label><input type="number" id="editLimit" placeholder="0"></div>
-      <button onclick="saveUserEdit()" style="width:100%;padding:12px;background:linear-gradient(135deg,#004aad,#00c896);color:#fff;border:none;border-radius:10px;font-family:'Unbounded',sans-serif;font-size:11px;font-weight:700;cursor:pointer;text-transform:uppercase">Сохранить</button>
-    </div>
-  </div>
-</div>
-
+<!-- FIREBASE -->
 <script type="module">
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
 import { getAuth, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
-import { getFirestore, collection, getDocs, doc, updateDoc, addDoc, deleteDoc, orderBy, query, limit, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
-
-const ADMIN_UID = 'V7RG175i3KbUc1fVIBD2vEuone83'; // ← ЗАМЕНИ НА СВОЙ UID
+import { getFirestore, collection, query, onSnapshot, getDocs } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
 
 const app = initializeApp({
   apiKey: "AIzaSyCfot_WKYkikmKHrqet2nXnPasQB1ln61g",
@@ -398,273 +173,110 @@ const app = initializeApp({
 });
 
 const auth = getAuth(app);
-const db   = getFirestore(app);
+const db = getFirestore(app);
 
-// Expose db globally for other functions
-window._db = db;
+window.switchTab = (tab) => {
+  document.querySelectorAll('.admin-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(tab).classList.add('active');
+  event.target.classList.add('active');
 
-onAuthStateChanged(auth, async (user) => {
-  if (!user || user.uid !== ADMIN_UID) {
-    document.getElementById('accessDenied').style.display = 'flex';
-    document.getElementById('adminWrap').style.display = 'none';
-    if (user && user.uid !== ADMIN_UID) {
-      document.querySelector('#accessDenied p').textContent = 'Access denied. Admin only.';
-    }
-    return;
-  }
-  document.getElementById('accessDenied').style.display = 'none';
-  document.getElementById('adminWrap').style.display = 'block';
-  document.getElementById('adminEmail').textContent = user.email;
+  if (tab === 'orders') loadOrders();
+  if (tab === 'samples') loadSamples();
+};
 
-  loadOverview();
-  loadOrders();
-  loadUsers();
-  loadSamples();
-  loadPromos();
-});
+window.logout = () => {
+  signOut(auth).then(() => {
+    window.location.href = 'index.html';
+  });
+};
 
-window.logoutAdmin = async () => { await signOut(auth); window.location.href = 'index.html'; };
-
-// ── OVERVIEW ──
-async function loadOverview() {
-  const [ordersSnap, usersSnap, samplesSnap] = await Promise.all([
-    getDocs(collection(db, 'orders')),
-    getDocs(collection(db, 'users')),
-    getDocs(collection(db, 'free_samples')),
-  ]);
-
-  let revenue = 0;
-  ordersSnap.forEach(d => { if (d.data().status === 'paid') revenue += d.data().amount || 0; });
-
-  document.getElementById('statRevenue').textContent = '$' + revenue.toFixed(0);
-  document.getElementById('statUsers').textContent = usersSnap.size;
-  document.getElementById('statOrders').textContent = ordersSnap.size;
-  document.getElementById('statSamples').textContent = samplesSnap.size;
-
-  // Recent 5 orders
-  const orders = [];
-  ordersSnap.forEach(d => orders.push({ id: d.id, ...d.data() }));
-  orders.sort((a, b) => (b.created_at?.seconds || 0) - (a.created_at?.seconds || 0));
-  const tbody = document.getElementById('overviewOrdersBody');
-  tbody.innerHTML = orders.slice(0, 5).map(o => `
-    <tr>
-      <td style="font-size:10px;color:var(--text-muted)">${o.orderId || o.id}</td>
-      <td>${o.email || '—'}</td>
-      <td style="color:#00c896;font-weight:700">${o.amount ? '$' + o.amount : '—'}</td>
-      <td>${o.created_at ? new Date(o.created_at.seconds * 1000).toLocaleDateString('en-US') : '—'}</td>
-      <td><span class="status-pill pill-${o.status === 'paid' ? 'paid' : o.status === 'done' ? 'done' : 'new'}">${o.status || 'new'}</span></td>
-    </tr>`).join('') || '<tr><td colspan="5" style="text-align:center;color:var(--text-muted);padding:24px">No orders</td></tr>';
-}
-
-// ── ORDERS ──
-let allOrders = [];
 async function loadOrders() {
-  const snap = await getDocs(collection(db, 'orders'));
-  allOrders = [];
-  snap.forEach(d => allOrders.push({ id: d.id, ...d.data() }));
-  allOrders.sort((a, b) => (b.created_at?.seconds || 0) - (a.created_at?.seconds || 0));
-  renderOrders(allOrders);
+  try {
+    const ordersRef = collection(db, 'orders');
+    const snapshot = await getDocs(ordersRef);
+    
+    const orders = [];
+    let totalAmount = 0;
+    let paidCount = 0;
+
+    snapshot.forEach(doc => {
+      const data = doc.data();
+      orders.push({ id: doc.id, ...data });
+      totalAmount += parseFloat(data.amount || 0);
+      if (data.status === 'paid') paidCount++;
+    });
+
+    // Update dashboard
+    document.getElementById('totalOrders').textContent = orders.length;
+    document.getElementById('totalAmount').textContent = '$' + totalAmount.toFixed(2);
+    document.getElementById('paidOrders').textContent = paidCount;
+
+    // Update orders table
+    const tbody = document.getElementById('ordersList');
+    tbody.innerHTML = orders.map(order => `
+      <tr>
+        <td><strong>${order.orderId || order.id}</strong></td>
+        <td>${order.clientEmail || '—'}</td>
+        <td>$${parseFloat(order.amount).toFixed(2)} ${order.currency || 'USD'}</td>
+        <td><span class="status-${order.status}">${order.status === 'paid' ? '✅ Оплачено' : '⏳ Ожидание'}</span></td>
+        <td>${order.created_at ? new Date(order.created_at.toDate()).toLocaleDateString('ru-RU') : '—'}</td>
+        <td><button class="btn-small" onclick="navigator.clipboard.writeText('${order.orderId}')">Копировать</button></td>
+      </tr>
+    `).join('');
+
+    document.getElementById('ordersLoading').style.display = 'none';
+    document.getElementById('ordersTable').style.display = 'table';
+    
+    if (orders.length === 0) {
+      document.getElementById('ordersTable').style.display = 'none';
+      document.getElementById('ordersEmpty').style.display = 'block';
+    }
+
+  } catch (error) {
+    console.error('Error loading orders:', error);
+    document.getElementById('ordersLoading').innerHTML = '❌ Ошибка загрузки';
+  }
 }
 
-function renderOrders(orders) {
-  const tbody = document.getElementById('ordersBody');
-  if (!orders.length) { tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;color:var(--text-muted);padding:24px">No orders</td></tr>'; return; }
-  tbody.innerHTML = orders.map(o => `
-    <tr>
-      <td style="font-size:10px;color:var(--text-muted)">${o.orderId || o.id}</td>
-      <td>${o.email || '—'}</td>
-      <td style="font-size:11px">${o.type || '—'}</td>
-      <td style="color:#00c896;font-weight:700">${o.amount ? '$' + o.amount : '—'}</td>
-      <td>${o.created_at ? new Date(o.created_at.seconds * 1000).toLocaleDateString('en-US') : '—'}</td>
-      <td>
-        <select class="status-select" onchange="updateOrderStatus('${o.id}', this.value)">
-          <option value="pending" ${o.status==='pending'?'selected':''}>Pending</option>
-          <option value="paid" ${o.status==='paid'?'selected':''}>Paid</option>
-          <option value="processing" ${o.status==='processing'?'selected':''}>Processing</option>
-          <option value="done" ${o.status==='done'?'selected':''}>Done</option>
-        </select>
-      </td>
-      <td><button class="btn-sm danger" onclick="deleteOrder('${o.id}')">Delete</button></td>
-    </tr>`).join('');
-}
-
-window.filterOrders = (q) => renderOrders(allOrders.filter(o => (o.email || '').toLowerCase().includes(q.toLowerCase())));
-
-window.updateOrderStatus = async (id, status) => {
-  await updateDoc(doc(db, 'orders', id), { status });
-  showToast('Статус обновлён');
-};
-window.deleteOrder = async (id) => {
-  if (!confirm('Удалить этот заказ?')) return;
-  await deleteDoc(doc(db, 'orders', id));
-  loadOrders();
-  showToast('Заказ удалён');
-};
-
-// ── USERS ──
-let allUsers = [];
-async function loadUsers() {
-  const snap = await getDocs(collection(db, 'users'));
-  allUsers = [];
-  snap.forEach(d => allUsers.push({ id: d.id, ...d.data() }));
-  renderUsers(allUsers);
-}
-
-function renderUsers(users) {
-  const tbody = document.getElementById('usersBody');
-  if (!users.length) { tbody.innerHTML = '<tr><td colspan="8" style="text-align:center;color:var(--text-muted);padding:24px">No users</td></tr>'; return; }
-  tbody.innerHTML = users.map(u => `
-    <tr>
-      <td>${u.email || '—'}</td>
-      <td><span style="font-size:10px;padding:2px 8px;border-radius:100px;border:1px solid var(--border);color:var(--text-muted)">${u.plan || 'free'}</span></td>
-      <td style="color:#00c896">${u.total_spent ? '$' + u.total_spent : '$0'}</td>
-      <td>${u.loyalty_points || 0}</td>
-      <td style="font-size:11px">${u.loyalty_rank || 'Newcomer'}</td>
-      <td>${u.orders_count || 0}</td>
-      <td style="font-size:11px;color:var(--text-muted)">${u.created_at ? new Date(u.created_at.seconds * 1000).toLocaleDateString('en-US') : '—'}</td>
-      <td><button class="user-edit-btn" onclick="openUserEdit('${u.id}','${u.plan||'free'}',${u.loyalty_points||0},${u.generations_limit||0})">Edit</button></td>
-    </tr>`).join('');
-}
-
-window.filterUsers = (q) => renderUsers(allUsers.filter(u => (u.email || '').toLowerCase().includes(q.toLowerCase())));
-
-window.openUserEdit = (uid, plan, points, limit) => {
-  document.getElementById('editUid').value = uid;
-  document.getElementById('editPlan').value = plan;
-  document.getElementById('editPoints').value = points;
-  document.getElementById('editLimit').value = limit;
-  document.getElementById('userEditModal').style.display = 'flex';
-};
-window.closeUserEdit = () => { document.getElementById('userEditModal').style.display = 'none'; };
-window.saveUserEdit = async () => {
-  const uid    = document.getElementById('editUid').value;
-  const plan   = document.getElementById('editPlan').value;
-  const points = parseInt(document.getElementById('editPoints').value) || 0;
-  const lim    = parseInt(document.getElementById('editLimit').value) || 0;
-  const rankMap = [{min:700,name:'CEO',d:12},{min:500,name:'Director',d:10},{min:300,name:'Manager',d:7},{min:100,name:'Designer',d:5},{min:0,name:'Newcomer',d:3}];
-  const rank = rankMap.find(r => points >= r.min);
-  await updateDoc(doc(db, 'users', uid), { plan, loyalty_points: points, loyalty_rank: rank.name, loyalty_discount: rank.d, generations_limit: lim });
-  closeUserEdit();
-  loadUsers();
-  showToast('Пользователь обновлён');
-};
-
-// ── FREE SAMPLES ──
 async function loadSamples() {
-  const snap = await getDocs(collection(db, 'free_samples'));
-  const rows = [];
-  snap.forEach(d => rows.push({ id: d.id, ...d.data() }));
-  rows.sort((a, b) => (b.created_at || '').localeCompare(a.created_at || ''));
-  const tbody = document.getElementById('samplesBody');
-  tbody.innerHTML = rows.map(s => `
-    <tr>
-      <td>${s.email || '—'}</td>
-      <td>${s.size || '—'}</td>
-      <td style="font-size:11px">${s.object || '—'}</td>
-      <td style="font-size:11px;color:var(--text-muted)">${s.background || '—'}</td>
-      <td style="font-size:11px;color:var(--text-muted)">${s.lighting || '—'}</td>
-      <td style="font-size:11px;color:var(--text-muted)">${s.effects || '—'}</td>
-      <td style="font-size:11px">${s.created_at ? new Date(s.created_at).toLocaleDateString('en-US') : '—'}</td>
-      <td>
-        <select class="status-select" onchange="updateSampleStatus('${s.id}', this.value)">
-          <option value="new" ${s.status==='new'?'selected':''}>New</option>
-          <option value="done" ${s.status==='done'?'selected':''}>Done</option>
-        </select>
-      </td>
-    </tr>`).join('') || '<tr><td colspan="8" style="text-align:center;color:var(--text-muted);padding:24px">No requests</td></tr>';
+  try {
+    const samplesRef = collection(db, 'free_samples');
+    const snapshot = await getDocs(samplesRef);
+    
+    const tbody = document.getElementById('samplesList');
+    tbody.innerHTML = snapshot.docs.map(doc => {
+      const data = doc.data();
+      return `
+        <tr>
+          <td>${data.email || '—'}</td>
+          <td>${data.object || '—'}</td>
+          <td>${data.size || '—'}</td>
+          <td>${new Date(data.created_at).toLocaleDateString('ru-RU')}</td>
+          <td><span style="color:#ffa500">⏳ Новый</span></td>
+        </tr>
+      `;
+    }).join('');
+
+    document.getElementById('samplesLoading').style.display = 'none';
+    document.getElementById('samplesTable').style.display = 'table';
+
+  } catch (error) {
+    console.error('Error loading samples:', error);
+    document.getElementById('samplesLoading').innerHTML = '❌ Ошибка загрузки';
+  }
 }
 
-window.updateSampleStatus = async (id, status) => {
-  await updateDoc(doc(db, 'free_samples', id), { status });
-  showToast('Status updated');
-};
-
-// ── PROMOS ──
-async function loadPromos() {
-  const snap = await getDocs(collection(db, 'promo_codes'));
-  const rows = [];
-  snap.forEach(d => rows.push({ id: d.id, ...d.data() }));
-  const tbody = document.getElementById('promoBody');
-  tbody.innerHTML = rows.map(p => `
-    <tr>
-      <td style="font-family:'Unbounded',sans-serif;font-size:12px;color:#fff">${p.code}</td>
-      <td style="color:#00c896;font-weight:700">${p.discount}%</td>
-      <td>${p.used_count || 0}</td>
-      <td style="color:var(--text-muted);font-size:11px">${p.expires || 'No expiry'}</td>
-      <td><span class="status-pill ${p.active ? 'pill-paid' : 'pill-queue'}">${p.active ? 'Active' : 'Disabled'}</span></td>
-      <td style="display:flex;gap:6px">
-        <button class="btn-sm primary" onclick="togglePromo('${p.id}',${p.active})">${p.active ? 'Disable' : 'Enable'}</button>
-        <button class="btn-sm danger" onclick="deletePromo('${p.id}')">Delete</button>
-      </td>
-    </tr>`).join('') || '<tr><td colspan="6" style="text-align:center;color:var(--text-muted);padding:24px">No promo codes</td></tr>';
-}
-
-window.createPromo = async () => {
-  const code     = document.getElementById('promoCode').value.trim().toUpperCase();
-  const discount = parseInt(document.getElementById('promoDiscount').value);
-  const expires  = document.getElementById('promoExpires').value;
-  if (!code || !discount) { showToast('Заполни код и скидку', true); return; }
-  await addDoc(collection(db, 'promo_codes'), { code, discount, expires: expires || '', active: true, used_count: 0, created_at: serverTimestamp() });
-  document.getElementById('promoCode').value = '';
-  document.getElementById('promoDiscount').value = '';
-  document.getElementById('promoExpires').value = '';
-  loadPromos();
-  showToast('Промокод создан!');
-};
-
-window.togglePromo = async (id, active) => {
-  await updateDoc(doc(db, 'promo_codes', id), { active: !active });
-  loadPromos();
-};
-window.deletePromo = async (id) => {
-  if (!confirm('Удалить промокод?')) return;
-  await deleteDoc(doc(db, 'promo_codes', id));
-  loadPromos();
-  showToast('Удалено');
-};
-
-// ── TOAST ──
-window.showToast = (msg, error = false) => {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.style.background = error ? '#f87171' : '#00c896';
-  t.style.display = 'block';
-  setTimeout(() => { t.style.display = 'none'; }, 2500);
-};
-</script>
-
-<script>
-// ── NAVIGATION ──
-const titles = { overview:'Дашборд', agents:'Агенты', orders:'Заказы', clients:'Пользователи', samples:'Free Samples', promo:'Промокоды', gallery:'Галерея' };
-document.querySelectorAll('[data-page]').forEach(link => {
-  link.addEventListener('click', function(e) {
-    e.preventDefault();
-    const page = this.dataset.page;
-    document.querySelectorAll('.admin-section').forEach(s => s.classList.remove('active'));
-    const target = document.getElementById('page-' + page);
-    if (target) target.classList.add('active');
-    document.querySelectorAll('[data-page]').forEach(a => a.classList.remove('active'));
-    this.classList.add('active');
-    document.getElementById('page-title').textContent = titles[page] || '';
-  });
+// Check auth
+onAuthStateChanged(auth, (user) => {
+  if (!user) {
+    window.location.href = 'dashboard.html';
+  } else {
+    // Load dashboard stats
+    loadOrders();
+  }
 });
-
-// ── GALLERY ──
-function triggerUpload(section) { document.getElementById('upload-' + section).click(); }
-function handleGalleryDrop(e, section) { e.preventDefault(); handleGalleryFiles(e.dataTransfer.files, section); }
-function handleGalleryFiles(files, section) {
-  const preview = document.getElementById('preview-' + section);
-  Array.from(files).forEach(f => {
-    const reader = new FileReader();
-    reader.onload = e => {
-      const img = document.createElement('img');
-      img.src = e.target.result;
-      img.title = f.name;
-      preview.appendChild(img);
-    };
-    reader.readAsDataURL(f);
-  });
-}
 </script>
+
 </body>
 </html>
