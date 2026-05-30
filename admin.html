@@ -536,25 +536,67 @@ async function loadGalleries() {
 }
 
 window.uploadGalleryImages = (sectionId) => {
-  cloudinary.openUploadWidget({
-    cloudName: 'da39rjsea',
-    uploadPreset: 'dord_gallery',
-    multiple: true
-  }, async (error, result) => {
-    if (result && result.event === 'success') {
-      const url = result.info.secure_url;
-      const sectionRef = doc(db, 'gallery_sections', sectionId);
-      const section = await getDocs(collection(db, 'gallery_sections'));
-      section.forEach(async (s) => {
-        if (s.id === sectionId) {
-          const images = s.data().images || [];
-          images.push({ url, title: result.info.original_filename });
-          await updateDoc(sectionRef, { images });
-          loadGalleries();
+  if (!window.cloudinary) {
+    alert('❌ Cloudinary не загружена. Обнови страницу!');
+    return;
+  }
+
+  cloudinary.openUploadWidget(
+    {
+      cloudName: 'da39rjsea',
+      uploadPreset: 'dord_gallery',
+      multiple: true,
+      folder: 'dord-gallery',
+      sources: ['local', 'url'],
+      maxFileSize: 5242880,
+      maxFiles: 10
+    },
+    async (error, result) => {
+      if (error) {
+        console.error('Upload error:', error);
+        alert('❌ Ошибка загрузки: ' + error.message);
+        return;
+      }
+
+      if (result && result.event === 'success') {
+        try {
+          const imageUrl = result.info.secure_url;
+          const imageTitle = result.info.original_filename || 'image';
+
+          const sectionsRef = collection(db, 'gallery_sections');
+          const querySnapshot = await getDocs(sectionsRef);
+          
+          let found = false;
+          for (const doc of querySnapshot.docs) {
+            if (doc.id === sectionId) {
+              const sectionRef = doc.ref;
+              const currentImages = doc.data().images || [];
+              
+              currentImages.push({
+                url: imageUrl,
+                title: imageTitle,
+                added_at: new Date().toISOString()
+              });
+
+              await updateDoc(sectionRef, { images: currentImages });
+              found = true;
+              break;
+            }
+          }
+
+          if (found) {
+            alert('✅ Фото загружено!');
+            loadGalleries();
+          } else {
+            alert('❌ Раздел не найден');
+          }
+        } catch (err) {
+          console.error('Firebase error:', err);
+          alert('❌ Ошибка: ' + err.message);
         }
-      });
+      }
     }
-  });
+  );
 };
 
 window.deleteGallery = async (gid) => {
