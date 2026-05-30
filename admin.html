@@ -147,6 +147,7 @@ body { background: #080b1a; color: #cdd5e0; }
               <th>Скидка</th>
               <th>Использовано</th>
               <th>Лимит</th>
+              <th>Период действия</th>
               <th>Статус</th>
               <th>Действие</th>
             </tr>
@@ -241,6 +242,14 @@ body { background: #080b1a; color: #cdd5e0; }
     <div class="form-group">
       <label class="form-label">Лимит использований</label>
       <input type="number" id="promoLimit" class="form-input" placeholder="100">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Дата начала</label>
+      <input type="datetime-local" id="promoStart" class="form-input">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Дата конца</label>
+      <input type="datetime-local" id="promoEnd" class="form-input">
     </div>
     <button class="btn-primary" onclick="createPromo()">✅ Создать</button>
   </div>
@@ -399,15 +408,20 @@ window.createPromo = async () => {
   const code = document.getElementById('promoCode').value;
   const discount = document.getElementById('promoDiscount').value;
   const limit = document.getElementById('promoLimit').value;
-  if (!code || !discount || !limit) return alert('Заполни все поля');
+  const startDate = document.getElementById('promoStart').value;
+  const endDate = document.getElementById('promoEnd').value;
+  if (!code || !discount || !limit || !startDate || !endDate) return alert('Заполни все поля');
   try {
     await addDoc(collection(db, 'promos'), {
-      code, discount: parseInt(discount), limit: parseInt(limit), used: 0, created_at: new Date()
+      code, discount: parseInt(discount), limit: parseInt(limit), used: 0, 
+      start_date: new Date(startDate), end_date: new Date(endDate), created_at: new Date()
     });
     alert('✅ Промокод создан');
     document.getElementById('promoCode').value = '';
     document.getElementById('promoDiscount').value = '';
     document.getElementById('promoLimit').value = '';
+    document.getElementById('promoStart').value = '';
+    document.getElementById('promoEnd').value = '';
     closePromoModal();
     loadPromos();
   } catch (e) {
@@ -419,16 +433,19 @@ async function loadPromos() {
   const promos = await getDocs(collection(db, 'promos'));
   const html = promos.docs.map(doc => {
     const data = doc.data();
+    const startDate = data.start_date ? new Date(data.start_date.toDate()).toLocaleDateString('ru-RU') : '—';
+    const endDate = data.end_date ? new Date(data.end_date.toDate()).toLocaleDateString('ru-RU') : '—';
     return `<tr>
       <td><strong>${data.code}</strong></td>
       <td>${data.discount}%</td>
       <td>${data.used || 0}</td>
       <td>${data.limit}</td>
+      <td>${startDate} по ${endDate}</td>
       <td><span class="status-active">🟢 Active</span></td>
       <td><button class="btn-danger" onclick="deletePromo('${doc.id}')">🗑️</button></td>
     </tr>`;
   }).join('');
-  document.getElementById('promoList').innerHTML = html || '<tr><td colspan="6" style="text-align:center">Промокодов нет</td></tr>';
+  document.getElementById('promoList').innerHTML = html || '<tr><td colspan="7" style="text-align:center">Промокодов нет</td></tr>';
   document.getElementById('stat-promos').textContent = promos.size;
 }
 
