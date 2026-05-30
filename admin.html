@@ -120,9 +120,9 @@
 
 <!-- ACCESS DENIED (показывается до проверки auth) -->
 <div class="access-denied" id="accessDenied">
-  <h2>🔒 Access Restricted</h2>
-  <p>Checking authorization...</p>
-  <a href="index.html" style="color:#00c896;font-size:12px;">← Back to site</a>
+  <h2>🔒 Доступ запрещён</h2>
+  <p>Проверка авторизации...</p>
+  <a href="index.html" style="color:#00c896;font-size:12px;">← На главную</a>
 </div>
 
 <div class="toast" id="toast"></div>
@@ -149,21 +149,21 @@
       <span class="admin-badge">Root</span>
     </div>
     <ul class="admin-nav">
-      <li class="nav-section">Overview</li>
-      <li><a data-page="overview" class="active"><svg width="14" height="14"><use href="#ic-grid"/></svg>Dashboard</a></li>
-      <li class="nav-section">System</li>
-      <li><a data-page="agents"><svg width="14" height="14"><use href="#ic-server"/></svg>Agents</a></li>
-      <li><a data-page="orders"><svg width="14" height="14"><use href="#ic-order"/></svg>Orders</a></li>
-      <li class="nav-section">Clients</li>
-      <li><a data-page="clients"><svg width="14" height="14"><use href="#ic-users"/></svg>Users</a></li>
+      <li class="nav-section">Обзор</li>
+      <li><a data-page="overview" class="active"><svg width="14" height="14"><use href="#ic-grid"/></svg>Дашборд</a></li>
+      <li class="nav-section">Система</li>
+      <li><a data-page="agents"><svg width="14" height="14"><use href="#ic-server"/></svg>Агенты</a></li>
+      <li><a data-page="orders"><svg width="14" height="14"><use href="#ic-order"/></svg>Заказы</a></li>
+      <li class="nav-section">Клиенты</li>
+      <li><a data-page="clients"><svg width="14" height="14"><use href="#ic-users"/></svg>Пользователи</a></li>
       <li><a data-page="samples"><svg width="14" height="14"><use href="#ic-gift"/></svg>Free Samples</a></li>
-      <li class="nav-section">Tools</li>
-      <li><a data-page="promo"><svg width="14" height="14"><use href="#ic-tag"/></svg>Promo Codes</a></li>
-      <li><a data-page="gallery"><svg width="14" height="14"><use href="#ic-img"/></svg>Gallery Upload</a></li>
+      <li class="nav-section">Инструменты</li>
+      <li><a data-page="promo"><svg width="14" height="14"><use href="#ic-tag"/></svg>Промокоды</a></li>
+      <li><a data-page="gallery"><svg width="14" height="14"><use href="#ic-img"/></svg>Галерея</a></li>
     </ul>
     <div class="admin-footer-nav">
-      <a href="index.html"><svg width="14" height="14"><use href="#ic-home"/></svg>Back to site</a>
-      <a href="#" onclick="logoutAdmin()" style="margin-top:4px;color:#f87171">Sign out</a>
+      <a href="index.html"><svg width="14" height="14"><use href="#ic-home"/></svg>На сайт</a>
+      <a href="#" onclick="logoutAdmin()" style="margin-top:4px;color:#f87171">Выйти</a>
     </div>
   </aside>
 
@@ -174,7 +174,7 @@
       <div class="topbar-right">
         <span id="adminEmail" style="color:#00c896"></span>
         <div class="led"></div>
-        <span>System Online</span>
+        <span>Система работает</span>
       </div>
     </div>
 
@@ -189,9 +189,9 @@
           <div class="admin-stat"><div class="as-label">Free Samples</div><div class="as-num" id="statSamples">0</div><div class="as-sub">requests received</div></div>
         </div>
         <div class="admin-table-wrap">
-          <div class="admin-table-header"><h3>Recent Orders</h3></div>
+          <div class="admin-table-header"><h3>Последние заказы</h3></div>
           <table class="admin-table">
-            <thead><tr><th>Order ID</th><th>Email</th><th>Amount</th><th>Date</th><th>Status</th></tr></thead>
+            <thead><tr><th>ID заказа</th><th>Email</th><th>Сумма</th><th>Дата</th><th>Статус</th></tr></thead>
             <tbody id="overviewOrdersBody"><tr><td colspan="5" style="text-align:center;color:var(--text-muted);padding:24px">Loading...</td></tr></tbody>
           </table>
         </div>
@@ -228,11 +228,11 @@
       <div id="page-orders" class="admin-section">
         <div class="admin-table-wrap">
           <div class="admin-table-header">
-            <h3>All Orders</h3>
-            <input class="table-search" placeholder="Search by email..." oninput="filterOrders(this.value)">
+            <h3>Все заказы</h3>
+            <input class="table-search" placeholder="Поиск по email..." oninput="filterOrders(this.value)">
           </div>
           <table class="admin-table">
-            <thead><tr><th>Order ID</th><th>Email</th><th>Type</th><th>Amount</th><th>Date</th><th>Status</th><th>Action</th></tr></thead>
+            <thead><tr><th>ID заказа</th><th>Email</th><th>Тип</th><th>Сумма</th><th>Дата</th><th>Статус</th><th>Действие</th></tr></thead>
             <tbody id="ordersBody"><tr><td colspan="7" style="text-align:center;color:var(--text-muted);padding:24px">Loading...</td></tr></tbody>
           </table>
         </div>
@@ -242,11 +242,11 @@
       <div id="page-clients" class="admin-section">
         <div class="admin-table-wrap">
           <div class="admin-table-header">
-            <h3>All Users</h3>
-            <input class="table-search" placeholder="Search by email..." oninput="filterUsers(this.value)">
+            <h3>Все пользователи</h3>
+            <input class="table-search" placeholder="Поиск по email..." oninput="filterUsers(this.value)">
           </div>
           <table class="admin-table">
-            <thead><tr><th>Email</th><th>Plan</th><th>Spent</th><th>Points</th><th>Rank</th><th>Orders</th><th>Joined</th><th>Edit</th></tr></thead>
+            <thead><tr><th>Email</th><th>План</th><th>Потрачено</th><th>Баллы</th><th>Ранг</th><th>Заказов</th><th>Дата</th><th>Ред.</th></tr></thead>
             <tbody id="usersBody"><tr><td colspan="8" style="text-align:center;color:var(--text-muted);padding:24px">Loading...</td></tr></tbody>
           </table>
         </div>
@@ -255,9 +255,9 @@
       <!-- ═══ FREE SAMPLES ═══ -->
       <div id="page-samples" class="admin-section">
         <div class="admin-table-wrap">
-          <div class="admin-table-header"><h3>Free Sample Requests</h3></div>
+          <div class="admin-table-header"><h3>Заявки на Free Sample</h3></div>
           <table class="admin-table">
-            <thead><tr><th>Email</th><th>Size</th><th>Object</th><th>BG</th><th>Light</th><th>FX</th><th>Date</th><th>Status</th></tr></thead>
+            <thead><tr><th>Email</th><th>Размер</th><th>Объект</th><th>Фон</th><th>Свет</th><th>Эффекты</th><th>Дата</th><th>Статус</th></tr></thead>
             <tbody id="samplesBody"><tr><td colspan="8" style="text-align:center;color:var(--text-muted);padding:24px">Loading...</td></tr></tbody>
           </table>
         </div>
@@ -266,15 +266,15 @@
       <!-- ═══ PROMO CODES ═══ -->
       <div id="page-promo" class="admin-section">
         <div class="admin-table-wrap">
-          <div class="admin-table-header"><h3>Promo Codes</h3></div>
+          <div class="admin-table-header"><h3>Промокоды</h3></div>
           <div class="promo-form">
-            <div class="promo-field"><label>Code</label><input type="text" id="promoCode" placeholder="SUMMER25" style="text-transform:uppercase"></div>
-            <div class="promo-field"><label>Discount %</label><input type="number" id="promoDiscount" placeholder="15" min="1" max="100"></div>
-            <div class="promo-field"><label>Expires (optional)</label><input type="date" id="promoExpires"></div>
-            <button class="btn-add-promo" onclick="createPromo()">+ Create</button>
+            <div class="promo-field"><label>Код</label><input type="text" id="promoCode" placeholder="SUMMER25" style="text-transform:uppercase"></div>
+            <div class="promo-field"><label>Скидка %</label><input type="number" id="promoDiscount" placeholder="15" min="1" max="100"></div>
+            <div class="promo-field"><label>Срок действия</label><input type="date" id="promoExpires"></div>
+            <button class="btn-add-promo" onclick="createPromo()">+ Создать</button>
           </div>
           <table class="admin-table">
-            <thead><tr><th>Code</th><th>Discount</th><th>Used</th><th>Expires</th><th>Active</th><th></th></tr></thead>
+            <thead><tr><th>Код</th><th>Скидка</th><th>Использован</th><th>Истекает</th><th>Статус</th><th></th></tr></thead>
             <tbody id="promoBody"><tr><td colspan="6" style="text-align:center;color:var(--text-muted);padding:24px">No promo codes yet</td></tr></tbody>
           </table>
         </div>
@@ -283,7 +283,7 @@
       <!-- ═══ GALLERY UPLOAD ═══ -->
       <div id="page-gallery" class="admin-section">
         <div class="admin-table-wrap">
-          <div class="admin-table-header"><h3>Gallery Upload by Section</h3><span style="font-size:11px;color:var(--text-muted)">Files upload to GitHub via commit message — use manual GitHub upload for now</span></div>
+          <div class="admin-table-header"><h3>Загрузка галереи по разделам</h3><span style="font-size:11px;color:var(--text-muted)">Загрузи файлы вручную в GitHub → gallery/</span></div>
           <div style="padding:20px">
             <div class="gallery-grid">
               <!-- Luxury Furniture -->
@@ -322,9 +322,34 @@
                 <input type="file" id="upload-shopify" multiple accept="image/*" style="display:none" onchange="handleGalleryFiles(this.files,'shopify')">
                 <div class="gallery-preview" id="preview-shopify"></div>
               </div>
-            </div>
-            <div style="margin-top:20px;padding:14px;background:rgba(255,160,0,0.06);border:1px solid rgba(255,160,0,0.2);border-radius:10px;font-size:12px;color:#8892a4;line-height:1.6">
-              ⚠️ Preview shown locally. To publish: go to <a href="https://github.com/dordyak-design/Dord-app/tree/main/gallery" target="_blank" style="color:#00c896">GitHub → gallery/</a> and upload files to the correct folder manually, or set up GitHub API token for direct upload.
+              <!-- Real Estate -->
+              <div class="gallery-section-card">
+                <div class="gallery-section-title">🏡 Real Estate & Villas</div>
+                <div class="gallery-upload-zone" onclick="triggerUpload('realestate')" ondragover="event.preventDefault()" ondrop="handleGalleryDrop(event,'realestate')">
+                  📁 Drop or click to upload<br><span style="font-size:10px;margin-top:4px;display:block">JPG, PNG, WEBP</span>
+                </div>
+                <input type="file" id="upload-realestate" multiple accept="image/*" style="display:none" onchange="handleGalleryFiles(this.files,'realestate')">
+                <div class="gallery-preview" id="preview-realestate"></div>
+              </div>
+              <!-- Food -->
+              <div class="gallery-section-card">
+                <div class="gallery-section-title">🍽️ Food & Product Shots</div>
+                <div class="gallery-upload-zone" onclick="triggerUpload('food')" ondragover="event.preventDefault()" ondrop="handleGalleryDrop(event,'food')">
+                  📁 Drop or click to upload<br><span style="font-size:10px;margin-top:4px;display:block">JPG, PNG, WEBP</span>
+                </div>
+                <input type="file" id="upload-food" multiple accept="image/*" style="display:none" onchange="handleGalleryFiles(this.files,'food')">
+                <div class="gallery-preview" id="preview-food"></div>
+              </div>
+              <!-- Nature -->
+              <div class="gallery-section-card">
+                <div class="gallery-section-title">🌿 Nature · Flora & Fauna</div>
+                <div class="gallery-upload-zone" onclick="triggerUpload('nature')" ondragover="event.preventDefault()" ondrop="handleGalleryDrop(event,'nature')">
+                  📁 Drop or click to upload<br><span style="font-size:10px;margin-top:4px;display:block">JPG, PNG, WEBP</span>
+                </div>
+                <input type="file" id="upload-nature" multiple accept="image/*" style="display:none" onchange="handleGalleryFiles(this.files,'nature')">
+                <div class="gallery-preview" id="preview-nature"></div>
+              </div>;border:1px solid rgba(255,160,0,0.2);border-radius:10px;font-size:12px;color:#8892a4;line-height:1.6">
+              ⚠️ Предпросмотр показан локально. Для публикации: зайди в <a href="https://github.com/dordyak-design/Dord-app/tree/main/gallery" target="_blank" style="color:#00c896">GitHub → gallery/</a> и загрузи файлы в нужную папку вручную.
             </div>
           </div>
         </div>
@@ -338,10 +363,10 @@
 <div id="userEditModal" style="display:none;position:fixed;inset:0;background:rgba(8,11,26,0.95);z-index:9999;align-items:center;justify-content:center;padding:20px">
   <div style="background:#0d1121;border:1px solid rgba(0,200,150,0.25);border-radius:20px;padding:32px;max-width:400px;width:100%;position:relative">
     <button onclick="closeUserEdit()" style="position:absolute;top:14px;right:16px;background:none;border:none;color:#8892a4;font-size:20px;cursor:pointer">✕</button>
-    <div style="font-family:'Unbounded',sans-serif;font-size:13px;font-weight:700;color:#fff;margin-bottom:20px">Edit User</div>
+    <div style="font-family:'Unbounded',sans-serif;font-size:13px;font-weight:700;color:#fff;margin-bottom:20px">Редактировать пользователя</div>
     <input type="hidden" id="editUid">
     <div style="display:flex;flex-direction:column;gap:14px">
-      <div class="promo-field"><label>Plan</label>
+      <div class="promo-field"><label>План</label>
         <select id="editPlan" style="background:rgba(0,0,0,0.3);border:1px solid var(--border);border-radius:8px;padding:9px 12px;color:#fff;font-family:'Inter',sans-serif;font-size:13px;outline:none">
           <option value="free">Free</option>
           <option value="starter">Starter</option>
@@ -349,9 +374,9 @@
           <option value="brand">Brand Identity</option>
         </select>
       </div>
-      <div class="promo-field"><label>Loyalty Points</label><input type="number" id="editPoints" placeholder="0"></div>
-      <div class="promo-field"><label>Images Limit</label><input type="number" id="editLimit" placeholder="0"></div>
-      <button onclick="saveUserEdit()" style="width:100%;padding:12px;background:linear-gradient(135deg,#004aad,#00c896);color:#fff;border:none;border-radius:10px;font-family:'Unbounded',sans-serif;font-size:11px;font-weight:700;cursor:pointer;text-transform:uppercase">Save Changes</button>
+      <div class="promo-field"><label>Баллы лояльности</label><input type="number" id="editPoints" placeholder="0"></div>
+      <div class="promo-field"><label>Лимит изображений</label><input type="number" id="editLimit" placeholder="0"></div>
+      <button onclick="saveUserEdit()" style="width:100%;padding:12px;background:linear-gradient(135deg,#004aad,#00c896);color:#fff;border:none;border-radius:10px;font-family:'Unbounded',sans-serif;font-size:11px;font-weight:700;cursor:pointer;text-transform:uppercase">Сохранить</button>
     </div>
   </div>
 </div>
@@ -361,7 +386,7 @@ import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebas
 import { getAuth, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
 import { getFirestore, collection, getDocs, doc, updateDoc, addDoc, deleteDoc, orderBy, query, limit, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
 
-const ADMIN_UID = 'V7RG175i3KbUc1fVIBD2vEuone83'; // ← ЗАМЕНИ НА СВОЙ UID
+const ADMIN_UID = '9wVQHqOaGigrSC3YkHWPBJKHJ6t2'; // ← ЗАМЕНИ НА СВОЙ UID
 
 const app = initializeApp({
   apiKey: "AIzaSyCfot_WKYkikmKHrqet2nXnPasQB1ln61g",
@@ -467,13 +492,13 @@ window.filterOrders = (q) => renderOrders(allOrders.filter(o => (o.email || '').
 
 window.updateOrderStatus = async (id, status) => {
   await updateDoc(doc(db, 'orders', id), { status });
-  showToast('Status updated');
+  showToast('Статус обновлён');
 };
 window.deleteOrder = async (id) => {
-  if (!confirm('Delete this order?')) return;
+  if (!confirm('Удалить этот заказ?')) return;
   await deleteDoc(doc(db, 'orders', id));
   loadOrders();
-  showToast('Order deleted');
+  showToast('Заказ удалён');
 };
 
 // ── USERS ──
@@ -521,7 +546,7 @@ window.saveUserEdit = async () => {
   await updateDoc(doc(db, 'users', uid), { plan, loyalty_points: points, loyalty_rank: rank.name, loyalty_discount: rank.d, generations_limit: lim });
   closeUserEdit();
   loadUsers();
-  showToast('User updated');
+  showToast('Пользователь обновлён');
 };
 
 // ── FREE SAMPLES ──
@@ -578,13 +603,13 @@ window.createPromo = async () => {
   const code     = document.getElementById('promoCode').value.trim().toUpperCase();
   const discount = parseInt(document.getElementById('promoDiscount').value);
   const expires  = document.getElementById('promoExpires').value;
-  if (!code || !discount) { showToast('Fill in code and discount', true); return; }
+  if (!code || !discount) { showToast('Заполни код и скидку', true); return; }
   await addDoc(collection(db, 'promo_codes'), { code, discount, expires: expires || '', active: true, used_count: 0, created_at: serverTimestamp() });
   document.getElementById('promoCode').value = '';
   document.getElementById('promoDiscount').value = '';
   document.getElementById('promoExpires').value = '';
   loadPromos();
-  showToast('Promo code created!');
+  showToast('Промокод создан!');
 };
 
 window.togglePromo = async (id, active) => {
@@ -592,10 +617,10 @@ window.togglePromo = async (id, active) => {
   loadPromos();
 };
 window.deletePromo = async (id) => {
-  if (!confirm('Delete promo code?')) return;
+  if (!confirm('Удалить промокод?')) return;
   await deleteDoc(doc(db, 'promo_codes', id));
   loadPromos();
-  showToast('Deleted');
+  showToast('Удалено');
 };
 
 // ── TOAST ──
@@ -610,7 +635,7 @@ window.showToast = (msg, error = false) => {
 
 <script>
 // ── NAVIGATION ──
-const titles = { overview:'Dashboard', agents:'Agents', orders:'Orders', clients:'Users', samples:'Free Samples', promo:'Promo Codes', gallery:'Gallery Upload' };
+const titles = { overview:'Дашборд', agents:'Агенты', orders:'Заказы', clients:'Пользователи', samples:'Free Samples', promo:'Промокоды', gallery:'Галерея' };
 document.querySelectorAll('[data-page]').forEach(link => {
   link.addEventListener('click', function(e) {
     e.preventDefault();
