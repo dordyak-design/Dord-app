@@ -4,16 +4,16 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { orderId, amount, status, currency, email } = req.body;
+    const body = req.body;
+    const { orderId, amount, status, currency, email } = body;
 
-    if (status !== 'success' && status !== 'completed') {
-      return res.status(200).json({ ok: true });
-    }
+    // Логируем всё что пришло
+    console.log('OxaPay Webhook:', JSON.stringify(body));
 
-    // Telegram уведомление
-    const msg = `✅ ОПЛАТА ПОЛУЧЕНА\n\n🆔 Заказ: ${orderId}\n💰 Сумма: $${amount} ${currency}\n📧 Клиент: ${email || '—'}`;
+    // Отправляем Telegram при любом статусе
+    const msg = `💳 WEBHOOK ОТ OXAPAY\n\n🆔 Заказ: ${orderId || '—'}\n💰 Сумма: $${amount || '—'} ${currency || ''}\n📊 Статус: ${status || '—'}\n📧 Клиент: ${email || '—'}`;
     
-    await fetch(`https://api.telegram.org/bot8742382444:AAE3oWQxDlWF9XH8PHTOPLR93rMK3DVcf6s/sendMessage`, {
+    await fetch('https://api.telegram.org/bot8742382444:AAE3oWQxDlWF9XH8PHTOPLR93rMK3DVcf6s/sendMessage', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ chat_id: '528289836', text: msg })
@@ -22,6 +22,7 @@ export default async function handler(req, res) {
     return res.status(200).json({ ok: true });
 
   } catch (error) {
+    console.error('Error:', error);
     return res.status(500).json({ error: error.message });
   }
 }
