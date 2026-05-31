@@ -835,6 +835,7 @@ async function handlePay() {
     const data = await response.json();
 
     if (data.ok && data.payLink) {
+      localStorage.setItem('dord_track_id', data.trackId);
       window.location.href = data.payLink;
     } else {
       throw new Error(data.message || 'Payment error');
