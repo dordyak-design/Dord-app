@@ -1,53 +1,46 @@
-// api/create-invoice.js
-// Vercel Serverless Function — создаёт инвойс OxaPay
-
 export default async function handler(req, res) {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-  if (req.method === 'OPTIONS') return res.status(200).end();
-  if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
-
-  const { amount, currency = 'USD', orderId, description, email } = req.body;
-  if (!amount || !orderId) return res.status(400).json({ error: 'amount and orderId are required' });
-
-  const merchantApiKey = process.env.OXAPAY_API_KEY;
-  if (!merchantApiKey) return res.status(500).json({ error: 'OXAPAY_API_KEY not configured' });
-
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://dordai.art';
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method not allowed' });
+  }
 
   try {
-    const payload = {
-      merchant:       merchantApiKey,
-      amount:         Number(amount),
-      currency,
-      lifeTime:       60,
-      feePaidByPayer: 0,
-      underPaidCover: 0.5,
-      callbackUrl:    `${siteUrl}/api/payment-callback`,
-      returnUrl:      `${siteUrl}/payment-success.html?orderId=${orderId}`,
-      description:    description || `DordAI Order #${orderId}`,
-      orderId:        String(orderId),
-      email:          email || '',
-    };
+    const { amount, orderId, description, email } = req.body;
 
     const response = await fetch('https://api.oxapay.com/merchants/request', {
-      method:  'POST',
+      method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body:    JSON.stringify(payload),
+      body: JSON.stringify({
+        merchant: 'LDKWVP-PPHZJE-WQASHD-POZGUU',
+        amount: parseFloat(amount),
+        currency: 'USD',
+        lifeTime: 30,
+        feePaidByPayer: 0,
+        underPaidCover: 2.5,
+        callbackUrl: 'https://dordai.art/api/payment-callback',
+        returnUrl: 'https://dordai.art/services.html?payment=success',
+        description: description || 'Dord AI Studio Order',
+        orderId: orderId,
+        email: email || ''
+      })
     });
 
     const data = await response.json();
 
-    if (data.result !== 100) {
-      console.error('OxaPay error:', data);
-      return res.status(400).json({ error: data.message || 'OxaPay error', code: data.result });
+    if (data.result === 100) {
+      return res.status(200).json({ 
+        ok: true, 
+        payLink: data.payLink,
+        trackId: data.trackId 
+      });
+    } else {
+      return res.status(400).json({ 
+        error: 'OxaPay error', 
+        message: data.message || 'Unknown error',
+        result: data.result
+      });
     }
 
-    return res.status(200).json({ success: true, payLink: data.payLink, trackId: data.trackId, orderId });
-
-  } catch (err) {
-    console.error('create-invoice:', err);
-    return res.status(500).json({ error: 'Internal server error' });
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
   }
 }
