@@ -222,7 +222,7 @@
   <a href="index.html">Home</a><span>›</span><span>Orders</span>
 </div>
 
-<!-- FREE SAMPLE SECTION — MOVED TO TOP -->
+<!-- FREE SAMPLE SECTION -->
 <div class="section-wrap" style="margin-top:0;padding-top:40px">
   <div class="section-block">
     <div class="free-sample-row">
@@ -253,52 +253,29 @@
   <!-- LEFT: CONFIGURATOR -->
   <div class="cfg-left">
 
-    <!-- ── SECTION 1: IMAGE PACKS ── -->
+    <!-- SECTION 1: IMAGE PACKS -->
     <div class="cfg-section">
       <div class="cfg-section-title">📸 Image Packs — Studio-Grade Product Photos</div>
       <div class="cfg-section-sub">Choose your resolution first — the photo count updates automatically. All packs include commercial rights, revisions, and human QA by our operator.</div>
 
       <div class="choice-label">Step 1 — Resolution</div>
       <div class="choice-group" id="resGroup">
-        <button class="choice-btn res-btn" data-res="1024" onclick="selectRes(this,'1024')">
-          HD Pro
-          <span class="btn-count">1024×1024 / 768×768</span>
-        </button>
-        <button class="choice-btn res-btn" data-res="768" onclick="selectRes(this,'768')">
-          Standard
-          <span class="btn-count">768×768</span>
-        </button>
-        <button class="choice-btn res-btn" data-res="512" onclick="selectRes(this,'512')">
-          Economy
-          <span class="btn-count">512×512</span>
-        </button>
+        <button class="choice-btn res-btn" data-res="1024" onclick="selectRes(this,'1024')">HD Pro<span class="btn-count">1024×1024 / 768×768</span></button>
+        <button class="choice-btn res-btn" data-res="768" onclick="selectRes(this,'768')">Standard<span class="btn-count">768×768</span></button>
+        <button class="choice-btn res-btn" data-res="512" onclick="selectRes(this,'512')">Economy<span class="btn-count">512×512</span></button>
       </div>
 
       <div class="choice-label">Step 2 — Volume</div>
       <div class="choice-group" id="packGroup">
-        <button class="choice-btn" data-pack="99" data-base="20" onclick="selectPack(this,99,20)">
-          Starter
-          <span class="btn-price">$99</span>
-          <span class="btn-count" id="cnt-99">20 photos</span>
-        </button>
-        <button class="choice-btn" data-pack="299" data-base="50" onclick="selectPack(this,299,50)">
-          Growth (E-Com)
-          <span class="btn-price">$299</span>
-          <span class="btn-count" id="cnt-299">50 photos</span>
-        </button>
-        <button class="choice-btn" data-pack="699" data-base="150" onclick="selectPack(this,699,150)">
-          Scale (Business)
-          <span class="btn-price">$699</span>
-          <span class="btn-count" id="cnt-699">150 photos</span>
-        </button>
+        <button class="choice-btn" data-pack="99" data-base="20" onclick="selectPack(this,99,20)">Starter<span class="btn-price">$99</span><span class="btn-count" id="cnt-99">20 photos</span></button>
+        <button class="choice-btn" data-pack="299" data-base="50" onclick="selectPack(this,299,50)">Growth (E-Com)<span class="btn-price">$299</span><span class="btn-count" id="cnt-299">50 photos</span></button>
+        <button class="choice-btn" data-pack="699" data-base="150" onclick="selectPack(this,699,150)">Scale (Business)<span class="btn-price">$699</span><span class="btn-count" id="cnt-699">150 photos</span></button>
       </div>
 
-      <button class="btn-add-cart" id="addImgBtn" onclick="addImagePack()" disabled style="opacity:0.4">
-        + Add Image Pack to Cart
-      </button>
+      <button class="btn-add-cart" id="addImgBtn" onclick="addImagePack()" disabled style="opacity:0.4">+ Add Image Pack to Cart</button>
     </div>
 
-    <!-- ── SECTION 2: VIDEO REELS ── -->
+    <!-- SECTION 2: VIDEO REELS -->
     <div class="cfg-section">
       <div class="cfg-section-title">🎬 Video Reels — TikTok / Instagram / Reels</div>
       <div class="cfg-section-sub">Short dynamic videos 5–15 seconds. Video converts 3–5× better than static images. Add multiple if needed — each is added separately to cart.</div>
@@ -344,7 +321,7 @@
       </div>
     </div>
 
-    <!-- ── SECTION 3: BULK PRODUCT CARDS ── -->
+    <!-- SECTION 3: BULK PRODUCT CARDS -->
     <div class="cfg-section">
       <div class="cfg-section-title">🏷️ Bulk Product Cards — E-Commerce Ready</div>
       <div class="cfg-section-sub">$2.50 per card (512px Shopify-ready). Minimum 30 cards — maximum 200 cards per order. Perfect for Shopify and Amazon product listings.</div>
@@ -365,12 +342,10 @@
         </div>
       </div>
 
-      <button class="btn-add-cart" onclick="addBulkCards()">
-        + Add Product Cards to Cart
-      </button>
+      <button class="btn-add-cart" onclick="addBulkCards()">+ Add Product Cards to Cart</button>
     </div>
 
-    <!-- ── SECTION 4: FILE UPLOAD ── -->
+    <!-- SECTION 4: FILE UPLOAD -->
     <div class="cfg-section">
       <div class="cfg-section-title">📎 Upload Your Product Photos</div>
       <div class="cfg-section-sub">Upload your product images here. We'll review them and start generation within 48 hours after payment confirmation.</div>
@@ -384,7 +359,7 @@
       <div class="upload-list" id="uploadList"></div>
     </div>
 
-    <!-- ── SECTION 5: ORDER DETAILS ── -->
+    <!-- SECTION 5: ORDER DETAILS -->
     <div class="cfg-section">
       <div class="cfg-section-title">✏️ Order Details — Describe Your Vision</div>
       <div class="cfg-section-sub">Fill in as much detail as possible — the more context you give, the better the result.</div>
@@ -437,12 +412,9 @@
   <!-- RIGHT: STICKY CART -->
   <div class="cart-sidebar" id="cartSidebar">
     <div class="cart-title">🛒 Your Order</div>
-
-    <!-- Auth required banner -->
     <div class="auth-required" id="authRequiredBanner">
       <a href="dashboard.html">Sign in</a> to place an order
     </div>
-
     <div class="cart-items" id="cartItems">
       <div class="cart-empty" id="cartEmpty">Your cart is empty.<br>Select services on the left.</div>
     </div>
@@ -810,7 +782,6 @@ async function handlePay() {
     effects:     document.getElementById('orderFx')?.value || '—',
   };
 
-  // Сохраняем в localStorage для webhook
   localStorage.setItem('dord_pending_order', JSON.stringify({ orderId, cart, total, clientEmail, orderDetails }));
 
   const payBtn = document.getElementById('payBtn');
@@ -818,7 +789,6 @@ async function handlePay() {
   setPayStatus('⏳ Redirecting to payment...', 'loading');
 
   try {
-    // OxaPay параметры
     const ordDescription = cart.map(i => i.name + ': ' + i.detail).join(' | ');
 
     const response = await fetch('/api/create-invoice', {
@@ -934,14 +904,54 @@ function showSampleMsg(text, type) {
   el.style.border = type==='error'?'1px solid rgba(239,68,68,0.3)':'1px solid rgba(0,200,150,0.3)';
   el.style.color = type==='error'?'#f87171':'#00c896';
 }
+
+// ── CHECK PAYMENT ON RETURN ──
+(async function checkPaymentOnReturn() {
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('payment') !== 'success') return;
+
+  const trackId = localStorage.getItem('dord_track_id');
+  const pending = JSON.parse(localStorage.getItem('dord_pending_order') || 'null');
+  if (!trackId) return;
+
+  setPayStatus('⏳ Verifying payment...', 'loading');
+
+  try {
+    const res = await fetch('/api/check-payment', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        trackId,
+        orderId: pending?.orderId || '',
+        cart: pending?.cart || [],
+        email: pending?.clientEmail || '',
+        orderDetails: pending?.orderDetails || {},
+      }),
+    });
+
+    const data = await res.json();
+
+    if (data.ok) {
+      setPayStatus('✅ Payment confirmed! $' + data.amount + ' — Order is being processed.', 'loading');
+      localStorage.removeItem('dord_track_id');
+      localStorage.removeItem('dord_pending_order');
+      cart = [];
+      renderCart();
+    } else {
+      setPayStatus('⏳ Payment pending: ' + data.status + '. Refresh in a few minutes.', 'loading');
+    }
+  } catch (err) {
+    setPayStatus('⚠️ Could not verify payment. Contact support.', 'error');
+  }
+})();
 </script>
 <script src="i18n.js"></script>
 <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
   <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
 </button>
 <script>
-  const btn = document.getElementById('backToTop');
-  window.addEventListener('scroll', () => { btn.classList.toggle('visible', window.scrollY > 400); });
+  const bttBtn = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => { bttBtn.classList.toggle('visible', window.scrollY > 400); });
 </script>
 </body>
 </html>
