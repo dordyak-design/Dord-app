@@ -819,21 +819,26 @@ async function handlePay() {
 
   try {
     // OxaPay параметры
-    const merchantId = 'LDKWVP-PPHZJE-WQASHD-POZGUU';
     const ordDescription = cart.map(i => i.name + ': ' + i.detail).join(' | ');
-    
-    // Создаем ссылку на OxaPay
-    const oxapayUrl = new URL('https://oxapay.com/pay');
-    oxapayUrl.searchParams.append('merchant', merchantId);
-    oxapayUrl.searchParams.append('amount', total.toFixed(2));
-    oxapayUrl.searchParams.append('currency', 'USD');
-    oxapayUrl.searchParams.append('orderId', orderId);
-    oxapayUrl.searchParams.append('description', ordDescription);
-    oxapayUrl.searchParams.append('email', clientEmail);
-    oxapayUrl.searchParams.append('callbackUrl', window.location.origin + '/api/payment-callback');
 
-    // Редирект на OxaPay
-    window.location.href = oxapayUrl.toString();
+    const response = await fetch('/api/create-invoice', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        amount: total.toFixed(2),
+        orderId,
+        description: ordDescription,
+        email: clientEmail
+      })
+    });
+
+    const data = await response.json();
+
+    if (data.ok && data.payLink) {
+      window.location.href = data.payLink;
+    } else {
+      throw new Error(data.message || 'Payment error');
+    }
 
   } catch (err) {
     setPayStatus('❌ ' + err.message, 'error');
