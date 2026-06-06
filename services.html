@@ -467,17 +467,40 @@ try {
   const pricesDoc = await getDoc(doc(db, 'settings', 'prices'));
   if (pricesDoc.exists()) {
     const pd = pricesDoc.data();
+    // PACKS
     const packs = pd.packs || [];
     const packBtns = document.querySelectorAll('#packGroup .choice-btn');
     packs.forEach((p, i) => {
       if (!packBtns[i]) return;
       const btn = packBtns[i];
       const priceEl = btn.querySelector('.btn-price');
+      const countEl = btn.querySelector('.btn-count');
       if (priceEl) priceEl.textContent = '$' + p.price;
+      if (countEl) countEl.textContent = p.base + ' photos';
       btn.setAttribute('data-pack', p.price);
       btn.setAttribute('data-base', p.base);
       btn.onclick = function(){ selectPack(this, p.price, p.base); };
     });
+    // VIDEOS
+    const videos = pd.videos || [];
+    const vidCards = document.querySelectorAll('.video-card');
+    videos.forEach((v, i) => {
+      if (!vidCards[i]) return;
+      const priceEl = vidCards[i].querySelector('.video-card-price');
+      const nameEl = vidCards[i].querySelector('.video-card-name');
+      const descEl = vidCards[i].querySelector('.video-card-desc');
+      const addBtn = vidCards[i].querySelector('.video-add-btn');
+      if (priceEl) priceEl.textContent = '$' + v.price;
+      if (nameEl) nameEl.textContent = v.name;
+      if (descEl) descEl.textContent = v.duration + '. TikTok & Reels.';
+      if (addBtn) addBtn.onclick = function(){ addVideo(v.name + ' · ' + v.duration, v.price); };
+    });
+    // BULK
+    if (pd.bulkPrice) {
+      window._bulkPrice = pd.bulkPrice;
+      document.querySelector('.cfg-section-sub[data-i18n="svc.cfg.bulk.sub"]').textContent = '$' + pd.bulkPrice + '/card (512px). Min 30, max 200.';
+      updateBulk();
+    }
   }
 } catch(e) { console.warn('Prices load error:', e); }
 
@@ -532,18 +555,18 @@ window.submitSample = async function(btn) {
 
 <script>
 let cart=[];let selectedRes=null;let selectedPack=null;let uploadedFiles=[];
-window._currentUser=null;window._cartHasItems=false;window._promoDiscount=0;window._promoDocId=null;
+window._currentUser=null;window._cartHasItems=false;window._promoDiscount=0;window._promoDocId=null;window._bulkPrice=2.50;
 const resMultiplier={'1024':1,'768':1.5,'512':2};
 const resLabel={'1024':'HD 1024','768':'Std 768','512':'Eco 512'};
 function selectRes(btn,res){document.querySelectorAll('#resGroup .choice-btn').forEach(b=>b.classList.remove('selected'));btn.classList.add('selected');selectedRes=res;updatePackCounts();updateAddBtn()}
-function updatePackCounts(){const m=selectedRes?resMultiplier[selectedRes]:1;document.getElementById('cnt-99').textContent=Math.round(20*m)+' photos';document.getElementById('cnt-299').textContent=Math.round(50*m)+' photos';document.getElementById('cnt-699').textContent=Math.round(150*m)+' photos'}
+function updatePackCounts(){const m=selectedRes?resMultiplier[selectedRes]:1;const btns=document.querySelectorAll('#packGroup .choice-btn');btns.forEach(btn=>{const base=parseInt(btn.getAttribute('data-base'));const countEl=btn.querySelector('.btn-count');if(countEl)countEl.textContent=Math.round(base*m)+' photos'})}
 function selectPack(btn,price,base){document.querySelectorAll('#packGroup .choice-btn').forEach(b=>b.classList.remove('selected'));btn.classList.add('selected');selectedPack={price,base};updateAddBtn()}
 function updateAddBtn(){const btn=document.getElementById('addImgBtn');if(selectedRes&&selectedPack){btn.disabled=false;btn.style.opacity='1';const c=Math.round(selectedPack.base*resMultiplier[selectedRes]);btn.textContent='+ Add '+c+' Photos · $'+selectedPack.price}else{btn.disabled=true;btn.style.opacity='0.4';btn.textContent='+ Add Image Pack'}}
 function addImagePack(){if(!selectedRes||!selectedPack)return;const c=Math.round(selectedPack.base*resMultiplier[selectedRes]);addToCart({id:'img_'+Date.now(),name:'Image Pack',detail:c+' photos · '+resLabel[selectedRes],price:selectedPack.price});document.querySelectorAll('#resGroup .choice-btn,#packGroup .choice-btn').forEach(b=>b.classList.remove('selected'));selectedRes=null;selectedPack=null;updatePackCounts();updateAddBtn()}
 function addVideo(n,p){addToCart({id:'vid_'+Date.now(),name:'Video',detail:n,price:p})}
 function changeBulk(d){const inp=document.getElementById('bulkCount');let v=parseInt(inp.value)+d;v=Math.max(30,Math.min(200,v));inp.value=v;updateBulk()}
-function updateBulk(){let v=parseInt(document.getElementById('bulkCount').value);v=Math.max(30,Math.min(200,v));document.getElementById('bulkCount').value=v;document.getElementById('bulkTotal').innerHTML='$'+(v*2.50).toFixed(2)+' <span>/ '+v+' cards</span>'}
-function addBulkCards(){const v=parseInt(document.getElementById('bulkCount').value);addToCart({id:'bulk_'+Date.now(),name:'Product Cards',detail:v+' cards · $2.50 each',price:parseFloat((v*2.50).toFixed(2))})}
+function updateBulk(){let v=parseInt(document.getElementById('bulkCount').value);v=Math.max(30,Math.min(200,v));document.getElementById('bulkCount').value=v;const bp=window._bulkPrice||2.50;document.getElementById('bulkTotal').innerHTML='$'+(v*bp).toFixed(2)+' <span>/ '+v+' cards</span>'}
+function addBulkCards(){const v=parseInt(document.getElementById('bulkCount').value);const bp=window._bulkPrice||2.50;addToCart({id:'bulk_'+Date.now(),name:'Product Cards',detail:v+' cards · $'+bp+' each',price:parseFloat((v*bp).toFixed(2))})}
 function addToCart(item){cart.push(item);renderCart()}
 function removeFromCart(id){cart=cart.filter(i=>i.id!==id);renderCart()}
 function renderCart(){
@@ -609,3 +632,4 @@ updateBulk();renderCart();
 <script>const bttBtn=document.getElementById('backToTop');window.addEventListener('scroll',()=>{bttBtn.classList.toggle('visible',window.scrollY>400)})</script>
 </body>
 </html>
+Done
