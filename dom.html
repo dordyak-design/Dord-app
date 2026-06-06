@@ -3,302 +3,388 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin Dashboard — Dord AI Studio</title>
+<title>Admin Panel — Dord AI Studio</title>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-<script src="https://upload-widget.cloudinary.com/latest/index.js"></script>
 <style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { background: #080b1a; color: #cdd5e0; }
-.admin-container { display: grid; grid-template-columns: 220px 1fr; min-height: 100vh; }
-.admin-sidebar { background: rgba(0,0,0,0.5); border-right: 1px solid rgba(0,200,150,0.1); padding: 30px 20px; position: sticky; top: 0; height: 100vh; overflow-y: auto; }
-.admin-content { padding: 40px; }
-.admin-logo { font-family: 'Unbounded'; font-size: 16px; font-weight: 900; color: #00c896; margin-bottom: 30px; }
-.admin-tab { width: 100%; padding: 12px 14px; margin-bottom: 6px; border-radius: 8px; border: none; background: transparent; color: #8892a4; cursor: pointer; font-family: 'Inter'; font-size: 12px; font-weight: 600; text-align: left; transition: all 0.2s; }
-.admin-tab:hover { background: rgba(0,200,150,0.1); color: #fff; }
-.admin-tab.active { background: linear-gradient(135deg,#004aad,#00c896); color: #fff; }
-.admin-section { display: none; }
-.admin-section.active { display: block; }
-.admin-title { font-family: 'Unbounded'; font-size: 32px; font-weight: 900; color: #fff; margin-bottom: 30px; }
-.admin-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px; padding: 24px; margin-bottom: 24px; }
-.admin-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 24px; }
-.stat-card { background: rgba(0,200,150,0.1); border: 1px solid rgba(0,200,150,0.3); border-radius: 8px; padding: 20px; text-align: center; }
-.stat-number { font-family: 'Unbounded'; font-size: 28px; font-weight: 900; color: #00c896; }
-.stat-label { font-size: 11px; color: #8892a4; margin-top: 6px; }
-.table { width: 100%; border-collapse: collapse; font-size: 12px; }
-.table th { background: rgba(0,200,150,0.1); padding: 14px; text-align: left; color: #00c896; font-weight: 700; border-bottom: 1px solid rgba(0,200,150,0.2); }
-.table td { padding: 12px 14px; border-bottom: 1px solid rgba(255,255,255,0.05); }
-.table tr:hover { background: rgba(0,200,150,0.05); }
-.form-group { margin-bottom: 16px; }
-.form-label { display: block; font-size: 11px; color: #8892a4; text-transform: uppercase; margin-bottom: 6px; font-weight: 700; }
-.form-input, .form-textarea, .form-select { width: 100%; padding: 10px 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); color: #fff; font-family: 'Inter'; font-size: 13px; }
-.form-textarea { resize: vertical; min-height: 80px; }
-.btn-primary { padding: 11px 18px; border-radius: 8px; background: linear-gradient(135deg,#004aad,#00c896); color: #fff; border: none; font-family: 'Inter'; font-size: 12px; font-weight: 700; cursor: pointer; transition: all 0.2s; }
-.btn-primary:hover { opacity: 0.9; }
-.btn-secondary { padding: 8px 12px; border-radius: 6px; border: 1px solid rgba(0,200,150,0.3); background: rgba(0,200,150,0.1); color: #00c896; font-size: 11px; cursor: pointer; transition: all 0.2s; margin-right: 6px; }
-.btn-secondary:hover { background: rgba(0,200,150,0.2); }
-.btn-danger { padding: 8px 12px; border-radius: 6px; border: 1px solid rgba(239,68,68,0.3); background: rgba(239,68,68,0.1); color: #f87171; font-size: 11px; cursor: pointer; }
-.btn-danger:hover { background: rgba(239,68,68,0.2); }
-.status-active { color: #00c896; font-weight: 700; }
-.status-blocked { color: #f87171; font-weight: 700; }
-.status-paid { color: #00c896; }
-.modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; }
-.modal.active { display: flex; align-items: center; justify-content: center; }
-.modal-content { background: #1a1f3a; border: 1px solid rgba(0,200,150,0.3); border-radius: 12px; padding: 30px; max-width: 500px; width: 90%; }
-.modal-close { float: right; cursor: pointer; color: #8892a4; font-size: 20px; }
-.gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; margin-top: 16px; }
-.gallery-item { position: relative; border-radius: 8px; overflow: hidden; aspect-ratio: 1; }
-.gallery-item img { width: 100%; height: 100%; object-fit: cover; }
-.gallery-item-delete { position: absolute; top: 4px; right: 4px; background: rgba(239,68,68,0.9); color: white; border: none; border-radius: 4px; padding: 4px 8px; font-size: 10px; cursor: pointer; }
-.loading { text-align: center; color: #8892a4; padding: 20px; }
-.empty-state { text-align: center; color: #8892a4; padding: 40px; }
+/* ── ADMIN LAYOUT ── */
+.admin-wrap{display:grid;grid-template-columns:230px 1fr;min-height:100vh}
+.admin-side{background:rgba(0,0,0,0.45);border-right:1px solid rgba(0,200,150,0.08);padding:28px 18px;position:sticky;top:0;height:100vh;overflow-y:auto;display:flex;flex-direction:column}
+.admin-side-logo{font-family:'Unbounded',sans-serif;font-size:14px;font-weight:900;color:#00c896;margin-bottom:28px;letter-spacing:0.5px}
+.admin-main{padding:36px 40px;min-width:0}
+.tab-btn{width:100%;padding:11px 14px;margin-bottom:4px;border-radius:8px;border:none;background:transparent;color:#8892a4;cursor:pointer;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;text-align:left;transition:all 0.2s;display:flex;align-items:center;gap:8px}
+.tab-btn:hover{background:rgba(0,200,150,0.08);color:#fff}
+.tab-btn.active{background:linear-gradient(135deg,#004aad,#00c896);color:#fff}
+.tab-btn.logout{margin-top:auto;background:rgba(239,68,68,0.08);color:#f87171}
+.tab-btn.logout:hover{background:rgba(239,68,68,0.18)}
+.section{display:none}.section.active{display:block}
+.page-title{font-family:'Unbounded',sans-serif;font-size:28px;font-weight:900;color:#fff;margin-bottom:28px}
+
+/* ── CARDS & STATS ── */
+.stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin-bottom:28px}
+.s-card{background:rgba(0,200,150,0.07);border:1px solid rgba(0,200,150,0.2);border-radius:10px;padding:20px;text-align:center}
+.s-num{font-family:'Unbounded',sans-serif;font-size:26px;font-weight:900;color:#00c896}
+.s-lbl{font-size:11px;color:#8892a4;margin-top:4px}
+.a-card{background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:24px;margin-bottom:20px}
+.a-card-title{font-family:'Unbounded',sans-serif;font-size:13px;font-weight:700;color:#fff;margin-bottom:16px;text-transform:uppercase;letter-spacing:0.3px}
+
+/* ── TABLE ── */
+.tbl{width:100%;border-collapse:collapse;font-size:12px}
+.tbl th{background:rgba(0,200,150,0.08);padding:12px 14px;text-align:left;color:#00c896;font-weight:700;border-bottom:1px solid rgba(0,200,150,0.15);white-space:nowrap}
+.tbl td{padding:10px 14px;border-bottom:1px solid rgba(255,255,255,0.04);color:#cdd5e0;vertical-align:middle}
+.tbl tr:hover{background:rgba(0,200,150,0.03)}
+.tbl .empty-row td{text-align:center;color:#8892a4;padding:28px}
+
+/* ── BUTTONS ── */
+.b-pr{padding:10px 16px;border-radius:8px;background:linear-gradient(135deg,#004aad,#00c896);color:#fff;border:none;font-family:'Inter',sans-serif;font-size:12px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.b-pr:hover{opacity:0.9}
+.b-sc{padding:7px 12px;border-radius:6px;border:1px solid rgba(0,200,150,0.25);background:rgba(0,200,150,0.08);color:#00c896;font-size:11px;cursor:pointer;transition:all 0.2s;font-weight:600}
+.b-sc:hover{background:rgba(0,200,150,0.18)}
+.b-dn{padding:7px 12px;border-radius:6px;border:1px solid rgba(239,68,68,0.25);background:rgba(239,68,68,0.08);color:#f87171;font-size:11px;cursor:pointer;font-weight:600}
+.b-dn:hover{background:rgba(239,68,68,0.18)}
+.btn-row{display:flex;gap:6px;flex-wrap:wrap}
+
+/* ── FORMS ── */
+.f-group{margin-bottom:14px}
+.f-label{display:block;font-size:11px;color:#8892a4;text-transform:uppercase;margin-bottom:5px;font-weight:700;letter-spacing:0.5px}
+.f-input,.f-select,.f-textarea{width:100%;padding:10px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.04);color:#fff;font-family:'Inter',sans-serif;font-size:13px;outline:none;transition:border-color 0.2s}
+.f-input:focus,.f-select:focus,.f-textarea:focus{border-color:#00c896}
+.f-textarea{resize:vertical;min-height:70px}
+.f-select{appearance:none;background-image:url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg' width%3D'12' height%3D'12'%3E%3Cpath fill%3D'%2300c896' d%3D'M6 8L1 3h10z'%2F%3E%3C%2Fsvg%3E");background-repeat:no-repeat;background-position:right 12px center}
+.f-select option{background:#0d1121}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+/* ── MODAL ── */
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.8);z-index:2000;align-items:center;justify-content:center}
+.modal-bg.open{display:flex}
+.modal-box{background:#111827;border:1px solid rgba(0,200,150,0.25);border-radius:14px;padding:28px;width:90%;max-width:500px;max-height:90vh;overflow-y:auto;position:relative}
+.modal-box h3{font-family:'Unbounded',sans-serif;font-size:15px;font-weight:700;color:#fff;margin-bottom:18px}
+.modal-x{position:absolute;top:14px;right:18px;background:none;border:none;color:#8892a4;font-size:20px;cursor:pointer}
+.modal-x:hover{color:#fff}
+
+/* ── STATUS BADGES ── */
+.badge{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:20px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.3px}
+.badge-green{background:rgba(0,200,150,0.12);color:#00c896;border:1px solid rgba(0,200,150,0.25)}
+.badge-red{background:rgba(239,68,68,0.12);color:#f87171;border:1px solid rgba(239,68,68,0.25)}
+.badge-yellow{background:rgba(234,179,8,0.12);color:#eab308;border:1px solid rgba(234,179,8,0.25)}
+.badge-blue{background:rgba(59,130,246,0.12);color:#3b82f6;border:1px solid rgba(59,130,246,0.25)}
+
+/* ── GALLERY ── */
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;margin-top:14px}
+.gallery-thumb{position:relative;border-radius:8px;overflow:hidden;aspect-ratio:1;border:1px solid rgba(255,255,255,0.06)}
+.gallery-thumb img{width:100%;height:100%;object-fit:cover}
+.gallery-thumb-del{position:absolute;top:4px;right:4px;background:rgba(239,68,68,0.9);color:#fff;border:none;border-radius:4px;padding:3px 7px;font-size:10px;cursor:pointer}
+
+/* ── TOAST ── */
+.toast{position:fixed;top:20px;right:20px;padding:14px 20px;border-radius:10px;font-size:13px;font-weight:600;z-index:9999;transform:translateX(120%);transition:transform 0.3s;max-width:360px}
+.toast.show{transform:translateX(0)}
+.toast-ok{background:#0d3320;border:1px solid rgba(0,200,150,0.4);color:#00c896}
+.toast-err{background:#3b1111;border:1px solid rgba(239,68,68,0.4);color:#f87171}
+
+/* ── RESPONSIVE ── */
+@media(max-width:860px){
+  .admin-wrap{grid-template-columns:1fr}
+  .admin-side{position:fixed;left:-260px;width:250px;z-index:1500;transition:left 0.3s}
+  .admin-side.open{left:0}
+  .admin-main{padding:20px 16px}
+  .mob-toggle{display:flex!important}
+  .f-row{grid-template-columns:1fr}
+}
+.mob-toggle{display:none;position:fixed;top:12px;left:12px;z-index:1600;background:linear-gradient(135deg,#004aad,#00c896);border:none;color:#fff;width:40px;height:40px;border-radius:8px;font-size:18px;cursor:pointer;align-items:center;justify-content:center}
 </style>
 </head>
 <body>
 
-<div class="admin-container">
+<div id="toast" class="toast"></div>
+<button class="mob-toggle" onclick="document.querySelector('.admin-side').classList.toggle('open')">☰</button>
+
+<!-- AUTH GATE -->
+<div id="authGate" style="display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px">
+  <div style="text-align:center">
+    <div style="font-family:'Unbounded',sans-serif;font-size:18px;font-weight:900;color:#fff;margin-bottom:8px">🔒 Admin Access</div>
+    <div style="color:#8892a4;font-size:13px;margin-bottom:20px">Sign in with authorized Google account</div>
+    <button class="b-pr" id="googleSignInBtn" style="padding:14px 28px;font-size:13px">Sign in with Google</button>
+    <div id="authError" style="color:#f87171;font-size:12px;margin-top:12px;display:none"></div>
+  </div>
+</div>
+
+<!-- ADMIN PANEL -->
+<div class="admin-wrap" id="adminPanel" style="display:none">
+
   <!-- SIDEBAR -->
-  <div class="admin-sidebar">
-    <div class="admin-logo">⚙️ ADMIN</div>
-    
-    <button class="admin-tab active" onclick="switchTab('dashboard')">📊 Dashboard</button>
-    <button class="admin-tab" onclick="switchTab('users')">👥 Юзеры</button>
-    <button class="admin-tab" onclick="switchTab('orders')">📋 Заказы</button>
-    <button class="admin-tab" onclick="switchTab('promos')">🎟️ Промокоды</button>
-    <button class="admin-tab" onclick="switchTab('discounts')">💰 Скидки</button>
-    <button class="admin-tab" onclick="switchTab('gallery')">🖼️ Галереи</button>
-    <button class="admin-tab" onclick="switchTab('emails')">📧 Письма</button>
-    <button class="admin-tab" onclick="logout()" style="margin-top:40px;background:rgba(239,68,68,0.1);color:#f87171;">🚪 Выход</button>
+  <div class="admin-side">
+    <div class="admin-side-logo">⚙️ DORD ADMIN</div>
+    <button class="tab-btn active" data-tab="dashboard">📊 Dashboard</button>
+    <button class="tab-btn" data-tab="users">👥 Юзеры</button>
+    <button class="tab-btn" data-tab="orders">📋 Заказы</button>
+    <button class="tab-btn" data-tab="samples">🎁 Free Samples</button>
+    <button class="tab-btn" data-tab="promos">🎟️ Промокоды</button>
+    <button class="tab-btn" data-tab="prices">💲 Цены</button>
+    <button class="tab-btn" data-tab="discounts">💰 Скидки / Sale</button>
+    <button class="tab-btn" data-tab="gallery">🖼️ Галерея</button>
+    <button class="tab-btn" data-tab="emails">📧 Письма</button>
+    <button class="tab-btn logout" id="logoutBtn">🚪 Выход</button>
   </div>
 
-  <!-- CONTENT -->
-  <div class="admin-content">
+  <!-- MAIN -->
+  <div class="admin-main">
 
-    <!-- DASHBOARD -->
-    <div id="dashboard" class="admin-section active">
-      <div class="admin-title">📊 Dashboard</div>
-      <div class="admin-grid">
-        <div class="stat-card">
-          <div class="stat-number" id="stat-users">0</div>
-          <div class="stat-label">Юзеры</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number" id="stat-orders">0</div>
-          <div class="stat-label">Заказы</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number" id="stat-revenue">$0</div>
-          <div class="stat-label">Выручка</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number" id="stat-promos">0</div>
-          <div class="stat-label">Промокоды</div>
-        </div>
+    <!-- ═══ DASHBOARD ═══ -->
+    <div id="sec-dashboard" class="section active">
+      <div class="page-title">📊 Dashboard</div>
+      <div class="stats-row">
+        <div class="s-card"><div class="s-num" id="st-users">0</div><div class="s-lbl">Юзеры</div></div>
+        <div class="s-card"><div class="s-num" id="st-orders">0</div><div class="s-lbl">Заказы</div></div>
+        <div class="s-card"><div class="s-num" id="st-revenue">$0</div><div class="s-lbl">Выручка</div></div>
+        <div class="s-card"><div class="s-num" id="st-samples">0</div><div class="s-lbl">Free Samples</div></div>
+        <div class="s-card"><div class="s-num" id="st-promos">0</div><div class="s-lbl">Промокоды</div></div>
       </div>
-    </div>
-
-    <!-- USERS -->
-    <div id="users" class="admin-section">
-      <div class="admin-title">👥 Юзеры</div>
-      <div class="admin-card">
-        <button class="btn-primary" onclick="openUserModal()">➕ Добавить юзера</button>
-        <table class="table" style="margin-top: 20px;">
-          <thead>
-            <tr>
-              <th>Email</th>
-              <th>Статус</th>
-              <th>Дата</th>
-              <th>Действие</th>
-            </tr>
-          </thead>
-          <tbody id="usersList"></tbody>
+      <div class="a-card">
+        <div class="a-card-title">Последние заказы</div>
+        <table class="tbl">
+          <thead><tr><th>ID</th><th>Email</th><th>Сумма</th><th>Статус</th><th>Дата</th></tr></thead>
+          <tbody id="dash-orders"></tbody>
         </table>
       </div>
     </div>
 
-    <!-- ORDERS -->
-    <div id="orders" class="admin-section">
-      <div class="admin-title">📋 Заказы</div>
-      <div class="admin-card">
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Заказ ID</th>
-              <th>Клиент</th>
-              <th>Сумма</th>
-              <th>Статус</th>
-              <th>Дата</th>
-            </tr>
-          </thead>
-          <tbody id="ordersList"></tbody>
+    <!-- ═══ USERS ═══ -->
+    <div id="sec-users" class="section">
+      <div class="page-title">👥 Юзеры</div>
+      <div class="a-card">
+        <table class="tbl">
+          <thead><tr><th>Email</th><th>UID</th><th>Статус</th><th>Перс. скидка</th><th>Пакеты</th><th>Дата</th><th>Действия</th></tr></thead>
+          <tbody id="users-list"></tbody>
         </table>
       </div>
     </div>
 
-    <!-- PROMOKODY -->
-    <div id="promos" class="admin-section">
-      <div class="admin-title">🎟️ Промокоды</div>
-      <div class="admin-card">
-        <button class="btn-primary" onclick="openPromoModal()">➕ Создать промокод</button>
-        <table class="table" style="margin-top: 20px;">
-          <thead>
-            <tr>
-              <th>Код</th>
-              <th>Скидка</th>
-              <th>Использовано</th>
-              <th>Лимит</th>
-              <th>Период действия</th>
-              <th>Статус</th>
-              <th>Действие</th>
-            </tr>
-          </thead>
-          <tbody id="promoList"></tbody>
+    <!-- ═══ ORDERS ═══ -->
+    <div id="sec-orders" class="section">
+      <div class="page-title">📋 Заказы</div>
+      <div class="a-card">
+        <table class="tbl">
+          <thead><tr><th>Order ID</th><th>Email</th><th>Сумма</th><th>Статус</th><th>Дата</th><th>Действия</th></tr></thead>
+          <tbody id="orders-list"></tbody>
         </table>
       </div>
     </div>
 
-    <!-- DISCOUNTS -->
-    <div id="discounts" class="admin-section">
-      <div class="admin-title">💰 Скидки</div>
-      <div class="admin-card">
-        <button class="btn-primary" onclick="openDiscountModal()">➕ Создать скидку</button>
-        <table class="table" style="margin-top: 20px;">
-          <thead>
-            <tr>
-              <th>Название</th>
-              <th>Размер</th>
-              <th>Тип</th>
-              <th>Дата начала</th>
-              <th>Дата конца</th>
-              <th>Действие</th>
-            </tr>
-          </thead>
-          <tbody id="discountList"></tbody>
+    <!-- ═══ FREE SAMPLES ═══ -->
+    <div id="sec-samples" class="section">
+      <div class="page-title">🎁 Free Samples</div>
+      <div class="a-card">
+        <table class="tbl">
+          <thead><tr><th>Email</th><th>Размер</th><th>Объект</th><th>Фон</th><th>Свет</th><th>Эффекты</th><th>Статус</th><th>Дата</th><th>Действия</th></tr></thead>
+          <tbody id="samples-list"></tbody>
         </table>
       </div>
     </div>
 
-    <!-- GALLERY -->
-    <div id="gallery" class="admin-section">
-      <div class="admin-title">🖼️ Галереи</div>
-      <div class="admin-card">
-        <button class="btn-primary" onclick="openGalleryModal()">➕ Новый раздел</button>
-        <div id="galleryList" style="margin-top: 20px;"></div>
+    <!-- ═══ PROMOS ═══ -->
+    <div id="sec-promos" class="section">
+      <div class="page-title">🎟️ Промокоды</div>
+      <div class="a-card">
+        <button class="b-pr" onclick="openModal('promoModal')">+ Создать промокод</button>
+        <table class="tbl" style="margin-top:16px">
+          <thead><tr><th>Код</th><th>Скидка</th><th>Использовано</th><th>Лимит</th><th>Период</th><th>Статус</th><th>Действия</th></tr></thead>
+          <tbody id="promos-list"></tbody>
+        </table>
       </div>
     </div>
 
-    <!-- EMAILS -->
-    <div id="emails" class="admin-section">
-      <div class="admin-title">📧 Отправить письмо</div>
-      <div class="admin-card">
-        <div class="form-group">
-          <label class="form-label">Кому</label>
-          <input type="email" id="emailTo" class="form-input" placeholder="email@example.com">
+    <!-- ═══ PRICES ═══ -->
+    <div id="sec-prices" class="section">
+      <div class="page-title">💲 Управление ценами</div>
+      <div class="a-card">
+        <div class="a-card-title">Image Packs</div>
+        <table class="tbl">
+          <thead><tr><th>Пакет</th><th>Цена ($)</th><th>Кол-во фото (base)</th><th>Действия</th></tr></thead>
+          <tbody id="prices-packs"></tbody>
+        </table>
+      </div>
+      <div class="a-card">
+        <div class="a-card-title">Video Reels</div>
+        <table class="tbl">
+          <thead><tr><th>Название</th><th>Цена ($)</th><th>Длительность</th><th>Действия</th></tr></thead>
+          <tbody id="prices-videos"></tbody>
+        </table>
+      </div>
+      <div class="a-card">
+        <div class="a-card-title">Bulk Cards</div>
+        <div class="f-row" style="max-width:400px">
+          <div class="f-group">
+            <label class="f-label">Цена за карточку ($)</label>
+            <input type="number" step="0.01" id="bulkPriceInput" class="f-input" value="2.50">
+          </div>
+          <div class="f-group" style="display:flex;align-items:flex-end">
+            <button class="b-pr" onclick="saveBulkPrice()">💾 Сохранить</button>
+          </div>
         </div>
-        <div class="form-group">
-          <label class="form-label">Тема</label>
-          <input type="text" id="emailSubject" class="form-input" placeholder="Тема письма">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Текст</label>
-          <textarea id="emailBody" class="form-textarea" placeholder="Текст письма..."></textarea>
-        </div>
-        <button class="btn-primary" onclick="sendEmail()">📤 Отправить</button>
       </div>
     </div>
 
-  </div>
-</div>
+    <!-- ═══ DISCOUNTS / SALE ═══ -->
+    <div id="sec-discounts" class="section">
+      <div class="page-title">💰 Скидки / Sale</div>
+      <div class="a-card">
+        <div class="a-card-title">Глобальные скидки (SALE бейдж на services.html)</div>
+        <button class="b-pr" onclick="openModal('saleModal')">+ Создать Sale</button>
+        <table class="tbl" style="margin-top:16px">
+          <thead><tr><th>Пакет</th><th>Скидка %</th><th>Активна</th><th>Действия</th></tr></thead>
+          <tbody id="sales-list"></tbody>
+        </table>
+      </div>
+      <div class="a-card">
+        <div class="a-card-title">Персональные скидки</div>
+        <button class="b-pr" onclick="openModal('persDiscountModal')">+ Назначить скидку</button>
+        <table class="tbl" style="margin-top:16px">
+          <thead><tr><th>Email</th><th>Скидка %</th><th>Действия</th></tr></thead>
+          <tbody id="pers-discounts-list"></tbody>
+        </table>
+      </div>
+    </div>
 
-<!-- MODALS -->
-<div id="userModal" class="modal">
-  <div class="modal-content">
-    <span class="modal-close" onclick="closeUserModal()">&times;</span>
-    <h2 style="color:#fff;margin-bottom:20px">Добавить юзера</h2>
-    <div class="form-group">
-      <label class="form-label">Email</label>
-      <input type="email" id="newUserEmail" class="form-input">
+    <!-- ═══ GALLERY ═══ -->
+    <div id="sec-gallery" class="section">
+      <div class="page-title">🖼️ Галерея</div>
+      <div class="a-card">
+        <button class="b-pr" onclick="openModal('gallerySectionModal')">+ Новый раздел</button>
+        <div id="gallery-sections" style="margin-top:20px"></div>
+      </div>
     </div>
-    <div class="form-group">
-      <label class="form-label">Пароль</label>
-      <input type="password" id="newUserPassword" class="form-input">
+
+    <!-- ═══ EMAILS ═══ -->
+    <div id="sec-emails" class="section">
+      <div class="page-title">📧 Отправить письмо</div>
+      <div class="a-card" style="max-width:600px">
+        <div class="f-group"><label class="f-label">Кому</label><input type="email" id="emailTo" class="f-input" placeholder="email@example.com"></div>
+        <div class="f-group"><label class="f-label">Тема</label><input type="text" id="emailSubject" class="f-input" placeholder="Тема письма"></div>
+        <div class="f-group"><label class="f-label">Текст</label><textarea id="emailBody" class="f-textarea" placeholder="Текст письма..."></textarea></div>
+        <button class="b-pr" onclick="sendEmail()">📤 Отправить</button>
+      </div>
     </div>
-    <button class="btn-primary" onclick="createUser()">✅ Создать</button>
+
   </div>
 </div>
 
-<div id="promoModal" class="modal">
-  <div class="modal-content">
-    <span class="modal-close" onclick="closePromoModal()">&times;</span>
-    <h2 style="color:#fff;margin-bottom:20px">Создать промокод</h2>
-    <div class="form-group">
-      <label class="form-label">Код</label>
-      <input type="text" id="promoCode" class="form-input" placeholder="PROMO2024">
+<!-- ═══════════ MODALS ═══════════ -->
+
+<!-- PROMO MODAL -->
+<div id="promoModal" class="modal-bg">
+  <div class="modal-box">
+    <button class="modal-x" onclick="closeModal('promoModal')">✕</button>
+    <h3>Создать промокод</h3>
+    <div class="f-group"><label class="f-label">Код</label><input type="text" id="pm-code" class="f-input" placeholder="SUMMER2026"></div>
+    <div class="f-row">
+      <div class="f-group"><label class="f-label">Скидка (%)</label><input type="number" id="pm-discount" class="f-input" placeholder="10"></div>
+      <div class="f-group"><label class="f-label">Лимит</label><input type="number" id="pm-limit" class="f-input" placeholder="100"></div>
     </div>
-    <div class="form-group">
-      <label class="form-label">Скидка (%)</label>
-      <input type="number" id="promoDiscount" class="form-input" placeholder="10">
+    <div class="f-row">
+      <div class="f-group"><label class="f-label">Начало</label><input type="datetime-local" id="pm-start" class="f-input"></div>
+      <div class="f-group"><label class="f-label">Конец</label><input type="datetime-local" id="pm-end" class="f-input"></div>
     </div>
-    <div class="form-group">
-      <label class="form-label">Лимит использований</label>
-      <input type="number" id="promoLimit" class="form-input" placeholder="100">
-    </div>
-    <div class="form-group">
-      <label class="form-label">Дата начала</label>
-      <input type="datetime-local" id="promoStart" class="form-input">
-    </div>
-    <div class="form-group">
-      <label class="form-label">Дата конца</label>
-      <input type="datetime-local" id="promoEnd" class="form-input">
-    </div>
-    <button class="btn-primary" onclick="createPromo()">✅ Создать</button>
+    <button class="b-pr" onclick="createPromo()">✅ Создать</button>
   </div>
 </div>
 
-<div id="discountModal" class="modal">
-  <div class="modal-content">
-    <span class="modal-close" onclick="closeDiscountModal()">&times;</span>
-    <h2 style="color:#fff;margin-bottom:20px">Создать скидку</h2>
-    <div class="form-group">
-      <label class="form-label">Название</label>
-      <input type="text" id="discountName" class="form-input" placeholder="Летняя скидка">
-    </div>
-    <div class="form-group">
-      <label class="form-label">Размер</label>
-      <input type="number" id="discountValue" class="form-input" placeholder="20">
-    </div>
-    <div class="form-group">
-      <label class="form-label">Тип</label>
-      <select id="discountType" class="form-select">
-        <option value="percent">Процент (%)</option>
-        <option value="fixed">Фиксированная ($)</option>
+<!-- SALE MODAL -->
+<div id="saleModal" class="modal-bg">
+  <div class="modal-box">
+    <button class="modal-x" onclick="closeModal('saleModal')">✕</button>
+    <h3>Создать Sale</h3>
+    <div class="f-group"><label class="f-label">Пакет</label>
+      <select id="sale-pack" class="f-select">
+        <option value="starter">Starter ($99)</option>
+        <option value="growth">Growth ($299)</option>
+        <option value="scale">Scale ($699)</option>
+        <option value="promo5">Promo Reel ($30)</option>
+        <option value="full10">Full Reel ($60)</option>
+        <option value="ext15">Extended Reel ($90)</option>
       </select>
     </div>
-    <button class="btn-primary" onclick="createDiscount()">✅ Создать</button>
+    <div class="f-group"><label class="f-label">Скидка (%)</label><input type="number" id="sale-percent" class="f-input" placeholder="20"></div>
+    <button class="b-pr" onclick="createSale()">✅ Создать</button>
   </div>
 </div>
 
-<div id="galleryModal" class="modal">
-  <div class="modal-content">
-    <span class="modal-close" onclick="closeGalleryModal()">&times;</span>
-    <h2 style="color:#fff;margin-bottom:20px">Новый раздел галереи</h2>
-    <div class="form-group">
-      <label class="form-label">Название</label>
-      <input type="text" id="galleryTitle" class="form-input" placeholder="Houses">
-    </div>
-    <div class="form-group">
-      <label class="form-label">ID</label>
-      <input type="text" id="galleryId" class="form-input" placeholder="houses">
-    </div>
-    <button class="btn-primary" onclick="createGallery()">✅ Создать</button>
+<!-- PERSONAL DISCOUNT MODAL -->
+<div id="persDiscountModal" class="modal-bg">
+  <div class="modal-box">
+    <button class="modal-x" onclick="closeModal('persDiscountModal')">✕</button>
+    <h3>Персональная скидка</h3>
+    <div class="f-group"><label class="f-label">Email юзера</label><input type="email" id="pd-email" class="f-input" placeholder="user@email.com"></div>
+    <div class="f-group"><label class="f-label">Скидка (%)</label><input type="number" id="pd-percent" class="f-input" placeholder="15"></div>
+    <button class="b-pr" onclick="createPersDiscount()">✅ Назначить</button>
   </div>
 </div>
 
-<!-- FIREBASE -->
+<!-- GALLERY SECTION MODAL -->
+<div id="gallerySectionModal" class="modal-bg">
+  <div class="modal-box">
+    <button class="modal-x" onclick="closeModal('gallerySectionModal')">✕</button>
+    <h3>Новый раздел галереи</h3>
+    <div class="f-group"><label class="f-label">Название</label><input type="text" id="gs-title" class="f-input" placeholder="Мебель люкс"></div>
+    <div class="f-group"><label class="f-label">ID (латиница)</label><input type="text" id="gs-id" class="f-input" placeholder="luxury-furniture"></div>
+    <button class="b-pr" onclick="createGallerySection()">✅ Создать</button>
+  </div>
+</div>
+
+<!-- GRANT PACK MODAL -->
+<div id="grantPackModal" class="modal-bg">
+  <div class="modal-box">
+    <button class="modal-x" onclick="closeModal('grantPackModal')">✕</button>
+    <h3>Начислить пакет</h3>
+    <div class="f-group"><label class="f-label">Email юзера</label><input type="email" id="gp-email" class="f-input" readonly></div>
+    <div class="f-group"><label class="f-label">Пакет</label>
+      <select id="gp-pack" class="f-select">
+        <option value="Starter">Starter (20 фото)</option>
+        <option value="Growth">Growth (50 фото)</option>
+        <option value="Scale">Scale (150 фото)</option>
+        <option value="Custom">Custom</option>
+      </select>
+    </div>
+    <div class="f-group"><label class="f-label">Кол-во фото</label><input type="number" id="gp-photos" class="f-input" value="20"></div>
+    <div class="f-group"><label class="f-label">Комментарий</label><input type="text" id="gp-note" class="f-input" placeholder="Бонус, подарок и т.д."></div>
+    <button class="b-pr" onclick="grantPack()">✅ Начислить</button>
+  </div>
+</div>
+
+<!-- CHANGE PASSWORD MODAL -->
+<div id="changePwdModal" class="modal-bg">
+  <div class="modal-box">
+    <button class="modal-x" onclick="closeModal('changePwdModal')">✕</button>
+    <h3>Сменить пароль</h3>
+    <div class="f-group"><label class="f-label">Email</label><input type="email" id="cp-email" class="f-input" readonly></div>
+    <input type="hidden" id="cp-uid">
+    <div class="f-group"><label class="f-label">Новый пароль</label><input type="password" id="cp-pwd" class="f-input" placeholder="Минимум 6 символов"></div>
+    <button class="b-pr" onclick="changePassword()">✅ Сменить</button>
+  </div>
+</div>
+
+<!-- EDIT PRICE MODAL -->
+<div id="editPriceModal" class="modal-bg">
+  <div class="modal-box">
+    <button class="modal-x" onclick="closeModal('editPriceModal')">✕</button>
+    <h3>Редактировать цену</h3>
+    <input type="hidden" id="ep-docId">
+    <div class="f-group"><label class="f-label">Название</label><input type="text" id="ep-name" class="f-input" readonly></div>
+    <div class="f-row">
+      <div class="f-group"><label class="f-label">Цена ($)</label><input type="number" step="0.01" id="ep-price" class="f-input"></div>
+      <div class="f-group"><label class="f-label">Кол-во (base)</label><input type="number" id="ep-count" class="f-input"></div>
+    </div>
+    <button class="b-pr" onclick="savePrice()">💾 Сохранить</button>
+  </div>
+</div>
+
+<!-- ═══════════ FIREBASE + LOGIC ═══════════ -->
 <script type="module">
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
-import { getAuth, onAuthStateChanged, signOut, createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
-import { getFirestore, collection, getDocs, addDoc, deleteDoc, doc, updateDoc } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+import { getAuth, onAuthStateChanged, signOut, signInWithPopup, GoogleAuthProvider } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
+import { getFirestore, collection, getDocs, addDoc, deleteDoc, doc, updateDoc, setDoc, getDoc, query, orderBy, limit } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+import { getStorage, ref, uploadBytes, getDownloadURL, deleteObject } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js';
+
+const ADMIN_EMAIL = 'dordyak@gmail.com';
 
 const app = initializeApp({
   apiKey: "AIzaSyCfot_WKYkikmKHrqet2nXnPasQB1ln61g",
@@ -311,339 +397,628 @@ const app = initializeApp({
 
 const auth = getAuth(app);
 const db = getFirestore(app);
+const storage = getStorage(app);
 
-window.switchTab = (tab) => {
-  document.querySelectorAll('.admin-section').forEach(s => s.classList.remove('active'));
-  document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
-  document.getElementById(tab).classList.add('active');
-  event.target.classList.add('active');
+// ── AUTH ──
+const authGate = document.getElementById('authGate');
+const adminPanel = document.getElementById('adminPanel');
+const authError = document.getElementById('authError');
 
-  if (tab === 'users') loadUsers();
-  if (tab === 'orders') loadOrders();
-  if (tab === 'promos') loadPromos();
-  if (tab === 'discounts') loadDiscounts();
-  if (tab === 'gallery') loadGalleries();
-};
-
-window.logout = () => {
-  signOut(auth).then(() => window.location.href = 'index.html');
-};
-
-// USERS
-window.openUserModal = () => document.getElementById('userModal').classList.add('active');
-window.closeUserModal = () => document.getElementById('userModal').classList.remove('active');
-window.createUser = async () => {
-  const email = document.getElementById('newUserEmail').value;
-  const password = document.getElementById('newUserPassword').value;
-  if (!email || !password) return alert('Заполни все поля');
+document.getElementById('googleSignInBtn').addEventListener('click', async () => {
   try {
-    await createUserWithEmailAndPassword(auth, email, password);
-    await addDoc(collection(db, 'users'), { email, status: 'active', created_at: new Date() });
-    alert('✅ Юзер создан');
-    document.getElementById('newUserEmail').value = '';
-    document.getElementById('newUserPassword').value = '';
-    closeUserModal();
-    loadUsers();
+    await signInWithPopup(auth, new GoogleAuthProvider());
   } catch (e) {
-    alert('❌ ' + e.message);
+    authError.textContent = e.message;
+    authError.style.display = 'block';
   }
+});
+
+document.getElementById('logoutBtn').addEventListener('click', () => signOut(auth));
+
+onAuthStateChanged(auth, (user) => {
+  if (user && user.email === ADMIN_EMAIL) {
+    authGate.style.display = 'none';
+    adminPanel.style.display = 'grid';
+    loadAll();
+  } else {
+    authGate.style.display = 'flex';
+    adminPanel.style.display = 'none';
+    if (user && user.email !== ADMIN_EMAIL) {
+      authError.textContent = '⛔ Доступ запрещён: ' + user.email;
+      authError.style.display = 'block';
+      signOut(auth);
+    }
+  }
+});
+
+// ── TABS ──
+document.querySelectorAll('.tab-btn[data-tab]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('sec-' + btn.dataset.tab).classList.add('active');
+    document.querySelector('.admin-side').classList.remove('open');
+  });
+});
+
+// ── TOAST ──
+window.toast = (msg, ok = true) => {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.className = 'toast show ' + (ok ? 'toast-ok' : 'toast-err');
+  setTimeout(() => el.classList.remove('show'), 3000);
 };
 
-async function loadUsers() {
-  const users = await getDocs(collection(db, 'users'));
-  const html = users.docs.map(doc => {
-    const data = doc.data();
-    return `<tr>
-      <td>${data.email}</td>
-      <td><span class="status-${data.status === 'active' ? 'active' : 'blocked'}">${data.status === 'active' ? '🟢 Active' : '🔴 Blocked'}</span></td>
-      <td>${new Date(data.created_at.toDate()).toLocaleDateString('ru-RU')}</td>
-      <td>
-        <button class="btn-secondary" onclick="toggleUserStatus('${doc.id}', '${data.status}')">
-          ${data.status === 'active' ? '🔒 Заблокировать' : '🔓 Разблокировать'}
-        </button>
-        <button class="btn-danger" onclick="deleteUser('${doc.id}')">🗑️</button>
-      </td>
-    </tr>`;
-  }).join('');
-  document.getElementById('usersList').innerHTML = html || '<tr><td colspan="4" style="text-align:center;color:#8892a4">Юзеров нет</td></tr>';
+// ── MODALS ──
+window.openModal = (id) => document.getElementById(id).classList.add('open');
+window.closeModal = (id) => document.getElementById(id).classList.remove('open');
+
+// ── LOAD ALL ──
+async function loadAll() {
+  await Promise.all([loadUsers(), loadOrders(), loadSamples(), loadPromos(), loadPrices(), loadSales(), loadPersDiscounts(), loadGalleries()]);
 }
 
-window.toggleUserStatus = async (uid, status) => {
-  const newStatus = status === 'active' ? 'blocked' : 'active';
-  await updateDoc(doc(db, 'users', uid), { status: newStatus });
+// ── USERS ──
+async function loadUsers() {
+  let html = '';
+  try {
+    const res = await fetch('/api/admin-list-users', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ adminUid: auth.currentUser.uid })
+    });
+    const data = await res.json();
+    if (data.ok && data.users) {
+      document.getElementById('st-users').textContent = data.users.length;
+      // Get user docs from Firestore for extra fields
+      const usersSnap = await getDocs(collection(db, 'users'));
+      const userDocs = {};
+      usersSnap.forEach(d => { const dd = d.data(); userDocs[dd.email] = { ...dd, _id: d.id }; });
+
+      html = data.users.map(u => {
+        const ud = userDocs[u.email] || {};
+        const status = ud.status || 'active';
+        const disc = ud.personalDiscount || 0;
+        const packs = ud.grantedPacks ? ud.grantedPacks.length : 0;
+        const created = u.creationTime ? new Date(u.creationTime).toLocaleDateString('ru-RU') : '—';
+        return `<tr>
+          <td>${u.email || '—'}</td>
+          <td style="font-size:10px;color:#8892a4">${u.uid.substring(0,12)}…</td>
+          <td><span class="badge ${status==='active'?'badge-green':'badge-red'}">${status==='active'?'Active':'Blocked'}</span></td>
+          <td>${disc ? disc+'%' : '—'}</td>
+          <td>${packs || '—'}</td>
+          <td>${created}</td>
+          <td><div class="btn-row">
+            <button class="b-sc" onclick="toggleBlock('${u.email}','${status}')">🔒</button>
+            <button class="b-sc" onclick="openGrantPack('${u.email}')">📦</button>
+            <button class="b-sc" onclick="openChangePwd('${u.email}','${u.uid}')">🔑</button>
+            <button class="b-sc" onclick="sendResetEmail('${u.email}')">📧</button>
+          </div></td>
+        </tr>`;
+      }).join('');
+    }
+  } catch (e) {
+    console.error('loadUsers error:', e);
+    html = '<tr class="empty-row"><td colspan="7">Ошибка загрузки юзеров. Проверьте API.</td></tr>';
+  }
+  document.getElementById('users-list').innerHTML = html || '<tr class="empty-row"><td colspan="7">Юзеров нет</td></tr>';
+}
+
+window.toggleBlock = async (email, currentStatus) => {
+  const newStatus = currentStatus === 'active' ? 'blocked' : 'active';
+  const usersSnap = await getDocs(collection(db, 'users'));
+  let found = false;
+  for (const d of usersSnap.docs) {
+    if (d.data().email === email) {
+      await updateDoc(doc(db, 'users', d.id), { status: newStatus });
+      found = true;
+      break;
+    }
+  }
+  if (!found) {
+    await addDoc(collection(db, 'users'), { email, status: newStatus, created_at: new Date() });
+  }
+  toast(newStatus === 'blocked' ? '🔒 Заблокирован' : '🔓 Разблокирован');
   loadUsers();
 };
 
-window.deleteUser = async (uid) => {
-  if (confirm('Удалить юзера?')) {
-    await deleteDoc(doc(db, 'users', uid));
-    loadUsers();
-  }
+window.openGrantPack = (email) => {
+  document.getElementById('gp-email').value = email;
+  openModal('grantPackModal');
 };
 
-// ORDERS
+window.grantPack = async () => {
+  const email = document.getElementById('gp-email').value;
+  const pack = document.getElementById('gp-pack').value;
+  const photos = parseInt(document.getElementById('gp-photos').value);
+  const note = document.getElementById('gp-note').value;
+  if (!photos) return toast('Укажи кол-во фото', false);
+
+  const usersSnap = await getDocs(collection(db, 'users'));
+  let userDocId = null;
+  let userData = null;
+  for (const d of usersSnap.docs) {
+    if (d.data().email === email) { userDocId = d.id; userData = d.data(); break; }
+  }
+
+  const grant = { name: pack, photos, note, date: new Date().toISOString() };
+
+  if (userDocId) {
+    const packs = userData.grantedPacks || [];
+    packs.push(grant);
+    await updateDoc(doc(db, 'users', userDocId), { grantedPacks: packs });
+  } else {
+    await addDoc(collection(db, 'users'), { email, status: 'active', created_at: new Date(), grantedPacks: [grant] });
+  }
+
+  toast('📦 Пакет начислен: ' + pack + ' (' + photos + ' фото)');
+  closeModal('grantPackModal');
+  loadUsers();
+};
+
+window.openChangePwd = (email, uid) => {
+  document.getElementById('cp-email').value = email;
+  document.getElementById('cp-uid').value = uid;
+  document.getElementById('cp-pwd').value = '';
+  openModal('changePwdModal');
+};
+
+window.changePassword = async () => {
+  const uid = document.getElementById('cp-uid').value;
+  const pwd = document.getElementById('cp-pwd').value;
+  if (pwd.length < 6) return toast('Пароль минимум 6 символов', false);
+  try {
+    const res = await fetch('/api/admin-update-user', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ adminUid: auth.currentUser.uid, targetUid: uid, password: pwd })
+    });
+    const data = await res.json();
+    if (data.ok) { toast('🔑 Пароль изменён'); closeModal('changePwdModal'); }
+    else toast('❌ ' + (data.error || 'Ошибка'), false);
+  } catch (e) { toast('❌ ' + e.message, false); }
+};
+
+window.sendResetEmail = async (email) => {
+  try {
+    const { sendPasswordResetEmail } = await import('https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js');
+    await sendPasswordResetEmail(auth, email);
+    toast('📧 Reset email отправлен на ' + email);
+  } catch (e) { toast('❌ ' + e.message, false); }
+};
+
+// ── ORDERS ──
 async function loadOrders() {
-  const orders = await getDocs(collection(db, 'orders'));
+  const snap = await getDocs(collection(db, 'orders'));
   let total = 0;
-  const html = orders.docs.map(doc => {
-    const data = doc.data();
-    total += parseFloat(data.amount || 0);
+  const docs = [];
+  snap.forEach(d => { const data = d.data(); data._id = d.id; total += parseFloat(data.amount || 0); docs.push(data); });
+  docs.sort((a, b) => (b.created_at?.toDate?.() || 0) - (a.created_at?.toDate?.() || 0));
+
+  document.getElementById('st-orders').textContent = docs.length;
+  document.getElementById('st-revenue').textContent = '$' + total.toFixed(2);
+
+  const statusClass = { new: 'badge-blue', 'in progress': 'badge-yellow', done: 'badge-green' };
+  const nextStatus = { new: 'in progress', 'in progress': 'done', done: 'new' };
+
+  const makeRow = (d) => {
+    const st = d.status || 'new';
+    const date = d.created_at?.toDate ? new Date(d.created_at.toDate()).toLocaleDateString('ru-RU') : '—';
     return `<tr>
-      <td>${data.orderId}</td>
-      <td>${data.clientEmail}</td>
-      <td>$${parseFloat(data.amount).toFixed(2)}</td>
-      <td><span class="status-paid">✅ ${data.status}</span></td>
-      <td>${data.created_at ? new Date(data.created_at.toDate()).toLocaleDateString('ru-RU') : '—'}</td>
+      <td style="font-size:11px">${d.orderId || d._id}</td>
+      <td>${d.clientEmail || d.email || '—'}</td>
+      <td>$${parseFloat(d.amount || 0).toFixed(2)}</td>
+      <td><span class="badge ${statusClass[st] || 'badge-blue'}">${st}</span></td>
+      <td>${date}</td>
+      <td><button class="b-sc" onclick="cycleOrderStatus('${d._id}','${st}')">→ ${nextStatus[st]}</button></td>
     </tr>`;
-  }).join('');
-  document.getElementById('ordersList').innerHTML = html || '<tr><td colspan="5" style="text-align:center">Заказов нет</td></tr>';
-  document.getElementById('stat-orders').textContent = orders.size;
-  document.getElementById('stat-revenue').textContent = '$' + total.toFixed(2);
+  };
+
+  document.getElementById('orders-list').innerHTML = docs.map(makeRow).join('') || '<tr class="empty-row"><td colspan="6">Заказов нет</td></tr>';
+  document.getElementById('dash-orders').innerHTML = docs.slice(0, 5).map(makeRow).join('') || '<tr class="empty-row"><td colspan="5">—</td></tr>';
+}
+
+window.cycleOrderStatus = async (docId, current) => {
+  const next = { new: 'in progress', 'in progress': 'done', done: 'new' };
+  await updateDoc(doc(db, 'orders', docId), { status: next[current] || 'new' });
+  toast('✅ Статус → ' + (next[current] || 'new'));
+  loadOrders();
 };
 
-// PROMOS
-window.openPromoModal = () => document.getElementById('promoModal').classList.add('active');
-window.closePromoModal = () => document.getElementById('promoModal').classList.remove('active');
-window.createPromo = async () => {
-  const code = document.getElementById('promoCode').value;
-  const discount = document.getElementById('promoDiscount').value;
-  const limit = document.getElementById('promoLimit').value;
-  const startDate = document.getElementById('promoStart').value;
-  const endDate = document.getElementById('promoEnd').value;
-  if (!code || !discount || !limit || !startDate || !endDate) return alert('Заполни все поля');
-  try {
-    await addDoc(collection(db, 'promos'), {
-      code, discount: parseInt(discount), limit: parseInt(limit), used: 0, 
-      start_date: new Date(startDate), end_date: new Date(endDate), created_at: new Date()
-    });
-    alert('✅ Промокод создан');
-    document.getElementById('promoCode').value = '';
-    document.getElementById('promoDiscount').value = '';
-    document.getElementById('promoLimit').value = '';
-    document.getElementById('promoStart').value = '';
-    document.getElementById('promoEnd').value = '';
-    closePromoModal();
-    loadPromos();
-  } catch (e) {
-    alert('❌ ' + e.message);
-  }
+// ── FREE SAMPLES ──
+async function loadSamples() {
+  const snap = await getDocs(collection(db, 'free_samples'));
+  const docs = [];
+  snap.forEach(d => { const data = d.data(); data._id = d.id; docs.push(data); });
+  document.getElementById('st-samples').textContent = docs.length;
+
+  document.getElementById('samples-list').innerHTML = docs.map(d => {
+    const st = d.status || 'new';
+    const date = d.created_at ? new Date(d.created_at).toLocaleDateString('ru-RU') : '—';
+    return `<tr>
+      <td>${d.email}</td>
+      <td>${d.size || '—'}</td>
+      <td style="max-width:150px;overflow:hidden;text-overflow:ellipsis">${d.object || '—'}</td>
+      <td>${d.background || '—'}</td>
+      <td>${d.lighting || '—'}</td>
+      <td>${d.effects || '—'}</td>
+      <td><span class="badge ${st==='done'?'badge-green':st==='in progress'?'badge-yellow':'badge-blue'}">${st}</span></td>
+      <td>${date}</td>
+      <td><div class="btn-row">
+        <button class="b-sc" onclick="cycleSampleStatus('${d._id}','${st}')">→</button>
+        <button class="b-dn" onclick="deleteSample('${d._id}')">🗑️</button>
+      </div></td>
+    </tr>`;
+  }).join('') || '<tr class="empty-row"><td colspan="9">Заявок нет</td></tr>';
+}
+
+window.cycleSampleStatus = async (id, st) => {
+  const next = { new: 'in progress', 'in progress': 'done', done: 'new' };
+  await updateDoc(doc(db, 'free_samples', id), { status: next[st] || 'new' });
+  toast('✅ Статус обновлён');
+  loadSamples();
 };
 
+window.deleteSample = async (id) => {
+  if (!confirm('Удалить заявку?')) return;
+  await deleteDoc(doc(db, 'free_samples', id));
+  toast('🗑️ Удалено');
+  loadSamples();
+};
+
+// ── PROMOS ──
 async function loadPromos() {
-  const promos = await getDocs(collection(db, 'promos'));
-  const html = promos.docs.map(doc => {
-    const data = doc.data();
-    const startDate = data.start_date ? new Date(data.start_date.toDate()).toLocaleDateString('ru-RU') : '—';
-    const endDate = data.end_date ? new Date(data.end_date.toDate()).toLocaleDateString('ru-RU') : '—';
+  const snap = await getDocs(collection(db, 'promos'));
+  const docs = [];
+  snap.forEach(d => { const data = d.data(); data._id = d.id; docs.push(data); });
+  document.getElementById('st-promos').textContent = docs.length;
+
+  document.getElementById('promos-list').innerHTML = docs.map(d => {
+    const start = d.start_date?.toDate ? new Date(d.start_date.toDate()).toLocaleDateString('ru-RU') : '—';
+    const end = d.end_date?.toDate ? new Date(d.end_date.toDate()).toLocaleDateString('ru-RU') : '—';
+    const now = new Date();
+    const isActive = (!d.end_date?.toDate || d.end_date.toDate() > now) && (d.used || 0) < (d.limit || 999);
     return `<tr>
-      <td><strong>${data.code}</strong></td>
-      <td>${data.discount}%</td>
-      <td>${data.used || 0}</td>
-      <td>${data.limit}</td>
-      <td>${startDate} по ${endDate}</td>
-      <td><span class="status-active">🟢 Active</span></td>
-      <td><button class="btn-danger" onclick="deletePromo('${doc.id}')">🗑️</button></td>
+      <td><strong>${d.code}</strong></td>
+      <td>${d.discount}%</td>
+      <td>${d.used || 0}</td>
+      <td>${d.limit}</td>
+      <td>${start} — ${end}</td>
+      <td><span class="badge ${isActive?'badge-green':'badge-red'}">${isActive?'Active':'Expired'}</span></td>
+      <td><button class="b-dn" onclick="deletePromo('${d._id}')">🗑️</button></td>
     </tr>`;
-  }).join('');
-  document.getElementById('promoList').innerHTML = html || '<tr><td colspan="7" style="text-align:center">Промокодов нет</td></tr>';
-  document.getElementById('stat-promos').textContent = promos.size;
+  }).join('') || '<tr class="empty-row"><td colspan="7">Промокодов нет</td></tr>';
 }
 
-window.deletePromo = async (pid) => {
-  if (confirm('Удалить промокод?')) {
-    await deleteDoc(doc(db, 'promos', pid));
-    loadPromos();
-  }
+window.createPromo = async () => {
+  const code = document.getElementById('pm-code').value.trim().toUpperCase();
+  const discount = parseInt(document.getElementById('pm-discount').value);
+  const lim = parseInt(document.getElementById('pm-limit').value);
+  const start = document.getElementById('pm-start').value;
+  const end = document.getElementById('pm-end').value;
+  if (!code || !discount || !lim || !start || !end) return toast('Заполни все поля', false);
+  await addDoc(collection(db, 'promos'), {
+    code, discount, limit: lim, used: 0,
+    start_date: new Date(start), end_date: new Date(end), created_at: new Date()
+  });
+  toast('🎟️ Промокод создан: ' + code);
+  closeModal('promoModal');
+  document.getElementById('pm-code').value = '';
+  document.getElementById('pm-discount').value = '';
+  document.getElementById('pm-limit').value = '';
+  document.getElementById('pm-start').value = '';
+  document.getElementById('pm-end').value = '';
+  loadPromos();
 };
 
-// DISCOUNTS
-window.openDiscountModal = () => document.getElementById('discountModal').classList.add('active');
-window.closeDiscountModal = () => document.getElementById('discountModal').classList.remove('active');
-window.createDiscount = async () => {
-  const name = document.getElementById('discountName').value;
-  const value = document.getElementById('discountValue').value;
-  const type = document.getElementById('discountType').value;
-  if (!name || !value || !type) return alert('Заполни все поля');
-  try {
-    await addDoc(collection(db, 'discounts'), {
-      name, value: parseInt(value), type, created_at: new Date()
+window.deletePromo = async (id) => {
+  if (!confirm('Удалить промокод?')) return;
+  await deleteDoc(doc(db, 'promos', id));
+  toast('🗑️ Удалено');
+  loadPromos();
+};
+
+// ── PRICES ──
+async function loadPrices() {
+  // Init default prices if not exist
+  const pricesRef = doc(db, 'settings', 'prices');
+  let pricesDoc = await getDoc(pricesRef);
+  if (!pricesDoc.exists()) {
+    await setDoc(pricesRef, {
+      packs: [
+        { id: 'starter', name: 'Starter', price: 99, base: 20 },
+        { id: 'growth', name: 'Growth (E-Com)', price: 299, base: 50 },
+        { id: 'scale', name: 'Scale (Business)', price: 699, base: 150 }
+      ],
+      videos: [
+        { id: 'promo5', name: 'Promo Reel', price: 30, duration: '5 sec' },
+        { id: 'full10', name: 'Full Reel', price: 60, duration: '10 sec' },
+        { id: 'ext15', name: 'Extended Reel', price: 90, duration: '15 sec' }
+      ],
+      bulkPrice: 2.50
     });
-    alert('✅ Скидка создана');
-    document.getElementById('discountName').value = '';
-    document.getElementById('discountValue').value = '';
-    closeDiscountModal();
-    loadDiscounts();
-  } catch (e) {
-    alert('❌ ' + e.message);
+    pricesDoc = await getDoc(pricesRef);
   }
-};
 
-async function loadDiscounts() {
-  const discounts = await getDocs(collection(db, 'discounts'));
-  const html = discounts.docs.map(doc => {
-    const data = doc.data();
-    return `<tr>
-      <td>${data.name}</td>
-      <td>${data.value}${data.type === 'percent' ? '%' : '$'}</td>
-      <td>${data.type === 'percent' ? 'Процент' : 'Фиксированная'}</td>
-      <td>-</td>
-      <td>-</td>
-      <td><button class="btn-danger" onclick="deleteDiscount('${doc.id}')">🗑️</button></td>
-    </tr>`;
-  }).join('');
-  document.getElementById('discountList').innerHTML = html || '<tr><td colspan="6" style="text-align:center">Скидок нет</td></tr>';
+  const data = pricesDoc.data();
+
+  document.getElementById('prices-packs').innerHTML = data.packs.map((p, i) =>
+    `<tr>
+      <td>${p.name}</td>
+      <td>$${p.price}</td>
+      <td>${p.base}</td>
+      <td><button class="b-sc" onclick="openEditPrice('pack',${i},'${p.name}',${p.price},${p.base})">✏️</button></td>
+    </tr>`
+  ).join('');
+
+  document.getElementById('prices-videos').innerHTML = data.videos.map((v, i) =>
+    `<tr>
+      <td>${v.name}</td>
+      <td>$${v.price}</td>
+      <td>${v.duration}</td>
+      <td><button class="b-sc" onclick="openEditPrice('video',${i},'${v.name}',${v.price},0)">✏️</button></td>
+    </tr>`
+  ).join('');
+
+  document.getElementById('bulkPriceInput').value = data.bulkPrice || 2.50;
 }
 
-window.deleteDiscount = async (did) => {
-  if (confirm('Удалить скидку?')) {
-    await deleteDoc(doc(db, 'discounts', did));
-    loadDiscounts();
-  }
+window.openEditPrice = (type, index, name, price, count) => {
+  document.getElementById('ep-docId').value = type + ':' + index;
+  document.getElementById('ep-name').value = name;
+  document.getElementById('ep-price').value = price;
+  document.getElementById('ep-count').value = count;
+  document.getElementById('ep-count').parentElement.style.display = type === 'pack' ? '' : 'none';
+  openModal('editPriceModal');
 };
 
-// GALLERY
-window.openGalleryModal = () => document.getElementById('galleryModal').classList.add('active');
-window.closeGalleryModal = () => document.getElementById('galleryModal').classList.remove('active');
-window.createGallery = async () => {
-  const title = document.getElementById('galleryTitle').value;
-  const sectionId = document.getElementById('galleryId').value;
-  if (!title || !sectionId) return alert('Заполни все поля');
-  try {
-    await addDoc(collection(db, 'gallery_sections'), {
-      title, sectionId, images: [], created_at: new Date()
-    });
-    alert('✅ Раздел создан');
-    document.getElementById('galleryTitle').value = '';
-    document.getElementById('galleryId').value = '';
-    closeGalleryModal();
-    loadGalleries();
-  } catch (e) {
-    alert('❌ ' + e.message);
+window.savePrice = async () => {
+  const [type, idx] = document.getElementById('ep-docId').value.split(':');
+  const price = parseFloat(document.getElementById('ep-price').value);
+  const count = parseInt(document.getElementById('ep-count').value);
+  const pricesRef = doc(db, 'settings', 'prices');
+  const pricesDoc = await getDoc(pricesRef);
+  const data = pricesDoc.data();
+
+  if (type === 'pack') {
+    data.packs[parseInt(idx)].price = price;
+    data.packs[parseInt(idx)].base = count;
+  } else {
+    data.videos[parseInt(idx)].price = price;
   }
+
+  await setDoc(pricesRef, data);
+  toast('💾 Цена обновлена');
+  closeModal('editPriceModal');
+  loadPrices();
 };
 
+window.saveBulkPrice = async () => {
+  const price = parseFloat(document.getElementById('bulkPriceInput').value);
+  const pricesRef = doc(db, 'settings', 'prices');
+  const pricesDoc = await getDoc(pricesRef);
+  const data = pricesDoc.data();
+  data.bulkPrice = price;
+  await setDoc(pricesRef, data);
+  toast('💾 Цена за карточку: $' + price.toFixed(2));
+};
+
+// ── SALES (GLOBAL DISCOUNTS) ──
+async function loadSales() {
+  const snap = await getDocs(collection(db, 'sales'));
+  const docs = [];
+  snap.forEach(d => { const data = d.data(); data._id = d.id; docs.push(data); });
+
+  document.getElementById('sales-list').innerHTML = docs.map(d =>
+    `<tr>
+      <td>${d.pack}</td>
+      <td>${d.percent}%</td>
+      <td><span class="badge ${d.active?'badge-green':'badge-red'}">${d.active?'Да':'Нет'}</span></td>
+      <td><div class="btn-row">
+        <button class="b-sc" onclick="toggleSale('${d._id}',${d.active})">${d.active?'⏸️':'▶️'}</button>
+        <button class="b-dn" onclick="deleteSale('${d._id}')">🗑️</button>
+      </div></td>
+    </tr>`
+  ).join('') || '<tr class="empty-row"><td colspan="4">Скидок нет</td></tr>';
+}
+
+window.createSale = async () => {
+  const pack = document.getElementById('sale-pack').value;
+  const percent = parseInt(document.getElementById('sale-percent').value);
+  if (!percent) return toast('Укажи процент', false);
+  await addDoc(collection(db, 'sales'), { pack, percent, active: true, created_at: new Date() });
+  toast('💰 Sale создан');
+  closeModal('saleModal');
+  loadSales();
+};
+
+window.toggleSale = async (id, active) => {
+  await updateDoc(doc(db, 'sales', id), { active: !active });
+  toast(active ? '⏸️ Sale выключен' : '▶️ Sale включён');
+  loadSales();
+};
+
+window.deleteSale = async (id) => {
+  if (!confirm('Удалить?')) return;
+  await deleteDoc(doc(db, 'sales', id));
+  toast('🗑️ Удалено');
+  loadSales();
+};
+
+// ── PERSONAL DISCOUNTS ──
+async function loadPersDiscounts() {
+  const snap = await getDocs(collection(db, 'users'));
+  const rows = [];
+  snap.forEach(d => {
+    const data = d.data();
+    if (data.personalDiscount) rows.push({ email: data.email, discount: data.personalDiscount, _id: d.id });
+  });
+
+  document.getElementById('pers-discounts-list').innerHTML = rows.map(r =>
+    `<tr>
+      <td>${r.email}</td>
+      <td>${r.discount}%</td>
+      <td><button class="b-dn" onclick="removePersDiscount('${r._id}')">🗑️</button></td>
+    </tr>`
+  ).join('') || '<tr class="empty-row"><td colspan="3">Персональных скидок нет</td></tr>';
+}
+
+window.createPersDiscount = async () => {
+  const email = document.getElementById('pd-email').value.trim();
+  const percent = parseInt(document.getElementById('pd-percent').value);
+  if (!email || !percent) return toast('Заполни все поля', false);
+
+  const snap = await getDocs(collection(db, 'users'));
+  let found = false;
+  for (const d of snap.docs) {
+    if (d.data().email === email) {
+      await updateDoc(doc(db, 'users', d.id), { personalDiscount: percent });
+      found = true;
+      break;
+    }
+  }
+  if (!found) {
+    await addDoc(collection(db, 'users'), { email, status: 'active', personalDiscount: percent, created_at: new Date() });
+  }
+
+  toast('✅ Скидка ' + percent + '% для ' + email);
+  closeModal('persDiscountModal');
+  document.getElementById('pd-email').value = '';
+  document.getElementById('pd-percent').value = '';
+  loadPersDiscounts();
+  loadUsers();
+};
+
+window.removePersDiscount = async (id) => {
+  await updateDoc(doc(db, 'users', id), { personalDiscount: 0 });
+  toast('🗑️ Персональная скидка удалена');
+  loadPersDiscounts();
+  loadUsers();
+};
+
+// ── GALLERY ──
 async function loadGalleries() {
-  const galleries = await getDocs(collection(db, 'gallery_sections'));
-  const html = galleries.docs.map(doc => {
-    const data = doc.data();
-    return `<div class="admin-card">
-      <h3 style="color:#fff;margin:0 0 16px">${data.title}</h3>
-      <button class="btn-secondary" onclick="uploadGalleryImages('${doc.id}')">⬆️ Загрузить фото</button>
-      <button class="btn-danger" onclick="deleteGallery('${doc.id}')">🗑️ Удалить</button>
-    </div>`;
-  }).join('');
-  document.getElementById('galleryList').innerHTML = html || '<div class="empty-state">Разделов нет</div>';
-}
+  const snap = await getDocs(collection(db, 'gallery_sections'));
+  const sections = [];
+  snap.forEach(d => { const data = d.data(); data._id = d.id; sections.push(data); });
 
-window.uploadGalleryImages = (sectionId) => {
-  if (!window.cloudinary) {
-    alert('❌ Cloudinary не загружена. Обнови страницу!');
+  if (sections.length === 0) {
+    document.getElementById('gallery-sections').innerHTML = '<div style="color:#8892a4;text-align:center;padding:28px">Разделов нет</div>';
     return;
   }
 
-  cloudinary.openUploadWidget(
-    {
-      cloudName: 'da39rjsea',
-      uploadPreset: 'dord_gallery',
-      multiple: true,
-      folder: 'dord-gallery',
-      sources: ['local', 'url'],
-      maxFileSize: 5242880,
-      maxFiles: 10
-    },
-    async (error, result) => {
-      if (error) {
-        console.error('Upload error:', error);
-        alert('❌ Ошибка загрузки: ' + error.message);
-        return;
-      }
+  document.getElementById('gallery-sections').innerHTML = sections.map(s => {
+    const imgs = (s.images || []).map((img, i) =>
+      `<div class="gallery-thumb">
+        <img src="${img.url}" alt="${img.title || ''}" loading="lazy">
+        <button class="gallery-thumb-del" onclick="deleteGalleryImage('${s._id}',${i})">✕</button>
+      </div>`
+    ).join('');
 
-      if (result && result.event === 'success') {
-        try {
-          const imageUrl = result.info.secure_url;
-          const imageTitle = result.info.original_filename || 'image';
+    return `<div class="a-card">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:14px">
+        <div class="a-card-title" style="margin:0">${s.title} <span style="color:#8892a4;font-size:10px;font-weight:400">(${s.sectionId})</span></div>
+        <div class="btn-row">
+          <label class="b-sc" style="cursor:pointer">⬆️ Загрузить <input type="file" multiple accept="image/*" style="display:none" onchange="uploadGalleryFiles('${s._id}',this.files)"></label>
+          <button class="b-dn" onclick="deleteGallerySection('${s._id}')">🗑️ Удалить раздел</button>
+        </div>
+      </div>
+      <div class="gallery-grid">${imgs || '<span style="color:#8892a4;font-size:12px">Нет фото</span>'}</div>
+    </div>`;
+  }).join('');
+}
 
-          const sectionsRef = collection(db, 'gallery_sections');
-          const querySnapshot = await getDocs(sectionsRef);
-          
-          let found = false;
-          for (const doc of querySnapshot.docs) {
-            if (doc.id === sectionId) {
-              const sectionRef = doc.ref;
-              const currentImages = doc.data().images || [];
-              
-              currentImages.push({
-                url: imageUrl,
-                title: imageTitle,
-                added_at: new Date().toISOString()
-              });
+window.createGallerySection = async () => {
+  const title = document.getElementById('gs-title').value.trim();
+  const sectionId = document.getElementById('gs-id').value.trim();
+  if (!title || !sectionId) return toast('Заполни все поля', false);
+  await addDoc(collection(db, 'gallery_sections'), { title, sectionId, images: [], created_at: new Date() });
+  toast('🖼️ Раздел создан: ' + title);
+  closeModal('gallerySectionModal');
+  document.getElementById('gs-title').value = '';
+  document.getElementById('gs-id').value = '';
+  loadGalleries();
+};
 
-              await updateDoc(sectionRef, { images: currentImages });
-              found = true;
-              break;
-            }
-          }
+window.uploadGalleryFiles = async (sectionDocId, files) => {
+  if (!files.length) return;
+  toast('⬆️ Загрузка ' + files.length + ' файлов...');
 
-          if (found) {
-            alert('✅ Фото загружено!');
-            loadGalleries();
-          } else {
-            alert('❌ Раздел не найден');
-          }
-        } catch (err) {
-          console.error('Firebase error:', err);
-          alert('❌ Ошибка: ' + err.message);
-        }
-      }
+  const sectionRef = doc(db, 'gallery_sections', sectionDocId);
+  const sectionDoc = await getDoc(sectionRef);
+  const images = sectionDoc.data().images || [];
+
+  for (const file of files) {
+    try {
+      const fileName = Date.now() + '_' + file.name.replace(/[^a-zA-Z0-9._-]/g, '');
+      const storageRef = ref(storage, 'gallery/' + sectionDocId + '/' + fileName);
+      await uploadBytes(storageRef, file);
+      const url = await getDownloadURL(storageRef);
+      images.push({ url, title: file.name.replace(/\.[^.]+$/, ''), storagePath: 'gallery/' + sectionDocId + '/' + fileName, added_at: new Date().toISOString() });
+    } catch (e) {
+      console.error('Upload error:', e);
+      toast('❌ Ошибка: ' + file.name, false);
     }
-  );
-};
-
-window.deleteGallery = async (gid) => {
-  if (confirm('Удалить раздел?')) {
-    await deleteDoc(doc(db, 'gallery_sections', gid));
-    loadGalleries();
   }
+
+  await updateDoc(sectionRef, { images });
+  toast('✅ Загружено ' + files.length + ' фото');
+  loadGalleries();
 };
 
-// EMAIL
+window.deleteGalleryImage = async (sectionDocId, imgIndex) => {
+  if (!confirm('Удалить фото?')) return;
+  const sectionRef = doc(db, 'gallery_sections', sectionDocId);
+  const sectionDoc = await getDoc(sectionRef);
+  const images = sectionDoc.data().images || [];
+  const img = images[imgIndex];
+
+  if (img.storagePath) {
+    try { await deleteObject(ref(storage, img.storagePath)); } catch (e) { console.warn('Storage delete failed:', e); }
+  }
+
+  images.splice(imgIndex, 1);
+  await updateDoc(sectionRef, { images });
+  toast('🗑️ Фото удалено');
+  loadGalleries();
+};
+
+window.deleteGallerySection = async (id) => {
+  if (!confirm('Удалить весь раздел с фото?')) return;
+  const sectionDoc = await getDoc(doc(db, 'gallery_sections', id));
+  const images = sectionDoc.data()?.images || [];
+  for (const img of images) {
+    if (img.storagePath) {
+      try { await deleteObject(ref(storage, img.storagePath)); } catch (e) {}
+    }
+  }
+  await deleteDoc(doc(db, 'gallery_sections', id));
+  toast('🗑️ Раздел удалён');
+  loadGalleries();
+};
+
+// ── EMAIL ──
 window.sendEmail = async () => {
   const to = document.getElementById('emailTo').value;
   const subject = document.getElementById('emailSubject').value;
   const body = document.getElementById('emailBody').value;
-  if (!to || !subject || !body) return alert('Заполни все поля');
+  if (!to || !subject || !body) return toast('Заполни все поля', false);
   try {
-    await fetch('https://api.resend.com/emails', {
+    const res = await fetch('/api/admin-send-email', {
       method: 'POST',
-      headers: { 'Authorization': 'Bearer re_...', 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        from: 'noreply@dordai.art',
-        to, subject,
-        html: `<p>${body}</p>`
-      })
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ adminUid: auth.currentUser.uid, to, subject, body })
     });
-    alert('✅ Письмо отправлено');
-    document.getElementById('emailTo').value = '';
-    document.getElementById('emailSubject').value = '';
-    document.getElementById('emailBody').value = '';
-  } catch (e) {
-    alert('❌ Ошибка: ' + e.message);
-  }
+    const data = await res.json();
+    if (data.ok) {
+      toast('📧 Письмо отправлено');
+      document.getElementById('emailTo').value = '';
+      document.getElementById('emailSubject').value = '';
+      document.getElementById('emailBody').value = '';
+    } else toast('❌ ' + (data.error || 'Ошибка'), false);
+  } catch (e) { toast('❌ ' + e.message, false); }
 };
-
-// INIT
-onAuthStateChanged(auth, (user) => {
-  if (!user) window.location.href = 'dashboard.html';
-  else {
-    loadUsers();
-    loadOrders();
-    loadPromos();
-    loadDiscounts();
-    loadGalleries();
-    
-    getDocs(collection(db, 'users')).then(u => document.getElementById('stat-users').textContent = u.size);
-  }
-});
 </script>
 
 </body>
