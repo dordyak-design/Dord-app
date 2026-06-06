@@ -1,4 +1,4 @@
-/home/claude/cookie.js << 'COOKIEOF'
+
 /**
  * Dord AI Studio — Cookie Consent Banner
  * Подключить: <script src="cookie.js"></script> (перед </body>)
@@ -87,4 +87,4 @@ Output
     if(el) el.remove();
   };
 })();
-Done
+
