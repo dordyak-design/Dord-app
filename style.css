@@ -78,6 +78,7 @@ header {
     align-items: center;
     gap: 14px;
     flex-shrink: 0;
+    text-decoration: none;
 }
 
 .header-left img {
@@ -263,7 +264,7 @@ nav {
 .breadcrumb a:hover { color: var(--accent-green); }
 .breadcrumb span { color: var(--text-soft); }
 
-/* ===================== ТИПОГРАФИКА СЕКЦИЙ ===================== */
+/* ===================== ТИПОГРАФИКА СЕКЦИЙ — УМЕНЬШЕНО НА 35% ===================== */
 .section-label {
     font-size: 11px;
     font-weight: 700;
@@ -275,7 +276,7 @@ nav {
 
 .section-title {
     font-family: 'Unbounded', sans-serif;
-    font-size: clamp(22px, 3vw, 36px);
+    font-size: clamp(15px, 2vw, 24px);
     font-weight: 900;
     text-transform: uppercase;
     line-height: 1.2;
@@ -283,7 +284,7 @@ nav {
 }
 
 .section-sub {
-    font-size: 14px;
+    font-size: 13px;
     color: var(--text-muted);
     max-width: 600px;
     line-height: 1.7;
@@ -393,7 +394,7 @@ nav {
 
 .card h3 {
     font-family: 'Unbounded', sans-serif;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 700;
     text-transform: uppercase;
     margin-bottom: 12px;
@@ -460,9 +461,9 @@ nav {
     flex-shrink: 0;
 }
 
-/* ===================== HERO ===================== */
+/* ===================== HERO — УМЕНЬШЕНО НА 35% ===================== */
 .hero {
-    padding: 80px var(--page-pad) 60px;
+    padding: 60px var(--page-pad) 40px;
     max-width: var(--page-max);
     margin: 0 auto;
     display: grid;
@@ -484,7 +485,7 @@ nav {
     text-transform: uppercase;
     letter-spacing: 1px;
     color: var(--accent-green);
-    margin-bottom: 28px;
+    margin-bottom: 20px;
 }
 
 .hero-badge .dot {
@@ -497,11 +498,11 @@ nav {
 
 .hero h1 {
     font-family: 'Unbounded', sans-serif;
-    font-size: clamp(28px, 4vw, 52px);
+    font-size: clamp(20px, 2.8vw, 34px);
     font-weight: 900;
     text-transform: uppercase;
-    line-height: 1.1;
-    margin-bottom: 24px;
+    line-height: 1.15;
+    margin-bottom: 18px;
 }
 
 .hero h1 .highlight {
@@ -512,10 +513,10 @@ nav {
 }
 
 .hero-sub {
-    font-size: clamp(14px, 1.5vw, 17px);
+    font-size: clamp(13px, 1.3vw, 15px);
     color: var(--text-soft);
     line-height: 1.7;
-    margin-bottom: 36px;
+    margin-bottom: 28px;
     max-width: 520px;
 }
 
@@ -560,7 +561,7 @@ nav {
 
 .stat-num {
     font-family: 'Unbounded', sans-serif;
-    font-size: clamp(28px, 3vw, 40px);
+    font-size: clamp(20px, 2vw, 28px);
     font-weight: 900;
     color: var(--accent-green);
     line-height: 1;
@@ -568,30 +569,30 @@ nav {
 }
 
 .stat-label {
-    font-size: 13px;
+    font-size: 12px;
     color: var(--text-muted);
     line-height: 1.4;
 }
 
-/* ===================== PAGE HERO ===================== */
+/* ===================== PAGE HERO — УМЕНЬШЕНО НА 35% ===================== */
 .page-hero {
     width: 100%;
     max-width: var(--page-max);
     margin: 0 auto;
-    padding: 60px var(--page-pad) 40px;
+    padding: 40px var(--page-pad) 28px;
 }
 
 .page-hero h1 {
     font-family: 'Unbounded', sans-serif;
-    font-size: clamp(24px, 3.5vw, 42px);
+    font-size: clamp(18px, 2.5vw, 28px);
     font-weight: 900;
     text-transform: uppercase;
     line-height: 1.15;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
 }
 
 .page-hero p {
-    font-size: 15px;
+    font-size: 14px;
     color: var(--text-muted);
     max-width: 640px;
     line-height: 1.7;
@@ -602,12 +603,12 @@ nav {
     width: 100%;
     max-width: var(--page-max);
     margin: 0 auto;
-    padding: 80px var(--page-pad);
+    padding: 60px var(--page-pad);
 }
 
 .section-wrap-alt {
     background: rgba(255, 255, 255, 0.015);
-    padding: 80px 0;
+    padding: 60px 0;
 }
 
 .section-wrap-alt .section-inner {
@@ -626,12 +627,12 @@ nav {
     margin: 0 auto;
 }
 
-/* ===================== ПРАЙС-КАРТОЧКИ ===================== */
+/* ===================== ПРАЙС-КАРТОЧКИ — УМЕНЬШЕНО НА 35% ===================== */
 .pricing-card {
     background: var(--card-bg);
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
-    padding: 40px 32px;
+    padding: 32px 26px;
     transition: var(--transition);
     position: relative;
     display: flex;
@@ -682,23 +683,23 @@ nav {
 
 .pricing-card h3 {
     font-family: 'Unbounded', sans-serif;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 700;
     text-transform: uppercase;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 .pricing-card .tagline {
-    font-size: 13px;
+    font-size: 12px;
     color: var(--text-muted);
     line-height: 1.5;
-    margin-bottom: 28px;
+    margin-bottom: 24px;
     flex-grow: 1;
 }
 
 .price-big {
     font-family: 'Unbounded', sans-serif;
-    font-size: clamp(36px, 4vw, 48px);
+    font-size: clamp(24px, 2.8vw, 32px);
     font-weight: 900;
     color: var(--accent-green);
     line-height: 1;
@@ -706,27 +707,27 @@ nav {
 }
 
 .price-period {
-    font-size: 13px;
+    font-size: 12px;
     color: var(--text-muted);
     margin-bottom: 10px;
 }
 
 .price-saving {
-    font-size: 12px;
+    font-size: 11px;
     color: var(--accent-green);
     font-weight: 700;
-    margin-bottom: 28px;
+    margin-bottom: 24px;
 }
 
 .pricing-features {
     list-style: none;
-    margin-bottom: 32px;
+    margin-bottom: 28px;
 }
 
 .pricing-features li {
-    font-size: 13px;
+    font-size: 12px;
     color: var(--text-soft);
-    padding: 9px 0;
+    padding: 8px 0;
     border-bottom: 1px solid var(--border);
     display: flex;
     align-items: flex-start;
@@ -767,8 +768,8 @@ nav {
 }
 
 .step-num {
-    width: 72px;
-    height: 72px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     background: var(--card-bg);
     border: 2px solid var(--accent-green);
@@ -776,23 +777,23 @@ nav {
     align-items: center;
     justify-content: center;
     font-family: 'Unbounded', sans-serif;
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 900;
     color: var(--accent-green);
-    margin: 0 auto 20px;
+    margin: 0 auto 16px;
 }
 
 .step h4 {
     font-family: 'Unbounded', sans-serif;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     letter-spacing: 0.5px;
 }
 
 .step p {
-    font-size: 13px;
+    font-size: 12px;
     color: var(--text-muted);
     line-height: 1.6;
 }
@@ -802,27 +803,27 @@ nav {
     background: rgba(239, 68, 68, 0.04);
     border: 1px solid var(--border-red);
     border-radius: var(--radius-lg);
-    padding: 32px 36px;
+    padding: 28px 32px;
     display: grid;
     grid-template-columns: auto 1fr;
-    gap: 24px;
+    gap: 20px;
     align-items: start;
 }
 
-.disclaimer-icon { font-size: 28px; }
+.disclaimer-icon { font-size: 24px; }
 
 .disclaimer-box h4 {
     font-family: 'Unbounded', sans-serif;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 700;
     text-transform: uppercase;
     color: #f87171;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .disclaimer-box p,
 .warning-text {
-    font-size: 13px;
+    font-size: 12px;
     color: var(--text-muted);
     line-height: 1.7;
 }
@@ -872,17 +873,71 @@ nav {
     color: var(--text-main);
 }
 
-/* ===================== FOOTER ===================== */
+/* ===================== FOOTER — НОВЫЙ GRID 3-КОЛОНОЧНЫЙ ===================== */
 footer {
     border-top: 1px solid var(--border);
-    padding: 40px var(--page-pad);
+    padding: 48px var(--page-pad) 32px;
+    display: block;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 32px;
+    max-width: var(--page-max);
+    margin: 0 auto;
+}
+
+.footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.footer-col-title {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--accent-green);
+    margin-bottom: 8px;
+}
+
+.footer-col a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 12px;
+    transition: color 0.2s;
+    line-height: 1.5;
+}
+
+.footer-col a:hover { color: var(--accent-green); }
+
+.footer-col span, .footer-col p {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+.footer-col b {
+    color: var(--text-main);
+    font-size: 13px;
+}
+
+.footer-bottom {
+    max-width: var(--page-max);
+    margin: 24px auto 0;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
+    font-size: 11px;
+    color: var(--text-muted);
 }
 
+/* Поддержка старого footer для обратной совместимости */
 .footer-info {
     display: flex;
     flex-direction: column;
@@ -921,7 +976,7 @@ footer {
     background: var(--card-bg);
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
-    padding: 36px 28px;
+    padding: 30px 24px;
     transition: var(--transition);
     position: relative;
     overflow: hidden;
@@ -948,9 +1003,9 @@ footer {
 }
 
 .teaser-icon {
-    width: 44px;
-    height: 44px;
-    margin-bottom: 20px;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 16px;
     display: block;
     flex-shrink: 0;
 }
@@ -966,27 +1021,27 @@ footer {
 
 .teaser-card h3 {
     font-family: 'Unbounded', sans-serif;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.3px;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 .teaser-card p {
-    font-size: 13px;
+    font-size: 12px;
     color: var(--text-muted);
     line-height: 1.65;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     flex-grow: 1;
 }
 
 .teaser-price {
     font-family: 'Unbounded', sans-serif;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 700;
     color: var(--accent-green);
-    margin-bottom: 20px;
+    margin-bottom: 16px;
 }
 
 .btn-teaser {
@@ -994,7 +1049,7 @@ footer {
     align-items: center;
     gap: 6px;
     color: var(--accent-green);
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -1013,7 +1068,7 @@ footer {
     width: 100%;
     max-width: var(--page-max);
     margin: 0 auto;
-    padding: 80px var(--page-pad);
+    padding: 60px var(--page-pad);
 }
 
 .service-block + .service-block {
@@ -1025,7 +1080,7 @@ footer {
     grid-template-columns: 1fr auto;
     align-items: start;
     gap: 40px;
-    margin-bottom: 48px;
+    margin-bottom: 40px;
 }
 
 .service-tag {
@@ -1041,20 +1096,20 @@ footer {
     text-transform: uppercase;
     letter-spacing: 1px;
     color: var(--accent-green);
-    margin-bottom: 16px;
+    margin-bottom: 14px;
 }
 
 .service-header h2 {
     font-family: 'Unbounded', sans-serif;
-    font-size: clamp(22px, 3vw, 36px);
+    font-size: clamp(16px, 2vw, 24px);
     font-weight: 900;
     text-transform: uppercase;
     line-height: 1.15;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
 }
 
 .service-header p {
-    font-size: 15px;
+    font-size: 14px;
     color: var(--text-muted);
     line-height: 1.7;
     max-width: 600px;
@@ -1071,7 +1126,7 @@ footer {
 .service-header-price { text-align: right; }
 
 .service-header-price .from {
-    font-size: 11px;
+    font-size: 10px;
     color: var(--text-muted);
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -1081,7 +1136,7 @@ footer {
 
 .service-header-price .amount {
     font-family: 'Unbounded', sans-serif;
-    font-size: 32px;
+    font-size: 24px;
     font-weight: 900;
     color: var(--accent-green);
     line-height: 1;
@@ -1098,7 +1153,7 @@ footer {
     background: var(--card-bg);
     border: 1px solid var(--border);
     border-radius: var(--radius-md);
-    padding: 28px 24px;
+    padding: 24px 20px;
     transition: var(--transition);
     position: relative;
     overflow: hidden;
@@ -1139,17 +1194,17 @@ footer {
 }
 
 .pkg-tile .pkg-label {
-    font-size: 11px;
+    font-size: 10px;
     color: var(--text-muted);
     text-transform: uppercase;
     letter-spacing: 1px;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     display: block;
 }
 
 .pkg-tile .pkg-amount {
     font-family: 'Unbounded', sans-serif;
-    font-size: 28px;
+    font-size: 22px;
     font-weight: 900;
     color: var(--accent-green);
     line-height: 1;
@@ -1157,14 +1212,14 @@ footer {
 }
 
 .pkg-tile .pkg-per {
-    font-size: 11px;
+    font-size: 10px;
     color: var(--text-muted);
-    margin-bottom: 16px;
+    margin-bottom: 14px;
     display: block;
 }
 
 .pkg-tile .pkg-desc {
-    font-size: 12px;
+    font-size: 11px;
     color: var(--text-soft);
     line-height: 1.5;
 }
@@ -1181,7 +1236,7 @@ footer {
     display: flex;
     align-items: flex-start;
     gap: 10px;
-    font-size: 13px;
+    font-size: 12px;
     color: var(--text-soft);
     line-height: 1.5;
 }
@@ -1201,17 +1256,17 @@ footer {
     background: rgba(0, 0, 0, 0.2);
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
-    padding: 32px;
+    padding: 28px;
     margin-bottom: 40px;
 }
 
 .compare-side h4 {
     font-family: 'Unbounded', sans-serif;
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
 }
 
 .compare-side.old h4 { color: #f87171; }
@@ -1220,9 +1275,9 @@ footer {
 .compare-side ul { list-style: none; }
 
 .compare-side ul li {
-    font-size: 13px;
+    font-size: 12px;
     color: var(--text-muted);
-    padding: 7px 0;
+    padding: 6px 0;
     border-bottom: 1px solid var(--border);
     display: flex;
     gap: 8px;
@@ -1253,13 +1308,13 @@ footer {
 }
 
 @media (max-width: 768px) {
-    header { padding: 0 16px; height: 64px; }
-    .header-left img { height: 32px; }
-    .company-name { font-size: 14px; }
-    .occupation { font-size: 8px; }
+    header { padding: 0 12px; height: 52px; }
+    .header-left img { height: 28px; }
+    .company-name { font-size: 12px; }
+    .occupation { font-size: 7px; }
 
     nav {
-        gap: 6px;
+        gap: 4px;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
@@ -1268,52 +1323,61 @@ footer {
         min-width: 0;
     }
     nav::-webkit-scrollbar { display: none; }
-    .nav-btn { padding: 7px 10px; font-size: 9px; flex-shrink: 0; }
+    .nav-btn { padding: 6px 8px; font-size: 8px; flex-shrink: 0; }
 
-    .hero { grid-template-columns: 1fr; padding: 40px 16px 48px; gap: 36px; }
-    .hero-badge { font-size: 10px; padding: 5px 12px; }
-    .hero-stats { grid-template-columns: 1fr 1fr; gap: 12px; }
-    .stat-card { padding: 20px 16px; }
+    .social-bar { gap: 6px; padding: 6px 12px; flex-wrap: wrap; }
+    .social-bar a { padding: 4px 10px; font-size: 10px; }
 
-    .page-hero { padding: 40px 16px 32px; }
-    .section-wrap { padding: 48px 16px; }
-    .section-wrap-alt { padding: 48px 0; }
-    .section-title { font-size: 20px; }
-    .section-sub { margin-bottom: 32px; }
+    .hero { grid-template-columns: 1fr; padding: 20px 16px 24px; gap: 20px; }
+    .hero-badge { font-size: 9px; padding: 4px 10px; margin-bottom: 10px; }
+    .hero h1 { font-size: clamp(18px, 5vw, 24px); margin-bottom: 10px; }
+    .hero-sub { font-size: 12px; margin-bottom: 16px; }
+    .hero-stats { grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+    .stat-card { padding: 14px 10px; }
+    .stat-num { font-size: 18px; }
+
+    .page-hero { padding: 20px 16px 16px; }
+    .page-hero h1 { font-size: clamp(16px, 4vw, 22px); }
+    .section-wrap { padding: 32px 16px; }
+    .section-wrap-alt { padding: 32px 0; }
+    .section-title { font-size: 16px; }
+    .section-sub { margin-bottom: 24px; font-size: 12px; }
 
     .grid-3, .grid-2 { grid-template-columns: 1fr; gap: 14px; }
-    .card { padding: 28px 20px; }
-    .pricing-card { padding: 32px 22px; }
+    .card { padding: 24px 16px; }
+    .pricing-card { padding: 24px 18px; }
 
-    .steps { grid-template-columns: 1fr; gap: 32px; }
+    .steps { grid-template-columns: 1fr; gap: 24px; }
     .steps::before { display: none; }
 
-    .disclaimer-box { grid-template-columns: 1fr; gap: 12px; padding: 24px 20px; }
+    .disclaimer-box { grid-template-columns: 1fr; gap: 10px; padding: 20px 16px; }
 
-    .teaser-grid { grid-template-columns: 1fr; gap: 14px; }
-    .teaser-card { padding: 28px 20px; }
+    .teaser-grid { grid-template-columns: 1fr; gap: 12px; }
+    .teaser-card { padding: 20px 16px; }
 
-    .service-header { grid-template-columns: 1fr; gap: 24px; }
+    .service-header { grid-template-columns: 1fr; gap: 20px; }
     .service-header-cta { align-items: flex-start; }
     .service-header-price { text-align: left; }
-    .service-block { padding: 48px 16px; }
+    .service-block { padding: 32px 16px; }
 
-    .pkg-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
-    .pkg-tile { padding: 20px 16px; }
-    .pkg-tile .pkg-amount { font-size: 22px; }
+    .pkg-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .pkg-tile { padding: 16px 12px; }
+    .pkg-tile .pkg-amount { font-size: 18px; }
 
-    .compare-box { grid-template-columns: 1fr; padding: 24px 20px; gap: 24px; }
+    .compare-box { grid-template-columns: 1fr; padding: 20px 16px; gap: 20px; }
     .benefits-list { grid-template-columns: 1fr; }
 
-    .breadcrumb { padding: 16px; }
+    .breadcrumb { padding: 10px 16px; }
 
-    footer { padding: 32px 16px; flex-direction: column; align-items: flex-start; gap: 16px; }
+    footer { padding: 28px 16px 20px; }
+    .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
     .footer-right { text-align: left; }
 }
 
 @media (max-width: 480px) {
     .hero-cta-group { flex-direction: column; }
-    .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+    .btn-primary, .btn-secondary { width: 100%; justify-content: center; padding: 14px 24px; font-size: 12px; }
     .hero-stats { grid-template-columns: 1fr 1fr; }
     .pkg-grid { grid-template-columns: 1fr; }
 }
@@ -1323,8 +1387,8 @@ footer {
     position: fixed;
     bottom: 32px;
     right: 32px;
-    width: 48px;
-    height: 48px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
     background: linear-gradient(135deg, #004aad, #00c896);
     border: none;
@@ -1348,8 +1412,8 @@ footer {
     transform: translateY(-3px);
 }
 .back-to-top svg {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     fill: none;
     stroke: #fff;
     stroke-width: 2.5;
