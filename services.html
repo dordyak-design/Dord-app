@@ -188,18 +188,18 @@
   <div class="section-block">
     <div class="free-sample-row">
       <div>
-        <h3>🎁 Free Sample — Try Before You Buy</h3>
-        <p>Send us a photo of your product — even a phone shot on a white background. We'll return 1–2 premium renders in small resolution, completely free.</p>
+        <h3 data-i18n="svc.cfg.free.title">🎁 Free Sample — Try Before You Buy</h3>
+        <p data-i18n="svc.cfg.free.text">Send us a photo of your product — even a phone shot on a white background. We'll return 1–2 premium renders in small resolution, completely free.</p>
       </div>
-      <button class="btn-primary" onclick="document.getElementById('sampleModal').style.display='flex'">Get Free Sample →</button>
+      <button class="btn-primary" onclick="document.getElementById('sampleModal').style.display='flex'" data-i18n="svc.cfg.free.btn">Get Free Sample →</button>
     </div>
   </div>
 </div>
 
 <div class="page-hero">
   <div class="hero-badge"><span class="dot"></span>Updated · June 2026</div>
-  <h1>Build Your Order</h1>
-  <p>Select exactly what you need. Every order is handled personally.</p>
+  <h1 data-i18n="svc.cfg.title">Build Your Order</h1>
+  <p data-i18n="svc.cfg.sub">Select exactly what you need. Every order is handled personally.</p>
   <div class="value-badges" style="justify-content:center;margin-top:16px">
     <span class="value-badge"><span class="vb-dot"></span>Private GPU Server</span>
     <span class="value-badge"><span class="vb-dot"></span>No Cloud</span>
@@ -213,27 +213,27 @@
 
     <!-- IMAGE PACKS -->
     <div class="cfg-section">
-      <div class="cfg-section-title">📸 Image Packs</div>
-      <div class="cfg-section-sub">Choose resolution, then volume. All packs include commercial rights and human QA.</div>
-      <div class="choice-label">Step 1 — Resolution</div>
+      <div class="cfg-section-title" data-i18n="svc.cfg.img.title">📸 Image Packs</div>
+      <div class="cfg-section-sub" data-i18n="svc.cfg.img.sub">Choose resolution, then volume. All packs include commercial rights and human QA.</div>
+      <div class="choice-label" data-i18n="svc.cfg.res">Step 1 — Resolution</div>
       <div class="choice-group" id="resGroup">
         <button class="choice-btn res-btn" data-res="1024" onclick="selectRes(this,'1024')">HD Pro<span class="btn-count">1024×1024</span></button>
         <button class="choice-btn res-btn" data-res="768" onclick="selectRes(this,'768')">Standard<span class="btn-count">768×768</span></button>
         <button class="choice-btn res-btn" data-res="512" onclick="selectRes(this,'512')">Economy<span class="btn-count">512×512</span></button>
       </div>
-      <div class="choice-label">Step 2 — Volume</div>
+      <div class="choice-label" data-i18n="svc.cfg.vol">Step 2 — Volume</div>
       <div class="choice-group" id="packGroup">
-        <button class="choice-btn" data-pack="99" data-base="20" onclick="selectPack(this,99,20)">Starter<span class="btn-price">$99</span><span class="btn-count" id="cnt-99">20 photos</span></button>
-        <button class="choice-btn" data-pack="299" data-base="50" onclick="selectPack(this,299,50)">Growth<span class="btn-price">$299</span><span class="btn-count" id="cnt-299">50 photos</span></button>
-        <button class="choice-btn" data-pack="699" data-base="150" onclick="selectPack(this,699,150)">Scale<span class="btn-price">$699</span><span class="btn-count" id="cnt-699">150 photos</span></button>
+        <button class="choice-btn res-btn" data-pack="99" data-base="20" onclick="selectPack(this,99,20)">Starter<span class="btn-price" id="price-99">$99</span><span class="btn-count" id="cnt-99">20 photos</span></button>
+        <button class="choice-btn res-btn" data-pack="299" data-base="50" onclick="selectPack(this,299,50)">Growth<span class="btn-price" id="price-299">$299</span><span class="btn-count" id="cnt-299">50 photos</span></button>
+        <button class="choice-btn res-btn" data-pack="699" data-base="150" onclick="selectPack(this,699,150)">Scale<span class="btn-price" id="price-699">$699</span><span class="btn-count" id="cnt-699">150 photos</span></button>
       </div>
       <button class="btn-add-cart" id="addImgBtn" onclick="addImagePack()" disabled style="opacity:0.4">+ Add Image Pack to Cart</button>
     </div>
 
     <!-- VIDEO REELS -->
     <div class="cfg-section">
-      <div class="cfg-section-title">🎬 Video Reels</div>
-      <div class="cfg-section-sub">Short dynamic videos 5–15 sec for TikTok / Instagram.</div>
+      <div class="cfg-section-title" data-i18n="svc.cfg.vid.title">🎬 Video Reels</div>
+      <div class="cfg-section-sub" data-i18n="svc.cfg.vid.sub">Short dynamic videos 5–15 sec for TikTok / Instagram.</div>
       <div class="video-grid">
         <div class="video-card"><div class="video-card-name">Promo Reel</div><div class="video-card-price">$30</div><div class="video-card-desc">5 sec. TikTok & Stories.</div><button class="video-add-btn" onclick="addVideo('Promo Reel · 5 sec',30)">+ Add</button></div>
         <div class="video-card"><div class="video-card-name">Full Reel</div><div class="video-card-price">$60</div><div class="video-card-desc">10 sec. Instagram Reels.</div><button class="video-add-btn" onclick="addVideo('Full Reel · 10 sec',60)">+ Add</button></div>
@@ -251,8 +251,8 @@
 
     <!-- BULK -->
     <div class="cfg-section">
-      <div class="cfg-section-title">🏷️ Bulk Product Cards</div>
-      <div class="cfg-section-sub">$2.50/card (512px). Min 30, max 200.</div>
+      <div class="cfg-section-title" data-i18n="svc.cfg.bulk.title">🏷️ Bulk Product Cards</div>
+      <div class="cfg-section-sub" data-i18n="svc.cfg.bulk.sub">$2.50/card (512px). Min 30, max 200.</div>
       <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap">
         <div>
           <div class="choice-label">Cards</div>
@@ -265,8 +265,8 @@
 
     <!-- UPLOAD -->
     <div class="cfg-section">
-      <div class="cfg-section-title">📎 Upload Photos</div>
-      <div class="cfg-section-sub">Upload product images. We start within 48h after payment.</div>
+      <div class="cfg-section-title" data-i18n="svc.cfg.upload.title">📎 Upload Photos</div>
+      <div class="cfg-section-sub" data-i18n="svc.cfg.upload.sub">Upload product images. We start within 48h after payment.</div>
       <div class="upload-zone" id="uploadZone" onclick="document.getElementById('fileInput').click()">
         <div class="upload-icon">📁</div>
         <div class="upload-title">Drag & Drop or Click</div>
@@ -278,7 +278,7 @@
 
     <!-- ORDER DETAILS -->
     <div class="cfg-section">
-      <div class="cfg-section-title">✏️ Order Details</div>
+      <div class="cfg-section-title" data-i18n="svc.cfg.details.title">✏️ Order Details</div>
       <div class="order-form">
         <div class="form-row">
           <div class="form-field"><label>Service type</label><select id="orderType"><option>Product Photo</option><option>Product Cards</option><option>Video 5 sec</option><option>Video 10 sec</option><option>Video 15 sec</option></select></div>
@@ -351,7 +351,7 @@
   <div class="section-divider"></div>
   <div class="section-block" id="how-it-works">
     <div class="section-label">Why AI Studio</div>
-    <h2 class="section-title">Dord AI vs. Traditional Studio</h2>
+    <h2 class="section-title" data-i18n="svc.cfg.compare.title">Dord AI vs. Traditional Studio</h2>
     <table class="compare-table">
       <thead><tr><th>Parameter</th><th>Traditional</th><th style="color:#00c896">Dord AI</th></tr></thead>
       <tbody>
@@ -369,7 +369,7 @@
   <div class="section-divider"></div>
   <div class="section-block">
     <div class="section-label">Process</div>
-    <h2 class="section-title">How It Works</h2>
+    <h2 class="section-title" data-i18n="svc.cfg.how.title">How It Works</h2>
     <div class="steps-grid">
       <div class="step-card"><div class="step-num">01</div><div class="step-title">Upload Photos</div><div class="step-desc">Send product photos. Phone shot works.</div></div>
       <div class="step-card"><div class="step-num">02</div><div class="step-title">Configure & Pay</div><div class="step-desc">Choose pack, pay crypto.</div></div>
@@ -383,12 +383,12 @@
   <div class="section-divider"></div>
   <div class="section-block">
     <div class="section-label">FAQ</div>
-    <h2 class="section-title">Frequently Asked Questions</h2>
+    <h2 class="section-title" data-i18n="svc.cfg.faq.title">Frequently Asked Questions</h2>
     <div class="faq-list">
-      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What quality source photos do you need?<span class="faq-icon">+</span></div><div class="faq-a">Phone photos work, but better source = better result. Min 800×800px, good lighting.</div></div>
-      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How long does delivery take?<span class="faq-icon">+</span></div><div class="faq-a">Up to 48 hours after payment confirmation.</div></div>
-      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What payment methods?<span class="faq-icon">+</span></div><div class="faq-a">Crypto: USDC, USDT, TON, BTC via OxaPay.</div></div>
-      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is my data private?<span class="faq-icon">+</span></div><div class="faq-a">Yes. Own GPU servers. No cloud APIs, no training datasets.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')"><span data-i18n="svc.cfg.faq1.q">What quality source photos do you need?</span><span class="faq-icon">+</span></div><div class="faq-a" data-i18n="svc.cfg.faq1.a">Phone photos work, but better source = better result. Min 800×800px, good lighting.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')"><span data-i18n="svc.cfg.faq2.q">How long does delivery take?</span><span class="faq-icon">+</span></div><div class="faq-a" data-i18n="svc.cfg.faq2.a">Up to 48 hours after payment confirmation.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')"><span data-i18n="svc.cfg.faq3.q">What payment methods?</span><span class="faq-icon">+</span></div><div class="faq-a" data-i18n="svc.cfg.faq3.a">Crypto: USDC, USDT, TON, BTC via OxaPay.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')"><span data-i18n="svc.cfg.faq4.q">Is my data private?</span><span class="faq-icon">+</span></div><div class="faq-a" data-i18n="svc.cfg.faq4.a">Yes. Own GPU servers. No cloud APIs, no training datasets.</div></div>
     </div>
   </div>
 </div>
@@ -461,6 +461,25 @@ onAuthStateChanged(auth, (user) => {
   if (!user) { banner.style.display = 'block'; }
   else { banner.style.display = 'none'; if (window._cartHasItems) document.getElementById('payBtn').disabled = false; }
 });
+
+// Load prices from Firestore settings/prices
+try {
+  const pricesDoc = await getDoc(doc(db, 'settings', 'prices'));
+  if (pricesDoc.exists()) {
+    const pd = pricesDoc.data();
+    const packs = pd.packs || [];
+    const packBtns = document.querySelectorAll('#packGroup .choice-btn');
+    packs.forEach((p, i) => {
+      if (!packBtns[i]) return;
+      const btn = packBtns[i];
+      const priceEl = btn.querySelector('.btn-price');
+      if (priceEl) priceEl.textContent = '$' + p.price;
+      btn.setAttribute('data-pack', p.price);
+      btn.setAttribute('data-base', p.base);
+      btn.onclick = function(){ selectPack(this, p.price, p.base); };
+    });
+  }
+} catch(e) { console.warn('Prices load error:', e); }
 
 // Load partner links for footer
 try {
