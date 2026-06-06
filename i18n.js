@@ -1,8 +1,7 @@
 /**
  * Dord AI Studio — i18n.js
  * Глобальная мультиязычность. Работает на ВСЕХ страницах.
- * Язык по умолчанию: EN. Сохраняется в localStorage.
- * При переключении на одной странице — язык сохраняется при переходе на другие.
+ * EN по умолчанию. Сохраняется в localStorage.
  */
 
 const DORD_I18N = {
@@ -44,7 +43,23 @@ const DORD_I18N = {
         "gallery.bc":"Галерея",
         "dash.login.subtitle":"AI Фото и Видео Студия · Тель-Авив","dash.login.signin":"Войти","dash.login.register":"Регистрация","dash.login.email":"Email","dash.login.password":"Пароль","dash.login.confirm":"Подтвердите пароль","dash.login.signin.btn":"Войти →","dash.login.forgot":"Забыли пароль?","dash.login.or":"или","dash.login.create":"Создать аккаунт →","dash.login.reset.desc":"Введите email и мы отправим ссылку для сброса пароля.","dash.login.reset.btn":"Отправить ссылку →","dash.login.back":"← Назад ко входу","dash.login.main":"← На главную","dash.logout":"Выйти",
         "dash.tab.neworder":"Новый заказ","dash.tab.orders":"Мои заказы","dash.tab.results":"Результаты","dash.tab.contact":"Контакт",
-        "services.title":"Услуги и цены — Dord AI Studio"
+        "services.title":"Услуги и цены — Dord AI Studio",
+        // services page
+        "svc.cfg.title":"Соберите заказ","svc.cfg.sub":"Выберите что вам нужно. Каждый заказ обсуждается лично.",
+        "svc.cfg.free.title":"🎁 Бесплатный пример — попробуйте до покупки","svc.cfg.free.text":"Отправьте нам фото товара — даже со смартфона. Мы вернём 1–2 рендера бесплатно.",
+        "svc.cfg.free.btn":"Получить бесплатный пример →",
+        "svc.cfg.img.title":"📸 Пакеты изображений","svc.cfg.img.sub":"Выберите разрешение, затем объём. Все пакеты включают коммерческие права и ручную проверку.",
+        "svc.cfg.res":"Шаг 1 — Разрешение","svc.cfg.vol":"Шаг 2 — Объём",
+        "svc.cfg.vid.title":"🎬 Видео","svc.cfg.vid.sub":"Динамические ролики 5–15 сек для TikTok / Instagram.",
+        "svc.cfg.bulk.title":"🏷️ Карточки товаров","svc.cfg.bulk.sub":"$2.50/карточка (512px). Мин 30, макс 200.",
+        "svc.cfg.upload.title":"📎 Загрузить фото","svc.cfg.upload.sub":"Загрузите фото товаров. Мы начнём в течение 48ч после оплаты.",
+        "svc.cfg.details.title":"✏️ Детали заказа",
+        "svc.cfg.compare.title":"Dord AI vs. Обычная студия","svc.cfg.how.title":"Как это работает",
+        "svc.cfg.faq.title":"Часто задаваемые вопросы",
+        "svc.cfg.faq1.q":"Какого качества нужны исходные фото?","svc.cfg.faq1.a":"Фото со смартфона подойдут, но чем лучше исходник — тем лучше результат. Мин 800×800px.",
+        "svc.cfg.faq2.q":"Сколько времени занимает доставка?","svc.cfg.faq2.a":"До 48 часов после подтверждения оплаты.",
+        "svc.cfg.faq3.q":"Какие способы оплаты?","svc.cfg.faq3.a":"Крипто: USDC, USDT, TON, BTC через OxaPay.",
+        "svc.cfg.faq4.q":"Мои данные в безопасности?","svc.cfg.faq4.a":"Да. Свои GPU-серверы. Без облачных API, без датасетов."
     },
 
     en: {
@@ -83,7 +98,23 @@ const DORD_I18N = {
         "gallery.bc":"Gallery",
         "dash.login.subtitle":"AI Photo & Video Studio · Tel Aviv","dash.login.signin":"Sign In","dash.login.register":"Register","dash.login.email":"Email","dash.login.password":"Password","dash.login.confirm":"Confirm Password","dash.login.signin.btn":"Sign In →","dash.login.forgot":"Forgot password?","dash.login.or":"or","dash.login.create":"Create Account →","dash.login.reset.desc":"Enter your email and we'll send a password reset link.","dash.login.reset.btn":"Send Reset Link →","dash.login.back":"← Back to Sign In","dash.login.main":"← Back to main page","dash.logout":"Sign out",
         "dash.tab.neworder":"New Order","dash.tab.orders":"My Orders","dash.tab.results":"Results","dash.tab.contact":"Contact",
-        "services.title":"Services & Pricing — Dord AI Studio"
+        "services.title":"Services & Pricing — Dord AI Studio",
+        // services page
+        "svc.cfg.title":"Build Your Order","svc.cfg.sub":"Select exactly what you need. Every order is handled personally.",
+        "svc.cfg.free.title":"🎁 Free Sample — Try Before You Buy","svc.cfg.free.text":"Send us a photo of your product — even a phone shot on a white background. We'll return 1–2 premium renders completely free.",
+        "svc.cfg.free.btn":"Get Free Sample →",
+        "svc.cfg.img.title":"📸 Image Packs","svc.cfg.img.sub":"Choose resolution, then volume. All packs include commercial rights and human QA.",
+        "svc.cfg.res":"Step 1 — Resolution","svc.cfg.vol":"Step 2 — Volume",
+        "svc.cfg.vid.title":"🎬 Video Reels","svc.cfg.vid.sub":"Short dynamic videos 5–15 sec for TikTok / Instagram.",
+        "svc.cfg.bulk.title":"🏷️ Bulk Product Cards","svc.cfg.bulk.sub":"$2.50/card (512px). Min 30, max 200.",
+        "svc.cfg.upload.title":"📎 Upload Photos","svc.cfg.upload.sub":"Upload product images. We start within 48h after payment.",
+        "svc.cfg.details.title":"✏️ Order Details",
+        "svc.cfg.compare.title":"Dord AI vs. Traditional Studio","svc.cfg.how.title":"How It Works",
+        "svc.cfg.faq.title":"Frequently Asked Questions",
+        "svc.cfg.faq1.q":"What quality source photos do you need?","svc.cfg.faq1.a":"Phone photos work, but better source = better result. Min 800×800px, good lighting.",
+        "svc.cfg.faq2.q":"How long does delivery take?","svc.cfg.faq2.a":"Up to 48 hours after payment confirmation.",
+        "svc.cfg.faq3.q":"What payment methods?","svc.cfg.faq3.a":"Crypto: USDC, USDT, TON, BTC via OxaPay.",
+        "svc.cfg.faq4.q":"Is my data private?","svc.cfg.faq4.a":"Yes. Own GPU servers. No cloud APIs, no training datasets."
     }
 };
 
@@ -102,30 +133,17 @@ const DORD_I18N = {
         if (pageKey && dict[pageKey + '.title']) {
             document.title = dict[pageKey + '.title'];
         }
-        // Обновить ВСЕ кнопки переключения языка на странице
         document.querySelectorAll('.lang-btn').forEach(btn => {
             const btnLang = btn.getAttribute('data-lang') || btn.textContent.trim().toLowerCase();
             btn.classList.toggle('active', btnLang === lang);
         });
     }
 
-    // Глобальная функция — вызывается из кнопок
-    window.setLang = function(lang) {
-        applyLang(lang);
-    };
-
-    // Совместимость со старыми вызовами switchLanguage
-    window.switchLanguage = function(lang, btn) {
-        applyLang(lang);
-    };
-
-    // Глобальная функция для i18n.js внешних вызовов
-    window.i18nSetLang = function(lang) {
-        applyLang(lang);
-    };
+    window.setLang = function(lang) { applyLang(lang); };
+    window.switchLanguage = function(lang, btn) { applyLang(lang); };
+    window.i18nSetLang = function(lang) { applyLang(lang); };
 
     document.addEventListener('DOMContentLoaded', function() {
-        // Всегда EN по умолчанию при первом визите. Потом — сохранённый.
         const saved = localStorage.getItem('dord_lang') || 'en';
         applyLang(saved);
     });
