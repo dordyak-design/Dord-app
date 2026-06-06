@@ -7,7 +7,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
-/* ── ADMIN LAYOUT ── */
 .admin-wrap{display:grid;grid-template-columns:230px 1fr;min-height:100vh}
 .admin-side{background:rgba(0,0,0,0.45);border-right:1px solid rgba(0,200,150,0.08);padding:28px 18px;position:sticky;top:0;height:100vh;overflow-y:auto;display:flex;flex-direction:column}
 .admin-side-logo{font-family:'Unbounded',sans-serif;font-size:14px;font-weight:900;color:#00c896;margin-bottom:28px;letter-spacing:0.5px}
@@ -19,23 +18,17 @@
 .tab-btn.logout:hover{background:rgba(239,68,68,0.18)}
 .section{display:none}.section.active{display:block}
 .page-title{font-family:'Unbounded',sans-serif;font-size:28px;font-weight:900;color:#fff;margin-bottom:28px}
-
-/* ── CARDS & STATS ── */
 .stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin-bottom:28px}
 .s-card{background:rgba(0,200,150,0.07);border:1px solid rgba(0,200,150,0.2);border-radius:10px;padding:20px;text-align:center}
 .s-num{font-family:'Unbounded',sans-serif;font-size:26px;font-weight:900;color:#00c896}
 .s-lbl{font-size:11px;color:#8892a4;margin-top:4px}
 .a-card{background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:24px;margin-bottom:20px}
 .a-card-title{font-family:'Unbounded',sans-serif;font-size:13px;font-weight:700;color:#fff;margin-bottom:16px;text-transform:uppercase;letter-spacing:0.3px}
-
-/* ── TABLE ── */
 .tbl{width:100%;border-collapse:collapse;font-size:12px}
 .tbl th{background:rgba(0,200,150,0.08);padding:12px 14px;text-align:left;color:#00c896;font-weight:700;border-bottom:1px solid rgba(0,200,150,0.15);white-space:nowrap}
 .tbl td{padding:10px 14px;border-bottom:1px solid rgba(255,255,255,0.04);color:#cdd5e0;vertical-align:middle}
 .tbl tr:hover{background:rgba(0,200,150,0.03)}
 .tbl .empty-row td{text-align:center;color:#8892a4;padding:28px}
-
-/* ── BUTTONS ── */
 .b-pr{padding:10px 16px;border-radius:8px;background:linear-gradient(135deg,#004aad,#00c896);color:#fff;border:none;font-family:'Inter',sans-serif;font-size:12px;font-weight:700;cursor:pointer;transition:all 0.2s}
 .b-pr:hover{opacity:0.9}
 .b-sc{padding:7px 12px;border-radius:6px;border:1px solid rgba(0,200,150,0.25);background:rgba(0,200,150,0.08);color:#00c896;font-size:11px;cursor:pointer;transition:all 0.2s;font-weight:600}
@@ -43,8 +36,6 @@
 .b-dn{padding:7px 12px;border-radius:6px;border:1px solid rgba(239,68,68,0.25);background:rgba(239,68,68,0.08);color:#f87171;font-size:11px;cursor:pointer;font-weight:600}
 .b-dn:hover{background:rgba(239,68,68,0.18)}
 .btn-row{display:flex;gap:6px;flex-wrap:wrap}
-
-/* ── FORMS ── */
 .f-group{margin-bottom:14px}
 .f-label{display:block;font-size:11px;color:#8892a4;text-transform:uppercase;margin-bottom:5px;font-weight:700;letter-spacing:0.5px}
 .f-input,.f-select,.f-textarea{width:100%;padding:10px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.04);color:#fff;font-family:'Inter',sans-serif;font-size:13px;outline:none;transition:border-color 0.2s}
@@ -53,35 +44,28 @@
 .f-select{appearance:none;background-image:url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg' width%3D'12' height%3D'12'%3E%3Cpath fill%3D'%2300c896' d%3D'M6 8L1 3h10z'%2F%3E%3C%2Fsvg%3E");background-repeat:no-repeat;background-position:right 12px center}
 .f-select option{background:#0d1121}
 .f-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-
-/* ── MODAL ── */
 .modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.8);z-index:2000;align-items:center;justify-content:center}
 .modal-bg.open{display:flex}
 .modal-box{background:#111827;border:1px solid rgba(0,200,150,0.25);border-radius:14px;padding:28px;width:90%;max-width:500px;max-height:90vh;overflow-y:auto;position:relative}
 .modal-box h3{font-family:'Unbounded',sans-serif;font-size:15px;font-weight:700;color:#fff;margin-bottom:18px}
 .modal-x{position:absolute;top:14px;right:18px;background:none;border:none;color:#8892a4;font-size:20px;cursor:pointer}
 .modal-x:hover{color:#fff}
-
-/* ── STATUS BADGES ── */
 .badge{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:20px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.3px}
 .badge-green{background:rgba(0,200,150,0.12);color:#00c896;border:1px solid rgba(0,200,150,0.25)}
 .badge-red{background:rgba(239,68,68,0.12);color:#f87171;border:1px solid rgba(239,68,68,0.25)}
 .badge-yellow{background:rgba(234,179,8,0.12);color:#eab308;border:1px solid rgba(234,179,8,0.25)}
 .badge-blue{background:rgba(59,130,246,0.12);color:#3b82f6;border:1px solid rgba(59,130,246,0.25)}
-
-/* ── GALLERY ── */
 .gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;margin-top:14px}
 .gallery-thumb{position:relative;border-radius:8px;overflow:hidden;aspect-ratio:1;border:1px solid rgba(255,255,255,0.06)}
 .gallery-thumb img{width:100%;height:100%;object-fit:cover}
-.gallery-thumb-del{position:absolute;top:4px;right:4px;background:rgba(239,68,68,0.9);color:#fff;border:none;border-radius:4px;padding:3px 7px;font-size:10px;cursor:pointer}
-
-/* ── TOAST ── */
+.gallery-thumb-overlay{position:absolute;inset:0;background:rgba(0,0,0,0.6);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;opacity:0;transition:opacity 0.2s}
+.gallery-thumb:hover .gallery-thumb-overlay{opacity:1}
+.gallery-thumb-caption{position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,0.7);padding:4px 8px;font-size:10px;color:#cdd5e0;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.upload-progress{margin-top:10px;font-size:12px;color:#00c896;min-height:18px}
 .toast{position:fixed;top:20px;right:20px;padding:14px 20px;border-radius:10px;font-size:13px;font-weight:600;z-index:9999;transform:translateX(120%);transition:transform 0.3s;max-width:360px}
 .toast.show{transform:translateX(0)}
 .toast-ok{background:#0d3320;border:1px solid rgba(0,200,150,0.4);color:#00c896}
 .toast-err{background:#3b1111;border:1px solid rgba(239,68,68,0.4);color:#f87171}
-
-/* ── RESPONSIVE ── */
 @media(max-width:860px){
   .admin-wrap{grid-template-columns:1fr}
   .admin-side{position:fixed;left:-260px;width:250px;z-index:1500;transition:left 0.3s}
@@ -94,11 +78,9 @@
 </style>
 </head>
 <body>
-
 <div id="toast" class="toast"></div>
 <button class="mob-toggle" onclick="document.querySelector('.admin-side').classList.toggle('open')">☰</button>
 
-<!-- AUTH GATE -->
 <div id="authGate" style="display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px">
   <div style="text-align:center">
     <div style="font-family:'Unbounded',sans-serif;font-size:18px;font-weight:900;color:#fff;margin-bottom:8px">🔒 Admin Access</div>
@@ -108,10 +90,7 @@
   </div>
 </div>
 
-<!-- ADMIN PANEL -->
 <div class="admin-wrap" id="adminPanel" style="display:none">
-
-  <!-- SIDEBAR -->
   <div class="admin-side">
     <div class="admin-side-logo">⚙️ DORD ADMIN</div>
     <button class="tab-btn active" data-tab="dashboard">📊 Dashboard</button>
@@ -126,10 +105,9 @@
     <button class="tab-btn logout" id="logoutBtn">🚪 Выход</button>
   </div>
 
-  <!-- MAIN -->
   <div class="admin-main">
 
-    <!-- ═══ DASHBOARD ═══ -->
+    <!-- DASHBOARD -->
     <div id="sec-dashboard" class="section active">
       <div class="page-title">📊 Dashboard</div>
       <div class="stats-row">
@@ -141,111 +119,74 @@
       </div>
       <div class="a-card">
         <div class="a-card-title">Последние заказы</div>
-        <table class="tbl">
-          <thead><tr><th>ID</th><th>Email</th><th>Сумма</th><th>Статус</th><th>Дата</th></tr></thead>
-          <tbody id="dash-orders"></tbody>
-        </table>
+        <table class="tbl"><thead><tr><th>ID</th><th>Email</th><th>Сумма</th><th>Статус</th><th>Дата</th></tr></thead><tbody id="dash-orders"></tbody></table>
       </div>
     </div>
 
-    <!-- ═══ USERS ═══ -->
+    <!-- USERS -->
     <div id="sec-users" class="section">
       <div class="page-title">👥 Юзеры</div>
       <div class="a-card">
-        <table class="tbl">
-          <thead><tr><th>Email</th><th>UID</th><th>Статус</th><th>Перс. скидка</th><th>Пакеты</th><th>Дата</th><th>Действия</th></tr></thead>
-          <tbody id="users-list"></tbody>
-        </table>
+        <table class="tbl"><thead><tr><th>Email</th><th>UID</th><th>Статус</th><th>Перс. скидка</th><th>Пакеты</th><th>Дата</th><th>Действия</th></tr></thead><tbody id="users-list"></tbody></table>
       </div>
     </div>
 
-    <!-- ═══ ORDERS ═══ -->
+    <!-- ORDERS -->
     <div id="sec-orders" class="section">
       <div class="page-title">📋 Заказы</div>
       <div class="a-card">
-        <table class="tbl">
-          <thead><tr><th>Order ID</th><th>Email</th><th>Сумма</th><th>Статус</th><th>Дата</th><th>Действия</th></tr></thead>
-          <tbody id="orders-list"></tbody>
-        </table>
+        <table class="tbl"><thead><tr><th>Order ID</th><th>Email</th><th>Сумма</th><th>Статус</th><th>Дата</th><th>Действия</th></tr></thead><tbody id="orders-list"></tbody></table>
       </div>
     </div>
 
-    <!-- ═══ FREE SAMPLES ═══ -->
+    <!-- FREE SAMPLES -->
     <div id="sec-samples" class="section">
       <div class="page-title">🎁 Free Samples</div>
       <div class="a-card">
-        <table class="tbl">
-          <thead><tr><th>Email</th><th>Размер</th><th>Объект</th><th>Фон</th><th>Свет</th><th>Эффекты</th><th>Статус</th><th>Дата</th><th>Действия</th></tr></thead>
-          <tbody id="samples-list"></tbody>
-        </table>
+        <table class="tbl"><thead><tr><th>Email</th><th>Размер</th><th>Объект</th><th>Фон</th><th>Свет</th><th>Эффекты</th><th>Статус</th><th>Дата</th><th>Действия</th></tr></thead><tbody id="samples-list"></tbody></table>
       </div>
     </div>
 
-    <!-- ═══ PROMOS ═══ -->
+    <!-- PROMOS -->
     <div id="sec-promos" class="section">
       <div class="page-title">🎟️ Промокоды</div>
       <div class="a-card">
         <button class="b-pr" onclick="openModal('promoModal')">+ Создать промокод</button>
-        <table class="tbl" style="margin-top:16px">
-          <thead><tr><th>Код</th><th>Скидка</th><th>Использовано</th><th>Лимит</th><th>Период</th><th>Статус</th><th>Действия</th></tr></thead>
-          <tbody id="promos-list"></tbody>
-        </table>
+        <table class="tbl" style="margin-top:16px"><thead><tr><th>Код</th><th>Скидка</th><th>Использовано</th><th>Лимит</th><th>Период</th><th>Статус</th><th>Действия</th></tr></thead><tbody id="promos-list"></tbody></table>
       </div>
     </div>
 
-    <!-- ═══ PRICES ═══ -->
+    <!-- PRICES -->
     <div id="sec-prices" class="section">
       <div class="page-title">💲 Управление ценами</div>
-      <div class="a-card">
-        <div class="a-card-title">Image Packs</div>
-        <table class="tbl">
-          <thead><tr><th>Пакет</th><th>Цена ($)</th><th>Кол-во фото (base)</th><th>Действия</th></tr></thead>
-          <tbody id="prices-packs"></tbody>
-        </table>
+      <div class="a-card"><div class="a-card-title">Image Packs</div>
+        <table class="tbl"><thead><tr><th>Пакет</th><th>Цена ($)</th><th>Кол-во фото (base)</th><th>Действия</th></tr></thead><tbody id="prices-packs"></tbody></table>
       </div>
-      <div class="a-card">
-        <div class="a-card-title">Video Reels</div>
-        <table class="tbl">
-          <thead><tr><th>Название</th><th>Цена ($)</th><th>Длительность</th><th>Действия</th></tr></thead>
-          <tbody id="prices-videos"></tbody>
-        </table>
+      <div class="a-card"><div class="a-card-title">Video Reels</div>
+        <table class="tbl"><thead><tr><th>Название</th><th>Цена ($)</th><th>Длительность</th><th>Действия</th></tr></thead><tbody id="prices-videos"></tbody></table>
       </div>
-      <div class="a-card">
-        <div class="a-card-title">Bulk Cards</div>
+      <div class="a-card"><div class="a-card-title">Bulk Cards</div>
         <div class="f-row" style="max-width:400px">
-          <div class="f-group">
-            <label class="f-label">Цена за карточку ($)</label>
-            <input type="number" step="0.01" id="bulkPriceInput" class="f-input" value="2.50">
-          </div>
-          <div class="f-group" style="display:flex;align-items:flex-end">
-            <button class="b-pr" onclick="saveBulkPrice()">💾 Сохранить</button>
-          </div>
+          <div class="f-group"><label class="f-label">Цена за карточку ($)</label><input type="number" step="0.01" id="bulkPriceInput" class="f-input" value="2.50"></div>
+          <div class="f-group" style="display:flex;align-items:flex-end"><button class="b-pr" onclick="saveBulkPrice()">💾 Сохранить</button></div>
         </div>
       </div>
     </div>
 
-    <!-- ═══ DISCOUNTS / SALE ═══ -->
+    <!-- DISCOUNTS -->
     <div id="sec-discounts" class="section">
       <div class="page-title">💰 Скидки / Sale</div>
-      <div class="a-card">
-        <div class="a-card-title">Глобальные скидки (SALE бейдж на services.html)</div>
+      <div class="a-card"><div class="a-card-title">Глобальные скидки (SALE бейдж на services.html)</div>
         <button class="b-pr" onclick="openModal('saleModal')">+ Создать Sale</button>
-        <table class="tbl" style="margin-top:16px">
-          <thead><tr><th>Пакет</th><th>Скидка %</th><th>Активна</th><th>Действия</th></tr></thead>
-          <tbody id="sales-list"></tbody>
-        </table>
+        <table class="tbl" style="margin-top:16px"><thead><tr><th>Пакет</th><th>Скидка %</th><th>Активна</th><th>Действия</th></tr></thead><tbody id="sales-list"></tbody></table>
       </div>
-      <div class="a-card">
-        <div class="a-card-title">Персональные скидки</div>
+      <div class="a-card"><div class="a-card-title">Персональные скидки</div>
         <button class="b-pr" onclick="openModal('persDiscountModal')">+ Назначить скидку</button>
-        <table class="tbl" style="margin-top:16px">
-          <thead><tr><th>Email</th><th>Скидка %</th><th>Действия</th></tr></thead>
-          <tbody id="pers-discounts-list"></tbody>
-        </table>
+        <table class="tbl" style="margin-top:16px"><thead><tr><th>Email</th><th>Скидка %</th><th>Действия</th></tr></thead><tbody id="pers-discounts-list"></tbody></table>
       </div>
     </div>
 
-    <!-- ═══ GALLERY ═══ -->
+    <!-- GALLERY -->
     <div id="sec-gallery" class="section">
       <div class="page-title">🖼️ Галерея</div>
       <div class="a-card">
@@ -254,7 +195,7 @@
       </div>
     </div>
 
-    <!-- ═══ EMAILS ═══ -->
+    <!-- EMAILS -->
     <div id="sec-emails" class="section">
       <div class="page-title">📧 Отправить письмо</div>
       <div class="a-card" style="max-width:600px">
@@ -268,758 +209,386 @@
   </div>
 </div>
 
-<!-- ═══════════ MODALS ═══════════ -->
+<!-- MODALS -->
+<div id="promoModal" class="modal-bg"><div class="modal-box">
+  <button class="modal-x" onclick="closeModal('promoModal')">✕</button>
+  <h3>Создать промокод</h3>
+  <div class="f-group"><label class="f-label">Код</label><input type="text" id="pm-code" class="f-input" placeholder="SUMMER2026"></div>
+  <div class="f-row"><div class="f-group"><label class="f-label">Скидка (%)</label><input type="number" id="pm-discount" class="f-input" placeholder="10"></div><div class="f-group"><label class="f-label">Лимит</label><input type="number" id="pm-limit" class="f-input" placeholder="100"></div></div>
+  <div class="f-row"><div class="f-group"><label class="f-label">Начало</label><input type="datetime-local" id="pm-start" class="f-input"></div><div class="f-group"><label class="f-label">Конец</label><input type="datetime-local" id="pm-end" class="f-input"></div></div>
+  <button class="b-pr" onclick="createPromo()">✅ Создать</button>
+</div></div>
 
-<!-- PROMO MODAL -->
-<div id="promoModal" class="modal-bg">
-  <div class="modal-box">
-    <button class="modal-x" onclick="closeModal('promoModal')">✕</button>
-    <h3>Создать промокод</h3>
-    <div class="f-group"><label class="f-label">Код</label><input type="text" id="pm-code" class="f-input" placeholder="SUMMER2026"></div>
-    <div class="f-row">
-      <div class="f-group"><label class="f-label">Скидка (%)</label><input type="number" id="pm-discount" class="f-input" placeholder="10"></div>
-      <div class="f-group"><label class="f-label">Лимит</label><input type="number" id="pm-limit" class="f-input" placeholder="100"></div>
-    </div>
-    <div class="f-row">
-      <div class="f-group"><label class="f-label">Начало</label><input type="datetime-local" id="pm-start" class="f-input"></div>
-      <div class="f-group"><label class="f-label">Конец</label><input type="datetime-local" id="pm-end" class="f-input"></div>
-    </div>
-    <button class="b-pr" onclick="createPromo()">✅ Создать</button>
-  </div>
-</div>
+<div id="saleModal" class="modal-bg"><div class="modal-box">
+  <button class="modal-x" onclick="closeModal('saleModal')">✕</button>
+  <h3>Создать Sale</h3>
+  <div class="f-group"><label class="f-label">Пакет</label><select id="sale-pack" class="f-select"><option value="starter">Starter ($99)</option><option value="growth">Growth ($299)</option><option value="scale">Scale ($699)</option><option value="promo5">Promo Reel ($30)</option><option value="full10">Full Reel ($60)</option><option value="ext15">Extended Reel ($90)</option></select></div>
+  <div class="f-group"><label class="f-label">Скидка (%)</label><input type="number" id="sale-percent" class="f-input" placeholder="20"></div>
+  <button class="b-pr" onclick="createSale()">✅ Создать</button>
+</div></div>
 
-<!-- SALE MODAL -->
-<div id="saleModal" class="modal-bg">
-  <div class="modal-box">
-    <button class="modal-x" onclick="closeModal('saleModal')">✕</button>
-    <h3>Создать Sale</h3>
-    <div class="f-group"><label class="f-label">Пакет</label>
-      <select id="sale-pack" class="f-select">
-        <option value="starter">Starter ($99)</option>
-        <option value="growth">Growth ($299)</option>
-        <option value="scale">Scale ($699)</option>
-        <option value="promo5">Promo Reel ($30)</option>
-        <option value="full10">Full Reel ($60)</option>
-        <option value="ext15">Extended Reel ($90)</option>
-      </select>
-    </div>
-    <div class="f-group"><label class="f-label">Скидка (%)</label><input type="number" id="sale-percent" class="f-input" placeholder="20"></div>
-    <button class="b-pr" onclick="createSale()">✅ Создать</button>
-  </div>
-</div>
+<div id="persDiscountModal" class="modal-bg"><div class="modal-box">
+  <button class="modal-x" onclick="closeModal('persDiscountModal')">✕</button>
+  <h3>Персональная скидка</h3>
+  <div class="f-group"><label class="f-label">Email юзера</label><input type="email" id="pd-email" class="f-input" placeholder="user@email.com"></div>
+  <div class="f-group"><label class="f-label">Скидка (%)</label><input type="number" id="pd-percent" class="f-input" placeholder="15"></div>
+  <button class="b-pr" onclick="createPersDiscount()">✅ Назначить</button>
+</div></div>
 
-<!-- PERSONAL DISCOUNT MODAL -->
-<div id="persDiscountModal" class="modal-bg">
-  <div class="modal-box">
-    <button class="modal-x" onclick="closeModal('persDiscountModal')">✕</button>
-    <h3>Персональная скидка</h3>
-    <div class="f-group"><label class="f-label">Email юзера</label><input type="email" id="pd-email" class="f-input" placeholder="user@email.com"></div>
-    <div class="f-group"><label class="f-label">Скидка (%)</label><input type="number" id="pd-percent" class="f-input" placeholder="15"></div>
-    <button class="b-pr" onclick="createPersDiscount()">✅ Назначить</button>
-  </div>
-</div>
+<div id="gallerySectionModal" class="modal-bg"><div class="modal-box">
+  <button class="modal-x" onclick="closeModal('gallerySectionModal')">✕</button>
+  <h3>Новый раздел галереи</h3>
+  <div class="f-group"><label class="f-label">Название</label><input type="text" id="gs-title" class="f-input" placeholder="Luxury Furniture"></div>
+  <div class="f-group"><label class="f-label">ID (латиница)</label><input type="text" id="gs-id" class="f-input" placeholder="luxury-furniture"></div>
+  <div class="f-group"><label class="f-label">Описание раздела</label><input type="text" id="gs-desc" class="f-input" placeholder="Premium furniture visualization..."></div>
+  <div class="f-group"><label class="f-label">Порядок (число)</label><input type="number" id="gs-order" class="f-input" value="10"></div>
+  <button class="b-pr" onclick="createGallerySection()">✅ Создать</button>
+</div></div>
 
-<!-- GALLERY SECTION MODAL -->
-<div id="gallerySectionModal" class="modal-bg">
-  <div class="modal-box">
-    <button class="modal-x" onclick="closeModal('gallerySectionModal')">✕</button>
-    <h3>Новый раздел галереи</h3>
-    <div class="f-group"><label class="f-label">Название</label><input type="text" id="gs-title" class="f-input" placeholder="Мебель люкс"></div>
-    <div class="f-group"><label class="f-label">ID (латиница)</label><input type="text" id="gs-id" class="f-input" placeholder="luxury-furniture"></div>
-    <button class="b-pr" onclick="createGallerySection()">✅ Создать</button>
-  </div>
-</div>
+<div id="grantPackModal" class="modal-bg"><div class="modal-box">
+  <button class="modal-x" onclick="closeModal('grantPackModal')">✕</button>
+  <h3>Начислить пакет</h3>
+  <div class="f-group"><label class="f-label">Email юзера</label><input type="email" id="gp-email" class="f-input" readonly></div>
+  <div class="f-group"><label class="f-label">Пакет</label><select id="gp-pack" class="f-select"><option value="Starter">Starter (20 фото)</option><option value="Growth">Growth (50 фото)</option><option value="Scale">Scale (150 фото)</option><option value="Custom">Custom</option></select></div>
+  <div class="f-group"><label class="f-label">Кол-во фото</label><input type="number" id="gp-photos" class="f-input" value="20"></div>
+  <div class="f-group"><label class="f-label">Комментарий</label><input type="text" id="gp-note" class="f-input" placeholder="Бонус, подарок и т.д."></div>
+  <button class="b-pr" onclick="grantPack()">✅ Начислить</button>
+</div></div>
 
-<!-- GRANT PACK MODAL -->
-<div id="grantPackModal" class="modal-bg">
-  <div class="modal-box">
-    <button class="modal-x" onclick="closeModal('grantPackModal')">✕</button>
-    <h3>Начислить пакет</h3>
-    <div class="f-group"><label class="f-label">Email юзера</label><input type="email" id="gp-email" class="f-input" readonly></div>
-    <div class="f-group"><label class="f-label">Пакет</label>
-      <select id="gp-pack" class="f-select">
-        <option value="Starter">Starter (20 фото)</option>
-        <option value="Growth">Growth (50 фото)</option>
-        <option value="Scale">Scale (150 фото)</option>
-        <option value="Custom">Custom</option>
-      </select>
-    </div>
-    <div class="f-group"><label class="f-label">Кол-во фото</label><input type="number" id="gp-photos" class="f-input" value="20"></div>
-    <div class="f-group"><label class="f-label">Комментарий</label><input type="text" id="gp-note" class="f-input" placeholder="Бонус, подарок и т.д."></div>
-    <button class="b-pr" onclick="grantPack()">✅ Начислить</button>
-  </div>
-</div>
+<div id="changePwdModal" class="modal-bg"><div class="modal-box">
+  <button class="modal-x" onclick="closeModal('changePwdModal')">✕</button>
+  <h3>Сменить пароль</h3>
+  <div class="f-group"><label class="f-label">Email</label><input type="email" id="cp-email" class="f-input" readonly></div>
+  <input type="hidden" id="cp-uid">
+  <div class="f-group"><label class="f-label">Новый пароль</label><input type="text" id="cp-pwd" class="f-input" placeholder="Минимум 6 символов"></div>
+  <button class="b-pr" onclick="changePassword()">✅ Сменить</button>
+</div></div>
 
-<!-- CHANGE PASSWORD MODAL -->
-<div id="changePwdModal" class="modal-bg">
-  <div class="modal-box">
-    <button class="modal-x" onclick="closeModal('changePwdModal')">✕</button>
-    <h3>Сменить пароль</h3>
-    <div class="f-group"><label class="f-label">Email</label><input type="email" id="cp-email" class="f-input" readonly></div>
-    <input type="hidden" id="cp-uid">
-    <div class="f-group"><label class="f-label">Новый пароль</label><input type="password" id="cp-pwd" class="f-input" placeholder="Минимум 6 символов"></div>
-    <button class="b-pr" onclick="changePassword()">✅ Сменить</button>
-  </div>
-</div>
+<div id="editPriceModal" class="modal-bg"><div class="modal-box">
+  <button class="modal-x" onclick="closeModal('editPriceModal')">✕</button>
+  <h3>Редактировать цену</h3>
+  <input type="hidden" id="ep-docId">
+  <div class="f-group"><label class="f-label">Название</label><input type="text" id="ep-name" class="f-input" readonly></div>
+  <div class="f-row"><div class="f-group"><label class="f-label">Цена ($)</label><input type="number" step="0.01" id="ep-price" class="f-input"></div><div class="f-group"><label class="f-label">Кол-во (base)</label><input type="number" id="ep-count" class="f-input"></div></div>
+  <button class="b-pr" onclick="savePrice()">💾 Сохранить</button>
+</div></div>
 
-<!-- EDIT PRICE MODAL -->
-<div id="editPriceModal" class="modal-bg">
-  <div class="modal-box">
-    <button class="modal-x" onclick="closeModal('editPriceModal')">✕</button>
-    <h3>Редактировать цену</h3>
-    <input type="hidden" id="ep-docId">
-    <div class="f-group"><label class="f-label">Название</label><input type="text" id="ep-name" class="f-input" readonly></div>
-    <div class="f-row">
-      <div class="f-group"><label class="f-label">Цена ($)</label><input type="number" step="0.01" id="ep-price" class="f-input"></div>
-      <div class="f-group"><label class="f-label">Кол-во (base)</label><input type="number" id="ep-count" class="f-input"></div>
-    </div>
-    <button class="b-pr" onclick="savePrice()">💾 Сохранить</button>
-  </div>
-</div>
+<div id="renameSectionModal" class="modal-bg"><div class="modal-box">
+  <button class="modal-x" onclick="closeModal('renameSectionModal')">✕</button>
+  <h3>Переименовать раздел</h3>
+  <input type="hidden" id="rs-id">
+  <div class="f-group"><label class="f-label">Новое название</label><input type="text" id="rs-title" class="f-input"></div>
+  <div class="f-group"><label class="f-label">Описание</label><input type="text" id="rs-desc" class="f-input"></div>
+  <div class="f-group"><label class="f-label">Порядок</label><input type="number" id="rs-order" class="f-input"></div>
+  <button class="b-pr" onclick="renameSection()">💾 Сохранить</button>
+</div></div>
 
-<!-- ═══════════ FIREBASE + LOGIC ═══════════ -->
+<div id="editCaptionModal" class="modal-bg"><div class="modal-box">
+  <button class="modal-x" onclick="closeModal('editCaptionModal')">✕</button>
+  <h3>Подпись к фото</h3>
+  <input type="hidden" id="ec-section-id">
+  <input type="hidden" id="ec-img-index">
+  <div class="f-group"><label class="f-label">Подпись</label><input type="text" id="ec-caption" class="f-input" placeholder="Luxury sofa in modern interior"></div>
+  <button class="b-pr" onclick="saveCaption()">💾 Сохранить</button>
+</div></div>
+
 <script type="module">
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
 import { getAuth, onAuthStateChanged, signOut, signInWithPopup, GoogleAuthProvider } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
-import { getFirestore, collection, getDocs, addDoc, deleteDoc, doc, updateDoc, setDoc, getDoc, query, orderBy, limit } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+import { getFirestore, collection, getDocs, addDoc, deleteDoc, doc, updateDoc, setDoc, getDoc } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
 import { getStorage, ref, uploadBytes, getDownloadURL, deleteObject } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js';
 
 const ADMIN_EMAIL = 'dordyak@gmail.com';
-
 const app = initializeApp({
-  apiKey: "AIzaSyCfot_WKYkikmKHrqet2nXnPasQB1ln61g",
-  authDomain: "dord-ai-studio.firebaseapp.com",
-  projectId: "dord-ai-studio",
-  storageBucket: "dord-ai-studio.firebasestorage.app",
-  messagingSenderId: "759031422125",
-  appId: "1:759031422125:web:22367b8059ce661f51fa24"
+  apiKey:"AIzaSyCfot_WKYkikmKHrqet2nXnPasQB1ln61g",authDomain:"dord-ai-studio.firebaseapp.com",projectId:"dord-ai-studio",storageBucket:"dord-ai-studio.firebasestorage.app",messagingSenderId:"759031422125",appId:"1:759031422125:web:22367b8059ce661f51fa24"
 });
-
-const auth = getAuth(app);
-const db = getFirestore(app);
-const storage = getStorage(app);
-
-// ── AUTH ──
-const authGate = document.getElementById('authGate');
-const adminPanel = document.getElementById('adminPanel');
-const authError = document.getElementById('authError');
+const auth = getAuth(app), db = getFirestore(app), storage = getStorage(app);
 
 document.getElementById('googleSignInBtn').addEventListener('click', async () => {
-  try {
-    await signInWithPopup(auth, new GoogleAuthProvider());
-  } catch (e) {
-    authError.textContent = e.message;
-    authError.style.display = 'block';
-  }
+  try { await signInWithPopup(auth, new GoogleAuthProvider()); }
+  catch(e){ document.getElementById('authError').textContent=e.message; document.getElementById('authError').style.display='block'; }
 });
-
 document.getElementById('logoutBtn').addEventListener('click', () => signOut(auth));
 
-onAuthStateChanged(auth, (user) => {
-  if (user && user.email === ADMIN_EMAIL) {
-    authGate.style.display = 'none';
-    adminPanel.style.display = 'grid';
-    loadAll();
-  } else {
-    authGate.style.display = 'flex';
-    adminPanel.style.display = 'none';
-    if (user && user.email !== ADMIN_EMAIL) {
-      authError.textContent = '⛔ Доступ запрещён: ' + user.email;
-      authError.style.display = 'block';
-      signOut(auth);
-    }
+onAuthStateChanged(auth, u => {
+  if(u && u.email===ADMIN_EMAIL){ document.getElementById('authGate').style.display='none'; document.getElementById('adminPanel').style.display='grid'; loadAll(); }
+  else{ document.getElementById('authGate').style.display='flex'; document.getElementById('adminPanel').style.display='none';
+    if(u && u.email!==ADMIN_EMAIL){ document.getElementById('authError').textContent='⛔ Доступ запрещён: '+u.email; document.getElementById('authError').style.display='block'; signOut(auth); }
   }
 });
 
-// ── TABS ──
 document.querySelectorAll('.tab-btn[data-tab]').forEach(btn => {
   btn.addEventListener('click', () => {
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
     btn.classList.add('active');
-    document.getElementById('sec-' + btn.dataset.tab).classList.add('active');
+    document.getElementById('sec-'+btn.dataset.tab).classList.add('active');
     document.querySelector('.admin-side').classList.remove('open');
   });
 });
 
-// ── TOAST ──
-window.toast = (msg, ok = true) => {
-  const el = document.getElementById('toast');
-  el.textContent = msg;
-  el.className = 'toast show ' + (ok ? 'toast-ok' : 'toast-err');
-  setTimeout(() => el.classList.remove('show'), 3000);
-};
+window.toast=(msg,ok=true)=>{const el=document.getElementById('toast');el.textContent=msg;el.className='toast show '+(ok?'toast-ok':'toast-err');setTimeout(()=>el.classList.remove('show'),3000)};
+window.openModal=id=>document.getElementById(id).classList.add('open');
+window.closeModal=id=>document.getElementById(id).classList.remove('open');
 
-// ── MODALS ──
-window.openModal = (id) => document.getElementById(id).classList.add('open');
-window.closeModal = (id) => document.getElementById(id).classList.remove('open');
-
-// ── LOAD ALL ──
-async function loadAll() {
-  await Promise.all([loadUsers(), loadOrders(), loadSamples(), loadPromos(), loadPrices(), loadSales(), loadPersDiscounts(), loadGalleries()]);
-}
+async function loadAll(){ await Promise.all([loadUsers(),loadOrders(),loadSamples(),loadPromos(),loadPrices(),loadSales(),loadPersDiscounts(),loadGalleries()]); }
 
 // ── USERS ──
-async function loadUsers() {
-  let html = '';
-  try {
-    const res = await fetch('/api/admin-list-users', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ adminUid: auth.currentUser.uid })
-    });
-    const data = await res.json();
-    if (data.ok && data.users) {
-      document.getElementById('st-users').textContent = data.users.length;
-      // Get user docs from Firestore for extra fields
-      const usersSnap = await getDocs(collection(db, 'users'));
-      const userDocs = {};
-      usersSnap.forEach(d => { const dd = d.data(); userDocs[dd.email] = { ...dd, _id: d.id }; });
-
-      html = data.users.map(u => {
-        const ud = userDocs[u.email] || {};
-        const status = ud.status || 'active';
-        const disc = ud.personalDiscount || 0;
-        const packs = ud.grantedPacks ? ud.grantedPacks.length : 0;
-        const created = u.creationTime ? new Date(u.creationTime).toLocaleDateString('ru-RU') : '—';
-        return `<tr>
-          <td>${u.email || '—'}</td>
-          <td style="font-size:10px;color:#8892a4">${u.uid.substring(0,12)}…</td>
+async function loadUsers(){
+  let html='';
+  try{
+    const res=await fetch('/api/admin-list-users',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({adminUid:auth.currentUser.uid})});
+    const data=await res.json();
+    if(data.ok&&data.users){
+      document.getElementById('st-users').textContent=data.users.length;
+      const usersSnap=await getDocs(collection(db,'users'));
+      const userDocs={};usersSnap.forEach(d=>{const dd=d.data();userDocs[dd.email]={...dd,_id:d.id}});
+      html=data.users.map(u=>{
+        const ud=userDocs[u.email]||{};const status=ud.status||'active';const disc=ud.personalDiscount||0;const packs=ud.grantedPacks?ud.grantedPacks.length:0;
+        const created=u.creationTime?new Date(u.creationTime).toLocaleDateString('ru-RU'):'—';
+        return `<tr><td>${u.email||'—'}</td><td style="font-size:10px;color:#8892a4">${u.uid.substring(0,12)}…</td>
           <td><span class="badge ${status==='active'?'badge-green':'badge-red'}">${status==='active'?'Active':'Blocked'}</span></td>
-          <td>${disc ? disc+'%' : '—'}</td>
-          <td>${packs || '—'}</td>
-          <td>${created}</td>
-          <td><div class="btn-row">
-            <button class="b-sc" onclick="toggleBlock('${u.email}','${status}')">🔒</button>
-            <button class="b-sc" onclick="openGrantPack('${u.email}')">📦</button>
-            <button class="b-sc" onclick="openChangePwd('${u.email}','${u.uid}')">🔑</button>
-            <button class="b-sc" onclick="sendResetEmail('${u.email}')">📧</button>
-          </div></td>
-        </tr>`;
+          <td>${disc?disc+'%':'—'}</td><td>${packs||'—'}</td><td>${created}</td>
+          <td><div class="btn-row"><button class="b-sc" onclick="toggleBlock('${u.email}','${status}')">🔒</button><button class="b-sc" onclick="openGrantPack('${u.email}')">📦</button><button class="b-sc" onclick="openChangePwd('${u.email}','${u.uid}')">🔑</button><button class="b-sc" onclick="sendResetEmail('${u.email}')">📧</button></div></td></tr>`;
       }).join('');
     }
-  } catch (e) {
-    console.error('loadUsers error:', e);
-    html = '<tr class="empty-row"><td colspan="7">Ошибка загрузки юзеров. Проверьте API.</td></tr>';
-  }
-  document.getElementById('users-list').innerHTML = html || '<tr class="empty-row"><td colspan="7">Юзеров нет</td></tr>';
+  }catch(e){html='<tr class="empty-row"><td colspan="7">Ошибка загрузки юзеров</td></tr>';}
+  document.getElementById('users-list').innerHTML=html||'<tr class="empty-row"><td colspan="7">Юзеров нет</td></tr>';
 }
 
-window.toggleBlock = async (email, currentStatus) => {
-  const newStatus = currentStatus === 'active' ? 'blocked' : 'active';
-  const usersSnap = await getDocs(collection(db, 'users'));
-  let found = false;
-  for (const d of usersSnap.docs) {
-    if (d.data().email === email) {
-      await updateDoc(doc(db, 'users', d.id), { status: newStatus });
-      found = true;
-      break;
-    }
-  }
-  if (!found) {
-    await addDoc(collection(db, 'users'), { email, status: newStatus, created_at: new Date() });
-  }
-  toast(newStatus === 'blocked' ? '🔒 Заблокирован' : '🔓 Разблокирован');
-  loadUsers();
+window.toggleBlock=async(email,cur)=>{
+  const ns=cur==='active'?'blocked':'active';
+  const snap=await getDocs(collection(db,'users'));let found=false;
+  for(const d of snap.docs){if(d.data().email===email){await updateDoc(doc(db,'users',d.id),{status:ns});found=true;break;}}
+  if(!found) await addDoc(collection(db,'users'),{email,status:ns,created_at:new Date()});
+  toast(ns==='blocked'?'🔒 Заблокирован':'🔓 Разблокирован');loadUsers();
 };
-
-window.openGrantPack = (email) => {
-  document.getElementById('gp-email').value = email;
-  openModal('grantPackModal');
+window.openGrantPack=email=>{document.getElementById('gp-email').value=email;openModal('grantPackModal')};
+window.grantPack=async()=>{
+  const email=document.getElementById('gp-email').value,pack=document.getElementById('gp-pack').value,photos=parseInt(document.getElementById('gp-photos').value),note=document.getElementById('gp-note').value;
+  if(!photos)return toast('Укажи кол-во фото',false);
+  const snap=await getDocs(collection(db,'users'));let uid=null,ud=null;
+  for(const d of snap.docs){if(d.data().email===email){uid=d.id;ud=d.data();break;}}
+  const grant={name:pack,photos,note,date:new Date().toISOString()};
+  if(uid){const p=ud.grantedPacks||[];p.push(grant);await updateDoc(doc(db,'users',uid),{grantedPacks:p});}
+  else await addDoc(collection(db,'users'),{email,status:'active',created_at:new Date(),grantedPacks:[grant]});
+  toast('📦 Пакет начислен');closeModal('grantPackModal');loadUsers();
 };
-
-window.grantPack = async () => {
-  const email = document.getElementById('gp-email').value;
-  const pack = document.getElementById('gp-pack').value;
-  const photos = parseInt(document.getElementById('gp-photos').value);
-  const note = document.getElementById('gp-note').value;
-  if (!photos) return toast('Укажи кол-во фото', false);
-
-  const usersSnap = await getDocs(collection(db, 'users'));
-  let userDocId = null;
-  let userData = null;
-  for (const d of usersSnap.docs) {
-    if (d.data().email === email) { userDocId = d.id; userData = d.data(); break; }
-  }
-
-  const grant = { name: pack, photos, note, date: new Date().toISOString() };
-
-  if (userDocId) {
-    const packs = userData.grantedPacks || [];
-    packs.push(grant);
-    await updateDoc(doc(db, 'users', userDocId), { grantedPacks: packs });
-  } else {
-    await addDoc(collection(db, 'users'), { email, status: 'active', created_at: new Date(), grantedPacks: [grant] });
-  }
-
-  toast('📦 Пакет начислен: ' + pack + ' (' + photos + ' фото)');
-  closeModal('grantPackModal');
-  loadUsers();
+window.openChangePwd=(email,uid)=>{document.getElementById('cp-email').value=email;document.getElementById('cp-uid').value=uid;document.getElementById('cp-pwd').value='';openModal('changePwdModal')};
+window.changePassword=async()=>{
+  const uid=document.getElementById('cp-uid').value,pwd=document.getElementById('cp-pwd').value;
+  if(pwd.length<6)return toast('Пароль минимум 6 символов',false);
+  try{const r=await fetch('/api/admin-update-user',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({adminUid:auth.currentUser.uid,targetUid:uid,password:pwd})});
+  const d=await r.json();if(d.ok){toast('🔑 Пароль изменён');closeModal('changePwdModal');}else toast('❌ '+(d.error||'Ошибка'),false);}catch(e){toast('❌ '+e.message,false);}
 };
-
-window.openChangePwd = (email, uid) => {
-  document.getElementById('cp-email').value = email;
-  document.getElementById('cp-uid').value = uid;
-  document.getElementById('cp-pwd').value = '';
-  openModal('changePwdModal');
-};
-
-window.changePassword = async () => {
-  const uid = document.getElementById('cp-uid').value;
-  const pwd = document.getElementById('cp-pwd').value;
-  if (pwd.length < 6) return toast('Пароль минимум 6 символов', false);
-  try {
-    const res = await fetch('/api/admin-update-user', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ adminUid: auth.currentUser.uid, targetUid: uid, password: pwd })
-    });
-    const data = await res.json();
-    if (data.ok) { toast('🔑 Пароль изменён'); closeModal('changePwdModal'); }
-    else toast('❌ ' + (data.error || 'Ошибка'), false);
-  } catch (e) { toast('❌ ' + e.message, false); }
-};
-
-window.sendResetEmail = async (email) => {
-  try {
-    const { sendPasswordResetEmail } = await import('https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js');
-    await sendPasswordResetEmail(auth, email);
-    toast('📧 Reset email отправлен на ' + email);
-  } catch (e) { toast('❌ ' + e.message, false); }
+window.sendResetEmail=async email=>{
+  try{const{sendPasswordResetEmail}=await import('https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js');await sendPasswordResetEmail(auth,email);toast('📧 Reset email отправлен');}catch(e){toast('❌ '+e.message,false);}
 };
 
 // ── ORDERS ──
-async function loadOrders() {
-  const snap = await getDocs(collection(db, 'orders'));
-  let total = 0;
-  const docs = [];
-  snap.forEach(d => { const data = d.data(); data._id = d.id; total += parseFloat(data.amount || 0); docs.push(data); });
-  docs.sort((a, b) => (b.created_at?.toDate?.() || 0) - (a.created_at?.toDate?.() || 0));
-
-  document.getElementById('st-orders').textContent = docs.length;
-  document.getElementById('st-revenue').textContent = '$' + total.toFixed(2);
-
-  const statusClass = { new: 'badge-blue', 'in progress': 'badge-yellow', done: 'badge-green' };
-  const nextStatus = { new: 'in progress', 'in progress': 'done', done: 'new' };
-
-  const makeRow = (d) => {
-    const st = d.status || 'new';
-    const date = d.created_at?.toDate ? new Date(d.created_at.toDate()).toLocaleDateString('ru-RU') : '—';
-    return `<tr>
-      <td style="font-size:11px">${d.orderId || d._id}</td>
-      <td>${d.clientEmail || d.email || '—'}</td>
-      <td>$${parseFloat(d.amount || 0).toFixed(2)}</td>
-      <td><span class="badge ${statusClass[st] || 'badge-blue'}">${st}</span></td>
-      <td>${date}</td>
-      <td><button class="b-sc" onclick="cycleOrderStatus('${d._id}','${st}')">→ ${nextStatus[st]}</button></td>
-    </tr>`;
-  };
-
-  document.getElementById('orders-list').innerHTML = docs.map(makeRow).join('') || '<tr class="empty-row"><td colspan="6">Заказов нет</td></tr>';
-  document.getElementById('dash-orders').innerHTML = docs.slice(0, 5).map(makeRow).join('') || '<tr class="empty-row"><td colspan="5">—</td></tr>';
+async function loadOrders(){
+  const snap=await getDocs(collection(db,'orders'));let total=0;const docs=[];
+  snap.forEach(d=>{const data=d.data();data._id=d.id;total+=parseFloat(data.amount||0);docs.push(data)});
+  docs.sort((a,b)=>(b.created_at?.toDate?.()||0)-(a.created_at?.toDate?.()||0));
+  document.getElementById('st-orders').textContent=docs.length;
+  document.getElementById('st-revenue').textContent='$'+total.toFixed(2);
+  const sc={new:'badge-blue','in progress':'badge-yellow',done:'badge-green'};
+  const ns={new:'in progress','in progress':'done',done:'new'};
+  const row=d=>{const st=d.status||'new';const dt=d.created_at?.toDate?new Date(d.created_at.toDate()).toLocaleDateString('ru-RU'):'—';
+    return `<tr><td style="font-size:11px">${d.orderId||d._id}</td><td>${d.clientEmail||d.email||'—'}</td><td>$${parseFloat(d.amount||0).toFixed(2)}</td><td><span class="badge ${sc[st]||'badge-blue'}">${st}</span></td><td>${dt}</td><td><button class="b-sc" onclick="cycleOrderStatus('${d._id}','${st}')">→ ${ns[st]}</button></td></tr>`;};
+  document.getElementById('orders-list').innerHTML=docs.map(row).join('')||'<tr class="empty-row"><td colspan="6">Заказов нет</td></tr>';
+  document.getElementById('dash-orders').innerHTML=docs.slice(0,5).map(row).join('')||'<tr class="empty-row"><td colspan="5">—</td></tr>';
 }
-
-window.cycleOrderStatus = async (docId, current) => {
-  const next = { new: 'in progress', 'in progress': 'done', done: 'new' };
-  await updateDoc(doc(db, 'orders', docId), { status: next[current] || 'new' });
-  toast('✅ Статус → ' + (next[current] || 'new'));
-  loadOrders();
-};
+window.cycleOrderStatus=async(id,cur)=>{const ns={new:'in progress','in progress':'done',done:'new'};await updateDoc(doc(db,'orders',id),{status:ns[cur]||'new'});toast('✅ Статус → '+(ns[cur]||'new'));loadOrders()};
 
 // ── FREE SAMPLES ──
-async function loadSamples() {
-  const snap = await getDocs(collection(db, 'free_samples'));
-  const docs = [];
-  snap.forEach(d => { const data = d.data(); data._id = d.id; docs.push(data); });
-  document.getElementById('st-samples').textContent = docs.length;
-
-  document.getElementById('samples-list').innerHTML = docs.map(d => {
-    const st = d.status || 'new';
-    const date = d.created_at ? new Date(d.created_at).toLocaleDateString('ru-RU') : '—';
-    return `<tr>
-      <td>${d.email}</td>
-      <td>${d.size || '—'}</td>
-      <td style="max-width:150px;overflow:hidden;text-overflow:ellipsis">${d.object || '—'}</td>
-      <td>${d.background || '—'}</td>
-      <td>${d.lighting || '—'}</td>
-      <td>${d.effects || '—'}</td>
-      <td><span class="badge ${st==='done'?'badge-green':st==='in progress'?'badge-yellow':'badge-blue'}">${st}</span></td>
-      <td>${date}</td>
-      <td><div class="btn-row">
-        <button class="b-sc" onclick="cycleSampleStatus('${d._id}','${st}')">→</button>
-        <button class="b-dn" onclick="deleteSample('${d._id}')">🗑️</button>
-      </div></td>
-    </tr>`;
-  }).join('') || '<tr class="empty-row"><td colspan="9">Заявок нет</td></tr>';
+async function loadSamples(){
+  const snap=await getDocs(collection(db,'free_samples'));const docs=[];snap.forEach(d=>{const data=d.data();data._id=d.id;docs.push(data)});
+  document.getElementById('st-samples').textContent=docs.length;
+  document.getElementById('samples-list').innerHTML=docs.map(d=>{const st=d.status||'new';const dt=d.created_at?new Date(d.created_at).toLocaleDateString('ru-RU'):'—';
+    return `<tr><td>${d.email}</td><td>${d.size||'—'}</td><td style="max-width:150px;overflow:hidden;text-overflow:ellipsis">${d.object||'—'}</td><td>${d.background||'—'}</td><td>${d.lighting||'—'}</td><td>${d.effects||'—'}</td><td><span class="badge ${st==='done'?'badge-green':st==='in progress'?'badge-yellow':'badge-blue'}">${st}</span></td><td>${dt}</td><td><div class="btn-row"><button class="b-sc" onclick="cycleSampleStatus('${d._id}','${st}')">→</button><button class="b-dn" onclick="deleteSample('${d._id}')">🗑️</button></div></td></tr>`;
+  }).join('')||'<tr class="empty-row"><td colspan="9">Заявок нет</td></tr>';
 }
-
-window.cycleSampleStatus = async (id, st) => {
-  const next = { new: 'in progress', 'in progress': 'done', done: 'new' };
-  await updateDoc(doc(db, 'free_samples', id), { status: next[st] || 'new' });
-  toast('✅ Статус обновлён');
-  loadSamples();
-};
-
-window.deleteSample = async (id) => {
-  if (!confirm('Удалить заявку?')) return;
-  await deleteDoc(doc(db, 'free_samples', id));
-  toast('🗑️ Удалено');
-  loadSamples();
-};
+window.cycleSampleStatus=async(id,st)=>{const ns={new:'in progress','in progress':'done',done:'new'};await updateDoc(doc(db,'free_samples',id),{status:ns[st]||'new'});toast('✅ Обновлено');loadSamples()};
+window.deleteSample=async id=>{if(!confirm('Удалить?'))return;await deleteDoc(doc(db,'free_samples',id));toast('🗑️ Удалено');loadSamples()};
 
 // ── PROMOS ──
-async function loadPromos() {
-  const snap = await getDocs(collection(db, 'promos'));
-  const docs = [];
-  snap.forEach(d => { const data = d.data(); data._id = d.id; docs.push(data); });
-  document.getElementById('st-promos').textContent = docs.length;
-
-  document.getElementById('promos-list').innerHTML = docs.map(d => {
-    const start = d.start_date?.toDate ? new Date(d.start_date.toDate()).toLocaleDateString('ru-RU') : '—';
-    const end = d.end_date?.toDate ? new Date(d.end_date.toDate()).toLocaleDateString('ru-RU') : '—';
-    const now = new Date();
-    const isActive = (!d.end_date?.toDate || d.end_date.toDate() > now) && (d.used || 0) < (d.limit || 999);
-    return `<tr>
-      <td><strong>${d.code}</strong></td>
-      <td>${d.discount}%</td>
-      <td>${d.used || 0}</td>
-      <td>${d.limit}</td>
-      <td>${start} — ${end}</td>
-      <td><span class="badge ${isActive?'badge-green':'badge-red'}">${isActive?'Active':'Expired'}</span></td>
-      <td><button class="b-dn" onclick="deletePromo('${d._id}')">🗑️</button></td>
-    </tr>`;
-  }).join('') || '<tr class="empty-row"><td colspan="7">Промокодов нет</td></tr>';
+async function loadPromos(){
+  const snap=await getDocs(collection(db,'promos'));const docs=[];snap.forEach(d=>{const data=d.data();data._id=d.id;docs.push(data)});
+  document.getElementById('st-promos').textContent=docs.length;
+  document.getElementById('promos-list').innerHTML=docs.map(d=>{
+    const s=d.start_date?.toDate?new Date(d.start_date.toDate()).toLocaleDateString('ru-RU'):'—';
+    const e=d.end_date?.toDate?new Date(d.end_date.toDate()).toLocaleDateString('ru-RU'):'—';
+    const active=(!d.end_date?.toDate||d.end_date.toDate()>new Date())&&(d.used||0)<(d.limit||999);
+    return `<tr><td><strong>${d.code}</strong></td><td>${d.discount}%</td><td>${d.used||0}</td><td>${d.limit}</td><td>${s} — ${e}</td><td><span class="badge ${active?'badge-green':'badge-red'}">${active?'Active':'Expired'}</span></td><td><button class="b-dn" onclick="deletePromo('${d._id}')">🗑️</button></td></tr>`;
+  }).join('')||'<tr class="empty-row"><td colspan="7">Промокодов нет</td></tr>';
 }
-
-window.createPromo = async () => {
-  const code = document.getElementById('pm-code').value.trim().toUpperCase();
-  const discount = parseInt(document.getElementById('pm-discount').value);
-  const lim = parseInt(document.getElementById('pm-limit').value);
-  const start = document.getElementById('pm-start').value;
-  const end = document.getElementById('pm-end').value;
-  if (!code || !discount || !lim || !start || !end) return toast('Заполни все поля', false);
-  await addDoc(collection(db, 'promos'), {
-    code, discount, limit: lim, used: 0,
-    start_date: new Date(start), end_date: new Date(end), created_at: new Date()
-  });
-  toast('🎟️ Промокод создан: ' + code);
-  closeModal('promoModal');
-  document.getElementById('pm-code').value = '';
-  document.getElementById('pm-discount').value = '';
-  document.getElementById('pm-limit').value = '';
-  document.getElementById('pm-start').value = '';
-  document.getElementById('pm-end').value = '';
-  loadPromos();
+window.createPromo=async()=>{
+  const code=document.getElementById('pm-code').value.trim().toUpperCase(),discount=parseInt(document.getElementById('pm-discount').value),lim=parseInt(document.getElementById('pm-limit').value),start=document.getElementById('pm-start').value,end=document.getElementById('pm-end').value;
+  if(!code||!discount||!lim||!start||!end)return toast('Заполни все поля',false);
+  await addDoc(collection(db,'promos'),{code,discount,limit:lim,used:0,start_date:new Date(start),end_date:new Date(end),created_at:new Date()});
+  toast('🎟️ Промокод создан: '+code);closeModal('promoModal');['pm-code','pm-discount','pm-limit','pm-start','pm-end'].forEach(id=>document.getElementById(id).value='');loadPromos();
 };
-
-window.deletePromo = async (id) => {
-  if (!confirm('Удалить промокод?')) return;
-  await deleteDoc(doc(db, 'promos', id));
-  toast('🗑️ Удалено');
-  loadPromos();
-};
+window.deletePromo=async id=>{if(!confirm('Удалить?'))return;await deleteDoc(doc(db,'promos',id));toast('🗑️ Удалено');loadPromos()};
 
 // ── PRICES ──
-async function loadPrices() {
-  // Init default prices if not exist
-  const pricesRef = doc(db, 'settings', 'prices');
-  let pricesDoc = await getDoc(pricesRef);
-  if (!pricesDoc.exists()) {
-    await setDoc(pricesRef, {
-      packs: [
-        { id: 'starter', name: 'Starter', price: 99, base: 20 },
-        { id: 'growth', name: 'Growth (E-Com)', price: 299, base: 50 },
-        { id: 'scale', name: 'Scale (Business)', price: 699, base: 150 }
-      ],
-      videos: [
-        { id: 'promo5', name: 'Promo Reel', price: 30, duration: '5 sec' },
-        { id: 'full10', name: 'Full Reel', price: 60, duration: '10 sec' },
-        { id: 'ext15', name: 'Extended Reel', price: 90, duration: '15 sec' }
-      ],
-      bulkPrice: 2.50
-    });
-    pricesDoc = await getDoc(pricesRef);
-  }
-
-  const data = pricesDoc.data();
-
-  document.getElementById('prices-packs').innerHTML = data.packs.map((p, i) =>
-    `<tr>
-      <td>${p.name}</td>
-      <td>$${p.price}</td>
-      <td>${p.base}</td>
-      <td><button class="b-sc" onclick="openEditPrice('pack',${i},'${p.name}',${p.price},${p.base})">✏️</button></td>
-    </tr>`
-  ).join('');
-
-  document.getElementById('prices-videos').innerHTML = data.videos.map((v, i) =>
-    `<tr>
-      <td>${v.name}</td>
-      <td>$${v.price}</td>
-      <td>${v.duration}</td>
-      <td><button class="b-sc" onclick="openEditPrice('video',${i},'${v.name}',${v.price},0)">✏️</button></td>
-    </tr>`
-  ).join('');
-
-  document.getElementById('bulkPriceInput').value = data.bulkPrice || 2.50;
+async function loadPrices(){
+  const pr=doc(db,'settings','prices');let pd=await getDoc(pr);
+  if(!pd.exists()){await setDoc(pr,{packs:[{id:'starter',name:'Starter',price:99,base:20},{id:'growth',name:'Growth (E-Com)',price:299,base:50},{id:'scale',name:'Scale (Business)',price:699,base:150}],videos:[{id:'promo5',name:'Promo Reel',price:30,duration:'5 sec'},{id:'full10',name:'Full Reel',price:60,duration:'10 sec'},{id:'ext15',name:'Extended Reel',price:90,duration:'15 sec'}],bulkPrice:2.50});pd=await getDoc(pr);}
+  const data=pd.data();
+  document.getElementById('prices-packs').innerHTML=data.packs.map((p,i)=>`<tr><td>${p.name}</td><td>$${p.price}</td><td>${p.base}</td><td><button class="b-sc" onclick="openEditPrice('pack',${i},'${p.name}',${p.price},${p.base})">✏️</button></td></tr>`).join('');
+  document.getElementById('prices-videos').innerHTML=data.videos.map((v,i)=>`<tr><td>${v.name}</td><td>$${v.price}</td><td>${v.duration}</td><td><button class="b-sc" onclick="openEditPrice('video',${i},'${v.name}',${v.price},0)">✏️</button></td></tr>`).join('');
+  document.getElementById('bulkPriceInput').value=data.bulkPrice||2.50;
 }
-
-window.openEditPrice = (type, index, name, price, count) => {
-  document.getElementById('ep-docId').value = type + ':' + index;
-  document.getElementById('ep-name').value = name;
-  document.getElementById('ep-price').value = price;
-  document.getElementById('ep-count').value = count;
-  document.getElementById('ep-count').parentElement.style.display = type === 'pack' ? '' : 'none';
-  openModal('editPriceModal');
+window.openEditPrice=(t,i,n,p,c)=>{document.getElementById('ep-docId').value=t+':'+i;document.getElementById('ep-name').value=n;document.getElementById('ep-price').value=p;document.getElementById('ep-count').value=c;document.getElementById('ep-count').parentElement.style.display=t==='pack'?'':'none';openModal('editPriceModal')};
+window.savePrice=async()=>{
+  const[t,idx]=document.getElementById('ep-docId').value.split(':');const p=parseFloat(document.getElementById('ep-price').value),c=parseInt(document.getElementById('ep-count').value);
+  const pr=doc(db,'settings','prices');const pd=await getDoc(pr);const data=pd.data();
+  if(t==='pack'){data.packs[parseInt(idx)].price=p;data.packs[parseInt(idx)].base=c;}else data.videos[parseInt(idx)].price=p;
+  await setDoc(pr,data);toast('💾 Цена обновлена');closeModal('editPriceModal');loadPrices();
 };
+window.saveBulkPrice=async()=>{const p=parseFloat(document.getElementById('bulkPriceInput').value);const pr=doc(db,'settings','prices');const pd=await getDoc(pr);const data=pd.data();data.bulkPrice=p;await setDoc(pr,data);toast('💾 Цена: $'+p.toFixed(2))};
 
-window.savePrice = async () => {
-  const [type, idx] = document.getElementById('ep-docId').value.split(':');
-  const price = parseFloat(document.getElementById('ep-price').value);
-  const count = parseInt(document.getElementById('ep-count').value);
-  const pricesRef = doc(db, 'settings', 'prices');
-  const pricesDoc = await getDoc(pricesRef);
-  const data = pricesDoc.data();
-
-  if (type === 'pack') {
-    data.packs[parseInt(idx)].price = price;
-    data.packs[parseInt(idx)].base = count;
-  } else {
-    data.videos[parseInt(idx)].price = price;
-  }
-
-  await setDoc(pricesRef, data);
-  toast('💾 Цена обновлена');
-  closeModal('editPriceModal');
-  loadPrices();
-};
-
-window.saveBulkPrice = async () => {
-  const price = parseFloat(document.getElementById('bulkPriceInput').value);
-  const pricesRef = doc(db, 'settings', 'prices');
-  const pricesDoc = await getDoc(pricesRef);
-  const data = pricesDoc.data();
-  data.bulkPrice = price;
-  await setDoc(pricesRef, data);
-  toast('💾 Цена за карточку: $' + price.toFixed(2));
-};
-
-// ── SALES (GLOBAL DISCOUNTS) ──
-async function loadSales() {
-  const snap = await getDocs(collection(db, 'sales'));
-  const docs = [];
-  snap.forEach(d => { const data = d.data(); data._id = d.id; docs.push(data); });
-
-  document.getElementById('sales-list').innerHTML = docs.map(d =>
-    `<tr>
-      <td>${d.pack}</td>
-      <td>${d.percent}%</td>
-      <td><span class="badge ${d.active?'badge-green':'badge-red'}">${d.active?'Да':'Нет'}</span></td>
-      <td><div class="btn-row">
-        <button class="b-sc" onclick="toggleSale('${d._id}',${d.active})">${d.active?'⏸️':'▶️'}</button>
-        <button class="b-dn" onclick="deleteSale('${d._id}')">🗑️</button>
-      </div></td>
-    </tr>`
-  ).join('') || '<tr class="empty-row"><td colspan="4">Скидок нет</td></tr>';
+// ── SALES ──
+async function loadSales(){
+  const snap=await getDocs(collection(db,'sales'));const docs=[];snap.forEach(d=>{const data=d.data();data._id=d.id;docs.push(data)});
+  document.getElementById('sales-list').innerHTML=docs.map(d=>`<tr><td>${d.pack}</td><td>${d.percent}%</td><td><span class="badge ${d.active?'badge-green':'badge-red'}">${d.active?'Да':'Нет'}</span></td><td><div class="btn-row"><button class="b-sc" onclick="toggleSale('${d._id}',${d.active})">${d.active?'⏸️':'▶️'}</button><button class="b-dn" onclick="deleteSale('${d._id}')">🗑️</button></div></td></tr>`).join('')||'<tr class="empty-row"><td colspan="4">Скидок нет</td></tr>';
 }
-
-window.createSale = async () => {
-  const pack = document.getElementById('sale-pack').value;
-  const percent = parseInt(document.getElementById('sale-percent').value);
-  if (!percent) return toast('Укажи процент', false);
-  await addDoc(collection(db, 'sales'), { pack, percent, active: true, created_at: new Date() });
-  toast('💰 Sale создан');
-  closeModal('saleModal');
-  loadSales();
-};
-
-window.toggleSale = async (id, active) => {
-  await updateDoc(doc(db, 'sales', id), { active: !active });
-  toast(active ? '⏸️ Sale выключен' : '▶️ Sale включён');
-  loadSales();
-};
-
-window.deleteSale = async (id) => {
-  if (!confirm('Удалить?')) return;
-  await deleteDoc(doc(db, 'sales', id));
-  toast('🗑️ Удалено');
-  loadSales();
-};
+window.createSale=async()=>{const pack=document.getElementById('sale-pack').value,pct=parseInt(document.getElementById('sale-percent').value);if(!pct)return toast('Укажи %',false);await addDoc(collection(db,'sales'),{pack,percent:pct,active:true,created_at:new Date()});toast('💰 Sale создан');closeModal('saleModal');loadSales()};
+window.toggleSale=async(id,a)=>{await updateDoc(doc(db,'sales',id),{active:!a});toast(a?'⏸️ Выключен':'▶️ Включён');loadSales()};
+window.deleteSale=async id=>{if(!confirm('Удалить?'))return;await deleteDoc(doc(db,'sales',id));toast('🗑️ Удалено');loadSales()};
 
 // ── PERSONAL DISCOUNTS ──
-async function loadPersDiscounts() {
-  const snap = await getDocs(collection(db, 'users'));
-  const rows = [];
-  snap.forEach(d => {
-    const data = d.data();
-    if (data.personalDiscount) rows.push({ email: data.email, discount: data.personalDiscount, _id: d.id });
-  });
-
-  document.getElementById('pers-discounts-list').innerHTML = rows.map(r =>
-    `<tr>
-      <td>${r.email}</td>
-      <td>${r.discount}%</td>
-      <td><button class="b-dn" onclick="removePersDiscount('${r._id}')">🗑️</button></td>
-    </tr>`
-  ).join('') || '<tr class="empty-row"><td colspan="3">Персональных скидок нет</td></tr>';
+async function loadPersDiscounts(){
+  const snap=await getDocs(collection(db,'users'));const rows=[];
+  snap.forEach(d=>{const data=d.data();if(data.personalDiscount)rows.push({email:data.email,discount:data.personalDiscount,_id:d.id})});
+  document.getElementById('pers-discounts-list').innerHTML=rows.map(r=>`<tr><td>${r.email}</td><td>${r.discount}%</td><td><button class="b-dn" onclick="removePersDiscount('${r._id}')">🗑️</button></td></tr>`).join('')||'<tr class="empty-row"><td colspan="3">Нет</td></tr>';
 }
-
-window.createPersDiscount = async () => {
-  const email = document.getElementById('pd-email').value.trim();
-  const percent = parseInt(document.getElementById('pd-percent').value);
-  if (!email || !percent) return toast('Заполни все поля', false);
-
-  const snap = await getDocs(collection(db, 'users'));
-  let found = false;
-  for (const d of snap.docs) {
-    if (d.data().email === email) {
-      await updateDoc(doc(db, 'users', d.id), { personalDiscount: percent });
-      found = true;
-      break;
-    }
-  }
-  if (!found) {
-    await addDoc(collection(db, 'users'), { email, status: 'active', personalDiscount: percent, created_at: new Date() });
-  }
-
-  toast('✅ Скидка ' + percent + '% для ' + email);
-  closeModal('persDiscountModal');
-  document.getElementById('pd-email').value = '';
-  document.getElementById('pd-percent').value = '';
-  loadPersDiscounts();
-  loadUsers();
+window.createPersDiscount=async()=>{
+  const email=document.getElementById('pd-email').value.trim(),pct=parseInt(document.getElementById('pd-percent').value);if(!email||!pct)return toast('Заполни все поля',false);
+  const snap=await getDocs(collection(db,'users'));let found=false;
+  for(const d of snap.docs){if(d.data().email===email){await updateDoc(doc(db,'users',d.id),{personalDiscount:pct});found=true;break;}}
+  if(!found)await addDoc(collection(db,'users'),{email,status:'active',personalDiscount:pct,created_at:new Date()});
+  toast('✅ Скидка '+pct+'% для '+email);closeModal('persDiscountModal');document.getElementById('pd-email').value='';document.getElementById('pd-percent').value='';loadPersDiscounts();loadUsers();
 };
-
-window.removePersDiscount = async (id) => {
-  await updateDoc(doc(db, 'users', id), { personalDiscount: 0 });
-  toast('🗑️ Персональная скидка удалена');
-  loadPersDiscounts();
-  loadUsers();
-};
+window.removePersDiscount=async id=>{await updateDoc(doc(db,'users',id),{personalDiscount:0});toast('🗑️ Удалено');loadPersDiscounts();loadUsers()};
 
 // ── GALLERY ──
-async function loadGalleries() {
-  const snap = await getDocs(collection(db, 'gallery_sections'));
-  const sections = [];
-  snap.forEach(d => { const data = d.data(); data._id = d.id; sections.push(data); });
+async function loadGalleries(){
+  const snap=await getDocs(collection(db,'gallery_sections'));const sections=[];
+  snap.forEach(d=>{const data=d.data();data._id=d.id;sections.push(data)});
+  sections.sort((a,b)=>(a.order||99)-(b.order||99));
 
-  if (sections.length === 0) {
-    document.getElementById('gallery-sections').innerHTML = '<div style="color:#8892a4;text-align:center;padding:28px">Разделов нет</div>';
-    return;
-  }
+  if(!sections.length){document.getElementById('gallery-sections').innerHTML='<div style="color:#8892a4;text-align:center;padding:28px">Разделов нет</div>';return;}
 
-  document.getElementById('gallery-sections').innerHTML = sections.map(s => {
-    const imgs = (s.images || []).map((img, i) =>
+  document.getElementById('gallery-sections').innerHTML=sections.map((s,si)=>{
+    const imgs=(s.images||[]).map((img,i)=>
       `<div class="gallery-thumb">
-        <img src="${img.url}" alt="${img.title || ''}" loading="lazy">
-        <button class="gallery-thumb-del" onclick="deleteGalleryImage('${s._id}',${i})">✕</button>
+        <img src="${img.url}" alt="${img.caption||''}" loading="lazy">
+        <div class="gallery-thumb-overlay">
+          <button class="b-sc" style="font-size:10px;padding:4px 8px" onclick="openEditCaption('${s._id}',${i},'${(img.caption||'').replace(/'/g,"\\'")}')">✏️</button>
+          <button class="b-dn" style="font-size:10px;padding:4px 8px" onclick="deleteGalleryImage('${s._id}',${i})">🗑️</button>
+        </div>
+        ${img.caption?`<div class="gallery-thumb-caption">${img.caption}</div>`:''}
       </div>`
     ).join('');
 
     return `<div class="a-card">
-      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:14px">
-        <div class="a-card-title" style="margin:0">${s.title} <span style="color:#8892a4;font-size:10px;font-weight:400">(${s.sectionId})</span></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:4px">
+        <div>
+          <span class="a-card-title" style="margin:0">${s.title}</span>
+          <span style="color:#8892a4;font-size:10px;margin-left:8px">(${s.sectionId}) · Порядок: ${s.order||'—'} · ${(s.images||[]).length} фото</span>
+        </div>
         <div class="btn-row">
+          ${si>0?`<button class="b-sc" onclick="moveSection('${s._id}','up')">▲</button>`:''}
+          ${si<sections.length-1?`<button class="b-sc" onclick="moveSection('${s._id}','down')">▼</button>`:''}
+          <button class="b-sc" onclick="openRenameSection('${s._id}','${s.title.replace(/'/g,"\\'")}','${(s.description||'').replace(/'/g,"\\'")}',${s.order||10})">✏️</button>
           <label class="b-sc" style="cursor:pointer">⬆️ Загрузить <input type="file" multiple accept="image/*" style="display:none" onchange="uploadGalleryFiles('${s._id}',this.files)"></label>
-          <button class="b-dn" onclick="deleteGallerySection('${s._id}')">🗑️ Удалить раздел</button>
+          <button class="b-dn" onclick="deleteGallerySection('${s._id}')">🗑️</button>
         </div>
       </div>
-      <div class="gallery-grid">${imgs || '<span style="color:#8892a4;font-size:12px">Нет фото</span>'}</div>
+      ${s.description?`<div style="font-size:12px;color:#8892a4;margin-bottom:12px">${s.description}</div>`:''}
+      <div id="upload-progress-${s._id}" class="upload-progress"></div>
+      <div class="gallery-grid">${imgs||'<span style="color:#8892a4;font-size:12px">Нет фото</span>'}</div>
     </div>`;
   }).join('');
 }
 
-window.createGallerySection = async () => {
-  const title = document.getElementById('gs-title').value.trim();
-  const sectionId = document.getElementById('gs-id').value.trim();
-  if (!title || !sectionId) return toast('Заполни все поля', false);
-  await addDoc(collection(db, 'gallery_sections'), { title, sectionId, images: [], created_at: new Date() });
-  toast('🖼️ Раздел создан: ' + title);
-  closeModal('gallerySectionModal');
-  document.getElementById('gs-title').value = '';
-  document.getElementById('gs-id').value = '';
+window.createGallerySection=async()=>{
+  const title=document.getElementById('gs-title').value.trim(),sectionId=document.getElementById('gs-id').value.trim(),desc=document.getElementById('gs-desc').value.trim(),order=parseInt(document.getElementById('gs-order').value)||10;
+  if(!title||!sectionId)return toast('Заполни название и ID',false);
+  await addDoc(collection(db,'gallery_sections'),{title,sectionId,description:desc,order,images:[],created_at:new Date()});
+  toast('🖼️ Раздел создан: '+title);closeModal('gallerySectionModal');['gs-title','gs-id','gs-desc'].forEach(id=>document.getElementById(id).value='');document.getElementById('gs-order').value='10';loadGalleries();
+};
+
+window.openRenameSection=(id,title,desc,order)=>{document.getElementById('rs-id').value=id;document.getElementById('rs-title').value=title;document.getElementById('rs-desc').value=desc;document.getElementById('rs-order').value=order;openModal('renameSectionModal')};
+window.renameSection=async()=>{
+  const id=document.getElementById('rs-id').value,title=document.getElementById('rs-title').value.trim(),desc=document.getElementById('rs-desc').value.trim(),order=parseInt(document.getElementById('rs-order').value)||10;
+  if(!title)return toast('Введи название',false);
+  await updateDoc(doc(db,'gallery_sections',id),{title,description:desc,order});toast('✏️ Раздел обновлён');closeModal('renameSectionModal');loadGalleries();
+};
+
+window.moveSection=async(id,dir)=>{
+  const snap=await getDocs(collection(db,'gallery_sections'));const sections=[];
+  snap.forEach(d=>{const data=d.data();data._id=d.id;sections.push(data)});
+  sections.sort((a,b)=>(a.order||99)-(b.order||99));
+  const idx=sections.findIndex(s=>s._id===id);if(idx<0)return;
+  const swapIdx=dir==='up'?idx-1:idx+1;if(swapIdx<0||swapIdx>=sections.length)return;
+  const orderA=sections[idx].order||10,orderB=sections[swapIdx].order||10;
+  await updateDoc(doc(db,'gallery_sections',sections[idx]._id),{order:orderB});
+  await updateDoc(doc(db,'gallery_sections',sections[swapIdx]._id),{order:orderA});
+  toast('↕️ Порядок изменён');loadGalleries();
+};
+
+window.uploadGalleryFiles=async(sectionDocId,files)=>{
+  if(!files.length)return;
+  const progressEl=document.getElementById('upload-progress-'+sectionDocId);
+  const sectionRef=doc(db,'gallery_sections',sectionDocId);
+  const sectionDoc=await getDoc(sectionRef);const images=sectionDoc.data().images||[];
+  let uploaded=0;
+  for(const file of files){
+    try{
+      progressEl.textContent=`⬆️ Загрузка ${++uploaded}/${files.length}: ${file.name}...`;
+      const fileName=Date.now()+'_'+file.name.replace(/[^a-zA-Z0-9._-]/g,'');
+      const storageRef=ref(storage,'gallery/'+sectionDocId+'/'+fileName);
+      await uploadBytes(storageRef,file);const url=await getDownloadURL(storageRef);
+      images.push({url,caption:file.name.replace(/\.[^.]+$/,''),storagePath:'gallery/'+sectionDocId+'/'+fileName,added_at:new Date().toISOString()});
+    }catch(e){console.error(e);toast('❌ Ошибка: '+file.name,false);}
+  }
+  await updateDoc(sectionRef,{images});
+  progressEl.textContent=`✅ Загружено ${uploaded} фото`;setTimeout(()=>progressEl.textContent='',3000);
   loadGalleries();
 };
 
-window.uploadGalleryFiles = async (sectionDocId, files) => {
-  if (!files.length) return;
-  toast('⬆️ Загрузка ' + files.length + ' файлов...');
-
-  const sectionRef = doc(db, 'gallery_sections', sectionDocId);
-  const sectionDoc = await getDoc(sectionRef);
-  const images = sectionDoc.data().images || [];
-
-  for (const file of files) {
-    try {
-      const fileName = Date.now() + '_' + file.name.replace(/[^a-zA-Z0-9._-]/g, '');
-      const storageRef = ref(storage, 'gallery/' + sectionDocId + '/' + fileName);
-      await uploadBytes(storageRef, file);
-      const url = await getDownloadURL(storageRef);
-      images.push({ url, title: file.name.replace(/\.[^.]+$/, ''), storagePath: 'gallery/' + sectionDocId + '/' + fileName, added_at: new Date().toISOString() });
-    } catch (e) {
-      console.error('Upload error:', e);
-      toast('❌ Ошибка: ' + file.name, false);
-    }
-  }
-
-  await updateDoc(sectionRef, { images });
-  toast('✅ Загружено ' + files.length + ' фото');
-  loadGalleries();
+window.openEditCaption=(sectionId,imgIndex,caption)=>{document.getElementById('ec-section-id').value=sectionId;document.getElementById('ec-img-index').value=imgIndex;document.getElementById('ec-caption').value=caption;openModal('editCaptionModal')};
+window.saveCaption=async()=>{
+  const sectionId=document.getElementById('ec-section-id').value,imgIndex=parseInt(document.getElementById('ec-img-index').value),caption=document.getElementById('ec-caption').value.trim();
+  const sectionRef=doc(db,'gallery_sections',sectionId);const sectionDoc=await getDoc(sectionRef);const images=sectionDoc.data().images||[];
+  if(images[imgIndex])images[imgIndex].caption=caption;
+  await updateDoc(sectionRef,{images});toast('✏️ Подпись сохранена');closeModal('editCaptionModal');loadGalleries();
 };
 
-window.deleteGalleryImage = async (sectionDocId, imgIndex) => {
-  if (!confirm('Удалить фото?')) return;
-  const sectionRef = doc(db, 'gallery_sections', sectionDocId);
-  const sectionDoc = await getDoc(sectionRef);
-  const images = sectionDoc.data().images || [];
-  const img = images[imgIndex];
-
-  if (img.storagePath) {
-    try { await deleteObject(ref(storage, img.storagePath)); } catch (e) { console.warn('Storage delete failed:', e); }
-  }
-
-  images.splice(imgIndex, 1);
-  await updateDoc(sectionRef, { images });
-  toast('🗑️ Фото удалено');
-  loadGalleries();
+window.deleteGalleryImage=async(sectionDocId,imgIndex)=>{
+  if(!confirm('Удалить фото?'))return;
+  const sectionRef=doc(db,'gallery_sections',sectionDocId);const sectionDoc=await getDoc(sectionRef);const images=sectionDoc.data().images||[];const img=images[imgIndex];
+  if(img.storagePath){try{await deleteObject(ref(storage,img.storagePath))}catch(e){}}
+  images.splice(imgIndex,1);await updateDoc(sectionRef,{images});toast('🗑️ Удалено');loadGalleries();
 };
 
-window.deleteGallerySection = async (id) => {
-  if (!confirm('Удалить весь раздел с фото?')) return;
-  const sectionDoc = await getDoc(doc(db, 'gallery_sections', id));
-  const images = sectionDoc.data()?.images || [];
-  for (const img of images) {
-    if (img.storagePath) {
-      try { await deleteObject(ref(storage, img.storagePath)); } catch (e) {}
-    }
-  }
-  await deleteDoc(doc(db, 'gallery_sections', id));
-  toast('🗑️ Раздел удалён');
-  loadGalleries();
+window.deleteGallerySection=async id=>{
+  if(!confirm('Удалить весь раздел с фото?'))return;
+  const sectionDoc=await getDoc(doc(db,'gallery_sections',id));const images=sectionDoc.data()?.images||[];
+  for(const img of images){if(img.storagePath){try{await deleteObject(ref(storage,img.storagePath))}catch(e){}}}
+  await deleteDoc(doc(db,'gallery_sections',id));toast('🗑️ Раздел удалён');loadGalleries();
 };
 
 // ── EMAIL ──
-window.sendEmail = async () => {
-  const to = document.getElementById('emailTo').value;
-  const subject = document.getElementById('emailSubject').value;
-  const body = document.getElementById('emailBody').value;
-  if (!to || !subject || !body) return toast('Заполни все поля', false);
-  try {
-    const res = await fetch('/api/admin-send-email', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ adminUid: auth.currentUser.uid, to, subject, body })
-    });
-    const data = await res.json();
-    if (data.ok) {
-      toast('📧 Письмо отправлено');
-      document.getElementById('emailTo').value = '';
-      document.getElementById('emailSubject').value = '';
-      document.getElementById('emailBody').value = '';
-    } else toast('❌ ' + (data.error || 'Ошибка'), false);
-  } catch (e) { toast('❌ ' + e.message, false); }
+window.sendEmail=async()=>{
+  const to=document.getElementById('emailTo').value,subject=document.getElementById('emailSubject').value,body=document.getElementById('emailBody').value;
+  if(!to||!subject||!body)return toast('Заполни все поля',false);
+  try{const r=await fetch('/api/admin-send-email',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({adminUid:auth.currentUser.uid,to,subject,body})});
+  const d=await r.json();if(d.ok){toast('📧 Отправлено');['emailTo','emailSubject','emailBody'].forEach(id=>document.getElementById(id).value='');}else toast('❌ '+(d.error||'Ошибка'),false);}catch(e){toast('❌ '+e.message,false);}
 };
 </script>
-
 </body>
 </html>
