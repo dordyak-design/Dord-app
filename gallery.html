@@ -20,7 +20,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI Product Photography Gallery — Dord AI Studio | Shopify, Amazon, Luxury Visuals</title>
-<meta name="description" content="Gallery of AI-generated product photos by Dord AI Studio. Luxury furniture, interiors, exteriors, Shopify product cards. Private GPU server. From $99 / 20 images.">
+<meta name="description" content="Gallery of AI-generated product photos by Dord AI Studio. Luxury furniture, interiors, exteriors, Shopify product cards. Private GPU server. From $74.99 / 25 images.">
 <meta name="keywords" content="AI product photography, Shopify product photos, Amazon listing images, luxury AI visuals, product photography USA, AI studio, e-commerce photography, furniture visualization">
 <meta name="robots" content="index, follow">
 <meta name="author" content="Dord AI Studio">
@@ -148,7 +148,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div class="hero-stat"><div class="hero-stat-num" id="total-photos">0</div><div class="hero-stat-label">Portfolio Images</div></div>
     <div class="hero-stat"><div class="hero-stat-num">100%</div><div class="hero-stat-label">Human QA</div></div>
     <div class="hero-stat"><div class="hero-stat-num">48h</div><div class="hero-stat-label">Turnaround</div></div>
-    <div class="hero-stat"><div class="hero-stat-num">$75</div><div class="hero-stat-label">Starting Price</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">$74.99</div><div class="hero-stat-label">Starting Price</div></div>
   </div>
 </div>
 
@@ -172,7 +172,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <div class="cta-strip-outer"><div class="cta-strip">
   <div class="cta-strip-left">
     <h3>Need visuals like these for your listing?</h3>
-    <p>20 studio-grade renders from $99 · Delivered in 48 hours · Private server, zero cloud</p>
+    <p>25 studio-grade renders from $74.99 · Delivered in 48 hours · Private server, zero cloud</p>
   </div>
   <a href="services.html" class="btn-cta-strip">Order Now →</a>
 </div></div>
@@ -183,7 +183,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#00c896;font-weight:700;margin-bottom:10px">Ready to see your product here?</div>
   <h2>Your Product.<br>Our Server.<br>48 Hours.</h2>
   <p>Send us a photo — even a phone shot on a white background works. We'll return studio-grade visuals ready for Shopify, Amazon, or any marketplace.</p>
-  <p style="font-size:13px;color:#00c896;font-weight:700;margin-bottom:24px">$75 · 25 images · $255 · 50 images · $555 · 200 images</p>
+  <p style="font-size:13px;color:#00c896;font-weight:700;margin-bottom:24px">$74.99 · 25 images · $244.99 · 50 images · $554.99 · 200 images</p>
   <div class="cta-btn-group">
     <a href="services.html" class="btn-primary">Build Your Order →</a>
     <a href="https://t.me/DordAI" target="_blank" class="btn-secondary">Get Free Sample</a>
@@ -339,49 +339,62 @@ function updateDownloadUI() {
   }
 }
 
-// Download with canvas watermark
+// Download with watermark via proxy
 window.downloadWithWatermark = async () => {
   if (!currentImgUrl || !currentUser) return;
+
+  const dlBtn = document.getElementById('lightbox-download');
+  dlBtn.textContent = '⏳ Downloading...';
+  dlBtn.disabled = true;
+
   try {
-    const img = new Image();
-    img.crossOrigin = 'anonymous';
-    img.onload = () => {
-      const canvas = document.createElement('canvas');
-      canvas.width = img.width;
-      canvas.height = img.height;
-      const ctx = canvas.getContext('2d');
-      ctx.drawImage(img, 0, 0);
+    // Fetch image through proxy to avoid CORS
+    const proxyUrl = '/api/download-image?url=' + encodeURIComponent(currentImgUrl);
+    const resp = await fetch(proxyUrl);
+    if (!resp.ok) throw new Error('Proxy fetch failed');
+    const blob = await resp.blob();
 
-      // Watermark
-      const fontSize = Math.max(16, Math.min(img.width * 0.03, 40));
-      ctx.font = `bold ${fontSize}px Inter, sans-serif`;
-      ctx.fillStyle = 'rgba(255,255,255,0.25)';
-      ctx.textAlign = 'right';
-      ctx.textBaseline = 'bottom';
-      ctx.fillText('dordai.art', img.width - 20, img.height - 20);
+    // Draw on canvas with watermark
+    const bmp = await createImageBitmap(blob);
+    const canvas = document.createElement('canvas');
+    canvas.width = bmp.width;
+    canvas.height = bmp.height;
+    const ctx = canvas.getContext('2d');
+    ctx.drawImage(bmp, 0, 0);
 
-      // Second watermark center
-      ctx.font = `bold ${fontSize * 1.5}px Inter, sans-serif`;
-      ctx.fillStyle = 'rgba(255,255,255,0.08)';
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
-      ctx.save();
-      ctx.translate(img.width / 2, img.height / 2);
-      ctx.rotate(-0.3);
-      ctx.fillText('dordai.art', 0, 0);
-      ctx.restore();
+    // Watermark bottom-right
+    const fontSize = Math.max(16, Math.min(bmp.width * 0.03, 40));
+    ctx.font = `bold ${fontSize}px Inter, sans-serif`;
+    ctx.fillStyle = 'rgba(255,255,255,0.25)';
+    ctx.textAlign = 'right';
+    ctx.textBaseline = 'bottom';
+    ctx.fillText('dordai.art', bmp.width - 20, bmp.height - 20);
 
-      canvas.toBlob(blob => {
-        const a = document.createElement('a');
-        a.href = URL.createObjectURL(blob);
-        a.download = 'dordai-studio-' + Date.now() + '.jpg';
-        a.click();
-        URL.revokeObjectURL(a.href);
-      }, 'image/jpeg', 0.92);
-    };
-    img.src = currentImgUrl;
+    // Watermark center diagonal
+    ctx.font = `bold ${fontSize * 1.5}px Inter, sans-serif`;
+    ctx.fillStyle = 'rgba(255,255,255,0.08)';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.save();
+    ctx.translate(bmp.width / 2, bmp.height / 2);
+    ctx.rotate(-0.3);
+    ctx.fillText('dordai.art', 0, 0);
+    ctx.restore();
+
+    canvas.toBlob(b => {
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(b);
+      a.download = 'dordai-studio-' + Date.now() + '.jpg';
+      a.click();
+      URL.revokeObjectURL(a.href);
+    }, 'image/jpeg', 0.92);
+
   } catch (e) {
     console.error('Download error:', e);
+    alert('Download failed. Please try again.');
+  } finally {
+    dlBtn.textContent = '⬇️ Download (HD)';
+    dlBtn.disabled = false;
   }
 };
 
@@ -398,9 +411,7 @@ window.setLang = setLang;
 <script>
   const btn = document.getElementById('backToTop');
   window.addEventListener('scroll', () => { btn.classList.toggle('visible', window.scrollY > 400); });
-
 </script>
-<script src="i18n.js"></script>  
 <script src="cookie.js"></script>
 <script src="legal.js"></script>
 </body>
