@@ -20,7 +20,7 @@ const DORD_I18N = {
         "hero.title":"Визуал для вашего<br>бизнеса — за <span class=\"highlight\">часы,</span><br>не недели",
         "hero.sub":"AI-студия для Shopify-продавцов и малого бизнеса. Карточки товаров, рекламные ролики — без фотографов, без студий. Оплата в USDT.",
         "hero.cta1":"Все услуги и цены →","hero.cta2":"Как сделать заказ",
-        "why.label":"Почему Dord AI Studio","why.title":"Фотосессия стоит $300+. Мы — от $99.",
+        "why.label":"Почему Dord AI Studio","why.title":"Фотосессия стоит $300+. Мы — от $74.99.",
         "why.sub":"Профессиональный студийный визуал без студии, фотографа и недельного ожидания.",
         "why.c1.title":"Точная физика материалов","why.c1.text":"Грани ювелирных изделий, блики стекла, текстура кожи, хромовые отражения — точно, каждый раз.",
         "why.c2.title":"Без утечек данных","why.c2.text":"Ваши фото никогда не попадут в датасеты. Приватные серверы. Не Midjourney. Не DALL-E.",
@@ -41,9 +41,35 @@ const DORD_I18N = {
         "promo.apply":"Применить","promo.placeholder":"Введите промокод","promo.success":"Промокод применён! Скидка:","promo.error":"Промокод недействителен или истёк","promo.label":"Промокод",
         "gallery.title":"Галерея работ — Dord AI Studio",
         "gallery.bc":"Галерея",
-        "dash.login.subtitle":"AI Фото и Видео Студия · Тель-Авив","dash.login.signin":"Войти","dash.login.register":"Регистрация","dash.login.email":"Email","dash.login.password":"Пароль","dash.login.confirm":"Подтвердите пароль","dash.login.signin.btn":"Войти →","dash.login.forgot":"Забыли пароль?","dash.login.or":"или","dash.login.create":"Создать аккаунт →","dash.login.reset.desc":"Введите email и мы отправим ссылку для сброса пароля.","dash.login.reset.btn":"Отправить ссылку →","dash.login.back":"← Назад ко входу","dash.login.main":"← На главную","dash.logout":"Выйти",
-        "dash.tab.neworder":"Новый заказ","dash.tab.orders":"Мои заказы","dash.tab.results":"Результаты","dash.tab.contact":"Контакт",
-        "services.title":"Услуги и цены — Dord AI Studio",
+        // ─── DASHBOARD ───
+        "dash.login.subtitle":"AI Фото и Видео Студия · Тель-Авив",
+        "dash.login.signin":"Войти","dash.login.register":"Регистрация",
+        "dash.login.email":"Email","dash.login.password":"Пароль","dash.login.confirm":"Подтвердите пароль",
+        "dash.login.signin.btn":"Войти →","dash.login.forgot":"Забыли пароль?","dash.login.or":"или",
+        "dash.login.create":"Создать аккаунт →",
+        "dash.login.reset.desc":"Введите email и мы отправим ссылку для сброса пароля.",
+        "dash.login.reset.btn":"Отправить ссылку →","dash.login.back":"← Назад ко входу","dash.login.main":"← На главную",
+        "dash.logout":"Выйти",
+        "dash.neworder":"Новый заказ",
+        "dash.stat.images":"Изображений в пакете","dash.stat.purchased":"куплено всего",
+        "dash.stat.completed":"Выполнено","dash.stat.remaining":"осталось",
+        "dash.stat.spent":"Потрачено","dash.stat.alltime":"за всё время",
+        "dash.loyalty.title":"🏆 Программа лояльности",
+        "dash.loyalty.discount.label":"Ваша персональная скидка на все заказы",
+        "dash.loyalty.hint":"1 потраченный $ = 1 балл лояльности",
+        "dash.loyalty.next":"до следующего ранга",
+        "dash.loyalty.max":"🏆 Максимальный ранг достигнут!",
+        "dash.loyalty.max.hint":"Вы достигли высшего ранга. Скидка: 12%",
+        "dash.loyalty.pts":"баллов","dash.loyalty.pts.to":"балл(ов) до",
+        "dash.orders.title":"📋 История заказов","dash.orders.new":"+ Новый заказ",
+        "dash.orders.th.num":"#","dash.orders.th.type":"Тип","dash.orders.th.pack":"Пакет",
+        "dash.orders.th.amount":"Сумма","dash.orders.th.date":"Дата","dash.orders.th.status":"Статус",
+        "dash.orders.empty":"Заказов пока нет.","dash.orders.empty.cta":"Сделайте первый заказ →",
+        "dash.profile.member":"Участник с","dash.profile.uid":"ID аккаунта",
+        "dash.rank.newcomer":"Новичок","dash.rank.designer":"Дизайнер","dash.rank.manager":"Менеджер","dash.rank.director":"Директор","dash.rank.ceo":"CEO",
+        "dash.referral.title":"🔗 Реферальная программа",
+        "dash.referral.desc":"Поделитесь ссылкой с друзьями. Вы получаете 5% от каждого их заказа в виде баллов лояльности. Оба получают 10 бонусных баллов при регистрации.",
+        "dash.referral.copy":"Копировать","dash.referral.earned":"баллов от рефералов","dash.referral.friends":"друзей присоединилось",
         // services page
         "svc.cfg.title":"Соберите заказ","svc.cfg.sub":"Выберите что вам нужно. Каждый заказ обсуждается лично.",
         "svc.cfg.free.title":"🎁 Бесплатный пример — попробуйте до покупки","svc.cfg.free.text":"Отправьте нам фото товара — даже со смартфона. Мы вернём 1–2 рендера бесплатно.",
@@ -74,7 +100,7 @@ const DORD_I18N = {
         "index.title":"Dord AI Studio — AI Photo Studio for Business & Shopify",
         "hero.badge":"Private GPU Servers Online — 3 Agents Active",
         "hero.title":"Stop Wasting $3,000<br>on Product <span class=\"highlight\">Photoshoots.</span>",
-        "hero.sub":"Dord AI Studio delivers high-end, store-ready commercial visuals in 24 hours. No plastic geometry. No fake reflections. Pure luxury — from $99.",
+        "hero.sub":"Dord AI Studio delivers high-end, store-ready commercial visuals in 24 hours. No plastic geometry. No fake reflections. Pure luxury — from $74.99.",
         "hero.cta1":"Get a Free Sample →","hero.cta2":"Explore Gallery",
         "why.label":"The Infrastructure Difference","why.title":"Why Cloud AI Fails You",
         "why.sub":"90% of services are just API wrappers — shared queues, generic models, no human review. We run our own dedicated GPU hardware.",
@@ -96,9 +122,35 @@ const DORD_I18N = {
         "promo.hint":"Promo codes can be found on our social media and on partner Telegram channels (links in the footer)","promo.apply":"Apply","promo.placeholder":"Enter promo code","promo.success":"Promo applied! Discount:","promo.error":"Invalid or expired promo code","promo.label":"Promo Code",
         "gallery.title":"Gallery — Dord AI Studio",
         "gallery.bc":"Gallery",
-        "dash.login.subtitle":"AI Photo & Video Studio · Tel Aviv","dash.login.signin":"Sign In","dash.login.register":"Register","dash.login.email":"Email","dash.login.password":"Password","dash.login.confirm":"Confirm Password","dash.login.signin.btn":"Sign In →","dash.login.forgot":"Forgot password?","dash.login.or":"or","dash.login.create":"Create Account →","dash.login.reset.desc":"Enter your email and we'll send a password reset link.","dash.login.reset.btn":"Send Reset Link →","dash.login.back":"← Back to Sign In","dash.login.main":"← Back to main page","dash.logout":"Sign out",
-        "dash.tab.neworder":"New Order","dash.tab.orders":"My Orders","dash.tab.results":"Results","dash.tab.contact":"Contact",
-        "services.title":"Services & Pricing — Dord AI Studio",
+        // ─── DASHBOARD ───
+        "dash.login.subtitle":"AI Photo & Video Studio · Tel Aviv",
+        "dash.login.signin":"Sign In","dash.login.register":"Register",
+        "dash.login.email":"Email","dash.login.password":"Password","dash.login.confirm":"Confirm Password",
+        "dash.login.signin.btn":"Sign In →","dash.login.forgot":"Forgot password?","dash.login.or":"or",
+        "dash.login.create":"Create Account →",
+        "dash.login.reset.desc":"Enter your email and we'll send a password reset link.",
+        "dash.login.reset.btn":"Send Reset Link →","dash.login.back":"← Back to Sign In","dash.login.main":"← Back to main page",
+        "dash.logout":"Sign out",
+        "dash.neworder":"New Order",
+        "dash.stat.images":"Images in pack","dash.stat.purchased":"purchased total",
+        "dash.stat.completed":"Completed","dash.stat.remaining":"remaining",
+        "dash.stat.spent":"Total spent","dash.stat.alltime":"all time",
+        "dash.loyalty.title":"🏆 Loyalty Program",
+        "dash.loyalty.discount.label":"Your personal discount on all orders",
+        "dash.loyalty.hint":"1 spent $ = 1 loyalty point",
+        "dash.loyalty.next":"to next rank",
+        "dash.loyalty.max":"🏆 Maximum rank reached!",
+        "dash.loyalty.max.hint":"You have reached the highest rank. Discount: 12%",
+        "dash.loyalty.pts":"pts","dash.loyalty.pts.to":"pts to",
+        "dash.orders.title":"📋 Order History","dash.orders.new":"+ New Order",
+        "dash.orders.th.num":"#","dash.orders.th.type":"Type","dash.orders.th.pack":"Pack",
+        "dash.orders.th.amount":"Amount","dash.orders.th.date":"Date","dash.orders.th.status":"Status",
+        "dash.orders.empty":"No orders yet.","dash.orders.empty.cta":"Place your first order →",
+        "dash.profile.member":"Member since","dash.profile.uid":"Account ID",
+        "dash.rank.newcomer":"Newcomer","dash.rank.designer":"Designer","dash.rank.manager":"Manager","dash.rank.director":"Director","dash.rank.ceo":"CEO",
+        "dash.referral.title":"🔗 Referral Program",
+        "dash.referral.desc":"Share your link with friends. You earn 5% of every order they make as loyalty points. Both of you get 10 bonus points on signup.",
+        "dash.referral.copy":"Copy Link","dash.referral.earned":"pts earned from referrals","dash.referral.friends":"friends joined",
         // services page
         "svc.cfg.title":"Build Your Order","svc.cfg.sub":"Select exactly what you need. Every order is handled personally.",
         "svc.cfg.free.title":"🎁 Free Sample — Try Before You Buy","svc.cfg.free.text":"Send us a photo of your product — even a phone shot on a white background. We'll return 1–2 premium renders completely free.",
@@ -129,6 +181,10 @@ const DORD_I18N = {
             const key = el.getAttribute('data-i18n');
             if (dict[key] !== undefined) el.innerHTML = dict[key];
         });
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+            const key = el.getAttribute('data-i18n-placeholder');
+            if (dict[key] !== undefined) el.placeholder = dict[key];
+        });
         const pageKey = document.body.getAttribute('data-page');
         if (pageKey && dict[pageKey + '.title']) {
             document.title = dict[pageKey + '.title'];
@@ -142,6 +198,10 @@ const DORD_I18N = {
     window.setLang = function(lang) { applyLang(lang); };
     window.switchLanguage = function(lang, btn) { applyLang(lang); };
     window.i18nSetLang = function(lang) { applyLang(lang); };
+    window.i18nGet = function(key) {
+        const lang = localStorage.getItem('dord_lang') || 'en';
+        return (DORD_I18N[lang] && DORD_I18N[lang][key]) || (DORD_I18N['en'] && DORD_I18N['en'][key]) || key;
+    };
 
     document.addEventListener('DOMContentLoaded', function() {
         const saved = localStorage.getItem('dord_lang') || 'en';
