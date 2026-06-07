@@ -64,15 +64,16 @@
 .btn-logout:hover{border-color:#f87171;color:#f87171}
 
 /* ─── MAIN LAYOUT ─── */
-.dash-main{max-width:860px;margin:0 auto;padding:40px 24px 80px;}
+.dash-main{max-width:860px;margin:0 auto;padding:40px 24px 80px}
 
 /* ─── PROFILE CARD ─── */
-.profile-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:20px;padding:28px 32px;display:flex;align-items:center;gap:24px;margin-bottom:24px;}
+.profile-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:20px;padding:28px 32px;display:flex;align-items:center;gap:24px;margin-bottom:24px}
 .profile-avatar{width:72px;height:72px;border-radius:50%;border:2px solid rgba(0,200,150,0.4);object-fit:cover;flex-shrink:0;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;font-family:'Unbounded',sans-serif;font-size:24px;font-weight:900;color:rgba(255,255,255,0.2)}
 .profile-avatar img{width:72px;height:72px;border-radius:50%;object-fit:cover;display:none}
 .profile-info{flex:1}
 .profile-name{font-family:'Unbounded',sans-serif;font-size:18px;font-weight:700;color:#fff;margin-bottom:4px}
-.profile-email{font-size:13px;color:rgba(255,255,255,0.4);margin-bottom:10px}
+.profile-email{font-size:13px;color:rgba(255,255,255,0.4);margin-bottom:4px}
+.profile-date{font-size:12px;color:rgba(255,255,255,0.25);margin-bottom:10px}
 .profile-meta{display:flex;gap:8px;flex-wrap:wrap}
 .profile-tag{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;padding:4px 12px;border-radius:100px;border:1px solid}
 .profile-tag.plan{background:rgba(0,74,173,0.1);border-color:rgba(0,74,173,0.3);color:#4d8fff}
@@ -107,7 +108,6 @@
 .loyalty-bar{height:8px;background:rgba(255,255,255,0.06);border-radius:4px;overflow:hidden}
 .loyalty-bar-fill{height:100%;background:linear-gradient(90deg,#004aad,#00c896);border-radius:4px;transition:width 0.8s ease}
 .loyalty-hint{font-size:12px;color:rgba(255,255,255,0.3);margin-top:8px}
-/* Лестница рангов */
 .ranks-ladder{display:flex;align-items:center;gap:0;margin-top:20px;overflow-x:auto;padding-bottom:4px}
 .rank-step{display:flex;flex-direction:column;align-items:center;gap:4px;flex:1;min-width:80px;position:relative}
 .rank-step::after{content:'';position:absolute;top:14px;left:50%;width:100%;height:2px;background:rgba(255,255,255,0.06);z-index:0}
@@ -136,7 +136,6 @@
 .status-paid{background:rgba(120,80,255,0.1);color:#a070ff;border:1px solid rgba(120,80,255,0.2)}
 .orders-empty{padding:48px 20px;text-align:center;color:rgba(255,255,255,0.2);font-size:13px}
 
-/* ─── RESPONSIVE ─── */
 @media(max-width:700px){
   .stats-grid{grid-template-columns:1fr 1fr}
   .profile-card{flex-wrap:wrap}
@@ -159,19 +158,19 @@
       <img src="logo.PNG" alt="DORD">
       <span>Dord AI</span>
     </div>
-    <div class="login-subtitle">AI Photo & Video Studio · Tel Aviv</div>
+    <div class="login-subtitle" data-i18n="dash.login.subtitle">AI Photo & Video Studio · Tel Aviv</div>
     <div class="auth-tabs">
-      <button class="auth-tab active" onclick="showAuthTab('signin')">Sign In</button>
-      <button class="auth-tab" onclick="showAuthTab('signup')">Register</button>
+      <button class="auth-tab active" onclick="showAuthTab('signin')" data-i18n="dash.login.signin">Sign In</button>
+      <button class="auth-tab" onclick="showAuthTab('signup')" data-i18n="dash.login.register">Register</button>
     </div>
     <!-- SIGN IN -->
     <div class="auth-panel active" id="panel-signin">
       <div class="auth-msg" id="signin-msg"></div>
-      <div class="auth-field"><label>Email</label><input type="email" id="signin-email" placeholder="your@email.com"></div>
-      <div class="auth-field"><label>Password</label><input type="password" id="signin-pass" placeholder="••••••••"></div>
-      <button class="btn-auth" onclick="signInEmail()">Sign In →</button>
-      <div class="auth-link"><a onclick="showAuthTab('reset')">Forgot password?</a></div>
-      <div class="divider">or</div>
+      <div class="auth-field"><label data-i18n="dash.login.email">Email</label><input type="email" id="signin-email" placeholder="your@email.com"></div>
+      <div class="auth-field"><label data-i18n="dash.login.password">Password</label><input type="password" id="signin-pass" placeholder="••••••••"></div>
+      <button class="btn-auth" onclick="signInEmail()" data-i18n="dash.login.signin.btn">Sign In →</button>
+      <div class="auth-link"><a onclick="showAuthTab('reset')" data-i18n="dash.login.forgot">Forgot password?</a></div>
+      <div class="divider"><span data-i18n="dash.login.or">or</span></div>
       <button class="btn-google" onclick="loginGoogle()">
         <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
         Continue with Google
@@ -180,11 +179,11 @@
     <!-- SIGN UP -->
     <div class="auth-panel" id="panel-signup">
       <div class="auth-msg" id="signup-msg"></div>
-      <div class="auth-field"><label>Email</label><input type="email" id="signup-email" placeholder="your@email.com"></div>
-      <div class="auth-field"><label>Password</label><input type="password" id="signup-pass" placeholder="Min 6 characters"></div>
-      <div class="auth-field"><label>Confirm Password</label><input type="password" id="signup-pass2" placeholder="Repeat password"></div>
-      <button class="btn-auth" onclick="signUpEmail()">Create Account →</button>
-      <div class="divider">or</div>
+      <div class="auth-field"><label data-i18n="dash.login.email">Email</label><input type="email" id="signup-email" placeholder="your@email.com"></div>
+      <div class="auth-field"><label data-i18n="dash.login.password">Password</label><input type="password" id="signup-pass" placeholder="Min 6 characters"></div>
+      <div class="auth-field"><label data-i18n="dash.login.confirm">Confirm Password</label><input type="password" id="signup-pass2" placeholder="Repeat password"></div>
+      <button class="btn-auth" onclick="signUpEmail()" data-i18n="dash.login.create">Create Account →</button>
+      <div class="divider"><span data-i18n="dash.login.or">or</span></div>
       <button class="btn-google" onclick="loginGoogle()">
         <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
         Continue with Google
@@ -193,12 +192,12 @@
     <!-- RESET -->
     <div class="auth-panel" id="panel-reset">
       <div class="auth-msg" id="reset-msg"></div>
-      <p style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:16px;text-align:left;">Enter your email and we'll send a password reset link.</p>
-      <div class="auth-field"><label>Email</label><input type="email" id="reset-email" placeholder="your@email.com"></div>
-      <button class="btn-auth" onclick="resetPassword()">Send Reset Link →</button>
-      <div class="auth-link"><a onclick="showAuthTab('signin')">← Back to Sign In</a></div>
+      <p style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:16px;text-align:left;" data-i18n="dash.login.reset.desc">Enter your email and we'll send a password reset link.</p>
+      <div class="auth-field"><label data-i18n="dash.login.email">Email</label><input type="email" id="reset-email" placeholder="your@email.com"></div>
+      <button class="btn-auth" onclick="resetPassword()" data-i18n="dash.login.reset.btn">Send Reset Link →</button>
+      <div class="auth-link"><a onclick="showAuthTab('signin')" data-i18n="dash.login.back">← Back to Sign In</a></div>
     </div>
-    <div class="auth-link" style="margin-top:20px;"><a href="index.html">← Back to main page</a></div>
+    <div class="auth-link" style="margin-top:20px;"><a href="index.html" data-i18n="dash.login.main">← Back to main page</a></div>
   </div>
 </div>
 
@@ -212,7 +211,7 @@
     <span class="plan-badge" id="planBadge">Loading...</span>
     <img src="" alt="" class="user-avatar" id="userAvatar">
     <span class="user-name" id="userName">...</span>
-    <button class="btn-logout" onclick="logoutUser()">Sign out</button>
+    <button class="btn-logout" onclick="logoutUser()" data-i18n="dash.logout">Sign out</button>
     <div class="lang-switcher">
       <button class="lang-btn" data-lang="ru" onclick="setLang('ru')">RU</button>
       <button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
@@ -222,18 +221,9 @@
 
 <!-- SOCIAL BAR -->
 <div class="social-bar">
-  <a href="https://t.me/DordAI" target="_blank" class="tg">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.941z"/></svg>
-    Telegram
-  </a>
-  <a href="https://instagram.com/dordaistudio" target="_blank" class="ig">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-    Instagram
-  </a>
-  <a href="https://x.com/dordaistudio" target="_blank" class="x">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.259 5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-    X / Twitter
-  </a>
+  <a href="https://t.me/DordAI" target="_blank" class="tg"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.941z"/></svg>Telegram</a>
+  <a href="https://instagram.com/dordaistudio" target="_blank" class="ig"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>Instagram</a>
+  <a href="https://x.com/dordaistudio" target="_blank" class="x"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.259 5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>X / Twitter</a>
 </div>
 
 <!-- MAIN -->
@@ -248,6 +238,7 @@
     <div class="profile-info">
       <div class="profile-name" id="profileName">Loading...</div>
       <div class="profile-email" id="profileEmail"></div>
+      <div class="profile-date" id="profileDate"></div>
       <div class="profile-meta">
         <span class="profile-tag plan" id="profilePlan">Free</span>
         <span class="profile-tag verified" id="profileVerified" style="display:none">✓ Verified</span>
@@ -255,94 +246,111 @@
     </div>
     <a href="services.html" class="btn-new-order">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-      New Order
+      <span data-i18n="dash.neworder">New Order</span>
     </a>
   </div>
 
   <!-- STATS -->
   <div class="stats-grid">
     <div class="stat-card accent">
-      <div class="stat-label">Images in pack</div>
+      <div class="stat-label" data-i18n="dash.stat.images">Images in pack</div>
       <div class="stat-value" id="statTotal">0</div>
-      <div class="stat-sub">purchased total</div>
+      <div class="stat-sub" data-i18n="dash.stat.purchased">purchased total</div>
     </div>
     <div class="stat-card">
-      <div class="stat-label">Completed</div>
+      <div class="stat-label" data-i18n="dash.stat.completed">Completed</div>
       <div class="stat-value" id="statDone">0</div>
       <div class="stat-sub" id="statLeft">0 remaining</div>
     </div>
     <div class="stat-card">
-      <div class="stat-label">Total spent</div>
+      <div class="stat-label" data-i18n="dash.stat.spent">Total spent</div>
       <div class="stat-value" id="statSpent">$0</div>
-      <div class="stat-sub">all time</div>
+      <div class="stat-sub" data-i18n="dash.stat.alltime">all time</div>
     </div>
   </div>
 
   <!-- LOYALTY BLOCK -->
   <div class="loyalty-block">
     <div class="loyalty-header">
-      <div class="loyalty-title">🏆 Loyalty Program</div>
-      <div class="loyalty-rank-badge rank-novice" id="rankBadge">Новичок</div>
+      <div class="loyalty-title" data-i18n="dash.loyalty.title">🏆 Loyalty Program</div>
+      <div class="loyalty-rank-badge rank-novice" id="rankBadge">Newcomer</div>
     </div>
     <div class="loyalty-discount" id="loyaltyDiscount">3%</div>
-    <div class="loyalty-discount-label">Your personal discount on all orders</div>
+    <div class="loyalty-discount-label" data-i18n="dash.loyalty.discount.label">Your personal discount on all orders</div>
     <div class="loyalty-progress-wrap">
       <div class="loyalty-progress-top">
-        <span class="loyalty-pts"><span id="loyaltyPts">0</span> pts</span>
+        <span class="loyalty-pts"><span id="loyaltyPts">0</span> <span data-i18n="dash.loyalty.pts">pts</span></span>
         <span class="loyalty-next" id="loyaltyNextLabel">100 pts to next rank</span>
       </div>
       <div class="loyalty-bar"><div class="loyalty-bar-fill" id="loyaltyBarFill" style="width:0%"></div></div>
-      <div class="loyalty-hint" id="loyaltyHint">1 spent $ = 1 loyalty point</div>
+      <div class="loyalty-hint" id="loyaltyHint" data-i18n="dash.loyalty.hint">1 spent $ = 1 loyalty point</div>
     </div>
     <!-- Лестница рангов -->
     <div class="ranks-ladder" id="ranksLadder">
       <div class="rank-step" data-rank="novice">
         <div class="rank-dot">🌱</div>
-        <div class="rank-name">Newcomer</div>
+        <div class="rank-name" data-i18n="dash.rank.newcomer">Newcomer</div>
         <div class="rank-pts">0 pts</div>
       </div>
       <div class="rank-step" data-rank="designer">
         <div class="rank-dot">✏️</div>
-        <div class="rank-name">Designer</div>
+        <div class="rank-name" data-i18n="dash.rank.designer">Designer</div>
         <div class="rank-pts">100 pts</div>
       </div>
       <div class="rank-step" data-rank="manager">
         <div class="rank-dot">📊</div>
-        <div class="rank-name">Manager</div>
+        <div class="rank-name" data-i18n="dash.rank.manager">Manager</div>
         <div class="rank-pts">300 pts</div>
       </div>
       <div class="rank-step" data-rank="director">
         <div class="rank-dot">👔</div>
-        <div class="rank-name">Director</div>
+        <div class="rank-name" data-i18n="dash.rank.director">Director</div>
         <div class="rank-pts">500 pts</div>
       </div>
       <div class="rank-step" data-rank="ceo">
         <div class="rank-dot">👑</div>
-        <div class="rank-name">CEO</div>
+        <div class="rank-name" data-i18n="dash.rank.ceo">CEO</div>
         <div class="rank-pts">700 pts</div>
       </div>
+    </div>
+  </div>
+
+  <!-- REFERRAL BLOCK -->
+  <div class="loyalty-block">
+    <div class="loyalty-header">
+      <div class="loyalty-title" data-i18n="dash.referral.title">🔗 Referral Program</div>
+      <div class="loyalty-rank-badge rank-designer" id="refCountBadge">0 referrals</div>
+    </div>
+    <p style="font-size:13px;color:rgba(255,255,255,0.4);margin-bottom:16px;line-height:1.6" data-i18n="dash.referral.desc">Share your link with friends. You earn 5% of every order they make as loyalty points. Both of you get 10 bonus points on signup.</p>
+    <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+      <input type="text" id="refLinkInput" readonly style="flex:1;min-width:200px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:12px 16px;color:#00c896;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;outline:none">
+      <button onclick="copyRefLink()" id="refCopyBtn" style="padding:12px 20px;background:linear-gradient(135deg,#004aad,#00c896);color:#fff;border:none;border-radius:10px;font-family:'Inter',sans-serif;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap;transition:all 0.2s" data-i18n="dash.referral.copy">Copy Link</button>
+    </div>
+    <div style="display:flex;gap:24px;margin-top:16px;flex-wrap:wrap">
+      <div style="font-size:12px;color:rgba(255,255,255,0.3)"><span style="color:#00c896;font-weight:700" id="refEarnings">0</span> <span data-i18n="dash.referral.earned">pts earned from referrals</span></div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.3)"><span style="color:#fff;font-weight:700" id="refCount">0</span> <span data-i18n="dash.referral.friends">friends joined</span></div>
     </div>
   </div>
 
   <!-- ORDERS HISTORY -->
   <div class="orders-block">
     <div class="orders-block-header">
-      <div class="orders-block-title">📋 Order History</div>
-      <a href="services.html" style="font-size:12px;color:#00c896;text-decoration:none;font-weight:700;">+ New Order</a>
+      <div class="orders-block-title" data-i18n="dash.orders.title">📋 Order History</div>
+      <a href="services.html" style="font-size:12px;color:#00c896;text-decoration:none;font-weight:700;" data-i18n="dash.orders.new">+ New Order</a>
     </div>
     <table class="orders-table">
       <thead>
         <tr>
-          <th>#</th>
-          <th>Type</th>
-          <th>Pack</th>
-          <th>Amount</th>
-          <th>Date</th>
-          <th>Status</th>
+          <th data-i18n="dash.orders.th.num">#</th>
+          <th data-i18n="dash.orders.th.type">Type</th>
+          <th data-i18n="dash.orders.th.pack">Pack</th>
+          <th data-i18n="dash.orders.th.amount">Amount</th>
+          <th data-i18n="dash.orders.th.date">Date</th>
+          <th data-i18n="dash.orders.th.status">Status</th>
         </tr>
       </thead>
       <tbody id="ordersTableBody">
-        <tr><td colspan="6" class="orders-empty">No orders yet.<br><a href="services.html" style="color:#00c896;text-decoration:none;">Place your first order →</a></td></tr>
+        <tr><td colspan="6" class="orders-empty"><span data-i18n="dash.orders.empty">No orders yet.</span><br><a href="services.html" style="color:#00c896;text-decoration:none;" data-i18n="dash.orders.empty.cta">Place your first order →</a></td></tr>
       </tbody>
     </table>
   </div>
@@ -353,7 +361,7 @@
 <script type="module">
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
 import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail, sendEmailVerification } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
-import { getFirestore, doc, setDoc, getDoc, collection, query, where, orderBy, limit, getDocs, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+import { getFirestore, doc, setDoc, getDoc, collection, query, where, orderBy, limit, getDocs, serverTimestamp, increment } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
 
 const firebaseConfig = {
   apiKey: "AIzaSyCfot_WKYkikmKHrqet2nXnPasQB1ln61g",
@@ -370,60 +378,54 @@ const db = getFirestore(app);
 
 // ─── LOYALTY LOGIC ───
 const RANKS = [
-  { min: 0,   key: 'novice',   name: 'Newcomer', discount: 3,  cls: 'rank-novice',   emoji: '🌱' },
-  { min: 100, key: 'designer', name: 'Designer',  discount: 5,  cls: 'rank-designer', emoji: '✏️' },
-  { min: 300, key: 'manager',  name: 'Manager',   discount: 7,  cls: 'rank-manager',  emoji: '📊' },
-  { min: 500, key: 'director', name: 'Director',  discount: 10, cls: 'rank-director', emoji: '👔' },
-  { min: 700, key: 'ceo',      name: 'CEO',       discount: 12, cls: 'rank-ceo',      emoji: '👑' },
+  { min: 0,   key: 'novice',   nameEn: 'Newcomer', nameRu: 'Новичок',   discount: 3,  cls: 'rank-novice',   emoji: '🌱' },
+  { min: 100, key: 'designer', nameEn: 'Designer',  nameRu: 'Дизайнер',  discount: 5,  cls: 'rank-designer', emoji: '✏️' },
+  { min: 300, key: 'manager',  nameEn: 'Manager',   nameRu: 'Менеджер',  discount: 7,  cls: 'rank-manager',  emoji: '📊' },
+  { min: 500, key: 'director', nameEn: 'Director',  nameRu: 'Директор',  discount: 10, cls: 'rank-director', emoji: '👔' },
+  { min: 700, key: 'ceo',      nameEn: 'CEO',       nameRu: 'CEO',       discount: 12, cls: 'rank-ceo',      emoji: '👑' },
 ];
 
+function getLang() { return localStorage.getItem('dord_lang') || 'en'; }
+
 function calcLoyalty(points) {
-  // Находим текущий ранг (последний подходящий)
   let rankIdx = 0;
   for (let i = 0; i < RANKS.length; i++) {
     if (points >= RANKS[i].min) rankIdx = i;
   }
   const current = RANKS[rankIdx];
   const next = RANKS[rankIdx + 1] || null;
-
-  // Прогресс внутри текущего уровня
-  let progress = 100; // по умолчанию 100% (СЕО)
+  let progress = 100;
   let ptsToNext = 0;
   if (next) {
-    const rangeSize = next.min - current.min;         // размер диапазона уровня
-    const rangeProgress = points - current.min;       // баллов набрано в этом уровне
+    const rangeSize = next.min - current.min;
+    const rangeProgress = points - current.min;
     progress = Math.min(100, Math.round(rangeProgress / rangeSize * 100));
     ptsToNext = next.min - points;
   }
-
   return { current, next, progress, ptsToNext, rankIdx };
 }
 
 function renderLoyalty(points) {
   const { current, next, progress, ptsToNext, rankIdx } = calcLoyalty(points);
+  const lang = getLang();
+  const rankName = lang === 'ru' ? current.nameRu : current.nameEn;
 
-  // Бейдж ранга
   const badge = document.getElementById('rankBadge');
-  badge.textContent = current.emoji + ' ' + current.name;
+  badge.textContent = current.emoji + ' ' + rankName;
   badge.className = 'loyalty-rank-badge ' + current.cls;
 
-  // Скидка
   document.getElementById('loyaltyDiscount').textContent = current.discount + '%';
-
-  // Баллы и прогресс
   document.getElementById('loyaltyPts').textContent = points;
   document.getElementById('loyaltyBarFill').style.width = progress + '%';
 
-  // Подпись под баром
   if (next) {
-    document.getElementById('loyaltyNextLabel').textContent = ptsToNext + ' pts to ' + next.name;
-    document.getElementById('loyaltyHint').textContent = '1 spent $ = 1 loyalty point · Next rank at ' + next.min + ' pts';
+    const nextName = lang === 'ru' ? next.nameRu : next.nameEn;
+    document.getElementById('loyaltyNextLabel').textContent = ptsToNext + (lang === 'ru' ? ' балл(ов) до ' : ' pts to ') + nextName;
   } else {
-    document.getElementById('loyaltyNextLabel').textContent = '🏆 Maximum rank reached!';
-    document.getElementById('loyaltyHint').textContent = 'You have reached the highest rank. Discount: 12%';
+    document.getElementById('loyaltyNextLabel').textContent = lang === 'ru' ? '🏆 Максимальный ранг достигнут!' : '🏆 Maximum rank reached!';
+    document.getElementById('loyaltyHint').textContent = lang === 'ru' ? 'Вы достигли высшего ранга. Скидка: 12%' : 'You have reached the highest rank. Discount: 12%';
   }
 
-  // Лестница — подсвечиваем пройденные и текущий
   document.querySelectorAll('.rank-step').forEach((el, idx) => {
     el.classList.remove('done', 'current');
     if (idx < rankIdx) el.classList.add('done');
@@ -440,7 +442,36 @@ function showMsg(id, text, type) {
   el.style.display = 'block';
 }
 
+function formatDate(ts) {
+  if (!ts) return '';
+  const d = ts.toDate ? ts.toDate() : new Date(ts);
+  const lang = getLang();
+  return d.toLocaleDateString(lang === 'ru' ? 'ru-RU' : 'en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+}
+
 const planNames = { free: 'Free', starter: 'Starter Shot', ecom: 'E-Com Launch', brand: 'Brand Identity' };
+
+// ─── REFERRAL ───
+function generateRefCode(uid) {
+  return uid.substring(0, 8).toUpperCase();
+}
+
+function getRefFromUrl() {
+  const params = new URLSearchParams(window.location.search);
+  return params.get('ref') || '';
+}
+
+window.copyRefLink = function() {
+  const input = document.getElementById('refLinkInput');
+  navigator.clipboard.writeText(input.value).then(() => {
+    const btn = document.getElementById('refCopyBtn');
+    const lang = getLang();
+    btn.textContent = lang === 'ru' ? '✓ Скопировано!' : '✓ Copied!';
+    setTimeout(() => { btn.textContent = lang === 'ru' ? 'Копировать' : 'Copy Link'; }, 2000);
+  });
+};
+
+let currentPoints = 0;
 
 onAuthStateChanged(auth, async (user) => {
   if (!user) {
@@ -448,8 +479,9 @@ onAuthStateChanged(auth, async (user) => {
     return;
   }
   document.getElementById('loginOverlay').style.display = 'none';
+  const lang = getLang();
 
-  // Шапка
+  // Header
   document.getElementById('userName').textContent = user.displayName || user.email;
   if (user.photoURL) {
     const av = document.getElementById('userAvatar');
@@ -457,12 +489,12 @@ onAuthStateChanged(auth, async (user) => {
     av.style.display = 'block';
   }
 
-  // Профиль большой
+  // Profile card
   document.getElementById('profileName').textContent = user.displayName || user.email;
   document.getElementById('profileEmail').textContent = user.email;
   if (user.emailVerified) document.getElementById('profileVerified').style.display = 'inline-block';
 
-  // Аватар большой
+  // Avatar
   if (user.photoURL) {
     const bigAv = document.getElementById('userAvatarBig');
     bigAv.src = user.photoURL;
@@ -473,7 +505,7 @@ onAuthStateChanged(auth, async (user) => {
     document.getElementById('avatarInitial').textContent = initial;
   }
 
-  // Firestore данные
+  // Firestore data
   try {
     const snap = await getDoc(doc(db, 'users', user.uid));
     const d = snap.exists() ? snap.data() : {};
@@ -482,20 +514,46 @@ onAuthStateChanged(auth, async (user) => {
     document.getElementById('planBadge').textContent = 'Plan: ' + pName;
     document.getElementById('profilePlan').textContent = pName;
 
+    // Registration date
+    const memberLabel = lang === 'ru' ? 'Участник с' : 'Member since';
+    const regDate = d.created_at ? formatDate(d.created_at) : formatDate(user.metadata.creationTime);
+    document.getElementById('profileDate').textContent = memberLabel + ' ' + regDate;
+
     const total = d.generations_limit || 0;
     const done = d.generations_used || 0;
     const spent = d.total_spent || 0;
+    const remaining = Math.max(0, total - done);
 
     document.getElementById('statTotal').textContent = total;
     document.getElementById('statDone').textContent = done;
-    document.getElementById('statLeft').textContent = Math.max(0, total - done) + ' remaining';
+    document.getElementById('statLeft').textContent = remaining + (lang === 'ru' ? ' осталось' : ' remaining');
     document.getElementById('statSpent').textContent = '$' + spent.toFixed(0);
 
-    // Лояльность — берём points, fallback из total_spent
-    const pts = d.loyalty_points || Math.floor(spent) || 0;
-    renderLoyalty(pts);
+    // Loyalty
+    currentPoints = d.loyalty_points || Math.floor(spent) || 0;
+    renderLoyalty(currentPoints);
 
-    // Инициализируем поля если нет
+    // Referral code — generate if missing
+    let refCode = d.ref_code || '';
+    if (!refCode) {
+      refCode = generateRefCode(user.uid);
+      await setDoc(doc(db, 'users', user.uid), { ref_code: refCode }, { merge: true });
+    }
+    document.getElementById('refLinkInput').value = 'https://dordai.art/dashboard.html?ref=' + refCode;
+
+    // Referral stats
+    const refEarnings = d.referral_earnings || 0;
+    document.getElementById('refEarnings').textContent = refEarnings;
+
+    // Count referrals
+    try {
+      const refSnap = await getDocs(query(collection(db, 'users'), where('referred_by', '==', refCode)));
+      const refNum = refSnap.size;
+      document.getElementById('refCount').textContent = refNum;
+      document.getElementById('refCountBadge').textContent = refNum + (lang === 'ru' ? ' рефералов' : ' referrals');
+    } catch(e) { console.error('Ref count error:', e); }
+
+    // Init fields if missing
     if (!snap.exists() || d.loyalty_points === undefined) {
       await setDoc(doc(db, 'users', user.uid), {
         loyalty_points: Math.floor(spent),
@@ -508,7 +566,7 @@ onAuthStateChanged(auth, async (user) => {
     console.error('Firestore error:', e);
   }
 
-  // Загрузка истории заказов
+  // Orders
   try {
     const q = query(
       collection(db, 'orders'),
@@ -525,10 +583,11 @@ onAuthStateChanged(auth, async (user) => {
     let i = 1;
     snap.forEach(docSnap => {
       const o = docSnap.data();
-      const date = o.created_at ? o.created_at.toDate().toLocaleDateString('en-US') : '—';
+      const date = o.created_at ? o.created_at.toDate().toLocaleDateString(lang === 'ru' ? 'ru-RU' : 'en-US') : '—';
       const statusMap = { new: 'status-new', paid: 'status-paid', processing: 'status-processing', done: 'status-done' };
       const cls = statusMap[o.status] || 'status-new';
       const amount = o.amount ? '$' + o.amount : '—';
+      const dlLink = (o.status === 'done' && o.download_url) ? `<a href="${o.download_url}" target="_blank" style="color:#00c896;font-size:11px;text-decoration:none;margin-left:6px">⬇️</a>` : '';
       tbody.innerHTML += `
         <tr>
           <td style="color:rgba(255,255,255,0.25);font-size:11px;">#${i++}</td>
@@ -536,13 +595,36 @@ onAuthStateChanged(auth, async (user) => {
           <td>${o.pack || '—'}</td>
           <td style="color:#00c896;font-weight:700;">${amount}</td>
           <td>${date}</td>
-          <td><span class="status-badge ${cls}">${o.status || 'new'}</span></td>
+          <td><span class="status-badge ${cls}">${o.status || 'new'}</span>${dlLink}</td>
         </tr>`;
     });
   } catch(e) {
     console.error('Orders load error:', e);
   }
 });
+
+// Re-render loyalty on language switch
+window.addEventListener('storage', (e) => {
+  if (e.key === 'dord_lang') renderLoyalty(currentPoints);
+});
+const origSetLang = window.setLang;
+window.setLang = function(lang) {
+  if (origSetLang) origSetLang(lang);
+  renderLoyalty(currentPoints);
+  // Update dynamic texts
+  const l = lang;
+  const remaining = document.getElementById('statLeft');
+  if (remaining) {
+    const num = parseInt(remaining.textContent) || 0;
+    remaining.textContent = num + (l === 'ru' ? ' осталось' : ' remaining');
+  }
+  const pd = document.getElementById('profileDate');
+  if (pd && pd.textContent) {
+    const prefix = l === 'ru' ? 'Участник с' : 'Member since';
+    const dateStr = pd.textContent.replace(/^(Member since|Участник с)\s*/, '');
+    pd.textContent = prefix + ' ' + dateStr;
+  }
+};
 
 // Google Auth
 window.loginGoogle = async function() {
@@ -552,16 +634,35 @@ window.loginGoogle = async function() {
     const ref = doc(db, 'users', user.uid);
     const snap = await getDoc(ref);
     if (!snap.exists()) {
-      await setDoc(ref, {
+      const refCode = generateRefCode(user.uid);
+      const referredBy = getRefFromUrl();
+      const userData = {
         uid: user.uid, email: user.email,
         name: user.displayName || '',
         photo: user.photoURL || '',
         plan: 'free',
         generations_used: 0, generations_limit: 0,
         orders_count: 0, total_spent: 0,
-        loyalty_points: 0, loyalty_rank: 'Новичок', loyalty_discount: 3,
+        loyalty_points: referredBy ? 10 : 0,
+        loyalty_rank: 'Newcomer', loyalty_discount: 3,
+        ref_code: refCode,
+        referred_by: referredBy || '',
+        referral_earnings: 0,
         created_at: serverTimestamp(), last_login: serverTimestamp()
-      });
+      };
+      await setDoc(ref, userData);
+      // Бонус рефереру
+      if (referredBy) {
+        try {
+          const refQuery = await getDocs(query(collection(db, 'users'), where('ref_code', '==', referredBy)));
+          if (!refQuery.empty) {
+            const referrerDoc = refQuery.docs[0];
+            await setDoc(doc(db, 'users', referrerDoc.id), {
+              loyalty_points: increment(10),
+            }, { merge: true });
+          }
+        } catch(e) { console.error('Ref bonus error:', e); }
+      }
     } else {
       await setDoc(ref, { last_login: serverTimestamp() }, { merge: true });
     }
@@ -580,13 +681,31 @@ window.signUpEmail = async function() {
   try {
     const result = await createUserWithEmailAndPassword(auth, email, pass);
     await sendEmailVerification(result.user);
+    const refCode = generateRefCode(result.user.uid);
+    const referredBy = getRefFromUrl();
     await setDoc(doc(db, 'users', result.user.uid), {
       uid: result.user.uid, email, plan: 'free',
       generations_used: 0, generations_limit: 0,
       orders_count: 0, total_spent: 0,
-      loyalty_points: 0, loyalty_rank: 'Новичок', loyalty_discount: 3,
+      loyalty_points: referredBy ? 10 : 0,
+      loyalty_rank: 'Newcomer', loyalty_discount: 3,
+      ref_code: refCode,
+      referred_by: referredBy || '',
+      referral_earnings: 0,
       created_at: serverTimestamp(), last_login: serverTimestamp()
     });
+    // Бонус рефереру
+    if (referredBy) {
+      try {
+        const refQuery = await getDocs(query(collection(db, 'users'), where('ref_code', '==', referredBy)));
+        if (!refQuery.empty) {
+          const referrerDoc = refQuery.docs[0];
+          await setDoc(doc(db, 'users', referrerDoc.id), {
+            loyalty_points: increment(10),
+          }, { merge: true });
+        }
+      } catch(e) { console.error('Ref bonus error:', e); }
+    }
     showMsg('signup-msg', 'Account created! Check your email to verify.', 'success');
   } catch(err) {
     const msgs = { 'auth/email-already-in-use': 'This email is already registered', 'auth/invalid-email': 'Invalid email', 'auth/weak-password': 'Password is too weak' };
@@ -629,12 +748,7 @@ window.showAuthTab = function(name) {
     if (b.getAttribute('onclick') && b.getAttribute('onclick').includes(name)) b.classList.add('active');
   });
 };
-document.addEventListener('DOMContentLoaded', function() {
-  const saved = localStorage.getItem('dord_lang');
-  if (!saved) setLang('en');
-});
 </script>
-<script src="i18n.js"></script>  
 <script src="cookie.js"></script>
 <script src="legal.js"></script>
 </body>
