@@ -41,7 +41,6 @@ const DORD_I18N = {
         "promo.apply":"Применить","promo.placeholder":"Введите промокод","promo.success":"Промокод применён! Скидка:","promo.error":"Промокод недействителен или истёк","promo.label":"Промокод",
         "gallery.title":"Галерея работ — Dord AI Studio",
         "gallery.bc":"Галерея",
-        // ─── DASHBOARD ───
         "dash.login.subtitle":"AI Фото и Видео Студия · Тель-Авив",
         "dash.login.signin":"Войти","dash.login.register":"Регистрация",
         "dash.login.email":"Email","dash.login.password":"Пароль","dash.login.confirm":"Подтвердите пароль",
@@ -70,7 +69,6 @@ const DORD_I18N = {
         "dash.referral.title":"🔗 Реферальная программа",
         "dash.referral.desc":"Поделитесь ссылкой с друзьями. Вы получаете 5% от каждого их заказа в виде баллов лояльности. Оба получают 10 бонусных баллов при регистрации.",
         "dash.referral.copy":"Копировать","dash.referral.earned":"баллов от рефералов","dash.referral.friends":"друзей присоединилось",
-        // services page
         "svc.cfg.title":"Соберите заказ","svc.cfg.sub":"Выберите что вам нужно. Каждый заказ обсуждается лично.",
         "svc.cfg.free.title":"🎁 Бесплатный пример — попробуйте до покупки","svc.cfg.free.text":"Отправьте нам фото товара — даже со смартфона. Мы вернём 1–2 рендера бесплатно.",
         "svc.cfg.free.btn":"Получить бесплатный пример →",
@@ -122,7 +120,6 @@ const DORD_I18N = {
         "promo.hint":"Promo codes can be found on our social media and on partner Telegram channels (links in the footer)","promo.apply":"Apply","promo.placeholder":"Enter promo code","promo.success":"Promo applied! Discount:","promo.error":"Invalid or expired promo code","promo.label":"Promo Code",
         "gallery.title":"Gallery — Dord AI Studio",
         "gallery.bc":"Gallery",
-        // ─── DASHBOARD ───
         "dash.login.subtitle":"AI Photo & Video Studio · Tel Aviv",
         "dash.login.signin":"Sign In","dash.login.register":"Register",
         "dash.login.email":"Email","dash.login.password":"Password","dash.login.confirm":"Confirm Password",
@@ -151,7 +148,6 @@ const DORD_I18N = {
         "dash.referral.title":"🔗 Referral Program",
         "dash.referral.desc":"Share your link with friends. You earn 5% of every order they make as loyalty points. Both of you get 10 bonus points on signup.",
         "dash.referral.copy":"Copy Link","dash.referral.earned":"pts earned from referrals","dash.referral.friends":"friends joined",
-        // services page
         "svc.cfg.title":"Build Your Order","svc.cfg.sub":"Select exactly what you need. Every order is handled personally.",
         "svc.cfg.free.title":"🎁 Free Sample — Try Before You Buy","svc.cfg.free.text":"Send us a photo of your product — even a phone shot on a white background. We'll return 1–2 premium renders completely free.",
         "svc.cfg.free.btn":"Get Free Sample →",
