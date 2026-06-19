@@ -5,7 +5,6 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Missing url parameter' });
   }
 
-  // Only allow images from known domains
   const allowed = ['raw.githubusercontent.com', 'github.com', 'firebasestorage.googleapis.com'];
   let parsed;
   try {
