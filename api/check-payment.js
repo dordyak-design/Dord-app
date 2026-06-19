@@ -23,7 +23,6 @@ export default async function handler(req, res) {
     const { trackId, orderId, cart, email, orderDetails, uid } = req.body;
     if (!trackId) return res.status(400).json({ error: 'trackId is required' });
 
-    // Проверяем статус у OxaPay
     const oxaRes = await fetch('https://api.oxapay.com/merchants/inquiry', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -63,7 +62,7 @@ export default async function handler(req, res) {
         await db.collection('orders').add(orderData);
         console.log('Order saved to Firestore:', trackId);
 
-        // ─── Loyalty points для покупателя ───
+        // Loyalty points для покупателя
         if (uid) {
           const loyaltyPts = Math.floor(paidAmount);
           await db.collection('users').doc(uid).set({
@@ -73,12 +72,11 @@ export default async function handler(req, res) {
             last_order: FieldValue.serverTimestamp(),
           }, { merge: true });
 
-          // ─── Referral 5% бонус рефереру ───
+          // Referral 5% бонус рефереру
           try {
             const buyerSnap = await db.collection('users').doc(uid).get();
             const buyerData = buyerSnap.exists ? buyerSnap.data() : {};
             if (buyerData.referred_by) {
-              // Найти реферера по ref_code
               const refQuery = await db.collection('users').where('ref_code', '==', buyerData.referred_by).limit(1).get();
               if (!refQuery.empty) {
                 const referrerDoc = refQuery.docs[0];
