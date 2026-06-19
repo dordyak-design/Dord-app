@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDYY04P81S"></script>
 <script>
@@ -65,6 +66,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .gallery-loading{text-align:center;padding:80px 24px;color:#8892a4;font-size:14px}
 .gallery-empty{text-align:center;padding:80px 24px;color:#8892a4;font-size:14px}
 
+/* LIKE BUTTON */
+.like-btn{position:absolute;bottom:12px;right:12px;display:flex;align-items:center;gap:5px;background:rgba(8,11,26,0.85);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.08);border-radius:100px;padding:5px 12px;cursor:pointer;transition:all 0.2s;z-index:2}
+.like-btn:hover{border-color:rgba(239,68,68,0.4);background:rgba(239,68,68,0.1)}
+.like-btn.liked{border-color:rgba(239,68,68,0.5);background:rgba(239,68,68,0.12)}
+.like-btn svg{width:14px;height:14px;fill:none;stroke:#8892a4;stroke-width:2;transition:all 0.2s}
+.like-btn.liked svg{fill:#f87171;stroke:#f87171}
+.like-btn:hover svg{stroke:#f87171}
+.like-count{font-family:'Inter',sans-serif;font-size:11px;font-weight:700;color:#8892a4;min-width:8px;text-align:center}
+.like-btn.liked .like-count{color:#f87171}
+@keyframes likePopAnim{0%{transform:scale(1)}50%{transform:scale(1.3)}100%{transform:scale(1)}}
+.like-btn.pop svg{animation:likePopAnim 0.3s ease}
+
 /* LIGHTBOX */
 .lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.95);z-index:9999;align-items:center;justify-content:center;flex-direction:column;gap:16px;padding:20px}
 .lightbox.active{display:flex}
@@ -105,6 +118,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .cta-strip{flex-direction:column;text-align:center}
   .proof-strip{gap:20px;padding:20px 16px}
   .hero-stats{gap:20px}
+  .like-btn{padding:4px 8px}
+  .like-count{font-size:10px}
+  .like-btn svg{width:12px;height:12px}
 }
 @media(max-width:480px){
   .gallery-grid{grid-template-columns:1fr 1fr;gap:8px}
@@ -146,7 +162,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <div class="breadcrumb"><a href="index.html">Home</a><span>›</span><span>Gallery</span></div>
 
-<!-- HERO -->
 <div class="gallery-hero">
   <div class="hero-badge"><span class="dot"></span>June 2026 · Latest Work</div>
   <h1>Every Image You See<br>Was Reviewed by a Human</h1>
@@ -159,10 +174,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </div>
 </div>
 
-<!-- FILTER NAV (dynamic) -->
 <div class="filter-nav" id="filterNav"></div>
 
-<!-- PROOF STRIP -->
 <div class="proof-strip">
   <div class="proof-item"><span style="font-size:18px">🖥️</span><span>Generated on <b>private GPU server</b> — no cloud</span></div>
   <div class="proof-item"><span style="font-size:18px">👁️</span><span><b>Every image</b> reviewed by human operator</span></div>
@@ -170,12 +183,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <div class="proof-item"><span style="font-size:18px">⚡</span><span><b>48-hour</b> delivery on all orders</span></div>
 </div>
 
-<!-- GALLERY CONTENT (dynamic from Firestore) -->
 <div id="galleryContent">
   <div class="gallery-loading">⏳ Loading gallery...</div>
 </div>
 
-<!-- CTA STRIP -->
 <div class="cta-strip-outer"><div class="cta-strip">
   <div class="cta-strip-left">
     <h3>Need visuals like these for your listing?</h3>
@@ -184,7 +195,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <a href="services.html" class="btn-cta-strip">Order Now →</a>
 </div></div>
 
-<!-- FINAL CTA -->
 <div class="section-divider-gallery" style="margin-top:60px"></div>
 <div class="gallery-cta-final">
   <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#00c896;font-weight:700;margin-bottom:10px">Ready to see your product here?</div>
@@ -210,10 +220,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </div>
 </footer>
 
-<!-- FLOATING SECTION NAV -->
 <div class="gallery-float-nav" id="floatNav"></div>
 
-<!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox">
   <span class="lightbox-close" onclick="closeLightbox()">×</span>
   <div style="position:relative;display:inline-block">
@@ -225,7 +233,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <div class="lightbox-login-hint" id="lightbox-login-hint">🔒 <a href="dashboard.html" style="color:#00c896;text-decoration:none;font-weight:700">Sign in</a> to download full resolution</div>
 </div>
 
-<!-- BLOCK RIGHT CLICK ON IMAGES -->
 <script>
 document.addEventListener('contextmenu', function(e) {
   if (e.target.tagName === 'IMG' || e.target.closest('.gallery-item') || e.target.closest('.lightbox')) {
@@ -234,11 +241,10 @@ document.addEventListener('contextmenu', function(e) {
 });
 </script>
 
-<!-- FIREBASE -->
 <script type="module">
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
 import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
-import { getFirestore, collection, getDocs } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+import { getFirestore, collection, getDocs, doc, getDoc, setDoc, increment } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
 
 const app = initializeApp({
   apiKey:"AIzaSyCfot_WKYkikmKHrqet2nXnPasQB1ln61g",authDomain:"dord-ai-studio.firebaseapp.com",projectId:"dord-ai-studio",storageBucket:"dord-ai-studio.firebasestorage.app",messagingSenderId:"759031422125",appId:"1:759031422125:web:22367b8059ce661f51fa24"
@@ -253,7 +259,63 @@ onAuthStateChanged(auth, u => {
   updateDownloadUI();
 });
 
-// Load gallery from Firestore
+// ─── LIKES (localStorage for guests, Firestore for counts) ───
+function getLikedSet() {
+  try { return new Set(JSON.parse(localStorage.getItem('dord_likes') || '[]')); }
+  catch { return new Set(); }
+}
+function saveLikedSet(s) {
+  localStorage.setItem('dord_likes', JSON.stringify([...s]));
+}
+
+function makeImgId(url) {
+  // Short hash from URL for Firestore doc id
+  let h = 0;
+  for (let i = 0; i < url.length; i++) { h = ((h << 5) - h + url.charCodeAt(i)) | 0; }
+  return 'img_' + Math.abs(h).toString(36);
+}
+
+window.toggleLike = async function(btn, imgUrl) {
+  const imgId = makeImgId(imgUrl);
+  const liked = getLikedSet();
+  const countEl = btn.querySelector('.like-count');
+  let current = parseInt(countEl.textContent) || 0;
+
+  if (liked.has(imgId)) {
+    liked.delete(imgId);
+    btn.classList.remove('liked');
+    current = Math.max(0, current - 1);
+    countEl.textContent = current;
+    try { await setDoc(doc(db, 'gallery_likes', imgId), { count: increment(-1) }, { merge: true }); } catch(e) {}
+  } else {
+    liked.add(imgId);
+    btn.classList.add('liked', 'pop');
+    current++;
+    countEl.textContent = current;
+    setTimeout(() => btn.classList.remove('pop'), 300);
+    try { await setDoc(doc(db, 'gallery_likes', imgId), { count: increment(1) }, { merge: true }); } catch(e) {}
+  }
+  saveLikedSet(liked);
+};
+
+async function loadLikeCounts(images) {
+  const liked = getLikedSet();
+  for (const img of images) {
+    const imgId = makeImgId(img.url);
+    try {
+      const snap = await getDoc(doc(db, 'gallery_likes', imgId));
+      const count = snap.exists() ? (snap.data().count || 0) : 0;
+      const el = document.querySelector(`[data-like-id="${imgId}"] .like-count`);
+      if (el) el.textContent = count > 0 ? count : 0;
+      const btnEl = document.querySelector(`[data-like-id="${imgId}"]`);
+      if (btnEl && liked.has(imgId)) btnEl.classList.add('liked');
+    } catch(e) {}
+  }
+}
+
+const heartSvg = `<svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>`;
+
+// ─── GALLERY ───
 async function loadGallery() {
   try {
     const snap = await getDocs(collection(db, 'gallery_sections'));
@@ -266,24 +328,24 @@ async function loadGallery() {
       return;
     }
 
-    // Count total photos
     let totalPhotos = 0;
-    sections.forEach(s => totalPhotos += (s.images || []).length);
+    let allImages = [];
+    sections.forEach(s => {
+      const imgs = s.images || [];
+      totalPhotos += imgs.length;
+      allImages = allImages.concat(imgs);
+    });
     document.getElementById('total-photos').textContent = totalPhotos + '+';
 
-    // Build filter nav
     document.getElementById('filterNav').innerHTML = sections.map(s =>
       `<a href="#${s.sectionId}" class="filter-btn">${s.title}</a>`
     ).join('');
 
-    // Build gallery sections
     let html = '';
     sections.forEach((s, i) => {
       const images = s.images || [];
       if (!images.length) return;
-
       if (i > 0) html += '<div class="section-divider-gallery"></div>';
-
       html += `<div id="${s.sectionId}" class="gallery-section-wrap">
         <div class="gallery-category">
           <h3>${s.title}</h3>
@@ -291,33 +353,40 @@ async function loadGallery() {
         </div>
         ${s.description ? `<p class="gallery-section-desc">${s.description}</p>` : ''}
         <div class="gallery-grid">
-          ${images.map((img, idx) => `
-            <div class="gallery-item" onclick="openLightbox('${img.url.replace(/'/g, "\\'")}','${(img.caption || '').replace(/'/g, "\\'")}')">
-              <img src="${img.url}" alt="${img.caption || s.title}" loading="lazy">
+          ${images.map(img => {
+            const imgId = makeImgId(img.url);
+            const safeUrl = img.url.replace(/'/g, "\\'");
+            const safeCap = (img.caption || '').replace(/'/g, "\\'");
+            return `<div class="gallery-item">
+              <img src="${img.url}" alt="${img.caption || s.title}" loading="lazy" onclick="openLightbox('${safeUrl}','${safeCap}')">
               ${img.caption ? `<span class="item-label">${img.caption}</span>` : ''}
-            </div>
-          `).join('')}
+              <div class="like-btn" data-like-id="${imgId}" onclick="event.stopPropagation();toggleLike(this,'${safeUrl}')">
+                ${heartSvg}
+                <span class="like-count">0</span>
+              </div>
+            </div>`;
+          }).join('')}
         </div>
       </div>`;
     });
 
     document.getElementById('galleryContent').innerHTML = html;
 
-    // Build floating section nav
+    // Load like counts from Firestore
+    loadLikeCounts(allImages);
+
+    // Floating nav
     const floatNav = document.getElementById('floatNav');
     floatNav.innerHTML = sections.filter(s => (s.images || []).length).map(s =>
       `<a href="#${s.sectionId}" data-section="${s.sectionId}">${s.title}</a>`
     ).join('');
 
-    // Show/hide float nav on scroll + highlight active section
     const proofStrip = document.querySelector('.proof-strip');
     const sectionIds = sections.filter(s => (s.images || []).length).map(s => s.sectionId);
 
     window.addEventListener('scroll', () => {
       const proofBottom = proofStrip ? proofStrip.getBoundingClientRect().bottom : 0;
       floatNav.classList.toggle('visible', proofBottom < 0);
-
-      // Highlight active section
       let activeId = sectionIds[0];
       for (const id of sectionIds) {
         const el = document.getElementById(id);
@@ -328,7 +397,6 @@ async function loadGallery() {
       });
     });
 
-    // Smooth scroll on click
     floatNav.addEventListener('click', (e) => {
       const link = e.target.closest('a');
       if (!link) return;
@@ -345,7 +413,7 @@ async function loadGallery() {
 
 loadGallery();
 
-// Lightbox
+// ─── LIGHTBOX ───
 let currentImgUrl = '';
 
 window.openLightbox = (url, caption) => {
@@ -362,7 +430,6 @@ window.closeLightbox = () => {
   document.body.style.overflow = '';
 };
 
-// Close on click outside image
 document.getElementById('lightbox').addEventListener('click', (e) => {
   if (e.target === document.getElementById('lightbox') || e.target.classList.contains('lightbox-close')) {
     closeLightbox();
@@ -383,38 +450,29 @@ function updateDownloadUI() {
   }
 }
 
-// Download with watermark via proxy
+// ─── DOWNLOAD WITH WATERMARK ───
 window.downloadWithWatermark = async () => {
   if (!currentImgUrl || !currentUser) return;
-
   const dlBtn = document.getElementById('lightbox-download');
   dlBtn.textContent = '⏳ Downloading...';
   dlBtn.disabled = true;
-
   try {
-    // Fetch image through proxy to avoid CORS
     const proxyUrl = '/api/download-image?url=' + encodeURIComponent(currentImgUrl);
     const resp = await fetch(proxyUrl);
     if (!resp.ok) throw new Error('Proxy fetch failed');
     const blob = await resp.blob();
-
-    // Draw on canvas with watermark
     const bmp = await createImageBitmap(blob);
     const canvas = document.createElement('canvas');
     canvas.width = bmp.width;
     canvas.height = bmp.height;
     const ctx = canvas.getContext('2d');
     ctx.drawImage(bmp, 0, 0);
-
-    // Watermark bottom-right
     const fontSize = Math.max(16, Math.min(bmp.width * 0.03, 40));
     ctx.font = `bold ${fontSize}px Inter, sans-serif`;
     ctx.fillStyle = 'rgba(255,255,255,0.25)';
     ctx.textAlign = 'right';
     ctx.textBaseline = 'bottom';
     ctx.fillText('dordai.art', bmp.width - 20, bmp.height - 20);
-
-    // Watermark center diagonal
     ctx.font = `bold ${fontSize * 1.5}px Inter, sans-serif`;
     ctx.fillStyle = 'rgba(255,255,255,0.08)';
     ctx.textAlign = 'center';
@@ -424,7 +482,6 @@ window.downloadWithWatermark = async () => {
     ctx.rotate(-0.3);
     ctx.fillText('dordai.art', 0, 0);
     ctx.restore();
-
     canvas.toBlob(b => {
       const a = document.createElement('a');
       a.href = URL.createObjectURL(b);
@@ -432,7 +489,6 @@ window.downloadWithWatermark = async () => {
       a.click();
       URL.revokeObjectURL(a.href);
     }, 'image/jpeg', 0.92);
-
   } catch (e) {
     console.error('Download error:', e);
     alert('Download failed. Please try again.');
