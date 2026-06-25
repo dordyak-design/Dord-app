@@ -248,6 +248,8 @@ nav {
 .social-bar a.x:hover { background: rgba(255, 255, 255, 0.05); }
 .social-bar a.reddit { border-color: rgba(255, 69, 0, 0.4); color: #FF4500; }
 .social-bar a.reddit:hover { background: rgba(255, 69, 0, 0.1); }
+.social-bar .wallet-cta-btn{display:inline-flex;align-items:center;gap:5px;padding:5px 14px;border-radius:20px;border:1px solid rgba(0,200,150,0.4);background:rgba(0,200,150,0.08);color:#00c896;font-family:'Inter',sans-serif;font-size:12px;font-weight:700;text-decoration:none;transition:all 0.2s;white-space:nowrap}
+.social-bar .wallet-cta-btn:hover{background:rgba(0,200,150,0.18);border-color:#00c896}
 .social-bar a svg { width: 14px; height: 14px; flex-shrink: 0; }
 
 /* ===================== ХЛЕБНЫЕ КРОШКИ ===================== */
