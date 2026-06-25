@@ -679,6 +679,49 @@ window.loginGoogle = async function() {
   }
 };
 
+// X (Twitter) Auth
+window.loginX = async function() {
+  try {
+    const result = await signInWithPopup(auth, new TwitterAuthProvider());
+    const user = result.user;
+    const ref = doc(db, 'users', user.uid);
+    const snap = await getDoc(ref);
+    if (!snap.exists()) {
+      const refCode = generateRefCode(user.uid);
+      const referredBy = getRefFromUrl();
+      const userData = {
+        uid: user.uid, email: user.email || '',
+        name: user.displayName || '',
+        photo: user.photoURL || '',
+        plan: 'free',
+        generations_used: 0, generations_limit: 0,
+        orders_count: 0, total_spent: 0,
+        loyalty_points: referredBy ? 10 : 0,
+        loyalty_rank: 'Newcomer', loyalty_discount: 3,
+        ref_code: refCode,
+        referred_by: referredBy || '',
+        referral_earnings: 0,
+        created_at: serverTimestamp(), last_login: serverTimestamp()
+      };
+      await setDoc(ref, userData);
+      if (referredBy) {
+        try {
+          const refQuery = await getDocs(query(collection(db, 'users'), where('ref_code', '==', referredBy)));
+          if (!refQuery.empty) {
+            const referrerDoc = refQuery.docs[0];
+            await setDoc(doc(db, 'users', referrerDoc.id), { loyalty_points: increment(10) }, { merge: true });
+          }
+        } catch(e) { console.error('Ref bonus error:', e); }
+      }
+    } else {
+      await setDoc(ref, { last_login: serverTimestamp() }, { merge: true });
+    }
+  } catch(err) {
+    if (err.code !== 'auth/popup-closed-by-user') alert('Error: ' + err.message);
+  }
+};
+
+//Manual registration  
 window.signUpEmail = async function() {
   const email = document.getElementById('signup-email').value.trim();
   const pass = document.getElementById('signup-pass').value;
