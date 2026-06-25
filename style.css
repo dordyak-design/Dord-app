@@ -194,6 +194,12 @@ nav {
     border-color: var(--accent-blue);
     box-shadow: 0 4px 15px var(--accent-glow);
 }
+.nav-btn.active {
+    background: var(--accent-blue);
+    border-color: var(--accent-blue);
+    box-shadow: 0 4px 15px var(--accent-glow);
+    pointer-events: none;
+}
 
 .nav-btn.cta {
     background: var(--accent-green);
@@ -240,6 +246,8 @@ nav {
 .social-bar a.ig:hover { background: rgba(225, 48, 108, 0.1); }
 .social-bar a.x { border-color: rgba(255, 255, 255, 0.2); color: #fff; }
 .social-bar a.x:hover { background: rgba(255, 255, 255, 0.05); }
+.social-bar a.reddit { border-color: rgba(255, 69, 0, 0.4); color: #FF4500; }
+.social-bar a.reddit:hover { background: rgba(255, 69, 0, 0.1); }
 .social-bar a svg { width: 14px; height: 14px; flex-shrink: 0; }
 
 /* ===================== ХЛЕБНЫЕ КРОШКИ ===================== */
@@ -1420,3 +1428,14 @@ footer {
     stroke-linecap: round;
     stroke-linejoin: round;
 }
+
+/* WALLETS GRID */
+.wallets-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1000px;margin:0 auto}
+.wallet-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:18px;padding:28px;text-align:center;transition:all 0.3s}
+.wallet-card:hover{border-color:rgba(0,200,150,0.3);transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,0.3)}
+.wallet-icon{margin-bottom:16px}
+.wallet-name{font-family:'Unbounded',sans-serif;font-size:14px;font-weight:700;color:#fff;margin-bottom:8px}
+.wallet-desc{font-size:12px;color:#8892a4;line-height:1.7;margin-bottom:16px}
+.wallet-link{display:inline-block;padding:10px 20px;border-radius:10px;background:rgba(0,200,150,0.1);border:1px solid rgba(0,200,150,0.25);color:#00c896;font-family:'Inter',sans-serif;font-size:12px;font-weight:700;text-decoration:none;transition:all 0.2s}
+.wallet-link:hover{background:rgba(0,200,150,0.2);transform:translateY(-1px)}
+@media(max-width:768px){.wallets-grid{grid-template-columns:1fr}}
