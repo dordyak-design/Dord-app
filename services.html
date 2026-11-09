@@ -497,8 +497,7 @@ window.submitSample = async function(btn) {
   btn.disabled = true; btn.textContent = 'Sending...';
   const data = { email, size: document.getElementById('sampleSize').value, object, background: document.getElementById('sampleBg').value, lighting: document.getElementById('sampleLight').value, effects: document.getElementById('sampleFx').value, status: 'new', created_at: new Date().toISOString() };
   try { await addDoc(collection(db, 'free_samples'), data); } catch(e) { console.error(e); }
-  const msg = '🎁 FREE SAMPLE\n📧 '+email+'\n📐 '+data.size+'\n📝 '+object+'\n🌿 '+(data.background||'—')+'\n💡 '+(data.lighting||'—');
-  await fetch('https://api.telegram.org/bot8742382444:AAE3oWQxDlWF9XH8PHTOPLR93rMK3DVcf6s/sendMessage',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:'528289836',text:msg})}).catch(()=>{});
+  await fetch('/api/notify',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({type:'sample',email,size:data.size,object,background:data.background,lighting:data.lighting})}).catch(()=>{});
   showSampleMsg("✓ Sent! We'll contact you within 24h.", 'success');
   btn.textContent = '✓ Sent!';
 };

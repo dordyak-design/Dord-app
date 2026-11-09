@@ -1,3 +1,7 @@
+// /api/check-payment.js
+// Проверяет статус оплаты в OxaPay по trackId и сохраняет заказ.
+// Все ключи — только из переменных окружения Vercel.
+
 import { initializeApp, cert, getApps } from 'firebase-admin/app';
 import { getFirestore, FieldValue } from 'firebase-admin/firestore';
 
@@ -12,6 +16,26 @@ if (!getApps().length) {
 }
 const db = getFirestore();
 
+const PAID_STATUSES = ['paid', 'confirming', 'complete', 'sending'];
+
+async function sendTelegram(text) {
+  const token = process.env.TELEGRAM_BOT_TOKEN;
+  const chatId = process.env.TELEGRAM_CHAT_ID;
+  if (!token || !chatId) {
+    console.error('Telegram env vars are not set');
+    return;
+  }
+  try {
+    await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ chat_id: chatId, text }),
+    });
+  } catch (e) {
+    console.error('Telegram send error:', e);
+  }
+}
+
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -19,17 +43,20 @@ export default async function handler(req, res) {
   if (req.method === 'OPTIONS') return res.status(200).end();
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
+  const merchant = process.env.OXAPAY_MERCHANT_KEY;
+  if (!merchant) {
+    console.error('OXAPAY_MERCHANT_KEY is not set');
+    return res.status(500).json({ error: 'Payment config missing' });
+  }
+
   try {
-    const { trackId, orderId, cart, email, orderDetails, uid } = req.body;
+    const { trackId, orderId, cart, email, orderDetails, uid } = req.body || {};
     if (!trackId) return res.status(400).json({ error: 'trackId is required' });
 
     const oxaRes = await fetch('https://api.oxapay.com/merchants/inquiry', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        merchant: process.env.OXAPAY_API_KEY || 'LDKWVP-PPHZJE-WQASHD-POZGUU',
-        trackId: trackId,
-      }),
+      body: JSON.stringify({ merchant, trackId }),
     });
     const oxaData = await oxaRes.json();
     console.log('OxaPay inquiry response:', JSON.stringify(oxaData));
@@ -38,14 +65,14 @@ export default async function handler(req, res) {
     const amount = oxaData.amount || oxaData.Amount || '0';
     const currency = oxaData.currency || oxaData.Currency || '';
 
-    if (['Paid', 'paid', 'Confirming', 'confirming', 'Complete', 'complete', 'Sending', 'sending'].includes(payStatus)) {
-      const existing = await db.collection('orders').where('trackId', '==', trackId).get();
+    if (PAID_STATUSES.includes(String(payStatus).toLowerCase())) {
+      const existing = await db.collection('orders').where('trackId', '==', String(trackId)).get();
 
       if (existing.empty) {
         const paidAmount = parseFloat(amount);
 
         const orderData = {
-          trackId,
+          trackId: String(trackId),
           orderId: orderId || oxaData.orderId || '',
           uid: uid || '',
           status: payStatus,
@@ -95,14 +122,10 @@ export default async function handler(req, res) {
           }
         }
 
-        // Telegram уведомление
         const cartText = (cart || []).map(i => `  • ${i.name}: ${i.detail} — $${i.price}`).join('\n');
-        const msg = `💳 ОПЛАТА ПОДТВЕРЖДЕНА!\n\n🆔 Заказ: ${orderId || '—'}\n🔗 Track: ${trackId}\n💰 Сумма: $${amount} ${currency}\n📊 Статус: ${payStatus}\n📧 Клиент: ${email || '—'}\n\n🛒 Корзина:\n${cartText || '—'}`;
-        await fetch('https://api.telegram.org/bot8742382444:AAE3oWQxDlWF9XH8PHTOPLR93rMK3DVcf6s/sendMessage', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ chat_id: '528289836', text: msg }),
-        });
+        await sendTelegram(
+          `💳 ОПЛАТА ПОДТВЕРЖДЕНА!\n\n🆔 Заказ: ${orderId || '—'}\n🔗 Track: ${trackId}\n💰 Сумма: $${amount} ${currency}\n📊 Статус: ${payStatus}\n📧 Клиент: ${email || '—'}\n\n🛒 Корзина:\n${cartText || '—'}`
+        );
       }
 
       return res.status(200).json({ ok: true, status: payStatus, amount, currency });
