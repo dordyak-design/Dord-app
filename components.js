@@ -3,6 +3,12 @@
   const header = document.getElementById('site-header');
   const footer = document.getElementById('site-footer');
 
+  // Применить сохранённый язык к только что вставленному HTML
+  function reapplyLang() {
+    const lang = localStorage.getItem('dord_lang') || 'en';
+    if (typeof window.setLang === 'function') window.setLang(lang);
+  }
+
   if (header) {
     try {
       const res = await fetch('header.html');
@@ -15,13 +21,7 @@
             btn.classList.add('active');
           }
         });
-        // Переинициализировать lang-switcher если setLang уже определён
-        if (typeof setLang === 'function') {
-          const lang = localStorage.getItem('lang') || 'en';
-          header.querySelectorAll('.lang-btn').forEach(function(b) {
-            b.classList.toggle('active', b.getAttribute('data-lang') === lang);
-          });
-        }
+        reapplyLang();
       }
     } catch(e) { console.warn('header.html load failed', e); }
   }
@@ -31,10 +31,7 @@
       const res = await fetch('footer.html');
       if (res.ok) {
         footer.innerHTML = await res.text();
-        // Переприменить i18n к футеру если applyI18n доступен
-        if (typeof applyI18n === 'function') {
-          applyI18n(localStorage.getItem('lang') || 'en');
-        }
+        reapplyLang();
       }
     } catch(e) { console.warn('footer.html load failed', e); }
   }

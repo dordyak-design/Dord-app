@@ -1,10 +1,44 @@
 {
   "functions": {
-    "api/create-invoice.js": { "maxDuration": 15 },
-    "api/payment-callback.js": { "maxDuration": 15 }
+    "api/create-invoice.js": {
+      "maxDuration": 15
+    },
+    "api/payment-callback.js": {
+      "maxDuration": 15
+    },
+    "api/check-payment.js": {
+      "maxDuration": 15
+    },
+    "api/notify.js": {
+      "maxDuration": 10
+    },
+    "api/lead.js": {
+      "maxDuration": 10
+    },
+    "api/tg-leads-bot.js": {
+      "maxDuration": 10
+    }
   },
   "rewrites": [
-    { "source": "/api/create-invoice",    "destination": "/api/create-invoice.js" },
-    { "source": "/api/payment-callback",  "destination": "/api/payment-callback.js" }
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "dordai.pro"
+        }
+      ],
+      "destination": "/bots.html"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.dordai.pro"
+        }
+      ],
+      "destination": "/bots.html"
+    }
   ]
 }

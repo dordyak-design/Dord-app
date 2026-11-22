@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI-боты для бизнеса в Израиле — Dord AI Studio</title>
+<meta name="description" content="AI-ассистент для вашего бизнеса: отвечает клиентам 24/7 на русском, иврите и английском, записывает на приём и не теряет заявки. Стоматологии, салоны, магазины, адвокаты, автосервисы.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://dordai.pro/">
+<meta property="og:url" content="https://dordai.pro/">
+<meta property="og:title" content="AI-боты для бизнеса — Dord AI Studio">
+<meta property="og:description" content="Отвечает клиентам 24/7, записывает на приём и не теряет ни одной заявки. RU · HE · EN.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800&family=Inter:wght@400;500;600;700&family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#080b1a;--card:#111827;--card2:#0f1730;--blue:#004aad;--green:#00c896;
+  --text:#f1f5f9;--soft:#94a3b8;--muted:#7c8aa0;--border:rgba(255,255,255,.07);--bgreen:rgba(0,200,150,.28);
+  --grad:linear-gradient(135deg,#004aad,#00c896);--r:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+html,body{overflow-x:hidden}
+body{background:var(--bg);color:var(--text);font:400 15px/1.6 'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+[dir=rtl] body,[dir=rtl] h1,[dir=rtl] h2,[dir=rtl] h3,[dir=rtl] .btn,[dir=rtl] .price{font-family:'Heebo','Inter',sans-serif}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:'Unbounded','Inter',sans-serif;line-height:1.2;letter-spacing:-.01em}
+.grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.label{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:12px}
+[dir=rtl] .label{letter-spacing:0}
+section{padding:64px 0}
+.sec-title{font-size:clamp(22px,4.5vw,34px);margin-bottom:12px}
+.sec-sub{color:var(--soft);max-width:640px}
+.center{text-align:center}.center .sec-sub{margin:0 auto}
+
+/* шапка */
+.top{position:sticky;top:0;z-index:50;background:rgba(8,11,26,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
+.logo{display:flex;align-items:center;gap:10px;font:800 14px 'Unbounded',sans-serif}
+.logo img{width:30px;height:30px;border-radius:8px}
+.top-r{display:flex;align-items:center;gap:8px}
+.lang{display:flex;background:var(--card);border:1px solid var(--border);border-radius:999px;padding:3px}
+.lang button{background:none;border:0;color:var(--soft);font:600 12px 'Inter','Heebo',sans-serif;padding:6px 11px;border-radius:999px;cursor:pointer}
+.lang button.on{background:var(--grad);color:#fff}
+.tg-mini{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:var(--card);border:1px solid var(--border)}
+.tg-mini:hover{background:#229ED9}
+
+/* кнопки */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:700 14px 'Inter',sans-serif;padding:14px 24px;border-radius:14px;border:0;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.btn-p{background:var(--grad);color:#fff;box-shadow:0 10px 30px rgba(0,200,150,.18)}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(0,200,150,.28)}
+.btn-o{background:transparent;color:var(--text);border:1px solid var(--bgreen)}
+.btn-o:hover{background:rgba(0,200,150,.08)}
+
+/* первый экран */
+.hero{padding:56px 0 40px;position:relative;overflow:hidden}
+.hero:before{content:'';position:absolute;inset:-30% -10% auto auto;width:520px;height:520px;background:radial-gradient(circle,rgba(0,74,173,.35),transparent 65%);pointer-events:none}
+[dir=rtl] .hero:before{inset:-30% auto auto -10%}
+.hero h1{font-size:clamp(28px,6.4vw,52px);margin:6px 0 18px;max-width:820px}
+.hero p{color:var(--soft);font-size:clamp(15px,2.2vw,18px);max-width:640px;margin-bottom:28px}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
+.chip{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--border);border-radius:999px;padding:8px 14px;font-size:13px;color:var(--soft)}
+.chip b{color:var(--text)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green)}
+
+/* чат-превью */
+.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
+.chat{background:var(--card);border:1px solid var(--border);border-radius:22px;padding:18px;box-shadow:0 30px 80px rgba(0,0,0,.45)}
+.chat-h{display:flex;align-items:center;gap:10px;padding-bottom:12px;border-bottom:1px solid var(--border);margin-bottom:14px;font-weight:700;font-size:14px}
+.chat-h small{display:block;font-weight:500;color:var(--green);font-size:11px}
+.av{width:34px;height:34px;border-radius:50%;background:var(--grad);display:grid;place-items:center;font-size:16px}
+.msg{max-width:85%;padding:10px 13px;border-radius:14px;font-size:13px;margin-bottom:9px;line-height:1.45}
+.msg.in{background:#1b2540;border-end-start-radius:4px}
+.msg.out{background:rgba(0,200,150,.14);border:1px solid var(--bgreen);margin-inline-start:auto;border-end-end-radius:4px}
+.msg.note{background:none;border:1px dashed var(--bgreen);color:var(--green);font-size:12px;max-width:100%;text-align:center}
+
+/* цифры */
+.roi{background:var(--card2);border:1px solid var(--border);border-radius:var(--r);padding:26px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.roi div strong{display:block;font:800 26px 'Unbounded',sans-serif}
+.roi div span{color:var(--soft);font-size:13px}
+.roi-note{margin-top:16px;color:var(--soft);font-size:14px;text-align:center}
+.roi-note b{color:var(--green)}
+
+/* ниши */
+.grid{display:grid;gap:16px}
+.niches{grid-template-columns:repeat(3,1fr);margin-top:34px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:22px;transition:border-color .2s,transform .2s}
+.card:hover{border-color:var(--bgreen);transform:translateY(-3px)}
+.niche{cursor:pointer}
+.niche .ic{font-size:26px;margin-bottom:10px}
+.niche h3{font-size:15px;margin-bottom:10px}
+.niche ul{list-style:none;display:grid;gap:6px}
+.niche li{color:var(--soft);font-size:13px;padding-inline-start:16px;position:relative}
+.niche li:before{content:'';position:absolute;inset-inline-start:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--green)}
+.niche .pick{margin-top:14px;font-size:12px;font-weight:700;color:var(--green)}
+
+/* пакеты */
+.packs{grid-template-columns:repeat(3,1fr);margin-top:34px;align-items:stretch}
+.pack{display:flex;flex-direction:column;position:relative}
+.pack.best{border-color:var(--bgreen);background:linear-gradient(180deg,rgba(0,200,150,.08),var(--card) 40%)}
+.badge{position:absolute;top:-12px;inset-inline-start:22px;background:var(--grad);color:#fff;font-size:11px;font-weight:700;padding:5px 12px;border-radius:999px}
+.pack h3{font-size:18px;margin-bottom:6px}
+.pack .for{color:var(--soft);font-size:13px;min-height:40px}
+.price{font:800 30px 'Unbounded',sans-serif;margin:14px 0 2px}
+.price small{font:500 13px 'Inter','Heebo',sans-serif;color:var(--soft)}
+.sup{color:var(--green);font-size:13px;font-weight:600;margin-bottom:16px}
+.pack ul{list-style:none;display:grid;gap:9px;margin-bottom:22px;flex:1}
+.pack li{font-size:14px;color:var(--soft);padding-inline-start:24px;position:relative}
+.pack li:before{content:'✓';position:absolute;inset-inline-start:0;color:var(--green);font-weight:800}
+.pack li b{color:var(--text);font-weight:600}
+.pack .btn{width:100%}
+.fine{color:var(--muted);font-size:12px;text-align:center;margin-top:18px}
+
+/* шаги */
+.steps{grid-template-columns:repeat(4,1fr);margin-top:34px;counter-reset:s}
+.step{counter-increment:s}
+.step:before{content:counter(s);display:grid;place-items:center;width:38px;height:38px;border-radius:12px;background:var(--grad);font:800 15px 'Unbounded',sans-serif;margin-bottom:14px}
+.step h3{font-size:14px;margin-bottom:6px}
+.step p{color:var(--soft);font-size:13px}
+
+/* вопросы */
+.faq{max-width:780px;margin:30px auto 0;display:grid;gap:10px}
+details{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px 18px}
+summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary:after{content:'+';color:var(--green);font-weight:800}
+details[open] summary:after{content:'−'}
+details p{color:var(--soft);font-size:14px;margin-top:10px}
+
+/* форма */
+.form-wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:36px;align-items:start}
+.form{background:var(--card);border:1px solid var(--bgreen);border-radius:22px;padding:26px;display:grid;gap:14px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+label{display:grid;gap:6px;font-size:12px;font-weight:600;color:var(--soft)}
+input,select,textarea{width:100%;background:#0b1124;border:1px solid var(--border);border-radius:12px;color:var(--text);font:400 15px 'Inter','Heebo',sans-serif;padding:12px 14px;outline:none;transition:border-color .2s}
+input:focus,select:focus,textarea:focus{border-color:var(--green)}
+textarea{min-height:96px;resize:vertical}
+select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--green) 50%),linear-gradient(135deg,var(--green) 50%,transparent 50%);background-position:calc(100% - 18px) 52%,calc(100% - 13px) 52%;background-size:5px 5px;background-repeat:no-repeat}
+[dir=rtl] select{background-position:18px 52%,13px 52%}
+.req{color:var(--green)}
+.agree{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:12px;color:var(--muted)}
+.agree input{width:18px;height:18px;margin-top:1px;flex:none;accent-color:var(--green)}
+.hp{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);opacity:0;pointer-events:none}
+.form{position:relative}
+.status{font-size:14px;text-align:center;min-height:20px}
+.status.ok{color:var(--green)}.status.err{color:#f87171}
+.side-list{list-style:none;display:grid;gap:14px;margin-top:22px}
+.side-list li{display:flex;gap:12px;color:var(--soft);font-size:14px}
+.side-list li span{flex:none;width:28px;height:28px;border-radius:9px;background:rgba(0,200,150,.12);display:grid;place-items:center}
+
+/* подвал */
+footer{border-top:1px solid var(--border);padding:28px 0 90px;color:var(--muted);font-size:13px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+footer a:hover{color:var(--green)}
+
+/* плавающая кнопка */
+.fab{position:fixed;bottom:18px;inset-inline-end:18px;z-index:60;width:56px;height:56px;border-radius:50%;background:#229ED9;display:grid;place-items:center;box-shadow:0 10px 30px rgba(34,158,217,.4)}
+
+@media (max-width:960px){
+  .hero-grid,.form-wrap{grid-template-columns:1fr}
+  .niches,.packs{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  section{padding:48px 0}
+  .niches,.packs,.steps,.row2{grid-template-columns:1fr}
+  .roi{grid-template-columns:1fr;text-align:center;padding:20px}
+  .logo span{display:none}
+  .btn{width:100%}
+  .cta{flex-direction:column}
+  .pack.best{order:-1}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a href="/" class="logo"><img src="logo.PNG" alt="Dord AI Studio"><span>Dord AI Studio</span></a>
+    <div class="top-r">
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="ru" class="on">RU</button>
+        <button type="button" data-lang="he">עב</button>
+      </div>
+      <a class="tg-mini" href="https://t.me/Dordsoftbot" target="_blank" rel="noopener" aria-label="Telegram">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M21.9 4.6 18.7 19.7c-.2 1-.9 1.3-1.7.8l-4.8-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.6 13.5l-4.7-1.5c-1-.3-1-1 .2-1.5L20.5 3.4c.9-.3 1.6.2 1.4 1.2z"/></svg>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ПЕРВЫЙ ЭКРАН -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="label" data-t="hero.label">AI-боты для бизнеса в Израиле</span>
+      <h1 data-t="hero.title">Ваш бизнес отвечает клиентам <span class="grad">24/7.</span> Даже когда вы спите.</h1>
+      <p data-t="hero.sub">Умный ассистент в WhatsApp, Telegram и на сайте: отвечает на вопросы по вашему прайсу, записывает на приём, напоминает о визите и передаёт вам готовые заявки. На русском, иврите и английском.</p>
+      <div class="cta">
+        <a href="#lead" class="btn btn-p" data-t="hero.cta1">Подобрать бота под мой бизнес →</a>
+        <a href="https://t.me/Dordsoftbot" target="_blank" rel="noopener" class="btn btn-o" data-t="hero.cta2">Написать в Telegram</a>
+      </div>
+      <div class="chips">
+        <div class="chip"><i class="dot"></i><b data-t="chip1.b">24/7</b> <span data-t="chip1.t">без выходных и шабата</span></div>
+        <div class="chip"><b>RU · HE · EN</b></div>
+        <div class="chip"><b data-t="chip3.b">от 7 дней</b> <span data-t="chip3.t">до запуска</span></div>
+      </div>
+    </div>
+    <div class="chat" aria-hidden="true">
+      <div class="chat-h"><div class="av">🦷</div><div><span data-t="chat.name">Клиника «Улыбка»</span><small data-t="chat.status">ассистент онлайн</small></div></div>
+      <div class="msg in" data-t="chat.1">Здравствуйте! Сколько стоит чистка и есть ли время в четверг вечером?</div>
+      <div class="msg out" data-t="chat.2">Добрый вечер! Профессиональная чистка — 350 ₪. В четверг свободно 18:30 и 19:15. Записать вас?</div>
+      <div class="msg in" data-t="chat.3">Да, на 18:30. Меня зовут Анна.</div>
+      <div class="msg out" data-t="chat.4">Готово, Анна! Четверг, 18:30. Напомню вам в среду ✨</div>
+      <div class="msg note" data-t="chat.5">23:47 · заявка уже у владельца в WhatsApp</div>
+    </div>
+  </div>
+</section>
+
+<!-- ЦИФРЫ -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="roi">
+      <div><strong class="grad" dir="ltr" data-t="roi.1b">0</strong><span data-t="roi.1t">пропущенных заявок ночью и в выходные</span></div>
+      <div><strong class="grad" dir="ltr" data-t="roi.2b">−30%</strong><span data-t="roi.2t">неявок благодаря напоминаниям</span></div>
+      <div><strong class="grad" dir="ltr" data-t="roi.3b">10+</strong><span data-t="roi.3t">часов в неделю освобождается у администратора</span></div>
+    </div>
+    <p class="roi-note" data-t="roi.note">Пример: салон теряет 5 записей в неделю по 150 ₪ — это <b>~3 000 ₪ в месяц</b>. Бот окупается за 2–3 месяца.</p>
+  </div>
+</section>
+
+<!-- НИШИ -->
+<section id="niches">
+  <div class="wrap center">
+    <span class="label" data-t="n.label">Под вашу нишу</span>
+    <h2 class="sec-title" data-t="n.title">Каждый бизнес — свой бот</h2>
+    <p class="sec-sub" data-t="n.sub">Мы не продаём шаблон. Сначала разбираем, как работает ваш бизнес, и настраиваем бота под ваши задачи.</p>
+  </div>
+  <div class="wrap grid niches">
+    <div class="card niche" data-biz="dental">
+      <div class="ic">🦷</div><h3 data-t="n.dental">Стоматологии и клиники</h3>
+      <ul><li data-t="n.dental.1">Запись на приём в календарь</li><li data-t="n.dental.2">Напоминания о визите и контрольных осмотрах</li><li data-t="n.dental.3">Ответы о ценах и услугах</li></ul>
+      <div class="pick" data-t="n.pick">Выбрать →</div>
+    </div>
+    <div class="card niche" data-biz="beauty">
+      <div class="ic">💅</div><h3 data-t="n.beauty">Салоны красоты</h3>
+      <ul><li data-t="n.beauty.1">Онлайн-запись к мастеру</li><li data-t="n.beauty.2">Возврат клиентов: «пора обновить»</li><li data-t="n.beauty.3">Сбор отзывов в Google</li></ul>
+      <div class="pick" data-t="n.pick">Выбрать →</div>
+    </div>
+    <div class="card niche" data-biz="shop">
+      <div class="ic">🛍️</div><h3 data-t="n.shop">Магазины</h3>
+      <ul><li data-t="n.shop.1">Наличие, цены, доставка</li><li data-t="n.shop.2">Приём заказов в чате</li><li data-t="n.shop.3">Рассылка новинок и акций</li></ul>
+      <div class="pick" data-t="n.pick">Выбрать →</div>
+    </div>
+    <div class="card niche" data-biz="legal">
+      <div class="ic">⚖️</div><h3 data-t="n.legal">Адвокаты и бухгалтеры</h3>
+      <ul><li data-t="n.legal.1">Первичный опрос клиента</li><li data-t="n.legal.2">Сбор документов и квитанций</li><li data-t="n.legal.3">Запись на консультацию</li></ul>
+      <div class="pick" data-t="n.pick">Выбрать →</div>
+    </div>
+    <div class="card niche" data-biz="auto">
+      <div class="ic">🚗</div><h3 data-t="n.auto">Автосервисы</h3>
+      <ul><li data-t="n.auto.1">Запись на ремонт и ТО</li><li data-t="n.auto.2">Напоминание о плановом ТО и тесте</li><li data-t="n.auto.3">Статус ремонта по запросу</li></ul>
+      <div class="pick" data-t="n.pick">Выбрать →</div>
+    </div>
+    <div class="card niche" data-biz="other">
+      <div class="ic">✨</div><h3 data-t="n.other">Другой бизнес</h3>
+      <ul><li data-t="n.other.1">Расскажите, что отнимает у вас время</li><li data-t="n.other.2">Предложим, что можно автоматизировать</li><li data-t="n.other.3">Посчитаем, окупится ли</li></ul>
+      <div class="pick" data-t="n.pick">Выбрать →</div>
+    </div>
+  </div>
+</section>
+
+<!-- ПАКЕТЫ -->
+<section id="packs">
+  <div class="wrap center">
+    <span class="label" data-t="p.label">Пакеты</span>
+    <h2 class="sec-title" data-t="p.title">Разовое внедрение + поддержка</h2>
+    <p class="sec-sub" data-t="p.sub">Вы платите один раз за настройку под ваш бизнес и небольшую сумму в месяц за работу, обновления и поддержку.</p>
+  </div>
+  <div class="wrap grid packs">
+    <div class="card pack">
+      <h3 data-t="p1.name">Старт</h3>
+      <div class="for" data-t="p1.for">Чтобы не терять ни одной заявки</div>
+      <div class="price">₪4,900 <small data-t="p.once">разово</small></div>
+      <div class="sup" data-t="p1.sup">+ ₪290 / мес поддержка</div>
+      <ul>
+        <li data-t="p1.f1"><b>AI-ассистент</b> в одном канале: сайт, Telegram или WhatsApp</li>
+        <li data-t="p1.f2">Ответы по вашему прайсу и частым вопросам</li>
+        <li data-t="p1.f3">Сбор заявок: имя, телефон, что нужно</li>
+        <li data-t="p1.f4">Заявка сразу приходит вам в WhatsApp или Telegram</li>
+        <li data-t="p1.f5">Русский, иврит, английский</li>
+      </ul>
+      <a href="#lead" class="btn btn-o" data-pack="start" data-t="p.cta">Обсудить →</a>
+    </div>
+    <div class="card pack best">
+      <span class="badge" data-t="p.best">Чаще всего выбирают</span>
+      <h3 data-t="p2.name">Бизнес</h3>
+      <div class="for" data-t="p2.for">Запись, напоминания и возврат клиентов</div>
+      <div class="price">₪8,500 <small data-t="p.once">разово</small></div>
+      <div class="sup" data-t="p2.sup">+ ₪390 / мес поддержка</div>
+      <ul>
+        <li data-t="p2.f1"><b>Всё из «Старта»</b>, до 3 каналов</li>
+        <li data-t="p2.f2">Запись на приём в Google Календарь</li>
+        <li data-t="p2.f3">Напоминания клиентам — меньше неявок</li>
+        <li data-t="p2.f4">Возврат старых клиентов и сбор отзывов в Google</li>
+        <li data-t="p2.f5">Еженедельный отчёт: обращения, вопросы, потерянные заявки</li>
+      </ul>
+      <a href="#lead" class="btn btn-p" data-pack="business" data-t="p.cta">Обсудить →</a>
+    </div>
+    <div class="card pack">
+      <h3 data-t="p3.name">Про</h3>
+      <div class="for" data-t="p3.for">Автоматизация рутины в офисе</div>
+      <div class="price"><span data-t="p.from">от</span> ₪12,900 <small data-t="p.once">разово</small></div>
+      <div class="sup" data-t="p3.sup">+ от ₪590 / мес поддержка</div>
+      <ul>
+        <li data-t="p3.f1"><b>Всё из «Бизнеса»</b></li>
+        <li data-t="p3.f2">Сбор квитанций и расходов, отчёт бухгалтеру за месяц</li>
+        <li data-t="p3.f3">Коммерческие предложения (הצעת מחיר) и счета</li>
+        <li data-t="p3.f4">Подключение к вашей почте, Google Диску и CRM</li>
+        <li data-t="p3.f5">Индивидуальные сценарии под ваши процессы</li>
+      </ul>
+      <a href="#lead" class="btn btn-o" data-pack="pro" data-t="p.cta">Обсудить →</a>
+    </div>
+  </div>
+  <div class="wrap"><p class="fine" data-t="p.fine">Точная цена — после короткого разбора задачи. Сообщения через официальный WhatsApp Business API оплачиваются отдельно по тарифам Meta.</p></div>
+</section>
+
+<!-- КАК РАБОТАЕМ -->
+<section>
+  <div class="wrap center">
+    <span class="label" data-t="s.label">Как мы работаем</span>
+    <h2 class="sec-title" data-t="s.title">От заявки до запуска</h2>
+  </div>
+  <div class="wrap grid steps">
+    <div class="card step"><h3 data-t="s1.t">Заявка</h3><p data-t="s1.p">Оставляете заявку на этой странице или пишете в Telegram.</p></div>
+    <div class="card step"><h3 data-t="s2.t">Разбор</h3><p data-t="s2.p">Короткий созвон: что отнимает время, где теряются клиенты. Считаем окупаемость.</p></div>
+    <div class="card step"><h3 data-t="s3.t">Настройка</h3><p data-t="s3.p">Обучаем бота на ваших ценах и услугах, подключаем каналы. Вы проверяете и вносите правки.</p></div>
+    <div class="card step"><h3 data-t="s4.t">Запуск и поддержка</h3><p data-t="s4.p">Бот работает. Мы следим за ответами, обновляем информацию и улучшаем сценарии.</p></div>
+  </div>
+</section>
+
+<!-- ВОПРОСЫ -->
+<section>
+  <div class="wrap center">
+    <span class="label" data-t="f.label">Вопросы</span>
+    <h2 class="sec-title" data-t="f.title">Частые вопросы</h2>
+  </div>
+  <div class="wrap faq">
+    <details><summary data-t="f1.q">Нужен ли мне сайт?</summary><p data-t="f1.a">Нет. Бот может работать только в WhatsApp или Telegram. Если сайт есть — добавим окно чата и туда.</p></details>
+    <details><summary data-t="f2.q">А если бот не знает ответа?</summary><p data-t="f2.a">Он не выдумывает. Если вопрос вне его знаний, бот вежливо берёт контакт и передаёт разговор вам или сотруднику.</p></details>
+    <details><summary data-t="f3.q">Что с данными моих клиентов?</summary><p data-t="f3.a">Работаем по договору. Бот получает доступ только к тому, что нужно для работы, а данные клиентов не используются ни для чего другого.</p></details>
+    <details><summary data-t="f4.q">Можно потом добавить функции?</summary><p data-t="f4.a">Да. Можно начать со «Старта» и перейти на «Бизнес» или «Про» — вы доплачиваете только разницу за новые функции.</p></details>
+  </div>
+</section>
+
+<!-- ЗАЯВКА -->
+<section id="lead">
+  <div class="wrap form-wrap">
+    <div>
+      <span class="label" data-t="l.label">Заявка</span>
+      <h2 class="sec-title" data-t="l.title">Расскажите о вашем бизнесе</h2>
+      <p class="sec-sub" data-t="l.sub">Мы свяжемся с вами в течение одного рабочего дня, зададим пару вопросов и предложим решение под вашу нишу.</p>
+      <ul class="side-list">
+        <li><span>💬</span><div data-t="l.s1">Бесплатный разбор задачи, без обязательств</div></li>
+        <li><span>📊</span><div data-t="l.s2">Честно скажем, окупится ли бот именно у вас</div></li>
+        <li><span>🇮🇱</span><div data-t="l.s3">Говорим по-русски и на иврите</div></li>
+      </ul>
+    </div>
+    <form class="form" id="leadForm" novalidate>
+      <label><span data-t="l.biz">Чем занимается ваш бизнес?</span>
+        <select name="biz" id="fBiz">
+          <option value="dental" data-t="n.dental">Стоматология / клиника</option>
+          <option value="beauty" data-t="n.beauty">Салон красоты</option>
+          <option value="shop" data-t="n.shop">Магазин</option>
+          <option value="legal" data-t="n.legal">Адвокат / бухгалтер</option>
+          <option value="auto" data-t="n.auto">Автосервис</option>
+          <option value="other" data-t="n.other" selected>Другое</option>
+        </select>
+      </label>
+      <label><span data-t="l.bizName">Название бизнеса</span><input name="bizName" maxlength="120" autocomplete="organization"></label>
+      <div class="row2">
+        <label><span data-t="l.name">Ваше имя</span> <input name="name" required maxlength="80" autocomplete="name"></label>
+        <label><span data-t="l.city">Город</span><input name="city" maxlength="60" autocomplete="address-level2"></label>
+      </div>
+      <div class="row2">
+        <label><span data-t="l.phone">Телефон</span><input name="phone" type="tel" maxlength="30" autocomplete="tel" dir="ltr" placeholder="05X-XXX-XXXX"></label>
+        <label><span data-t="l.email">Email</span><input name="email" type="email" maxlength="120" autocomplete="email" dir="ltr"></label>
+      </div>
+      <label><span data-t="l.pack">Какой пакет интересен?</span>
+        <select name="pack" id="fPack">
+          <option value="unsure" data-t="l.unsure" selected>Пока не знаю — помогите выбрать</option>
+          <option value="start" data-t="p1.name">Старт</option>
+          <option value="business" data-t="p2.name">Бизнес</option>
+          <option value="pro" data-t="p3.name">Про</option>
+        </select>
+      </label>
+      <label><span data-t="l.msg">Что хотите автоматизировать? (по желанию)</span><textarea name="msg" maxlength="1500" data-tp="l.msgPh" placeholder="Например: много звонков с одними и теми же вопросами, клиенты забывают про запись…"></textarea></label>
+      <input class="hp" name="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <label class="agree"><input type="checkbox" name="agree" required><span data-t="l.agree">Согласен(на), чтобы со мной связались по этой заявке</span></label>
+      <button class="btn btn-p" type="submit" id="fBtn" data-t="l.send">Отправить заявку →</button>
+      <div class="status" id="fStatus" role="status"></div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 Dord AI Studio · <span data-t="foot.t">AI-решения для бизнеса</span></div>
+    <div><a href="https://t.me/Dordsoftbot" target="_blank" rel="noopener">Telegram @Dordsoftbot</a> · <a href="https://www.dordai.art/" target="_blank" rel="noopener" data-t="foot.photo">AI-фото для товаров</a></div>
+  </div>
+</footer>
+
+<a class="fab" href="https://t.me/Dordsoftbot" target="_blank" rel="noopener" aria-label="Telegram">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><path d="M21.9 4.6 18.7 19.7c-.2 1-.9 1.3-1.7.8l-4.8-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.6 13.5l-4.7-1.5c-1-.3-1-1 .2-1.5L20.5 3.4c.9-.3 1.6.2 1.4 1.2z"/></svg>
+</a>
+
+<script>
+(function(){
+  // Иврит. Русский берётся из самой разметки и запоминается при загрузке.
+  const HE = {
+    'hero.label':'בוטים חכמים לעסקים בישראל',
+    'hero.title':'העסק שלך עונה ללקוחות <span class="grad">24/7.</span> גם כשאתה ישן.',
+    'hero.sub':'עוזר AI חכם בוואטסאפ, בטלגרם ובאתר: עונה על שאלות לפי המחירון שלך, קובע תורים, מזכיר ללקוחות ומעביר לך פניות מוכנות. בעברית, ברוסית ובאנגלית.',
+    'hero.cta1':'התאימו לי בוט לעסק ←','hero.cta2':'כתבו לנו בטלגרם',
+    'chip1.b':'24/7','chip1.t':'גם בלילה ובשבת','chip3.b':'מ-7 ימים','chip3.t':'עד העלייה לאוויר',
+    'chat.name':'מרפאת "חיוך"','chat.status':'העוזר מחובר',
+    'chat.1':'שלום! כמה עולה ניקוי אבנית, ויש תור ביום חמישי בערב?',
+    'chat.2':'ערב טוב! ניקוי אבנית מקצועי — 350 ₪. ביום חמישי פנוי ב-18:30 וב-19:15. לקבוע לך?',
+    'chat.3':'כן, ל-18:30. קוראים לי ענת.',
+    'chat.4':'נקבע, ענת! יום חמישי, 18:30. אזכיר לך ביום רביעי ✨',
+    'chat.5':'23:47 · הפנייה כבר אצל בעל העסק בוואטסאפ',
+    'roi.1b':'0','roi.1t':'פניות שמתפספסות בלילה ובסופ״ש',
+    'roi.2b':'−30%','roi.2t':'פחות אי-הגעות בזכות תזכורות',
+    'roi.3b':'10+','roi.3t':'שעות בשבוע מתפנות לצוות',
+    'roi.note':'דוגמה: מספרה מפספסת 5 תורים בשבוע של 150 ₪ — <b>כ-3,000 ₪ בחודש</b>. הבוט מחזיר את עצמו תוך 2–3 חודשים.',
+    'n.label':'לפי התחום שלך','n.title':'לכל עסק — בוט משלו','n.sub':'אנחנו לא מוכרים תבנית. קודם מבינים איך העסק שלך עובד, ואז מתאימים את הבוט למשימות שלך.',
+    'n.dental':'מרפאות שיניים וקליניקות','n.dental.1':'קביעת תורים ביומן','n.dental.2':'תזכורות לתור ולביקורות תקופתיות','n.dental.3':'מענה על מחירים ושירותים',
+    'n.beauty':'מכוני יופי וספרות','n.beauty.1':'קביעת תור אונליין','n.beauty.2':'החזרת לקוחות: "הגיע הזמן לחדש"','n.beauty.3':'איסוף ביקורות בגוגל',
+    'n.shop':'חנויות','n.shop.1':'מלאי, מחירים ומשלוחים','n.shop.2':'קבלת הזמנות בצ׳אט','n.shop.3':'עדכונים על מבצעים ומוצרים חדשים',
+    'n.legal':'עורכי דין ורואי חשבון','n.legal.1':'שאלון ראשוני ללקוח','n.legal.2':'איסוף מסמכים וקבלות','n.legal.3':'קביעת פגישת ייעוץ',
+    'n.auto':'מוסכים','n.auto.1':'קביעת תור לתיקון ולטיפול','n.auto.2':'תזכורת לטיפול תקופתי ולטסט','n.auto.3':'סטטוס תיקון לפי בקשה',
+    'n.other':'עסק אחר','n.other.1':'ספרו לנו מה גוזל לכם זמן','n.other.2':'נציע מה אפשר לעשות אוטומטית','n.other.3':'נחשב אם זה משתלם',
+    'n.pick':'לבחירה ←',
+    'p.label':'חבילות','p.title':'הקמה חד-פעמית + תמיכה','p.sub':'משלמים פעם אחת על התאמה לעסק, וסכום קטן בחודש על תפעול, עדכונים ותמיכה.',
+    'p.once':'חד-פעמי','p.from':'החל מ-','p.best':'הכי נבחרת','p.cta':'לשיחה ←',
+    'p1.name':'סטארט','p1.for':'כדי לא לפספס אף פנייה','p1.sup':'+ ‎₪290 לחודש תמיכה',
+    'p1.f1':'<b>עוזר AI</b> בערוץ אחד: אתר, טלגרם או וואטסאפ','p1.f2':'מענה לפי המחירון והשאלות הנפוצות שלך','p1.f3':'איסוף פניות: שם, טלפון, מה צריך','p1.f4':'כל פנייה מגיעה אליך מיד לוואטסאפ או לטלגרם','p1.f5':'עברית, רוסית, אנגלית',
+    'p2.name':'ביזנס','p2.for':'תורים, תזכורות והחזרת לקוחות','p2.sup':'+ ‎₪390 לחודש תמיכה',
+    'p2.f1':'<b>כל מה שבסטארט</b>, עד 3 ערוצים','p2.f2':'קביעת תורים ביומן גוגל','p2.f3':'תזכורות ללקוחות — פחות אי-הגעות','p2.f4':'החזרת לקוחות ישנים ואיסוף ביקורות בגוגל','p2.f5':'דוח שבועי: פניות, שאלות, פניות שאבדו',
+    'p3.name':'פרו','p3.for':'אוטומציה של העבודה השוטפת במשרד','p3.sup':'+ החל מ-‎₪590 לחודש תמיכה',
+    'p3.f1':'<b>כל מה שבביזנס</b>','p3.f2':'איסוף קבלות והוצאות, דוח חודשי לרואה החשבון','p3.f3':'הכנת הצעות מחיר וחשבוניות','p3.f4':'חיבור למייל, לגוגל דרייב ול-CRM שלך','p3.f5':'תרחישים מותאמים לתהליכים שלך',
+    'p.fine':'המחיר הסופי — אחרי בירור קצר של הצורך. הודעות דרך WhatsApp Business API הרשמי מתומחרות בנפרד לפי תעריפי Meta.',
+    's.label':'איך אנחנו עובדים','s.title':'מהפנייה ועד העלייה לאוויר',
+    's1.t':'פנייה','s1.p':'משאירים פרטים בדף הזה או כותבים לנו בטלגרם.',
+    's2.t':'בירור','s2.p':'שיחה קצרה: מה גוזל זמן ואיפה הולכים לקוחות לאיבוד. מחשבים החזר השקעה.',
+    's3.t':'הגדרה','s3.p':'מלמדים את הבוט את המחירים והשירותים שלך ומחברים ערוצים. אתה בודק ומתקן.',
+    's4.t':'עלייה ותמיכה','s4.p':'הבוט עובד. אנחנו עוקבים אחרי התשובות, מעדכנים מידע ומשפרים תרחישים.',
+    'f.label':'שאלות','f.title':'שאלות נפוצות',
+    'f1.q':'אני צריך אתר?','f1.a':'לא. הבוט יכול לעבוד רק בוואטסאפ או בטלגרם. אם יש לך אתר — נוסיף אליו גם חלון צ׳אט.',
+    'f2.q':'ומה אם הבוט לא יודע את התשובה?','f2.a':'הוא לא ממציא. אם השאלה מחוץ לידע שלו, הבוט לוקח פרטים בנימוס ומעביר את השיחה אליך או לעובד.',
+    'f3.q':'מה עם המידע של הלקוחות שלי?','f3.a':'אנחנו עובדים לפי הסכם. הבוט מקבל גישה רק למה שנדרש לעבודה, והמידע של הלקוחות לא משמש לשום מטרה אחרת.',
+    'f4.q':'אפשר להוסיף יכולות בהמשך?','f4.a':'כן. אפשר להתחיל ב"סטארט" ולעבור ל"ביזנס" או ל"פרו" — משלמים רק את ההפרש על היכולות החדשות.',
+    'l.label':'השארת פרטים','l.title':'ספרו לנו על העסק שלכם','l.sub':'נחזור אליכם תוך יום עסקים, נשאל כמה שאלות ונציע פתרון לתחום שלכם.',
+    'l.s1':'בירור הצורך בחינם וללא התחייבות','l.s2':'נגיד בכנות אם בוט ישתלם דווקא לכם','l.s3':'מדברים עברית ורוסית',
+    'l.biz':'במה העסק שלכם עוסק?','l.bizName':'שם העסק','l.name':'השם שלך','l.city':'עיר','l.phone':'טלפון','l.email':'אימייל',
+    'l.pack':'איזו חבילה מעניינת אתכם?','l.unsure':'עוד לא יודע — עזרו לי לבחור','l.msg':'מה הייתם רוצים להפוך לאוטומטי? (לא חובה)',
+    'l.msgPh':'לדוגמה: הרבה שיחות עם אותן שאלות, לקוחות שוכחים את התור…',
+    'l.agree':'אני מסכים/ה שיחזרו אליי בנוגע לפנייה זו','l.send':'שליחת פרטים ←',
+    'l.ok':'תודה! קיבלנו את הפנייה ונחזור אליך בקרוב.','l.err':'משהו השתבש. נסו שוב או כתבו לנו בטלגרם @Dordsoftbot.',
+    'l.need':'נא למלא שם וטלפון או אימייל, ולאשר יצירת קשר.','l.sending':'שולחים…',
+    'foot.t':'פתרונות AI לעסקים','foot.photo':'צילומי מוצר ב-AI',
+  };
+  const RU_EXTRA = {
+    'l.ok':'Спасибо! Заявка получена, скоро свяжемся.','l.err':'Что-то пошло не так. Попробуйте ещё раз или напишите в Telegram @Dordsoftbot.',
+    'l.need':'Заполните имя и телефон или email, и отметьте согласие.','l.sending':'Отправляем…',
+  };
+  const RU = {};
+  document.querySelectorAll('[data-t]').forEach(el => { if (!(el.dataset.t in RU)) RU[el.dataset.t] = el.innerHTML; });
+  document.querySelectorAll('[data-tp]').forEach(el => { RU[el.dataset.tp] = el.placeholder; });
+  Object.assign(RU, RU_EXTRA);
+  const DICT = { ru: RU, he: HE };
+  let lang = 'ru';
+  const t = k => (DICT[lang][k] ?? RU[k] ?? k);
+
+  function setLang(l){
+    lang = DICT[l] ? l : 'ru';
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === 'he' ? 'rtl' : 'ltr';
+    document.querySelectorAll('[data-t]').forEach(el => { el.innerHTML = t(el.dataset.t); });
+    document.querySelectorAll('[data-tp]').forEach(el => { el.placeholder = t(el.dataset.tp); });
+    document.querySelectorAll('.lang button').forEach(b => b.classList.toggle('on', b.dataset.lang === lang));
+    document.title = lang === 'he' ? 'בוטים חכמים לעסקים בישראל — Dord AI Studio' : 'AI-боты для бизнеса в Израиле — Dord AI Studio';
+    try { localStorage.setItem('dord_bots_lang', lang); } catch(e) {}
+  }
+  document.querySelectorAll('.lang button').forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
+  let saved = null; try { saved = localStorage.getItem('dord_bots_lang'); } catch(e) {}
+  const q = new URLSearchParams(location.search).get('lang');
+  setLang(q || saved || ((navigator.language || '').startsWith('he') ? 'he' : 'ru'));
+
+  // клик по нише или пакету → подставляем в форму
+  const fBiz = document.getElementById('fBiz'), fPack = document.getElementById('fPack');
+  document.querySelectorAll('.niche').forEach(c => c.addEventListener('click', () => {
+    fBiz.value = c.dataset.biz; document.getElementById('lead').scrollIntoView({ behavior: 'smooth' });
+  }));
+  document.querySelectorAll('[data-pack]').forEach(a => a.addEventListener('click', () => { fPack.value = a.dataset.pack; }));
+
+  // отправка заявки
+  const form = document.getElementById('leadForm'), st = document.getElementById('fStatus'), btn = document.getElementById('fBtn');
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const d = Object.fromEntries(new FormData(form).entries());
+    st.className = 'status';
+    if (!d.name?.trim() || (!d.phone?.trim() && !d.email?.trim()) || !form.agree.checked) {
+      st.textContent = t('l.need'); st.classList.add('err'); return;
+    }
+    btn.disabled = true; st.textContent = t('l.sending');
+    try {
+      const r = await fetch('/api/lead', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ type: 'lead', lang, ...d }) });
+      const j = await r.json().catch(() => ({}));
+      if (!r.ok || !j.ok) throw new Error(j.error || r.status);
+      form.reset(); st.textContent = t('l.ok'); st.classList.add('ok');
+      if (window.gtag) gtag('event', 'generate_lead', { form: 'bots' });
+    } catch (err) {
+      st.textContent = t('l.err'); st.classList.add('err');
+    } finally { btn.disabled = false; }
+  });
+})();
+</script>
+</body>
+</html>

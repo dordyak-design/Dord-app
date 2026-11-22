@@ -4,8 +4,8 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Services & Pricing — Dord AI Studio | Luxury AI Product Photography</title>
-<meta name="description" content="Dord AI Studio pricing: Free Sample, Starter 20 images $99, Growth 50 images $299, Scale 150 images $699. Private GPU server. USDT & USDC payments.">
+<title>Pricing & Order — Dord AI Studio | Premium AI Product Photos</title>
+<meta name="description" content="Dord AI Studio pricing: free sample, Hero Shot $19, Product Set $79, Catalog $299, product video from $39, monthly studio from $349. Human-checked premium AI product photos.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://dordai.art/services.html">
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
@@ -69,6 +69,10 @@
 .btn-pay:hover{opacity:0.9;transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,200,150,0.3)}
 .btn-pay:disabled{opacity:0.4;cursor:not-allowed;transform:none}
 .cart-pay-note{font-size:9px;color:#8892a4;text-align:center;margin-top:6px;line-height:1.5}
+.cart-perks{list-style:none;margin:10px 0 0;padding:10px 12px;border:1px solid rgba(0,200,150,.25);border-radius:10px;background:rgba(0,200,150,.06);display:grid;gap:6px}
+.cart-perks li{font-size:11px;line-height:1.45;color:#cbd5e1;padding-left:18px;position:relative}
+.cart-perks li:before{content:"✓";position:absolute;left:0;color:#00c896;font-weight:800}
+@media(min-width:1025px){body .cart-perks li{font-size:12.5px}}
 .pay-status{font-size:10px;text-align:center;margin-top:6px;min-height:14px;color:#8892a4}
 .pay-status.error{color:#f87171}
 .pay-status.loading{color:#00c896}
@@ -152,9 +156,8 @@
 <body data-page="services">
 
 <div id="site-header"></div>
-</div>
 
-<div class="breadcrumb"><a href="index.html">Home</a><span>›</span><span>Orders</span></div>
+<div class="breadcrumb"><a href="index.html" data-i18n="nav.home">Home</a><span>›</span><span data-i18n="bc.order">Order</span></div>
 
 <!-- FREE SAMPLE -->
 <div class="section-wrap" style="margin-top:0;padding-top:32px">
@@ -170,70 +173,49 @@
 </div>
 
 <div class="page-hero">
-  <div class="hero-badge"><span class="dot"></span>Updated · June 2026</div>
   <h1 data-i18n="svc.cfg.title">Build Your Order</h1>
   <p data-i18n="svc.cfg.sub">Select exactly what you need. Every order is handled personally.</p>
   <div class="value-badges" style="justify-content:center;margin-top:16px">
-    <span class="value-badge"><span class="vb-dot"></span>Private GPU Server</span>
-    <span class="value-badge"><span class="vb-dot"></span>No Cloud</span>
-    <span class="value-badge"><span class="vb-dot"></span>Human QA</span>
-    <span class="value-badge"><span class="vb-dot"></span>48h Delivery</span>
+    <span class="value-badge"><span class="vb-dot"></span><span data-i18n="vb.gpu">Private GPU Server</span></span>
+    <span class="value-badge"><span class="vb-dot"></span><span data-i18n="vb.cloud">No Cloud</span></span>
+    <span class="value-badge"><span class="vb-dot"></span><span data-i18n="vb.qa">Human QA</span></span>
+    <span class="value-badge"><span class="vb-dot"></span><span data-i18n="vb.48">48h Delivery</span></span>
   </div>
 </div>
 
 <div class="configurator-wrap">
   <div class="cfg-left">
 
-    <!-- IMAGE PACKS -->
+    <!-- PRODUCT PHOTOS -->
     <div class="cfg-section">
-      <div class="cfg-section-title" data-i18n="svc.cfg.img.title">📸 Image Packs</div>
-      <div class="cfg-section-sub" data-i18n="svc.cfg.img.sub">Choose resolution, then volume. All packs include commercial rights and human QA.</div>
-      <div class="choice-label" data-i18n="svc.cfg.res">Step 1 — Resolution</div>
-      <div class="choice-group" id="resGroup">
-        <button class="choice-btn res-btn" data-res="1024" onclick="selectRes(this,'1024')">Desktop - Full HD <span class="btn-count">1920x1080</span></button>
-        <button class="choice-btn res-btn" data-res="768" onclick="selectRes(this,'768')">Mobile Fullscreen<span class="btn-count">1080x1920 - 9:16</span></button>
-        <button class="choice-btn res-btn" data-res="512" onclick="selectRes(this,'512')">Square - E-Commerce & Social<span class="btn-count">1024x1024</span></button>
-      </div>
-      <div class="choice-label" data-i18n="svc.cfg.vol">Step 2 — Volume</div>
-      <div class="choice-group" id="packGroup">
-        <button class="choice-btn res-btn" data-pack="99" data-base="20" onclick="selectPack(this,99,20)">Starter<span class="btn-price" id="price-99">$79</span><span class="btn-count" id="cnt-99">20 photos</span></button>
-        <button class="choice-btn res-btn" data-pack="299" data-base="50" onclick="selectPack(this,299,50)">Growth<span class="btn-price" id="price-299">$249</span><span class="btn-count" id="cnt-299">50 photos</span></button>
-        <button class="choice-btn res-btn" data-pack="699" data-base="150" onclick="selectPack(this,699,150)">Scale<span class="btn-price" id="price-699">$499</span><span class="btn-count" id="cnt-699">150 photos</span></button>
-      </div>
-      <button class="btn-add-cart" id="addImgBtn" onclick="addImagePack()" disabled style="opacity:0.4">+ Add Image Pack to Cart</button>
-    </div>
-
-    <!-- VIDEO REELS -->
-    <div class="cfg-section">
-      <div class="cfg-section-title" data-i18n="svc.cfg.vid.title">🎬 Video Reels</div>
-      <div class="cfg-section-sub" data-i18n="svc.cfg.vid.sub">Short dynamic videos 5–15 sec for TikTok / Instagram.</div>
+      <div class="cfg-section-title" data-i18n="svc.cfg.img.title">📸 Product Photos</div>
+      <div class="cfg-section-sub" data-i18n="svc.cfg.img.sub">Every image is checked by a human. Commercial rights included.</div>
       <div class="video-grid">
-        <div class="video-card"><div class="video-card-name">Promo Reel</div><div class="video-card-price">$30</div><div class="video-card-desc">5 sec. TikTok & Stories.</div><button class="video-add-btn" onclick="addVideo('Promo Reel · 5 sec',30)">+ Add</button></div>
-        <div class="video-card"><div class="video-card-name">Full Reel</div><div class="video-card-price">$60</div><div class="video-card-desc">10 sec. Instagram Reels.</div><button class="video-add-btn" onclick="addVideo('Full Reel · 10 sec',60)">+ Add</button></div>
-        <div class="video-card"><div class="video-card-name">Extended Reel</div><div class="video-card-price">$90</div><div class="video-card-desc">15 sec. YouTube Shorts.</div><button class="video-add-btn" onclick="addVideo('Extended Reel · 15 sec',90)">+ Add</button></div>
-      </div>
-      <div class="series-big-card">
-        <div class="series-big-header">
-          <div><div class="series-big-title">📺 AI Social Series</div><div class="series-big-desc">15 videos, 1 every other day for 1 month.</div></div>
-          <div><div class="series-big-price">$499<small>/10 sec.  15 videos · 1 month</small></div></div>
-        </div>
-        <div class="series-negotiate"><b>Budget flexible?</b> Price negotiable: $499.</div>
-        <a href="https://t.me/dordai_art_support_bot" target="_blank" class="btn-tg">💬 Discuss Custom Terms</a>
+        <div class="video-card"><div class="video-card-name" data-i18n="p1.title">Hero Shot</div><div class="video-card-price">$19</div><div class="video-card-desc" data-i18n="p1.f1">1 product · 1 hero image</div><button class="video-add-btn" data-i18n="btn.add" onclick="addProduct('Hero Shot','p1.f1',19)">+ Add</button></div>
+        <div class="video-card"><div class="video-card-name" data-i18n="p2.title">Product Set</div><div class="video-card-price">$79</div><div class="video-card-desc" data-i18n="p2.f1">1 product · 5 images</div><button class="video-add-btn" data-i18n="btn.add" onclick="addProduct('Product Set','p2.f1',79)">+ Add</button></div>
+        <div class="video-card"><div class="video-card-name" data-i18n="p3.title">Catalog</div><div class="video-card-price">$299</div><div class="video-card-desc" data-i18n="p3.f1">Up to 6 products · 30 images</div><button class="video-add-btn" data-i18n="btn.add" onclick="addProduct('Catalog','p3.f1',299)">+ Add</button></div>
       </div>
     </div>
 
-    <!-- BULK -->
+    <!-- VIDEO -->
     <div class="cfg-section">
-      <div class="cfg-section-title" data-i18n="svc.cfg.bulk.title">🏷️ Bulk Product Cards</div>
-      <div class="cfg-section-sub" data-i18n="svc.cfg.bulk.sub">$2.50/card (1024px). Min 30, max 200.</div>
-      <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap">
-        <div>
-          <div class="choice-label">Cards</div>
-          <div class="bulk-counter"><button class="bulk-btn" onclick="changeBulk(-5)">−</button><input class="bulk-input" type="number" id="bulkCount" value="30" min="30" max="200" onchange="updateBulk()"><button class="bulk-btn" onclick="changeBulk(5)">+</button></div>
-        </div>
-        <div><div class="choice-label">Total</div><div class="bulk-total" id="bulkTotal">$75.00 <span>/ 30 cards</span></div></div>
+      <div class="cfg-section-title" data-i18n="svc.cfg.vid.title">🎬 Product Video</div>
+      <div class="cfg-section-sub" data-i18n="svc.cfg.vid.sub">Short motion clips for Reels, TikTok and ads. Vertical 9:16 or square.</div>
+      <div class="video-grid">
+        <div class="video-card"><div class="video-card-name" data-i18n="vid.5.name">Video · 5 sec</div><div class="video-card-price">$39</div><div class="video-card-desc" data-i18n="vid.5.desc">Reels, TikTok, Stories.</div><button class="video-add-btn" data-i18n="btn.add" onclick="addProduct('Product Video','vid.5.name',39)">+ Add</button></div>
+        <div class="video-card"><div class="video-card-name" data-i18n="vid.10.name">Video · 10 sec</div><div class="video-card-price">$69</div><div class="video-card-desc" data-i18n="vid.10.desc">Reels, ads, product pages.</div><button class="video-add-btn" data-i18n="btn.add" onclick="addProduct('Product Video','vid.10.name',69)">+ Add</button></div>
       </div>
-      <button class="btn-add-cart" onclick="addBulkCards()">+ Add Product Cards</button>
+    </div>
+
+    <!-- SUBSCRIPTION -->
+    <div class="cfg-section">
+      <div class="cfg-section-title" data-i18n="svc.cfg.subs.title">🗓️ Monthly Studio</div>
+      <div class="cfg-section-sub" data-i18n="svc.cfg.subs.sub">Subscriptions are set up personally via Telegram. Clear monthly limits keep quality high for every client.</div>
+      <div class="video-grid">
+        <div class="video-card" style="cursor:default"><div class="video-card-name" data-i18n="s1.title">Studio</div><div class="video-card-price">$349<span style="font-size:11px;color:#8892a4;font-family:'Inter',sans-serif;font-weight:400"> /mo</span></div><div class="video-card-desc"><span data-i18n="s1.f1">Up to 4 requests per month (1 per week)</span> · <span data-i18n="s1.f2">Up to 40 images per month</span> · <span data-i18n="s1.f3">2 product videos (5 sec) included</span></div><a class="video-add-btn" style="text-decoration:none" href="https://t.me/dordai_art_support_bot" target="_blank" rel="noopener" data-i18n="subs.cta">Start via Telegram →</a></div>
+        <div class="video-card" style="cursor:default"><div class="video-card-name" data-i18n="s2.title">Studio Pro</div><div class="video-card-price">$699<span style="font-size:11px;color:#8892a4;font-family:'Inter',sans-serif;font-weight:400"> /mo</span></div><div class="video-card-desc"><span data-i18n="s2.f1">Up to 8 requests per month (2 per week)</span> · <span data-i18n="s2.f2">Up to 100 images per month</span> · <span data-i18n="s2.f3">4 product videos (5 sec) included</span></div><a class="video-add-btn" style="text-decoration:none" href="https://t.me/dordai_art_support_bot" target="_blank" rel="noopener" data-i18n="subs.cta">Start via Telegram →</a></div>
+      </div>
+      <div class="cfg-section-sub" style="margin:12px 0 0" data-i18n="subs.note">Unused requests don't roll over. Work above the limit is billed at regular prices.</div>
     </div>
 
     <!-- UPLOAD -->
@@ -254,7 +236,7 @@
       <div class="cfg-section-title" data-i18n="svc.cfg.details.title">✏️ Order Details</div>
       <div class="order-form">
         <div class="form-row">
-          <div class="form-field"><label>Service type</label><select id="orderType"><option>Product Photo</option><option>Product Cards</option><option>Video 5 sec</option><option>Video 10 sec</option><option>Video 15 sec</option></select></div>
+          <div class="form-field"><label>Service type</label><select id="orderType"><option>Hero Shot</option><option>Product Set</option><option>Catalog</option><option>Video 5 sec</option><option>Video 10 sec</option></select></div>
           <div class="form-field"><label>Email</label><input type="email" id="orderEmail" placeholder="your@email.com"></div>
         </div>
         <div class="form-field"><label>Object</label><textarea id="orderObject" rows="2" placeholder="e.g. Glass perfume bottle..."></textarea></div>
@@ -271,12 +253,12 @@
 
   <!-- CART SIDEBAR С ПРОМОКОДОМ -->
   <div class="cart-sidebar" id="cartSidebar">
-    <div class="cart-title">🛒 Your Order</div>
-    <div class="auth-required" id="authRequiredBanner"><a href="dashboard.html">Sign in</a> to place an order</div>
-    <div class="cart-items" id="cartItems"><div class="cart-empty" id="cartEmpty">Your cart is empty.</div></div>
+    <div class="cart-title" data-i18n="cart.title">🛒 Your Order</div>
+    <div class="auth-required" id="authRequiredBanner" data-i18n="cart.auth"><a href="dashboard.html">Sign in</a> to place an order</div>
+    <div class="cart-items" id="cartItems"><div class="cart-empty" id="cartEmpty" data-i18n="cart.empty">Your cart is empty.</div></div>
     <div id="cartSummary" style="display:none">
       <div class="cart-divider"></div>
-      <div class="cart-total-row"><span class="cart-total-label">TOTAL</span><span class="cart-total-amount" id="cartTotal">$0</span></div>
+      <div class="cart-total-row"><span class="cart-total-label" data-i18n="cart.total">TOTAL</span><span class="cart-total-amount" id="cartTotal">$0</span></div>
 
       <!-- ПРОМОКОД -->
       <div style="margin:10px 0 4px"><div class="choice-label" data-i18n="promo.label">Promo Code</div></div>
@@ -288,14 +270,18 @@
       <div class="promo-hint" data-i18n="promo.hint">Promo codes can be found on our social media and on partner Telegram channels (links in the footer)</div>
 
       <div class="cart-divider"></div>
-      <div class="cart-total-row" id="discountRow" style="display:none"><span class="cart-total-label">DISCOUNT</span><span class="cart-total-amount" id="discountAmount" style="color:#f87171;font-size:14px">-$0</span></div>
-      <div class="cart-total-row" id="finalRow" style="display:none"><span class="cart-total-label">FINAL</span><span class="cart-total-amount" id="finalTotal">$0</span></div>
+      <div class="cart-total-row" id="discountRow" style="display:none"><span class="cart-total-label" data-i18n="cart.discount">DISCOUNT</span><span class="cart-total-amount" id="discountAmount" style="color:#f87171;font-size:14px">-$0</span></div>
+      <div class="cart-total-row" id="finalRow" style="display:none"><span class="cart-total-label" data-i18n="cart.final">FINAL</span><span class="cart-total-amount" id="finalTotal">$0</span></div>
 
-      <div class="cart-pay-note">🔒 Crypto payment · USDC · USDT · TON · BTC</div>
+      <div class="cart-pay-note" data-i18n="cart.note">🔒 Crypto payment · USDC · USDT · TON · BTC</div>
+      <ul class="cart-perks">
+        <li data-i18n="cart.perk1">We value our clients — the payment fee is on us. You pay exactly the listed price.</li>
+        <li data-i18n="cart.perk2">Mixed payment: short on one coin? Pay the rest with another.</li>
+      </ul>
     </div>
     
     <div class="pay-status" id="payStatus"></div>
-    <button class="btn-pay" id="payBtn" disabled onclick="handlePay()">Proceed to Payment</button>
+    <button class="btn-pay" id="payBtn" disabled onclick="handlePay()" data-i18n="cart.pay">Proceed to Payment</button>
   </div>
 </div>
 
@@ -304,20 +290,24 @@
 <div class="cart-sheet-overlay" id="cartOverlay" onclick="closeCartSheet()"></div>
 <div class="cart-sheet" id="cartSheet">
   <div class="cart-sheet-handle"></div>
-  <div class="cart-title">🛒 Your Order</div>
-  <div class="cart-items" id="cartItemsMobile"><div class="cart-empty">Empty</div></div>
+  <div class="cart-title" data-i18n="cart.title">🛒 Your Order</div>
+  <div class="cart-items" id="cartItemsMobile"><div class="cart-empty" data-i18n="cart.empty">Your cart is empty.</div></div>
   <div id="cartSummaryMobile" style="display:none">
     <div class="cart-divider"></div>
-    <div class="cart-total-row"><span class="cart-total-label">TOTAL</span><span class="cart-total-amount" id="cartTotalMobile">$0</span></div>
+    <div class="cart-total-row"><span class="cart-total-label" data-i18n="cart.total">TOTAL</span><span class="cart-total-amount" id="cartTotalMobile">$0</span></div>
     <!-- Mobile promo -->
     <div class="promo-row" style="margin-top:8px">
       <input type="text" class="promo-input" id="promoInputMobile" placeholder="LAUNCH15">
       <button class="promo-apply-btn" onclick="applyPromo()">Apply</button>
     </div>
     <div class="promo-msg" id="promoMsgMobile"></div>
+    <ul class="cart-perks">
+      <li data-i18n="cart.perk1">We value our clients — the payment fee is on us. You pay exactly the listed price.</li>
+      <li data-i18n="cart.perk2">Mixed payment: short on one coin? Pay the rest with another.</li>
+    </ul>
   </div>
   <div class="pay-status" id="payStatusMobile"></div>
-  <button class="btn-pay" onclick="handlePay()">Proceed to Payment</button>
+  <button class="btn-pay" onclick="handlePay()" data-i18n="cart.pay">Proceed to Payment</button>
 </div>
 
 <!-- COMPARE -->
@@ -329,10 +319,11 @@
     <table class="compare-table">
       <thead><tr><th>Parameter</th><th>Traditional</th><th style="color:#00c896">Dord AI</th></tr></thead>
       <tbody>
-        <tr><td>Cost</td><td>$500–$5,000</td><td class="check">from $99</td></tr>
-        <tr><td>Per image</td><td>$25–$100</td><td class="check">from $4.95</td></tr>
-        <tr><td>Turnaround</td><td>1–2 weeks</td><td class="check">48 hours</td></tr>
+        <tr><td>Cost</td><td>$500–$5,000</td><td class="check">from $19</td></tr>
+        <tr><td>Per image</td><td>$25–$500</td><td class="check">from $7 (Studio Pro)</td></tr>
+        <tr><td>Turnaround</td><td>1–2 weeks</td><td class="check">24–48 hours</td></tr>
         <tr><td>Privacy</td><td>Third parties</td><td class="check">Private server</td></tr>
+        <tr><td>Quality check</td><td>Photographer</td><td class="check">Human check on every image</td></tr>
       </tbody>
     </table>
   </div>
@@ -346,7 +337,7 @@
     <h2 class="section-title" data-i18n="svc.cfg.how.title">How It Works</h2>
     <div class="steps-grid">
       <div class="step-card"><div class="step-num">01</div><div class="step-title">Upload Photos</div><div class="step-desc">Send product photos. Phone shot works.</div></div>
-      <div class="step-card"><div class="step-num">02</div><div class="step-title">Configure & Pay</div><div class="step-desc">Choose pack, pay crypto.</div></div>
+      <div class="step-card"><div class="step-num">02</div><div class="step-title">Configure & Pay</div><div class="step-desc">Choose a package, pay online.</div></div>
       <div class="step-card"><div class="step-num">03</div><div class="step-title">Receive Results</div><div class="step-desc">Premium visuals in 48h.</div></div>
     </div>
   </div>
@@ -413,48 +404,6 @@ onAuthStateChanged(auth, (user) => {
   else { banner.style.display = 'none'; if (window._cartHasItems) document.getElementById('payBtn').disabled = false; }
 });
 
-// Load prices from Firestore settings/prices
-try {
-  const pricesDoc = await getDoc(doc(db, 'settings', 'prices'));
-  if (pricesDoc.exists()) {
-    const pd = pricesDoc.data();
-    // PACKS
-    const packs = pd.packs || [];
-    const packBtns = document.querySelectorAll('#packGroup .choice-btn');
-    packs.forEach((p, i) => {
-      if (!packBtns[i]) return;
-      const btn = packBtns[i];
-      const priceEl = btn.querySelector('.btn-price');
-      const countEl = btn.querySelector('.btn-count');
-      if (priceEl) priceEl.textContent = '$' + p.price;
-      if (countEl) countEl.textContent = p.base + ' photos';
-      btn.setAttribute('data-pack', p.price);
-      btn.setAttribute('data-base', p.base);
-      btn.onclick = function(){ selectPack(this, p.price, p.base); };
-    });
-    // VIDEOS
-    const videos = pd.videos || [];
-    const vidCards = document.querySelectorAll('.video-card');
-    videos.forEach((v, i) => {
-      if (!vidCards[i]) return;
-      const priceEl = vidCards[i].querySelector('.video-card-price');
-      const nameEl = vidCards[i].querySelector('.video-card-name');
-      const descEl = vidCards[i].querySelector('.video-card-desc');
-      const addBtn = vidCards[i].querySelector('.video-add-btn');
-      if (priceEl) priceEl.textContent = '$' + v.price;
-      if (nameEl) nameEl.textContent = v.name;
-      if (descEl) descEl.textContent = v.duration + '. TikTok & Reels.';
-      if (addBtn) addBtn.onclick = function(){ addVideo(v.name + ' · ' + v.duration, v.price); };
-    });
-    // BULK
-    if (pd.bulkPrice) {
-      window._bulkPrice = pd.bulkPrice;
-      document.querySelector('.cfg-section-sub[data-i18n="svc.cfg.bulk.sub"]').textContent = '$' + pd.bulkPrice + '/card (512px). Min 30, max 200.';
-      updateBulk();
-    }
-  }
-} catch(e) { console.warn('Prices load error:', e); }
-
 // Load partner links for footer
 try {
   const linksSnap = await getDocs(collection(db, 'partner_links'));
@@ -497,27 +446,16 @@ window.submitSample = async function(btn) {
   btn.disabled = true; btn.textContent = 'Sending...';
   const data = { email, size: document.getElementById('sampleSize').value, object, background: document.getElementById('sampleBg').value, lighting: document.getElementById('sampleLight').value, effects: document.getElementById('sampleFx').value, status: 'new', created_at: new Date().toISOString() };
   try { await addDoc(collection(db, 'free_samples'), data); } catch(e) { console.error(e); }
-  const msg = '🎁 FREE SAMPLE\n📧 '+email+'\n📐 '+data.size+'\n📝 '+object+'\n🌿 '+(data.background||'—')+'\n💡 '+(data.lighting||'—');
-  await fetch('https://api.telegram.org/bot8742382444:AAE3oWQxDlWF9XH8PHTOPLR93rMK3DVcf6s/sendMessage',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:'528289836',text:msg})}).catch(()=>{});
+  await fetch('/api/notify',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({type:'sample',email,size:data.size,object,background:data.background,lighting:data.lighting})}).catch(()=>{});
   showSampleMsg("✓ Sent! We'll contact you within 24h.", 'success');
   btn.textContent = '✓ Sent!';
 };
 </script>
 
 <script>
-let cart=[];let selectedRes=null;let selectedPack=null;let uploadedFiles=[];
-window._currentUser=null;window._cartHasItems=false;window._promoDiscount=0;window._promoDocId=null;window._bulkPrice=2.50;
-const resMultiplier={'1024':1,'768':1.5,'512':2};
-const resLabel={'1024':'HD 1024','768':'Std 768','512':'Eco 512'};
-function selectRes(btn,res){document.querySelectorAll('#resGroup .choice-btn').forEach(b=>b.classList.remove('selected'));btn.classList.add('selected');selectedRes=res;updatePackCounts();updateAddBtn()}
-function updatePackCounts(){const m=selectedRes?resMultiplier[selectedRes]:1;const btns=document.querySelectorAll('#packGroup .choice-btn');btns.forEach(btn=>{const base=parseInt(btn.getAttribute('data-base'));const countEl=btn.querySelector('.btn-count');if(countEl)countEl.textContent=Math.round(base*m)+' photos'})}
-function selectPack(btn,price,base){document.querySelectorAll('#packGroup .choice-btn').forEach(b=>b.classList.remove('selected'));btn.classList.add('selected');selectedPack={price,base};updateAddBtn()}
-function updateAddBtn(){const btn=document.getElementById('addImgBtn');if(selectedRes&&selectedPack){btn.disabled=false;btn.style.opacity='1';const c=Math.round(selectedPack.base*resMultiplier[selectedRes]);btn.textContent='+ Add '+c+' Photos · $'+selectedPack.price}else{btn.disabled=true;btn.style.opacity='0.4';btn.textContent='+ Add Image Pack'}}
-function addImagePack(){if(!selectedRes||!selectedPack)return;const c=Math.round(selectedPack.base*resMultiplier[selectedRes]);addToCart({id:'img_'+Date.now(),name:'Image Pack',detail:c+' photos · '+resLabel[selectedRes],price:selectedPack.price});document.querySelectorAll('#resGroup .choice-btn,#packGroup .choice-btn').forEach(b=>b.classList.remove('selected'));selectedRes=null;selectedPack=null;updatePackCounts();updateAddBtn()}
-function addVideo(n,p){addToCart({id:'vid_'+Date.now(),name:'Video',detail:n,price:p})}
-function changeBulk(d){const inp=document.getElementById('bulkCount');let v=parseInt(inp.value)+d;v=Math.max(30,Math.min(200,v));inp.value=v;updateBulk()}
-function updateBulk(){let v=parseInt(document.getElementById('bulkCount').value);v=Math.max(30,Math.min(200,v));document.getElementById('bulkCount').value=v;const bp=window._bulkPrice||2.50;document.getElementById('bulkTotal').innerHTML='$'+(v*bp).toFixed(2)+' <span>/ '+v+' cards</span>'}
-function addBulkCards(){const v=parseInt(document.getElementById('bulkCount').value);const bp=window._bulkPrice||2.50;addToCart({id:'bulk_'+Date.now(),name:'Product Cards',detail:v+' cards · $'+bp+' each',price:parseFloat((v*bp).toFixed(2))})}
+let cart=[];let uploadedFiles=[];
+window._currentUser=null;window._cartHasItems=false;window._promoDiscount=0;window._promoDocId=null;
+function addProduct(name,detailKey,price){const detail=(typeof i18nGet==='function')?i18nGet(detailKey):detailKey;addToCart({id:'p_'+Date.now()+Math.floor(Math.random()*1000),name:name,detail:detail,price:price})}
 function addToCart(item){cart.push(item);renderCart()}
 function removeFromCart(id){cart=cart.filter(i=>i.id!==id);renderCart()}
 function renderCart(){
@@ -530,7 +468,8 @@ function renderCart(){
   const itemsEl=document.getElementById('cartItems');
   const summaryEl=document.getElementById('cartSummary');
   const payBtn=document.getElementById('payBtn');
-  itemsEl.innerHTML=isEmpty?'<div class="cart-empty">Your cart is empty.</div>':cart.map(i=>'<div class="cart-item"><div class="cart-item-info"><div class="cart-item-name">'+i.name+'</div><div class="cart-item-detail">'+i.detail+'</div></div><div style="display:flex;align-items:center;gap:8px"><div class="cart-item-price">$'+i.price.toFixed(2)+'</div><button class="cart-item-remove" onclick="removeFromCart(\''+i.id+'\')">✕</button></div></div>').join('');
+  const T=(k,d)=>(typeof i18nGet==='function'?i18nGet(k):d);
+  itemsEl.innerHTML=isEmpty?'<div class="cart-empty">'+T('cart.empty','Your cart is empty.')+'</div>':cart.map(i=>'<div class="cart-item"><div class="cart-item-info"><div class="cart-item-name">'+i.name+'</div><div class="cart-item-detail">'+i.detail+'</div></div><div style="display:flex;align-items:center;gap:8px"><div class="cart-item-price">$'+i.price.toFixed(2)+'</div><button class="cart-item-remove" onclick="removeFromCart(\''+i.id+'\')">✕</button></div></div>').join('');
   summaryEl.style.display=isEmpty?'none':'block';
   payBtn.disabled=isEmpty||!window._currentUser;
   document.getElementById('cartTotal').textContent='$'+subtotal.toFixed(2);
@@ -538,7 +477,7 @@ function renderCart(){
   const dr=document.getElementById('discountRow');const fr=document.getElementById('finalRow');
   if(discount>0&&!isEmpty){dr.style.display='flex';fr.style.display='flex';document.getElementById('discountAmount').textContent='-$'+discountAmt.toFixed(2)+' ('+discount+'%)';document.getElementById('finalTotal').textContent='$'+finalTotal.toFixed(2)}
   else{dr.style.display='none';fr.style.display='none'}
-  document.getElementById('mobileCartLabel').textContent='Cart · $'+finalTotal.toFixed(2);
+  document.getElementById('mobileCartLabel').textContent=T('cart.short','Cart')+' · $'+finalTotal.toFixed(2);
   document.getElementById('cartItemsMobile').innerHTML=itemsEl.innerHTML;
   document.getElementById('cartSummaryMobile').style.display=isEmpty?'none':'block';
   document.getElementById('cartTotalMobile').textContent='$'+subtotal.toFixed(2);
@@ -574,7 +513,9 @@ function renderUploadList(){document.getElementById('uploadList').innerHTML=uplo
 function openCartSheet(){document.getElementById('cartOverlay').classList.add('open');document.getElementById('cartSheet').classList.add('open')}
 function closeCartSheet(){document.getElementById('cartOverlay').classList.remove('open');document.getElementById('cartSheet').classList.remove('open')}
 function showSampleMsg(text,type){const el=document.getElementById('sampleMsg');el.textContent=text;el.style.display='block';el.style.background=type==='error'?'rgba(239,68,68,0.1)':'rgba(0,200,150,0.1)';el.style.border=type==='error'?'1px solid rgba(239,68,68,0.3)':'1px solid rgba(0,200,150,0.3)';el.style.color=type==='error'?'#f87171':'#00c896'}
-updateBulk();renderCart();
+renderCart();
+// Перерисовать корзину при смене языка
+document.addEventListener('DOMContentLoaded',function(){const o=window.setLang;if(typeof o==='function'){window.setLang=function(l){o(l);renderCart()}}});
 // Check payment on return
 (async function(){const p=new URLSearchParams(window.location.search);if(p.get('payment')!=='success')return;const trackId=localStorage.getItem('dord_track_id');const pending=JSON.parse(localStorage.getItem('dord_pending_order')||'null');if(!trackId)return;setPayStatus('⏳ Verifying...','loading');try{const r=await fetch('/api/check-payment',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({trackId,orderId:pending?.orderId||'',cart:pending?.cart||[],email:pending?.clientEmail||'',orderDetails:pending?.orderDetails||{}})});const data=await r.json();if(data.ok){setPayStatus('✅ Confirmed! $'+data.amount,'loading');localStorage.removeItem('dord_track_id');localStorage.removeItem('dord_pending_order');cart=[];renderCart()}else{setPayStatus('⏳ Pending: '+data.status,'loading')}}catch(err){setPayStatus('⚠️ Could not verify.','error')}})();
 </script>
