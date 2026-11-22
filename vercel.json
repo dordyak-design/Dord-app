@@ -15,5 +15,27 @@
     "api/lead.js": {
       "maxDuration": 10
     }
-  }
+  },
+  "rewrites": [
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "dordai.pro"
+        }
+      ],
+      "destination": "/bots.html"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.dordai.pro"
+        }
+      ],
+      "destination": "/bots.html"
+    }
+  ]
 }
