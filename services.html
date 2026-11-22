@@ -153,7 +153,7 @@
 
 <div id="site-header"></div>
 
-<div class="breadcrumb"><a href="index.html">Home</a><span>›</span><span>Orders</span></div>
+<div class="breadcrumb"><a href="index.html" data-i18n="nav.home">Home</a><span>›</span><span data-i18n="bc.order">Order</span></div>
 
 <!-- FREE SAMPLE -->
 <div class="section-wrap" style="margin-top:0;padding-top:32px">
@@ -172,10 +172,10 @@
   <h1 data-i18n="svc.cfg.title">Build Your Order</h1>
   <p data-i18n="svc.cfg.sub">Select exactly what you need. Every order is handled personally.</p>
   <div class="value-badges" style="justify-content:center;margin-top:16px">
-    <span class="value-badge"><span class="vb-dot"></span>Private GPU Server</span>
-    <span class="value-badge"><span class="vb-dot"></span>No Cloud</span>
-    <span class="value-badge"><span class="vb-dot"></span>Human QA</span>
-    <span class="value-badge"><span class="vb-dot"></span>48h Delivery</span>
+    <span class="value-badge"><span class="vb-dot"></span><span data-i18n="vb.gpu">Private GPU Server</span></span>
+    <span class="value-badge"><span class="vb-dot"></span><span data-i18n="vb.cloud">No Cloud</span></span>
+    <span class="value-badge"><span class="vb-dot"></span><span data-i18n="vb.qa">Human QA</span></span>
+    <span class="value-badge"><span class="vb-dot"></span><span data-i18n="vb.48">48h Delivery</span></span>
   </div>
 </div>
 
@@ -187,9 +187,9 @@
       <div class="cfg-section-title" data-i18n="svc.cfg.img.title">📸 Product Photos</div>
       <div class="cfg-section-sub" data-i18n="svc.cfg.img.sub">Every image is checked by a human. Commercial rights included.</div>
       <div class="video-grid">
-        <div class="video-card"><div class="video-card-name" data-i18n="p1.title">Hero Shot</div><div class="video-card-price">$19</div><div class="video-card-desc" data-i18n="p1.f1">1 product · 1 hero image</div><button class="video-add-btn" onclick="addProduct('Hero Shot','1 product · 1 image',19)">+ Add</button></div>
-        <div class="video-card"><div class="video-card-name" data-i18n="p2.title">Product Set</div><div class="video-card-price">$79</div><div class="video-card-desc" data-i18n="p2.f1">1 product · 5 images</div><button class="video-add-btn" onclick="addProduct('Product Set','1 product · 5 images',79)">+ Add</button></div>
-        <div class="video-card"><div class="video-card-name" data-i18n="p3.title">Catalog</div><div class="video-card-price">$299</div><div class="video-card-desc" data-i18n="p3.f1">Up to 6 products · 30 images</div><button class="video-add-btn" onclick="addProduct('Catalog','Up to 6 products · 30 images',299)">+ Add</button></div>
+        <div class="video-card"><div class="video-card-name" data-i18n="p1.title">Hero Shot</div><div class="video-card-price">$19</div><div class="video-card-desc" data-i18n="p1.f1">1 product · 1 hero image</div><button class="video-add-btn" data-i18n="btn.add" onclick="addProduct('Hero Shot','p1.f1',19)">+ Add</button></div>
+        <div class="video-card"><div class="video-card-name" data-i18n="p2.title">Product Set</div><div class="video-card-price">$79</div><div class="video-card-desc" data-i18n="p2.f1">1 product · 5 images</div><button class="video-add-btn" data-i18n="btn.add" onclick="addProduct('Product Set','p2.f1',79)">+ Add</button></div>
+        <div class="video-card"><div class="video-card-name" data-i18n="p3.title">Catalog</div><div class="video-card-price">$299</div><div class="video-card-desc" data-i18n="p3.f1">Up to 6 products · 30 images</div><button class="video-add-btn" data-i18n="btn.add" onclick="addProduct('Catalog','p3.f1',299)">+ Add</button></div>
       </div>
     </div>
 
@@ -198,8 +198,8 @@
       <div class="cfg-section-title" data-i18n="svc.cfg.vid.title">🎬 Product Video</div>
       <div class="cfg-section-sub" data-i18n="svc.cfg.vid.sub">Short motion clips for Reels, TikTok and ads. Vertical 9:16 or square.</div>
       <div class="video-grid">
-        <div class="video-card"><div class="video-card-name">Video · 5 sec</div><div class="video-card-price">$39</div><div class="video-card-desc">Reels, TikTok, Stories.</div><button class="video-add-btn" onclick="addProduct('Product Video','5 sec',39)">+ Add</button></div>
-        <div class="video-card"><div class="video-card-name">Video · 10 sec</div><div class="video-card-price">$69</div><div class="video-card-desc">Reels, ads, product pages.</div><button class="video-add-btn" onclick="addProduct('Product Video','10 sec',69)">+ Add</button></div>
+        <div class="video-card"><div class="video-card-name" data-i18n="vid.5.name">Video · 5 sec</div><div class="video-card-price">$39</div><div class="video-card-desc" data-i18n="vid.5.desc">Reels, TikTok, Stories.</div><button class="video-add-btn" data-i18n="btn.add" onclick="addProduct('Product Video','vid.5.name',39)">+ Add</button></div>
+        <div class="video-card"><div class="video-card-name" data-i18n="vid.10.name">Video · 10 sec</div><div class="video-card-price">$69</div><div class="video-card-desc" data-i18n="vid.10.desc">Reels, ads, product pages.</div><button class="video-add-btn" data-i18n="btn.add" onclick="addProduct('Product Video','vid.10.name',69)">+ Add</button></div>
       </div>
     </div>
 
@@ -249,12 +249,12 @@
 
   <!-- CART SIDEBAR С ПРОМОКОДОМ -->
   <div class="cart-sidebar" id="cartSidebar">
-    <div class="cart-title">🛒 Your Order</div>
-    <div class="auth-required" id="authRequiredBanner"><a href="dashboard.html">Sign in</a> to place an order</div>
-    <div class="cart-items" id="cartItems"><div class="cart-empty" id="cartEmpty">Your cart is empty.</div></div>
+    <div class="cart-title" data-i18n="cart.title">🛒 Your Order</div>
+    <div class="auth-required" id="authRequiredBanner" data-i18n="cart.auth"><a href="dashboard.html">Sign in</a> to place an order</div>
+    <div class="cart-items" id="cartItems"><div class="cart-empty" id="cartEmpty" data-i18n="cart.empty">Your cart is empty.</div></div>
     <div id="cartSummary" style="display:none">
       <div class="cart-divider"></div>
-      <div class="cart-total-row"><span class="cart-total-label">TOTAL</span><span class="cart-total-amount" id="cartTotal">$0</span></div>
+      <div class="cart-total-row"><span class="cart-total-label" data-i18n="cart.total">TOTAL</span><span class="cart-total-amount" id="cartTotal">$0</span></div>
 
       <!-- ПРОМОКОД -->
       <div style="margin:10px 0 4px"><div class="choice-label" data-i18n="promo.label">Promo Code</div></div>
@@ -266,14 +266,14 @@
       <div class="promo-hint" data-i18n="promo.hint">Promo codes can be found on our social media and on partner Telegram channels (links in the footer)</div>
 
       <div class="cart-divider"></div>
-      <div class="cart-total-row" id="discountRow" style="display:none"><span class="cart-total-label">DISCOUNT</span><span class="cart-total-amount" id="discountAmount" style="color:#f87171;font-size:14px">-$0</span></div>
-      <div class="cart-total-row" id="finalRow" style="display:none"><span class="cart-total-label">FINAL</span><span class="cart-total-amount" id="finalTotal">$0</span></div>
+      <div class="cart-total-row" id="discountRow" style="display:none"><span class="cart-total-label" data-i18n="cart.discount">DISCOUNT</span><span class="cart-total-amount" id="discountAmount" style="color:#f87171;font-size:14px">-$0</span></div>
+      <div class="cart-total-row" id="finalRow" style="display:none"><span class="cart-total-label" data-i18n="cart.final">FINAL</span><span class="cart-total-amount" id="finalTotal">$0</span></div>
 
-      <div class="cart-pay-note">🔒 Crypto payment · USDC · USDT · TON · BTC</div>
+      <div class="cart-pay-note" data-i18n="cart.note">🔒 Crypto payment · USDC · USDT · TON · BTC</div>
     </div>
     
     <div class="pay-status" id="payStatus"></div>
-    <button class="btn-pay" id="payBtn" disabled onclick="handlePay()">Proceed to Payment</button>
+    <button class="btn-pay" id="payBtn" disabled onclick="handlePay()" data-i18n="cart.pay">Proceed to Payment</button>
   </div>
 </div>
 
@@ -282,11 +282,11 @@
 <div class="cart-sheet-overlay" id="cartOverlay" onclick="closeCartSheet()"></div>
 <div class="cart-sheet" id="cartSheet">
   <div class="cart-sheet-handle"></div>
-  <div class="cart-title">🛒 Your Order</div>
-  <div class="cart-items" id="cartItemsMobile"><div class="cart-empty">Empty</div></div>
+  <div class="cart-title" data-i18n="cart.title">🛒 Your Order</div>
+  <div class="cart-items" id="cartItemsMobile"><div class="cart-empty" data-i18n="cart.empty">Your cart is empty.</div></div>
   <div id="cartSummaryMobile" style="display:none">
     <div class="cart-divider"></div>
-    <div class="cart-total-row"><span class="cart-total-label">TOTAL</span><span class="cart-total-amount" id="cartTotalMobile">$0</span></div>
+    <div class="cart-total-row"><span class="cart-total-label" data-i18n="cart.total">TOTAL</span><span class="cart-total-amount" id="cartTotalMobile">$0</span></div>
     <!-- Mobile promo -->
     <div class="promo-row" style="margin-top:8px">
       <input type="text" class="promo-input" id="promoInputMobile" placeholder="LAUNCH15">
@@ -295,7 +295,7 @@
     <div class="promo-msg" id="promoMsgMobile"></div>
   </div>
   <div class="pay-status" id="payStatusMobile"></div>
-  <button class="btn-pay" onclick="handlePay()">Proceed to Payment</button>
+  <button class="btn-pay" onclick="handlePay()" data-i18n="cart.pay">Proceed to Payment</button>
 </div>
 
 <!-- COMPARE -->
@@ -443,7 +443,7 @@ window.submitSample = async function(btn) {
 <script>
 let cart=[];let uploadedFiles=[];
 window._currentUser=null;window._cartHasItems=false;window._promoDiscount=0;window._promoDocId=null;
-function addProduct(name,detail,price){addToCart({id:'p_'+Date.now()+Math.floor(Math.random()*1000),name:name,detail:detail,price:price})}
+function addProduct(name,detailKey,price){const detail=(typeof i18nGet==='function')?i18nGet(detailKey):detailKey;addToCart({id:'p_'+Date.now()+Math.floor(Math.random()*1000),name:name,detail:detail,price:price})}
 function addToCart(item){cart.push(item);renderCart()}
 function removeFromCart(id){cart=cart.filter(i=>i.id!==id);renderCart()}
 function renderCart(){
@@ -456,7 +456,8 @@ function renderCart(){
   const itemsEl=document.getElementById('cartItems');
   const summaryEl=document.getElementById('cartSummary');
   const payBtn=document.getElementById('payBtn');
-  itemsEl.innerHTML=isEmpty?'<div class="cart-empty">Your cart is empty.</div>':cart.map(i=>'<div class="cart-item"><div class="cart-item-info"><div class="cart-item-name">'+i.name+'</div><div class="cart-item-detail">'+i.detail+'</div></div><div style="display:flex;align-items:center;gap:8px"><div class="cart-item-price">$'+i.price.toFixed(2)+'</div><button class="cart-item-remove" onclick="removeFromCart(\''+i.id+'\')">✕</button></div></div>').join('');
+  const T=(k,d)=>(typeof i18nGet==='function'?i18nGet(k):d);
+  itemsEl.innerHTML=isEmpty?'<div class="cart-empty">'+T('cart.empty','Your cart is empty.')+'</div>':cart.map(i=>'<div class="cart-item"><div class="cart-item-info"><div class="cart-item-name">'+i.name+'</div><div class="cart-item-detail">'+i.detail+'</div></div><div style="display:flex;align-items:center;gap:8px"><div class="cart-item-price">$'+i.price.toFixed(2)+'</div><button class="cart-item-remove" onclick="removeFromCart(\''+i.id+'\')">✕</button></div></div>').join('');
   summaryEl.style.display=isEmpty?'none':'block';
   payBtn.disabled=isEmpty||!window._currentUser;
   document.getElementById('cartTotal').textContent='$'+subtotal.toFixed(2);
@@ -464,7 +465,7 @@ function renderCart(){
   const dr=document.getElementById('discountRow');const fr=document.getElementById('finalRow');
   if(discount>0&&!isEmpty){dr.style.display='flex';fr.style.display='flex';document.getElementById('discountAmount').textContent='-$'+discountAmt.toFixed(2)+' ('+discount+'%)';document.getElementById('finalTotal').textContent='$'+finalTotal.toFixed(2)}
   else{dr.style.display='none';fr.style.display='none'}
-  document.getElementById('mobileCartLabel').textContent='Cart · $'+finalTotal.toFixed(2);
+  document.getElementById('mobileCartLabel').textContent=T('cart.short','Cart')+' · $'+finalTotal.toFixed(2);
   document.getElementById('cartItemsMobile').innerHTML=itemsEl.innerHTML;
   document.getElementById('cartSummaryMobile').style.display=isEmpty?'none':'block';
   document.getElementById('cartTotalMobile').textContent='$'+subtotal.toFixed(2);
@@ -501,6 +502,8 @@ function openCartSheet(){document.getElementById('cartOverlay').classList.add('o
 function closeCartSheet(){document.getElementById('cartOverlay').classList.remove('open');document.getElementById('cartSheet').classList.remove('open')}
 function showSampleMsg(text,type){const el=document.getElementById('sampleMsg');el.textContent=text;el.style.display='block';el.style.background=type==='error'?'rgba(239,68,68,0.1)':'rgba(0,200,150,0.1)';el.style.border=type==='error'?'1px solid rgba(239,68,68,0.3)':'1px solid rgba(0,200,150,0.3)';el.style.color=type==='error'?'#f87171':'#00c896'}
 renderCart();
+// Перерисовать корзину при смене языка
+document.addEventListener('DOMContentLoaded',function(){const o=window.setLang;if(typeof o==='function'){window.setLang=function(l){o(l);renderCart()}}});
 // Check payment on return
 (async function(){const p=new URLSearchParams(window.location.search);if(p.get('payment')!=='success')return;const trackId=localStorage.getItem('dord_track_id');const pending=JSON.parse(localStorage.getItem('dord_pending_order')||'null');if(!trackId)return;setPayStatus('⏳ Verifying...','loading');try{const r=await fetch('/api/check-payment',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({trackId,orderId:pending?.orderId||'',cart:pending?.cart||[],email:pending?.clientEmail||'',orderDetails:pending?.orderDetails||{}})});const data=await r.json();if(data.ok){setPayStatus('✅ Confirmed! $'+data.amount,'loading');localStorage.removeItem('dord_track_id');localStorage.removeItem('dord_pending_order');cart=[];renderCart()}else{setPayStatus('⏳ Pending: '+data.status,'loading')}}catch(err){setPayStatus('⚠️ Could not verify.','error')}})();
 </script>

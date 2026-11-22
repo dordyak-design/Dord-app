@@ -12,7 +12,7 @@
     --accent-green: #00c896;
     --accent-green-dim: rgba(0, 200, 150, 0.12);
     --text-main: #f1f5f9;
-    --text-muted: #64748b;
+    --text-muted: #7c8aa0; /* светлее для контраста WCAG AA на тёмном фоне */
     --text-soft: #94a3b8;
     --border: rgba(255, 255, 255, 0.06);
     --border-green: rgba(0, 200, 150, 0.25);
@@ -1445,3 +1445,63 @@ footer {
 .wallet-link{display:inline-block;padding:10px 20px;border-radius:10px;background:rgba(0,200,150,0.1);border:1px solid rgba(0,200,150,0.25);color:#00c896;font-family:'Inter',sans-serif;font-size:12px;font-weight:700;text-decoration:none;transition:all 0.2s}
 .wallet-link:hover{background:rgba(0,200,150,0.2);transform:translateY(-1px)}
 @media(max-width:768px){.wallets-grid{grid-template-columns:1fr}}
+
+
+/* ===================== ЧИТАЕМОСТЬ НА КОМПЬЮТЕРЕ =====================
+   На больших мониторах мелкий текст увеличен. Телефоны и планшеты (до 1024px) не затронуты.
+   Префикс body нужен, чтобы перекрыть стили, заданные внутри страниц. */
+@media (min-width: 1025px) {
+    body .nav-btn { font-size: 12px; }
+    body .occupation { font-size: 12px; }
+    body .breadcrumb, body .breadcrumb a, body .breadcrumb span { font-size: 13px; }
+
+    body .section-label { font-size: 12px; }
+    body .section-sub { font-size: 15px; }
+    body .hero-sub { font-size: 16px; }
+
+    /* Карточки тарифов */
+    body .pack-name { font-size: 13px; }
+    body .pack-price span { font-size: 14px; }
+    body .pack-desc { font-size: 14px; }
+    body .pack-features li { font-size: 13px; }
+    body .pack-features li::before { font-size: 12px; }
+    body .pack-badge { font-size: 10px; }
+    body .pack-cta { font-size: 12px; }
+    body .subs-head p { font-size: 14px; }
+    body .subs-note { font-size: 13px; }
+
+    /* Блоки на главной */
+    body .israel-block p { font-size: 15px; }
+    body .israel-stat span { font-size: 13px; text-transform: none; letter-spacing: 0; }
+    body .free-sample-block p { font-size: 15px; }
+    body .step p { font-size: 14px; }
+    body .wallet-desc { font-size: 13px; }
+
+    /* Страница заказа */
+    body .cfg-section-title { font-size: 14px; }
+    body .cfg-section-sub { font-size: 13px; }
+    body .video-card-name { font-size: 12px; }
+    body .video-card-desc { font-size: 13px; }
+    body .video-add-btn { font-size: 12px; }
+    body .value-badge { font-size: 12px; }
+    body .page-hero p { font-size: 15px; }
+    body .free-sample-row p { font-size: 14px; }
+    body .choice-label { font-size: 12px; }
+    body .form-field label { font-size: 12px; }
+    body .cart-title { font-size: 13px; }
+    body .cart-item-name { font-size: 13px; }
+    body .cart-item-detail { font-size: 12px; }
+    body .cart-empty, body .cart-total-label, body .promo-hint, body .auth-required { font-size: 13px; }
+    body .cart-pay-note, body .pay-status { font-size: 12px; }
+    body .btn-pay { font-size: 12px; }
+    body .compare-table td { font-size: 13px; }
+    body .compare-table th { font-size: 11px; }
+    body .step-desc { font-size: 13px; }
+    body .step-title { font-size: 12px; }
+    body .faq-q { font-size: 14px; }
+    body .faq-a { font-size: 13px; }
+
+    /* Подвал */
+    body .footer-col a, body .footer-col span, body .footer-col p { font-size: 13px; }
+    body .footer-bottom { font-size: 12px; }
+}
