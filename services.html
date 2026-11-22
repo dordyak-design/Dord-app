@@ -69,6 +69,14 @@
 .btn-pay:hover{opacity:0.9;transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,200,150,0.3)}
 .btn-pay:disabled{opacity:0.4;cursor:not-allowed;transform:none}
 .cart-pay-note{font-size:9px;color:#8892a4;text-align:center;margin-top:6px;line-height:1.5}
+.fmt-toggle{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:4px 0 12px}
+.fmt-btn{display:flex;flex-direction:column;gap:2px;align-items:flex-start;text-align:left;padding:10px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.08);background:#111827;color:#94a3b8;cursor:pointer;font-family:'Inter',sans-serif;transition:all .2s}
+.fmt-btn b{font-size:12px;color:#e2e8f0}.fmt-btn span{font-size:11px}
+.fmt-btn.active{border-color:rgba(0,200,150,.5);background:rgba(0,200,150,.08)}
+.fmt-btn.active b{color:#00c896}
+.fmt-note{font-size:11px;color:#00c896;margin:-4px 0 12px}
+@media(min-width:1025px){body .fmt-btn b{font-size:13px}body .fmt-btn span,body .fmt-note{font-size:12.5px}}
+.sm-note{font-size:11px;color:#94a3b8;line-height:1.55;background:rgba(0,200,150,.06);border:1px solid rgba(0,200,150,.2);border-radius:10px;padding:9px 12px;margin:2px 0 6px}
 .cart-perks{list-style:none;margin:10px 0 0;padding:10px 12px;border:1px solid rgba(0,200,150,.25);border-radius:10px;background:rgba(0,200,150,.06);display:grid;gap:6px}
 .cart-perks li{font-size:11px;line-height:1.45;color:#cbd5e1;padding-left:18px;position:relative}
 .cart-perks li:before{content:"✓";position:absolute;left:0;color:#00c896;font-weight:800}
@@ -190,10 +198,15 @@
     <div class="cfg-section">
       <div class="cfg-section-title" data-i18n="svc.cfg.img.title">📸 Product Photos</div>
       <div class="cfg-section-sub" data-i18n="svc.cfg.img.sub">Every image is checked by a human. Commercial rights included.</div>
+      <div class="fmt-toggle" role="group" aria-label="Format">
+        <button type="button" class="fmt-btn active" data-hd="0" onclick="setPhotoMode(false)"><b data-i18n="fmt.std.t">Standard</b><span data-i18n="fmt.std.d">1:1 · 1024px · 4:5</span></button>
+        <button type="button" class="fmt-btn" data-hd="1" onclick="setPhotoMode(true)"><b data-i18n="fmt.hd.t">HD · +20%</b><span data-i18n="fmt.hd.d">2048px · 16:9 · 9:16</span></button>
+      </div>
+      <div class="fmt-note" id="fmtNote" data-i18n="fmt.note" style="display:none">HD delivery may take up to 24h longer.</div>
       <div class="video-grid">
-        <div class="video-card"><div class="video-card-name" data-i18n="p1.title">Hero Shot</div><div class="video-card-price">$19</div><div class="video-card-desc" data-i18n="p1.f1">1 product · 1 hero image</div><button class="video-add-btn" data-i18n="btn.add" onclick="addProduct('Hero Shot','p1.f1',19)">+ Add</button></div>
-        <div class="video-card"><div class="video-card-name" data-i18n="p2.title">Product Set</div><div class="video-card-price">$79</div><div class="video-card-desc" data-i18n="p2.f1">1 product · 5 images</div><button class="video-add-btn" data-i18n="btn.add" onclick="addProduct('Product Set','p2.f1',79)">+ Add</button></div>
-        <div class="video-card"><div class="video-card-name" data-i18n="p3.title">Catalog</div><div class="video-card-price">$299</div><div class="video-card-desc" data-i18n="p3.f1">Up to 6 products · 30 images</div><button class="video-add-btn" data-i18n="btn.add" onclick="addProduct('Catalog','p3.f1',299)">+ Add</button></div>
+        <div class="video-card"><div class="video-card-name" data-i18n="p1.title">Hero Shot</div><div class="video-card-price" data-base="19">$19</div><div class="video-card-desc" data-i18n="p1.f1">1 product · 1 hero image</div><button class="video-add-btn" data-i18n="btn.add" onclick="addPhoto('Hero Shot','p1.f1',19)">+ Add</button></div>
+        <div class="video-card"><div class="video-card-name" data-i18n="p2.title">Product Set</div><div class="video-card-price" data-base="79">$79</div><div class="video-card-desc" data-i18n="p2.f1">1 product · 5 images</div><button class="video-add-btn" data-i18n="btn.add" onclick="addPhoto('Product Set','p2.f1',79)">+ Add</button></div>
+        <div class="video-card"><div class="video-card-name" data-i18n="p3.title">Catalog</div><div class="video-card-price" data-base="299">$299</div><div class="video-card-desc" data-i18n="p3.f1">Up to 6 products · 30 images</div><button class="video-add-btn" data-i18n="btn.add" onclick="addPhoto('Catalog','p3.f1',299)">+ Add</button></div>
       </div>
     </div>
 
@@ -238,6 +251,10 @@
         <div class="form-row">
           <div class="form-field"><label>Service type</label><select id="orderType"><option>Hero Shot</option><option>Product Set</option><option>Catalog</option><option>Video 5 sec</option><option>Video 10 sec</option></select></div>
           <div class="form-field"><label>Email</label><input type="email" id="orderEmail" placeholder="your@email.com"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-field"><label data-i18n="fmt.label">Format &amp; resolution</label><select id="orderFormat" onchange="onFormatChange(this)"><optgroup label="Standard"><option value="1:1 · 1024×1024">1:1 · 1024×1024 — Shopify, Amazon</option><option value="4:5 · 1080×1350">4:5 · 1080×1350 — Instagram</option></optgroup><optgroup label="HD +20%"><option value="1:1 HD · 2048×2048" data-hd="1">1:1 HD · 2048×2048</option><option value="16:9 · 1920×1080" data-hd="1">16:9 · 1920×1080 — banner</option><option value="9:16 · 1080×1920" data-hd="1">9:16 · 1080×1920 — Stories, Reels</option><option value="custom" data-hd="1" data-i18n="fmt.custom">Custom size</option></optgroup></select></div>
+          <div class="form-field" id="customSizeField" style="display:none"><label data-i18n="fmt.customL">Custom size (W×H, px)</label><input type="text" id="orderCustomSize" placeholder="1600×900"></div>
         </div>
         <div class="form-field"><label>Object</label><textarea id="orderObject" rows="2" placeholder="e.g. Glass perfume bottle..."></textarea></div>
         <div class="form-field"><label>Background</label><textarea id="orderBg" rows="2" placeholder="e.g. Dark wet marble..."></textarea></div>
@@ -359,24 +376,25 @@
 </div>
 
 <!-- FREE SAMPLE MODAL -->
-<div id="sampleModal" style="display:none;position:fixed;inset:0;background:rgba(8,11,26,0.95);z-index:9999;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(8px)">
-  <div style="background:#0d1121;border:1px solid rgba(0,200,150,0.25);border-radius:24px;padding:28px;width:100%;max-width:520px;position:relative">
-    <button onclick="document.getElementById('sampleModal').style.display='none'" style="position:absolute;top:14px;right:18px;background:none;border:none;color:#8892a4;font-size:20px;cursor:pointer">✕</button>
-    <div style="font-family:'Unbounded',sans-serif;font-size:13px;font-weight:700;color:#fff;margin-bottom:4px">🎁 Free Sample</div>
-    <div style="font-size:11px;color:#8892a4;margin-bottom:20px;line-height:1.6">1–2 preview renders, no payment.</div>
-    <div id="sampleMsg" style="display:none;padding:8px 12px;border-radius:8px;font-size:11px;margin-bottom:12px"></div>
+<div id="sampleModal" style="display:none;position:fixed;inset:0;background:rgba(8,11,26,0.95);z-index:9999;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(8px);overflow-y:auto">
+  <div style="background:#0d1121;border:1px solid rgba(0,200,150,0.25);border-radius:24px;padding:28px;width:100%;max-width:520px;position:relative;margin:auto">
+    <button onclick="document.getElementById('sampleModal').style.display='none'" aria-label="Close" style="position:absolute;top:14px;right:18px;background:none;border:none;color:#8892a4;font-size:20px;cursor:pointer">✕</button>
+    <div style="font-family:'Unbounded',sans-serif;font-size:13px;font-weight:700;color:#fff;margin-bottom:4px" data-i18n="sm.title">🎁 Free Sample</div>
+    <div style="font-size:12px;color:#8892a4;margin-bottom:16px;line-height:1.6" data-i18n="sm.sub">1–2 preview renders, no payment. Describe your product in your own words, in any language — we'll write the prompt.</div>
+    <div id="sampleMsg" style="display:none;padding:8px 12px;border-radius:8px;font-size:12px;margin-bottom:12px"></div>
     <div class="order-form">
       <div class="form-row">
-        <div class="form-field"><label>Resolution</label><select id="sampleSize"><option value="512">512×512</option><option value="768">768×768</option><option value="1024" selected>1024×1024</option></select></div>
+        <div class="form-field"><label data-i18n="sm.size">Format</label><select id="sampleSize"><option value="1:1 · 1024×1024" selected>1:1 · 1024×1024</option><option value="4:5 · 1080×1350">4:5 · 1080×1350</option><option value="1:1 HD · 2048×2048">1:1 HD · 2048</option><option value="16:9 · 1920×1080">16:9 · 1920×1080</option><option value="9:16 · 1080×1920">9:16 · 1080×1920</option></select></div>
         <div class="form-field"><label>Email</label><input type="email" id="sampleEmail" placeholder="your@email.com"></div>
       </div>
-      <div class="form-field"><label>Object</label><textarea id="sampleObject" rows="2" placeholder="e.g. Glass perfume bottle..."></textarea></div>
-      <div class="form-field"><label>Background</label><input type="text" id="sampleBg" placeholder="e.g. Dark marble, fog"></div>
+      <div class="form-field"><label data-i18n="sm.obj">Product</label><textarea id="sampleObject" rows="2" placeholder="e.g. Glass perfume bottle with a gold cap" data-i18n-placeholder="sm.obj.ph"></textarea></div>
+      <div class="form-field"><label data-i18n="sm.bg">Background / scene</label><input type="text" id="sampleBg" placeholder="e.g. Dark marble, light fog" data-i18n-placeholder="sm.bg.ph"></div>
       <div class="form-row">
-        <div class="form-field"><label>Lighting</label><input type="text" id="sampleLight" placeholder="e.g. Dramatic side light"></div>
-        <div class="form-field"><label>Effects</label><input type="text" id="sampleFx" placeholder="e.g. Levitation"></div>
+        <div class="form-field"><label data-i18n="sm.light">Lighting</label><input type="text" id="sampleLight" placeholder="e.g. Soft side light" data-i18n-placeholder="sm.light.ph"></div>
+        <div class="form-field"><label data-i18n="sm.fx">Effects</label><input type="text" id="sampleFx" placeholder="e.g. Water splash, levitation" data-i18n-placeholder="sm.fx.ph"></div>
       </div>
-      <button onclick="submitSample(this)" style="width:100%;padding:13px;background:linear-gradient(135deg,#004aad,#00c896);color:#fff;border:none;border-radius:12px;font-family:'Unbounded',sans-serif;font-size:11px;font-weight:700;cursor:pointer;text-transform:uppercase;margin-top:4px">Send Request →</button>
+      <div class="sm-note" data-i18n="sm.photo">Have a photo of your product? After sending, message it to us on Telegram <a href="https://t.me/dordai_art_support_bot" target="_blank" rel="noopener" style="color:#00c896">@dordai_art_support_bot</a> — the sample will show your real product.</div>
+      <button onclick="submitSample(this)" data-i18n="sm.send" style="width:100%;padding:13px;background:linear-gradient(135deg,#004aad,#00c896);color:#fff;border:none;border-radius:12px;font-family:'Unbounded',sans-serif;font-size:11px;font-weight:700;cursor:pointer;text-transform:uppercase;margin-top:4px">Send Request →</button>
     </div>
   </div>
 </div>
@@ -440,15 +458,16 @@ window.applyPromo = async function() {
 
 // Make submitSample available
 window.submitSample = async function(btn) {
+  const T=(k,d)=>{const v=(typeof i18nGet==='function')?i18nGet(k):k;return v===k?d:v};
   const email = document.getElementById('sampleEmail').value.trim();
   const object = document.getElementById('sampleObject').value.trim();
-  if (!email || !object) { showSampleMsg('Fill in email and object', 'error'); return; }
-  btn.disabled = true; btn.textContent = 'Sending...';
-  const data = { email, size: document.getElementById('sampleSize').value, object, background: document.getElementById('sampleBg').value, lighting: document.getElementById('sampleLight').value, effects: document.getElementById('sampleFx').value, status: 'new', created_at: new Date().toISOString() };
+  if (!email || !object) { showSampleMsg(T('sm.err','Fill in email and product'), 'error'); return; }
+  btn.disabled = true; btn.textContent = T('sm.sending','Sending...');
+  const data = { email, size: document.getElementById('sampleSize').value, object, background: document.getElementById('sampleBg').value, lighting: document.getElementById('sampleLight').value, effects: document.getElementById('sampleFx').value, lang: localStorage.getItem('dord_lang')||'en', status: 'new', created_at: new Date().toISOString() };
   try { await addDoc(collection(db, 'free_samples'), data); } catch(e) { console.error(e); }
-  await fetch('/api/notify',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({type:'sample',email,size:data.size,object,background:data.background,lighting:data.lighting})}).catch(()=>{});
-  showSampleMsg("✓ Sent! We'll contact you within 24h.", 'success');
-  btn.textContent = '✓ Sent!';
+  await fetch('/api/notify',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({type:'sample',email,size:data.size,object,background:data.background,lighting:data.lighting,effects:data.effects,lang:data.lang})}).catch(()=>{});
+  showSampleMsg(T('sm.ok',"✓ Sent! We'll contact you within 24h."), 'success');
+  btn.textContent = '✓';
 };
 </script>
 
@@ -457,6 +476,25 @@ let cart=[];let uploadedFiles=[];
 window._currentUser=null;window._cartHasItems=false;window._promoDiscount=0;window._promoDocId=null;
 function addProduct(name,detailKey,price){const detail=(typeof i18nGet==='function')?i18nGet(detailKey):detailKey;addToCart({id:'p_'+Date.now()+Math.floor(Math.random()*1000),name:name,detail:detail,price:price})}
 function addToCart(item){cart.push(item);renderCart()}
+window._hd=false;
+const hdPrice=b=>Math.round(b*1.2);
+function photoDetail(key){const d=(typeof i18nGet==='function')?i18nGet(key):key;const f=document.getElementById('orderFormat');return d+' · '+(window._hd?'HD':'Standard')+(f&&f.value&&f.value!=='custom'?' · '+f.value:'')}
+function addPhoto(name,key,base){addToCart({id:'p_'+Date.now()+Math.floor(Math.random()*1000),name:name+(window._hd?' HD':''),detail:photoDetail(key),price:window._hd?hdPrice(base):base,base:base,key:key,photo:true})}
+function setPhotoMode(hd,fromSelect){
+  window._hd=!!hd;
+  document.querySelectorAll('.fmt-btn').forEach(b=>b.classList.toggle('active',(b.dataset.hd==='1')===window._hd));
+  document.querySelectorAll('.video-card-price[data-base]').forEach(el=>{el.textContent='$'+(window._hd?hdPrice(+el.dataset.base):+el.dataset.base)});
+  const n=document.getElementById('fmtNote');if(n)n.style.display=window._hd?'block':'none';
+  const f=document.getElementById('orderFormat');
+  if(f&&!fromSelect){const isHd=!!f.selectedOptions[0]?.dataset.hd;if(isHd!==window._hd){f.value=window._hd?'1:1 HD · 2048×2048':'1:1 · 1024×1024';onFormatChange(f,true)}}
+  cart.forEach(i=>{if(i.photo){i.price=window._hd?hdPrice(i.base):i.base;i.name=i.name.replace(/ HD$/,'')+(window._hd?' HD':'');i.detail=photoDetail(i.key)}});
+  renderCart();
+}
+function onFormatChange(sel,silent){
+  const hd=!!sel.selectedOptions[0]?.dataset.hd;
+  document.getElementById('customSizeField').style.display=sel.value==='custom'?'block':'none';
+  if(!silent&&hd!==window._hd)setPhotoMode(hd,true);else if(!silent){cart.forEach(i=>{if(i.photo)i.detail=photoDetail(i.key)});renderCart()}
+}
 function removeFromCart(id){cart=cart.filter(i=>i.id!==id);renderCart()}
 function renderCart(){
   const subtotal=cart.reduce((s,i)=>s+i.price,0);
@@ -491,7 +529,7 @@ async function handlePay(){
   const total=subtotal*(1-discount/100);
   const orderId='ORD-'+Date.now();
   const clientEmail=document.getElementById('orderEmail')?.value||window._currentUser.email;
-  const orderDetails={type:document.getElementById('orderType')?.value||'—',object:document.getElementById('orderObject')?.value||'—',background:document.getElementById('orderBg')?.value||'—',lighting:document.getElementById('orderLight')?.value||'—',texture:document.getElementById('orderTexture')?.value||'—',effects:document.getElementById('orderFx')?.value||'—'};
+  const _fmt=document.getElementById('orderFormat')?.value;const orderDetails={format:(_fmt==='custom'?'custom '+(document.getElementById('orderCustomSize')?.value||''):_fmt)||'—',quality:window._hd?'HD':'Standard',type:document.getElementById('orderType')?.value||'—',object:document.getElementById('orderObject')?.value||'—',background:document.getElementById('orderBg')?.value||'—',lighting:document.getElementById('orderLight')?.value||'—',texture:document.getElementById('orderTexture')?.value||'—',effects:document.getElementById('orderFx')?.value||'—'};
   localStorage.setItem('dord_pending_order',JSON.stringify({orderId,cart,total,clientEmail,orderDetails,promoCode:document.getElementById('promoInput').value}));
   document.getElementById('payBtn').disabled=true;
   setPayStatus('⏳ Redirecting...','loading');

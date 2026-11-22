@@ -34,7 +34,9 @@ export default async function handler(req, res) {
       '📐 ' + clip(b.size, 40) + '\n' +
       '📝 ' + clip(b.object, 500) + '\n' +
       '🌿 ' + clip(b.background, 200) + '\n' +
-      '💡 ' + clip(b.lighting, 200);
+      '💡 ' + clip(b.lighting, 200) + '\n' +
+      '✨ ' + clip(b.effects, 200) + '\n' +
+      '🌐 ' + (b.lang === 'ru' ? 'RU' : 'EN');
 
     await sendTelegram(msg);
     return res.status(200).json({ ok: true });
