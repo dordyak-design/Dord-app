@@ -112,11 +112,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </div>
   </div>
   <div class="hero-stats" style="grid-template-columns:1fr 1fr 1fr">
-    <div class="hero-preview" onclick="openHeroLightbox('https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/output_00008_.png')"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/output_00008_.png" alt="Gold ring on quartz — AI product photo" loading="eager"></div>
+    <div class="hero-preview" onclick="openHeroLightbox('https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00014_.png')"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00014_.png" alt="Emerald and diamond pendant — AI jewelry photo" loading="eager"></div>
     <div class="hero-preview" onclick="openHeroLightbox('https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/output_00009_.png')"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/output_00009_.png" alt="Black chronograph watch — AI product photo" loading="eager"></div>
     <div class="hero-preview" onclick="openHeroLightbox('https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/output_00006_.png')"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/output_00006_.png" alt="Serum bottle with splash — AI product photo" loading="eager"></div>
     <div class="hero-preview" onclick="openHeroLightbox('https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/output_00022_.png')"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/output_00022_.png" alt="Silver chain on graphite — AI jewelry photo" loading="lazy"></div>
-    <div class="hero-preview" onclick="openHeroLightbox('https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/output_00024_.png')"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/output_00024_.png" alt="Pearl bracelet on emerald silk — AI jewelry photo" loading="lazy"></div>
+    <div class="hero-preview" onclick="openHeroLightbox('https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00010_.png')"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00010_.png" alt="Diamond halo earrings on silk — AI jewelry photo" loading="lazy"></div>
     <div class="hero-preview" onclick="openHeroLightbox('https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/output_00023_.png')"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/output_00023_.png" alt="Black and rose gold rings — AI jewelry photo" loading="lazy"></div>
   </div>
   <div id="heroLightbox" onclick="closeHeroLightbox()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:9999;align-items:center;justify-content:center;padding:20px;">
@@ -424,11 +424,13 @@ window.addEventListener('scroll',()=>{btn.classList.toggle('visible',window.scro
 (function(){
   const B='https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/';
   const S=(f,a)=>({url:B+f,alt:a});
-  const products={key:'sc.t.products',title:'Products',items:[
-    S('output_00038_.png','Gold ring on quartz'),S('output_00040_.png','Pearls in a jewelry box'),
-    S('output_00020_.png','Gold earrings in a marble bathroom'),S('output_00003_.png','Leather bag on a pedestal'),
-    S('output_00004_.png','Leather wallet'),S('output_00007_.png','Face cream with eucalyptus'),
-    S('output_00010_.png','Tortoise sunglasses'),S('output_00036_.png','Wireless charger with phone')]};
+  const products={key:'sc.t.products',title:'Best work',items:[
+    S('output_00008_.png','Gold ring on quartz'),S('output_00024_.png','Pearl bracelet on emerald silk'),
+    {url:'https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00015_.png',alt:'Emerald and diamond tiara'},S('uotput_1024_00010_.png','Summer dress on a model at sunset'),
+    S('output_00003_.png','Leather bag on a pedestal'),S('output_00004_.png','Leather wallet'),
+    S('output_00007_.png','Face cream with eucalyptus'),S('output_00010_.png','Tortoise sunglasses'),
+    S('output_00054_.png','Modern villa with pool'),S('output_00057_.png','Evening mountain terrace with fire pit'),
+    {url:'https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_00002_.png',alt:'Galaxy in a glass bottle'},S('uotput_1024_00001_.png','Sea-view living room at sunset')]};
   const fallback=[products,
     {key:'sc.t.fashion',title:'Fashion',items:[S('uotput_1024_00010_.png','Summer dress on a model'),S('output_00029_.png','Silk slip dress'),
       S('output_00026_.png','Rust linen shirt'),S('output_00027_.png','Black hoodie'),S('output_00028_.png','Burgundy loafers'),
