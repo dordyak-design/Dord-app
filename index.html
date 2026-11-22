@@ -112,16 +112,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </div>
   </div>
   <div class="hero-stats" style="grid-template-columns:1fr 1fr 1fr">
-    <div class="hero-preview" onclick="openHeroLightbox('https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/uotput_1024_00001_.png')"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/uotput_1024_00001_.png" alt="Interior luxury AI photo" loading="lazy"></div>
-    <div class="hero-preview" onclick="openHeroLightbox('https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/uotput_1024_00018_.png')"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/uotput_1024_00018_.png" alt="Outdoor lounge AI photo" loading="lazy"></div>
-    <div class="hero-preview" onclick="openHeroLightbox('https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/output_00003_.png')"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/output_00003_.png" alt="Luxury bag AI photo" loading="lazy"></div>
-    <div class="hero-preview" onclick="openHeroLightbox('https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/output_00029_.png')"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/output_00029_.png" alt="Fashion dress AI photo" loading="lazy"></div>
-    <div class="hero-preview" onclick="openHeroLightbox('https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/uotput_1024_00023_.png')"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/uotput_1024_00023_.png" alt="Fire pit outdoor AI photo" loading="lazy"></div>
-    <div class="hero-preview" onclick="openHeroLightbox('https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/output_00009_.png')"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/output_00009_.png" alt="Luxury watch AI photo" loading="lazy"></div>
+    <div class="hero-preview" onclick="openHeroLightbox('https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/output_00008_.png')"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/output_00008_.png" alt="Gold ring on quartz — AI product photo" loading="eager"></div>
+    <div class="hero-preview" onclick="openHeroLightbox('https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/output_00009_.png')"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/output_00009_.png" alt="Black chronograph watch — AI product photo" loading="eager"></div>
+    <div class="hero-preview" onclick="openHeroLightbox('https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/output_00006_.png')"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/output_00006_.png" alt="Serum bottle with splash — AI product photo" loading="eager"></div>
+    <div class="hero-preview" onclick="openHeroLightbox('https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/output_00022_.png')"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/output_00022_.png" alt="Silver chain on graphite — AI jewelry photo" loading="lazy"></div>
+    <div class="hero-preview" onclick="openHeroLightbox('https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/output_00024_.png')"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/output_00024_.png" alt="Pearl bracelet on emerald silk — AI jewelry photo" loading="lazy"></div>
+    <div class="hero-preview" onclick="openHeroLightbox('https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/output_00023_.png')"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/output_00023_.png" alt="Black and rose gold rings — AI jewelry photo" loading="lazy"></div>
   </div>
   <div id="heroLightbox" onclick="closeHeroLightbox()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:9999;align-items:center;justify-content:center;padding:20px;">
     <img id="heroLightboxImg" src="" style="max-width:90vw;max-height:90vh;object-fit:contain;border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,0.8);">
     <span onclick="closeHeroLightbox()" style="position:absolute;top:20px;right:24px;font-size:32px;color:#fff;cursor:pointer;line-height:1;">×</span>
+  </div>
+</section>
+
+<!-- SHOWCASE -->
+<section class="section-wrap showcase" id="showcase">
+  <div class="section-label" style="text-align:center;" data-i18n="sc.label">Our Work</div>
+  <h2 class="section-title" style="text-align:center;" data-i18n="sc.title">Real Renders. No Stock. No Filters.</h2>
+  <p class="section-sub" style="text-align:center;max-width:640px;margin:0 auto;" data-i18n="sc.sub">Every image below was generated on our own GPU servers and approved by a human. Tap any image to see it full size.</p>
+  <div class="sc-tabs" id="scTabs" role="tablist"></div>
+  <div class="sc-grid" id="scGrid"></div>
+  <div style="text-align:center;margin-top:28px;">
+    <a href="gallery.html" class="btn-secondary" data-i18n="sc.more">See the Full Gallery →</a>
   </div>
 </section>
 
@@ -217,6 +229,32 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <p style="text-align:center;color:var(--text-muted);font-size:12px;margin-top:20px;"><span data-i18n="custom.q">Need something custom?</span> <a href="https://t.me/DordAI" target="_blank" style="color:var(--accent-green)" data-i18n="custom.cta">Contact us on Telegram</a></p>
 </section>
+
+<!-- INTERIORS & EXTERIORS -->
+<div class="section-wrap-alt" id="spaces">
+  <div class="section-inner">
+    <div class="spaces-block">
+      <div class="spaces-text">
+        <div class="section-label" data-i18n="sp.label">Interiors &amp; Exteriors</div>
+        <h2 class="section-title" data-i18n="sp.title">Sell the Space Before It's Built.</h2>
+        <p class="section-sub" data-i18n="sp.sub">Living rooms, villas, terraces, pools and BBQ zones — photoreal visuals for furniture stores, real estate agents and interior designers.</p>
+        <ul class="spaces-list">
+          <li data-i18n="sp.l1"><strong>Furniture stores</strong> — your sofa or table placed in a styled room</li>
+          <li data-i18n="sp.l2"><strong>Real estate</strong> — empty rooms staged, exteriors at golden hour</li>
+          <li data-i18n="sp.l3"><strong>Designers</strong> — fast mood visuals for client approval</li>
+        </ul>
+        <p class="spaces-price" data-i18n="sp.price">Same packages as products — from $19 per visual.</p>
+        <a href="https://t.me/DordAI" target="_blank" rel="noopener" class="btn-primary" data-i18n="sp.cta">Discuss Your Project →</a>
+      </div>
+      <div class="spaces-grid">
+        <button type="button" class="sc-item" onclick="openHeroLightbox('https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/output_00049_.png')"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/output_00049_.png" alt="Stone bathtub interior — AI render" loading="lazy"></button>
+        <button type="button" class="sc-item" onclick="openHeroLightbox('https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/output_00050_.png')"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/output_00050_.png" alt="Classic dining room with chandelier — AI render" loading="lazy"></button>
+        <button type="button" class="sc-item" onclick="openHeroLightbox('https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/output_00057_.png')"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/output_00057_.png" alt="Mountain terrace with fire pit — AI render" loading="lazy"></button>
+        <button type="button" class="sc-item" onclick="openHeroLightbox('https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/output_00054_.png')"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/output_00054_.png" alt="Villa pool with loungers — AI render" loading="lazy"></button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- WHY -->
 <div class="section-wrap-alt">
@@ -318,10 +356,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <!-- GALLERY LINK -->
 <section class="section-wrap">
-  <div class="section-label" style="text-align:center;">Portfolio</div>
-  <h2 class="section-title" style="text-align:center;">50+ High-End Examples</h2>
+  <div class="section-label" style="text-align:center;" data-i18n="gl.label">Portfolio</div>
+  <h2 class="section-title" style="text-align:center;" data-i18n="gl.title">Houses, Villas, Fashion and More</h2>
   <div style="text-align:center;margin-top:24px;">
-    <a href="gallery.html" class="btn-primary">View Full Gallery →</a>
+    <a href="gallery.html" class="btn-primary" data-i18n="gl.cta">View Full Gallery →</a>
   </div>
 </section>
 
@@ -341,6 +379,20 @@ const app = initializeApp({
   apiKey:"AIzaSyCfot_WKYkikmKHrqet2nXnPasQB1ln61g",authDomain:"dord-ai-studio.firebaseapp.com",projectId:"dord-ai-studio",storageBucket:"dord-ai-studio.firebasestorage.app",messagingSenderId:"759031422125",appId:"1:759031422125:web:22367b8059ce661f51fa24"
 });
 const db = getFirestore(app);
+
+// 1) Витрина на главной: живые разделы из галереи (gallery_sections)
+try {
+  const snap = await getDocs(collection(db, 'gallery_sections'));
+  const secs = [];
+  snap.forEach(d => { const x = d.data(); if ((x.images || []).length) secs.push(x); });
+  secs.sort((a, b) => (a.order || 99) - (b.order || 99));
+  if (secs.length && window.scSetLive) {
+    window.scSetLive(secs.map(x => ({
+      title: x.title,
+      items: x.images.slice(0, 8).map(i => ({ url: i.url, alt: i.caption || x.title }))
+    })));
+  }
+} catch(e) { console.warn('Showcase load error:', e); }
 
 // 2) Партнёры в footer из partner_links
 try {
@@ -366,6 +418,45 @@ function closeHeroLightbox(){document.getElementById('heroLightbox').style.displ
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeHeroLightbox()});
 const btn=document.getElementById('backToTop');
 window.addEventListener('scroll',()=>{btn.classList.toggle('visible',window.scrollY>400)});
+</script>
+
+<script>
+(function(){
+  const B='https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/';
+  const S=(f,a)=>({url:B+f,alt:a});
+  const products={key:'sc.t.products',title:'Products',items:[
+    S('output_00038_.png','Gold ring on quartz'),S('output_00040_.png','Pearls in a jewelry box'),
+    S('output_00020_.png','Gold earrings in a marble bathroom'),S('output_00003_.png','Leather bag on a pedestal'),
+    S('output_00004_.png','Leather wallet'),S('output_00007_.png','Face cream with eucalyptus'),
+    S('output_00010_.png','Tortoise sunglasses'),S('output_00036_.png','Wireless charger with phone')]};
+  const fallback=[products,
+    {key:'sc.t.fashion',title:'Fashion',items:[S('uotput_1024_00010_.png','Summer dress on a model'),S('output_00029_.png','Silk slip dress'),
+      S('output_00026_.png','Rust linen shirt'),S('output_00027_.png','Black hoodie'),S('output_00028_.png','Burgundy loafers'),
+      S('output_00033_.png','Hoodie on a rack'),S('output_00030_.png','Folded white tees'),S('output_00034_.png','Loafers in a loft')]},
+    {key:'sc.t.interiors',title:'Interiors',items:[S('uotput_1024_00001_.png','Sea-view living room'),S('output_00048_.png','Living room with fireplace'),
+      S('output_00051_.png','Industrial loft'),S('output_00044_.png','Classic bedroom'),S('output_00043_.png','Leather armchair in a library'),
+      S('output_00042_.png','Curved white sofa'),S('uotput_1024_00023_.png','Executive office with city view'),S('output_00052_.png','Colorful home office')]},
+    {key:'sc.t.exteriors',title:'Exteriors',items:[S('output_00057_.png','Mountain terrace with fire pit'),S('output_00059_.png','Pergola lounge'),
+      S('output_00054_.png','Villa pool with loungers'),S('output_00055_.png','Outdoor dining terrace'),S('output_00046_.png','Dining room with garden view')]}];
+  let tabs=fallback, active=0;
+  const esc=t=>String(t||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const tr=t=>(t.key&&typeof i18nGet==='function'&&i18nGet(t.key)!==t.key)?i18nGet(t.key):t.title;
+  function render(){
+    const nav=document.getElementById('scTabs'), grid=document.getElementById('scGrid');
+    if(!nav||!grid)return;
+    nav.innerHTML=tabs.map((t,i)=>`<button type="button" role="tab" class="sc-tab${i===active?' active':''}" aria-selected="${i===active}" data-i="${i}">${esc(tr(t))}</button>`).join('');
+    grid.innerHTML=tabs[active].items.map(it=>`<button type="button" class="sc-item" data-src="${esc(it.url)}"><img src="${esc(it.url)}" alt="${esc(it.alt)}" loading="lazy"></button>`).join('');
+  }
+  document.addEventListener('click',e=>{
+    const t=e.target.closest('.sc-tab'); if(t){active=+t.dataset.i;render();return;}
+    const it=e.target.closest('#scGrid .sc-item'); if(it)openHeroLightbox(it.dataset.src);
+  });
+  // Живые разделы из галереи: «Товары» остаются первой вкладкой, дальше — разделы из админки
+  window.scSetLive=function(live){tabs=[products].concat(live);active=0;render();};
+  const _setLang=window.setLang;
+  if(typeof _setLang==='function')window.setLang=function(l){_setLang(l);render();};
+  render();
+})();
 </script>
 
 <script src="legal.js"></script> 
