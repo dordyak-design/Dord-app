@@ -217,40 +217,35 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
+    gap: 10px;
     padding: 8px var(--page-pad);
     background: rgba(255, 255, 255, 0.02);
     border-bottom: 1px solid var(--border);
 }
 
-.social-bar a {
-    display: flex;
+/* Круглые иконки соцсетей — одинаковые, без подписей */
+.social-bar a.soc-icon {
+    display: inline-flex;
     align-items: center;
-    gap: 6px;
-    padding: 6px 16px;
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: rgba(255, 255, 255, 0.6);
-    font-family: 'Inter', sans-serif;
-    font-size: 12px;
-    font-weight: 600;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.03);
+    color: rgba(255, 255, 255, 0.75);
     text-decoration: none;
     transition: all 0.2s ease;
-    white-space: nowrap;
+    flex-shrink: 0;
 }
-
-.social-bar a:hover { color: #fff; border-color: rgba(255, 255, 255, 0.3); }
-.social-bar a.tg { border-color: rgba(34, 158, 217, 0.4); color: #229ED9; }
-.social-bar a.tg:hover { background: rgba(34, 158, 217, 0.1); }
-.social-bar a.ig { border-color: rgba(225, 48, 108, 0.4); color: #E1306C; }
-.social-bar a.ig:hover { background: rgba(225, 48, 108, 0.1); }
-.social-bar a.x { border-color: rgba(255, 255, 255, 0.2); color: #fff; }
-.social-bar a.x:hover { background: rgba(255, 255, 255, 0.05); }
-.social-bar a.reddit { border-color: rgba(255, 69, 0, 0.4); color: #FF4500; }
-.social-bar a.reddit:hover { background: rgba(255, 69, 0, 0.1); }
-.social-bar .wallet-cta-btn{display:inline-flex;align-items:center;gap:5px;padding:5px 14px;border-radius:20px;border:1px solid rgba(0,200,150,0.4);background:rgba(0,200,150,0.08);color:#00c896;font-family:'Inter',sans-serif;font-size:12px;font-weight:700;text-decoration:none;transition:all 0.2s;white-space:nowrap}
-.social-bar .wallet-cta-btn:hover{background:rgba(0,200,150,0.18);border-color:#00c896}
-.social-bar a svg { width: 14px; height: 14px; flex-shrink: 0; }
+.social-bar a.soc-icon svg { width: 16px; height: 16px; }
+.social-bar a.soc-icon:hover { transform: translateY(-2px); color: #fff; }
+.social-bar a.soc-icon.tg:hover { background: #229ED9; border-color: #229ED9; }
+.social-bar a.soc-icon.ig:hover { background: #E1306C; border-color: #E1306C; }
+.social-bar a.soc-icon.x:hover { background: #000; border-color: rgba(255, 255, 255, 0.4); }
+.social-bar a.soc-icon.reddit:hover { background: #FF4500; border-color: #FF4500; }
+.social-bar .lang-switcher { margin-left: 6px; }
 
 /* ===================== ХЛЕБНЫЕ КРОШКИ ===================== */
 .breadcrumb {
@@ -1318,25 +1313,34 @@ footer {
 }
 
 @media (max-width: 768px) {
-    header { padding: 0 12px; height: 52px; }
-    .header-left img { height: 28px; }
-    .company-name { font-size: 12px; }
-    .occupation { font-size: 7px; }
+    /* Шапка в две строки: логотип сверху, меню на всю ширину снизу */
+    header {
+        padding: 8px 12px;
+        height: auto;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+    }
+    .header-left { justify-content: center; gap: 10px; }
+    .header-left img { height: 34px; }
+    .company-name { font-size: 14px; }
+    .occupation { font-size: 8px; }
 
     nav {
-        gap: 4px;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        padding-bottom: 2px;
-        flex-shrink: 1;
-        min-width: 0;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 6px;
+        width: 100%;
     }
-    nav::-webkit-scrollbar { display: none; }
-    .nav-btn { padding: 6px 8px; font-size: 8px; flex-shrink: 0; }
+    .nav-btn {
+        padding: 9px 4px;
+        font-size: 9px;
+        text-align: center;
+        letter-spacing: 0.3px;
+    }
 
-    .social-bar { gap: 6px; padding: 6px 12px; flex-wrap: wrap; }
-    .social-bar a { padding: 4px 10px; font-size: 10px; }
+    .social-bar { gap: 8px; padding: 6px 12px; }
+    .social-bar a.soc-icon { width: 32px; height: 32px; }
 
     .hero { grid-template-columns: 1fr; padding: 20px 16px 24px; gap: 20px; }
     .hero-badge { font-size: 9px; padding: 4px 10px; margin-bottom: 10px; }
