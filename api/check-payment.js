@@ -43,7 +43,7 @@ export default async function handler(req, res) {
   if (req.method === 'OPTIONS') return res.status(200).end();
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-  const merchant = process.env.OXAPAY_MERCHANT_KEY;
+  const merchant = (process.env.OXAPAY_MERCHANT_KEY || process.env.OXAPAY_API_KEY);
   if (!merchant) {
     console.error('OXAPAY_MERCHANT_KEY is not set');
     return res.status(500).json({ error: 'Payment config missing' });

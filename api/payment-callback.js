@@ -56,7 +56,7 @@ export default async function handler(req, res) {
 
     // Перепроверяем статус напрямую в OxaPay
     let verified = null;
-    const merchant = process.env.OXAPAY_MERCHANT_KEY;
+    const merchant = (process.env.OXAPAY_MERCHANT_KEY || process.env.OXAPAY_API_KEY);
     if (merchant) {
       try {
         const r = await fetch('https://api.oxapay.com/merchants/inquiry', {
