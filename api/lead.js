@@ -1,9 +1,10 @@
 // /api/lead.js
 // Заявка с лендинга AI-ботов (bots.html) → сообщение в Telegram владельцу.
-// Токен бота — из переменной окружения Vercel TELEGRAM_BOT_TOKEN. Chat ID вшит по умолчанию.
+// Заявки приходят от отдельного бота @Dordsoftbot: токен в переменной Vercel TELEGRAM_LEADS_BOT_TOKEN.
+// Если её нет — используется общий TELEGRAM_BOT_TOKEN. Chat ID вшит по умолчанию.
 
 async function sendTelegram(text) {
-  const token = process.env.TELEGRAM_BOT_TOKEN;
+  const token = process.env.TELEGRAM_LEADS_BOT_TOKEN || process.env.TELEGRAM_BOT_TOKEN;
   const chatId = process.env.TELEGRAM_CHAT_ID || '528289836'; // Telegram ID Руслана — не секрет, не меняется
   if (!token || !chatId) throw new Error('Telegram env vars are not set');
   const r = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
