@@ -1,8 +1,19 @@
 {
   "functions": {
-    "api/create-invoice.js": { "maxDuration": 15 },
-    "api/payment-callback.js": { "maxDuration": 15 },
-    "api/check-payment.js": { "maxDuration": 15 },
-    "api/notify.js": { "maxDuration": 10 }
+    "api/create-invoice.js": {
+      "maxDuration": 15
+    },
+    "api/payment-callback.js": {
+      "maxDuration": 15
+    },
+    "api/check-payment.js": {
+      "maxDuration": 15
+    },
+    "api/notify.js": {
+      "maxDuration": 10
+    },
+    "api/lead.js": {
+      "maxDuration": 10
+    }
   }
 }
