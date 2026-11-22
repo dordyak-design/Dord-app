@@ -69,6 +69,10 @@
 .btn-pay:hover{opacity:0.9;transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,200,150,0.3)}
 .btn-pay:disabled{opacity:0.4;cursor:not-allowed;transform:none}
 .cart-pay-note{font-size:9px;color:#8892a4;text-align:center;margin-top:6px;line-height:1.5}
+.cart-perks{list-style:none;margin:10px 0 0;padding:10px 12px;border:1px solid rgba(0,200,150,.25);border-radius:10px;background:rgba(0,200,150,.06);display:grid;gap:6px}
+.cart-perks li{font-size:11px;line-height:1.45;color:#cbd5e1;padding-left:18px;position:relative}
+.cart-perks li:before{content:"✓";position:absolute;left:0;color:#00c896;font-weight:800}
+@media(min-width:1025px){body .cart-perks li{font-size:12.5px}}
 .pay-status{font-size:10px;text-align:center;margin-top:6px;min-height:14px;color:#8892a4}
 .pay-status.error{color:#f87171}
 .pay-status.loading{color:#00c896}
@@ -270,6 +274,10 @@
       <div class="cart-total-row" id="finalRow" style="display:none"><span class="cart-total-label" data-i18n="cart.final">FINAL</span><span class="cart-total-amount" id="finalTotal">$0</span></div>
 
       <div class="cart-pay-note" data-i18n="cart.note">🔒 Crypto payment · USDC · USDT · TON · BTC</div>
+      <ul class="cart-perks">
+        <li data-i18n="cart.perk1">We value our clients — the payment fee is on us. You pay exactly the listed price.</li>
+        <li data-i18n="cart.perk2">Mixed payment: short on one coin? Pay the rest with another.</li>
+      </ul>
     </div>
     
     <div class="pay-status" id="payStatus"></div>
@@ -293,6 +301,10 @@
       <button class="promo-apply-btn" onclick="applyPromo()">Apply</button>
     </div>
     <div class="promo-msg" id="promoMsgMobile"></div>
+    <ul class="cart-perks">
+      <li data-i18n="cart.perk1">We value our clients — the payment fee is on us. You pay exactly the listed price.</li>
+      <li data-i18n="cart.perk2">Mixed payment: short on one coin? Pay the rest with another.</li>
+    </ul>
   </div>
   <div class="pay-status" id="payStatusMobile"></div>
   <button class="btn-pay" onclick="handlePay()" data-i18n="cart.pay">Proceed to Payment</button>
