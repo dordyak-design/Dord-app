@@ -425,7 +425,7 @@ window.addEventListener('scroll',()=>{btn.classList.toggle('visible',window.scro
   const B='https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/';
   const S=(f,a)=>({url:B+f,alt:a});
   const Bst=(f,a)=>({url:'gallery/best/'+f,alt:a});
-  const products={key:'sc.t.products',title:'Best work',items:[
+  const products={key:'sc.t.products',title:'Sample renders',items:[
     {url:'https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00015_.png',alt:'Emerald and diamond tiara'},
     Bst('purple-dress-city-night.jpg','Satin dress on a city rooftop at night'),
     Bst('living-room-fireplace.jpg','Living room with fireplace and yellow sofa'),
@@ -452,7 +452,17 @@ window.addEventListener('scroll',()=>{btn.classList.toggle('visible',window.scro
     {key:'sc.t.exteriors',title:'Exteriors',items:[{url:'gallery/Indast/output_00060_.png',alt:'Desert villa with pool at sunset'},{url:'gallery/Indast/output_00062_.png',alt:'Mediterranean villa with infinity pool'},{url:'gallery/Indast/output_00070_.png',alt:'A-frame cabin in the forest'},{url:'gallery/Indast/output_00073_.png',alt:'Cliffside villa with pool at sunset'},{url:'gallery/Indast/output_00065_.png',alt:'Glass house in the snow'},{url:'gallery/Indast/uotput2625_00001_.png',alt:'Japanese garden house in autumn'},{url:'gallery/Indast/uotput2625_00007_.png',alt:'Victorian mansion'},{url:'gallery/Indast/uotput3005_00002_.png',alt:'Modern house with pool'},Bst('white-villa-cars.jpg','White modern villa'),Bst('evening-house-pool.jpg','House with pool at dusk'),Bst('pool-outdoor-kitchen.jpg','Outdoor kitchen by the pool'),Bst('evening-bbq-courtyard.jpg','Evening BBQ courtyard')]}];
   let tabs=fallback, active=0;
   const esc=t=>String(t||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const tr=t=>(t.key&&typeof i18nGet==='function'&&i18nGet(t.key)!==t.key)?i18nGet(t.key):t.title;
+  // Перевод названий разделов из админки (они хранятся на английском)
+  const PH=[[/luxury furniture/i,'Мебель люкс'],[/shopify (product )?cards?/i,'Карточки Shopify'],[/summer dresses/i,'Летние платья'],[/living spaces/i,'Жилые пространства'],[/product photos?/i,'Фото товаров']];
+  const WD={luxury:'люкс',furniture:'мебель',interior:'интерьер',interiors:'интерьеры',exterior:'экстерьер',exteriors:'экстерьеры',products:'товары',product:'товар',cards:'карточки',summer:'летние',dresses:'платья',dress:'платья',fashion:'мода',clothing:'одежда',houses:'дома',house:'дома',homes:'дома',villas:'виллы',villa:'виллы',cottages:'коттеджи',cottage:'коттеджи',design:'дизайн',industrial:'индастриал',minimalist:'минимализм',minimal:'минимализм',classic:'классика',modern:'модерн',space:'космос',cosmos:'космос',jewelry:'украшения',jewellery:'украшения',watches:'часы',cosmetics:'косметика',food:'еда',cars:'авто',landscape:'ландшафт',garden:'сад',outdoor:'улица',kitchen:'кухни',kitchens:'кухни',bathroom:'ванные',bathrooms:'ванные',bedroom:'спальни',bedrooms:'спальни',portraits:'портреты',models:'модели',nature:'природа',animals:'животные',art:'арт',online:'онлайн',games:'игры',and:'и',with:'с'};
+  const curLang=()=>{try{return localStorage.getItem('dord_lang')||'en'}catch(e){return 'en'}};
+  function trTitle(x){
+    if(curLang()!=='ru'||!x)return x;
+    let s=x; PH.forEach(([re,v])=>{s=s.replace(re,v)});
+    s=s.replace(/[A-Za-z]+/g,w=>WD[w.toLowerCase()]??w);
+    return s.replace(/[A-Za-zА-Яа-яЁё]/,c=>c.toUpperCase());
+  }
+  const tr=t=>(t.key&&typeof i18nGet==='function'&&i18nGet(t.key)!==t.key)?i18nGet(t.key):trTitle(t.title);
   function render(){
     const nav=document.getElementById('scTabs'), grid=document.getElementById('scGrid');
     if(!nav||!grid)return;
