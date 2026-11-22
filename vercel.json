@@ -14,6 +14,9 @@
     },
     "api/lead.js": {
       "maxDuration": 10
+    },
+    "api/tg-leads-bot.js": {
+      "maxDuration": 10
     }
   },
   "rewrites": [
