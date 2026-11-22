@@ -1307,6 +1307,16 @@ footer {
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
 }
 
+/* ═══ Плашка «AI-боты» в шапке ═══ */
+.bots-pill{display:flex;align-items:center;gap:10px;flex-shrink:0;padding:8px 14px;border-radius:12px;border:1px solid var(--border-green);background:linear-gradient(135deg,rgba(0,74,173,.18),rgba(0,200,150,.10));text-decoration:none;transition:var(--transition)}
+.bots-pill:hover{border-color:var(--accent-green);transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,200,150,.15)}
+.bots-dot{width:8px;height:8px;border-radius:50%;background:var(--accent-green);box-shadow:0 0 10px var(--accent-green);animation:botsPulse 2s infinite}
+@keyframes botsPulse{0%,100%{opacity:1}50%{opacity:.35}}
+.bots-txt{display:flex;flex-direction:column;line-height:1.25}
+.bots-txt b{font:700 11px 'Unbounded',sans-serif;color:var(--text-main);text-transform:uppercase;letter-spacing:.3px}
+.bots-txt small{font-size:10px;color:var(--accent-green)}
+@media (min-width:1025px){body .bots-txt b{font-size:12px}body .bots-txt small{font-size:12px}}
+
 /* ===================== МОБИЛЬНАЯ АДАПТАЦИЯ ===================== */
 @media (max-width: 1024px) {
     .agent-monitor { display: none; }
@@ -1338,6 +1348,11 @@ footer {
         text-align: center;
         letter-spacing: 0.3px;
     }
+
+    .bots-pill { justify-content: center; padding: 7px 12px; }
+    .bots-txt { flex-direction: row; gap: 8px; align-items: baseline; }
+    .bots-txt b { font-size: 9.5px; }
+    .bots-txt small { font-size: 10px; }
 
     .social-bar { gap: 8px; padding: 6px 12px; }
     .social-bar a.soc-icon { width: 32px; height: 32px; }

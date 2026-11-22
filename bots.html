@@ -101,6 +101,7 @@ section{padding:64px 0}
 .niche li{color:var(--soft);font-size:13px;padding-inline-start:16px;position:relative}
 .niche li:before{content:'';position:absolute;inset-inline-start:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--green)}
 .niche .pick{margin-top:14px;font-size:12px;font-weight:700;color:var(--green)}
+.niche .pick.ex{display:inline-block;text-decoration:underline;text-underline-offset:3px}
 
 /* пакеты */
 .packs{grid-template-columns:repeat(3,1fr);margin-top:34px;align-items:stretch}
@@ -260,10 +261,10 @@ footer a:hover{color:var(--green)}
       <ul><li data-t="n.shop.1">Наличие, цены, доставка</li><li data-t="n.shop.2">Приём заказов в чате</li><li data-t="n.shop.3">Рассылка новинок и акций</li></ul>
       <div class="pick" data-t="n.pick">Выбрать →</div>
     </div>
-    <div class="card niche" data-biz="legal">
-      <div class="ic">⚖️</div><h3 data-t="n.legal">Адвокаты и бухгалтеры</h3>
-      <ul><li data-t="n.legal.1">Первичный опрос клиента</li><li data-t="n.legal.2">Сбор документов и квитанций</li><li data-t="n.legal.3">Запись на консультацию</li></ul>
-      <div class="pick" data-t="n.pick">Выбрать →</div>
+    <div class="card niche" data-biz="build">
+      <div class="ic">🏗️</div><h3 data-t="n.build">Строители и дизайнеры интерьера</h3>
+      <ul><li data-t="n.build.1">Запись на замер и консультацию</li><li data-t="n.build.2">Показывает клиенту примеры: интерьеры, фасады, дворы</li><li data-t="n.build.3">Предварительная смета по запросу</li></ul>
+      <a class="pick ex" href="https://www.dordai.art/gallery.html" target="_blank" rel="noopener" data-t="n.build.ex">Примеры визуализаций →</a>
     </div>
     <div class="card niche" data-biz="auto">
       <div class="ic">🚗</div><h3 data-t="n.auto">Автосервисы</h3>
@@ -380,7 +381,7 @@ footer a:hover{color:var(--green)}
           <option value="dental" data-t="n.dental">Стоматология / клиника</option>
           <option value="beauty" data-t="n.beauty">Салон красоты</option>
           <option value="shop" data-t="n.shop">Магазин</option>
-          <option value="legal" data-t="n.legal">Адвокат / бухгалтер</option>
+          <option value="build" data-t="n.build">Строители / дизайн интерьера</option>
           <option value="auto" data-t="n.auto">Автосервис</option>
           <option value="other" data-t="n.other" selected>Другое</option>
         </select>
@@ -445,7 +446,7 @@ footer a:hover{color:var(--green)}
     'n.dental':'מרפאות שיניים וקליניקות','n.dental.1':'קביעת תורים ביומן','n.dental.2':'תזכורות לתור ולביקורות תקופתיות','n.dental.3':'מענה על מחירים ושירותים',
     'n.beauty':'מכוני יופי וספרות','n.beauty.1':'קביעת תור אונליין','n.beauty.2':'החזרת לקוחות: "הגיע הזמן לחדש"','n.beauty.3':'איסוף ביקורות בגוגל',
     'n.shop':'חנויות','n.shop.1':'מלאי, מחירים ומשלוחים','n.shop.2':'קבלת הזמנות בצ׳אט','n.shop.3':'עדכונים על מבצעים ומוצרים חדשים',
-    'n.legal':'עורכי דין ורואי חשבון','n.legal.1':'שאלון ראשוני ללקוח','n.legal.2':'איסוף מסמכים וקבלות','n.legal.3':'קביעת פגישת ייעוץ',
+    'n.build':'קבלנים ומעצבי פנים','n.build.1':'קביעת מדידה ופגישת ייעוץ','n.build.2':'מציג ללקוח דוגמאות: עיצוב פנים, חזיתות, חצרות','n.build.3':'הערכת עלות ראשונית לפי בקשה','n.build.ex':'דוגמאות להדמיות ←',
     'n.auto':'מוסכים','n.auto.1':'קביעת תור לתיקון ולטיפול','n.auto.2':'תזכורת לטיפול תקופתי ולטסט','n.auto.3':'סטטוס תיקון לפי בקשה',
     'n.other':'עסק אחר','n.other.1':'ספרו לנו מה גוזל לכם זמן','n.other.2':'נציע מה אפשר לעשות אוטומטית','n.other.3':'נחשב אם זה משתלם',
     'n.pick':'לבחירה ←',
@@ -511,6 +512,7 @@ footer a:hover{color:var(--green)}
   document.querySelectorAll('.niche').forEach(c => c.addEventListener('click', () => {
     fBiz.value = c.dataset.biz; document.getElementById('lead').scrollIntoView({ behavior: 'smooth' });
   }));
+  document.querySelectorAll('.niche .ex').forEach(a => a.addEventListener('click', e => e.stopPropagation()));
   document.querySelectorAll('[data-pack]').forEach(a => a.addEventListener('click', () => { fPack.value = a.dataset.pack; }));
 
   // отправка заявки
