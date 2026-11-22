@@ -249,8 +249,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div class="spaces-grid">
         <button type="button" class="sc-item" onclick="openHeroLightbox('https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/output_00049_.png')"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/output_00049_.png" alt="Stone bathtub interior — AI render" loading="lazy"></button>
         <button type="button" class="sc-item" onclick="openHeroLightbox('https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/output_00050_.png')"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/output_00050_.png" alt="Classic dining room with chandelier — AI render" loading="lazy"></button>
-        <button type="button" class="sc-item" onclick="openHeroLightbox('https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/output_00057_.png')"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/output_00057_.png" alt="Mountain terrace with fire pit — AI render" loading="lazy"></button>
-        <button type="button" class="sc-item" onclick="openHeroLightbox('https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/output_00054_.png')"><img src="https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/output_00054_.png" alt="Villa pool with loungers — AI render" loading="lazy"></button>
+        <button type="button" class="sc-item" onclick="openHeroLightbox('gallery/best/evening-house-pool.jpg')"><img src="gallery/best/evening-house-pool.jpg" alt="Modern house with pool at dusk — AI render" loading="lazy"></button>
+        <button type="button" class="sc-item" onclick="openHeroLightbox('gallery/best/evening-bbq-courtyard.jpg')"><img src="gallery/best/evening-bbq-courtyard.jpg" alt="Evening BBQ courtyard — AI render" loading="lazy"></button>
       </div>
     </div>
   </div>
@@ -424,12 +424,14 @@ window.addEventListener('scroll',()=>{btn.classList.toggle('visible',window.scro
 (function(){
   const B='https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/2205/';
   const S=(f,a)=>({url:B+f,alt:a});
+  const Bst=(f,a)=>({url:'gallery/best/'+f,alt:a});
   const products={key:'sc.t.products',title:'Best work',items:[
-    S('output_00008_.png','Gold ring on quartz'),{url:'https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00015_.png',alt:'Emerald and diamond tiara'},{url:'https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00014_.png',alt:'Emerald and diamond pendant'},S('uotput_1024_00010_.png','Summer dress on a model at sunset'),
-    S('output_00003_.png','Leather bag on a pedestal'),S('output_00004_.png','Leather wallet'),
-    S('output_00007_.png','Face cream with eucalyptus'),S('output_00010_.png','Tortoise sunglasses'),
-    S('output_00054_.png','Modern villa with pool'),S('output_00057_.png','Evening mountain terrace with fire pit'),
-    {url:'https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_00002_.png',alt:'Galaxy in a glass bottle'},S('uotput_1024_00001_.png','Sea-view living room at sunset')]};
+    S('output_00008_.png','Gold ring on quartz'),{url:'https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00015_.png',alt:'Emerald and diamond tiara'},
+    {url:'https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_temp_qtlff_00014_.png',alt:'Emerald and diamond pendant'},Bst('green-dress-tulips.jpg','Green embroidered dress at a flower market'),
+    S('output_00003_.png','Leather bag on a pedestal'),S('output_00007_.png','Face cream with eucalyptus'),
+    S('output_00010_.png','Tortoise sunglasses'),{url:'https://raw.githubusercontent.com/dordyak-design/Dord-app/main/gallery/ComfyUI_00002_.png',alt:'Galaxy in a glass bottle'},
+    Bst('evening-house-pool.jpg','Modern black house with pool and fire pit at dusk'),Bst('white-villa-cars.jpg','White modern villa with sports cars'),
+    Bst('white-house-cars.jpg','Minimalist white house with supercars'),Bst('evening-bbq-courtyard.jpg','Evening courtyard with BBQ, fire pit and string lights')]};
   const fallback=[products,
     {key:'sc.t.fashion',title:'Fashion',items:[S('uotput_1024_00010_.png','Summer dress on a model'),S('output_00029_.png','Silk slip dress'),
       S('output_00026_.png','Rust linen shirt'),S('output_00027_.png','Black hoodie'),S('output_00028_.png','Burgundy loafers'),
@@ -437,7 +439,7 @@ window.addEventListener('scroll',()=>{btn.classList.toggle('visible',window.scro
     {key:'sc.t.interiors',title:'Interiors',items:[S('uotput_1024_00001_.png','Sea-view living room'),S('output_00048_.png','Living room with fireplace'),
       S('output_00051_.png','Industrial loft'),S('output_00044_.png','Classic bedroom'),S('output_00043_.png','Leather armchair in a library'),
       S('output_00042_.png','Curved white sofa'),S('uotput_1024_00023_.png','Executive office with city view'),S('output_00052_.png','Colorful home office')]},
-    {key:'sc.t.exteriors',title:'Exteriors',items:[S('output_00057_.png','Mountain terrace with fire pit'),S('output_00059_.png','Pergola lounge'),
+    {key:'sc.t.exteriors',title:'Exteriors',items:[Bst('white-villa-cars.jpg','White modern villa'),Bst('white-house-cars.jpg','Minimalist white house'),Bst('evening-house-pool.jpg','House with pool at dusk'),Bst('evening-bbq-courtyard.jpg','Evening BBQ courtyard'),S('output_00057_.png','Mountain terrace with fire pit'),S('output_00059_.png','Pergola lounge'),
       S('output_00054_.png','Villa pool with loungers'),S('output_00055_.png','Outdoor dining terrace'),S('output_00046_.png','Dining room with garden view')]}];
   let tabs=fallback, active=0;
   const esc=t=>String(t||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
