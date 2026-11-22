@@ -4,7 +4,7 @@
 
 async function sendTelegram(text) {
   const token = process.env.TELEGRAM_BOT_TOKEN;
-  const chatId = process.env.TELEGRAM_CHAT_ID;
+  const chatId = process.env.TELEGRAM_CHAT_ID || '528289836'; // Telegram ID Руслана — не секрет, не меняется
   if (!token || !chatId) throw new Error('Telegram env vars are not set');
   const r = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
     method: 'POST',
